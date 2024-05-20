@@ -86,13 +86,6 @@
       <description>source&#xA;The example files (PR.tcl, procMKPC2.tcl, procUniaxialPinching.tcl, procRC2.tcl) create a model of a RC beam column sub-assemblage. The cruciform is subjected to constant gravity load at nodes 4 and 7 and pseudo-static cyclic lateral load under displacement control at node 10.</description>
     </item>
     <item>
-      <title>Braced Frames</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</guid>
-      <description>This folder contains ready-to-run 2-dimensional OpenSEES models of four archetype steel buildings designed with perimeter special concentrically-braced frames (SCBFs), with heights of 3, 6, 12 and 16-story.</description>
-    </item>
-    <item>
       <title>Building Modes</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -462,6 +455,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</guid>
       <description>Example prepared by: Christopher McGann and Pedro Arduino, University of Washington&#xA;Return to OpenSees Examples Page&#xA;This article describes the OpenSees implementation of a site response analysis a soil deposit located above an elastic half-space using total stress analysis.</description>
+    </item>
+    <item>
+      <title>Special concentrically-braced frames</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</guid>
+      <description>This folder contains ready-to-run 2-dimensional OpenSEES models of four archetype steel buildings designed with perimeter special concentrically-braced frames (SCBFs), with heights of 3, 6, 12 and 16-story.</description>
     </item>
     <item>
       <title>Steel MRF</title>

@@ -68,10 +68,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -373,6 +369,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/solid/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
