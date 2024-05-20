@@ -1,0 +1,28 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+			{"name": "1", "type": "SectionAggregator", "materials": ["3", "2"], "dof": ["P", "Mz"]}
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+			{"name": "3", "type": "ElasticMaterial", "Epos": 1.2978e+07, "Eneg": 1.2978e+07, "eta": 0},
+			{"name": "2", "type": "Steel01", "E": 2e+09, "fy": 130000, "b": 0.01, "a1": 0, "a2": 55, "a3": 0, "a4": 55}
+        ],
+        "crdTransformations": [
+			{"name": "1", "type": "LinearCrdTransf2d"}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+			{"name": 1, "ndf": 3, "crd": [0, 0]},
+			{"name": 2, "ndf": 3, "crd": [0, 432], "mass": [5.17598, 1e-09, 0]}
+        ],
+        "elements": [
+			{"name": 1, "type": "ForceBeamColumn2d", "nodes": [1, 2], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"}
+        ]
+    }
+}
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic on OpenSees Gallery</title>
+    <link>https://example.org/tags/dynamic/</link>
+    <description>Recent content in Dynamic on OpenSees Gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://example.org/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Example 7: Dynamic Shell Analysis</title>
+      <link>https://example.org/examples/example7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example7/</guid>
+      <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
+    </item>
+    <item>
+      <title>Example 8: Cantilever Beam</title>
+      <link>https://example.org/examples/example8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example8/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Inelastic SDOF</title>
+      <link>https://example.org/examples/inelasticsdof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/inelasticsdof/</guid>
+      <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
+    </item>
+  </channel>
+</rss>

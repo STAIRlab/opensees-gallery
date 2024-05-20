@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Example 2: Moment-Curvature - OpenSees Gallery</title>
+<meta name="description" content="This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.">
+
+<meta name="author" content="STAIRlab"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "OpenSees Gallery",
+    
+    "url": "https:\/\/example.org\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/example.org\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/example.org\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/example.org\/examples\/example2\/",
+          "name": "Example 2 moment curvature"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "STAIRlab"
+  },
+  "headline": "Example 2: Moment-Curvature",
+  "description" : "This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.",
+  "inLanguage" : "en",
+  "wordCount":  1254 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/example.org\/",
+  "keywords" : [ "Fiber, Concrete, Python, Tcl" ],
+  "mainEntityOfPage" : "https:\/\/example.org\/examples\/example2\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/example.org\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/example.org\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Example 2: Moment-Curvature" />
+<meta property="og:description" content="This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.">
+<meta property="og:image" content="https://example.org/RCsection4.png" />
+<meta property="og:url" content="https://example.org/examples/example2/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="OpenSees Gallery" />
+<link rel="apple-touch-icon" sizes="180x180" href=" https://example.org/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.124.1">
+<link rel="alternate" href="https://example.org/index.xml" type="application/rss+xml" title="OpenSees Gallery">
+<script src="https://example.org/js/dark-mode.js"></script><script src="https://example.org/vendor/lunr/lunr.min.js"></script><script src="https://example.org/js/lunr-search.js" data-index="/search.json"></script><link rel="stylesheet" href="/style.min.css">
+
+
+
+
+
+
+
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']]                  
+    }
+  };
+</script>
+
+    
+  </head>
+  <body>
+    
+<div class="container fixed-top mw-100">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+
+          <a class="navbar-brand fw-bold" href="https://example.org/">OpenSees Gallery</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Examples"
+                  href="/examples/"> Examples</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Categories"
+                  href="/categories/"> Categories</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Gallery"
+                  href="/gallery/"> Gallery</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Tags"
+                  href="/tags/"> Tags</a>
+              </li>
+
+              
+              
+
+              <li class="nav-item nav-link">
+                <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
+              </li>
+
+              
+              <li class="nav-item search-item">
+                <form id="search" class="search" role="search">
+                  <label for="search-input" class="bi bi-search search-icon"></label>
+                  <input type="search" id="search-input" class="search-input">
+                </form>
+              </li>
+              
+            </ul>
+
+            
+            <template id="search-heading" hidden
+                data-results-none="No results found for “{}”"
+                data-results-one="Found one result for “{}”"
+                data-results-many="Found 13579 results for “{}”"
+            >
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <h1 id="search-title" class="search-title"></h1>
+                </div>
+              </div>
+            </template>
+
+            <template id="search-result" hidden>
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <article class="content post">
+                    <h2><a class="summary-title-link"></a></h2>
+                    <div class="post-entry"></div>
+                    <div class="read-more-section">
+                      <h6 class="text-muted link-underline">
+                        <a class="read-more-link">
+                          Read More
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </h6>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section "
+  >
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="examples-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Example 2: Moment-Curvature
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        
+    </div>
+  </div>
+</header>
+
+
+
+    
+    <main>
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+
+      <div class="card-image card-image-blog p-0">
+        
+        
+
+
+        
+
+        
+      </div>
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <p>This example covers the moment-curvature analysis of a reinforced
+concrete section. The zero-length element with a fiber discretization of
+the cross section is used in the model. In addition, Tcl language
+features such as variable and command substitution, expression
+evaluation, and procedures are demonstrated.</p>
+<h2 id="example-21">Example 2.1</h2>
+<p>In this example, a moment-curvature analysis of the fiber section is
+undertaken. Figure <a href="#rcsection4">rcsection4</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;rcsection4&rdquo;} shows the fiber discretization for the section.</p>
+<ol>
+<li>
+<p><a href="Example2.1.tcl"><code>Example2.1.tcl</code></a></p>
+</li>
+<li>
+<p><a href="MomentCurvature.tcl"><code>MomentCurvature.tcl</code></a></p>
+</li>
+</ol>
+<p>Or, for Python:</p>
+<ol>
+<li><a href="Example2.1.py"><code>Example2.1.py</code></a></li>
+</ol>
+<p>The model consists of two nodes and a ZeroLengthSection element. A
+depiction of the element geometry is shown in
+figure <a href="#zerolength">zerolength</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;zerolength&rdquo;}. The drawing on the left of
+figure <a href="#zerolength">zerolength</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;zerolength&rdquo;} shows an edge view of the element where the
+local z-axis, as seen on the right side of the figure and in
+figure <a href="#rcsection0">rcsection0</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;rcsection0&rdquo;}, is coming out of the page. Node 1 is completely
+restrained, while the applied loads act on node 2. A compressive axial
+load, \(P\), of 180 kips is applied to the section during the
+moment-curvature analysis.</p>
+<p><img src="./ZeroLengthSection.svg" alt="Geometry of the zero-length element"> </p>
+<blockquote>
+<p><strong>Note</strong> in Python you must pass the section tag when calling <code>patch</code> and <code>layer</code></p>
+</blockquote>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="fcdabe-tab" data-bs-toggle="tab" data-bs-target="#fcdabe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="efdabc-tab" data-bs-toggle="tab" data-bs-target="#efdabc"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="fcdabe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>section(<span style="color:#b84">&#34;Fiber&#34;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the concrete core fibers</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, cover<span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, y1<span style="font-weight:bold">-</span>cover, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the concrete cover fibers (top, bottom, left, right, section=1)</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, y1, z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, <span style="font-weight:bold">-</span>z1, y1, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>,  <span style="color:#099">2</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, cover<span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>,  <span style="color:#099">2</span>, <span style="color:#099">1</span>,  y1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>z1, y1, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the reinforcing fibers (left, middle, right, section=1)</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">3</span>, As, y1<span style="font-weight:bold">-</span>cover, z1<span style="font-weight:bold">-</span>cover, y1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">2</span>, As, <span style="color:#099">0.0</span>, z1<span style="font-weight:bold">-</span>cover, <span style="color:#099">0.0</span>, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">3</span>, As, cover<span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="efdabc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Tcl" data-lang="Tcl"><span style="display:flex;"><span><span style="color:#008080">section</span> Fiber <span style="color:#099">1</span> <span style="font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create the concrete core fibers
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">patch</span> rect <span style="color:#099">1</span> <span style="color:#099">10</span> <span style="color:#099">1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create the concrete cover fibers (top, bottom, left, right)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span> <span style="color:#099">10</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="color:#008080">$z1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span> <span style="color:#099">10</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$z1</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span>  <span style="color:#099">2</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span>  <span style="color:#099">2</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create the reinforcing fibers (left, middle, right)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">3</span> <span style="color:#008080">$As</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">2</span> <span style="color:#008080">$As</span> <span style="color:#099">0.0</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="color:#099">0.0</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">3</span> <span style="color:#008080">$As</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span>    
+</span></span></code></pre></div>
+
+</div>
+
+
+
+</div>
+
+<p>For the zero length element, a section discretized by concrete and steel
+is created to represent the resultant behavior. UniaxialMaterial objects
+are created to define the fiber stress-strain relationships: confined
+concrete in the column core, unconfined concrete in the column cover,
+and reinforcing steel.</p>
+<p>The dimensions of the fiber section are shown in
+figure <a href="#rcsection0">[rcsection0$$
+</a>{reference-type=&ldquo;ref&rdquo;
+reference=&ldquo;rcsection0&rdquo;}. The section depth is 24 inches, the width is 15
+inches, and there are 1.5 inches of cover around the entire section.
+Strong axis bending is about the section z-axis. In fact, the section
+z-axis is the strong axis of bending for all fiber sections in planar
+problems. The section is separated into confined and unconfined concrete
+regions, for which separate fiber discretizations will be generated.
+Reinforcing steel bars will be placed around the boundary of the
+confined and unconfined regions. The fiber discretization for the
+section is shown in
+figure <a href="#rcsection4">rcsection4</a>{reference-type=&ldquo;ref&rdquo; reference=&ldquo;rcsection4&rdquo;}.</p>
+<p><img src="./RCsection0.svg" alt="Dimensions of the RC section.">{#fig:rcsection0} </p>
+<p><img src="./RCsection4.svg" alt="Fiber section discretization">{#fig:rcsection4}</p>
+<p>The section analysis is performed by the Tcl procedure MomentCurvature
+defined in the file MomentCurvature.tcl. The arguments to the procedure
+are the tag of the section to be analyzed, the axial load applied to the
+section, the maximum curvature, and the number of displacement
+increments to reach the maximum curvature.</p>
+<p>The output for the moment-curvature analysis will be the section forces
+and deformations, stored in the file section1.out. In addition, an
+estimate of the section yield curvature is printed to the screen.</p>
+<p>In the script below variables, are set and can then be used with the
+syntax of <code>$variable</code>. Expressions can be evaluated, although the Tcl
+syntax at first appears cumbersome. An expression is given by an expr
+command enclosed in square brackets <code>[]</code>&rsquo;s. Typically, the result of an
+expression is then set to another variable. A simple example to add <code>2.0</code>
+to a parameter is shown below:</p>
+<pre tabindex="0"><code>set v 3.0 
+set sum [expr $v + 2.0] 
+puts $sum;    # print the sum 
+</code></pre><p>Comments with <code>#</code> can appear on the same line as a command, but then the
+command must be terminated with a semi-colon.</p>
+<pre><code># OpenSees Example 2.1
+# OpenSees Primer
+#
+# Units: kips, in, sec
+
+# Define model builder
+# --------------------
+model BasicBuilder -ndm 2 -ndf 3
+
+# Define materials for nonlinear columns
+# ------------------------------------------
+# CONCRETE                  tag   f'c        ec0   f'cu        ecu
+# Core concrete (confined)
+uniaxialMaterial Concrete01  1  -6.0  -0.004   -5.0     -0.014
+
+# Cover concrete (unconfined)
+uniaxialMaterial Concrete01  2  -5.0   -0.002   0.0     -0.006
+
+# STEEL
+# Reinforcing steel 
+set fy 60.0;      # Yield stress
+set E 30000.0;    # Young's modulus
+#                        tag  fy E0    b
+uniaxialMaterial Steel01  3  $fy $E 0.01
+
+# Define cross-section for nonlinear columns
+# ------------------------------------------
+
+# set some parameters
+set colWidth 15
+set colDepth 24 
+
+set cover  1.5
+set As    0.60;     # area of no. 7 bars
+
+# some variables derived from the parameters
+set y1 [expr $colDepth/2.0]
+set z1 [expr $colWidth/2.0]
+
+section Fiber 1 {
+
+    # Create the concrete core fibers
+    patch rect 1 10 1 [expr $cover-$y1] [expr $cover-$z1] 
+                      [expr $y1-$cover] [expr $z1-$cover]
+
+    # Create the concrete cover fibers (top, bottom, left, right)
+    patch rect 2 10 1  [expr -$y1] [expr $z1-$cover] 
+                               $y1                     $z1
+    patch rect 2 10 1  [expr -$y1]             [expr -$z1] 
+                               $y1       [expr $cover-$z1]
+    patch rect 2  2 1  [expr -$y1]       [expr $cover-$z1] 
+                       [expr $cover-$y1] [expr $z1-$cover]
+    patch rect 2  2 1  [expr $y1-$cover] [expr $cover-$z1] 
+                                     $y1 [expr $z1-$cover]
+
+    # Create the reinforcing fibers (left, middle, right)
+    layer straight 3 3 $As [expr $y1-$cover] [expr $z1-$cover] 
+                           [expr $y1-$cover] [expr $cover-$z1]
+    layer straight 3 2 $As 0.0 [expr $z1-$cover] 
+                           0.0 [expr $cover-$z1]
+    layer straight 3 3 $As [expr $cover-$y1] [expr $z1-$cover] 
+                           [expr $cover-$y1] [expr $cover-$z1]
+
+}    
+
+# Estimate yield curvature
+# (Assuming no axial load and only top and bottom steel)
+set d [expr $colDepth-$cover]   ;# d -- from cover to rebar
+set epsy [expr $fy/$E]  ;# steel yield strain
+set Ky [expr $epsy/(0.7*$d)]
+
+# Print estimate to standard output
+puts &quot;Estimated yield curvature: $Ky&quot;
+
+# Set axial load 
+set P -180
+
+set mu 15;      # Target ductility for analysis
+set numIncr 100;    # Number of analysis increments
+
+# Call the section analysis procedure
+source MomentCurvature.tcl
+MomentCurvature 1 $P [expr $Ky*$mu] $numIncr
+</code></pre>
+<p>The Tcl procedure to perform the moment-curvature analysis follows. In
+this procedure, the nodes are defined to be at the same geometric
+location and the ZeroLengthSection element is used. A single load step
+is performed for the axial load, then the integrator is changed to
+DisplacementControl to impose nodal displacements, which map directly to
+section deformations. A reference moment of 1.0 is defined in a Linear
+time series. For this reference moment, the DisplacementControl
+integrator will determine the load factor needed to apply the imposed
+displacement. A node recorder is defined to track the moment-curvature
+results. The load factor is the moment, and the nodal rotation is in
+fact the curvature of the element with zero thickness.</p>
+<p>The expected output is:</p>
+<pre><code>Estimated yield curvature: 0.000126984126984
+</code></pre>
+<p>The file <code>section1.out</code> contains for each committed state a line with the
+load factor and the rotation at node 3. This can be used to plot the
+moment-curvature relationship as shown in
+figure <a href="#momcurv">momcurv</a>{reference-type=&ldquo;ref&rdquo; reference=&ldquo;momcurv&rdquo;}.</p>
+
+      </article>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr class="m-0"/>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+      <div class="blog-tags">
+        
+        <a href="https://example.org/tags/fiber/">Fiber</a>
+        
+        <a href="https://example.org/tags/concrete/">Concrete</a>
+        
+        <a href="https://example.org/tags/python/">Python</a>
+        
+        <a href="https://example.org/tags/tcl/">Tcl</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+      <section id="social-share">
+        <div class="list-inline footer-links">
+          
+
+<div>
+
+</div>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+    <li>
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.org%2fexamples%2fexample2%2f" target="_blank" title="Share on Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+        </svg>
+      </a>
+    </li>
+    
+    <li>
+      <a href="//twitter.com/share?url=https%3a%2f%2fexample.org%2fexamples%2fexample2%2f&amp;text=Example%202%3a%20Moment-Curvature&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+        target="_blank" title="Share on Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
+          <path
+            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+        </svg>
+      </a>
+    </li>
+
+
+    
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fexample.org%2fexamples%2fexample2%2f&amp;title=Example%202%3a%20Moment-Curvature"
+        target="_blank" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Example 2: Moment-Curvature on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fexample.org%2fexamples%2fexample2%2f&title=Example%202%3a%20Moment-Curvature">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
+          viewBox="0 0 16 16">
+          <path
+            d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z" />
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z" />
+        </svg>
+      </a>
+    </li>
+
+    
+    
+
+
+    
+    <li>
+      <a href="whatsapp://send?text=https%3a%2f%2fexample.org%2fexamples%2fexample2%2f&amp;description=Example%202%3a%20Moment-Curvature" target="_blank" rel="noopener"
+        title="Share on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+        </div>
+      </section>
+      
+    </div>
+
+    
+
+    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+      
+      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+        
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/examples/example3/"
+            data-toggle="tooltip" data-placement="top" title="Example 3: Portal Frame Examples">&larr;
+            Previous Post</a>
+        </li>
+        
+
+
+        
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/examples/example1/"
+            data-toggle="tooltip" data-placement="top" title="Example 1: Simple Truss">Next Post
+            &rarr;</a>
+        </li>
+        
+      </ul>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    </div>
+  </div>
+  
+</div>
+
+<div class="">
+  
+  
+  
+  
+  
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>Read More</h3>
+        <hr />
+      </div>
+
+      
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://example.org/gallery/archbridge/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Arch Bridge</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Arch bridge example
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://example.org/examples/archstaticsnap/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Arch Instability</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Download (IncrementalAnalysis.ipynb)
+Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://example.org/examples/buildingmodes/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Building Modes</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+    </div>
+  </div>
+  
+  
+
+  
+
+</div>
+
+    </main>
+    
+
+
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul
+          class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
+
+          
+          <li>
+            <a href="https://github.com/STAIRlab" title="GitHub" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-github"></i>
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="mx-2">
+                <i class="bi bi-rss"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="credits copyright text-muted">
+          
+          
+          <a href="https://stairlab.berkeley.edu">STAIRlab</a>
+          
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+          2018
+          
+
+          
+          &nbsp;&bull;&nbsp;
+          <a href="https://example.org/">OpenSees Gallery</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made by <a href="https://binovarghese.com">Bino</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://example.org/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://example.org/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
+
+
+
+
+    
+  </body>
+</html>
+

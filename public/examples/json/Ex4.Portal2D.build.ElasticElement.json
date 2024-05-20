@@ -1,0 +1,32 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+			{"name": "2", "type": "LinearCrdTransf2d"},
+			{"name": "1", "type": "LinearCrdTransf2d"}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+			{"name": 1, "ndf": 3, "crd": [0, 0]},
+			{"name": 2, "ndf": 3, "crd": [504, 0]},
+			{"name": 3, "ndf": 3, "crd": [0, 432], "mass": [5.17598, 0, 0]},
+			{"name": 4, "ndf": 3, "crd": [504, 432], "mass": [5.17598, 0, 0]}
+        ],
+        "elements": [
+			{"name": 1, "type": "ElasticBeam2d", "nodes": [1, 3], "E": 3605, "A": 2880, "Iz": 864000, "massperlength": 0, "release": 0, "crdTransformation": "1"},
+			{"name": 2, "type": "ElasticBeam2d", "nodes": [2, 4], "E": 3605, "A": 2880, "Iz": 864000, "massperlength": 0, "release": 0, "crdTransformation": "1"},
+			{"name": 3, "type": "ElasticBeam2d", "nodes": [3, 4], "E": 3605, "A": 5760, "Iz": 4.42368e+06, "massperlength": 0, "release": 0, "crdTransformation": "2"}
+        ]
+    }
+}
+}

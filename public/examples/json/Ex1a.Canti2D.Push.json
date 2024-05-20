@@ -1,0 +1,27 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+			{"name": "1", "type": "LinearCrdTransf2d"}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+			{"name": 1, "ndf": 3, "crd": [0, 0]},
+			{"name": 2, "ndf": 3, "crd": [0, 432], "mass": [5.18, 0, 0]}
+        ],
+        "elements": [
+			{"name": 1, "type": "ElasticBeam2d", "nodes": [1, 2], "E": 4227, "A": 3.6e+09, "Iz": 1.08e+06, "massperlength": 0, "release": 0, "crdTransformation": "1"}
+        ]
+    }
+}
+}

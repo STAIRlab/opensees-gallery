@@ -1,0 +1,63 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+			{"name": "2", "type": "ElasticSection2d", "E": 29000, "A": 27.7, "Iz": 2700},
+			{"name": "1", "type": "ElasticSection2d", "E": 29000, "A": 33.5, "Iz": 4090}
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+			{"name": "2", "type": "LinearCrdTransf2d"},
+			{"name": "1", "type": "LinearCrdTransf2d"}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+			{"name": 11, "ndf": 3, "crd": [0, 0]},
+			{"name": 12, "ndf": 3, "crd": [288, 0]},
+			{"name": 13, "ndf": 3, "crd": [576, 0]},
+			{"name": 14, "ndf": 3, "crd": [864, 0]},
+			{"name": 21, "ndf": 3, "crd": [0, 168], "mass": [0.0629503, 0, 0]},
+			{"name": 22, "ndf": 3, "crd": [288, 168], "mass": [0.12177, 0, 0]},
+			{"name": 23, "ndf": 3, "crd": [576, 168], "mass": [0.12177, 0, 0]},
+			{"name": 24, "ndf": 3, "crd": [864, 168], "mass": [0.0629503, 0, 0]},
+			{"name": 31, "ndf": 3, "crd": [0, 336], "mass": [0.0629503, 0, 0]},
+			{"name": 32, "ndf": 3, "crd": [288, 336], "mass": [0.12177, 0, 0]},
+			{"name": 33, "ndf": 3, "crd": [576, 336], "mass": [0.12177, 0, 0]},
+			{"name": 34, "ndf": 3, "crd": [864, 336], "mass": [0.0629503, 0, 0]},
+			{"name": 41, "ndf": 3, "crd": [0, 504], "mass": [0.0608851, 0, 0]},
+			{"name": 42, "ndf": 3, "crd": [288, 504], "mass": [0.119705, 0, 0]},
+			{"name": 43, "ndf": 3, "crd": [576, 504], "mass": [0.119705, 0, 0]},
+			{"name": 44, "ndf": 3, "crd": [864, 504], "mass": [0.0608851, 0, 0]}
+        ],
+        "elements": [
+			{"name": 111, "type": "ForceBeamColumn2d", "nodes": [11, 21], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 112, "type": "ForceBeamColumn2d", "nodes": [12, 22], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 113, "type": "ForceBeamColumn2d", "nodes": [13, 23], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 114, "type": "ForceBeamColumn2d", "nodes": [14, 24], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 121, "type": "ForceBeamColumn2d", "nodes": [21, 31], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 122, "type": "ForceBeamColumn2d", "nodes": [22, 32], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 123, "type": "ForceBeamColumn2d", "nodes": [23, 33], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 124, "type": "ForceBeamColumn2d", "nodes": [24, 34], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 131, "type": "ForceBeamColumn2d", "nodes": [31, 41], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 132, "type": "ForceBeamColumn2d", "nodes": [32, 42], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 133, "type": "ForceBeamColumn2d", "nodes": [33, 43], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 134, "type": "ForceBeamColumn2d", "nodes": [34, 44], "sections": ["1", "1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 221, "type": "ForceBeamColumn2d", "nodes": [21, 22], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 222, "type": "ForceBeamColumn2d", "nodes": [22, 23], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 223, "type": "ForceBeamColumn2d", "nodes": [23, 24], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 231, "type": "ForceBeamColumn2d", "nodes": [31, 32], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 232, "type": "ForceBeamColumn2d", "nodes": [32, 33], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 233, "type": "ForceBeamColumn2d", "nodes": [33, 34], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 241, "type": "ForceBeamColumn2d", "nodes": [41, 42], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 242, "type": "ForceBeamColumn2d", "nodes": [42, 43], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
+			{"name": 243, "type": "ForceBeamColumn2d", "nodes": [43, 44], "sections": ["2", "2", "2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"}
+        ]
+    }
+}
+}

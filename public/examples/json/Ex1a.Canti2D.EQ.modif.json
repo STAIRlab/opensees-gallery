@@ -1,0 +1,26 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+			{"name": "1", "type": "LinearCrdTransf2d"}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+
+        ],
+        "elements": [
+
+        ]
+    }
+}
+}

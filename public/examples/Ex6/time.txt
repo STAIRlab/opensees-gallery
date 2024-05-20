@@ -1,0 +1,4 @@
+OpenSees:
+real    5m24.234s
+user    62m56.362s
+sys     0m11.322s

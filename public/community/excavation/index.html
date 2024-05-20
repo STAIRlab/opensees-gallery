@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Excavation Supported by Cantilevered Sheet Pile Wall - OpenSees Gallery</title>
+<meta name="description" content="This article describes the simulation of an excavation supported by a cantilevered sheet pile wall using OpenSees. The model considers plane strain conditions in two-dimensions, using quadrilateral elements with a pressure dependent constitutive model to simulate cohesionless soil, and beam-column elements to simulate a unit width of sheet pile wall.">
+
+<meta name="author" content="STAIRlab"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "OpenSees Gallery",
+    
+    "url": "https:\/\/example.org\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/example.org\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/example.org\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/example.org\/community\/excavation\/",
+          "name": "Excavation supported by cantilevered sheet pile wall"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "STAIRlab"
+  },
+  "headline": "Excavation Supported by Cantilevered Sheet Pile Wall",
+  "description" : "This article describes the simulation of an excavation supported by a cantilevered sheet pile wall using OpenSees. The model considers plane strain conditions in two-dimensions, using quadrilateral elements with a pressure dependent constitutive model to simulate cohesionless soil, and beam-column elements to simulate a unit width of sheet pile wall.",
+  "inLanguage" : "en",
+  "wordCount":  2370 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/example.org\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/example.org\/community\/excavation\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/example.org\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/example.org\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Excavation Supported by Cantilevered Sheet Pile Wall" />
+<meta property="og:description" content="This article describes the simulation of an excavation supported by a cantilevered sheet pile wall using OpenSees. The model considers plane strain conditions in two-dimensions, using quadrilateral elements with a pressure dependent constitutive model to simulate cohesionless soil, and beam-column elements to simulate a unit width of sheet pile wall.">
+<meta property="og:url" content="https://example.org/community/excavation/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="OpenSees Gallery" />
+<link rel="apple-touch-icon" sizes="180x180" href=" https://example.org/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.124.1">
+<link rel="alternate" href="https://example.org/index.xml" type="application/rss+xml" title="OpenSees Gallery">
+<script src="https://example.org/js/dark-mode.js"></script><script src="https://example.org/vendor/lunr/lunr.min.js"></script><script src="https://example.org/js/lunr-search.js" data-index="/search.json"></script><link rel="stylesheet" href="/style.min.css">
+
+
+
+
+
+
+
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']]                  
+    }
+  };
+</script>
+
+    
+  </head>
+  <body>
+    
+<div class="container fixed-top mw-100">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+
+          <a class="navbar-brand fw-bold" href="https://example.org/">OpenSees Gallery</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Examples"
+                  href="/examples/"> Examples</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Categories"
+                  href="/categories/"> Categories</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Gallery"
+                  href="/gallery/"> Gallery</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Tags"
+                  href="/tags/"> Tags</a>
+              </li>
+
+              
+              
+
+              <li class="nav-item nav-link">
+                <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
+              </li>
+
+              
+              <li class="nav-item search-item">
+                <form id="search" class="search" role="search">
+                  <label for="search-input" class="bi bi-search search-icon"></label>
+                  <input type="search" id="search-input" class="search-input">
+                </form>
+              </li>
+              
+            </ul>
+
+            
+            <template id="search-heading" hidden
+                data-results-none="No results found for “{}”"
+                data-results-one="Found one result for “{}”"
+                data-results-many="Found 13579 results for “{}”"
+            >
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <h1 id="search-title" class="search-title"></h1>
+                </div>
+              </div>
+            </template>
+
+            <template id="search-result" hidden>
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <article class="content post">
+                    <h2><a class="summary-title-link"></a></h2>
+                    <div class="post-entry"></div>
+                    <div class="read-more-section">
+                      <h6 class="text-muted link-underline">
+                        <a class="read-more-link">
+                          Read More
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </h6>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section "
+  >
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="community-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Excavation Supported by Cantilevered Sheet Pile Wall
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        
+    </div>
+  </div>
+</header>
+
+
+
+    
+    <main>
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+
+      <div class="card-image card-image-blog p-0">
+        
+        
+
+
+        
+
+        
+      </div>
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <p>This article describes the simulation of an excavation supported by a
+cantilevered sheet pile wall using OpenSees. The model considers plane
+strain conditions in two-dimensions, using quadrilateral elements with a
+pressure dependent constitutive model to simulate cohesionless soil, and
+beam-column elements to simulate a unit width of sheet pile wall.
+Beam-solid contact elements are used to model a frictional interface
+between the linear beam elements and the quadrilateral soil
+elements.</p>
+<p>The input file used for this example is available to view and/or
+download here.</p>
+<ul>
+<li><a href="Excavation.tcl"><tt>Excavation.tcl</tt></a></li>
+</ul>
+<p>The pre- and post-process visualization tool <a
+href="http://gid.cimne.upc.es/home">GiD</a> was used to generate this
+example. Further information on how GiD can be used for geotechnical
+simulations in OpenSees can be found in previous <a
+href="Other_Examples" > practical examples</a> posted on
+this wiki. The GiD tool can be downloaded from <a
+href="http://gid.cimne.upc.es/download"><a href="http://gid.cimne.upc.es/download">http://gid.cimne.upc.es/download</a></a>.</p>
+<h2 id="model_description">Model Description</h2>
+<figure>
+<img src="./OriginalMesh.png"
+title="Fig. 1: Undeformed FE mesh for the excavation model."
+alt="Fig. 1: Undeformed FE mesh for the excavation model." />
+<figcaption aria-hidden="true">Fig. 1: Undeformed FE mesh for the
+excavation model.</figcaption>
+</figure>
+<figure>
+<img src="./ExcavatedMesh.png"
+title="Fig. 2: Deformed FE mesh after completion of excavation."
+alt="Fig. 2: Deformed FE mesh after completion of excavation." />
+<figcaption aria-hidden="true">Fig. 2: Deformed FE mesh after completion
+of excavation.</figcaption>
+</figure>
+<p>The analysis described in this example uses the finite element mesh
+shown in Fig. 1. The soil domain is 10 m tall and 10.5 m wide. The sheet
+pile wall considered in this example is 0.5 m wide and has a height of
+10.5 m. Beam contact elements are used to create a frictional interface
+between the beam and solid elements that accounts for the full
+kinematics of the beam elements and allows the constant width of the
+wall to be represented in the model. To represent the 0.5 m width of the
+wall, the beam contact elements (described further below) maintain a
+constant distance between the wall centerline and the surrounding soil
+elements of 0.25 m, resulting in the gap between the blue beam elements
+and the green solid elements shown in Fig. 1.</p>
+<p>The excavation is simulated by incrementally removing layers of solid
+elements from one side of the sheet pile wall. After each removal, the
+model is analyzed for a sufficient number of steps such that equilibrium
+is reached prior to the removal of the next layer of elements. The
+removal process continues until an excavation depth of 5 m is achieved.
+The deformed configuration of the mesh after the completion of the
+excavation analysis is shown in Fig. 2. As shown, the removal of
+material from one side of the sheet pile wall allows the wall to be
+pushed laterally by the remaining soil on the other side. In this
+figure, the displacement magnitudes are magnified 25 times in order to
+clearly display the deformation pattern.</p>
+<h3 id="boundary_conditions">Boundary Conditions</h3>
+<p>The nodes for the solid elements, created with two translational
+degrees of freedom, are fixed against lateral translation on the left
+and right hand boundaries, and fixed against vertical translation along
+the lower boundary. The remaining solid element nodes are left free. The
+lateral extents of the soil domain were set at ten times the wall
+thickness on either side of the wall-soil interface to reduce the
+effects of the boundaries on the behavior of the wall-soil system.</p>
+<p>The nodes for the beam elements, created with three degrees of
+freedom (two translational, one rotational), are all left free with the
+exception of the node at the base of the wall, which is fixed against
+vertical translation only.</p>
+<h3 id="material_and_element_definitions">Material and Element
+Definitions</h3>
+<p>The model used in this excavation analysis contains three types of
+elements, solid quadrilateral elements for the soil domain,
+displacement-based beam elements for the sheet pile wall, and beam
+contact elements to define the frictional wall-soil interface. Three
+constitutive models (one per element type) are used to define the
+material behavior of the various components in this model.</p>
+<h4 id="soil_elements_and_material">Soil Elements and Material</h4>
+<p>Four-node quad elements are used to model the soil using the plane
+strain formulation of the <a href="Quad_Element" >quad
+element</a>. A unit thickness is defined for these elements, indicating
+that the soil domain in this plane strain model represents a 1 m thick
+slice of a three-dimensional soil domain. The self-weight of the soil is
+considered as a body force acting on each element with a magnitude equal
+to the soil unit weight.</p>
+<p>For simplicity, this example considers a homogenous cohesionless soil
+domain, therefore, a single material object is used for the soil
+elements. The <a
+href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1551.htm">PressureDependMultiYield02</a>
+nDMaterial object is used, as this constitutive model captures the
+pressure dependent strength critical to modeling a cohesionless
+soil.</p>
+<p>The <a href="InitialStateAnalysisWrapper"
+>InitialStateAnalysisWrapper</a> nDMaterial enables the
+use of the InitialStateAnalysis feature when defining the initial
+conditions for the soil model. The initial state analysis procedure, and
+the role of the <a href="InitialStateAnalysisWrapper"
+>InitialStateAnalysisWrapper</a> material object in this
+procedure, is discussed further in the following sections of this
+article.</p>
+<h4 id="sheet_pile_wall">Sheet Pile Wall</h4>
+<p>The sheet pile wall is modeled using the <a
+href="Displacement-Based_Beam-Column_Element"
+>displacement-based beam-column elements</a> with <a
+href="Elastic_Section" >elastic sections</a> used to
+define the constitutive behavior. The beam elements are placed along the
+neutral axis of the sheet pile wall, and to ensure the best behavior for
+the beam contact elements, the beam elements are defined such that their
+nodes are centered vertically between the nodes of the adjacent soil
+elements. The beam elements extend beyond the boundaries of the soil
+domain to allow the elements at the ends of the wall to be in contact
+with the soil.</p>
+<p>The beam-solid contact approach used in this example allows for the
+use of beam-column elements to model the sheet pile wall, enabling the
+results to be interpreted in the context of traditional beam theory,
+i.e. it is simple to extract shear and moment diagrams from the recorded
+data. Figs. 3 and 4 show the types of visualizations that can be
+realized using this approach in concert with GiD, showing the evolution
+of the bending moment and shear force demands in the sheet pile wall
+during the excavation, respectively.</p>
+<figure>
+<img src="MomentDiagram.gif"
+title="Fig. 3: Evolution of wall bending moment demand during the excavation analysis."
+alt="Fig. 3: Evolution of wall bending moment demand during the excavation analysis." />
+<figcaption aria-hidden="true">Fig. 3: Evolution of wall bending moment
+demand during the excavation analysis.</figcaption>
+</figure>
+<p><img src="ShearDiagram.gif"
+title="Fig. 4: Evolution of wall shear force demand during the excavation analysis."
+alt="Fig. 4: Evolution of wall shear force demand during the excavation analysis." />
+<br style="clear: both" /></p>
+<h4 id="soil_wall_interface">Soil-Wall Interface</h4>
+<figure>
+<img src="./InitialContact.png"
+title="Fig. 5: Contact forces after completion of initial state analysis."
+alt="Fig. 5: Contact forces after completion of initial state analysis." />
+<figcaption aria-hidden="true">Fig. 5: Contact forces after completion
+of initial state analysis.</figcaption>
+</figure>
+<figure>
+<img src="./FinalContact.png"
+title="Fig. 6: Contact forces in final excavated configuration."
+alt="Fig. 6: Contact forces in final excavated configuration." />
+<figcaption aria-hidden="true">Fig. 6: Contact forces in final excavated
+configuration.</figcaption>
+</figure>
+<p>The interface between the sheet pile wall and the surrounding soil
+domain is defined using two-dimensional beam-solid contact elements. The
+<a href="BeamContact2D" >BeamContact2D</a> elements link
+two master nodes (from the beam element), to a slave node (from an
+adjacent soil element), and work best when the initial position of the
+slave node is nearly centered vertically between the two beam nodes,
+though this node need only be between the beam nodes for the contact to
+be maintained. These elements use Lagrange multipliers to enforce the
+contact condition, therefore an additional node is required. In the
+example input file, the Lagrange multiplier nodes are numbered 1001 to
+1042 and are clearly labeled with comments.</p>
+<p>The constitutive behavior of the interface is defined using the <a
+href="ContactMaterial2D" >ContactMaterial2D</a>
+nDMaterial object. This constitutive model uses a regularized Coulomb
+frictional law allowing for sticking and frictional slip. In this
+example, a friction coefficient of 0.1 is defined, this coefficient
+defines the magnitude of the frictional force that develops during the
+slip condition. The second parameter, set at 1000 in this example, is
+the interface stiffness which exists during the stick condition.</p>
+<p>The beam-solid elements readily provide the contact forces acting on
+the interface, allowing the evolution of these forces during the
+excavation procedure to be tracked. Examples of the visualizations
+possible for these elements are shown in Figs. 5 and 6, which show the
+contact state after the completion of the initial state analysis, and
+after the completion of the excavation, respectively. Fig. 12, in the
+Representative Results section of this article, shows the full evolution
+of the contact forces acting on the interface during the excavation
+analysis.</p>
+<h3 id="recorders">Recorders</h3>
+<p>The large number of recorders defined for this model is necessary to
+capture information from each of the layers of elements (and associated
+nodes) which are removed at some point during the analysis. When the
+elements and nodes for these layers are removed, the associated recorder
+objects must also be removed. For each of the 10 excavation lifts in the
+analysis, there is a set of recorders designated here. Each of these
+sets of recorders are active during all analysis steps prior to the
+removal of their associated set of elements and nodes. There is an
+additional set of recorders for those nodes and elements which are never
+removed, and these recorders remain active for the entire analysis.</p>
+<p>The recorders are removed using their individual recorder tags.
+Unlike objects such as nodes and elements, where the tag is specified in
+the input file, the recorders are assigned tags based upon the order
+that they appear in the input file. The tags start at 1 and end at the
+total number of recorder objects. For example, the first recorder
+defined for excavation lift 1 is the eleventh recorder defined in the
+input file, therefore, it's associated recorder tag is 11.</p>
+<h3 id="initial_state_analysis_phase">Initial State Analysis Phase</h3>
+<p>For numerical analysis of geotechnical problems, it is important to
+begin with the appropriate initial conditions. Use of the
+InitialStateAnalysis feature allows for the initial state of stress an
+strain in the soil due to the application of gravitational forces to be
+achieved without any associated nodal deformation. The initiation of
+this feature is designated by the command InitialStateAnalysis on After
+this has been designated, the gravitational analysis is conducted. In
+this example, the soil constitutive model is set to consider only linear
+elastic behavior for the first 4 analysis steps, then is updated to
+consider elastoplastic behavior for the remainder of the analysis. These
+updates are performed using the <a
+href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1559.htm">updateMaterialStage</a>
+command. The beam-contact elements are updated to ignore friction during
+the gravity analysis. This is done because the application of gravity
+loads in the model results in differential vertical displacements
+between the beam and solid elements. If friction was considered during
+this process, frictional forces be generated which do not exist in an
+actual setting. The contact elements are updated to consider frictional
+behavior after the conclusion of the initial state analysis phase.
+Updates of these elements are performed using the <a href="setParameter"
+>setParameter</a> command. For example, the elements are
+updated to consider frictional response using, setParameter -value 1
+-eleRange 1001 1042 friction Once the gravitational analysis is
+complete, the conclusion of the initial state analysis feature is
+designated by the command InitialStateAnalysis off When this command is
+called, all displacements which had occurred during the application of
+gravity are reset to zero while the <a
+href="InitialStateAnalysisWrapper">InitialStateAnalysisWrapper</a> object stores the
+strain which existed at the end of the gravity analysis as an initial
+strain. This initial strain is then added to all subsequent strains
+which are computed in the model. In the first step after switching off
+the initial state analysis flag, the model is in it's original
+undeformed configuration, however, the strains and stresses in the soil
+elements are those that were computed during the gravitational analysis
+phase. In all subsequent analysis steps, the stresses and strains which
+are computed will be relative to this initial state, even though the
+displacements are no longer directly associated with the computed
+strains.</p>
+<h3 id="excavation_analysis_phase">Excavation Analysis Phase</h3>
+<p>The excavation of material is simulated in this model by removing
+layers of solid elements and nodes on one side of the sheet pile wall.
+After each removal, the model is allowed to reach equilibrium under the
+new configuration over four analysis steps. The gravitational body
+forces of the solid elements are the only loads which are applied to the
+model. Removing sets of elements from one side of the wall results in an
+unbalanced application of forces to the wall and the associated
+deformation of the wall and surrounding soil.</p>
+<p>The removal process for each excavation lift begins with the removal
+of the associated recorder objects. Failure to remove the recorders
+associated with removed elements and nodes will result in a segmentation
+fault, so it is important to include this step. The soil elements are
+removed next, followed by the contact element and Lagrange multiplier
+node connected to the removed layer, and then by the nodes along the
+upper boundary of the removed layer. The full removal and analysis
+process for the first excavation lift is provided here</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># remove objects associated with lift
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># -----------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># recorders
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> recCount <span style="color:#099">10</span> for <span style="font-weight:bold">{set</span> k <span style="color:#099">0</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span><span style="color:#008080">$k</span> <span style="font-weight:bold">&lt;=</span> <span style="color:#008080">8</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span><span style="color:#999">incr</span> k <span style="color:#099">1</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">remove</span> recorder <span style="font-weight:bold">[expr</span> <span style="color:#008080">$recCount</span> <span style="font-weight:bold">+</span> <span style="color:#008080">$k</span><span style="font-weight:bold">]</span> 
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>set recCount <span style="font-weight:bold">[expr</span> <span style="color:#008080">$recCount</span> <span style="font-weight:bold">+</span> <span style="color:#008080">$k</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># soil elements
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">for</span> <span style="font-weight:bold">{set</span> k <span style="color:#099">1</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span><span style="color:#008080">$k</span> <span style="font-weight:bold">&lt;=</span> <span style="color:#008080">10</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span><span style="color:#999">incr</span> k <span style="color:#099">1</span><span style="font-weight:bold">}</span> <span style="font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">remove</span> element <span style="font-weight:bold">[expr</span> <span style="color:#099">190</span><span style="font-weight:bold">+</span><span style="color:#008080">$k</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># contact element
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">remove</span> element <span style="color:#099">1042</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># lagrange multiplier node
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">remove</span> node <span style="color:#099">1042</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># soil nodes
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">remove</span> node <span style="color:#099">430</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">437</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">446</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">455</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">remove</span> node <span style="color:#099">461</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">468</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">473</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">476</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">480</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">482</span> 
+</span></span><span style="display:flex;"><span>remove node <span style="color:#099">484</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># run analysis after object removal
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">analyze</span> <span style="color:#099">4</span> 
+</span></span></code></pre></div><p>There are a total of ten excavation lifts in the example analysis,
+representing the soil on the right-hand side of the sheet pile wall up
+to a depth of 5 m. Due to the use of GiD to create the input file, the
+nodes are not numbered in a useful order, therefore, loops are not
+employed in their removal.</p>
+<h2 id="representative_results">Representative Results</h2>
+<p><img src="./WallMoment.png"
+title="Fig. 7: Bending moment diagram for sheet pile wall after excavation. (units are kNm)"
+alt="Fig. 7: Bending moment diagram for sheet pile wall after excavation. (units are kNm)" />
+<img src="./WallShear.png"
+title="Fig. 8: Shear force diagram for sheet pile wall after excavation. (units are kN)"
+alt="Fig. 8: Shear force diagram for sheet pile wall after excavation. (units are kN)" /></p>
+<p>Several sets of results are provided in this section of the article
+for the purposes of verifying the proper download and implementation of
+the example by the user, as well as to demonstrate some of the
+post-processing capabilities of GiD. The simplest means of verification
+for this example is the wall bending moment and shear force diagrams
+shown in Figs. 7 and 8. These diagrams are representative of the end of
+the excavation analysis.</p>
+<p>Figs. 9 and 10 show the distributions of vertical and shear stresses
+at the end of the excavation process, respectively. These figures show
+the expected concentration of stresses which occurs near the base of the
+sheet pile wall, and also indicate that the level of mesh refinement in
+this example is rather coarse, though it it sufficient for the purposes
+of this example.</p>
+<p>Fig. 11 is an animation of the full excavation analysis, showing the
+nodal deformations (magnified 25 times) with the contours indicating the
+magnitude of the displacements which occur. Fig. 12 shows the evolution
+of the wall-soil interface contact forces as elements are removed from
+the model. As shown, these force vectors do not remain horizontal,
+indicating the generation of frictional forces on the interface.</p>
+<p><br style="clear: both" /> 
+<img src="./VertStress.png"
+title="Fig. 9: Vertical stress distribution in final excavated configuration. (units are kPa)"
+alt="Fig. 9: Vertical stress distribution in final excavated configuration. (units are kPa)" />
+<img src="./ShearStress.png"
+title="Fig. 10: Shear stress distribution in final excavated configuration. (units are kPa)"
+alt="Fig. 10: Shear stress distribution in final excavated configuration. (units are kPa)" />
+<br style="clear: both" /></p>
+<p><img src="NodalDisp.gif"
+title="Fig. 11: Animated deformation for excavation analysis. Contours show displacement magnitude."
+alt="Fig. 11: Animated deformation for excavation analysis. Contours show displacement magnitude." />
+<img src="ContactForces.gif"
+title="Fig. 12: Evolution of wall-soil interface contact forces during excavation analysis."
+alt="Fig. 12: Evolution of wall-soil interface contact forces during excavation analysis." /></p>
+<p><br style="clear: both" /></p>
+<hr />
+<p>Example prepared by: <span style="color:blue"> Christopher
+McGann and Pedro Arduino, University of Washington</span></p>
+
+      </article>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr class="m-0"/>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+      <section id="social-share">
+        <div class="list-inline footer-links">
+          
+
+<div>
+
+</div>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+    <li>
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.org%2fcommunity%2fexcavation%2f" target="_blank" title="Share on Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+        </svg>
+      </a>
+    </li>
+    
+    <li>
+      <a href="//twitter.com/share?url=https%3a%2f%2fexample.org%2fcommunity%2fexcavation%2f&amp;text=Excavation%20Supported%20by%20Cantilevered%20Sheet%20Pile%20Wall&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+        target="_blank" title="Share on Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
+          <path
+            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+        </svg>
+      </a>
+    </li>
+
+
+    
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fexample.org%2fcommunity%2fexcavation%2f&amp;title=Excavation%20Supported%20by%20Cantilevered%20Sheet%20Pile%20Wall"
+        target="_blank" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Excavation Supported by Cantilevered Sheet Pile Wall on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fexample.org%2fcommunity%2fexcavation%2f&title=Excavation%20Supported%20by%20Cantilevered%20Sheet%20Pile%20Wall">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
+          viewBox="0 0 16 16">
+          <path
+            d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z" />
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z" />
+        </svg>
+      </a>
+    </li>
+
+    
+    
+
+
+    
+    <li>
+      <a href="whatsapp://send?text=https%3a%2f%2fexample.org%2fcommunity%2fexcavation%2f&amp;description=Excavation%20Supported%20by%20Cantilevered%20Sheet%20Pile%20Wall" target="_blank" rel="noopener"
+        title="Share on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+        </div>
+      </section>
+      
+    </div>
+
+    
+
+    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+      
+      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+        
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/community/infillwall/"
+            data-toggle="tooltip" data-placement="top" title="Infill Wall Model and Element Removal">&larr;
+            Previous Post</a>
+        </li>
+        
+
+
+        
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/community/slopeanalysis2d/"
+            data-toggle="tooltip" data-placement="top" title="Dynamic 2D Effective Stress Analysis of Slope">Next Post
+            &rarr;</a>
+        </li>
+        
+      </ul>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    </div>
+  </div>
+  
+</div>
+
+<div class="">
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+    </main>
+    
+
+
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul
+          class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
+
+          
+          <li>
+            <a href="https://github.com/STAIRlab" title="GitHub" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-github"></i>
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="mx-2">
+                <i class="bi bi-rss"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="credits copyright text-muted">
+          
+          
+          <a href="https://stairlab.berkeley.edu">STAIRlab</a>
+          
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+          2018
+          
+
+          
+          &nbsp;&bull;&nbsp;
+          <a href="https://example.org/">OpenSees Gallery</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made by <a href="https://binovarghese.com">Bino</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://example.org/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://example.org/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
+
+
+
+
+    
+  </body>
+</html>
+

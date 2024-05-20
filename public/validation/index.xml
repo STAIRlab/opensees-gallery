@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basic Validation on OpenSees Gallery</title>
+    <link>https://example.org/validation/</link>
+    <description>Recent content in Basic Validation on OpenSees Gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://example.org/validation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://example.org/validation/basic/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/validation/basic/readme/</guid>
+      <description>| PASSED | sdofTransient.tcl | PASSED | SmallEigen.tcl | PASSED | NewmarkIntegrator.tcl SUCCESS : mdofModal.tcl | PASSED | sdofTransient.tcl | PASSED | SmallEigen.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://example.org/validation/frame/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/validation/frame/readme/</guid>
+      <description>| PASSED | EigenFrame.Extra.tcl eleType: elasticBeam | PASSED | EigenFrame.Extra.tcl eleType: forceBeamElasticSection | PASSED | EigenFrame.Extra.tcl eleType: dispBeamElasticSection | PASSED | EigenFrame.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://example.org/validation/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/validation/readme/</guid>
+      <description>Status Notes PASSED PlanarTruss.tcl PASSED PlanarTruss.Extra.tcl PASSED PortalFrame2d.tcl PASSED EigenFrame.tcl PASSED EigenFrame.Extra.tcl eleType: elasticBeam PASSED EigenFrame.Extra.tcl eleType: forceBeamElasticSection PASSED EigenFrame.</description>
+    </item>
+  </channel>
+</rss>
