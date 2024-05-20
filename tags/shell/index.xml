@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on OpenSees Gallery</title>
-    <link>https://example.org/tags/shell/</link>
+    <link>https:stairlab.github.io/opensees-gallerytags/shell/</link>
     <description>Recent content in Shell on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://example.org/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https:stairlab.github.io/opensees-gallerytags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Example 7: Dynamic Shell Analysis</title>
-      <link>https://example.org/examples/example7/</link>
+      <link>https:stairlab.github.io/opensees-galleryexamples/example7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/examples/example7/</guid>
+      <guid>https:stairlab.github.io/opensees-galleryexamples/example7/</guid>
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
   </channel>

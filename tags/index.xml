@@ -2,149 +2,149 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on OpenSees Gallery</title>
-    <link>https://example.org/tags/</link>
+    <link>https:stairlab.github.io/opensees-gallerytags/</link>
     <description>Recent content in Tags on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https:stairlab.github.io/opensees-gallerytags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2D</title>
-      <link>https://example.org/tags/2d/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/2d/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/2d/</guid>
       <description></description>
     </item>
     <item>
       <title>3D</title>
-      <link>https://example.org/tags/3d/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/3d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/3d/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/3d/</guid>
       <description></description>
     </item>
     <item>
       <title>Concrete</title>
-      <link>https://example.org/tags/concrete/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/concrete/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/concrete/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/concrete/</guid>
       <description></description>
     </item>
     <item>
       <title>Dynamic</title>
-      <link>https://example.org/tags/dynamic/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/dynamic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/dynamic/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/dynamic/</guid>
       <description></description>
     </item>
     <item>
       <title>Eigen</title>
-      <link>https://example.org/tags/eigen/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/eigen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/eigen/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/eigen/</guid>
       <description></description>
     </item>
     <item>
       <title>Fiber</title>
-      <link>https://example.org/tags/fiber/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/fiber/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/fiber/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/fiber/</guid>
       <description></description>
     </item>
     <item>
       <title>Frame</title>
-      <link>https://example.org/tags/frame/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/frame/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/frame/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/frame/</guid>
       <description></description>
     </item>
     <item>
       <title>Joint</title>
-      <link>https://example.org/tags/joint/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/joint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/joint/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/joint/</guid>
       <description></description>
     </item>
     <item>
       <title>Notebook</title>
-      <link>https://example.org/tags/notebook/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/notebook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/notebook/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/notebook/</guid>
       <description></description>
     </item>
     <item>
       <title>Other</title>
-      <link>https://example.org/tags/other/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/other/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/other/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/other/</guid>
       <description></description>
     </item>
     <item>
       <title>Piles</title>
-      <link>https://example.org/tags/piles/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/piles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/piles/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/piles/</guid>
       <description></description>
     </item>
     <item>
       <title>Plane</title>
-      <link>https://example.org/tags/plane/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/plane/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/plane/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/plane/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://example.org/tags/python/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/python/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Seismic</title>
-      <link>https://example.org/tags/seismic/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/seismic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/seismic/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/seismic/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell</title>
-      <link>https://example.org/tags/shell/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/shell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/shell/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>Solid</title>
-      <link>https://example.org/tags/solid/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/solid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/solid/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/solid/</guid>
       <description></description>
     </item>
     <item>
       <title>Static</title>
-      <link>https://example.org/tags/static/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/static/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/static/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/static/</guid>
       <description></description>
     </item>
     <item>
       <title>Steel</title>
-      <link>https://example.org/tags/steel/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/steel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/steel/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/steel/</guid>
       <description></description>
     </item>
     <item>
       <title>Tcl</title>
-      <link>https://example.org/tags/tcl/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/tcl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/tcl/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/tcl/</guid>
       <description></description>
     </item>
     <item>
       <title>Truss</title>
-      <link>https://example.org/tags/truss/</link>
+      <link>https:stairlab.github.io/opensees-gallerytags/truss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/truss/</guid>
+      <guid>https:stairlab.github.io/opensees-gallerytags/truss/</guid>
       <description></description>
     </item>
   </channel>
