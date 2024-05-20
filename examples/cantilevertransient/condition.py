@@ -88,7 +88,9 @@ def steel_cantilever(small_mass = 1e-4, hardening=0.1, damping=None):
     fy   =    60*ksi
     Hkin =     E*hardening
     Hiso =     E*hardening
-    model.uniaxialMaterial("Steel01", mat_tag, fy, E, hardening)
+
+    model.uniaxialMaterial("ElasticBilin", mat_tag, E, hardening*E, fy/E)# <$EN1 $EN2 $epsN2>)
+#   model.uniaxialMaterial("Steel01", mat_tag, fy, E, hardening)
 #   model.uniaxialMaterial("ElasticPP", mat_tag, E, fy/E)
 #   model.uniaxialMaterial("UniaxialJ2Plasticity", mat_tag, E, fy, Hkin, Hiso)
 

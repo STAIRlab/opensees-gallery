@@ -60,7 +60,7 @@
   "headline": "Dynamic Analysis of 2-Story Moment Frame",
   "description" : "This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake.",
   "inLanguage" : "en",
-  "wordCount":  1314 ,
+  "wordCount":  1297 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -81,7 +81,7 @@
 
 <meta property="og:title" content="Dynamic Analysis of 2-Story Moment Frame" />
 <meta property="og:description" content="This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake.">
-<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/2s1b-Sketch.PNG" />
+<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/2s1b-Sketch.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="OpenSees Gallery" />
@@ -341,15 +341,11 @@ title="wikilink">MRF_2Story_Concentrated.tcl</a> (last update: 10 Oct
 </ul>
 <p>Supporting procedure files</p>
 <ul>
-<li><a href="DisplayModel2D.tcl" title="wikilink">DisplayModel2D.tcl</a>
-- displays a 2D perspective of the model</li>
-<li><a href="DisplayPlane.tcl" title="wikilink">DisplayPlane.tcl</a> -
-displays a plane in the model</li>
-<li><a href="rotSpring2DModIKModel.tcl"
-title="wikilink">rotSpring2DModIKModel.tcl</a> - creates a bilinear
+<li><a href="RotSpring2DModIKModel.tcl"
+title="wikilink">RotSpring2DModIKModel.tcl</a> - creates a bilinear
 rotational spring that follows the Modified Ibarra Krawinkler
 Deterioration Model (used in the concentrated model)</li>
-<li><a href="rotLeaningCol.tcl" title="wikilink">rotLeaningCol.tcl</a> -
+<li><a href="RotLeaningCol.tcl" title="wikilink">RotLeaningCol.tcl</a> -
 creates a low-stiffness rotational spring used in a leaning column</li>
 </ul>
 <p>The acceleration history for the Canoga Park record</p>
@@ -365,7 +361,7 @@ title="wikilink">dynamic_example_10Oct2013.zip</a> (last update: 10 Oct
 results.</p>
 <h2 id="model_description">Model Description</h2>
 <figure>
-<img src="/OpenSeesRT/contrib/static/2s1b-Sketch.png"
+<img src="2s1b-Sketch.png"
 title="Figure 1. Schematic representation of concentrated plasticity OpenSees model with element number labels and [node number] labels. Note: The springs are zeroLength elements, but their sizes are greatly exaggerated in this figure for clarity."
 alt="Figure 1. Schematic representation of concentrated plasticity OpenSees model with element number labels and [node number] labels. Note: The springs are zeroLength elements, but their sizes are greatly exaggerated in this figure for clarity." />
 <figcaption aria-hidden="true">Figure 1. Schematic representation of
@@ -374,12 +370,12 @@ concentrated plasticity OpenSees model with element number labels and
 their sizes are greatly exaggerated in this figure for
 clarity.</figcaption>
 </figure>
-<p>The 2-story, 1-bay steel moment resisting frame is modeled with <a
-href="elastic_Beam_Column_Element" title="wikilink">elastic beam-column
-elements</a> connected by <a href="zeroLength_Element"
-title="wikilink">zeroLength elements</a> which serve as rotational
-springs to represent the structure’s nonlinear behavior. The springs
-follow a <a href="Bilin_Material" title="wikilink">bilinear</a>
+<p>The 2-story, 1-bay steel moment resisting frame is modeled with
+<a href="elastic_Beam_Column_Element" title="wikilink">elastic beam-column elements</a> connected by
+<a href="zeroLength_Element" title="wikilink">ZeroLength elements</a>
+which serve as rotational springs to represent the structure’s nonlinear behavior.
+The springs follow a
+<a href="Bilin_Material" title="wikilink">bilinear</a>
 hysteretic response based on the Modified Ibarra Krawinkler
 Deterioration Model. A leaning column with gravity loads is linked to
 the frame by <a href="Truss_Element" title="wikilink">truss elements</a>
@@ -391,19 +387,17 @@ are used. For an example that explicitly models the panel zone shear
 distortions and includes reduced beam sections (RBS), see <a
 href="Pushover_and_Dynamic_Analyses_of_2-Story_Moment_Frame_with_Panel_Zones_and_RBS"
 title="wikilink">Pushover and Dynamic Analyses of 2-Story Moment Frame
-with Panel Zones and RBS</a>.</p>
+with Panel Zones and RBS</a>.</p></p>
 <p>For a detailed description of this model, see <a
 href="Pushover_Analysis_of_2-Story_Moment_Frame"
-title="wikilink">Pushover Analysis of 2-Story Moment Frame</a>.</p>
+title="wikilink">Pushover Analysis of 2-Story Moment Frame</a>.
 <p>The units of the model are kips, inches, and seconds.</p>
-<h2 id="damping_and_the_rayleigh_command">Damping and the Rayleigh
-Command</h2>
+<h2 id="damping_and_the_rayleigh_command">Damping and the Rayleigh Command</h2>
 <p>This model uses Rayleigh damping which formulates the damping matrix
 as a linear combination of the mass matrix and stiffness matrix:
-<strong>c</strong> = a&lt;sub&gt;0&lt;/sub&gt;*<strong>m</strong> +
-a&lt;sub&gt;1&lt;/sub&gt;*<strong>k</strong>, where
-a&lt;sub&gt;0&lt;/sub&gt; is the mass proportional damping coefficient
-and a&lt;sub&gt;1&lt;/sub&gt; is the stiffness proportional damping
+<strong>c</strong> = a<sub>0</sub><em><strong>m</strong> + a<sub>1</sub></em><strong>k</strong>,
+where a<sub>0</sub> is the mass proportional damping coefficient
+and a<sub>1</sub> is the stiffness proportional damping
 coefficient. A damping ratio of 2%, which is a typical value for steel
 buildings, is assigned to the first two modes of the structure. The <a
 href="Rayleigh_Damping_Command" title="wikilink">rayleigh command</a>
@@ -493,7 +487,7 @@ the analysis should be less than or equal to the timestep of the input
 ground motion.</p>
 <h2 id="results">Results</h2>
 <figure>
-<img src="/OpenSeesRT/contrib/static/Dhist_plot_ConcDynam.png"
+<img src="Dhist_plot_ConcDynam.png"
 title="Figure 2. Floor Displacement History"
 alt="Figure 2. Floor Displacement History" />
 <figcaption aria-hidden="true">Figure 2. Floor Displacement
