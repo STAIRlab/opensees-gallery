@@ -28,7 +28,7 @@ model = ops.Model(ndm=2, ndf=3)
 # Create nodes
 # ------------
 # Set parameters for overall model geometry
-width = 360.0
+width  = 360.0
 height = 144.0
 
 # create nodes & add to Domain - command: node nodeId xCrd yCrd

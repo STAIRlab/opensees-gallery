@@ -12,7 +12,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
-      <description>Example 5.1 This example is of a three-dimensional reinforced concrete rigid frame, as shown in figure example5{reference-type=&amp;ldquo;ref&amp;rdquo; reference=&amp;ldquo;example5&amp;rdquo;}, subjected to bi-directional earthquake ground motion.</description>
+      <description>Example 5.1 A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.1.tcl RCsection.tcl Or for Python:</description>
     </item>
   </channel>
 </rss>
