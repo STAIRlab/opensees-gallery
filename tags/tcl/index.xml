@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tcl on OpenSees Gallery</title>
+    <link>https://example.org/tags/tcl/</link>
+    <description>Recent content in Tcl on OpenSees Gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://example.org/tags/tcl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Concrete Frame Pushover Analysis</title>
+      <link>https://example.org/examples/concreteframe2d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/concreteframe2d/</guid>
+      <description>In this example the reinforced concrete portal frame which has undergone the gravity load analysis is now be subjected to a pushover analysis.</description>
+    </item>
+    <item>
+      <title>Example 1: Simple Truss</title>
+      <link>https://example.org/examples/example1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example1/</guid>
+      <description>The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.</description>
+    </item>
+    <item>
+      <title>Example 2: Moment-Curvature</title>
+      <link>https://example.org/examples/example2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example2/</guid>
+      <description>This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.</description>
+    </item>
+    <item>
+      <title>Example 3: Portal Frame Examples</title>
+      <link>https://example.org/examples/example3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example3/</guid>
+      <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
+    </item>
+    <item>
+      <title>Example 5: Three-Dimensional Rigid Frame</title>
+      <link>https://example.org/examples/example5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example5/</guid>
+      <description>Example 5.1 This example is of a three-dimensional reinforced concrete rigid frame, as shown in figure example5{reference-type=&amp;ldquo;ref&amp;rdquo; reference=&amp;ldquo;example5&amp;rdquo;}, subjected to bi-directional earthquake ground motion.</description>
+    </item>
+    <item>
+      <title>Example 6: Simply Supported Beam</title>
+      <link>https://example.org/examples/example6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example6/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Example 7: Dynamic Shell Analysis</title>
+      <link>https://example.org/examples/example7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example7/</guid>
+      <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
+    </item>
+    <item>
+      <title>Example 8: Cantilever Beam</title>
+      <link>https://example.org/examples/example8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example8/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+    </item>
+  </channel>
+</rss>

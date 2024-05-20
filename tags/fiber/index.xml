@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fiber on OpenSees Gallery</title>
+    <link>https://example.org/tags/fiber/</link>
+    <description>Recent content in Fiber on OpenSees Gallery</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://example.org/tags/fiber/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Example 2: Moment-Curvature</title>
+      <link>https://example.org/examples/example2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/example2/</guid>
+      <description>This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.</description>
+    </item>
+    <item>
+      <title>Inelastic Cantilever</title>
+      <link>https://example.org/examples/cantilevertransient/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/cantilevertransient/</guid>
+      <description>Download (CantileverTransient2D.ipynb)&#xA;In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
+    </item>
+    <item>
+      <title>Rectilinear Cross Sections</title>
+      <link>https://example.org/examples/ex9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/examples/ex9/</guid>
+      <description>For the case of the uniaxial section, moment-curvature and axial force-deformation curves are defined independently, and numerically.&#xA;For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.</description>
+    </item>
+  </channel>
+</rss>

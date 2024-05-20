@@ -1,0 +1,82 @@
+Current Domain Information
+	Current Time: 1
+	Committed Time: 1
+NODE DATA: NumNodes: 4
+
+  Node: 1
+	Coordinates  : 0 0 
+	Disps: 0 0 0 
+	unbalanced Load: 0 0 0 
+	ID : -1 -1 -1 
+
+
+  Node: 2
+	Coordinates  : 360 0 
+	Disps: 0 0 0 
+	unbalanced Load: 0 0 0 
+	ID : -1 -1 -1 
+
+
+  Node: 3
+	Coordinates  : 0 144 
+	Disps: -5.77024e-19 -0.0183736 1.09937e-20 
+	unbalanced Load: 0 -180 0 
+	ID : 3 4 5 
+
+
+  Node: 4
+	Coordinates  : 360 144 
+	Disps: -5.78483e-19 -0.0183736 5.16558e-21 
+	unbalanced Load: 0 -180 0 
+	ID : 0 1 2 
+
+ELEMENT DATA: NumEle: 3
+
+Element: 1 Type: ForceBeamColumn2d 	Connected Nodes: 1 3 
+	Number of Sections: 5	Mass density: 0
+Lobatto
+	End 1 Forces (P V M): 180 1.97215e-31 2.13163e-14
+	End 2 Forces (P V M): -180 -1.97215e-31 -2.13163e-14
+
+Element: 2 Type: ForceBeamColumn2d 	Connected Nodes: 2 4 
+	Number of Sections: 5	Mass density: 0
+Lobatto
+	End 1 Forces (P V M): 180 2.84866e-31 2.13163e-14
+	End 2 Forces (P V M): -180 -2.84866e-31 -2.13163e-14
+
+ElasticBeam2d: 3
+	Connected Nodes: 3 4 
+	CoordTransf: 2
+	mass density:  0, cMass: 0
+	release code:  0
+	End 1 Forces (P V M): 5.87774e-18 3.42985e-17 6.73742e-15
+	End 2 Forces (P V M): -5.87774e-18 -3.42985e-17 5.61003e-15
+
+SP_Constraints: numConstraints: 6
+SP_Constraint: 0	 Node: 1 DOF: 1 ref value: 0 current value: 0
+SP_Constraint: 1	 Node: 1 DOF: 2 ref value: 0 current value: 0
+SP_Constraint: 2	 Node: 1 DOF: 3 ref value: 0 current value: 0
+SP_Constraint: 3	 Node: 2 DOF: 1 ref value: 0 current value: 0
+SP_Constraint: 4	 Node: 2 DOF: 2 ref value: 0 current value: 0
+SP_Constraint: 5	 Node: 2 DOF: 3 ref value: 0 current value: 0
+
+Pressure_Constraints: numConstraints: 0
+
+MP_Constraints: numConstraints: 0
+
+LOAD PATTERNS: numPatterns: 1
+
+Load Pattern: 1
+  Scale Factor: 1
+Linear Series: constant factor: 1
+  Nodal Loads: 
+Nodal Load: 3 load : 0 -180 0 
+Nodal Load: 4 load : 0 -180 0 
+
+  Elemental Loads: 
+
+  Single Point Constraints: 
+
+PARAMETERS: numParameters: 0
+
+

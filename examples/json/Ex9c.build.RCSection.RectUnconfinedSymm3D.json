@@ -1,0 +1,102 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+			{"name": "3", "type": "SectionAggregator", "section": "1", "materials": ["99"], "dof": ["T"]},
+			{"name": "1", "type": "FiberSection3d", "torsion": 1e+08, "fibers": [
+				{"coord": [-28.125, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-28.125, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-28.125, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-28.125, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-24.375, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-24.375, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-24.375, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-24.375, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-20.625, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-20.625, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-20.625, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-20.625, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-16.875, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-16.875, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-16.875, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-16.875, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-13.125, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-13.125, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-13.125, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-13.125, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-9.375, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-9.375, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-9.375, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-9.375, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-5.625, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-5.625, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-5.625, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-5.625, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [-1.875, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [-1.875, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [-1.875, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [-1.875, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [1.875, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [1.875, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [1.875, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [1.875, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [5.625, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [5.625, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [5.625, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [5.625, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [9.375, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [9.375, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [9.375, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [9.375, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [13.125, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [13.125, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [13.125, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [13.125, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [16.875, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [16.875, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [16.875, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [16.875, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [20.625, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [20.625, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [20.625, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [20.625, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [24.375, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [24.375, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [24.375, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [24.375, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [28.125, 13.5], "area": 33.75, "material": "1"},
+				{"coord": [28.125, 4.5], "area": 33.75, "material": "1"},
+				{"coord": [28.125, -4.5], "area": 33.75, "material": "1"},
+				{"coord": [28.125, -13.5], "area": 33.75, "material": "1"},
+				{"coord": [25, 13], "area": 1, "material": "2"},
+				{"coord": [25, 4.33333], "area": 1, "material": "2"},
+				{"coord": [25, -4.33333], "area": 1, "material": "2"},
+				{"coord": [25, -13], "area": 1, "material": "2"},
+				{"coord": [-25, 13], "area": 1, "material": "2"},
+				{"coord": [-25, 4.33333], "area": 1, "material": "2"},
+				{"coord": [-25, -4.33333], "area": 1, "material": "2"},
+				{"coord": [-25, -13], "area": 1, "material": "2"}
+			]}
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+			{"name": "2", "type": "Steel02", "E": 29000, "fy": 66.8, "b": 0.005, "R0": 18, "cR1": 0.925, "cR2": 0.15, "a1": 0, "a2": 1, "a3": 0, "a4": 1, "sigini": 0},
+			{"name": "99", "type": "ElasticMaterial", "Epos": 1e+10, "Eneg": 1e+10, "eta": 0},
+			{"name": "1", "type": "Concrete02", "Ec": 2666.67, "fc": -4, "epsc": -0.003, "fcu": -0.8, "epscu": -0.01, "ratio": 0.1, "ft": 0.56, "Ets": 280}
+        ],
+        "crdTransformations": [
+
+        ]
+    },
+    "geometry": {
+        "nodes": [
+
+        ],
+        "elements": [
+
+        ]
+    }
+}
+}

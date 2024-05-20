@@ -1,0 +1,31 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+
+        ]
+    },
+    "geometry": {
+        "nodes": [
+      {"name": 1, "ndf": 2, "crd": [0, 0]},
+      {"name": 2, "ndf": 2, "crd": [144, 0]},
+      {"name": 3, "ndf": 2, "crd": [168, 0]},
+      {"name": 4, "ndf": 2, "crd": [72, 96]}
+        ],
+        "elements": [
+			{"name": 1, "type": "Truss", "nodes": [1, 4], "A": 10, "massperlength": 0, "material": "1"},
+			{"name": 2, "type": "Truss", "nodes": [2, 4], "A": 5, "massperlength": 0, "material": "1"},
+			{"name": 3, "type": "Truss", "nodes": [3, 4], "A": 5, "massperlength": 0, "material": "1"}
+        ]
+    }
+}
+}

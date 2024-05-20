@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Three-Dimensional Site Response Analysis of Sloping Ground - OpenSees Gallery</title>
+<meta name="description" content="This article discusses a three-dimensional effective stress site response analysis of a slope using OpenSees. The considered site consists of layered cohesionless soil underlain by bedrock.">
+
+<meta name="author" content="STAIRlab"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "OpenSees Gallery",
+    
+    "url": "https:\/\/example.org\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/example.org\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/example.org\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/example.org\/community\/siteresponse3d\/",
+          "name": "Three dimensional site response analysis of sloping ground"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "STAIRlab"
+  },
+  "headline": "Three-Dimensional Site Response Analysis of Sloping Ground",
+  "description" : "This article discusses a three-dimensional effective stress site response analysis of a slope using OpenSees. The considered site consists of layered cohesionless soil underlain by bedrock.",
+  "inLanguage" : "en",
+  "wordCount":  1639 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/example.org\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/example.org\/community\/siteresponse3d\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/example.org\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/example.org\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Three-Dimensional Site Response Analysis of Sloping Ground" />
+<meta property="og:description" content="This article discusses a three-dimensional effective stress site response analysis of a slope using OpenSees. The considered site consists of layered cohesionless soil underlain by bedrock.">
+<meta property="og:url" content="https://example.org/community/siteresponse3d/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="OpenSees Gallery" />
+<link rel="apple-touch-icon" sizes="180x180" href=" https://example.org/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://example.org/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://example.org/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.124.1">
+<link rel="alternate" href="https://example.org/index.xml" type="application/rss+xml" title="OpenSees Gallery">
+<script src="https://example.org/js/dark-mode.js"></script><script src="https://example.org/vendor/lunr/lunr.min.js"></script><script src="https://example.org/js/lunr-search.js" data-index="/search.json"></script><link rel="stylesheet" href="/style.min.css">
+
+
+
+
+
+
+
+    
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']]                  
+    }
+  };
+</script>
+
+    
+  </head>
+  <body>
+    
+<div class="container fixed-top mw-100">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+
+          <a class="navbar-brand fw-bold" href="https://example.org/">OpenSees Gallery</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Examples"
+                  href="/examples/"> Examples</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Categories"
+                  href="/categories/"> Categories</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Gallery"
+                  href="/gallery/"> Gallery</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Tags"
+                  href="/tags/"> Tags</a>
+              </li>
+
+              
+              
+
+              <li class="nav-item nav-link">
+                <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
+              </li>
+
+              
+              <li class="nav-item search-item">
+                <form id="search" class="search" role="search">
+                  <label for="search-input" class="bi bi-search search-icon"></label>
+                  <input type="search" id="search-input" class="search-input">
+                </form>
+              </li>
+              
+            </ul>
+
+            
+            <template id="search-heading" hidden
+                data-results-none="No results found for “{}”"
+                data-results-one="Found one result for “{}”"
+                data-results-many="Found 13579 results for “{}”"
+            >
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <h1 id="search-title" class="search-title"></h1>
+                </div>
+              </div>
+            </template>
+
+            <template id="search-result" hidden>
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <article class="content post">
+                    <h2><a class="summary-title-link"></a></h2>
+                    <div class="post-entry"></div>
+                    <div class="read-more-section">
+                      <h6 class="text-muted link-underline">
+                        <a class="read-more-link">
+                          Read More
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </h6>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section "
+  >
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="community-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Three-Dimensional Site Response Analysis of Sloping Ground
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        
+    </div>
+  </div>
+</header>
+
+
+
+    
+    <main>
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+
+      <div class="card-image card-image-blog p-0">
+        
+        
+
+
+        
+
+        
+      </div>
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <p>This article discusses a three-dimensional effective stress site
+response analysis of a slope using OpenSees. The considered site
+consists of layered cohesionless soil underlain by bedrock. The slope
+has a 2% grade perpendicular to the direction of shaking. The model
+consists of a single column of 3D brick elements supported vertically at
+the base. Periodic boundary conditions are applied in both horizontal
+directions. A Lysmer-Kuhlemeyer (1969) dashpot is utilized to account
+for the finite rigidity of an underlying elastic medium, and the loading
+is applied in a manner consistent with that proposed by Joyner and Chen
+(1975).</p>
+<p>Provided with this article are several files. Files which are
+required for the analysis are indicated. The files include:</p>
+<ul>
+<li>The example input file, <a href="freeField3D.tcl"
+title="wikilink">freeField3D.tcl</a> (<strong>required for
+analysis</strong>)</li>
+<li>The velocity time history of the selected earthquake record,
+yerbaNSvelocity.out (<strong>required for analysis</strong>)</li>
+<li>A GiD post-process mesh file, freeField3D.flavia.msh (generated
+automatically by running <a href="freeField3D.tcl"
+title="wikilink">freeField3D.tcl</a>)</li>
+<li>A Matlab script, flaviaWriter.m, which can be used to reformat the
+recorded output from OpenSees into a file which can be read by GiD for
+post-process visulization. Non-Matlab users may find the process
+represented by this file useful in creating an alternative means for
+accomplishing this reformatting.</li>
+<li>The post-process results file, freeField3D.flavia.res, which is
+generated through the use of the flaviaWriter.m script. This file,
+combined with the file freeField3D.flavia.msh, allows the user to
+visualize the results of the site response analysis using GiD.</li>
+</ul>
+<p>All of the files mentioned above can be downloaded <a
+href="Media:_SiteResponse3D.zip" title="wikilink"> here</a>.</p>
+<p>To run this example, the user must download the input file, <a
+href="freeField3D.tcl" title="wikilink">freeField3D.tcl</a>, and the
+velocity time history file, yerbaNSvelocity.out, and place them in a
+single directory. The additional files described above are not essential
+to the analysis. They are provided to demonstrate how to use the GiD
+tool to visualize results from this type of analysis.</p>
+<p>For further information into a site response analysis using OpenSees,
+the user is referred to the <a
+href="Site_Response_Analysis_of_a_Layered_Soil_Column_(Total_Stress_Analysis)"
+title="wikilink"> 2D total stress site response analysis</a> example,
+the <a
+href="Effective_Stress_Site_Response_Analysis_of_a_Layered_Soil_Column"
+title="wikilink"> 2D effective stress site response analysis</a>
+example, and the set of examples developed at UCSD available <a
+href="http://cyclic.ucsd.edu/opensees">here</a>.</p>
+<h2 id="model_description">Model Description</h2>
+<figure>
+<img src="/OpenSeesRT/contrib/static/3DsiteRespSchematic.png"
+title="Fig. 1: Schematic of 3D site response model."
+alt="Fig. 1: Schematic of 3D site response model." />
+<figcaption aria-hidden="true">Fig. 1: Schematic of 3D site response
+model.</figcaption>
+</figure>
+<p>The site response analysis discussed in this article is for a soil
+profile consisting of a 10 m thick layer of loose sand (Dr = 40%) above
+a 20 m thick layer of more dense sand (Dr = 75%). The profile is assumed
+to be on an infinite slope with a 2% grade. The soil profile is the same
+as that described in the <a
+href="Effective_Stress_Site_Response_Analysis_of_a_Layered_Soil_Column"
+title="wikilink"> 2D effective stress site response</a> example The
+entire soil profile is underlain by an elastic half-space which
+represents the finite rigidity of an underlying bedrock layer. The
+groundwater table is located at a depth of 2 m. Earthquake excitation is
+applied in the direction perpendicular to the slope.</p>
+<h3 id="mesh_geometry">Mesh Geometry</h3>
+<p>The input file <a href="freeField3D.tcl"
+title="wikilink">freeField3D.tcl</a> is set-up in a manner such that the
+user need only define the geometry of the soil layers and groundwater
+table along with the number of elements (vertically) within each layer.
+<strong>Note:</strong> if the ground water table is not located at the
+surface, an additional soil layer must be included to differentiate the
+dry or moist soil above the gwt from the saturated soil below the gwt.
+The default values are for 0.5 m high elements. A single column of
+8-node brick elements is created based off of the input information. The
+vertical direction for this column is oriented with the global
+y-direction, and the elements are sized equally in the global x- and
+z-directions. The shaking is applied in the x-direction and the slope is
+in the z-direction. A schematic representation of the model is shown in
+Fig. 1.</p>
+<h3 id="boundary_conditions">Boundary Conditions</h3>
+<p>The column of elements is supported vertically at the base. Periodic
+boundary conditions are applied in the global x- and z-directions using
+the <a href="equalDOF_command" title="wikilink">equalDOF command</a>.
+Dashpots are applied at the base of the column in the global x- and
+z-directions to simulate the underlying bedrock layer after Lysmer and
+Kuhlemeyer (1969). The <a href="Viscous_Material" title="wikilink">
+viscous uniaxial material</a> is used with <a href="zeroLength_Element"
+title="wikilink">zeroLength elements</a> to define the dashpots.
+Following the method of Joyner and Chen (1975), the dashpot coefficients
+are defined as the product of the mass density and shear wave velocity
+of the underlying bedrock. Above the groundwater table, the pore
+pressure degrees-of-freedom are fixed to allow drainage. The pore
+pressure degrees-of-freedom for all nodes below the groundwater table
+are left free to indicate saturated undrained conditions.</p>
+<h3 id="material_and_element_definitions">Material and Element
+Definitions</h3>
+<p>The soil constitutive behavior is modeled using the <a
+href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1551.htm">PressureDependMultiYield02</a>
+nDMaterial object. The default material parameters are based upon the
+recommended table of parameters available on the <a
+href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1551.htm">PressureDependMultiYield02</a>
+page for the appropriate relative densities.</p>
+<p><strong>Note:</strong> The mass density input values for the material
+objects should be total mass densities, i.e. above the groundwater
+table, the mass density should reflect dry or moist conditions, and
+below the groundwater table, the mass density should be the saturated
+value.</p>
+<p>Included with the material definitions for each soil layer are
+additional parameters which are used by the elements. These include the
+fluid bulk modulus, the voids ratio, the body forces, and the x-, y-,
+and z-direction permeabilities. For effective stress analysis, the body
+forces should be the components of gravity. Note the difference to total
+stress analysis, where body forces are typically the components of the
+material unit weight. The slope in this example is simulated as a static
+shear stress generated by applying gravity with components in the the y-
+and z-directions.</p>
+<p>The <a href="SSPbrickUP_Element" title="wikilink"> SSPbrickUP
+element</a> is used in this example. This element uses a u-p formulation
+to consider the coupling between the solid and fluid phases of the soil
+mixture. The <a href="SSPbrickUP_Element" title="wikilink"> SSPbrickUP
+element</a> uses stabilized single-point integration for the solid
+phase, and includes direction stabilization of the fluid phase in the
+incompressible-impermeable limit via a stabilization parameter. This
+element provides a computationally-efficient alternative to a
+higher-order 3D u-p element such as the <a
+href="Twenty_Eight_Node_Brick_u-p_Element" title="wikilink">
+20_8_BrickUP Element</a>.</p>
+<h3 id="loading_and_analysis">Loading and Analysis</h3>
+<p>The analysis is split in to two phases, (1) an initial gravitational
+phase and (2) a dynamic excitation phase. Separate recorders are
+generated for each phase. The gravitational analysis phase serves the
+purpose of developing the initial state of stress for the soil column,
+including the static shear stress representing the infinite slope. In
+the second phase of the analysis, an earthquake ground motion is applied
+to the base of the soil column in a manner consistent with that proposed
+by Joyner and Chen (1975). The motion is applied in the horizontal
+direction perpendicular to the slope (x-direction).</p>
+<p>During the gravitational analysis, the permeability in each direction
+is set at 1.0 m/s to facilitate development of hydrostatic conditions.
+After completion of this analysis phase, the permeabilities are updated
+to their input values using the <a href="setParameter_command"
+title="wikilink">setParameter command</a>.</p>
+<h2 id="results">Results</h2>
+<figure>
+<img src="/OpenSeesRT/contrib/static/dispComp3DsiteResp.png"
+title="Fig. 2: Displacements in direction of shaking (u) and direction of slope (w) with pore pressure ratio in middle of liquefied soil."
+alt="Fig. 2: Displacements in direction of shaking (u) and direction of slope (w) with pore pressure ratio in middle of liquefied soil." />
+<figcaption aria-hidden="true">Fig. 2: Displacements in direction of
+shaking (u) and direction of slope (w) with pore pressure ratio in
+middle of liquefied soil.</figcaption>
+</figure>
+<p>Several sets of results are presents to demonstrate the types of
+results which can be obtained from this type of analysis in OpenSees and
+to allow the user to confirm proper download and implementation of the
+example input files. Post-processing for the included plots was
+accomplished using Matlab and <a
+href="http://gid.cimne.upc.es/home">GiD</a>. Refer to the following
+section of this article for further information on post-processing with
+GiD.</p>
+<p>Fig. 2 shows the displacement at the top of the soil column (ground
+surface) in the direction of shaking and the direction of the slope
+along with the pore pressure ratio in the middle of the liquefiable
+soil. The slope is initially stable, then loses stability and begins
+move in the down-slope direction. As shown in Fig. 2, this loss of
+stability is due to liquefaction in the saturated loose sand layer. If
+the analysis is continued past the end of the applied ground motion, the
+pore pressures will eventually dissipate and the slope will become
+stable as the liquefied soil regains strength.</p>
+<p>Fig. 3 shows how the down-slope displacement increases during the
+application of the ground motion, and how this displacement correlates
+with the reduced strength of the liquefiable soil as indicated by pore
+pressure ratio. As shown, the down-slope displacement increases as the
+pore pressure ratio approaches 1.0, then continues to increase after
+this point. The displacements in this figure are magnified for clarity.
+&lt;br style="clear: both" /&gt;</p>
+<p><img src="/OpenSeesRT/contrib/static/dispProgression.png"
+title="Fig. 3: Progression of down-slope displacement with contours of pore pressure ratio."
+alt="Fig. 3: Progression of down-slope displacement with contours of pore pressure ratio." />
+&lt;br style="clear: both" /&gt;</p>
+<h2 id="gid_visualization">GiD Visualization</h2>
+<p>Several files have been included in this article for the purpose of
+visualizing results in the pre- and post-processing tool <a
+href="http://gid.cimne.upc.es/home">GiD</a>. The files related to this
+purpose are available for download <a href="Media:_SiteResponse3D.zip"
+title="wikilink"> here</a>. The files are:</p>
+<ul>
+<li>freeField3D.flavia.msh</li>
+<li>freeField3D.flavia.res</li>
+<li>flaviaWriter.m</li>
+</ul>
+<p>The file freeField3D.flavia.msh contains a list of the nodes and
+elements used in the analysis in a format that GiD understands. This
+file is automatically created by running the example <a
+href="freeField3D.tcl" title="wikilink">freeField3D.tcl</a> in OpenSees.
+The file freeField3D.flavia.res contains the data recorded during the
+analysis by the OpenSees recorders in a format that GiD can read. The
+Matlab script, flaviaWriter.m, converts the data recorded by OpenSees
+into this format. Further information on the formats for the
+*.flavia.msh and *.flavia.res files can be found in the GiD
+customization manual available <a
+href="http://gid.cimne.upc.es/support/manuals">here</a>.</p>
+<p>To visualize the results in GiD, the user should take the following
+steps:</p>
+<ol>
+<li>download and install copy of GiD</li>
+<li>save a blank project with the name freeField3D.gid</li>
+<li>place the files freeField3D.flavia.msh and freeField3D.flavia.res
+into the freeField3D.gid directory</li>
+<li>with this project open, select the Postprocess option in the 'files'
+menu</li>
+</ol>
+<p>The program will then load the post-processing data contained in
+freeField3D.flavia.msh and freeField3D.flavia.res.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>Joyner, W.B. and Chen A.T.F. (1975) "Calculation of nonlinear ground
+response in earthquakes," <em>Bulletin of the Seismological Society of
+America</em>, <strong>65</strong>(5), 1315-1336.</li>
+<li>Kramer, S.L. (1996). <em>Geotechnical Earthquake Engineering.</em>
+Prentice Hall, Upper Saddle River, NJ.</li>
+<li>Lysmer, J. and Kuhlemeyer, A.M. (1969). "Finite dynamic model for
+infinite media," <em>Journal of the Engineering Mechanics Division,
+ASCE</em>, <strong>95</strong>, 859-877.</li>
+</ol>
+<p><a href="Examples" title="wikilink"> Return to OpenSees Examples
+Page</a></p>
+<p>Example prepared by: <span style="color:blue"> Christopher
+McGann and Pedro Arduino, University of Washington</span></p>
+<hr />
+
+      </article>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr class="m-0"/>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+      <section id="social-share">
+        <div class="list-inline footer-links">
+          
+
+<div>
+
+</div>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+    <li>
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.org%2fcommunity%2fsiteresponse3d%2f" target="_blank" title="Share on Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+        </svg>
+      </a>
+    </li>
+    
+    <li>
+      <a href="//twitter.com/share?url=https%3a%2f%2fexample.org%2fcommunity%2fsiteresponse3d%2f&amp;text=Three-Dimensional%20Site%20Response%20Analysis%20of%20Sloping%20Ground&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+        target="_blank" title="Share on Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
+          <path
+            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+        </svg>
+      </a>
+    </li>
+
+
+    
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fexample.org%2fcommunity%2fsiteresponse3d%2f&amp;title=Three-Dimensional%20Site%20Response%20Analysis%20of%20Sloping%20Ground"
+        target="_blank" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Three-Dimensional Site Response Analysis of Sloping Ground on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fexample.org%2fcommunity%2fsiteresponse3d%2f&title=Three-Dimensional%20Site%20Response%20Analysis%20of%20Sloping%20Ground">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
+          viewBox="0 0 16 16">
+          <path
+            d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z" />
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z" />
+        </svg>
+      </a>
+    </li>
+
+    
+    
+
+
+    
+    <li>
+      <a href="whatsapp://send?text=https%3a%2f%2fexample.org%2fcommunity%2fsiteresponse3d%2f&amp;description=Three-Dimensional%20Site%20Response%20Analysis%20of%20Sloping%20Ground" target="_blank" rel="noopener"
+        title="Share on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+        </div>
+      </section>
+      
+    </div>
+
+    
+
+    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+      
+      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+        
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/community/yamamotobiaxialhdr/"
+            data-toggle="tooltip" data-placement="top" title="YamamotoBiaxialHDR">&larr;
+            Previous Post</a>
+        </li>
+        
+
+
+        
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="https://example.org/community/siteresponseanalysis/"
+            data-toggle="tooltip" data-placement="top" title="Site Response Analysis of a Layered Soil Column (Total Stress Analysis)">Next Post
+            &rarr;</a>
+        </li>
+        
+      </ul>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    </div>
+  </div>
+  
+</div>
+
+<div class="">
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+    </main>
+    
+
+
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul
+          class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
+
+          
+          <li>
+            <a href="https://github.com/STAIRlab" title="GitHub" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-github"></i>
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="mx-2">
+                <i class="bi bi-rss"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="credits copyright text-muted">
+          
+          
+          <a href="https://stairlab.berkeley.edu">STAIRlab</a>
+          
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+          2018
+          
+
+          
+          &nbsp;&bull;&nbsp;
+          <a href="https://example.org/">OpenSees Gallery</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made by <a href="https://binovarghese.com">Bino</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://example.org/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://example.org/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
+
+
+
+
+    
+  </body>
+</html>
+
