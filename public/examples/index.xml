@@ -8,13 +8,6 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/examples/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/status/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/status/</guid>
-      <description>Examples Status File Message 0 Chopra-10.4 0 ConcreteFrame2D 0 Ex1 0 Ex3 0 Ex4 0 Ex5 0 Ex6 0 Ex7 0 Ex9 0 Example1 0 Example2 0 Example3 0 Example4 0 Example5 0 Example6 0 Example7 0 Example8 0 FrameFormulations 0 ModelingDiaphragms2D 0 MRF_Concentrated 0 MRF_PanelZone 0 MRF_Pushover 0 ParallelSP1 0 SteelBuilding2D 0 ViscousDamper 0 1Dconsolidation.</description>
-    </item>
-    <item>
       <title>Arch Dynamic Snapping</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -83,13 +76,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</guid>
       <description>Download (Reinforced Concrete 3D Frame (FGU).ipynb)&#xA;Reinforced Concrete 3D Frame January 2022, By Amir Hossein Namadchi This notebook is adapted from https://github.</description>
-    </item>
-    <item>
-      <title>Dynamic Analyses of a Frame with Viscous Dampers</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</guid>
-      <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:</description>
     </item>
     <item>
       <title>Dynamic Analysis of 2-Story Moment Frame</title>
@@ -195,6 +181,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</guid>
       <description>Investigate the two most commonly used OpenSees elements for modeling beam-column elements: the force-based element (FBE) and displacement-based element (DBE).</description>
+    </item>
+    <item>
+      <title>Frame with Viscous Dampers</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</guid>
+      <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:</description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>
