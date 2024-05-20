@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notebook on OpenSees Gallery</title>
-    <link>https:stairlab.github.io/opensees-gallerytags/notebook/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/notebook/</link>
     <description>Recent content in Notebook on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https:stairlab.github.io/opensees-gallerytags/notebook/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Dynamic Snapping</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/archdynamicsnap/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/archdynamicsnap/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</guid>
       <description>Download (ArchDynamicSnap.ipynb)&#xA;Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.</description>
     </item>
     <item>
       <title>Arch Instability</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/archstaticsnap/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/archstaticsnap/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
       <description>Download (IncrementalAnalysis.ipynb)&#xA;Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/cantilevertransient/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/cantilevertransient/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
       <description>Download (CantileverTransient2D.ipynb)&#xA;In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
     </item>
   </channel>

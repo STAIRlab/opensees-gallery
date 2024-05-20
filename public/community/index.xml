@@ -2,121 +2,121 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Communities on OpenSees Gallery</title>
-    <link>https:stairlab.github.io/opensees-gallerycommunity/</link>
+    <link>https://stairlab.github.io/opensees-gallery/community/</link>
     <description>Recent content in Communities on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https:stairlab.github.io/opensees-gallerycommunity/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/community/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Beam Column Joint</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/beamcolumnjointexample/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/beamcolumnjointexample/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/beamcolumnjointexample/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/beamcolumnjointexample/</guid>
       <description>source&#xA;The example files (PR.tcl, procMKPC2.tcl, procUniaxialPinching.tcl, procRC2.tcl) create a model of a RC beam column sub-assemblage. The cruciform is subjected to constant gravity load at nodes 4 and 7 and pseudo-static cyclic lateral load under displacement control at node 10.</description>
     </item>
     <item>
       <title>BWBN Example</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/bwbnexample/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/bwbnexample/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/bwbnexample/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/bwbnexample/</guid>
       <description>Incremental Dynamic Analysis (IDA) is carried out to identify maximum story drifts for 20 earthquake records and generate fragility curves,</description>
     </item>
     <item>
       <title>Cold-Formed Steel Steel Sheathed Shear Wall Panel examples</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/cfssswp/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/cfssswp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/cfssswp/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/cfssswp/</guid>
       <description>Cold-Formed Steel Steel Sheathed Shear Wall Panel examples In order to check the accuracy of the proposed models, results from quasi-static non-linear analyses of Steel-Sheathed Cold-Formed Steel Shear Wall Panel have been carried out using CFSSSWP uniaxialMaterial model implemented into OpenSees version 2.</description>
     </item>
     <item>
       <title>Cold-Formed Steel Wood Sheathed Shear Wall Panel examples</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/cfswswp/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/cfswswp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/cfswswp/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/cfswswp/</guid>
       <description>Cold-Formed Steel Wood Sheathed Shear Wall Panel examples In order to check the accuracy of the proposed models, results from quasi-static non-linear analyses of Wood-sheathed Cold-Formed Steel Shear Wall Panel have been carried out using CFSWSWP uniaxialMaterial model implemented into OpenSees version 2.</description>
     </item>
     <item>
       <title>Dynamic 2D Effective Stress Analysis of Slope</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/slopeanalysis2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/slopeanalysis2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/slopeanalysis2d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/slopeanalysis2d/</guid>
       <description>This article describes the OpenSees implementation of an effective stress analysis of a slope which is subject to a seismic event.</description>
     </item>
     <item>
       <title>Excavation Supported by Cantilevered Sheet Pile Wall</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/excavation/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/excavation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/excavation/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/excavation/</guid>
       <description>This article describes the simulation of an excavation supported by a cantilevered sheet pile wall using OpenSees. The model considers plane strain conditions in two-dimensions, using quadrilateral elements with a pressure dependent constitutive model to simulate cohesionless soil, and beam-column elements to simulate a unit width of sheet pile wall.</description>
     </item>
     <item>
       <title>Infill Wall Model and Element Removal</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/infillwall/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/infillwall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/infillwall/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/infillwall/</guid>
       <description>source&#xA;This article describes the commands for modeling an infill wall element which considers in-plane and out-of-plane interaction and for removal of the element during nonlinear time history simulation in OpenSees.</description>
     </item>
     <item>
       <title>Kikuchi Bearing</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/kikuchibearing/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/kikuchibearing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/kikuchibearing/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/kikuchibearing/</guid>
       <description>Examples element KikuchiBearing 1 1 2 -shape round -size 1.016 0.320 -nMSS 8 \ -matMSS 1 -nMNS 30 -matMNS 2 KikuchiBearing_Sample.</description>
     </item>
     <item>
       <title>KikuchiAikenHDR</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/kikuchiaikenhdr/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/kikuchiaikenhdr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/kikuchiaikenhdr/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/kikuchiaikenhdr/</guid>
       <description>This example explores the uniaxial KikuchiAikenHDR material. This material model produces nonlinear hysteretic curves of high damping rubber bearings (HDRs).</description>
     </item>
     <item>
       <title>Laterally-Loaded Pile Foundation</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/staticbnwfpile/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/staticbnwfpile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/staticbnwfpile/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/staticbnwfpile/</guid>
       <description>This article describes the OpenSees implementation of a simple laterally-loaded pile example. The problem is modeled as a beam on a nonlinear Winkler foundation (BNWF), utilizing displacement-based beam elements for the pile and nonlinear spring elements which represent the vertical and lateral response of the surrounding soil.</description>
     </item>
     <item>
       <title>Limit State Material Example</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/limitstatematerial/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/limitstatematerial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/limitstatematerial/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/limitstatematerial/</guid>
       <description>Application of a limit state material is demonstrated on an example of a column modeled with force-based beam-column element. Three types of analysis are performed on a same column:</description>
     </item>
     <item>
       <title>MultipleShearSpring</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/multipleshearspring/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/multipleshearspring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/multipleshearspring/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/multipleshearspring/</guid>
       <description>This command is used to construct a multipleShearSpring (MSS) element object, which is defined by two nodes. This element consists of a series of identical shear springs arranged radially to represent the isotropic behavior in the local $y$-$z$ plane.</description>
     </item>
     <item>
       <title>Simulating a Centrifuge Test</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/centrifuge/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/centrifuge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/centrifuge/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/centrifuge/</guid>
       <description>Example Provided by: Antonios Vytiniotis, MIT&#xA;This article describes the basic OpenSees features needed for the simulation of vertically propagating shear waves in a scale model in a centrifuge.</description>
     </item>
     <item>
       <title>Site Response Analysis of a Layered Soil Column (Total Stress Analysis)</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/siteresponseanalysis/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/siteresponseanalysis/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</guid>
       <description>Example prepared by: Christopher McGann and Pedro Arduino, University of Washington&#xA;Return to OpenSees Examples Page&#xA;This article describes the OpenSees implementation of a site response analysis a soil deposit located above an elastic half-space using total stress analysis.</description>
     </item>
     <item>
       <title>Three-Dimensional Site Response Analysis of Sloping Ground</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/siteresponse3d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/siteresponse3d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/siteresponse3d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/siteresponse3d/</guid>
       <description>This article discusses a three-dimensional effective stress site response analysis of a slope using OpenSees. The considered site consists of layered cohesionless soil underlain by bedrock.</description>
     </item>
     <item>
       <title>YamamotoBiaxialHDR</title>
-      <link>https:stairlab.github.io/opensees-gallerycommunity/yamamotobiaxialhdr/</link>
+      <link>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerycommunity/yamamotobiaxialhdr/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</guid>
       <description>This command is used to construct a YamamotoBiaxialHDR element object, which is defined by two nodes. This element can be used to represent the isotropic behavior of high-damping rubber bearing in the local y-z plane.</description>
     </item>
   </channel>
