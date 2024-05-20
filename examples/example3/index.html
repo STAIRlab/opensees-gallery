@@ -8,7 +8,7 @@
 
 
 <title>Example 3: Portal Frame Examples - OpenSees Gallery</title>
-<meta name="description" content="This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.">
+<meta name="description" content="Nonlinear analysis of a concrete portal frame.">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -58,9 +58,9 @@
     "name" : "STAIRlab"
   },
   "headline": "Example 3: Portal Frame Examples",
-  "description" : "This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.",
+  "description" : "Nonlinear analysis of a concrete portal frame.",
   "inLanguage" : "en",
-  "wordCount":  1297 ,
+  "wordCount":  1285 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -80,7 +80,8 @@
 </script>
 
 <meta property="og:title" content="Example 3: Portal Frame Examples" />
-<meta property="og:description" content="This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.">
+<meta property="og:description" content="Nonlinear analysis of a concrete portal frame.">
+<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/ConcretePortal.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/example3/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="OpenSees Gallery" />
@@ -304,6 +305,27 @@
     
     <main>
     
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+    
+      
+      <div class="d-none d-xl-block col-xl-2 docs-toc">
+        <ul class="nav toc-top">
+          <li><a href="#" id="back_to_top" class="docs-toc-title"></a></li>
+        </ul>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#31---gravity-analysis">3.1 - Gravity Analysis</a></li>
+    <li><a href="#32---pushover-analysis">3.2 - Pushover Analysis</a></li>
+    <li><a href="#33---transient-analysis">3.3 - Transient Analysis</a></li>
+  </ul>
+</nav>
+        
+      </div>
+      
+    
+      <main class="col-12 col-md-1 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
+
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
@@ -334,8 +356,7 @@ figure below, subject to gravity loads.</p>
 <li><code>Example3.1.tcl</code></li>
 </ol>
 <p>A nonlinear model of the portal frame shown in
-figure <a href="#example3">example3</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;example3&rdquo;} is created. The model consists of four nodes, two
+the figure below is created. The model consists of four nodes, two
 nonlinear beam-column elements, 1 and 2, to model the columns and an
 elastic beam element, 3, to model the beam. For the column elements a
 section, identical to the section used in Example 2, is created using
@@ -398,10 +419,9 @@ contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4
 at the end of an iteration. Each line of eleForce.out contains the time,
 and the element end forces in the local coordinate system. A plot of the
 load-displacement relationship at node 3 is shown in
-figure <a href="#lateral32">lateral32</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;lateral32&rdquo;}.</p>
+the figure below.</p>
 <p><img src="ExampleOut3.2.svg" alt="Load displacement curve for node 3"></p>
-<h2 id="example-33---transient-analysis">Example 3.3 - Transient Analysis</h2>
+<h2 id="33---transient-analysis">3.3 - Transient Analysis</h2>
 <p>In this example the reinforced concrete portal frame which has undergone
 the gravity load analysis of Example 3.1 is now subjected to a uniform
 earthquake excitation.</p>
@@ -448,26 +468,26 @@ stored in the file <code>nodeTransient.out</code> for post-processing. In additi
 the section forces and deformations for the section at the base of
 column 1 will also be stored in two seperate files. The results of the
 eigenvalue analysis will be displayed on the screen.</p>
-<pre tabindex="0"><code>    Gravity load analysis completed
-    eigen values at start of transient: 2.695422e+02  1.750711e+04  
-    Transient analysis completed SUCCESSFULLY
-    eigen values at start of transient: 1.578616e+02  1.658481e+04  
+<pre tabindex="0"><code>Gravity load analysis completed
+eigen values at start of transient: 2.695422e+02  1.750711e+04  
+Transient analysis completed SUCCESSFULLY
+eigen values at start of transient: 1.578616e+02  1.658481e+04  
 
-     Node: 3
-         Coordinates  : 0 144 
-         commitDisps: -0.0464287 -0.0246641 0.000196066 
-         Velocities   : -0.733071 1.86329e-05 0.00467983 
-         commitAccels: -9.13525 0.277302 38.2972 
-         unbalanced Load: -3.9475 -180 0 
-         Mass : 
-           0.465839 0 0 
-           0 0.465839 0 
-           0 0 0 
+ Node: 3
+     Coordinates  : 0 144 
+     commitDisps: -0.0464287 -0.0246641 0.000196066 
+     Velocities   : -0.733071 1.86329e-05 0.00467983 
+     commitAccels: -9.13525 0.277302 38.2972 
+     unbalanced Load: -3.9475 -180 0 
+     Mass : 
+       0.465839 0 0 
+       0 0.465839 0 
+       0 0 0 
 
-         Eigenvectors: 
-           -1.03587 -0.0482103 
-           -0.00179081 0.00612275 
-           0.00663473 3.21404e-05 
+     Eigenvectors: 
+       -1.03587 -0.0482103 
+       -0.00179081 0.00612275 
+       0.00663473 3.21404e-05 
 </code></pre><p>The two eigenvalues for the eigenvalue analysis are printed to the
 screen. The state of node 3 at the end of the analysis is also printed.
 The information contains the last committed displacements, velocities
@@ -478,22 +498,13 @@ pertaining to the node 3 is also displayed.</p>
 been created. Each line of nodeTransient.out contains the domain time,
 and DX, DY and RZ for node 3. Plotting the first and second columns of
 this file the lateral displacement versus time for node 3 can be
-obtained as shown in
-figure <a href="#element1MK">[lateral33$$
-](#lateral33){reference-type="ref"
-reference="lateral33"}. Each line of the files ele1secForce.out and
-ele1secDef.out contain the domain time and the forces and deformations
+obtained as shown in the figure below. Each line of the files <code>ele1secForce.out</code>
+and <code>ele1secDef.out</code> contain the domain time and the forces and deformations
 for section 1 (the base section) of element 1. These can be used to
 generate the moment-curvature time history of the base section of column
-1 as shown in figure [\[element1MK$$
-</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;element1MK&rdquo;}.</p>
-<p>::: {.center}
-<img src="newNode3.3.svg" alt="Lateral displacement at node 3">
-:::</p>
-<p>::: {.center}
-<img src="newElement1MK.svg" alt="Column section moment-curvature results">
-:::</p>
+1 as shown below.</p>
+<p><img src="newNode3.3.svg" alt="Lateral displacement at node 3"></p>
+<p><img src="newElement1MK.svg" alt="Column section moment-curvature results"></p>
 
       </article>
     </div>
@@ -807,8 +818,11 @@ Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘
   
 
   
-
 </div>
+    </main>
+  </div>
+</div>
+
 
     </main>
     
