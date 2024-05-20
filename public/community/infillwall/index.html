@@ -61,7 +61,7 @@ This article describes the commands for modeling an infill wall element which co
   "headline": "Infill Wall Model and Element Removal",
   "description" : "source\nThis article describes the commands for modeling an infill wall element which considers in-plane and out-of-plane interaction and for removal of the element during nonlinear time history simulation in OpenSees.",
   "inLanguage" : "en",
-  "wordCount":  3360 ,
+  "wordCount":  3342 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -366,15 +366,15 @@ Figure 1). By this way, the beam-column element acts as a truss element
 and a flexural element in the IP and OOP directions, respectively. The
 discretization of the cross section is shown in Figure 2a. In this
 figure, the vector used to define the local-coordinate system in
-OpenSees, `vecxz`, is `(0 0 -1)` corresponding to the global axes shown in
+OpenSees, <code>vecxz</code>, is <code>(0 0 -1)</code> corresponding to the global axes shown in
 Figure 1. Each fiber is defined with the area
- $\mathrm{A_i}$ , z-coordinate
-$\mathrm{z_i}$ and a bilinear stress-strain
+\(\mathrm{A_i}\) , \(z\)-coordinate
+\(\mathrm{z_i}\) and a bilinear stress-strain
 relationship. The strain hardening slope is chosen to be very small,
-hence the yield stress $\mathrm{f_{yi}}$ and
-the yield strain $\mathrm{{\epsilon}_{yi}}$
+hence the yield stress \(\mathrm{f_{yi}}\) and
+the yield strain \(\mathrm{{\epsilon}_{yi}}\)
 define the stress-strain relationship of the
-$\mathrm{i_{th}}$ fiber. Since only one
+\(\mathrm{i_{th}}\) fiber. Since only one
 diagonal is utilized in the model, it has both tension and compression
 strengths. Therefore, the fibers are considered to have the same
 absolute value for the tensile and compression yield strengths.</p>
@@ -385,8 +385,8 @@ absolute value for the tensile and compression yield strengths.</p>
 <p>The parameters defining a fiber section
 (\(\mathrm{A_i}\),
 \(\mathrm{z_i}\),
- $\mathrm{f_{yi}}$ , and
- $\mathrm{{\epsilon}_{yi}}$ ) are set such that
+$\mathrm{f_{yi}}$ , and
+$\mathrm{{\epsilon}_{yi}}$ ) are set such that
 the intended strength interaction (Figure 2b) and the IP axial and OOP
 bending stiffness values of the diagonal infill wall element are
 properly simulated. In the current formulation, FEMA-356[3] or
@@ -404,11 +404,13 @@ explanation, equations of FEMA-356 are referred to rather than ASCE-41
 equations, since FEMA-356 document is accessible from FEMA website.
 However, Equations of FEMA-356 and ASCE-41 are very similar and ASCE-41
 equations may be replaced with FEMA-356 equations.</p>
-<p>1. Calculate the IP axial force capacity of the equivalent diagonal
-element ($\mathrm{P_{IP0}}$, Equation 1.</p>
+<ol>
+<li>Calculate the IP axial force capacity of the equivalent diagonal
+element ($\mathrm{P_{IP0}}$, Equation 1.
 \[
 P_{I P O}=\frac{Q_{C E}}{\cos \theta} \quad Q_{C E}=A_{\text {ni }} f_{\text {vie }}
-\]
+\]</li>
+</ol>
 <p>In Equation 1, $\mathrm{\Theta}$ is the
 angle of the equivalent diagonal element with the horizontal.
 $\mathrm{Q_{CE}}$ is the expected infill shear
@@ -420,7 +422,7 @@ Equation 7-15 in FEMA-356.</p>
 <ol start="2">
 <li>
 <p>Calculate the OOP moment capacity under zero IP axial force
-(MOOP0) for the equivalent diagonal element, Equation 2.</p>
+(MOOP0) for the equivalent diagonal element, Equation 2.
 </p>
 \[
    \begin{aligned} 
@@ -457,7 +459,7 @@ $\mathrm{P_{IP0}}$ , which is calculated in step 1, is the IP axial strength wit
 $\mathrm{M_{OOP}}$ is the OOP bending strength
 in the presence of IP force, and
 $\mathrm{M_{OOP0}}$ , which is calculated in
-step 2, is the OOP bending strength without IP force.</p></p>
+step 2, is the OOP bending strength without IP force.</p>
 <figure>
 <img src="Eq3.jpg" title="Eq3.jpg" alt="Eq3.jpg" />
 <figcaption aria-hidden="true">Eq3.jpg</figcaption>
@@ -476,14 +478,16 @@ $\mathrm{P_{IP0}}$ ) pairs), where 2(N-1) is the
 total number of fibers in the section (N-1 fibers are placed at one side
 of the y-axis and N-1 fibers on the other side symmetrically as shown in
 Figure 2). Typically, 10 fibers along the section could be sufficient
-which corresponds to 6 data pairs on the interaction diagram.</p></p>
+which corresponds to 6 data pairs on the interaction diagram.</p>
 </li>
-</ol>
-<p>4. Calculate the equivalent strut width “a” using Equation 4, which
+<li>
+<p>Calculate the equivalent strut width “a” using Equation 4, which
 corresponds to Equation 7-14 in FEMA-356. Then, cross-sectional area of
 the diagonal element becomes tinf×a. The user is free to use any other
 relationship to calculate the area of the equivalent diagonal element or
 the equivalent width.</p>
+</li>
+</ol>
 <figure>
 <img src="Eq4.jpg" title="Eq4.jpg" alt="Eq4.jpg" />
 <figcaption aria-hidden="true">Eq4.jpg</figcaption>
@@ -511,7 +515,7 @@ represents the reduction in moment of inertia due to cracking.
 </li>
 <li>
 <p>Calculate the distance of the $\mathrm{i^{th}}$ fiber to the centroid
-($\mathrm{z_{i}}$, Equation 6.</p></p>
+($\mathrm{z_{i}}$, Equation 6.</p>
 <figure>
 <img src="Eq6.jpg" title="Eq6.jpg" alt="Eq6.jpg" />
 <figcaption aria-hidden="true">Eq6.jpg</figcaption>
@@ -561,7 +565,8 @@ to the equivalent moment of inertia in OOP direction
   Equation 6, $\mathrm{\gamma}$ and
   $\mathrm{\eta}$ can be determined from Equation 7. Then, the area of each fiber is calculated using Equation 7b.
 <ol start="8">
-<li>Calculate yield stress and yield strain for each fiber, Equations 8 and 9.
+<li>
+<p>Calculate yield stress and yield strain for each fiber, Equations 8 and 9.</p>
 <figure>
 <img src="Eq89-2.jpg" title="Eq89-2.jpg" alt="Eq89-2.jpg" />
 <figcaption aria-hidden="true">Eq89-2.jpg</figcaption>
@@ -571,11 +576,13 @@ plastic axial force that occurs as the plastic neutral axis (PNA in
 Figure 2) is “swept through” the section. Derivation of this equation is
 explained in reference [2].
 </li>
-</ol>
-<p>9. In addition to the fibers along z direction, a dummy fiber (a
+<li>
+<p>In addition to the fibers along z direction, a dummy fiber (a
 fiber with a very small area) should be located at an arbitrary point
 along the y-axis (Figure 2) to supply a very small IP moment of
 inertia.</p>
+</li>
+</ol>
 <p>The inelastic fiber section is discretized following the above nine
 steps. Cross sectional area obtained in step 4 and moment of inertia in
 OOP direction obtained in step 5 are used as area and moment of inertia
@@ -691,20 +698,20 @@ removal is for the infill wall, because there will be options for
 removal of other elements in the next versions of OpenSees as mentioned
 previously. $globgrav is the global axis of the model in the direction
 of gravity. 1, 2 and 3 should be input for X, Y and Z axes,
-respectively. For example, it is equal to 2 in Figure 1.</p></p>
+respectively. For example, it is equal to 2 in Figure 1.</p>
 <figure>
 <img src="Figure8.jpg" title="Figure8.jpg" alt="Figure8.jpg" />
 <figcaption aria-hidden="true">Figure8.jpg</figcaption>
 </figure>
 <h2 id="example">Example</h2>
 <p>Files related to the example can be downloaded from the links below.
-This example is based on "Example 8. generic 3D Frame, NStory NBayX
-NBayZ, Reinforced-Concrete Section" which is available in OpenSees
-Examples Manual. Main file is "Model_IR.tcl". Lines 326-469 in this file
+This example is based on &ldquo;Example 8. generic 3D Frame, NStory NBayX
+NBayZ, Reinforced-Concrete Section&rdquo; which is available in OpenSees
+Examples Manual. Main file is &ldquo;Model_IR.tcl&rdquo;. Lines 326-469 in this file
 are related to the infill wall model and element removal. File which
 conducts time history analysis is NRHA_IR.tcl. Ground motion files
 (PUL194.tcl, PUL104.tcl) should be located under a directory named
-"GMFiles". Calculation of the infill wall parameters are summarized in
+&ldquo;GMFiles&rdquo;. Calculation of the infill wall parameters are summarized in
 the file Calculations.pdf. This file is created using Mathcad originally
 by Stephen Kadysiewski. Interested users can request the Mathcad file by
 sending email to selimgunay [at] berkeley . edu or mosalam [at] ce .
@@ -735,75 +742,107 @@ title="wikilink">Dispwall1-cg.tcl</a></li>
 title="wikilink">Calculations.pdf</a></li>
 </ul>
 <h2 id="references">References</h2>
-<p>1. Kadysiewski, S. and Mosalam, K.M. (2009), “Modeling of
+<ol>
+<li>
+<p>Kadysiewski, S. and Mosalam, K.M. (2009), “Modeling of
 Unreinforced Masonry Infill Walls Considering In-plane and Out-of-Plane
 Interaction”, <em>Pacific Earthquake Engineering Research Center</em>,
 PEER 2008/102.</p>
-<p>2. Kadysiewski, S. and Mosalam, K.M. (2009), “Modelling of
+</li>
+<li>
+<p>Kadysiewski, S. and Mosalam, K.M. (2009), “Modelling of
 Unreinforced Masonry Infill Walls Considering In-Plane and Out-of-Plane
 Interaction”, <em>Proceedings of the 11th Canadian Masonry
 Symposium</em>, Toronto, Ontario, May 31-June 6.</p>
-<p>3. Hashemi, S.A. and Mosalam, K.M. (2007), “Seismic Evaluation of
+</li>
+<li>
+<p>Hashemi, S.A. and Mosalam, K.M. (2007), “Seismic Evaluation of
 Reinforced Concrete Buildings Including Effects of Infill Masonry
 Walls”, <em>Pacific Earthquake Engineering Research Center</em>, PEER
 2007/100.</p>
-<p>4. Talaat, M. and Mosalam, K.M. (2008), “Computational Modeling of
+</li>
+<li>
+<p>Talaat, M. and Mosalam, K.M. (2008), “Computational Modeling of
 Progressive Collapse in Reinforced Concrete Frame Structures”,
 <em>Pacific Earthquake Engineering Research Center</em>, PEER
 2007/10.</p>
-<p>5. Talaat, M. and Mosalam, K.M. (2009), “Modeling Progressive
+</li>
+<li>
+<p>Talaat, M. and Mosalam, K.M. (2009), “Modeling Progressive
 Collapse in Reinforced Concrete Buildings Using Direct Element Removal”,
 <em>Earthquake Engineering and Structural Dynamics</em>,
 <strong>38</strong>(5): 609-634.</p>
-<p>6. Talaat, M. and K. M. Mosalam, K.M. (2009), Chapter20: How to
+</li>
+<li>
+<p>Talaat, M. and K. M. Mosalam, K.M. (2009), Chapter20: How to
 Simulate Column Collapse and Removal in As-built and Retrofitted
 Building Structures?, in <em>Seismic Risk Assessment and Retrofitting -
 with special emphasis on existing low-rise structures</em>, Ilki, A,
 Karadogan, F, Pala, S &amp; Yuksel, E (Eds), ISBN 978-90-481-2680-4,
 Springer.</p>
-<p>7. Talaat, M. and Mosalam, K.M. (2006), “Progressive Collapse
+</li>
+<li>
+<p>Talaat, M. and Mosalam, K.M. (2006), “Progressive Collapse
 Modeling of Reinforced Concrete Framed Structures Containing Masonry
 Infill Walls”, <em>Proceedings of the 2nd NEES/E-Defense Workshop on
 Collapse Simulation of Reinforced Concrete Building Structures</em>,
 Kobe, Japan.</p>
-<p>8. Talaat, M. and Mosalam, K.M. (2007), “Towards Modeling Progressive
+</li>
+<li>
+<p>Talaat, M. and Mosalam, K.M. (2007), “Towards Modeling Progressive
 Collapse in Reinforced Concrete Buildings”, <em>Proceedings of SEI-ASCE
 2007 Structures Congress</em>, Long Beach, California, USA.</p>
-<p>9. Mosalam, K.M., Talaat, M., and Park, S. (2008), “Modeling
+</li>
+<li>
+<p>Mosalam, K.M., Talaat, M., and Park, S. (2008), “Modeling
 Progressive Collapse in Reinforced Concrete Framed Structures”,
 <em>Proceedings of the 14th World Conference on Earthquake
 Engineering</em>, Beijing, China, October 12-17, Paper S15-018.</p>
-<p>10. Mosalam, K.M., Park, S., Günay, M.S. (2009), “Evaluation of an
+</li>
+<li>
+<p>Mosalam, K.M., Park, S., Günay, M.S. (2009), “Evaluation of an
 Element Removal Algorithm for Reinforced Concrete Structures Using Shake
 Table Experiments,” <em>Proceedings of the 2nd International Conference
 on Computational Methods in structural Dynamics and Earthquake
 Engineering</em> (COMPDYN 2009), Island of Rhodes, Greece, June
 22-24.</p>
-<p>11. Binici, B. and Mosalam, K.M. (2007), “Analysis of Reinforced
+</li>
+<li>
+<p>Binici, B. and Mosalam, K.M. (2007), “Analysis of Reinforced
 Concrete Columns Retrofitted With Fiber Reinforced Polymer Lamina,”
 <em>Composites Part B: Engineering</em>, <strong>38</strong>(2):
 265-276.</p>
-<p>12. Mosalam, K.M., Talaat, M., and Binici, B. (2007), “A
+</li>
+<li>
+<p>Mosalam, K.M., Talaat, M., and Binici, B. (2007), “A
 Computational Model for Reinforced Concrete Members Confined with Fiber
 Reinforced Polymer Lamina: Implementation and Experimental Validation,”
 <em>Composites Part B: Engineering</em>, <strong>38</strong>(5-6):
 598-613.</p>
-<p>13. Mosalam, K.M., Talaat, M., and Binici, B. (2007), “Computational
+</li>
+<li>
+<p>Mosalam, K.M., Talaat, M., and Binici, B. (2007), “Computational
 Model for FRP-Confined RC Members”, <em>Proceedings of the 8th
 International Symposium on Fiber Reinforced Polymer Reinforcement for
 Concrete Structures</em> (FRPRCS-8), University of Patras, Patras,
 Greece.</p>
-<p>14. Mosalam, K.M., and Günay, S. (2010), Chapter 33: Seismic Retrofit
+</li>
+<li>
+<p>Mosalam, K.M., and Günay, S. (2010), Chapter 33: Seismic Retrofit
 of Non-Ductile Reinforced Concrete Frames Using Infill Walls as a
 Rocking Spine, in <em>Advances in Performance-Based Earthquake
 Engineering, Geotechnical, Geological, and Earthquake Engineering</em>,
 Fardis, M.N. (Ed.), Springer.</p>
-<p>15. Günay, S., Korolyk, M., Mar D., Mosalam, K.M., and Rodgers, J.
+</li>
+<li>
+<p>Günay, S., Korolyk, M., Mar D., Mosalam, K.M., and Rodgers, J.
 (2009), “Infill Walls as a Spine to Enhance the Seismic Performance of
 Non-Ductile Reinforced Concrete Frames,” <em>Proceedings of the
 ATC&amp;SEI Conference on Improving the Seismic Performance of Existing
 Buildings and Other Structures</em>, December 9-11, San Francisco,
 California.</p>
+</li>
+</ol>
 <p><span style="color:blue"> M. Selim Gunay and Khalid M. Mosalam,
 University of California, Berkeley</span></p>
 <hr />
