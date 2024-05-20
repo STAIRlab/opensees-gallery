@@ -2,425 +2,425 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https:stairlab.github.io/opensees-galleryfilter/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/filter/</loc>
     <lastmod>2018-04-27T20:16:13+10:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallery</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/</loc>
     <lastmod>2018-04-27T20:16:13+10:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/status/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/status/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerylegacy/examples/readme/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/legacy/examples/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryvalidation/basic/readme/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/validation/basic/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryvalidation/frame/readme/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/validation/frame/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryvalidation/readme/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/validation/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/3d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/3d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/archbridge/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/archdynamicsnap/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/archstaticsnap/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/shattuck_curved_fibersection_gm_loop/readme/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/shattuck_curved_fibersection_gm_loop/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycategories/basic/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/categories/basic/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryvalidation/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/validation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/bathesprings/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/beamcolumnjointexample/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/beamcolumnjointexample/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/opensees_models_cbf/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/buildingmodes/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/bwbnexample/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/bwbnexample/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/cablestayedcurved/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/cablestayedcurved/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/cablestayed01/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/cablestayed02/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycategories/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallery_categories/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/_categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/chopra-10.4/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/cfssswp/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/cfssswp/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/cfswswp/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/cfswswp/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/bracedportal/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/bracedportal/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/concrete/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/concrete/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/concretesurface/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/concreteframe2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/concreteframe2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/concretemrf/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/dambreak/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/dambreak/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/dynamic/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/dynamic/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/slopeanalysis2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/slopeanalysis2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/viscousdamper/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/mrf_concentrated/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/eigen/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/eigen/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/steelbuilding2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/elasticspectra/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryelements/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/elements/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/ex1/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/ex1/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/ex4/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/ex4/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/ex5/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/ex5/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example1/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example1/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example2/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example3/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example3/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example4/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example4/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example5/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example5/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example6/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example6/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example7/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example7/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/example8/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example8/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/excavation/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/excavation/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerymaterial/fatiguematerial/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/material/fatiguematerial/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/fiber/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/fiber/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/frameformulations/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/frame/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/frame/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/igloo/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/igloo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/cantilevertransient/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/inelasticsdof/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/infillwall/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/infillwall/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/joint/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/joint/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/kikuchibearing/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/kikuchibearing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/kikuchiaikenhdr/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/kikuchiaikenhdr/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerylanguages/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/languages/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/staticbnwfpile/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/staticbnwfpile/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerylegacy/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/legacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/limitstatematerial/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/limitstatematerial/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerymaterial/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/material/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/modelingdiaphragms2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/multipleshearspring/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/multipleshearspring/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/notebook/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/notebook/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/other/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/other/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycategories/patch/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/categories/patch/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/piles/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/piles/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/plane/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/plane/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/steelframe2d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/mrf_pushover/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/mrf_panelzone/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_panelzone/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/python/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/python/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/ex9/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/ex9/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/spectrum/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/spectrum/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/sathertower/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/sathertower/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/seismic/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/seismic/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/shallowdome/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/shallowdome/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/shell/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/shell/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/pendulum/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/pendulum/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/centrifuge/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/centrifuge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/siteresponseanalysis/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/solid/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/solid/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/static/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/static/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/steel/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/steel/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/steelmrf/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelmrf/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/steelmrf_northridge/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerygallery/suspensionbridge/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/tcl/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/tcl/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/siteresponse3d/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/siteresponse3d/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-galleryexamples/structuralmatrices/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerytags/truss/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/truss/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https:stairlab.github.io/opensees-gallerycommunity/yamamotobiaxialhdr/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

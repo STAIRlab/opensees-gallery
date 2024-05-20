@@ -2,156 +2,156 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on OpenSees Gallery</title>
-    <link>https:stairlab.github.io/opensees-gallerytags/python/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/python/</link>
     <description>Recent content in Python on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https:stairlab.github.io/opensees-gallerytags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Bridge</title>
-      <link>https:stairlab.github.io/opensees-gallerygallery/archbridge/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerygallery/archbridge/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</guid>
       <description>Arch bridge example</description>
     </item>
     <item>
       <title>Arch Instability</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/archstaticsnap/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/archstaticsnap/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
       <description>Download (IncrementalAnalysis.ipynb)&#xA;Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
     </item>
     <item>
       <title>Building Modes</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/buildingmodes/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/buildingmodes/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</guid>
       <description></description>
     </item>
     <item>
       <title>Cable-Stayed Bridge</title>
-      <link>https:stairlab.github.io/opensees-gallerygallery/cablestayed01/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerygallery/cablestayed01/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</guid>
       <description>Author: Junjun Guo([HomePage](https://github.com/Junjun1guo)) E-mail: guojj@tongji.edu.cn/guojj_ce@163.com Tutorials Download the zip file Run the example model (AnExampleBridgeOpenSeesPyModel.py) and generate the result database (resultsDB_1_1.</description>
     </item>
     <item>
       <title>CableStayed02</title>
-      <link>https:stairlab.github.io/opensees-gallerygallery/cablestayed02/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerygallery/cablestayed02/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</guid>
       <description>This model is sourced from the opstool repository.</description>
     </item>
     <item>
       <title>Chopra 10.4: Eigen Analysis</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/chopra-10.4/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/chopra-10.4/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
     </item>
     <item>
       <title>Concrete</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/concretesurface/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/concretesurface/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</guid>
       <description></description>
     </item>
     <item>
       <title>Concrete Frame Pushover Analysis</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/concreteframe2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/concreteframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/concreteframe2d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/concreteframe2d/</guid>
       <description>In this example the reinforced concrete portal frame which has undergone the gravity load analysis is now be subjected to a pushover analysis.</description>
     </item>
     <item>
       <title>Example 1: Simple Truss</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example1/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example1/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
       <description>The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.</description>
     </item>
     <item>
       <title>Example 2: Moment-Curvature</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example2/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example2/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 3: Portal Frame Examples</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example3/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example3/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
       <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 5: Three-Dimensional Rigid Frame</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example5/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example5/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
       <description>Example 5.1 This example is of a three-dimensional reinforced concrete rigid frame, as shown in figure example5{reference-type=&amp;ldquo;ref&amp;rdquo; reference=&amp;ldquo;example5&amp;rdquo;}, subjected to bi-directional earthquake ground motion.</description>
     </item>
     <item>
       <title>Example 6: Simply Supported Beam</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example6/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example6/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
     </item>
     <item>
       <title>Example 7: Dynamic Shell Analysis</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example7/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example7/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
       <title>Example 8: Cantilever Beam</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example8/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example8/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
     </item>
     <item>
       <title>Igloo</title>
-      <link>https:stairlab.github.io/opensees-gallerygallery/igloo/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/igloo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerygallery/igloo/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/igloo/</guid>
       <description></description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/cantilevertransient/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/cantilevertransient/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
       <description>Download (CantileverTransient2D.ipynb)&#xA;In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
     </item>
     <item>
       <title>Inelastic SDOF</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/inelasticsdof/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/inelasticsdof/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
       <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
     </item>
     <item>
       <title>Plane Steel Frame</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/steelframe2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/steelframe2d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
       <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&#xA;https://openseespydoc.readthedocs.io/en/latest/src/fsicmds.html</description>
     </item>
     <item>
       <title>RotD Spectrum</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/spectrum/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/spectrum/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
       <description>The source code is adapted from the example by Jawad Fayaz from University of California-Irvine at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html</description>
     </item>
     <item>
       <title>Suspension Bridge</title>
-      <link>https:stairlab.github.io/opensees-gallerygallery/suspensionbridge/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-gallerygallery/suspensionbridge/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</guid>
       <description>From opstool</description>
     </item>
   </channel>

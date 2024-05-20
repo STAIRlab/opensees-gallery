@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Patch on OpenSees Gallery</title>
-    <link>https:stairlab.github.io/opensees-gallerycategories/patch/</link>
+    <link>https://stairlab.github.io/opensees-gallery/categories/patch/</link>
     <description>Recent content in Patch on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https:stairlab.github.io/opensees-gallerycategories/patch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/categories/patch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Example 2: Moment-Curvature</title>
-      <link>https:stairlab.github.io/opensees-galleryexamples/example2/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryexamples/example2/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.</description>
     </item>
   </channel>

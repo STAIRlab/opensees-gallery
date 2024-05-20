@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basic Validation on OpenSees Gallery</title>
-    <link>https:stairlab.github.io/opensees-galleryvalidation/</link>
+    <link>https://stairlab.github.io/opensees-gallery/validation/</link>
     <description>Recent content in Basic Validation on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https:stairlab.github.io/opensees-galleryvalidation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/validation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https:stairlab.github.io/opensees-galleryvalidation/basic/readme/</link>
+      <link>https://stairlab.github.io/opensees-gallery/validation/basic/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryvalidation/basic/readme/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/validation/basic/readme/</guid>
       <description>| PASSED | sdofTransient.tcl | PASSED | SmallEigen.tcl | PASSED | NewmarkIntegrator.tcl SUCCESS : mdofModal.tcl | PASSED | sdofTransient.tcl | PASSED | SmallEigen.</description>
     </item>
     <item>
       <title></title>
-      <link>https:stairlab.github.io/opensees-galleryvalidation/frame/readme/</link>
+      <link>https://stairlab.github.io/opensees-gallery/validation/frame/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryvalidation/frame/readme/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/validation/frame/readme/</guid>
       <description>| PASSED | EigenFrame.Extra.tcl eleType: elasticBeam | PASSED | EigenFrame.Extra.tcl eleType: forceBeamElasticSection | PASSED | EigenFrame.Extra.tcl eleType: dispBeamElasticSection | PASSED | EigenFrame.</description>
     </item>
     <item>
       <title></title>
-      <link>https:stairlab.github.io/opensees-galleryvalidation/readme/</link>
+      <link>https://stairlab.github.io/opensees-gallery/validation/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:stairlab.github.io/opensees-galleryvalidation/readme/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/validation/readme/</guid>
       <description>Status Notes PASSED PlanarTruss.tcl PASSED PlanarTruss.Extra.tcl PASSED PortalFrame2d.tcl PASSED EigenFrame.tcl PASSED EigenFrame.Extra.tcl eleType: elasticBeam PASSED EigenFrame.Extra.tcl eleType: forceBeamElasticSection PASSED EigenFrame.</description>
     </item>
   </channel>
