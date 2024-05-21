@@ -60,7 +60,7 @@
   "headline": "Example 1: Simple Truss",
   "description" : "The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.",
   "inLanguage" : "en",
-  "wordCount":  895 ,
+  "wordCount":  997 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -358,7 +358,25 @@ pattern with a nodal load acting at node 4, and constraints at the three
 support nodes. Since the truss elements have the same elastic material,
 a single Elastic material object is created.</p>
 <p><img src="Example1.svg" alt="Example 1.1"></p>
-<p>The model is linear, so we use a solution Algorithm of type <code>Linear</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes &amp; add to Domain - command: node nodeId xCrd yCrd
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">node</span> <span style="color:#099">1</span>   <span style="color:#099">0.0</span>  <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">2</span> <span style="color:#099">144.0</span>  <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">3</span> <span style="color:#099">168.0</span>  <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">4</span>  <span style="color:#099">72.0</span> <span style="color:#099">96.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">fix</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> 
+</span></span><span style="display:flex;"><span>fix <span style="color:#099">2</span> <span style="color:#099">1</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">fix</span> <span style="color:#099">3</span> <span style="color:#099">1</span> <span style="color:#099">1</span>
+</span></span></code></pre></div><p>Next the materials are defined:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create Elastic material prototype - command: uniaxialMaterial Elastic matID E
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">uniaxialMaterial</span> Elastic <span style="color:#099">1</span> <span style="color:#099">3000</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">section</span> Elastic <span style="color:#099">1</span> <span style="color:#099">3000</span> <span style="color:#099">5.0</span> <span style="color:#099">10000</span>
+</span></span></code></pre></div><p>Finally, define the elements:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">element</span> <span style="color:#008080">$eleType</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">4</span> <span style="color:#099">10.0</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">element</span> <span style="color:#008080">$eleType</span> <span style="color:#099">2</span> <span style="color:#099">2</span> <span style="color:#099">4</span> <span style="color:#099">5.0</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">element</span> <span style="color:#008080">$eleType</span> <span style="color:#099">3</span> <span style="color:#099">3</span> <span style="color:#099">4</span> <span style="color:#099">1</span>
+</span></span></code></pre></div><p>The model is linear, so we use a solution Algorithm of type <code>Linear</code>.</p>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -370,13 +388,13 @@ a single Elastic material object is created.</p>
 		
 
 		<a class="nav-link  active "
-		   id="dbcafe-tab" data-bs-toggle="tab" data-bs-target="#dbcafe"
+		   id="baecdf-tab" data-bs-toggle="tab" data-bs-target="#baecdf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="ebdacf-tab" data-bs-toggle="tab" data-bs-target="#ebdacf"
+		   id="dbacef-tab" data-bs-toggle="tab" data-bs-target="#dbacef"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -392,7 +410,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show active " id="dbcafe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="baecdf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#34;Linear&#34;</span>)
 </span></span></code></pre></div>
@@ -404,7 +422,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show " id="ebdacf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dbacef" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">algorithm</span> Linear
 </span></span></code></pre></div>
