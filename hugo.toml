@@ -1,0 +1,173 @@
+baseURL = 'https://stairlab.github.io/opensees-gallery/'
+languageCode = 'en-us'
+title = 'OpenSees Gallery'
+theme = [ 'lightbi-hugo', 'hugo-dynamic-tabs'] # 'dot-hugo',
+
+copyrightYear = '2024'
+contentDir = 'opensees_gallery'
+
+# Ignore HTML files to prevent Plotly plots
+# from being processed
+ignoreFiles = ['\.html$', '\.pyc$', '\.ipynb_checkpoints/\.*$', '__pycache__/', '\.out$']
+
+DefaultContentLanguage = "en"
+summaryLength  = "20"
+metaDataFormat = "yaml"
+pygmentsStyle = "trac"
+#pygmentsUseClasses = true
+#pygmentsCodeFences = true
+#pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+#disqusShortname = "XXX"
+#googleAnalytics = "XXX"
+enableRobotsTXT = true
+enableGitInfo = false
+Paginate = 6
+
+[Params]
+math = true
+selfHosted = true
+mainSections = ["examples","elements"]
+dateFormat = "02 January 2006"
+comments = false
+readingTime = false
+wordCount = false
+useHLJS = true
+socialShare = true
+delayDisqus = true
+showRelatedPosts = true 
+gcse = false
+Lastmod = false
+rss = true 
+pagination = "10"
+hideAuthor = true
+#authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
+description= "Your can add your website description here."
+lunrSearch = true
+previewCardImagePlacement = "bottom"
+
+############################# Modules ############################
+[module]
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
+[[module.mounts]]
+source = "hugo_stats.json"
+target = "assets/watching/hugo_stats.json"
+
+############################# Build ##############################
+[build]
+writeStats = true
+noJSConfigInAssets = false
+useResourceCacheWhen = 'fallback'
+[build.buildStats]
+enable = true
+[[build.cachebusters]]
+source = 'assets/watching/hugo_stats\.json'
+target = 'style\.css'
+[[build.cachebusters]]
+source = '(postcss)\.config\.js'
+target = 'css'
+[[build.cachebusters]]
+source = 'assets/.*\.(js|ts|jsx|tsx)'
+target = 'js'
+[[build.cachebusters]]
+source = 'assets/.*\.(css|scss|sass)'
+target = 'css'
+[[build.cachebusters]]
+source = 'data/.*\.(.*)$'
+target = 'css'
+[[build.cachebusters]]
+source = 'assets/.*\.(.*)$'
+target = '$1'
+
+############################# Outputs ############################
+[outputs]
+home = ["HTML", "RSS", "WebAppManifest", "SearchIndex"]
+
+############################# Imaging ##############################
+[imaging]
+# See https://github.com/disintegration/imaging
+# Default JPEG or WebP quality setting. Default is 75.
+quality = 90
+
+############################# Caches ###############################
+[caches]
+[caches.images]
+dir = ":resourceDir/_gen"
+maxAge = "720h"
+
+[caches.assets]
+dir = ":resourceDir/_gen"
+maxAge = "720h"
+
+# [outputFormats.SearchIndex]
+# mediaType = "application/json"
+# baseName = "searchindex"
+# isPlainText = true
+# notAlternative = true
+
+#-------------------------------------------------------------------
+
+[markup.goldmark.renderer]
+unsafe= true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[Author]
+  name = "STAIRlab"
+  website = "https://stairlab.berkeley.edu"
+# email = "sample@gmail.com"
+# linkedin = "username"
+  github = "STAIRlab"
+# gitlab = "username"
+# reddit = "username"
+# stackoverflow = "users/XXXXXXX/username"
+
+
+[taxonomies]
+  category = 'categories'
+  language = 'languages'
+  element  = 'elements'
+  tag      = 'tags'
+
+[[menu.main]]
+    name = "Examples"
+    url = "/examples/"
+    weight = 1
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+
+[[menu.main]]
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 3
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
+
+# [[menu.main]]
+#     name = "About"
+#     url = "/about/"
+#     weight = 5
+
