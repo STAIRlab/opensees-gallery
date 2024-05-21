@@ -8,6 +8,13 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/examples/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title></title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/status/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/status/</guid>
+      <description>Examples Status File Message 253 ArcLength 255 Chopra-10.4 couldn&amp;rsquo;t read file &amp;ldquo;EigenAnal_twoStoreyFrame.tcl&amp;rdquo;: no such file or directory 255 Concrete2x2x2D &amp;ldquo;source RCFrame2.</description>
+    </item>
+    <item>
       <title>Arch Dynamic Snapping</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,9 +51,9 @@
     </item>
     <item>
       <title>Concentrically Braced Portal Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/bracedportal/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/bracedportal/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</guid>
       <description></description>
     </item>
     <item>
@@ -134,7 +141,7 @@
       <description>In this example the use of variable substitution and the Tcl loop control structure for building models is demonstrated.&#xA;Example 4.</description>
     </item>
     <item>
-      <title>Example 5: Three-Dimensional Rigid Frame</title>
+      <title>Example 5: Rigid 3D Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
@@ -201,7 +208,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
-      <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&#xA;https://openseespydoc.readthedocs.io/en/latest/src/fsicmds.html</description>
+      <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html</description>
     </item>
     <item>
       <title>Pushover Analysis of 2-Story Moment Frame</title>
@@ -271,6 +278,13 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zero-Length Elements</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/zerolength/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/zerolength/</guid>
       <description></description>
     </item>
   </channel>
