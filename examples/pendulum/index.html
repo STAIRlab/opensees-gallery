@@ -8,8 +8,7 @@
 
 
 <title>Simple Pendulum - OpenSees Gallery</title>
-<meta name="description" content="This example investigates a simple pendulum using the corotational truss element.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 # https://portwooddigital.">
+<meta name="description" content="This example investigates a simple pendulum using the corotational truss element.">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -59,9 +58,9 @@
     "name" : "STAIRlab"
   },
   "headline": "Simple Pendulum",
-  "description" : "This example investigates a simple pendulum using the corotational truss element.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 # https:\/\/portwooddigital.",
+  "description" : "This example investigates a simple pendulum using the corotational truss element.",
   "inLanguage" : "en",
-  "wordCount":  247 ,
+  "wordCount":  261 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -81,8 +80,7 @@
 </script>
 
 <meta property="og:title" content="Simple Pendulum" />
-<meta property="og:description" content="This example investigates a simple pendulum using the corotational truss element.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 # https://portwooddigital.">
+<meta property="og:description" content="This example investigates a simple pendulum using the corotational truss element.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/pendulum.gif" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/pendulum/" />
 <meta property="og:type" content="website" />
@@ -407,9 +405,19 @@ the corotational truss element.</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># https://portwooddigital.com/2022/08/14/parametric-oscillator/</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Adapted from https://portwooddigital.com/2022/08/14/parametric-oscillator/</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Claudio Perez</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">from</span> <span style="color:#555">opensees.units.ips</span> <span style="font-weight:bold">import</span> inch, sec, gravity <span style="font-weight:bold">as</span> g
 </span></span><span style="display:flex;"><span>
@@ -441,6 +449,7 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#39;Plain&#39;</span>,<span style="color:#099">1</span>,<span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>load(<span style="color:#099">2</span>,<span style="color:#099">0</span>,<span style="font-weight:bold">-</span>W)
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">analyze_pendulum</span>(model):
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#39;Newton&#39;</span>)
@@ -480,6 +489,7 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    u <span style="font-weight:bold">=</span> analyze_pendulum(model)
 </span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(u)
+</span></span><span style="display:flex;"><span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

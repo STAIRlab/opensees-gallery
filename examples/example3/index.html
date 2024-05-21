@@ -64,7 +64,7 @@
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
-  "keywords" : [ "Frame, Python, Tcl" ],
+  "keywords" : [ "Frame, Python, Tcl, Concrete" ],
   "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/example3\/",
   "publisher" : {
     "@type": "Organization",
@@ -353,7 +353,7 @@ procedures are demonstrated in several elaborations of the example.</p>
 <p>This example is of a reinforced concrete portal frame, as shown in the
 figure below, subject to gravity loads.</p>
 <ol>
-<li><code>Example3.1.tcl</code></li>
+<li><a href="Example3.1.tcl"><code>Example3.1.tcl</code></a></li>
 </ol>
 <p>A nonlinear model of the portal frame shown in
 the figure below is created. The model consists of four nodes, two
@@ -366,13 +366,15 @@ steel and concrete fibers.</p>
 loads acting at nodes 3 and 4, and single point constraints to constrain
 nodes 1 and 2 are created.</p>
 <p>The model contains material non-linearities, so a solution algorithm of
-type Newton is used. The solution algorithm uses a <code>ConvergenceTest</code> which
+type <code>Newton</code> is used. The solution algorithm uses a <code>ConvergenceTest</code> which
 tests convergence of the equilibrium solution with the norm of the
-displacement increment vector. For this nonlinear problem, the gravity
+displacement increment vector.
+For this nonlinear problem, the gravity
 loads are applied incrementally until the full load is applied. To
-achieve this, a LoadControl integrator which advances the solution with
-an increment of 0.1 at each load step is used. The equations are formed
-using a banded storage scheme, so the System is BandGeneral. The
+achieve this, a <code>LoadControl</code> integrator which advances the solution with
+an increment of <code>0.1</code> at each load step is used. The equations are formed
+using a banded storage scheme, so the System is <code>BandGeneral</code>.
+The
 equations are numbered using an RCM (reverse Cuthill-McKee) numberer.
 The constraints are enforced with a Plain constraint handler.</p>
 <p>Once all the components of an analysis are defined, the Analysis object
@@ -383,7 +385,7 @@ element 1 is also output.</p>
 <p>For the two nodes, displacements and loads are given. For the
 beam-column elements, the element end forces in the local system are
 provided.</p>
-<p>The nodeGravity.out file contains ten lines, each line containing 7
+<p>The <code>nodeGravity.out</code> file contains ten lines, each line containing 7
 entries. The first entry is time in the domain at end of the load step.
 The next 3 entries are the displacements at node 3, and the final 3
 entries the displacements at node 4.</p>
@@ -495,7 +497,7 @@ and accelerations at the node, the unbalanced nodal forces and the nodal
 masses. In addition, the eigenvector components of the eigenvector
 pertaining to the node 3 is also displayed.</p>
 <p>In addition to the contents displayed on the screen, three files have
-been created. Each line of nodeTransient.out contains the domain time,
+been created. Each line of <code>nodeTransient.out</code> contains the domain time,
 and DX, DY and RZ for node 3. Plotting the first and second columns of
 this file the lateral displacement versus time for node 3 can be
 obtained as shown in the figure below. Each line of the files <code>ele1secForce.out</code>
@@ -524,6 +526,8 @@ generate the moment-curvature time history of the base section of column
         <a href="https://stairlab.github.io/opensees-gallery/tags/python/">Python</a>
         
         <a href="https://stairlab.github.io/opensees-gallery/tags/tcl/">Tcl</a>
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/concrete/">Concrete</a>
         
       </div>
       

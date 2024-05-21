@@ -1,4 +1,8 @@
-# https://portwooddigital.com/2022/08/14/parametric-oscillator/
+#
+# Adapted from https://portwooddigital.com/2022/08/14/parametric-oscillator/
+#
+# Claudio Perez
+#
 import opensees.openseespy as ops
 from opensees.units.ips import inch, sec, gravity as g
 
@@ -30,6 +34,7 @@ def create_pendulum(m, k, L, W):
     model.pattern('Plain',1,1)
     model.load(2,0,-W)
     return model
+
 
 def analyze_pendulum(model):
     model.algorithm('Newton')
@@ -69,3 +74,4 @@ if __name__ == "__main__":
 
     u = analyze_pendulum(model)
     print(u)
+

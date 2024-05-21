@@ -8,6 +8,13 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/tcl/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Elastic Frame Example</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
+      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
+    </item>
+    <item>
       <title>Example 1: Simple Truss</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -27,6 +34,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
       <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
+    </item>
+    <item>
+      <title>Example 4: Multibay Two Story Frame</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example4/</guid>
+      <description>In this example variables and control structures are demonstrated.&#xA;Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
       <title>Example 5: Rigid 3D Frame</title>

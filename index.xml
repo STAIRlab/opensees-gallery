@@ -202,7 +202,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
-      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads. Here is the file: ElasticFrame.</description>
+      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
     </item>
     <item>
       <title>Elastic Response Spectra</title>
@@ -258,7 +258,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example4/</guid>
-      <description>In this example the use of variable substitution and the Tcl loop control structure for building models is demonstrated.&#xA;Example 4.</description>
+      <description>In this example variables and control structures are demonstrated.&#xA;Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
       <title>Example 5: Rigid 3D Frame</title>
@@ -440,7 +440,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/pendulum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/pendulum/</guid>
-      <description>This example investigates a simple pendulum using the corotational truss element.&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 # https://portwooddigital.</description>
+      <description>This example investigates a simple pendulum using the corotational truss element.&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 # # Adapted from https://portwooddigital.</description>
     </item>
     <item>
       <title>Simulating a Centrifuge Test</title>
