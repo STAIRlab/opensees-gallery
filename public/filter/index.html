@@ -426,6 +426,13 @@
       
     
       
+        <button xx class="tag-button" id="tag-concrete" onclick="htf.checkFilter('concrete', 'tag-')">
+          <span>Concrete</span>
+          <span id="stags-concrete"> -count-</span> | <span id="ctags-concrete"> -count-</span>
+        </button>
+      
+    
+      
         <button xx class="tag-button" id="tag-fiber" onclick="htf.checkFilter('fiber', 'tag-')">
           <span>Fiber</span>
           <span id="stags-fiber"> -count-</span> | <span id="ctags-fiber"> -count-</span>
@@ -447,13 +454,6 @@
       
     
       
-        <button xx class="tag-button" id="tag-concrete" onclick="htf.checkFilter('concrete', 'tag-')">
-          <span>Concrete</span>
-          <span id="stags-concrete"> -count-</span> | <span id="ctags-concrete"> -count-</span>
-        </button>
-      
-    
-      
         <button xx class="tag-button" id="tag-solid" onclick="htf.checkFilter('solid', 'tag-')">
           <span>Solid</span>
           <span id="stags-solid"> -count-</span> | <span id="ctags-solid"> -count-</span>
@@ -464,6 +464,13 @@
         <button xx class="tag-button" id="tag-static" onclick="htf.checkFilter('static', 'tag-')">
           <span>Static</span>
           <span id="stags-static"> -count-</span> | <span id="ctags-static"> -count-</span>
+        </button>
+      
+    
+      
+        <button xx class="tag-button" id="tag-steel" onclick="htf.checkFilter('steel', 'tag-')">
+          <span>Steel</span>
+          <span id="stags-steel"> -count-</span> | <span id="ctags-steel"> -count-</span>
         </button>
       
     
@@ -520,13 +527,6 @@
         <button xx class="tag-button" id="tag-shell" onclick="htf.checkFilter('shell', 'tag-')">
           <span>Shell</span>
           <span id="stags-shell"> -count-</span> | <span id="ctags-shell"> -count-</span>
-        </button>
-      
-    
-      
-        <button xx class="tag-button" id="tag-steel" onclick="htf.checkFilter('steel', 'tag-')">
-          <span>Steel</span>
-          <span id="stags-steel"> -count-</span> | <span id="ctags-steel"> -count-</span>
         </button>
       
     
@@ -872,7 +872,7 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags="3d concrete frame python tcl "
+          data-tags="3d concrete frame python tcl dynamic "
           data-section="examples"
           
           data-authors="no-author"
@@ -883,12 +883,12 @@
       
       <h4><a href="/opensees-gallery/examples/example5/">Example 5: Rigid 3D Frame</a></h4>
       
-      <div><tag>3 D</tag> <tag>Concrete</tag> <tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
+      <div><tag>3 D</tag> <tag>Concrete</tag> <tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Dynamic</tag> </div>
       
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags="frame 2d "
+          data-tags="frame 2d tcl python "
           data-section="examples"
           
           data-authors="no-author"
@@ -899,12 +899,12 @@
       
       <h4><a href="/opensees-gallery/examples/example4/">Example 4: Multibay Two Story Frame</a></h4>
       
-      <div><tag>Frame</tag> <tag>2 D</tag> </div>
+      <div><tag>Frame</tag> <tag>2 D</tag> <tag>Tcl</tag> <tag>Python</tag> </div>
       
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags="frame python tcl "
+          data-tags="frame python tcl concrete "
           data-section="examples"
           
           data-authors="no-author"
@@ -915,7 +915,7 @@
       
       <h4><a href="/opensees-gallery/examples/example3/">Example 3: Portal Frame Examples</a></h4>
       
-      <div><tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
+      <div><tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Concrete</tag> </div>
       
     </div>
   
@@ -1016,7 +1016,7 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags=" tfuntagged"
+          data-tags="steel tcl "
           data-section="examples"
           
           data-authors="no-author"
@@ -1027,7 +1027,7 @@
       
       <h4><a href="/opensees-gallery/examples/steelbuilding2d/">Elastic Frame Example</a></h4>
       
-      <div><tag>untagged</tag></div>
+      <div><tag>Steel</tag> <tag>Tcl</tag> </div>
       
     </div>
   

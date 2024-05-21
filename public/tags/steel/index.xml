@@ -8,6 +8,13 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/steel/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Elastic Frame Example</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
+      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
+    </item>
+    <item>
       <title>Plane Steel Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

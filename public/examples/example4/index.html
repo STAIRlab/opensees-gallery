@@ -8,8 +8,8 @@
 
 
 <title>Example 4: Multibay Two Story Frame - OpenSees Gallery</title>
-<meta name="description" content="In this example the use of variable substitution and the Tcl loop control structure for building models is demonstrated.
-Example 4.">
+<meta name="description" content="In this example variables and control structures are demonstrated.
+Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -59,13 +59,13 @@ Example 4.">
     "name" : "STAIRlab"
   },
   "headline": "Example 4: Multibay Two Story Frame",
-  "description" : "In this example the use of variable substitution and the Tcl loop control structure for building models is demonstrated.\nExample 4.",
+  "description" : "In this example variables and control structures are demonstrated.\nExample 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.",
   "inLanguage" : "en",
-  "wordCount":  535 ,
+  "wordCount":  525 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
-  "keywords" : [ "Frame, 2D" ],
+  "keywords" : [ "Frame, 2D, Tcl, Python" ],
   "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/example4\/",
   "publisher" : {
     "@type": "Organization",
@@ -81,8 +81,8 @@ Example 4.">
 </script>
 
 <meta property="og:title" content="Example 4: Multibay Two Story Frame" />
-<meta property="og:description" content="In this example the use of variable substitution and the Tcl loop control structure for building models is demonstrated.
-Example 4.">
+<meta property="og:description" content="In this example variables and control structures are demonstrated.
+Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/Example4.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/example4/" />
 <meta property="og:type" content="website" />
@@ -343,8 +343,7 @@ Example 4.">
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>In this example the use of variable substitution and the Tcl loop
-control structure for building models is demonstrated.</p>
+        <p>In this example variables and control structures are demonstrated.</p>
 <h2 id="example-41">Example 4.1</h2>
 <p>This example is of a reinforced concrete multibay two story frame, as
 shown in Figure 1, subject to gravity loads.</p>
@@ -360,7 +359,7 @@ for the concrete core, one for the concrete cover and one for the
 reinforcement steel. Three fiber discretized sections are then built,
 one for the exterior columns, one for the interior columns and one for
 the girders. Each of the members in the frame is modelled using
-nonlinear beam-column elements with 4 (nP) integration points and a
+nonlinear beam-column elements with 4 (<code>nP</code>) integration points and a
 linear geometric transformation object.</p>
 <p><img src="Example3.svg" alt="Figure 1"></p>
 <p>For gravity loads, a single load pattern with a linear time series and
@@ -417,6 +416,10 @@ Figure 2.</p>
         <a href="https://stairlab.github.io/opensees-gallery/tags/frame/">Frame</a>
         
         <a href="https://stairlab.github.io/opensees-gallery/tags/2d/">2D</a>
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/tcl/">Tcl</a>
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/python/">Python</a>
         
       </div>
       
@@ -554,10 +557,10 @@ Figure 2.</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Chopra 10.4: Eigen Analysis</h3>
+                <h3 class="fw-bold post-title">Arch Instability</h3>
                 
 
                 <p class="post-meta">
@@ -581,7 +584,10 @@ Figure 2.</p>
 
                 <div class="post-entry">
                     
-                    Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.
+                    Several nonlinear static analysis methods are used to investigate
+instabilities in a shallow arch.
+
+
                     
                 </div>
 
@@ -592,7 +598,7 @@ Figure 2.</p>
             </div>
 
             
-            <img src="/opensees-gallery/examples/chopra-10.4/ShearFrame5_hub382338c0a3c130ccfc492e223795bce_19682_500x0_resize_box_3.png" alt="ShearFrame5.png"
+            <img src="/opensees-gallery/examples/archstaticsnap/arch_hu4b7b505b3ab5e69f3e4a978aaa6b9cbe_12075755_500x0_resize_box_1.gif" alt="arch.gif"
                 class="card-img-bottom img-fluid lazyload">
             
 
@@ -606,10 +612,10 @@ Figure 2.</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/ex1/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/buildingmodes/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Ex1: Time History Analysis of a 2D Elastic Cantilever Column</h3>
+                <h3 class="fw-bold post-title">Building Modes</h3>
                 
 
                 <p class="post-meta">
@@ -633,7 +639,7 @@ Figure 2.</p>
 
                 <div class="post-entry">
                     
-                    This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.
+                    
                     
                 </div>
 
@@ -644,7 +650,7 @@ Figure 2.</p>
             </div>
 
             
-            <img src="/opensees-gallery/examples/ex1/Example1a_EQ_hu50a2a46dcaed729d88342d87d4d131e3_5302_500x0_resize_box_1.gif" alt="Example1a_EQ.gif"
+            <img src="/opensees-gallery/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
                 class="card-img-bottom img-fluid lazyload">
             
 
@@ -658,10 +664,10 @@ Figure 2.</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/example3/">
+    <a href="https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Example 3: Portal Frame Examples</h3>
+                <h3 class="fw-bold post-title">Cable-Stayed Bridge</h3>
                 
 
                 <p class="post-meta">
@@ -685,8 +691,7 @@ Figure 2.</p>
 
                 <div class="post-entry">
                     
-                    Nonlinear analysis of a concrete portal frame.
-
+                    Author: Junjun Guo([HomePage](https://github.com/Junjun1guo)) E-mail: guojj@tongji.edu.cn/guojj_ce@163.com Tutorials Download the zip file Run the example model (AnExampleBridgeOpenSeesPyModel.py) and generate the result database (resultsDB_1_1.
                     
                 </div>
 
@@ -696,9 +701,6 @@ Figure 2.</p>
                 </div>
             </div>
 
-            
-            <img src="/opensees-gallery/examples/example3/ConcretePortal_hu2efda6aa4d4e70b5a85fcdec2c3ebd12_62660_500x0_resize_box_3.png" alt="ConcretePortal.png"
-                class="card-img-bottom img-fluid lazyload">
             
 
             

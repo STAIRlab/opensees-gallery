@@ -8,7 +8,8 @@
 
 
 <title>Elastic Frame Example - OpenSees Gallery</title>
-<meta name="description" content="This example is of an elastic frame structure, as shown in the figure, subject to static loads. Here is the file: ElasticFrame.">
+<meta name="description" content="This example is of an elastic frame structure, as shown in the figure, subject to static loads.
+Here is the file: ElasticFrame.">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -58,13 +59,13 @@
     "name" : "STAIRlab"
   },
   "headline": "Elastic Frame Example",
-  "description" : "This example is of an elastic frame structure, as shown in the figure, subject to static loads. Here is the file: ElasticFrame.",
+  "description" : "This example is of an elastic frame structure, as shown in the figure, subject to static loads.\nHere is the file: ElasticFrame.",
   "inLanguage" : "en",
-  "wordCount":  1517 ,
+  "wordCount":  1529 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
-  "keywords" : [ "" ],
+  "keywords" : [ "Steel, Tcl" ],
   "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/steelbuilding2d\/",
   "publisher" : {
     "@type": "Organization",
@@ -80,7 +81,8 @@
 </script>
 
 <meta property="og:title" content="Elastic Frame Example" />
-<meta property="og:description" content="This example is of an elastic frame structure, as shown in the figure, subject to static loads. Here is the file: ElasticFrame.">
+<meta property="og:description" content="This example is of an elastic frame structure, as shown in the figure, subject to static loads.
+Here is the file: ElasticFrame.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/ElasticFrame.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/" />
 <meta property="og:type" content="website" />
@@ -338,8 +340,8 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         <p>This example is of an elastic frame structure, as shown in
-the figure, subject to static loads.
-<strong>Here is the file: <a
+the figure, subject to static loads.</p>
+<p><strong>Here is the file: <a
 href="ElasticFrame.tcl" title="wikilink">ElasticFrame.tcl</a></strong></p>
 <figure>
 <img src="ElasticFrame.png" title="ElasticFrame.png"
@@ -348,17 +350,16 @@ alt="ElasticFrame.png" />
 </figure>
 <p>NOTE:</p>
 <ol>
-<li>The lines in the dashed boxes are lines that appear in the input
-file.</li>
-<li>all lines that begin with <strong>#</strong> are comments, they are
-ignored by the program (interpreter) but are useful for documenting the
-code. When creating your own input scripts you are <strong>highly
-encouraged</strong> to use comments.</li>
-<li>For brevity it is possible to put the comment after the command by
-using the <strong>;</strong> to signify end of a command.</li>
-<li>The printing of info to the screen makes this example more
-complicated than it needs to be. If you don't understand it, you can
-ignore it for now.</li>
+  <li>The lines in the dashed boxes are lines that appear in the input file.</li>
+  <li>all lines that begin with <strong>#</strong> are comments, they are
+  ignored by the program (interpreter) but are useful for documenting the
+  code. When creating your own input scripts you are <strong>highly
+  encouraged</strong> to use comments.</li>
+  <li>For brevity it is possible to put the comment after the command by
+  using the <strong>;</strong> to signify end of a command.</li>
+  <li>The printing of info to the screen makes this example more
+  complicated than it needs to be. If you don't understand it, you can
+  ignore it for now.</li>
 </ol>
 <h3 id="parameters">Parameters</h3>
 <p>Before we build the model we are going to set some parameters using
@@ -366,91 +367,103 @@ tcl variables and expression evaluation. We are going to set variables
 for PI, the gravtational constant g, and variables for each of our floor
 masses. We are using the tcl <strong>set</strong> and
 <strong>expr</strong> commands.</p>
-<p><pre> set PI [expr 2.0 * asin(1.0)] set g 386.4 set ft 12.0 set
-m1 [expr 1185.0/(4*$g)]; # 4 nodes per floor set m2 [expr 1185.0/(4*$g)]
-set m3 [expr 970.0/(4*$g)] set w1 [expr 1185.0/(90*$ft)] set w2 [expr
-1185.0/(90*$ft)] set w3 [expr 970.0/(90*$ft)] </pre></p>
-<h3 id="model">Model</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">set</span> PI <span style="font-weight:bold">[expr</span> <span style="color:#099">2.0</span> <span style="font-weight:bold">*</span> asin<span style="font-weight:bold">(</span><span style="color:#008080">1.0</span><span style="font-weight:bold">)]</span> 
+</span></span><span style="display:flex;"><span>set g <span style="color:#099">386.4</span> 
+</span></span><span style="display:flex;"><span>set ft <span style="color:#099">12.0</span> 
+</span></span><span style="display:flex;"><span>set m1 <span style="font-weight:bold">[expr</span> <span style="color:#099">1185.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">4</span><span style="font-weight:bold">*</span><span style="color:#008080">$g</span><span style="font-weight:bold">)];</span> <span style="color:#998;font-style:italic"># 4 nodes per floor 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> m2 <span style="font-weight:bold">[expr</span> <span style="color:#099">1185.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">4</span><span style="font-weight:bold">*</span><span style="color:#008080">$g</span><span style="font-weight:bold">)]</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">set</span> m3 <span style="font-weight:bold">[expr</span> <span style="color:#099">970.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">4</span><span style="font-weight:bold">*</span><span style="color:#008080">$g</span><span style="font-weight:bold">)]</span> 
+</span></span><span style="display:flex;"><span>set w1 <span style="font-weight:bold">[expr</span> <span style="color:#099">1185.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">90</span><span style="font-weight:bold">*</span><span style="color:#008080">$ft</span><span style="font-weight:bold">)]</span> 
+</span></span><span style="display:flex;"><span>set w2 <span style="font-weight:bold">[expr</span> <span style="color:#099">1185.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">90</span><span style="font-weight:bold">*</span><span style="color:#008080">$ft</span><span style="font-weight:bold">)]</span> 
+</span></span><span style="display:flex;"><span>set w3 <span style="font-weight:bold">[expr</span> <span style="color:#099">970.0</span><span style="font-weight:bold">/</span><span style="font-weight:bold">(</span><span style="color:#008080">90</span><span style="font-weight:bold">*</span><span style="color:#008080">$ft</span><span style="font-weight:bold">)]</span>
+</span></span></code></pre></div><h3 id="model">Model</h3>
 <p>The model consists of sixteen nodes, twenty one elastic beam-column
 elements, a single load pattern with distributed loads, and constraints
 totally fixing the nodes at the base of the building. There are no
 material objects associated with the elastic elements, but there are
 geometric transformations. For this example all the columns have a
 PDelta transformation, and all the beams a linear transformation.</p>
-<p><pre></p>
-<ol>
-<li>Units: kips, in, sec</li>
-<li>Remove existing model</li>
-</ol>
-<p>wipe</p>
-<ol>
-<li>Create ModelBuilder (with two-dimensions and 3 DOF/node)</li>
-</ol>
-<p>model BasicBuilder -ndm 2 -ndf 3</p>
-<ol>
-<li>Create nodes &amp; add to Domain -</li>
-<li>command: node nodeId xCrd yCrd <-mass $massX $massY
-$massRz></li>
-<li>NOTE: mass is optional</li>
-</ol>
-<p>node 1 0.0 0.0 node 2 360.0 0.0 node 3 720.0 0.0 node 4 1080.0 0.0
-node 5 0.0 162.0 -mass $m1 $m1 0.0 node 6 360.0 162.0 -mass $m1 $m1 0.0
-node 7 720.0 162.0 -mass $m1 $m1 0.0 node 8 1080.0 162.0 -mass $m1 $m1
-0.0 node 9 0.0 324.0 -mass $m2 $m2 0.0 node 10 360.0 324.0 -mass $m2 $m2
-0.0 node 11 720.0 324.0 -mass $m2 $m2 0.0 node 12 1080.0 324.0 -mass $m2
-$m2 0.0 node 13 0.0 486.0 -mass $m3 $m3 0.0 node 14 360.0 486.0 -mass
-$m3 $m3 0.0 node 15 720.0 486.0 -mass $m3 $m3 0.0 node 16 1080.0 486.0
--mass $m3 $m3 0.0</p>
-<ol>
-<li>Set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?
-rZRestrnt?</li>
-</ol>
-<p>fix 1 1 1 1 fix 2 1 1 1 fix 3 1 1 1 fix 4 1 1 1</p>
-<ol>
-<li>Define geometric transformations for beam-column elements</li>
-</ol>
-<p>geomTransf Linear 1; # beams geomTransf PDelta 2; # columns</p>
-<ol>
-<li>Define elements</li>
-<li>Create elastic beam-column elements -</li>
-<li>command: element elasticBeamColumn eleID node1 node2 A E Iz
-geomTransfTag</li>
-</ol>
-<ol>
-<li>Define the Columns</li>
-</ol>
-<p>element elasticBeamColumn 1 1 5 75.6 29000.0 3400.0 2; # W14X257
-element elasticBeamColumn 2 5 9 75.6 29000.0 3400.0 2; # W14X257 element
-elasticBeamColumn 3 9 13 75.6 29000.0 3400.0 2; # W14X257 element
-elasticBeamColumn 4 2 6 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 5 6 10 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 6 10 14 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 7 3 7 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 8 7 11 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 9 11 15 91.4 29000.0 4330.0 2; # W14X311 element
-elasticBeamColumn 10 4 8 75.6 29000.0 3400.0 2; # W14X257 element
-elasticBeamColumn 11 8 12 75.6 29000.0 3400.0 2; # W14X257 element
-elasticBeamColumn 12 12 16 75.6 29000.0 3400.0 2; # W14X257</p>
-<ol>
-<li>Define the Beams</li>
-</ol>
-<p>element elasticBeamColumn 13 5 6 34.7 29000.0 5900.0 1; # W33X118
-element elasticBeamColumn 14 6 7 34.7 29000.0 5900.0 1; # W33X118
-element elasticBeamColumn 15 7 8 34.7 29000.0 5900.0 1; # W33X118
-element elasticBeamColumn 16 9 10 34.2 29000.0 4930.0 1; # W30X116
-element elasticBeamColumn 17 10 11 34.2 29000.0 4930.0 1; # W30X116
-element elasticBeamColumn 18 11 12 34.2 29000.0 4930.0 1; # W30X116
-element elasticBeamColumn 19 13 14 20.1 29000.0 1830.0 1; # W24X68
-element elasticBeamColumn 20 14 15 20.1 29000.0 1830.0 1; # W24X68
-element elasticBeamColumn 21 15 16 20.1 29000.0 1830.0 1; # W24X68</p>
-<ol>
-<li>Create a Plain load pattern with a linear TimeSeries:</li>
-<li>command pattern Plain $tag $timeSeriesTag { $loads }</li>
-</ol>
-<p>pattern Plain 1 1 { eleLoad -ele 13 14 15 -type -beamUniform -$w1
-eleLoad -ele 16 17 18 -type -beamUniform -$w2 eleLoad -ele 19 20 21
--type -beamUniform -$w3 } </pre></p>
-<h3 id="analysis___gravity_load">Analysis - Gravity Load</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Units: kips<span style="color:#a61717;background-color:#e3d2d2">,</span> <span style="font-weight:bold">in</span><span style="color:#a61717;background-color:#e3d2d2">,</span> sec<span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Remove existing model<span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">p</span><span style="font-weight:bold">&gt;</span>wipe<span style="font-weight:bold">&lt;/</span>p<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Create ModelBuilder <span style="font-weight:bold">(</span><span style="color:#008080">with</span> two-dimensions and <span style="color:#099">3</span> DOF<span style="font-weight:bold">/</span>node<span style="font-weight:bold">)</span><span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">p</span><span style="font-weight:bold">&gt;</span>model BasicBuilder <span style="font-weight:bold">-</span>ndm <span style="color:#099">2</span> <span style="font-weight:bold">-</span>ndf <span style="color:#099">3</span><span style="font-weight:bold">&lt;/</span>p<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Create nodes <span style="font-weight:bold">&amp;</span>amp<span style="font-weight:bold">;</span> <span style="color:#008080">add</span> to Domain <span style="font-weight:bold">-&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>command: node nodeId xCrd yCrd <span style="font-weight:bold">&lt;-</span>mass <span style="color:#008080">$massX</span> <span style="color:#008080">$massY</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">$massRz</span><span style="font-weight:bold">&gt;&lt;/</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>NOTE: mass is optional<span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">1</span>     <span style="color:#099">0.0</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">2</span>   <span style="color:#099">360.0</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">3</span>   <span style="color:#099">720.0</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">4</span>  <span style="color:#099">1080.0</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">5</span>     <span style="color:#099">0.0</span> <span style="color:#099">162.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m1</span> <span style="color:#008080">$m1</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">6</span>   <span style="color:#099">360.0</span> <span style="color:#099">162.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m1</span> <span style="color:#008080">$m1</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">7</span>   <span style="color:#099">720.0</span> <span style="color:#099">162.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m1</span> <span style="color:#008080">$m1</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">8</span>  <span style="color:#099">1080.0</span> <span style="color:#099">162.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m1</span> <span style="color:#008080">$m1</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">9</span>     <span style="color:#099">0.0</span> <span style="color:#099">324.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m2</span> <span style="color:#008080">$m2</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">10</span>  <span style="color:#099">360.0</span> <span style="color:#099">324.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m2</span> <span style="color:#008080">$m2</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">11</span>  <span style="color:#099">720.0</span> <span style="color:#099">324.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m2</span> <span style="color:#008080">$m2</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">12</span> <span style="color:#099">1080.0</span> <span style="color:#099">324.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m2</span> <span style="color:#008080">$m2</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">13</span>    <span style="color:#099">0.0</span> <span style="color:#099">486.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m3</span> <span style="color:#008080">$m3</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">14</span>  <span style="color:#099">360.0</span> <span style="color:#099">486.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m3</span> <span style="color:#008080">$m3</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">15</span>  <span style="color:#099">720.0</span> <span style="color:#099">486.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m3</span> <span style="color:#008080">$m3</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">16</span> <span style="color:#099">1080.0</span> <span style="color:#099">486.0</span> <span style="font-weight:bold">-</span>mass <span style="color:#008080">$m3</span> <span style="color:#008080">$m3</span> <span style="color:#099">0.0</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set the boundary conditions - command: fix nodeID xResrnt? yRestrnt? rZRestrnt?
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">fix</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> 
+</span></span><span style="display:flex;"><span>fix <span style="color:#099">2</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> 
+</span></span><span style="display:flex;"><span>fix <span style="color:#099">3</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> 
+</span></span><span style="display:flex;"><span>fix <span style="color:#099">4</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define geometric transformations for beam-column elements
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">geomTransf</span> Linear <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># beams geomTransf PDelta 2; # columns
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Define elements<span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>Create elastic beam-column elements <span style="font-weight:bold">-&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span><span style="color:#008080">li</span><span style="font-weight:bold">&gt;</span>command: element elasticBeamColumn eleID node1 node2 A E Iz
+</span></span><span style="display:flex;"><span><span style="color:#008080">geomTransfTag</span><span style="font-weight:bold">&lt;/</span>li<span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">&lt;/</span><span style="color:#008080">ol</span><span style="font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define the Columns
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">5</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">2</span> <span style="color:#099">5</span> <span style="color:#099">9</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">3</span> <span style="color:#099">9</span> <span style="color:#099">13</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">4</span> <span style="color:#099">2</span> <span style="color:#099">6</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">5</span> <span style="color:#099">6</span> <span style="color:#099">10</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">6</span> <span style="color:#099">10</span> <span style="color:#099">14</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">7</span> <span style="color:#099">3</span> <span style="color:#099">7</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">8</span> <span style="color:#099">7</span> <span style="color:#099">11</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">9</span> <span style="color:#099">11</span> <span style="color:#099">15</span> <span style="color:#099">91.4</span> <span style="color:#099">29000.0</span> <span style="color:#099">4330.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X311 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">10</span> <span style="color:#099">4</span> <span style="color:#099">8</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">11</span> <span style="color:#099">8</span> <span style="color:#099">12</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">12</span> <span style="color:#099">12</span> <span style="color:#099">16</span> <span style="color:#099">75.6</span> <span style="color:#099">29000.0</span> <span style="color:#099">3400.0</span> <span style="color:#099">2</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W14X257
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define the Beams
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">13</span> <span style="color:#099">5</span> <span style="color:#099">6</span> <span style="color:#099">34.7</span> <span style="color:#099">29000.0</span> <span style="color:#099">5900.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W33X118
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">14</span> <span style="color:#099">6</span> <span style="color:#099">7</span> <span style="color:#099">34.7</span> <span style="color:#099">29000.0</span> <span style="color:#099">5900.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W33X118
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">15</span> <span style="color:#099">7</span> <span style="color:#099">8</span> <span style="color:#099">34.7</span> <span style="color:#099">29000.0</span> <span style="color:#099">5900.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W33X118
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">16</span> <span style="color:#099">9</span> <span style="color:#099">10</span> <span style="color:#099">34.2</span> <span style="color:#099">29000.0</span> <span style="color:#099">4930.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W30X116
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">17</span> <span style="color:#099">10</span> <span style="color:#099">11</span> <span style="color:#099">34.2</span> <span style="color:#099">29000.0</span> <span style="color:#099">4930.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W30X116
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">18</span> <span style="color:#099">11</span> <span style="color:#099">12</span> <span style="color:#099">34.2</span> <span style="color:#099">29000.0</span> <span style="color:#099">4930.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W30X116
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">19</span> <span style="color:#099">13</span> <span style="color:#099">14</span> <span style="color:#099">20.1</span> <span style="color:#099">29000.0</span> <span style="color:#099">1830.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W24X68
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">20</span> <span style="color:#099">14</span> <span style="color:#099">15</span> <span style="color:#099">20.1</span> <span style="color:#099">29000.0</span> <span style="color:#099">1830.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W24X68
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">21</span> <span style="color:#099">15</span> <span style="color:#099">16</span> <span style="color:#099">20.1</span> <span style="color:#099">29000.0</span> <span style="color:#099">1830.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> <span style="color:#998;font-style:italic"># W24X68&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a Plain load pattern with a linear TimeSeries:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># command pattern Plain $tag $timeSeriesTag { $loads }
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">pattern</span> Plain <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">eleLoad</span> <span style="font-weight:bold">-</span>ele <span style="color:#099">13</span> <span style="color:#099">14</span> <span style="color:#099">15</span> <span style="font-weight:bold">-</span>type <span style="font-weight:bold">-</span>beamUniform <span style="font-weight:bold">-</span><span style="color:#008080">$w1</span> 
+</span></span><span style="display:flex;"><span>    eleLoad <span style="font-weight:bold">-</span>ele <span style="color:#099">16</span> <span style="color:#099">17</span> <span style="color:#099">18</span> <span style="font-weight:bold">-</span>type <span style="font-weight:bold">-</span>beamUniform <span style="font-weight:bold">-</span><span style="color:#008080">$w2</span> 
+</span></span><span style="display:flex;"><span>    eleLoad <span style="font-weight:bold">-</span>ele <span style="color:#099">19</span> <span style="color:#099">20</span> <span style="color:#099">21</span> <span style="font-weight:bold">-</span>type <span style="font-weight:bold">-</span>beamUniform <span style="font-weight:bold">-</span><span style="color:#008080">$w3</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="analysis___gravity_load">Analysis - Gravity Load</h3>
 <p>We will now show the commands to perform a gravity load analysis. As
 the model is elastic we will use a Linear solution algorithm and use a
 single step of load control to get us to the desired load level.</p>
@@ -598,6 +611,14 @@ screen:</p>
     </div>
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
       
+      <div class="blog-tags">
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/steel/">Steel</a>
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/tcl/">Tcl</a>
+        
+      </div>
+      
     </div>
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
@@ -716,7 +737,178 @@ screen:</p>
   
   
   
+  
+  
 
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>Read More</h3>
+        <hr />
+      </div>
+
+      
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example1/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Example 1: Simple Truss</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/example1/BasicTruss_hu9a9bd330ec352bb86f0cd4a67e685125_59526_500x0_resize_box_3.png" alt="BasicTruss.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example2/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Example 2: Moment-Curvature</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/example2/Section_huece94951108957de8b91e5b9051ab654_72878_500x0_resize_box_3.png" alt="Section.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example3/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Example 3: Portal Frame Examples</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Nonlinear analysis of a concrete portal frame.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/example3/ConcretePortal_hu2efda6aa4d4e70b5a85fcdec2c3ebd12_62660_500x0_resize_box_3.png" alt="ConcretePortal.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+    </div>
+  </div>
   
   
 
