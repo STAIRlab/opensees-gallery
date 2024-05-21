@@ -125,13 +125,13 @@ pattern Plain 1 Linear {
 }
 
 # Recorders
-recorder Node -file out/$name/topdisps.txt -time -nodes 3 -dof 1 2 3 disp
-recorder Node -file out/$name/centdisps.txt -time -nodes 2 -dof 1 2 3 disp
-recorder Node -file out/$name/centvel.txt -time -nodes 2 -dof 1 2 3 vel
-recorder Node -file out/$name/reaction.txt -time -nodes 1 -dof 1 2 3 reaction
-recorder Element -file out/$name/sL.txt -time -ele 1 sL ; # Sliding at the rocking end
-recorder Element -file out/$name/Nforces.txt -time -ele 1 basicForce ; # Corotational system forces
-recorder Element -file out/$name/forces.txt -time -ele 1 force ; # Global system forces
+recorder Node -file out/$name/topdisps.out -time -nodes 3 -dof 1 2 3 disp
+recorder Node -file out/$name/centdisps.out -time -nodes 2 -dof 1 2 3 disp
+recorder Node -file out/$name/centvel.out -time -nodes 2 -dof 1 2 3 vel
+recorder Node -file out/$name/reaction.out -time -nodes 1 -dof 1 2 3 reaction
+recorder Element -file out/$name/sL.out -time -ele 1 sL ; # Sliding at the rocking end
+recorder Element -file out/$name/Nforces.out -time -ele 1 basicForce ; # Corotational system forces
+recorder Element -file out/$name/forces.out -time -ele 1 force ; # Global system forces
 
 # Self weight application
 constraints Transformation
