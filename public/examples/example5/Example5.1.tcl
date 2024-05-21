@@ -1,3 +1,14 @@
+# 3-D model of rigid floor diaphragm
+#     Three stories
+#     Elastic RC columns
+#     Nonlinear RC beams
+#     Non-linear dynamic analysis
+#
+# Adapted from RigidFrame3D.tcl
+# Written: MHS
+#   email: mhscott@ce.berkeley.edu
+# Date: 3 Dec 1999
+#
 # Units: kip, in, sec
 
 # ----------------------------
@@ -174,6 +185,7 @@ element nonlinearBeamColumn  24 18  15   $np  $beamSec     2
 # Gravity load applied at each corner node
 # 10% of column capacity
 set p [expr 0.1*$fc*$h*$h]
+#set p [expr -$m*$g/4]
 
 # Mass lumped at retained nodes
 set g 386.4;            # Gravitational constant
@@ -190,9 +202,23 @@ mass 19  $m $m  0  0  0 $i
 
 # Define gravity loads
 pattern Plain 1 Constant {
-   foreach node {5 6 7 8  10 11 12 13  15 16 17 18} {
-      load $node 0.0 0.0 -$p 0.0 0.0 0.0
-   }
+#  foreach node {5 6 7 8  10 11 12 13  15 16 17 18} {
+#     load $node 0.0 0.0 -$p 0.0 0.0 0.0
+#  }
+   load  5  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load  6  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load  7  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load  8  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+
+   load 10  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 11  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 12  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 13  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+
+   load 15  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 16  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 17  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
+   load 18  0.0 0.0 -$p 0.0 0.0 0.0 ; # -const
 }
 
 #set rayleigh damping factors

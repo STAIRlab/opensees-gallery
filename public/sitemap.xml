@@ -12,6 +12,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/status/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/legacy/examples/readme/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -112,7 +116,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/bracedportal/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -409,6 +413,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/zerolength/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

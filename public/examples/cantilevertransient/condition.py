@@ -17,52 +17,6 @@ ksi  = units.ksi;
 inch = units.inch;
 
 
-def state_space(M, C, K, model):
-    #   https://portwooddigital.com/2020/05/17/gimme-all-your-damping-all-your-mass-and-stiffness-too/
-    # Determine number of DOFs with mass
-    NDF = ...
-
-    massDOFs = []
-    for nd in model.getNodeTags():
-        for j in range(NDF): # NDF is number of DOFs/node
-            if ops.nodeMass(nd,j+1) > 0.0:
-                massDOFs.append(ops.nodeDOFs(nd)[j])
-
-    # Number of DOFs with mass
-    Nmass = len(massDOFs)
-
-    # DOFs without mass
-    masslessDOFs = np.setdiff1d(range(N), massDOFs)
-    Nmassless = len(masslessDOFs)
-
-    # Form matrices for D*x = -lam*B*x
-    B = np.zeros((2*Nmass,2*Nmass)) # = [ 0 M; M C]
-    D = np.zeros((2*Nmass,2*Nmass)) # = [-M 0; 0 K]
-
-    # Mass
-    B[:Nmass,:][:,Nmass:2*Nmass] =  M[massDOFs,:][:,massDOFs]
-    B[Nmass:2*Nmass,:][:,:Nmass] =  M[massDOFs,:][:,massDOFs]
-    D[:Nmass,:][:,:Nmass]        = -M[massDOFs,:][:,massDOFs]
-
-    # Damping
-    B[Nmass:2*Nmass,:][:,Nmass:2*Nmass] = C[massDOFs,:][:,massDOFs]
-
-    # Static condensation
-    Kmm = K[massDOFs,:][:,massDOFs];     Kmn = K[massDOFs,:][:,masslessDOFs]
-    Knm = K[masslessDOFs,:][:,massDOFs]; Knn = K[masslessDOFs,:][:,masslessDOFs]
-
-    # Kc = Kmm - Kmn*inv(Knn)*Knm
-    if Nmassless > 0:
-        Kc = Kmm - np.dot(Kmn,np.linalg.solve(Knn,Knm))
-    else:
-        Kc = K
-
-    # Stiffness at DOFs with mass
-    D[Nmass:2*Nmass,:][:,Nmass:2*Nmass] = Kc
-
-    # State space eigenvalue analysis
-    lam, x = slin.eig(D,-B)
-
 
 def steel_cantilever(small_mass = 1e-4, hardening=0.1, damping=None):
 
