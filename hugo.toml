@@ -8,7 +8,7 @@ contentDir = 'opensees_gallery'
 
 # Ignore HTML files to prevent Plotly plots
 # from being processed
-ignoreFiles = ['\.html$', '\.pyc$', '\.ipynb_checkpoints/\.*$', '__pycache__/', '\.out$']
+ignoreFiles = ['\.html$', '\.pyc$', '\.ipynb_checkpoints/\.*$', '__pycache__/', '\.out$', '/out/']
 
 DefaultContentLanguage = "en"
 summaryLength  = "20"
