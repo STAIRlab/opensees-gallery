@@ -30,7 +30,7 @@ foreach eleType {truss CorotTruss} {
     
     # Create nodes
     # ------------
-    
+
     # Create nodes & add to Domain - command: node nodeId xCrd yCrd
     node 1   0.0  0.0
     node 2 144.0  0.0
@@ -54,8 +54,8 @@ foreach eleType {truss CorotTruss} {
     
     # Create truss elements - command: element truss trussID node1 node2 A matID
     element $eleType 1 1 4 10.0 1
-    element $eleType 2 2 4 5.0 1
-    element $eleType 3 3 4 1
+    element $eleType 2 2 4  5.0 1
+    element $eleType 3 3 4  1
     
     
     # Define loads
@@ -63,7 +63,6 @@ foreach eleType {truss CorotTruss} {
     
     # Create a Plain load pattern with a linear TimeSeries
     pattern Plain 1 "Linear" {
-	
 	# Create the nodal load - command: load nodeID xForce yForce
 	load 4 100 -50
     }
