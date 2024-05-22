@@ -36,7 +36,7 @@ pattern Plain 1 1 {
 
 analysis Static
 
-analyze 1
+set ok [analyze 1]
 
 print
 
@@ -45,4 +45,4 @@ print
 # bottom Gauss Point stress_xx = 46475.8
 # bottom extrem stress_xx (extrapolated) = 60000.0
 
-exit
+return $ok

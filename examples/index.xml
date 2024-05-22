@@ -12,7 +12,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/status/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/status/</guid>
-      <description>Examples Status File Message 253 ArcLength 255 Chopra-10.4 couldn&amp;rsquo;t read file &amp;ldquo;EigenAnal_twoStoreyFrame.tcl&amp;rdquo;: no such file or directory 255 Concrete2x2x2D &amp;ldquo;source RCFrame2.</description>
+      <description>Examples Status File Message 253 ArcLength 0 Chopra-10.4 0 Concrete2x2x2D .. success, back to regular Newton 255 ConcretePanel &amp;ldquo;source ConcretePanel.tcl&amp;rdquo; 255 CrossAnisotropicElastic &amp;ldquo;source CrossAnisotropicElastic.</description>
     </item>
     <item>
       <title>Arch Dynamic Snapping</title>
@@ -285,7 +285,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/zerolength/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/zerolength/</guid>
-      <description></description>
+      <description>Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 from math import cos,sin,sqrt,pi import opensees.</description>
     </item>
   </channel>
 </rss>

@@ -31,10 +31,13 @@ element zeroLength 1 1 2 -mat 1 1 -dir 1 2
 geomTransf Linear 1
 # id ndI ndJ A E I transf
 element elasticBeamColumn 2 2 3 $A $E $I 1
-# tag dir factor fileName deltaT
-pattern UniformExcitation 1 1 $g -accel tabasFN.txt 0.02
-pattern UniformExcitation 2 2 $g -accel tabasFP.txt 0.02
-recorder Node ZeroLength4.out disp -time -node 2 -dof 1 2
+
+# tag dir accel deltaT
+pattern UniformExcitation 1 1 -accel "Path -filePath tabasFN.txt -dt 0.02 -factor $g"
+pattern UniformExcitation 2 2 -accel "Path -filePath tabasFP.txt -dt 0.02 -factor $g"
+
+recorder Node -file ZeroLength4.out disp -time -node 2 -dof 1 2
+
 integrator Newmark 0.5 0.25
 test EnergyIncr 1.0e-6 10 1
 algorithm Newton
@@ -43,3 +46,4 @@ constraints Transformation 1.0
 system SparseGeneral
 analysis Transient
 analyze 1500 0.02
+

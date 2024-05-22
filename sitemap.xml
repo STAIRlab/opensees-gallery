@@ -40,6 +40,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -148,6 +152,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/dynamics/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/eigen/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -236,7 +244,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/gallery/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

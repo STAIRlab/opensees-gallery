@@ -63,5 +63,5 @@ remove loadPattern 1
 loadConst -time 0.0
 # print ele 1
 
-exit $ok;
+return $ok;
 

@@ -4,12 +4,20 @@
 
 #========================================================================================
 #                               ****   Notes  ****
-# This code performs a 3D seismic analysis for a full-scale two-span bridge, i.e. Meloland Road Overpass, in El Centro, CA.
-# You need to make changes on the lines that the comment "User-Defined" appears. Please go through all the command lines before running it.
-# Units are in Metric (KN, ton, sec, m). Check the units if you work with Imperial units. 
-# When rigid boundary condition is used, the input motions should be available in two separate .txt files. Time in "SCTime.txt" and Displacement in "Disp_X,Y.txt".
-# When compliant boundary condition is used, the input motions should be available in two separate .txt files. Time in "Time.txt" and Velocity in "Velocity_X,Y.txt".
-# Outputs will be saved in a folder titled "Outputs".
+#
+# This code performs a 3D seismic analysis for a full-scale two-span bridge,
+# i.e. Meloland Road Overpass, in El Centro, CA. You need to make changes on
+# the lines that the comment "User-Defined" appears. Please go through all the
+# command lines before running it. Units are in Metric (KN, ton, sec, m). Check
+# the units if you work with Imperial units. 
+#
+# When rigid boundary condition is used, the input motions should be available
+# in two separate .txt files. Time in "SCTime.txt" and Displacement in
+# "Disp_X,Y.txt". When compliant boundary condition is used, the input motions
+# should be available in two separate .txt files. Time in "Time.txt" and
+# Velocity in "Velocity_X,Y.txt". Outputs will be saved in a folder titled
+# "Outputs".
+#
 #========================================================================================
 
 wipe all
@@ -23,7 +31,7 @@ set startT [clock seconds]
 set meshFile [open soilmesh.flavia.msh w]
 
 # Load steps for analysis
-set NumIncr1  10
+set NumIncr1   10
 set NumIncr2  100
 
 ################################
@@ -43,9 +51,10 @@ source Soil_Domain.tcl
  constraints Penalty 1.e12 1.e12
  test NormDispIncr 1.0e-4 50 1
  algorithm KrylovNewton
+ system Umfpack
 #system SparseGeneral
- # system Mumps
- system SparseSYM
+#system Mumps
+#system SparseSYM
  analysis Static
 
  for {set numIncr 1} {$numIncr <= $NumIncr1 } {incr numIncr 1} {
@@ -65,9 +74,9 @@ source Soil_Domain.tcl
  updateMaterialStage -material 7 -stage 1  ; #Use-defined --- Specify the material numbers
 
  for {set numIncr 1} {$numIncr <= $NumIncr1 } {incr numIncr 1} {
-       puts "##### Plastic Geostatic Analysis step : $numIncr #####";
-       analyze 1 
-     }
+   puts "##### Plastic Geostatic Analysis step : $numIncr #####";
+   analyze 1 
+ }
 
 ############################
 ###### Reset Analyses ######
@@ -166,7 +175,7 @@ puts "### Length of Deck = $Ldeck ####"
 puts "### Width of Deck = $Wdeck ####"
 set Adeck      [expr $Wdeck*$Hdeck]  
 set Edeck      20.0e+6				 ; #Use-defined --- Deck Young's modulus
-set noudeck    0.2					 ; #Use-defined --- Deck material Poisson's ratio
+set noudeck    0.2				 ; #Use-defined --- Deck material Poisson's ratio
 set rhodeck    2.450				 ; #Use-defined --- Deck material density
 
 set Dzone1 [expr $Ldeck/2.0-int($Ldeck/2.0)]
@@ -210,6 +219,8 @@ source Abutments.tcl
 
 print -json model.json
 
+export model.vtk
+
 ##### Close the input file for GID software
 close $meshFile
 ###########################################
@@ -237,7 +248,7 @@ pattern Plain 550 "Linear" {
 ###### Define output files  for Gravaity Analysis ######
 ########################################################
 
-set dataDir bridgedata
+set dataDir out
 file mkdir $dataDir
 
 set  numElE_b    [expr $numXele1+$numXele2+$numXele3+4+$numXele5+$numXele6+$numXele7]
@@ -276,14 +287,15 @@ eval "recorder Element -file $dataDir/strainEMB_RGRAV.out   -time     -eleRange 
  constraints Penalty 1.e12 1.e12
  test NormDispIncr 1.0e-4 50 1
  algorithm KrylovNewton
- system SparseGeneral
- #system Mumps
- system SparseSYM
+#system SparseGeneral
+#system Mumps
+#system SparseSYM
+ system Umfpack
  analysis Static
 
  for {set numIncr 1} {$numIncr <= $NumIncr2 } {incr numIncr 1} {
-       puts "##### System Equilibrium Analysis step : $numIncr #####";
-       analyze 1 
+     puts "##### System Equilibrium Analysis step : $numIncr #####";
+     analyze 1 
  }
 	 
 ######################################
@@ -550,15 +562,17 @@ constraints Penalty 1.0e12 1.0e12
 test NormDispIncr 1e-3 50 1
 algorithm KrylovNewton
 #system SparseGeneral
-system SparseSYM
+#system SparseSYM
 # system Mumps
 #system BandGeneral
+system Umfpack
 analysis VariableTransient
 
  for {set numIncr 1} {$numIncr <= [expr int($EQduration/$compdT)] } {incr numIncr 1} {
         puts "##### Seismic excitation step : $numIncr #####";
         analyze 1 $compdT [expr $compdT/100.0] $compdT  100
-        }
+ }
+
 set endT [clock seconds]
 set ElapsedTime [expr $endT-$startT]
 set ElapsedHours [expr int($ElapsedTime/3600.)]
