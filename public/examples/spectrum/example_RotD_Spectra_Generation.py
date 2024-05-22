@@ -31,24 +31,29 @@ Make sure you have the following python libraries installed:
     matplotlib.pyplot
 
 INPUT:
-This codes provides the option to have 3 different regions of developing the Spectra of ground motions with different period intervals (discretizations)
+This codes provides the option to have 3 different regions of developing the
+Spectra of ground motions with different period intervals (discretizations)
+
 The following inputs within the code are required:
-    'Int_T_Reg_1'        --> Period Interval for the first region of the Spectrum
-    'End_T_Reg_1'        --> Last Period of the first region of the Spectrum (where to end the first region)
-    'Int_T_Reg_2'        --> Period Interval for the second region of the Spectrum
-    'End_T_Reg_2'        --> Last Period of the second region of the Spectrum (where to end the second region)
-    'Int_T_Reg_3'        --> Period Interval for the third region of the Spectrum
-    'End_T_Reg_3'        --> Last Period of the third region of the Spectrum (where to end the third region)
-    'Plot_Spectra'       --> whether to plot the generated Spectra of the ground motions (options: True, 'No')
+    Int_T_Reg_1    --> Period Interval for the first region of the Spectrum
+    End_T_Reg_1    --> Last Period of the first region of the Spectrum (where to end the first region)
+    Int_T_Reg_2    --> Period Interval for the second region of the Spectrum
+    End_T_Reg_2    --> Last Period of the second region of the Spectrum (where to end the second region)
+    Int_T_Reg_3    --> Period Interval for the third region of the Spectrum
+    End_T_Reg_3    --> Last Period of the third region of the Spectrum (where to end the third region)
+    Plot_Spectra   --> whether to plot the generated Spectra of the ground motions (options: True, False)
 
 OUTPUT:
-The output will be provided in a saperate 'GMi_Spectra.txt' file for each ground motion record, where 'i' denotes the number of ground motion in the same of
-provided 'GM1i.AT2' and 'GM2i.AT2' files. The output files will be generated in a saperate folder 'Spectra' which will be created in the current folder
+The output will be provided in a saperate 'GMi_Spectra.txt' file for each
+ground motion record, where 'i' denotes the number of ground motion in the same
+of provided 'GM1i.AT2' and 'GM2i.AT2' files. The output files will be generated
+in a saperate folder 'Spectra' which will be created in the current folder
+
 The 'GMi_Spectra.txt' file will consist of space-saperated file with:
     'Periods (secs)' 'RotD50 Sa (g)' 'RotD100 Sa (g)'
 
 %%%%% ========================================================================================================================================================================= %%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 """
 ## Importing Libraries
@@ -87,19 +92,19 @@ def ReadGMFile(inFile):
 
 def beam_sdof(T):
     # Setting SDOF Variables
-    L = 1.0                     # Length
-    d = 2                       # Diameter
-    r = d/2                     # Radius
-    A = np.pi*(r**2)            # Area
-    E = 1.0                     # Elastic Modulus
-    G = 1.0                     # Shear Modulus
-    I3 = np.pi*(r**4)/4         # Moment of Inertia (zz)
-    J = np.pi*(r**4)/2          # Polar Moment of Inertia
-    I2 = np.pi*(r**4)/4         # Moment of Inertia (yy)
-    K = 3*E*I3/(L**3)           # Stiffness
-    M = K*(T**2)/4/(np.pi**2)   # Mass
-    omega = np.sqrt(K/M)        # Natural Frequency
-    Tn = 2*np.pi/omega          # Natural Period
+    L  = 1.0                     # Length
+    d  = 2                       # Diameter
+    r  = d/2                     # Radius
+    A  = np.pi*(r**2)            # Area
+    E  = 1.0                     # Elastic Modulus
+    G  = 1.0                     # Shear Modulus
+    I3 = np.pi*(r**4)/4          # Moment of Inertia (zz)
+    J  = np.pi*(r**4)/2          # Polar Moment of Inertia
+    I2 = np.pi*(r**4)/4          # Moment of Inertia (yy)
+    K  = 3*E*I3/(L**3)           # Stiffness
+    M  = K*(T**2)/4/(np.pi**2)   # Mass
+    omega = np.sqrt(K/M)         # Natural Frequency
+    Tn = 2*np.pi/omega           # Natural Period
 
     # Setting modelbuilder
     model('basic', '-ndm', 3, '-ndf', 6)
@@ -157,28 +162,30 @@ def spectra(
     Int_T_Reg_3       = 0.5,
     End_T_Reg_3       = 5,
 
-    # Plot Spectra  (options: True or 'No')
     Plot_Spectra      = True
     ):
+
     wipe()
 
     gravity = 386.1
 
-# Getting Number of Ground Motions from the GM folder
+    # Getting Number of Ground Motions from the GM folder
     GMdir = pathlib.Path(".")
     No_of_GMs = int(len(list(GMdir.glob('*.AT2')))/2)
     print('\nGenerating Spectra for {} provided GMs \n\n'.format(np.round(No_of_GMs,0)))
 
-# Initializations
+    # Initializations
     DISPLACEMENTS = pd.DataFrame(columns=['uX','uY'])
     GM_SPECTRA    = pd.DataFrame(columns=['Period(s)','RotD50Sa(g)', 'RotD100Sa(g)'])
     SDOF_RESPONSE = [[]]
     GM_RESPONSE   = [[]]
 
-# Spectra Generation
+    # Spectra Generation
     for iEQ in range(1,No_of_GMs+1):
         print('Generating Spectra for GM: {} ...\n'.format(np.round(iEQ,0)))
-        Periods = np.concatenate((list(np.arange(Int_T_Reg_1,End_T_Reg_1+Int_T_Reg_1,Int_T_Reg_1)),list(np.arange(End_T_Reg_1+Int_T_Reg_2,End_T_Reg_2+Int_T_Reg_2,Int_T_Reg_2)),list(np.arange(End_T_Reg_2+Int_T_Reg_3,End_T_Reg_3+Int_T_Reg_3,Int_T_Reg_3))),axis=0)
+        Periods = np.concatenate((list(np.arange(Int_T_Reg_1,End_T_Reg_1+Int_T_Reg_1,Int_T_Reg_1)),
+                                  list(np.arange(End_T_Reg_1+Int_T_Reg_2,End_T_Reg_2+Int_T_Reg_2,Int_T_Reg_2)),
+                                  list(np.arange(End_T_Reg_2+Int_T_Reg_3,End_T_Reg_3+Int_T_Reg_3,Int_T_Reg_3))),axis=0)
         ii = 0
 
         for T in Periods:
@@ -206,10 +213,10 @@ def spectra(
             iGMfile      = 'GM1'+str(iEQ)+' GM2'+str(iEQ)
             GMfile       = iGMfile.split(' ')
             GMdirection  = [1,1,2,2];
-            GMfact	     = [np.cos(GMinter*np.pi/180),
+            GMfact	     = [np.cos( GMinter*np.pi/180),
                             np.sin(-GMinter*np.pi/180),
-                            np.sin(GMinter*np.pi/180),
-                            np.cos(GMinter*np.pi/180)]
+                            np.sin( GMinter*np.pi/180),
+                            np.cos( GMinter*np.pi/180)]
             IDTag        = 2
             loop         = [1,2,3,4]
 
@@ -274,7 +281,7 @@ def spectra(
 
             # Rotating the Spectra (Projections)
             Rot_Matrix = np.zeros((2,2))
-            Rot_Disp = np.zeros((180,1))
+            Rot_Disp   = np.zeros((180,1))
             for theta in range (0,180,1):
                 Rot_Matrix [0,0]  = np.cos(np.deg2rad(theta))
                 Rot_Matrix [0,1]  = np.sin(np.deg2rad(-theta))
@@ -290,7 +297,7 @@ def spectra(
             wipe()
 
 
-        # END HERE AND RETURN
+        # TODO: END HERE AND RETURN
 
         # Writing Spectra to Files
         if not os.path.exists('Spectra'):

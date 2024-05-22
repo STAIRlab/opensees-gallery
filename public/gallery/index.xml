@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gallery on OpenSees Gallery</title>
+    <title>Advanced on OpenSees Gallery</title>
     <link>https://stairlab.github.io/opensees-gallery/gallery/</link>
-    <description>Recent content in Gallery on OpenSees Gallery</description>
+    <description>Recent content in Advanced on OpenSees Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/gallery/index.xml" rel="self" type="application/rss+xml" />
@@ -48,6 +48,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/gallery/dambreak/</guid>
       <description>From opstool</description>
+    </item>
+    <item>
+      <title>Hayward Bridge</title>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</guid>
+      <description></description>
     </item>
     <item>
       <title>Igloo</title>

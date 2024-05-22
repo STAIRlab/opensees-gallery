@@ -31,7 +31,7 @@ element elasticBeamColumn 2 2 3 $A $E $I 1
 pattern Plain 1 Linear {
 load 2 0.0 10.0 0.0
 }
-recorder Node ZeroLength1.out disp -time -node 2 -dof 2
+recorder Node -file ZeroLength1.out disp -time -node 2 -dof 2
 integrator LoadControl 1 1 1 1
 test EnergyIncr 1.0e-6 10 1
 algorithm Newton

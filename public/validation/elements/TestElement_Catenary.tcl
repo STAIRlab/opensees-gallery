@@ -50,3 +50,10 @@ analyze $NSteps
 
 print -node 2
 
+# Results should be:
+# 
+# Node: 2
+#    Coordinates  : 15 0 40 
+#    Disps: 8.58693 0 2.82578 
+#     unbalanced Load: 0 0 0 
+#    ID : 0 -1 1
