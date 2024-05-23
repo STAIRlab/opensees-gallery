@@ -25,147 +25,163 @@
 # Start of Model Generation & Initial Gravity Analysis
 # ----------------------------------------------------
 
-# Do operations of Example3.1 by sourcing in the tcl file
-source Example3.1.tcl
-puts "... Gravity load analysis completed"
+# # Do operations of Example3.1 by sourcing in the tcl file
+# source Example3.1.tcl
+# puts "... Gravity load analysis completed"
+# # ----------------------------------------------------
+# # End of Model Generation & Initial Gravity Analysis
+# # ----------------------------------------------------
 
-# Set the gravity loads to be constant & reset the time in the domain
-loadConst -time 0.0
+proc dynamic_analysis {} {
+  # ----------------------------------------------------
+  # Start of additional modeling for dynamic loads
+  # ----------------------------------------------------
 
-# ----------------------------------------------------
-# End of Model Generation & Initial Gravity Analysis
-# ----------------------------------------------------
-
-
-# ----------------------------------------------------
-# Start of additional modelling for dynamic loads
-# ----------------------------------------------------
-
-# Define nodal mass in terms of axial load on columns
-set g 386.4
-set m [expr $P/$g];       # expr command to evaluate an expression
-
-#    tag   MX   MY   RZ
-mass  3    $m   $m    0
-mass  4    $m   $m    0
+  # Set the gravity loads to be constant & reset the time in the domain
+  loadConst -time 0.0
 
 
-# Define dynamic loads
-# --------------------
+  # Define nodal mass in terms of axial load on columns
+  set g 386.4
+  set P 180
+  set m [expr $P/$g];       # expr command to evaluate an expression
 
-# Set some parameters
-file mkdir out
-set outFile "out/ARL360.in"
-
-# Source in TCL proc to read PEER SMD record
-source "ReadSMDFile.tcl"
-
-# Permform the conversion from SMD record to OpenSees record
-#              inFile     outFile dt
-ReadSMDFile "elCentro.AT2" $outFile dt
-
-# Set time series to be passed to uniform excitation
-timeSeries Path 1 -filePath $outFile -dt $dt -factor $g
-#set accelSeries "Path -filePath $outFile -dt $dt -factor $g"
-
-# Create UniformExcitation load pattern
-#                         tag dir 
-pattern UniformExcitation  2   1  -accel 1
-
-# set the rayleigh damping factors for nodes & elements
-rayleigh 0.0 0.0 0.0 0.000625
-
-# ----------------------------------------------------
-# End of additional modelling for dynamic loads
-# ----------------------------------------------------
+  #    tag   MX   MY   RZ
+  mass  3    $m   $m    0
+  mass  4    $m   $m    0
 
 
-# ---------------------------------------------------------
-# Start of modifications to analysis for transient analysis
-# ---------------------------------------------------------
+  # Define dynamic loads
+  # --------------------
 
-# Delete the old analysis and all it's component objects
-wipeAnalysis
+  # Set some parameters
+  file mkdir out
+  set outFile "out/ARL360.in"
 
-# Create the system of equation, a banded general storage scheme
-system BandGeneral
+  # Source in TCL proc to read PEER SMD record
+  source "ReadSMDFile.tcl"
 
-# Create the constraint handler, a plain handler as homogeneous boundary
-constraints Plain
+  # Permform the conversion from SMD record to OpenSees record
+  #              inFile     outFile dt
+  ReadSMDFile "elCentro.AT2" $outFile dt
 
-# Create the convergence test, the norm of the residual with a tolerance of 
-# 1e-12 and a max number of iterations of 10
-test NormDispIncr 1.0e-12  10 
+  # Set time series to be passed to uniform excitation
+  timeSeries Path 1 -filePath $outFile -dt $dt -factor $g
+  #set accelSeries "Path -filePath $outFile -dt $dt -factor $g"
 
-# Create the solution algorithm, a Newton-Raphson algorithm
-algorithm Newton
+  # Create UniformExcitation load pattern
+  #                         tag dir 
+  pattern UniformExcitation  2   1  -accel 1
 
-# Create the DOF numberer, the reverse Cuthill-McKee algorithm
-numberer RCM
+  # set the rayleigh damping factors for nodes & elements
+  rayleigh 0.0 0.0 0.0 0.000625
 
-# Create the integration scheme, the Newmark with alpha =0.5 and beta =.25
-integrator Newmark  0.5  0.25 
-
-# Create the analysis object
-analysis Transient
-
-# ---------------------------------------------------------
-# End of modifications to analysis for transient analysis
-# ---------------------------------------------------------
+  # ----------------------------------------------------
+  # End of additional modeling for dynamic loads
+  # ----------------------------------------------------
 
 
-# ------------------------------
-# Start of recorder generation
-# ------------------------------
+  # ---------------------------------------------------------
+  # Start of modifications to analysis for transient analysis
+  # ---------------------------------------------------------
 
-# Create a recorder to monitor nodal displacements
-recorder EnvelopeNode -time -file out/disp.out -node 3 4 -dof 1 disp
-recorder EnvelopeNode -time -file out/accel.out -timeSeries 1 -node 3 4 -dof 1 accel
+  # Delete the old analysis and all it's component objects
+  wipeAnalysis
 
-# Create recorders to monitor section forces and deformations
-# at the base of the left column
-recorder Element -time -file out/ele1secForce.out -ele 1 section 1 force
-recorder Element -time -file out/ele1secDef.out   -ele 1 section 1 deformation
+  # Create the system of equation, a banded general storage scheme
+  system BandGeneral
 
-# --------------------------------
-# End of recorder generation
-# ---------------------------------
+  # Create the constraint handler, a plain handler as homogeneous boundary
+  constraints Plain
+
+  # Create the convergence test, the norm of the residual with a tolerance of 
+  # 1e-12 and a max number of iterations of 10
+  test NormDispIncr 1.0e-12  10 
+
+  # Create the solution algorithm, a Newton-Raphson algorithm
+  algorithm Newton
+
+  # Create the DOF numberer, the reverse Cuthill-McKee algorithm
+  numberer RCM
+
+  # Create the integration scheme, the Newmark with alpha =0.5 and beta =.25
+  integrator Newmark  0.5  0.25 
+
+  # Create the analysis object
+  analysis Transient
+
+  # ---------------------------------------------------------
+  # End of modifications to analysis for transient analysis
+  # ---------------------------------------------------------
 
 
-# ------------------------------
-# Finally perform the analysis
-# ------------------------------
+  # ------------------------------
+  # Start of recorder generation
+  # ------------------------------
 
-# Perform an eigenvalue analysis
-puts "... eigen values at start of transient: [eigen 2]"
+  # Create a recorder to monitor nodal displacements
+  recorder EnvelopeNode -time -file out/disp.out -node 3 4 -dof 1 disp
+  recorder EnvelopeNode -time -file out/accel.out -timeSeries 1 -node 3 4 -dof 1 accel
+
+  # Create recorders to monitor section forces and deformations
+  # at the base of the left column
+  recorder Element -time -file out/ele1secForce.out -ele 1 section 1 force
+  recorder Element -time -file out/ele1secDef.out   -ele 1 section 1 deformation
+
+  # --------------------------------
+  # End of recorder generation
+  # ---------------------------------
 
 
-# set some variables
-set tFinal [expr 1560 * 0.02]
-set tCurrent [getTime]
-set ok 0
+  # ------------------------------
+  # Finally perform the analysis
+  # ------------------------------
 
-# Perform the transient analysis
-while {$ok == 0 && $tCurrent < $tFinal} {
+  # Perform an eigenvalue analysis
+  puts "... eigen values at start of transient: [eigen 2]"
+
+
+  # set some variables
+  set tFinal [expr 1560 * 0.02]
+  set tCurrent [getTime]
+  set status 0
+
+  # Perform the transient analysis
+  while {$status == 0 && $tCurrent < $tFinal} {
     
-    set ok [analyze 1 .01]
+    set status [analyze 1 .01]
     
     # if the analysis fails try initial tangent iteration
-    if {$ok != 0} {
-	puts "... Newton failed, trying initail stiffness"
-	test NormDispIncr 1.0e-12  100 0
-	algorithm ModifiedNewton -initial
-	set ok [analyze 1 .01]
-	if {$ok == 0} {puts "... that worked, back to regular Newton"}
-	test NormDispIncr 1.0e-12  10 
-	algorithm Newton
+    if {$status != 0} {
+        puts "... Newton failed, trying initail stiffness"
+        test NormDispIncr 1.0e-12  100 0
+        algorithm ModifiedNewton -initial
+        set status [analyze 1 .01]
+        if {$status == 0} {
+          puts "... that worked, back to regular Newton"
+        }
+        test NormDispIncr 1.0e-12  10 
+        algorithm Newton
     }
     
     set tCurrent [getTime]
+  }
+
+  return $status
 }
 
+source portal.tcl
+
+wipe
+
+create_portal
+
+gravity_analysis
+
+dynamic_analysis
+
 # Print a message to indicate if analysis successful or not
-if {$ok == 0} {
+if {$status == 0} {
    puts "Transient analysis completed SUCCESSFULLY";
 } else {
    puts "Transient analysis completed FAILED";    

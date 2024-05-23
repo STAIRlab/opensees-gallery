@@ -2314,4 +2314,4 @@ def Igloo():
     ops.mass(2687, *[0.0003, 0.0003, 0.0003])
     return ops
 
-Igloo().print("-json")
+Igloo().export("model.msh") #vtk") #print("-json")

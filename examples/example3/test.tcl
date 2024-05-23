@@ -6,3 +6,6 @@ source Example3.3.tcl
 
 wipe
 source RCFramePushover.tcl
+
+wipe
+source ArcLength.tcl
