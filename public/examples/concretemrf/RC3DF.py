@@ -7,11 +7,11 @@ a python implementation of the same model.
 """
 # Author: Amir Hossein Namadchi, January 2022
 
+import os
+import time
 
 import opensees.openseespy as ops
 import numpy as np
-import os
-import time
 
 
 def build_RC_rect_section(model, sec_tag, H, B, cover_H, cover_B, core_tag,
@@ -577,9 +577,9 @@ def run_time_history(model, direction = 'X', g_motion_id = 1, scaling_id = 1,
     final_time = model.getTime() + n_steps*dt
     dt_analysis = 0.1*dt
 
-    while (ok == 0 and t <= alpha*final_time):
+    while ok == 0 and t <= alpha*final_time:
         ok = model.analyze(1, dt_analysis)
-        t = model.getTime()
+        t  = model.getTime()
 
     finish_time = time.time()
 

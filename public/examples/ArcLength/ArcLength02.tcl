@@ -70,13 +70,12 @@ set dU 0.1
 # Change the integration scheme to be displacement control
 #                             node dof init Jd min max
 #integrator DisplacementControl  3   1   $dU  1 $dU $dU
-integrator ArcLength 0.0075 1.0
-set deltal  0.0075
-set psi_u   1.0
-set psi_f   0.0
-set u_ref   1.0
+integrator ArcLength 0.0075 1.0 ; #-exp 0.0
 
-
+# set deltal  0.0075
+# set psi_u   1.0
+# set psi_f   0.0
+# set u_ref   1.0
 # integrator HSConstraint $deltal  $psi_u   $psi_f   $u_ref  
 
 
@@ -107,9 +106,12 @@ recorder Node -file out/node32.out -time -node 3 4 -dof 1 2 3 disp
 # ------------------------------
 # Finally perform the analysis
 # ------------------------------
+test NormUnbalance 1.0e-6  25
+analysis Static;
+
 
 # Set some parameters
-set maxU 4.5;           # Max displacement
+set maxU 4.50;  #4.5;           # Max displacement
 set numSteps [expr int($maxU/$dU)]
 
 # Perform the analysis
@@ -122,8 +124,8 @@ while {$ok == 0 && $currentDisp < $maxU} {
 
     # if the analysis fails try initial tangent iteration
     if {$ok != 0} {
-        puts "regular newton failed .. lets try an initail stiffness for this step"
-        test NormDispIncr 1.0e-12  1000 0
+        puts "regular newton failed with disp [nodeDisp 3 1] .. lets try an initail stiffness for this step"
+        test NormDispIncr 1.0e-12 1000 0
         algorithm ModifiedNewton -initial
         set ok [analyze 1]
         if {$ok == 0} {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tcl on OpenSees Gallery</title>
+    <title>Tcl on OpenSees Examples</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/tcl/</link>
-    <description>Recent content in Tcl on OpenSees Gallery</description>
+    <description>Recent content in Tcl on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/tcl/index.xml" rel="self" type="application/rss+xml" />
@@ -69,6 +69,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Hayward Bridge</title>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</guid>
+      <description></description>
     </item>
     <item>
       <title>Zero-Length Elements</title>
