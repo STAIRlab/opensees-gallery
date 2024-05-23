@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Examples on OpenSees Gallery</title>
+    <title>Examples on OpenSees Examples</title>
     <link>https://stairlab.github.io/opensees-gallery/examples/</link>
-    <description>Recent content in Examples on OpenSees Gallery</description>
+    <description>Recent content in Examples on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/examples/index.xml" rel="self" type="application/rss+xml" />
@@ -69,6 +69,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</guid>
       <description>Download (Reinforced Concrete 3D Frame (FGU).ipynb)&#xA;Reinforced Concrete 3D Frame January 2022, By Amir Hossein Namadchi This notebook is adapted from https://github.</description>
+    </item>
+    <item>
+      <title>Diaphragms in 2D</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/</guid>
+      <description>Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).</description>
     </item>
     <item>
       <title>Dynamic Analysis of 2-Story Moment Frame</title>
@@ -195,13 +202,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
       <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
-    </item>
-    <item>
-      <title>Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/</guid>
-      <description>Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).</description>
     </item>
     <item>
       <title>Plane Steel Frame</title>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dynamic on OpenSees Gallery</title>
+    <title>Dynamic on OpenSees Examples</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/dynamic/</link>
-    <description>Recent content in Dynamic on OpenSees Gallery</description>
+    <description>Recent content in Dynamic on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />

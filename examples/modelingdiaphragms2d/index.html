@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements - OpenSees Gallery</title>
+<title>Diaphragms in 2D - OpenSees Examples</title>
 <meta name="description" content="Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "OpenSees Gallery",
+    "name": "OpenSees Examples",
     
     "url": "https:\/\/stairlab.github.io\/opensees-gallery\/"
 }
@@ -46,7 +46,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/modelingdiaphragms2d\/",
-          "name": "Modeling diaphragms in 2 d models with linear and nonlinear elements"
+          "name": "Diaphragms in 2 d"
         }
     }]
 }
@@ -57,7 +57,7 @@
   "author": {
     "name" : "STAIRlab"
   },
-  "headline": "Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements",
+  "headline": "Diaphragms in 2D",
   "description" : "Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).",
   "inLanguage" : "en",
   "wordCount":  354 ,
@@ -79,18 +79,18 @@
 }
 </script>
 
-<meta property="og:title" content="Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements" />
+<meta property="og:title" content="Diaphragms in 2D" />
 <meta property="og:description" content="Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).">
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/modelingdiaphragms2d/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="OpenSees Gallery" />
+<meta property="og:site_name" content="OpenSees Examples" />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://stairlab.github.io/opensees-gallery/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://stairlab.github.io/opensees-gallery/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://stairlab.github.io/opensees-gallery/favicon/favicon-16x16.png">
 
 
 <meta name="generator" content="Hugo 0.124.1">
-<link rel="alternate" href="https://stairlab.github.io/opensees-gallery/index.xml" type="application/rss+xml" title="OpenSees Gallery">
+<link rel="alternate" href="https://stairlab.github.io/opensees-gallery/index.xml" type="application/rss+xml" title="OpenSees Examples">
 <script src="https://stairlab.github.io/opensees-gallery/js/dark-mode.js"></script><script src="https://stairlab.github.io/opensees-gallery/vendor/lunr/lunr.min.js"></script><script src="https://stairlab.github.io/opensees-gallery/js/lunr-search.js" data-index="/opensees-gallery/search.json"></script><link rel="stylesheet" href="/opensees-gallery/style.min.css">
 
 
@@ -121,7 +121,7 @@
       <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
         <div class="container">
 
-          <a class="navbar-brand fw-bold" href="https://stairlab.github.io/opensees-gallery/">OpenSees Gallery</a>
+          <a class="navbar-brand fw-bold" href="https://stairlab.github.io/opensees-gallery/">OpenSees Examples</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -278,7 +278,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements
+                Diaphragms in 2D
                 
               </h1>
               
@@ -333,7 +333,8 @@ distribution of seismic forces to all lateral force resisting elements
 (columns and walls). Common modeling approach for frame structures is to
 represent the structural components (beams and columns) by line elements
 located at the original member centerlines and having cross-sectional
-properties equal to those of components. The effect of a rigid diaphragm
+properties equal to those of components.</p>
+<p>The effect of a rigid diaphragm
 at a floor level is usually modeled by imposing rigid constraints on all
 nodes of that floor level and thus enforcing the same lateral
 displacements of all nodes at the floor level. These constrains enforce
@@ -362,7 +363,7 @@ examples)</li>
 <p><strong>PPT presentation of the seminar can be found
 here:</strong></p>
 <ul>
-<li><a href="Media:_DiaphragmsModeling.pdf" title="wikilink">Modeling
+<li><a href="Media:_DiaphragmsModeling.pdf">Modeling
 Diaphragms in 2D Models</a></li>
 </ul>
 <p><strong>Video of the seminar can be found here:</strong></p>
@@ -376,17 +377,14 @@ constraints can be found here:</strong></p>
 <li>The main file that is to be sourced from the OpenSees interpreter:
 <ul>
 <li><a href="ModelingDiaphragms2D.tcl"
-title="wikilink">ModelingDiaphragms2D.tcl</a></li>
+>ModelingDiaphragms2D.tcl</a></li>
 </ul></li>
 <li>Supporting files to be stored in the same folder with the main file:
 <ul>
-<li><a href="RectangularRCsection2D.tcl"
-title="wikilink">RectangularRCsection2D.tcl</a> (procedure for
-discretizing RC rectangular section into fibers)</li>
-<li><a href="WSection.tcl" title="wikilink">WSection.tcl</a> (procedure
-for discretizing W steel section into fibers)</li>
-<li><a href="Media:_A10000.tcl" title="wikilink">A10000.tcl</a> (ground
-motion)</li>
+<li><a href="RectangularRCsection2D.tcl">RectangularRCsection2D.tcl</a> 
+    (procedure for discretizing RC rectangular section into fibers)</li>
+<li><a href="WSection.tcl">WSection.tcl</a> (procedure for discretizing W steel section into fibers)</li>
+<li><a href="A10000.txt">A10000.txt</a> (ground motion)</li>
 </ul></li>
 </ul>
 
@@ -425,7 +423,7 @@ motion)</li>
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;text=Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;text=Diaphragms%20in%202D&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -437,7 +435,7 @@ motion)</li>
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;title=Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;title=Diaphragms%20in%202D"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -447,8 +445,8 @@ motion)</li>
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Modeling Diaphragms in 2D Models with Linear and Nonlinear Elements on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&title=Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Diaphragms in 2D on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&title=Diaphragms%20in%202D">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -465,7 +463,7 @@ motion)</li>
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;description=Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fmodelingdiaphragms2d%2f&amp;description=Diaphragms%20in%202D" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -491,8 +489,8 @@ motion)</li>
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/steelframe2d/"
-            data-toggle="tooltip" data-placement="top" title="Plane Steel Frame">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/"
+            data-toggle="tooltip" data-placement="top" title="Dynamic Analysis of 2-Story Moment Frame">&larr;
             Previous Post</a>
         </li>
         
@@ -500,8 +498,8 @@ motion)</li>
 
         
         <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/"
-            data-toggle="tooltip" data-placement="top" title="Inelastic SDOF">Next Post
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/concretemrf/"
+            data-toggle="tooltip" data-placement="top" title="Concrete MRF">Next Post
             &rarr;</a>
         </li>
         
@@ -579,7 +577,7 @@ motion)</li>
 
           
           &nbsp;&bull;&nbsp;
-          <a href="https://stairlab.github.io/opensees-gallery/">OpenSees Gallery</a>
+          <a href="https://stairlab.github.io/opensees-gallery/">OpenSees Examples</a>
           
         </p>
         
