@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Seismic on OpenSees Examples</title>
-    <link>https://stairlab.github.io/opensees-gallery/tags/seismic/</link>
+    <link>http://localhost:45217/opensees-gallery/tags/seismic/</link>
     <description>Recent content in Seismic on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/seismic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:45217/opensees-gallery/tags/seismic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Infill Wall Model and Element Removal</title>
-      <link>https://stairlab.github.io/opensees-gallery/community/infillwall/</link>
+      <link>http://localhost:45217/opensees-gallery/community/infillwall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/community/infillwall/</guid>
+      <guid>http://localhost:45217/opensees-gallery/community/infillwall/</guid>
       <description>source&#xA;This article describes the commands for modeling an infill wall element which considers in-plane and out-of-plane interaction and for removal of the element during nonlinear time history simulation in OpenSees.</description>
     </item>
   </channel>

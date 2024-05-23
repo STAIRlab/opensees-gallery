@@ -21,7 +21,7 @@ loadConst -time 0.0
 
 
 # ----------------------------------------------------
-# Start of additional modelling for lateral loads
+# Start of additional modeling for lateral loads
 # ----------------------------------------------------
 
 # Define lateral loads
@@ -32,7 +32,6 @@ set H 10.0;        # Reference lateral load
 
 # Set lateral load pattern with a Linear TimeSeries
 pattern Plain 2 "Linear" {
-
      # Create nodal loads at nodes 3 & 4
      #    nd    FX  FY  MZ 
      load 3 $H 0.0 0.0 
@@ -40,7 +39,7 @@ pattern Plain 2 "Linear" {
 }
 
 # ----------------------------------------------------
-# End of additional modelling for lateral loads
+# End of additional modeling for lateral loads
 # ----------------------------------------------------
 
 

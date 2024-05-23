@@ -2,79 +2,79 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advanced on OpenSees Examples</title>
-    <link>https://stairlab.github.io/opensees-gallery/gallery/</link>
+    <link>http://localhost:45217/opensees-gallery/gallery/</link>
     <description>Recent content in Advanced on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://stairlab.github.io/opensees-gallery/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:45217/opensees-gallery/gallery/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/archbridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/archbridge/</guid>
       <description>Arch bridge example</description>
     </item>
     <item>
       <title>BART Shattuck Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/shattuck_curved_fibersection_gm_loop/readme/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/shattuck_curved_fibersection_gm_loop/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/shattuck_curved_fibersection_gm_loop/readme/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/shattuck_curved_fibersection_gm_loop/readme/</guid>
       <description>Few things related to the BART Shattuck curved bridge OpenSees file (see attached zip file):&#xA;Added the ground motions and the dynamic analysis, along with a loop for running multiple ground motions with the same tcl file, where each ground motion starts from the initial undamaged state.</description>
     </item>
     <item>
       <title>Cable force optimization of a curved cable stayed bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayedcurved/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/cablestayedcurved/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayedcurved/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/cablestayedcurved/</guid>
       <description>Cable force optimization of a curved cable stayed bridge Cable force optimization of a curved cable-stayed bridge with combined simulated annealing</description>
     </item>
     <item>
       <title>Cable-Stayed Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/cablestayed01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/cablestayed01/</guid>
       <description>Author: Junjun Guo([HomePage](https://github.com/Junjun1guo)) E-mail: guojj@tongji.edu.cn/guojj_ce@163.com Tutorials Download the zip file Run the example model (AnExampleBridgeOpenSeesPyModel.py) and generate the result database (resultsDB_1_1.</description>
     </item>
     <item>
       <title>CableStayed02</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/cablestayed02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/cablestayed02/</guid>
       <description>This model is sourced from the opstool repository.</description>
     </item>
     <item>
       <title>Dam Break</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/dambreak/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/dambreak/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/dambreak/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/dambreak/</guid>
       <description>From opstool</description>
     </item>
     <item>
       <title>Hayward Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/haywardbridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/haywardbridge/</guid>
       <description></description>
     </item>
     <item>
       <title>Igloo</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/igloo/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/igloo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/igloo/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/igloo/</guid>
       <description></description>
     </item>
     <item>
       <title>Sather Tower</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/sathertower/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/sathertower/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/sathertower/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/sathertower/</guid>
       <description> </description>
     </item>
     <item>
       <title>Suspension Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</link>
+      <link>http://localhost:45217/opensees-gallery/gallery/suspensionbridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</guid>
+      <guid>http://localhost:45217/opensees-gallery/gallery/suspensionbridge/</guid>
       <description>From opstool</description>
     </item>
   </channel>
