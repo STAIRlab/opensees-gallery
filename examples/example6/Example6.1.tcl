@@ -143,3 +143,5 @@ analysis Transient
 analyze  1000     0.05
 
 print node $l1 $l2
+
+export model.vtk

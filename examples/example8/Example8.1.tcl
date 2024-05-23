@@ -129,4 +129,5 @@ analysis Transient
 #       numSteps  dt
 analyze   1000   1.0 ; # -progress
 
+export model.vtk
 

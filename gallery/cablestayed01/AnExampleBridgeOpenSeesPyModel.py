@@ -336,8 +336,3 @@ def analyze(openseespyInstance):
 CableStayed01().print("-json", 'CableStayed01.json')
 
 
-
-
-
-
-

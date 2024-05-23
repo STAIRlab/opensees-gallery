@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Materials on OpenSees Examples</title>
-    <link>http://localhost:45217/opensees-gallery/material/</link>
+    <link>https://stairlab.github.io/opensees-gallery/material/</link>
     <description>Recent content in Materials on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:45217/opensees-gallery/material/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/material/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fatigue Material</title>
-      <link>http://localhost:45217/opensees-gallery/material/fatiguematerial/</link>
+      <link>https://stairlab.github.io/opensees-gallery/material/fatiguematerial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/material/fatiguematerial/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/material/fatiguematerial/</guid>
       <description></description>
     </item>
   </channel>

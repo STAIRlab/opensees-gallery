@@ -10,7 +10,7 @@
 #
 # Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
 # Date: June 2017
-#
+
 # import the OpenSeesPy Compatiblity module.
 # This module contains a private global variable
 # that encapsulates an instance of TclRuntime
@@ -42,9 +42,9 @@ model.uniaxialMaterial("Elastic", 1, 3000.0)
 # Define elements
 # ---------------
 # Create truss elements - command: element truss trussID node1 node2 A matID
-model.element("truss", 1, 1, 4, 10.0, 1)
-model.element("truss", 2, 2, 4,  5.0, 1)
-model.element("truss", 3, 3, 4,  5.0, 1)
+model.element("Truss", 1, 1, 4, 10.0, 1)
+model.element("Truss", 2, 2, 4,  5.0, 1)
+model.element("Truss", 3, 3, 4,  5.0, 1)
 
 # Define loads
 # ------------
@@ -123,6 +123,6 @@ model.analyze(1)
 
 # print the current state at node 4 and at all elements
 #print("node 4 displacement: ", nodeDisp(4))
-model.printModel("node", 4)
-model.printModel("ele")
+model.print(node=4)
+model.print("ele")
 

@@ -1,0 +1,36 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+      {"name": "10", "type": "ElasticIsotropicMaterial", "E": 3.45e+07, "nu": 0.2, "rho": 0}
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+
+        ]
+    },
+    "geometry": {
+        "nodes": [
+      {"name": 1, "ndf": 2, "crd": [0, 0]},
+      {"name": 2, "ndf": 2, "crd": [0.146, 0]},
+      {"name": 3, "ndf": 2, "crd": [0.146, 0.292]},
+      {"name": 4, "ndf": 2, "crd": [0, 0.292]},
+      {"name": 5, "ndf": 2, "crd": [0, 0.3]},
+      {"name": 6, "ndf": 2, "crd": [0.584, 0]},
+      {"name": 7, "ndf": 2, "crd": [0.584, 0.3]},
+      {"name": 8, "ndf": 2, "crd": [-0.015, 0.3]},
+      {"name": 9, "ndf": 2, "crd": [-0.015, -0.015]},
+      {"name": 10, "ndf": 2, "crd": [0.599, -0.015]},
+      {"name": 11, "ndf": 2, "crd": [0.599, 0.3]}
+        ],
+        "elements": [
+
+        ]
+    }
+}
+}
