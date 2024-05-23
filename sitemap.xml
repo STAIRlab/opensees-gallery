@@ -88,10 +88,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/cfssswp/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -283,6 +279,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/material/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

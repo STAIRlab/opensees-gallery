@@ -29,13 +29,6 @@
       <description>The problem is implemented in the file CableStayedBridge.py, and can also be run through the Tcl file CableStayedBridge.tcl.&#xA;This model is adapted from the opstool project and has been adapted to use the more robust Model class interface.</description>
     </item>
     <item>
-      <title>Chopra 10.4: Eigen Analysis</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
-      <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
-    </item>
-    <item>
       <title>Concrete</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -125,6 +118,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
       <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
+    </item>
+    <item>
+      <title>Matrix Eigenvalue Analysis</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
+      <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
     </item>
     <item>
       <title>Plane Steel Frame</title>

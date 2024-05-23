@@ -107,13 +107,6 @@
       <description></description>
     </item>
     <item>
-      <title>Chopra 10.4: Eigen Analysis</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
-      <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
-    </item>
-    <item>
       <title>Cold-Formed Steel Steel Sheathed Shear Wall Panel examples</title>
       <link>https://stairlab.github.io/opensees-gallery/community/cfssswp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -350,6 +343,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/community/limitstatematerial/</guid>
       <description>Application of a limit state material is demonstrated on an example of a column modeled with force-based beam-column element. Three types of analysis are performed on a same column:</description>
+    </item>
+    <item>
+      <title>Matrix Eigenvalue Analysis</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
+      <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
     </item>
     <item>
       <title>MultipleShearSpring</title>
