@@ -2,289 +2,282 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Examples on OpenSees Examples</title>
-    <link>http://localhost:45217/opensees-gallery/examples/</link>
+    <link>https://stairlab.github.io/opensees-gallery/examples/</link>
     <description>Recent content in Examples on OpenSees Examples</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:45217/opensees-gallery/examples/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/examples/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Dynamic Snapping</title>
-      <link>http://localhost:45217/opensees-gallery/examples/archdynamicsnap/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/archdynamicsnap/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</guid>
       <description>Download (ArchDynamicSnap.ipynb)&#xA;Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.</description>
     </item>
     <item>
       <title>Arch Instability</title>
-      <link>http://localhost:45217/opensees-gallery/examples/archstaticsnap/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/archstaticsnap/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
       <description>Download (IncrementalAnalysis.ipynb)&#xA;Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
     </item>
     <item>
       <title>Bathe&#39;s Springs</title>
-      <link>http://localhost:45217/opensees-gallery/examples/bathesprings/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/bathesprings/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
       <description>Download (Bathe Model Problem.ipynb)&#xA;Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
     </item>
     <item>
       <title>Building Modes</title>
-      <link>http://localhost:45217/opensees-gallery/examples/buildingmodes/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/buildingmodes/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</guid>
       <description></description>
     </item>
     <item>
       <title>Chopra 10.4: Eigen Analysis</title>
-      <link>http://localhost:45217/opensees-gallery/examples/chopra-10.4/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/chopra-10.4/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>Eigen analysis of a two-storey shear frame This example demonstrates how to perform eigenvalue analysis and plot mode shapes. Idealized two-storey shear frame (Example 10.</description>
     </item>
     <item>
       <title>Concentrically Braced Portal Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/steelbracedportal/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/steelbracedportal/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</guid>
       <description></description>
     </item>
     <item>
       <title>Concrete</title>
-      <link>http://localhost:45217/opensees-gallery/examples/concretesurface/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/concretesurface/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</guid>
       <description></description>
     </item>
     <item>
       <title>Concrete MRF</title>
-      <link>http://localhost:45217/opensees-gallery/examples/concretemrf/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/concretemrf/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</guid>
       <description>Download (Reinforced Concrete 3D Frame (FGU).ipynb)&#xA;Reinforced Concrete 3D Frame January 2022, By Amir Hossein Namadchi This notebook is adapted from https://github.</description>
     </item>
     <item>
-      <title>Diaphragms in 2D</title>
-      <link>http://localhost:45217/opensees-gallery/examples/modelingdiaphragms2d/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/modelingdiaphragms2d/</guid>
-      <description>Floor diaphragm need to be axially rigid to assure proper distribution of seismic forces to all lateral force resisting elements (columns and walls).</description>
-    </item>
-    <item>
       <title>Dynamic Analysis of 2-Story Moment Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/mrf_concentrated/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/mrf_concentrated/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/</guid>
       <description>This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake.</description>
     </item>
     <item>
       <title>Elastic Frame Example</title>
-      <link>http://localhost:45217/opensees-gallery/examples/steelbuilding2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/steelbuilding2d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
       <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
     </item>
     <item>
       <title>Elastic Response Spectra</title>
-      <link>http://localhost:45217/opensees-gallery/examples/elasticspectra/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/elasticspectra/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</guid>
       <description>Download (Elastic Response Spectra.ipynb)&#xA;Elastic Response Spectra April 2020, By Amir Hossein Namadchi This one deals with an elastic SDOF system subjected to the El Centro ground acceleration, $\ddot{d_g}$.</description>
     </item>
     <item>
       <title>Euler buckling analysis</title>
-      <link>http://localhost:45217/opensees-gallery/examples/framebuckling/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/framebuckling/</guid>
-      <description>This example is adapted from https://github.com/denavit/OpenSees-Examples</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>This example is adapted from https://github.com/denavit/OpenSees-Examples&#xA;The files for the problem are EulerBuckling.py for Python, and EulerBuckling.tcl for Tcl.</description>
     </item>
     <item>
       <title>Ex1: Time History Analysis of a 2D Elastic Cantilever Column</title>
-      <link>http://localhost:45217/opensees-gallery/examples/ex1/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/ex1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/ex1/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/ex1/</guid>
       <description>This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.</description>
     </item>
     <item>
       <title>Ex4 - Portal Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/ex4/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/ex4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/ex4/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/ex4/</guid>
       <description>Introduction This is a great example! To all the demonstrations that Example 3 has done, Example 4 adds the use of previously-defined Tcl procedures (a procedure is a Tcl command that is created by the proc command) or scripts.</description>
     </item>
     <item>
       <title>Ex5 - 2D Frame, 3-story 3-bay, Reinforced-Concrete Section &amp; Steel W-Section</title>
-      <link>http://localhost:45217/opensees-gallery/examples/ex5/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/ex5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/ex5/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/ex5/</guid>
       <description>Introduction This examples demonstrates how to build a 3-story,3-bay frame. The nodes and elements are specified one by one. Input Model Building The following tasks are performed when building the model define units define model define recorders for output define &amp;amp; apply gravity Card title This is a wider card with supporting text below as a natural lead-in to additional content.</description>
     </item>
     <item>
       <title>Example 1: Simple Truss</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example1/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example1/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
       <description>The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.</description>
     </item>
     <item>
       <title>Example 2: Moment-Curvature</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example2/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example2/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example covers the moment-curvature analysis of a reinforced concrete section. The zero-length element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 3: Portal Frame Examples</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example3/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example3/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
       <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 4: Multibay Two Story Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example4/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example4/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example4/</guid>
       <description>In this example variables and control structures are demonstrated.&#xA;Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
       <title>Example 5: Rigid 3D Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example5/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example5/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
       <description>Example 5.1 A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.1.tcl RCsection.tcl Or for Python:</description>
     </item>
     <item>
       <title>Example 6: Simply Supported Beam</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example6/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example6/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
     </item>
     <item>
       <title>Example 7: Dynamic Shell Analysis</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example7/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example7/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
       <title>Example 8: Cantilever Beam</title>
-      <link>http://localhost:45217/opensees-gallery/examples/example8/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/example8/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
     </item>
     <item>
       <title>Force-based Element vs. Displacement-based Element</title>
-      <link>http://localhost:45217/opensees-gallery/examples/frameformulations/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/frameformulations/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</guid>
       <description>Investigate the two most commonly used OpenSees elements for modeling beam-column elements: the force-based element (FBE) and displacement-based element (DBE).</description>
     </item>
     <item>
       <title>Frame with Viscous Dampers</title>
-      <link>http://localhost:45217/opensees-gallery/examples/viscousdamper/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/viscousdamper/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</guid>
       <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:</description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>
-      <link>http://localhost:45217/opensees-gallery/examples/cantilevertransient/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/cantilevertransient/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
       <description>Download (CantileverTransient2D.ipynb)&#xA;In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
     </item>
     <item>
       <title>Inelastic SDOF</title>
-      <link>http://localhost:45217/opensees-gallery/examples/inelasticsdof/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/inelasticsdof/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
       <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
     </item>
     <item>
       <title>Plane Steel Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/steelframe2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/steelframe2d/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
       <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html</description>
     </item>
     <item>
       <title>Pushover Analysis of 2-Story Moment Frame</title>
-      <link>http://localhost:45217/opensees-gallery/examples/mrf_pushover/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/mrf_pushover/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</guid>
       <description>This example demonstrates how to perform a pushover (nonlinear static) analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame.</description>
     </item>
     <item>
       <title>Pushover and Dynamic Analyses of 2-Story Moment Frame with Panel Zones and RBS</title>
-      <link>http://localhost:45217/opensees-gallery/examples/mrf_panelzone/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/mrf_panelzone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/mrf_panelzone/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/mrf_panelzone/</guid>
       <description>This example is an extension of the Pushover Analysis of 2-Story Moment Frame and Dynamic Analysis of 2-Story Moment Frame examples which illustrates the explicit modeling of shear distortions in panel zones and uses reduced beam sections (RBS) which are offset from the panel zones.</description>
     </item>
     <item>
-      <title>Rectilinear Cross Sections</title>
-      <link>http://localhost:45217/opensees-gallery/examples/ex9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/ex9/</guid>
-      <description>For the case of the uniaxial section, moment-curvature and axial force-deformation curves are defined independently, and numerically.&#xA;For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.</description>
-    </item>
-    <item>
       <title>RotD Spectrum</title>
-      <link>http://localhost:45217/opensees-gallery/examples/spectrum/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/spectrum/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
       <description>The source code is adapted from the example by Jawad Fayaz from University of California-Irvine at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html</description>
     </item>
     <item>
-      <title>Shallow Dome</title>
-      <link>http://localhost:45217/opensees-gallery/examples/shallowdome/</link>
+      <title>Section Library</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/ex9/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/shallowdome/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/ex9/</guid>
+      <description>For the case of the uniaxial section, moment-curvature and axial force-deformation curves are defined independently, and numerically.&#xA;For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.</description>
+    </item>
+    <item>
+      <title>Shallow Dome</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/shallowdome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/shallowdome/</guid>
       <description>Download (Double-Layer Shallow Dome.ipynb)&#xA;Double-Layer Shallow Dome March 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in our previously published paper.</description>
     </item>
     <item>
       <title>Simple Pendulum</title>
-      <link>http://localhost:45217/opensees-gallery/examples/pendulum/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/pendulum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/pendulum/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/pendulum/</guid>
       <description>This example investigates a simple pendulum using the corotational truss element.&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 # # Adapted from https://portwooddigital.</description>
     </item>
     <item>
       <title>Special concentrically-braced frames</title>
-      <link>http://localhost:45217/opensees-gallery/examples/opensees_models_cbf/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/opensees_models_cbf/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/opensees_models_cbf/</guid>
       <description>This folder contains ready-to-run 2-dimensional OpenSEES models of four archetype steel buildings designed with perimeter special concentrically-braced frames (SCBFs), with heights of 3, 6, 12 and 16-story.</description>
     </item>
     <item>
       <title>Steel MRF</title>
-      <link>http://localhost:45217/opensees-gallery/examples/steelmrf/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelmrf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/steelmrf/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelmrf/</guid>
       <description>Download (Two Story Steel MRF (FGU).ipynb)&#xA;Two Story Steel MRF December 2021, By Amir Hossein Namadchi In this notebook, a 2 story steel moment resisting frame is modeled.</description>
     </item>
     <item>
       <title>Steel MRF</title>
-      <link>http://localhost:45217/opensees-gallery/examples/steelmrf_northridge/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/steelmrf_northridge/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</guid>
       <description>Download (NLSMRF.ipynb)&#xA;Nonlinear seismic response of a MRF March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a moment resisting frame subjected to seismic excitation.</description>
     </item>
     <item>
       <title>TODO</title>
-      <link>http://localhost:45217/opensees-gallery/examples/structuralmatrices/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/structuralmatrices/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</guid>
       <description></description>
     </item>
     <item>
       <title>Zero-Length Elements</title>
-      <link>http://localhost:45217/opensees-gallery/examples/zerolength/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/zerolength/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:45217/opensees-gallery/examples/zerolength/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/zerolength/</guid>
       <description>Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 from math import cos,sin,sqrt,pi import opensees.</description>
     </item>
   </channel>

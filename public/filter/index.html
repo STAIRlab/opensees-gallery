@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head><script src="/opensees-gallery/livereload.js?mindelay=10&amp;v=2&amp;port=45217&amp;path=opensees-gallery/livereload" data-no-instant defer></script>
+<head>
   <link rel="stylesheet" href="/opensees-gallery/css/chroma.css" />
   
   <link rel="stylesheet" href="/opensees-gallery/vendor/bare/css/bare.min.css" />
@@ -267,17 +267,11 @@
     
   
 
-  
-    
-  
 
 
 
 
 
-
-
-  
 
   
 
@@ -496,6 +490,13 @@
       
     
       
+        <button xx class="tag-button" id="tag-export" onclick="htf.checkFilter('export', 'tag-')">
+          <span>Export</span>
+          <span id="stags-export"> -count-</span> | <span id="ctags-export"> -count-</span>
+        </button>
+      
+    
+      
         <button xx class="tag-button" id="tag-joint" onclick="htf.checkFilter('joint', 'tag-')">
           <span>Joint</span>
           <span id="stags-joint"> -count-</span> | <span id="ctags-joint"> -count-</span>
@@ -671,6 +672,22 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
+          data-tags="fiber "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/ex9/">Section Library</a></h4>
+      
+      <div><tag>Fiber</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
           data-tags="python dynamics "
           data-section="examples"
           
@@ -683,22 +700,6 @@
       <h4><a href="/opensees-gallery/examples/spectrum/">RotD Spectrum</a></h4>
       
       <div><tag>Python</tag> <tag>Dynamics</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="fiber "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/ex9/">Rectilinear Cross Sections</a></h4>
-      
-      <div><tag>Fiber</tag> </div>
       
     </div>
   
@@ -815,7 +816,7 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags="solid dynamic python tcl "
+          data-tags="solid dynamic python tcl export "
           data-section="examples"
           
           data-authors="no-author"
@@ -826,7 +827,7 @@
       
       <h4><a href="/opensees-gallery/examples/example8/">Example 8: Cantilever Beam</a></h4>
       
-      <div><tag>Solid</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
+      <div><tag>Solid</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Export</tag> </div>
       
     </div>
   
@@ -991,7 +992,7 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags=" tfuntagged"
+          data-tags="python tcl "
           data-section="examples"
           
           data-authors="no-author"
@@ -1002,7 +1003,7 @@
       
       <h4><a href="/opensees-gallery/examples/framebuckling/">Euler buckling analysis</a></h4>
       
-      <div><tag>untagged</tag></div>
+      <div><tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   
@@ -1049,22 +1050,6 @@
       <h5>No Author</h5>
       
       <h4><a href="/opensees-gallery/examples/mrf_concentrated/">Dynamic Analysis of 2-Story Moment Frame</a></h4>
-      
-      <div><tag>untagged</tag></div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags=" tfuntagged"
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/modelingdiaphragms2d/">Diaphragms in 2D</a></h4>
       
       <div><tag>untagged</tag></div>
       
