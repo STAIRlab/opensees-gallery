@@ -302,10 +302,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_panelzone/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
