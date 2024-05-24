@@ -8,6 +8,7 @@
 
 
 <title>Building Modes - OpenSees Examples</title>
+<meta name="description" content="A building is modeled as a cantilever, and the first three mode shapes are plotted.">
 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -57,9 +58,9 @@
     "name" : "STAIRlab"
   },
   "headline": "Building Modes",
-  "description" : "",
+  "description" : "A building is modeled as a cantilever, and the first three mode shapes are plotted.",
   "inLanguage" : "en",
-  "wordCount":  0 ,
+  "wordCount":  1018 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -79,6 +80,7 @@
 </script>
 
 <meta property="og:title" content="Building Modes" />
+<meta property="og:description" content="A building is modeled as a cantilever, and the first three mode shapes are plotted.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/mode_shapes.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/buildingmodes/" />
 <meta property="og:type" content="website" />
@@ -307,6 +309,14 @@
     <div class="row flex-xl-nowrap">
     
       
+      <div class="d-none d-xl-block col-xl-2 docs-toc">
+        <ul class="nav toc-top">
+          <li><a href="#" id="back_to_top" class="docs-toc-title"></a></li>
+        </ul>
+        <nav id="TableOfContents"></nav>
+        
+      </div>
+      
     
       <main class="col-12 col-md-1 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
 
@@ -327,8 +337,384 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><img src="modal_displacements.png" alt=""></p>
-<p><img src="mode_shapes.png" alt=""></p>
+        <p><img src="mode_shapes.png" alt=""></p>
+<p>This example is implemented in the following Python script, which
+can be downloaded from here: <a href="cantilever_modes.py"><code>cantilever_modes.py</code></a>.</p>
+
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">176
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">177
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">178
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">179
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">180
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Import the opensees package for finite element analysis</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Import some additional dependencies</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="font-weight:bold">as</span> <span style="color:#555">plt</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="font-weight:bold">as</span> <span style="color:#555">pd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="font-weight:bold">.</span>rcParams<span style="font-weight:bold">.</span>update({<span style="color:#b84">&#39;font.size&#39;</span>: <span style="color:#099">16</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">make_model</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define a basic model with 2 dimensions and 3 degrees of freedom per node </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># (translation in X and Y directions, and rotation about the Z-axis)</span>
+</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define material</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Sets up an elastic material with given Young&#39;s modulus (E), </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># moment of inertia (I), and cross-sectional area (A)</span>
+</span></span><span style="display:flex;"><span>    E <span style="font-weight:bold">=</span> <span style="color:#099">200e6</span>   <span style="color:#998;font-style:italic"># Young&#39;s modulus in kPa</span>
+</span></span><span style="display:flex;"><span>    I <span style="font-weight:bold">=</span> <span style="color:#099">0.0001</span>  <span style="color:#998;font-style:italic"># Area moment of inertia in m^4</span>
+</span></span><span style="display:flex;"><span>    A <span style="font-weight:bold">=</span> <span style="color:#099">0.01</span>    <span style="color:#998;font-style:italic"># Cross-sectional area in m^2</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#34;Elastic&#34;</span>, <span style="color:#099">1</span>, E)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create nodes</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Nodes are created along a vertical line with a defined height between each, </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># representing floors of a building</span>
+</span></span><span style="display:flex;"><span>    numFloors   <span style="font-weight:bold">=</span> <span style="color:#099">56</span>  <span style="color:#998;font-style:italic"># Number of floors</span>
+</span></span><span style="display:flex;"><span>    floorHeight <span style="font-weight:bold">=</span> <span style="color:#099">3.0</span> <span style="color:#998;font-style:italic"># Height of each floor in meters</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors <span style="font-weight:bold">+</span> <span style="color:#099">1</span>):
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>node(i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, <span style="color:#099">0</span>, i <span style="font-weight:bold">*</span> floorHeight)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Fix base node</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># The base node is fixed, meaning no translations or rotations are allowed, </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># mimicking a fixed foundation</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define geometric transformation (required for beam-column elements)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## A linear geometric transformation is defined for beam-column elements, </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## essential for how elements behave in the model space</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>geomTransf(<span style="color:#b84">&#39;Linear&#39;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define elements (cantilever columns)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  Beam-column elements are defined between each pair of nodes, </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  simulating the columns of a building</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors):
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>, A, E, I, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define mass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  Mass is assigned to each node (excluding the fixed base), </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  essential for dynamic analysis like modal analysis</span>
+</span></span><span style="display:flex;"><span>    m <span style="font-weight:bold">=</span> <span style="color:#099">2000</span>  <span style="color:#998;font-style:italic"># Mass in kg</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">1</span>, numFloors <span style="font-weight:bold">+</span> <span style="color:#099">1</span>):
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>mass(i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, m, <span style="color:#099">1e-9</span>, <span style="color:#099">0.0</span>) <span style="color:#998;font-style:italic"># Mass assigned to each node</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model, numFloors, floorHeight
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">plot_modes</span>(model, numFloors, floorHeight):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Perform eigenvalue analysis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Eigenvalue analysis is performed to obtain the </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># first three natural frequencies and associated mode shapes</span>
+</span></span><span style="display:flex;"><span>    numEigen <span style="font-weight:bold">=</span> <span style="color:#099">3</span>
+</span></span><span style="display:flex;"><span>    eigenValues <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>eigen(numEigen)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Plotting</span>
+</span></span><span style="display:flex;"><span>    fig, ax <span style="font-weight:bold">=</span> plt<span style="font-weight:bold">.</span>subplots(<span style="color:#099">1</span>, numEigen <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, figsize<span style="font-weight:bold">=</span>(<span style="color:#099">15</span>, <span style="color:#099">10</span>), sharey<span style="font-weight:bold">=</span><span style="font-weight:bold">True</span>, gridspec_kw<span style="font-weight:bold">=</span>{<span style="color:#b84">&#39;wspace&#39;</span>: <span style="color:#099">0.1</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Floor height positions and labels for y-ticks</span>
+</span></span><span style="display:flex;"><span>    floor_positions <span style="font-weight:bold">=</span> [(i <span style="font-weight:bold">*</span> floorHeight) <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">0</span>, numFloors, <span style="color:#099">5</span>)]  <span style="color:#998;font-style:italic"># Every 5 floors</span>
+</span></span><span style="display:flex;"><span>    floor_labels <span style="font-weight:bold">=</span> [<span style="color:#b84">f</span><span style="color:#b84">&#39;F</span><span style="color:#b84">{</span>i<span style="color:#b84">}</span><span style="color:#b84">&#39;</span> <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">1</span>, numFloors <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, <span style="color:#099">5</span>)]  <span style="color:#998;font-style:italic"># Every 5 floors</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> fp, fl <span style="font-weight:bold">in</span> <span style="color:#999">zip</span>(floor_positions, floor_labels):
+</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#39;Floor Position: </span><span style="color:#b84">{</span>fp<span style="color:#b84">}</span><span style="color:#b84"> - Floor Label: </span><span style="color:#b84">{</span>fl<span style="color:#b84">}</span><span style="color:#b84">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Plot undeformed shape</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors):
+</span></span><span style="display:flex;"><span>        nodeTag_i <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>        nodeTag_j <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>        coord_i <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_i) <span style="color:#998;font-style:italic"># Get the coordinates of the i-th node</span>
+</span></span><span style="display:flex;"><span>        coord_j <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_j) <span style="color:#998;font-style:italic"># Get the coordinates of the j-th node</span>
+</span></span><span style="display:flex;"><span>        ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>plot([coord_i[<span style="color:#099">0</span>], coord_j[<span style="color:#099">0</span>]], [coord_i[<span style="color:#099">1</span>], coord_j[<span style="color:#099">1</span>]], <span style="color:#b84">&#39;b-o&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>set_title(<span style="color:#b84">&#39;Undeformed Shape&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>set_xlabel(<span style="color:#b84">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># ax[0].set_ylabel(&#39;Y&#39;)</span>
+</span></span><span style="display:flex;"><span>    ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>set_yticks(floor_positions)
+</span></span><span style="display:flex;"><span>    ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>set_yticklabels(floor_labels)  <span style="color:#998;font-style:italic"># Adjust fontsize as needed</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Plot mode shapes</span>
+</span></span><span style="display:flex;"><span>    all_modal_displacements <span style="font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> mode <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numEigen):
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors):
+</span></span><span style="display:flex;"><span>            nodeTag_i <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>            nodeTag_j <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>            coord_i <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_i) <span style="color:#998;font-style:italic"># Get the coordinates of the i-th node</span>
+</span></span><span style="display:flex;"><span>            coord_j <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_j) <span style="color:#998;font-style:italic"># Get the coordinates of the j-th node</span>
+</span></span><span style="display:flex;"><span>            ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>plot([coord_i[<span style="color:#099">0</span>], coord_j[<span style="color:#099">0</span>]], [coord_i[<span style="color:#099">1</span>], coord_j[<span style="color:#099">1</span>]], <span style="color:#b84">&#39;-o&#39;</span>, color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;gray&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># get modal displacement and floor number for each node</span>
+</span></span><span style="display:flex;"><span>        all_modal_displacements[mode] <span style="font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Scale deformation to the node coordinates for easy visualization</span>
+</span></span><span style="display:flex;"><span>        scaleFactor <span style="font-weight:bold">=</span> <span style="color:#099">15</span>  <span style="color:#998;font-style:italic"># Scale factor for deformation amplification</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors):
+</span></span><span style="display:flex;"><span>            nodeTag_i <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>            nodeTag_j <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>            coord_i <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_i)
+</span></span><span style="display:flex;"><span>            coord_j <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_j)
+</span></span><span style="display:flex;"><span>            eigenvector_i <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeEigenvector(nodeTag_i, mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            eigenvector_j <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeEigenvector(nodeTag_j, mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic"># Apply scale factor to mode shape</span>
+</span></span><span style="display:flex;"><span>            coord_i[<span style="color:#099">0</span>] <span style="font-weight:bold">+=</span> scaleFactor <span style="font-weight:bold">*</span> eigenvector_i[<span style="color:#099">0</span>]
+</span></span><span style="display:flex;"><span>            coord_j[<span style="color:#099">0</span>] <span style="font-weight:bold">+=</span> scaleFactor <span style="font-weight:bold">*</span> eigenvector_j[<span style="color:#099">0</span>]
+</span></span><span style="display:flex;"><span>            all_modal_displacements[mode][nodeTag_i] <span style="font-weight:bold">=</span> coord_i[<span style="color:#099">0</span>]
+</span></span><span style="display:flex;"><span>            ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>plot([coord_i[<span style="color:#099">0</span>], coord_j[<span style="color:#099">0</span>]], [coord_i[<span style="color:#099">1</span>], coord_j[<span style="color:#099">1</span>]], <span style="color:#b84">&#39;r-o&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#39;Mode </span><span style="color:#b84">{</span>mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span><span style="color:#b84">}</span><span style="color:#b84"> - Frequency: </span><span style="color:#b84">{</span>np<span style="font-weight:bold">.</span>sqrt(eigenValues[mode]) <span style="font-weight:bold">/</span> (<span style="color:#099">2</span> <span style="font-weight:bold">*</span> np<span style="font-weight:bold">.</span>pi)<span style="color:#b84">}</span><span style="color:#b84"> Hz&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># print(f&#39;Modal Displacements: {modalDisplacements}&#39;)</span>
+</span></span><span style="display:flex;"><span>        ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>set_title(<span style="color:#b84">f</span><span style="color:#b84">&#39;Mode </span><span style="color:#b84">{</span>mode<span style="color:#b84">}</span><span style="color:#b84">&#39;</span>)
+</span></span><span style="display:flex;"><span>        ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>set_xlabel(<span style="color:#b84">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>        ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>set_ylim(ax[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>get_ylim())
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># ax[mode + 1].set_yticks(floor_positions)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># ax[mode + 1].set_yticklabels(floor_labels)  </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## Draw horizontal line at each floor level</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> a <span style="font-weight:bold">in</span> ax:
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> y <span style="font-weight:bold">in</span> floor_positions:
+</span></span><span style="display:flex;"><span>            a<span style="font-weight:bold">.</span>axhline(y, color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;gray&#39;</span>, linestyle<span style="font-weight:bold">=</span><span style="color:#b84">&#39;--&#39;</span>, linewidth<span style="font-weight:bold">=</span><span style="color:#099">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## rotate x-axis labels</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> a <span style="font-weight:bold">in</span> ax:
+</span></span><span style="display:flex;"><span>        plt<span style="font-weight:bold">.</span>sca(a)
+</span></span><span style="display:flex;"><span>        plt<span style="font-weight:bold">.</span>xticks(rotation<span style="font-weight:bold">=</span><span style="color:#099">45</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    max_disp <span style="font-weight:bold">=</span> <span style="color:#099">0.1</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> a <span style="font-weight:bold">in</span> ax:
+</span></span><span style="display:flex;"><span>        a<span style="font-weight:bold">.</span>set_xlim([<span style="font-weight:bold">-</span>max_disp, max_disp])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    plt<span style="font-weight:bold">.</span>savefig(<span style="color:#b84">&#39;mode_shapes.png&#39;</span>, dpi<span style="font-weight:bold">=</span><span style="color:#099">300</span>, bbox_inches<span style="font-weight:bold">=</span><span style="color:#b84">&#39;tight&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="font-weight:bold">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># print(all_modal_displacements)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## all_modal_displacements to pandas dataframe</span>
+</span></span><span style="display:flex;"><span>    df <span style="font-weight:bold">=</span> pd<span style="font-weight:bold">.</span>DataFrame(all_modal_displacements)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># print(df.head())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## ylocations for each mode</span>
+</span></span><span style="display:flex;"><span>    yloc_offset <span style="font-weight:bold">=</span> <span style="color:#099">0.1</span>
+</span></span><span style="display:flex;"><span>    ylocations <span style="font-weight:bold">=</span> [i <span style="font-weight:bold">*</span> yloc_offset <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(df<span style="font-weight:bold">.</span>shape[<span style="color:#099">1</span>])]
+</span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(ylocations)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fig, ax <span style="font-weight:bold">=</span> plt<span style="font-weight:bold">.</span>subplots(<span style="color:#099">1</span>, <span style="color:#099">1</span>, figsize<span style="font-weight:bold">=</span>(<span style="color:#099">12</span>, <span style="color:#099">8</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># plot for first mode</span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>plot(df[<span style="color:#099">0</span>], <span style="color:#b84">&#39;bo-&#39;</span>, label<span style="font-weight:bold">=</span><span style="color:#b84">&#39;Mode 1&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>axhline(ylocations[<span style="color:#099">0</span>], color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;black&#39;</span>, linestyle<span style="font-weight:bold">=</span><span style="color:#b84">&#39;--&#39;</span>, linewidth<span style="font-weight:bold">=</span><span style="color:#099">1.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## plot for second mode with yaxis offset of 0.5</span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>plot(df[<span style="color:#099">1</span>] <span style="font-weight:bold">+</span> ylocations[<span style="color:#099">1</span>], <span style="color:#b84">&#39;ro-&#39;</span>, label<span style="font-weight:bold">=</span><span style="color:#b84">&#39;Mode 2&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>axhline(ylocations[<span style="color:#099">1</span>], color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;black&#39;</span>, linestyle<span style="font-weight:bold">=</span><span style="color:#b84">&#39;--&#39;</span>, linewidth<span style="font-weight:bold">=</span><span style="color:#099">1.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## plot for third mode with yaxis offset of 1.0</span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>plot(df[<span style="color:#099">2</span>] <span style="font-weight:bold">+</span> ylocations[<span style="color:#099">2</span>], <span style="color:#b84">&#39;go-&#39;</span>, label<span style="font-weight:bold">=</span><span style="color:#b84">&#39;Mode 3&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>axhline(ylocations[<span style="color:#099">2</span>], color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;black&#39;</span>, linestyle<span style="font-weight:bold">=</span><span style="color:#b84">&#39;--&#39;</span>, linewidth<span style="font-weight:bold">=</span><span style="color:#099">1.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>set_xlabel(<span style="color:#b84">&#39;Floor Number&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>set_ylabel(<span style="color:#b84">&#39;Normalized Displacement&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## xticks</span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>set_xticks(<span style="color:#999">range</span>(<span style="color:#099">1</span>, numFloors <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, <span style="color:#099">5</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">## yticks for each mode</span>
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>set_yticks(ylocations)
+</span></span><span style="display:flex;"><span>    ax<span style="font-weight:bold">.</span>set_yticklabels([<span style="color:#b84">f</span><span style="color:#b84">&#39;Mode </span><span style="color:#b84">{</span>i<span style="color:#b84">}</span><span style="color:#b84">&#39;</span> <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#999">len</span>(ylocations))])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    plt<span style="font-weight:bold">.</span>savefig(<span style="color:#b84">&#39;modal_displacements.png&#39;</span>, dpi<span style="font-weight:bold">=</span><span style="color:#099">300</span>, bbox_inches<span style="font-weight:bold">=</span><span style="color:#b84">&#39;tight&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> __name__ <span style="font-weight:bold">==</span> <span style="color:#b84">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    plot_modes(<span style="font-weight:bold">*</span>make_model())
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
 
       </article>
     </div>
@@ -437,8 +823,8 @@
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/"
-            data-toggle="tooltip" data-placement="top" title="Concentrically Braced Portal Frame">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/concretesurface/"
+            data-toggle="tooltip" data-placement="top" title="Concrete">&larr;
             Previous Post</a>
         </li>
         
@@ -616,7 +1002,7 @@ instabilities in a shallow arch.
 
                 <div class="post-entry">
                     
-                    
+                    This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:
                     
                 </div>
 
@@ -627,7 +1013,7 @@ instabilities in a shallow arch.
             </div>
 
             
-            <img src="/opensees-gallery/examples/concretesurface/ASDConcrete3D_Ex_CyclicUniaxialTension_hu471f42f3e8727f8b50a2d4a2411afeb7_331473_500x0_resize_box_1.gif" alt="ASDConcrete3D_Ex_CyclicUniaxialTension.gif"
+            <img src="/opensees-gallery/examples/concretesurface/ASDConcrete3D_Ex_Surface_Output_hucaaec31a463858cd5f86ca341fb2f668_101791_500x0_resize_box_1.gif" alt="ASDConcrete3D_Ex_Surface_Output.gif"
                 class="card-img-bottom img-fluid lazyload">
             
 

@@ -119,5 +119,8 @@ analysis Transient
 # Perform the transient analysis (20 sec)
 analyze 100 0.2
 
-export model.vtk
+catch {
+  export model.vtk
+} _;
+
 

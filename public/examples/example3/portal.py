@@ -12,17 +12,13 @@
 #
 import opensees.openseespy as ops
 
-def create_portal():
+def create_portal(width  = 360.0, height = 144.0):
 
     # create ModelBuilder (with two-dimensions and 3 DOF/node)
     model = ops.Model(ndm=2, ndf=3)
 
     # Create nodes
     # ------------
-    # Set parameters for overall model geometry
-    width  = 360.0
-    height = 144.0
-
     # create nodes & add to Domain - command: node nodeId xCrd yCrd
     model.node(1, 0.0,      0.0)
     model.node(2, width,    0.0)

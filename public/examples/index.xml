@@ -33,21 +33,14 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Concentrically Braced Portal Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbracedportal/</guid>
-      <description></description>
+      <description>This example is implemented in the following Python script, which can be downloaded from here: cantilever_modes.py.&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 # Import the opensees package for finite element analysis import opensees.</description>
     </item>
     <item>
       <title>Concrete</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</guid>
-      <description></description>
+      <description>This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:</description>
     </item>
     <item>
       <title>Concrete MRF</title>
@@ -82,7 +75,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
-      <description>This example is adapted from https://github.com/denavit/OpenSees-Examples&#xA;The files for the problem are EulerBuckling.py for Python, and EulerBuckling.tcl for Tcl.</description>
+      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.</description>
     </item>
     <item>
       <title>Ex1: Time History Analysis of a 2D Elastic Cantilever Column</title>
@@ -110,7 +103,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
-      <description>The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.</description>
+      <description>This example is of a linear-elastic three bar truss, as shown in the figure above, subject to static loads. The purpose of this example is to develop the basic requirements for performing finite element analysis with OpenSees.</description>
     </item>
     <item>
       <title>Example 2: Moment-Curvature</title>
@@ -124,7 +117,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
-      <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
+      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 4: Multibay Two Story Frame</title>
@@ -176,13 +169,6 @@
       <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:</description>
     </item>
     <item>
-      <title>Inelastic Cantilever</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
-      <description>Download (CantileverTransient2D.ipynb)&#xA;In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
-    </item>
-    <item>
       <title>Inelastic SDOF</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -222,7 +208,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
-      <description>The source code is adapted from the example by Jawad Fayaz from University of California-Irvine at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html</description>
+      <description>The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html .</description>
     </item>
     <item>
       <title>Section Library</title>

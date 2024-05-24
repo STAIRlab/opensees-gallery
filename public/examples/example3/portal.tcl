@@ -25,14 +25,15 @@
 # Create ModelBuilder (with two-dimensions and 3 DOF/node)
 
 proc create_portal {} {
-  model basic -ndm 2 -ndf 3
-
-  # Create nodes
-  # ------------
 
   # Set parameters for overall model geometry
   set width    360
   set height   144
+
+  model basic -ndm 2 -ndf 3
+
+  # Create nodes
+  # ------------
 
   # Create nodes
   #    tag        X       Y 

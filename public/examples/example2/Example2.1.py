@@ -37,7 +37,6 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
 
     """
 
-
     # Define two nodes at (0,0)
     model.node(1, 0.0, 0.0)
     model.node(2, 0.0, 0.0)
@@ -51,7 +50,7 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
     model.element("zeroLengthSection", 1, 1, 2, secTag)
 
     # Create recorder
-    model.recorder("Node", "-file", "section"+str(secTag)+".out", "-time", "-node", 2, "-dof", 3, "disp")
+    model.recorder("Node", "disp", "-file", "section"+str(secTag)+".out", "-time", "-node", 2, "-dof", 3)
 
     # Define constant axial load
     model.timeSeries("Constant", 1)
@@ -157,10 +156,10 @@ if __name__ == "__main__":
 
     u = model.nodeDisp(2,3)
     if abs(u-0.00190476190476190541) < 1e-12:
-        results.write('PASSED : MomentCurvature.py\n')
+        print('PASSED : MomentCurvature.py\n')
         print("Passed!")
     else:
-        results.write('FAILED : MomentCurvature.py\n')
+        print('FAILED : MomentCurvature.py\n')
         print("Failed!")
 
 
