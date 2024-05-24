@@ -352,13 +352,6 @@
       <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html</description>
     </item>
     <item>
-      <title>Pushover Analysis of 2-Story Moment Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/mrf_pushover/</guid>
-      <description>This example demonstrates how to perform a pushover (nonlinear static) analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame.</description>
-    </item>
-    <item>
       <title>Pushover and Dynamic Analyses of 2-Story Moment Frame with Panel Zones and RBS</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/mrf_panelzone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
