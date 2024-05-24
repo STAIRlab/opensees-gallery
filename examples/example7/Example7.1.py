@@ -71,7 +71,7 @@ model.load(side1, 0.0, -0.25, 0.0, 0.0, 0.0, 0.0, pattern=1)
 model.load(side2, 0.0, -0.25, 0.0, 0.0, 0.0, 0.0, pattern=1)
 
 # print model
-model.print("-JSON", "-file", "Example7.1.json")
+#model.print("-JSON", "-file", "Example7.1.json")
 
 # ----------------------- 
 # End of model generation
@@ -109,32 +109,17 @@ model.analysis("Static")
 # Perform the gravity load analysis
 model.analyze(5)
 
-# --------------------------
-# End of static analysis
-# --------------------------
-
 
 # ----------------------------
 # Start of recorder generation
 # ----------------------------
 
 model.recorder("Node", "-file", "Node.out", "-time", "-node", mid, "-dof", 2, "disp")
-#recorder("plot", "Node.out", "CenterNodeDisp", 625, 10, 625, 450, "-columns", 1, 2)
-
-# create the display
-#recorder("display", "shellDynamics", 10, 10, 600, 600, "-wipe")
-#prp -0 0 1000
-#vup 0 1 0 
-#display 2 4 100
-
-# --------------------------
-# End of recorder generation
-# --------------------------
 
 
-# ---------------------------------------
-# Create and Perform the dynamic analysis
-# ---------------------------------------
+# ------------------------------------------
+# Configure and Perform the dynamic analysis
+# ------------------------------------------
 
 # Remove the static analysis & reset the time to 0.0
 model.wipeAnalysis()
@@ -144,7 +129,7 @@ model.setTime(0.0)
 model.remove("loadPattern", 1)
 
 # Create the transient analysis
-model.test("EnergyIncr", 1.0E-10, 20, 0)
+model.test("EnergyIncr", 1.0e-10, 20, 0)
 model.algorithm("Newton")
 model.numberer("RCM")
 model.constraints("Plain")
@@ -157,4 +142,9 @@ model.record()
 
 # Perform the transient analysis (20 sec)
 model.analyze(100, 0.2)
+
+# Perform the transient analysis (20 sec)
+# model.analyze(250, 0.50)
+
+model.wipe()
 

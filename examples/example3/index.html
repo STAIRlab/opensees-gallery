@@ -60,7 +60,7 @@
   "headline": "Example 3: Portal Frame Examples",
   "description" : "Nonlinear analysis of a concrete portal frame.",
   "inLanguage" : "en",
-  "wordCount":  1257 ,
+  "wordCount":  1277 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -315,9 +315,10 @@
         </ul>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#31---gravity_analysis">3.1 - <code>gravity_analysis</code></a></li>
-    <li><a href="#32---pushover_analysis">3.2 - <code>pushover_analysis</code></a></li>
-    <li><a href="#33---transient-analysis">3.3 - Transient Analysis</a></li>
+    <li><a href="#create_portal"><code>create_portal</code></a></li>
+    <li><a href="#gravity_analysis"><code>gravity_analysis</code></a></li>
+    <li><a href="#pushover_analysis"><code>pushover_analysis</code></a></li>
+    <li><a href="#transient_analysis"><code>transient_analysis</code></a></li>
   </ul>
 </nav>
         
@@ -344,21 +345,109 @@
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         <p><img src="Example2.svg" alt="Example 3.1"></p>
-<p>This set of examples covers the nonlinear analysis of a reinforced
+<p>This set of examples investigates the nonlinear analysis of a reinforced
 concrete frame. The nonlinear beam column element with a fiber
-discretization of the cross section is used in the model. In addition,</p>
-<p>This example is of a reinforced concrete portal frame, as shown in the
-figure below, subject to gravity loads.</p>
-<ol>
-<li><a href="Example3.1.tcl"><code>Example3.1.tcl</code></a></li>
-</ol>
-<p>A nonlinear model of the portal frame shown in
-the figure below is created. The model consists of four nodes, two
-nonlinear beam-column elements, 1 and 2, to model the columns and an
-elastic beam element, 3, to model the beam. For the column elements a
-section, identical to the section used in Example 2, is created using
-steel and concrete fibers.</p>
-<h2 id="31---gravity_analysis">3.1 - <code>gravity_analysis</code></h2>
+discretization of the cross section is used in the model.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_portal</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gravity_analysis</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pushover_analysis</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>transient_analysis</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create_portal"><code>create_portal</code></h2>
+<p>The function <code>create_portal</code> creates a model representing the portal
+frame in the figure above.
+The model consists of four nodes, two
+nonlinear beam-column elements modeling the columns and an
+elastic beam element to model the girder. For the column elements a
+section, identical to the section used in <a href="../example2/">Example 2</a>,
+is created using steel and concrete fibers.</p>
+<h2 id="gravity_analysis"><code>gravity_analysis</code></h2>
+<p>We now implement a function called <code>gravity_analysis</code>
+which takes the instance of <code>Model</code> returned by <code>create_portal</code>,
+and proceeds to impose gravity loads and perform a static analysis.
+Its use will look like:</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="acdbfe-tab" data-bs-toggle="tab" data-bs-target="#acdbfe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="dbacfe-tab" data-bs-toggle="tab" data-bs-target="#dbacfe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="acdbfe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the model</span>
+</span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> create_portal()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># perform analysis under gravity loads</span>
+</span></span><span style="display:flex;"><span>status <span style="font-weight:bold">=</span> gravity_analysis(model)
+</span></span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="dbacfe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">create_portal</span><span style="font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">gravity_analysis</span><span style="font-weight:bold">;</span>
+</span></span></code></pre></div>
+
+</div>
+
+
+
+</div>
+
 <p>A single load pattern with a linear time series, two vertical nodal
 loads acting at nodes 3 and 4, and single point constraints to constrain
 nodes 1 and 2 are created.</p>
@@ -386,18 +475,10 @@ provided.</p>
 entries. The first entry is time in the domain at end of the load step.
 The next 3 entries are the displacements at node 3, and the final 3
 entries the displacements at node 4.</p>
-<h2 id="32---pushover_analysis">3.2 - <code>pushover_analysis</code></h2>
+<h2 id="pushover_analysis"><code>pushover_analysis</code></h2>
 <p>In this example the nonlinear reinforced concrete portal frame which has
 undergone the gravity load analysis of Example 3.1 is now subjected to a
 pushover analysis.</p>
-<ol>
-<li>
-<p>Example3.2.tcl</p>
-</li>
-<li>
-<p>Example3.1.tcl</p>
-</li>
-</ol>
 <p>After performing the gravity load analysis on the model, the time in the
 domain is reset to 0.0 and the current value of all loads acting are
 held constant. A new load pattern with a linear time series and
@@ -420,21 +501,11 @@ and the element end forces in the local coordinate system. A plot of the
 load-displacement relationship at node 3 is shown in
 the figure below.</p>
 <p><img src="ExampleOut3.2.svg" alt="Load displacement curve for node 3"></p>
-<h2 id="33---transient-analysis">3.3 - Transient Analysis</h2>
+<h2 id="transient_analysis"><code>transient_analysis</code></h2>
+<!-- 3.3 -->
 <p>In this example the reinforced concrete portal frame which has undergone
 the gravity load analysis of Example 3.1 is now subjected to a uniform
 earthquake excitation.</p>
-<ol>
-<li>
-<p><code>Example3.3.tcl</code></p>
-</li>
-<li>
-<p><code>Example3.1.tcl</code></p>
-</li>
-<li>
-<p><code>ReadSMDFile.tcl</code></p>
-</li>
-</ol>
 <p>After performing the gravity load analysis, the time in the domain is
 reset to 0.0 and the current value of all active loads is set to
 constant. Mass terms are added to nodes 3 and 4. A new uniform
@@ -746,7 +817,8 @@ instabilities in a shallow arch.
 
                 <div class="post-entry">
                     
-                    
+                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
+
                     
                 </div>
 

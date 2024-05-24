@@ -7,7 +7,6 @@
 #  2d 3 Element Elastic Truss
 #  Single Nodal Load, Static Analysis
 #
-#
 # Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
 # Date: June 2017
 
@@ -21,10 +20,10 @@ import opensees.openseespy as ops
 # ------------------------------
 
 # Create a Model (with two-dimensions and 2 DOF/node)
-model = ops.Model("BasicBuilder", "-ndm", 2, "-ndf", 2)
+model = ops.Model("BasicBuilder", ndm=2, ndf=2)
 
 # Create nodes - command: node nodeId xCrd yCrd
-model.node(1, 0.0,    0.0)
+model.node(1,   0.0,  0.0)
 model.node(2, 144.0,  0.0)
 model.node(3, 168.0,  0.0)
 model.node(4,  72.0, 96.0)
@@ -55,16 +54,10 @@ model.timeSeries("Linear", 1)
 model.pattern("Plain", 1, 1, "-fact", 1.0)
 # create the nodal load 
 #       nodeID xForce yForce
-model.load(4, 100.0, -50.0, pattern=1)
+model.load(4,   100.0, -50.0, pattern=1)
 
 # print model
-
-model.printModel("-JSON", file="Example1.1.json")
-
-# ------------------------------
-# End of model generation
-# ------------------------------
-
+model.print("-json", file="Example1.1.json")
 
 # ------------------------------
 # Start of analysis generation
@@ -98,15 +91,11 @@ model.analysis("Static")
 # ------------------------------
 
 # create a Recorder object for the nodal displacements at node 4
-model.recorder("Node", "-file", "example.out", "-time", "-node", 4, "-dof", 1, 2, "disp")
+model.recorder("Node",  "disp", "-file", "example.out", "-time", "-node", 4, "-dof", 1, 2)
 
 # create a recorder for element forces, one in global and the other local system
-model.recorder("Element", "-file", "eleGlobal.out", "-time", "-ele", 1, 2, 3, "forces")
-model.recorder("Element", "-file", "eleLocal.out", "-time", "-ele", 1, 2, 3, "basicForces")
-
-# ------------------------------
-# End of recorder generation
-# ------------------------------
+model.recorder("Element", "forces", "-file", "eleGlobal.out", "-time", "-ele", 1, 2, 3)
+model.recorder("Element", "basicForces", "-file", "eleLocal.out", "-time", "-ele", 1, 2, 3)
 
 
 # ------------------------------
@@ -122,7 +111,7 @@ model.analyze(1)
 # ------------------------------
 
 # print the current state at node 4 and at all elements
-#print("node 4 displacement: ", nodeDisp(4))
+# print("node 4 displacement: ", nodeDisp(4))
 model.print(node=4)
 model.print("ele")
 

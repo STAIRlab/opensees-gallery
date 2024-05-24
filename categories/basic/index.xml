@@ -12,7 +12,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
-      <description>The first example is a simple truss structure. The purpose of this example is to show that model generation in OpenSees can resemble typical finite element analysis programs with the definition of nodes, materials, elements, loads and constraints.</description>
+      <description>This example is of a linear-elastic three bar truss, as shown in the figure above, subject to static loads. The purpose of this example is to develop the basic requirements for performing finite element analysis with OpenSees.</description>
     </item>
     <item>
       <title>Example 2: Moment-Curvature</title>
@@ -26,7 +26,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
-      <description>This set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
+      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Example 4: Multibay Two Story Frame</title>

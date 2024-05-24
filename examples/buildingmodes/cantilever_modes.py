@@ -1,5 +1,6 @@
-#import openseespy.opensees as ops
+# Import the opensees package for finite element analysis
 import opensees.openseespy as ops
+# Import some additional dependencies
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -7,33 +8,33 @@ import pandas as pd
 plt.rcParams.update({'font.size': 16})
 
 def make_model():
-    # Define model
-
     # Define a basic model with 2 dimensions and 3 degrees of freedom per node 
     # (translation in X and Y directions, and rotation about the Z-axis)
     model = ops.Model(ndm=2, ndf=3)
 
+    #
     # Define material
-    ## Sets up an elastic material with given Young's modulus (E), 
-    ## moment of inertia (I), and cross-sectional area (A)
-    E = 200e6  # Young's modulus in kPa
-    I = 0.0001  # Moment of inertia in m^4
-    A = 0.01  # Cross-sectional area in m^2
+    #
+    # Sets up an elastic material with given Young's modulus (E), 
+    # moment of inertia (I), and cross-sectional area (A)
+    E = 200e6   # Young's modulus in kPa
+    I = 0.0001  # Area moment of inertia in m^4
+    A = 0.01    # Cross-sectional area in m^2
     model.uniaxialMaterial("Elastic", 1, E)
 
+    #
     # Create nodes
-    ## Nodes are created along a vertical line with a defined height between each, 
-    ## representing floors of a building
-    # numFloors = 101  # Number of floors
-    # floorHeight = 4.35  # Height of each floor in meters
-    numFloors = 56  # Number of floors
+    #
+    # Nodes are created along a vertical line with a defined height between each, 
+    # representing floors of a building
+    numFloors   = 56  # Number of floors
     floorHeight = 3.0 # Height of each floor in meters
     for i in range(numFloors + 1):
         model.node(i + 1, 0, i * floorHeight)
 
     # Fix base node
-    ## The base node is fixed, meaning no translations or rotations are allowed, 
-    ## mimicking a fixed foundation
+    # The base node is fixed, meaning no translations or rotations are allowed, 
+    # mimicking a fixed foundation
     model.fix(1, 1, 1, 1)
 
     # Define geometric transformation (required for beam-column elements)
@@ -57,7 +58,7 @@ def make_model():
     return model, numFloors, floorHeight
 
 
-def plot_eigen(model, numFloors, floorHeight):
+def plot_modes(model, numFloors, floorHeight):
 
     # Perform eigenvalue analysis
     # Eigenvalue analysis is performed to obtain the 
@@ -98,7 +99,7 @@ def plot_eigen(model, numFloors, floorHeight):
             coord_i = model.nodeCoord(nodeTag_i) # Get the coordinates of the i-th node
             coord_j = model.nodeCoord(nodeTag_j) # Get the coordinates of the j-th node
             ax[mode + 1].plot([coord_i[0], coord_j[0]], [coord_i[1], coord_j[1]], '-o', color='gray')
-        ## get modal displacement and floor number for each node
+        # get modal displacement and floor number for each node
         all_modal_displacements[mode] = {}
         # Scale deformation to the node coordinates for easy visualization
         scaleFactor = 15  # Scale factor for deformation amplification
@@ -153,8 +154,7 @@ def plot_eigen(model, numFloors, floorHeight):
     print(ylocations)
 
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-    # df.plot(kind='bar', ax=ax)
-    ## plot for first mode
+    # plot for first mode
     ax.plot(df[0], 'bo-', label='Mode 1')
     ax.axhline(ylocations[0], color='black', linestyle='--', linewidth=1.0)
 
@@ -179,5 +179,5 @@ def plot_eigen(model, numFloors, floorHeight):
 
 
 if __name__ == '__main__':
-    plot_eigen(*make_model())
+    plot_modes(*make_model())
 

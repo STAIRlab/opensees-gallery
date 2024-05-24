@@ -62,7 +62,7 @@ and static analysis is performed.
   "headline": "Example 1: Simple Truss",
   "description" : "A finite element model of a simple truss is created,\nand static analysis is performed.\n",
   "inLanguage" : "en",
-  "wordCount":  688 ,
+  "wordCount":  703 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -319,7 +319,8 @@ and static analysis is performed.
         </ul>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#example-11----linear-elasticity">Example 1.1 &ndash; Linear elasticity</a></li>
+    <li><a href="#the-model-container">The <code>Model</code> container</a></li>
+    <li><a href="#analysis-procedure">Analysis procedure</a></li>
   </ul>
 </nav>
         
@@ -346,22 +347,17 @@ and static analysis is performed.
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         <p><img src="Example1.svg" alt="Example 1.1"></p>
-<p>The first example is a simple truss structure. The purpose of this
-example is to show that model generation in OpenSees can resemble
-typical finite element analysis programs with the definition of nodes,
+<p>This example is of a linear-elastic three bar truss, as shown in
+the figure above, subject to static loads. The purpose of this
+example is to develop the basic requirements for performing
+finite element analysis with OpenSees.
+This includes the definition of nodes,
 materials, elements, loads and constraints. The example also
 demonstrates how an analysis object is &lsquo;built&rsquo; from component objects.</p>
-<h2 id="example-11----linear-elasticity">Example 1.1 &ndash; Linear elasticity</h2>
-<p>This example is of a linear-elastic three bar truss, as shown in
-the figure below, subject to static loads.</p>
-<ol>
-<li><a href="./Example1.1.tcl"><code>Example1.1.tcl</code></a></li>
-<li><a href="./Example1.1.py"><code>Example1.1.py</code></a></li>
-</ol>
-<p>The model consists of four nodes, three truss elements, a single load
-pattern with a nodal load acting at node 4, and constraints at the three
-support nodes. Since the truss elements have the same elastic material,
-a single Elastic material object is created.</p>
+<h2 id="the-model-container">The <code>Model</code> container</h2>
+<p>We begin the simulation by creating a <code>Model</code>, which will manage
+the nodes, elements, loading and state. This is done through
+either Python or Tcl as follows:</p>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -373,13 +369,13 @@ a single Elastic material object is created.</p>
 		
 
 		<a class="nav-link  active "
-		   id="fbcead-tab" data-bs-toggle="tab" data-bs-target="#fbcead"
+		   id="dfeabc-tab" data-bs-toggle="tab" data-bs-target="#dfeabc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="eafdbc-tab" data-bs-toggle="tab" data-bs-target="#eafdbc"
+		   id="dacfbe-tab" data-bs-toggle="tab" data-bs-target="#dacfbe"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -395,7 +391,69 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show active " id="fbcead" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="dfeabc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">2</span>)
+</span></span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="dacfbe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">model</span> <span style="font-weight:bold">-</span>ndm <span style="color:#099">2</span> <span style="font-weight:bold">-</span>ndf <span style="color:#099">2</span>
+</span></span></code></pre></div>
+
+</div>
+
+
+
+</div>
+
+<p>The model consists of four nodes, three truss elements, a single load
+pattern with a nodal load acting at node <code>4</code>, and constraints at the three
+support nodes. Since the truss elements have the same elastic material,
+a single Elastic material object is created.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="cedbfa-tab" data-bs-toggle="tab" data-bs-target="#cedbfa"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="eabfcd-tab" data-bs-toggle="tab" data-bs-target="#eabfcd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="cedbfa" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#         tag   X     Y</span>
@@ -418,7 +476,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show " id="eafdbc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="eabfcd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes &amp; add to domain
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   tag  X    Y
@@ -456,13 +514,13 @@ a single Elastic material object is created.</p>
 		
 
 		<a class="nav-link  active "
-		   id="ceafdb-tab" data-bs-toggle="tab" data-bs-target="#ceafdb"
+		   id="dacbef-tab" data-bs-toggle="tab" data-bs-target="#dacbef"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="fedcab-tab" data-bs-toggle="tab" data-bs-target="#fedcab"
+		   id="cefbad-tab" data-bs-toggle="tab" data-bs-target="#cefbad"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -478,7 +536,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show active " id="ceafdb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="dacbef" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">4</span>, <span style="color:#099">10.0</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">2</span>, <span style="color:#099">4</span>,  <span style="color:#099">5.0</span>, <span style="color:#099">1</span>)
@@ -492,7 +550,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show " id="fedcab" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cefbad" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">element</span> Truss <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">4</span> <span style="color:#099">10.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">element</span> Truss <span style="color:#099">2</span> <span style="color:#099">2</span> <span style="color:#099">4</span> <span style="color:#099">5.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span>
@@ -517,13 +575,13 @@ a single Elastic material object is created.</p>
 		
 
 		<a class="nav-link  active "
-		   id="cedfba-tab" data-bs-toggle="tab" data-bs-target="#cedfba"
+		   id="bfeadc-tab" data-bs-toggle="tab" data-bs-target="#bfeadc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="edfabc-tab" data-bs-toggle="tab" data-bs-target="#edfabc"
+		   id="facedb-tab" data-bs-toggle="tab" data-bs-target="#facedb"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -539,7 +597,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show active " id="cedfba" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bfeadc" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#34;Linear&#34;</span>)
 </span></span></code></pre></div>
@@ -551,7 +609,7 @@ a single Elastic material object is created.</p>
 
 
 
-<div class="tab-pane fade show " id="edfabc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="facedb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">algorithm</span> Linear<span style="font-weight:bold">;</span>
 </span></span></code></pre></div>
@@ -562,9 +620,10 @@ a single Elastic material object is created.</p>
 
 </div>
 
+<h2 id="analysis-procedure">Analysis procedure</h2>
 <p>Even though the solution is linear, we have to select a procedure for
-applying the load, which is called an <code>Integrator</code>. For this problem, a
-<code>LoadControl</code> integrator advances the solution.</p>
+applying the load, which is called an <code>Integrator</code>.
+For this problem, a <code>LoadControl</code> integrator advances the solution.</p>
 <p>The equations are formed
 using a banded system, so the System is <code>BandSPD</code> (banded, symmetric
 positive definite). This is a good choice for most moderate size models.
@@ -573,12 +632,9 @@ is used (for Reverse Cuthill-McKee).
 The constraints are most easily represented with a <code>Plain</code> constraint handler.</p>
 <p>Once all the components of an analysis are defined, the Analysis object
 itself is created. For this problem a Static Analysis object is used.</p>
-<p>When the analysis is complete the state of node 4 and all three elements
+<p>When the analysis is complete the state of node <code>4</code> and all three elements
 will be printed to the screen. Nothing is recorded for later use.</p>
-<p>The Tcl script for the example is shown below. A comment is indicated by
-a <code>#</code> symbol. In the comments below, the syntax for important commands
-are given.</p>
-<pre tabindex="0"><code>     Node: 4
+<pre tabindex="0"><code>    Node: 4
             Coordinates  : 72 96 
             commitDisps: 0.530093 -0.177894 
             unbalanced Load: 100 -50 
@@ -604,16 +660,22 @@ are given.</p>
 the axial strain and force are provided along with the resisting forces
 in the global coordinate system.</p>
 <p>The file <code>example.out</code>, specified in the recorder command, provides
-the nodal displacements for the x and y directions of node 4. The file
-consists of a single line of code:</p>
+the nodal displacements for the \(x\) and \(y\) directions of node <code>4</code>. The file
+consists of a single line:</p>
 <pre><code>1.0 0.530093 -0.177894 
 </code></pre>
 <p>The \(1.0\) corresponds to the load factor (pseudo time) in the model at
-which point the recorder was invoked. The $0.530093$ and $-0.177894$
-correspond to the response at node $4$ for the 1 and 2
-degree-of-freedom. Note that if more analysis steps had been peformed,
+which point the recorder was invoked. The \(0.530093\) and \(-0.177894\)
+correspond to the response at node <code>4</code> for the 1 and 2
+degree-of-freedom. Note that if more analysis steps had been performed,
 the line would contain a line for every analysis step that completed
 successfully.</p>
+<p>Scripts for this example can be downloaded for either
+Python or Tcl:</p>
+<ul>
+<li><a href="./Example1.1.py"><code>Example1.1.py</code></a></li>
+<li><a href="./Example1.1.tcl"><code>Example1.1.tcl</code></a></li>
+</ul>
 
       </article>
     </div>
@@ -852,7 +914,8 @@ instabilities in a shallow arch.
 
                 <div class="post-entry">
                     
-                    
+                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
+
                     
                 </div>
 

@@ -84,13 +84,11 @@ def create_model(Quad: str = "quad"):
     # create a Linear time series
     timeSeries("Linear", 1)
     # create a Plain load pattern
-    pattern("Plain", 1, 1, "-fact", 1.0)
-    load(l1, 0.0, -1.0)
-    load(l2, 0.0, -1.0)
+    pattern("Plain", 1, 1, fact=1.0)
+    load(l1, 0.0, -1.0, pattern=1)
+    load(l2, 0.0, -1.0, pattern=1)
 
-    # print model
-    #printModel()
-    printModel("-JSON", "-file", "Example6.1.json")
+    return None, (l1, l2)
 
 
 
@@ -98,7 +96,7 @@ def create_model(Quad: str = "quad"):
 # Start of static analysis (creation of the analysis & analysis itself)
 # --------------------------------------------------------------------
 
-create_model()
+model, (l1, l2) = create_model()
 
 # create the system of equation
 system("ProfileSPD")
