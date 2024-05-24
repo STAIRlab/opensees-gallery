@@ -132,10 +132,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -375,10 +371,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/</loc>
+    <lastmod>2024-05-21T13:26:36-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/tcl/</loc>
+    <lastmod>2024-05-21T13:26:36-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
