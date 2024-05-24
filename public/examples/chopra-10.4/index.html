@@ -62,7 +62,7 @@ mode shapes.
   "headline": "Matrix Eigenvalue Analysis",
   "description" : "This example demonstrates how to perform eigenvalue analysis and plot\nmode shapes. \n",
   "inLanguage" : "en",
-  "wordCount":  887 ,
+  "wordCount":  897 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -320,6 +320,11 @@ mode shapes.
         <nav id="TableOfContents">
   <ul>
     <li><a href="#instructions-on-how-to-run-this-example">Instructions on how to run this example</a></li>
+    <li><a href="#create-the-model">Create the model</a></li>
+    <li><a href="#define-recorders">Define recorders</a></li>
+    <li><a href="#perform-eigenvalue-analysis-and-store-periods-into-a-file">Perform eigenvalue analysis and store periods into a file</a></li>
+    <li><a href="#record-the-eigenvectors">Record the eigenvectors</a></li>
+    <li><a href="#display-mode-shapes">Display mode shapes</a></li>
   </ul>
 </nav>
         
@@ -345,11 +350,11 @@ mode shapes.
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <h1 id="eigen-analysis-of-a-two-storey-shear-framehttpsopenseesberkeleyeduwikiindexphpeigen_analysis_of_a_two-story_shear_frame"><a href="https://opensees.berkeley.edu/wiki/index.php/Eigen_analysis_of_a_two-story_shear_frame">Eigen analysis of a two-storey shear frame</a></h1>
+        <p>This example is adapted from the OpenSees Wiki page <a href="https://opensees.berkeley.edu/wiki/index.php/Eigen_analysis_of_a_two-story_shear_frame">Eigen analysis of a two-storey shear frame</a>.</p>
 <hr />
 <p>This example demonstrates how to perform eigenvalue analysis and plot
-mode shapes.
-Idealized two-storey shear frame (Example 10.4 from
+mode shapes.</p>
+<p>An idealized two-storey shear frame (Example 10.4 from
 &ldquo;Dynamic of Structures&rdquo; book by Professor Anil K. Chopra) is used for
 this purpose. In this idealization beams are rigid in flexure, axial
 deformation of beams and columns are neglected, and the effect of axial
@@ -380,13 +385,13 @@ interpreter will pop out. To run the analysis the user should type:</p>
 		
 
 		<a class="nav-link  active "
-		   id="ebafdc-tab" data-bs-toggle="tab" data-bs-target="#ebafdc"
+		   id="ebdafc-tab" data-bs-toggle="tab" data-bs-target="#ebdafc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="eabcdf-tab" data-bs-toggle="tab" data-bs-target="#eabcdf"
+		   id="dbafec-tab" data-bs-toggle="tab" data-bs-target="#dbafec"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -402,7 +407,7 @@ interpreter will pop out. To run the analysis the user should type:</p>
 
 
 
-<div class="tab-pane fade show active " id="ebafdc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="ebdafc" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python EigenAnal_twoStoryShearFrame8.py
 </span></span></code></pre></div>
@@ -414,7 +419,7 @@ interpreter will pop out. To run the analysis the user should type:</p>
 
 
 
-<div class="tab-pane fade show " id="eabcdf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dbafec" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -m opensees EigenAnal_twoStoryShearFrame8.tcl
 </span></span></code></pre></div>
@@ -427,7 +432,7 @@ interpreter will pop out. To run the analysis the user should type:</p>
 
 <p>and hit enter. To create output files (stored in directory &ldquo;data&rdquo;)
 the user has to exit OpenSees interpreter by typing &ldquo;exit&rdquo;.</p>
-<h2 id="create_the_model">Create the model</h2>
+<h2 id="create-the-model">Create the model</h2>
 <p>Spatial dimension of the model and number of degrees-of-freedom (DOF)
 at nodes are defined using <a href="https://opensees.berkeley.edu/wiki/index.php/model_command">model</a> command. In this example we have 2D model
 with 3 DOFs at each node. This is defined in the following way:</p>
@@ -442,13 +447,13 @@ with 3 DOFs at each node. This is defined in the following way:</p>
 		
 
 		<a class="nav-link  active "
-		   id="caedfb-tab" data-bs-toggle="tab" data-bs-target="#caedfb"
+		   id="cfbeda-tab" data-bs-toggle="tab" data-bs-target="#cfbeda"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="deacbf-tab" data-bs-toggle="tab" data-bs-target="#deacbf"
+		   id="acfbed-tab" data-bs-toggle="tab" data-bs-target="#acfbed"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -464,7 +469,7 @@ with 3 DOFs at each node. This is defined in the following way:</p>
 
 
 
-<div class="tab-pane fade show active " id="caedfb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cfbeda" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span>
@@ -478,7 +483,7 @@ with 3 DOFs at each node. This is defined in the following way:</p>
 
 
 
-<div class="tab-pane fade show " id="deacbf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="acfbed" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Tcl" data-lang="Tcl"><span style="display:flex;"><span><span style="color:#008080">model</span> BasicBuilder <span style="font-weight:bold">-</span>ndm <span style="color:#099">2</span> <span style="font-weight:bold">-</span>ndf <span style="color:#099">3</span>
 </span></span></code></pre></div>
@@ -506,13 +511,13 @@ href="https://opensees.berkeley.edu/wiki/index.php/node_command" title="wikilink
 		
 
 		<a class="nav-link  active "
-		   id="bdaecf-tab" data-bs-toggle="tab" data-bs-target="#bdaecf"
+		   id="bcdeaf-tab" data-bs-toggle="tab" data-bs-target="#bcdeaf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="afbced-tab" data-bs-toggle="tab" data-bs-target="#afbced"
+		   id="efabdc-tab" data-bs-toggle="tab" data-bs-target="#efabdc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -528,7 +533,7 @@ href="https://opensees.berkeley.edu/wiki/index.php/node_command" title="wikilink
 
 
 
-<div class="tab-pane fade show active " id="bdaecf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bcdeaf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">1</span>, <span style="color:#099">0.</span>,   <span style="color:#099">0.</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">2</span>, L ,   <span style="color:#099">0.</span>)
@@ -545,7 +550,7 @@ href="https://opensees.berkeley.edu/wiki/index.php/node_command" title="wikilink
 
 
 
-<div class="tab-pane fade show " id="afbced" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="efabdc" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">1</span> <span style="color:#099">0</span>. <span style="color:#099">0</span>. <span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">2</span> <span style="color:#008080">$L</span> <span style="color:#099">0</span>. <span style="font-weight:bold">;</span>
@@ -575,13 +580,13 @@ this example nodes 1 and 2 are fully fixed at all three DOFs:</p>
 		
 
 		<a class="nav-link  active "
-		   id="bafdce-tab" data-bs-toggle="tab" data-bs-target="#bafdce"
+		   id="eabcdf-tab" data-bs-toggle="tab" data-bs-target="#eabcdf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="cbdafe-tab" data-bs-toggle="tab" data-bs-target="#cbdafe"
+		   id="fdecab-tab" data-bs-toggle="tab" data-bs-target="#fdecab"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -597,7 +602,7 @@ this example nodes 1 and 2 are fully fixed at all three DOFs:</p>
 
 
 
-<div class="tab-pane fade show active " id="bafdce" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="eabcdf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>fix(<span style="color:#099">2</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
@@ -610,7 +615,7 @@ this example nodes 1 and 2 are fully fixed at all three DOFs:</p>
 
 
 
-<div class="tab-pane fade show " id="cbdafe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="fdecab" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">fix</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#008080">fix</span> <span style="color:#099">2</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span> 
@@ -638,13 +643,13 @@ be assigned in x direction only.</p>
 		
 
 		<a class="nav-link  active "
-		   id="cbdaef-tab" data-bs-toggle="tab" data-bs-target="#cbdaef"
+		   id="bdface-tab" data-bs-toggle="tab" data-bs-target="#bdface"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="dcbfea-tab" data-bs-toggle="tab" data-bs-target="#dcbfea"
+		   id="acbdef-tab" data-bs-toggle="tab" data-bs-target="#acbdef"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -660,7 +665,7 @@ be assigned in x direction only.</p>
 
 
 
-<div class="tab-pane fade show active " id="cbdaef" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bdface" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>mass(<span style="color:#099">3</span>,  m  , <span style="color:#099">0.</span>, <span style="color:#099">0.</span> ) 
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>mass(<span style="color:#099">4</span>,  m  , <span style="color:#099">0.</span>, <span style="color:#099">0.</span> ) 
@@ -675,7 +680,7 @@ be assigned in x direction only.</p>
 
 
 
-<div class="tab-pane fade show " id="dcbfea" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="acbdef" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">mass</span> <span style="color:#099">3</span> <span style="color:#008080">$m</span> <span style="color:#099">0</span>. <span style="color:#099">0</span>. <span style="font-weight:bold">;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#008080">mass</span> <span style="color:#099">4</span> <span style="color:#008080">$m</span> <span style="color:#099">0</span>. <span style="color:#099">0</span>. <span style="font-weight:bold">;</span> 
@@ -708,13 +713,13 @@ value (10e+12).</p>
 		
 
 		<a class="nav-link  active "
-		   id="ebdfca-tab" data-bs-toggle="tab" data-bs-target="#ebdfca"
+		   id="cbdfea-tab" data-bs-toggle="tab" data-bs-target="#cbdfea"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="acebfd-tab" data-bs-toggle="tab" data-bs-target="#acebfd"
+		   id="edbcfa-tab" data-bs-toggle="tab" data-bs-target="#edbcfa"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -730,7 +735,7 @@ value (10e+12).</p>
 
 
 
-<div class="tab-pane fade show active " id="ebdfca" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cbdfea" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">3</span>, Ac, Ec, <span style="color:#099">2.</span><span style="font-weight:bold">*</span>Ic, TransfTag)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>, <span style="color:#099">5</span>, Ac, Ec,    Ic, TransfTag)
@@ -747,7 +752,7 @@ value (10e+12).</p>
 
 
 
-<div class="tab-pane fade show " id="acebfd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="edbcfa" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">3</span> <span style="color:#008080">$Ac</span> <span style="color:#008080">$Ec</span> <span style="font-weight:bold">[expr</span> <span style="color:#099">2</span>.<span style="font-weight:bold">*</span><span style="color:#008080">$Ic</span><span style="font-weight:bold">]</span> <span style="color:#008080">$TransfTag</span><span style="font-weight:bold">;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#008080">element</span> elasticBeamColumn <span style="color:#099">2</span> <span style="color:#099">3</span> <span style="color:#099">5</span> <span style="color:#008080">$Ac</span> <span style="color:#008080">$Ec</span> <span style="color:#008080">$Ic</span> <span style="color:#008080">$TransfTag</span><span style="font-weight:bold">;</span> 
@@ -770,7 +775,7 @@ constrained to each other in the 2nd DOF (vertical displacement) and the
 constraints.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">equalDOF</span> <span style="color:#099">3</span> <span style="color:#099">4</span> <span style="color:#099">2</span> <span style="color:#099">3</span><span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">equalDOF</span> <span style="color:#099">5</span> <span style="color:#099">6</span> <span style="color:#099">2</span> <span style="color:#099">3</span><span style="font-weight:bold">;</span>
-</span></span></code></pre></div><h2 id="define_recorders">Define recorders</h2>
+</span></span></code></pre></div><h2 id="define-recorders">Define recorders</h2>
 <p>For the specified number of eigenvalues (numModes) (for this example
 it is 2) the eigenvectors are recorded at all nodes in all DOFs using <a
 href="https://opensees.berkeley.edu/wiki/index.php/Node_Recorder" title="wikilink"> node recorder</a> command.</p>
@@ -785,13 +790,13 @@ href="https://opensees.berkeley.edu/wiki/index.php/Node_Recorder" title="wikilin
 		
 
 		<a class="nav-link  active "
-		   id="eacdfb-tab" data-bs-toggle="tab" data-bs-target="#eacdfb"
+		   id="ecfabd-tab" data-bs-toggle="tab" data-bs-target="#ecfabd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="acfedb-tab" data-bs-toggle="tab" data-bs-target="#acfedb"
+		   id="ebfdac-tab" data-bs-toggle="tab" data-bs-target="#ebfdac"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -807,7 +812,7 @@ href="https://opensees.berkeley.edu/wiki/index.php/Node_Recorder" title="wikilin
 
 
 
-<div class="tab-pane fade show active " id="eacdfb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="ecfabd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">for</span> k <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numModes):
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>recorder(<span style="color:#b84">&#34;Node&#34;</span>, <span style="color:#b84">f</span><span style="color:#b84">&#34;eigen </span><span style="color:#b84">{</span>k<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>, file<span style="font-weight:bold">=</span><span style="color:#b84">f</span><span style="color:#b84">&#34;modes/mode</span><span style="color:#b84">{</span>k<span style="color:#b84">}</span><span style="color:#b84">.out&#34;</span>, nodeRange<span style="font-weight:bold">=</span>[<span style="color:#099">1</span>, <span style="color:#099">6</span>], dof<span style="font-weight:bold">=</span>[<span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>])
@@ -820,7 +825,7 @@ href="https://opensees.berkeley.edu/wiki/index.php/Node_Recorder" title="wikilin
 
 
 
-<div class="tab-pane fade show " id="acfedb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="ebfdac" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">foreach</span> k <span style="font-weight:bold">[</span><span style="color:#008080">range</span> <span style="color:#008080">$numModes</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008080">recorder</span> Node <span style="font-weight:bold">-</span>file <span style="font-weight:bold">[</span><span style="color:#999">format</span> <span style="color:#b84">&#34;modes/mode%i.out&#34;</span> <span style="color:#008080">$k</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">-</span>nodeRange <span style="color:#099">1</span> <span style="color:#099">6</span> <span style="font-weight:bold">-</span>dof <span style="color:#099">1</span> <span style="color:#099">2</span> <span style="color:#099">3</span> <span style="color:#b84">&#34;eigen $k&#34;</span> 
@@ -833,9 +838,7 @@ href="https://opensees.berkeley.edu/wiki/index.php/Node_Recorder" title="wikilin
 
 </div>
 
-<h2
-id="perform_eigenvalue_analysis_and_store_periods_into_a_file">Perform
-eigenvalue analysis and store periods into a file</h2>
+<h2 id="perform-eigenvalue-analysis-and-store-periods-into-a-file">Perform eigenvalue analysis and store periods into a file</h2>
 <p>The eigenvalues are calculated using <a href="https://opensees.berkeley.edu/wiki/index.php/Eigen_Command">eigen commnad</a> and stored in lambda variable.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">set</span> lambda <span style="font-weight:bold">[</span><span style="color:#008080">eigen</span> <span style="color:#008080">$numModes</span><span style="font-weight:bold">];</span>
 </span></span></code></pre></div><p>The periods and frequencies of the structure are calculated next.</p>
@@ -856,11 +859,11 @@ eigenvalue analysis and store periods into a file</h2>
 </span></span><span style="display:flex;"><span>  <span style="color:#999">puts</span> <span style="color:#008080">$Periods</span> <span style="color:#b84">&#34; $t&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span> 
 </span></span><span style="display:flex;"><span>close <span style="color:#008080">$Periods</span> 
-</span></span></code></pre></div><h2 id="record_the_eigenvectors">Record the eigenvectors</h2>
+</span></span></code></pre></div><h2 id="record-the-eigenvectors">Record the eigenvectors</h2>
 <p>For eigenvectors to be recorded <a href="https://opensees.berkeley.edu/wiki/index.php/Record_Command"> record</a> command has to be issued following the
 eigen command.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">record</span>
-</span></span></code></pre></div><h2 id="display_mode_shapes">Display mode shapes</h2>
+</span></span></code></pre></div><h2 id="display-mode-shapes">Display mode shapes</h2>
 <p>TODO</p>
 <p>Example Provided by: <span style="color:blue"> Vesna Terzic, UC Berkeley</span></p>
 
