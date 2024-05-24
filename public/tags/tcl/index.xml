@@ -15,13 +15,6 @@
       <description>The problem is implemented in the file CableStayedBridge.py, and can also be run through the Tcl file CableStayedBridge.tcl.&#xA;This model is adapted from the opstool project and has been adapted to use the robust Model class interface.</description>
     </item>
     <item>
-      <title>Elastic Frame Example</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
-      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
-    </item>
-    <item>
       <title>Euler buckling analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -83,6 +76,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Frame with Viscous Dampers</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</guid>
+      <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:</description>
     </item>
     <item>
       <title>Hayward Bridge</title>

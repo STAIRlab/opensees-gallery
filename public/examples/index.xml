@@ -57,13 +57,6 @@
       <description>This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake.</description>
     </item>
     <item>
-      <title>Elastic Frame Example</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/steelbuilding2d/</guid>
-      <description>This example is of an elastic frame structure, as shown in the figure, subject to static loads.&#xA;Here is the file: ElasticFrame.</description>
-    </item>
-    <item>
       <title>Elastic Response Spectra</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
