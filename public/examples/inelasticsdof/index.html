@@ -6,10 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+ 
 <title>Inelastic SDOF - OpenSees Examples</title>
 <meta name="description" content="Integration of an inelastic single-degree-of-freedom (SDOF) system.">
 
+<meta name="keywords" content="Dynamic, Python, " />
+
+ 
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -60,7 +63,7 @@
   "headline": "Inelastic SDOF",
   "description" : "Integration of an inelastic single-degree-of-freedom (SDOF) system.",
   "inLanguage" : "en",
-  "wordCount":  1115 ,
+  "wordCount":  1108 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -428,8 +431,6 @@
 </span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>, dt)
 </span></span><span style="display:flex;"><span>        time_lst<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>getTime())
 </span></span><span style="display:flex;"><span>        response<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>nodeDisp(<span style="color:#099">2</span>,<span style="color:#099">1</span>))
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(<span style="color:#b84">&#39;Done with &#39;</span>, material_params,<span style="color:#b84">&#39;!&#39;</span>)
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> {<span style="color:#b84">&#39;time_list&#39;</span>:np<span style="font-weight:bold">.</span>array(time_lst),
 </span></span><span style="display:flex;"><span>            <span style="color:#b84">&#39;d&#39;</span>: np<span style="font-weight:bold">.</span>array(response)}
@@ -639,25 +640,23 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">172
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">173
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">174
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">175
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sdof</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># import openseespy.opensees as op</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">op</span>
 </span></span><span style="display:flex;"><span>FREE  <span style="font-weight:bold">=</span> <span style="color:#099">0</span>
 </span></span><span style="display:flex;"><span>FIXED <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
 </span></span><span style="display:flex;"><span>X, Y, RZ <span style="font-weight:bold">=</span> <span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">plastic_sdof</span>(mass, k_spring, f_yield, motion, dt, xi<span style="font-weight:bold">=</span><span style="color:#099">0.05</span>, r_post<span style="font-weight:bold">=</span><span style="color:#099">0.0</span>):
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">plastic_sdof</span>(material, motion, dt, xi<span style="font-weight:bold">=</span><span style="color:#099">0.05</span>, r_post<span style="font-weight:bold">=</span><span style="color:#099">0.0</span>):
 </span></span><span style="display:flex;"><span>    <span style="color:#b84">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    Run seismic analysis of a nonlinear SDOF
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param mass: mass
-</span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param k_spring: spring stiffness
+</span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param k: spring stiffness
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param f_yield: yield strength
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param motion: list, acceleration values
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param dt: float, time step of acceleration values
@@ -665,7 +664,7 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :param r_post: post-yield stiffness
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    :return:
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    mass, k, f_yield <span style="font-weight:bold">=</span> material
 </span></span><span style="display:flex;"><span>    op<span style="font-weight:bold">.</span>wipe()
 </span></span><span style="display:flex;"><span>    op<span style="font-weight:bold">.</span>model(<span style="color:#b84">&#39;basic&#39;</span>, <span style="color:#b84">&#39;-ndm&#39;</span>, <span style="color:#099">2</span>, <span style="color:#b84">&#39;-ndf&#39;</span>, <span style="color:#099">3</span>)  <span style="color:#998;font-style:italic"># 2 dimensions, 3 dof per node</span>
 </span></span><span style="display:flex;"><span>
@@ -688,7 +687,7 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define material</span>
 </span></span><span style="display:flex;"><span>    bilinear_mat_tag <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
 </span></span><span style="display:flex;"><span>    mat_type <span style="font-weight:bold">=</span> <span style="color:#b84">&#34;Steel01&#34;</span>
-</span></span><span style="display:flex;"><span>    mat_props <span style="font-weight:bold">=</span> [f_yield, k_spring, r_post]
+</span></span><span style="display:flex;"><span>    mat_props <span style="font-weight:bold">=</span> [f_yield, k, r_post]
 </span></span><span style="display:flex;"><span>    op<span style="font-weight:bold">.</span>uniaxialMaterial(mat_type, bilinear_mat_tag, <span style="font-weight:bold">*</span>mat_props)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Assign zero length element</span>
@@ -764,7 +763,7 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> outputs
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">show_single_comparison</span>():
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">main</span>():
 </span></span><span style="display:flex;"><span>    <span style="color:#b84">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">    Create a plot of an elastic analysis, nonlinear analysis and closed form elastic
 </span></span></span><span style="display:flex;"><span><span style="color:#b84">
@@ -774,9 +773,9 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="font-weight:bold">as</span> <span style="color:#555">plt</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    record_filename <span style="font-weight:bold">=</span> <span style="color:#b84">&#39;test_motion_dt0p01.txt&#39;</span>
-</span></span><span style="display:flex;"><span>    motion_step <span style="font-weight:bold">=</span> <span style="color:#099">0.01</span>
+</span></span><span style="display:flex;"><span>    dt <span style="font-weight:bold">=</span> <span style="color:#099">0.01</span>
 </span></span><span style="display:flex;"><span>    rec <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>loadtxt(record_filename)
-</span></span><span style="display:flex;"><span>    acc_signal <span style="font-weight:bold">=</span> eqsig<span style="font-weight:bold">.</span>AccSignal(rec, motion_step)
+</span></span><span style="display:flex;"><span>    acc_signal <span style="font-weight:bold">=</span> eqsig<span style="font-weight:bold">.</span>AccSignal(rec, dt)
 </span></span><span style="display:flex;"><span>    period <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>
 </span></span><span style="display:flex;"><span>    xi <span style="font-weight:bold">=</span> <span style="color:#099">0.05</span>
 </span></span><span style="display:flex;"><span>    mass <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>
@@ -785,10 +784,10 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    periods <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>array([period])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    k_spring <span style="font-weight:bold">=</span> <span style="color:#099">4</span> <span style="font-weight:bold">*</span> np<span style="font-weight:bold">.</span>pi <span style="font-weight:bold">**</span> <span style="color:#099">2</span> <span style="font-weight:bold">*</span> mass <span style="font-weight:bold">/</span> period <span style="font-weight:bold">**</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>    k <span style="font-weight:bold">=</span> <span style="color:#099">4</span> <span style="font-weight:bold">*</span> np<span style="font-weight:bold">.</span>pi <span style="font-weight:bold">**</span> <span style="color:#099">2</span> <span style="font-weight:bold">*</span> mass <span style="font-weight:bold">/</span> period <span style="font-weight:bold">**</span> <span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    outputs <span style="font-weight:bold">=</span> plastic_sdof(mass, k_spring, f_yield, rec, motion_step, xi<span style="font-weight:bold">=</span>xi, r_post<span style="font-weight:bold">=</span>r_post)
-</span></span><span style="display:flex;"><span>    outputs_elastic <span style="font-weight:bold">=</span> plastic_sdof(mass, k_spring, f_yield <span style="font-weight:bold">*</span> <span style="color:#099">100</span>, rec, motion_step, xi<span style="font-weight:bold">=</span>xi, r_post<span style="font-weight:bold">=</span>r_post)
+</span></span><span style="display:flex;"><span>    outputs <span style="font-weight:bold">=</span> plastic_sdof((mass, k, f_yield), rec, dt, xi<span style="font-weight:bold">=</span>xi, r_post<span style="font-weight:bold">=</span>r_post)
+</span></span><span style="display:flex;"><span>    outputs_elastic <span style="font-weight:bold">=</span> plastic_sdof((mass, k, f_yield <span style="font-weight:bold">*</span> <span style="color:#099">100</span>), rec, dt, xi<span style="font-weight:bold">=</span>xi, r_post<span style="font-weight:bold">=</span>r_post)
 </span></span><span style="display:flex;"><span>    ux_opensees <span style="font-weight:bold">=</span> outputs[<span style="color:#b84">&#34;rel_disp&#34;</span>]
 </span></span><span style="display:flex;"><span>    ux_opensees_elastic <span style="font-weight:bold">=</span> outputs_elastic[<span style="color:#b84">&#34;rel_disp&#34;</span>]
 </span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(outputs)
@@ -800,11 +799,11 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>    acc_opensees_elastic <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>interp(time, outputs_elastic[<span style="color:#b84">&#34;time&#34;</span>], outputs_elastic[<span style="color:#b84">&#34;rel_accel&#34;</span>]) <span style="font-weight:bold">-</span> rec
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    resp_u, resp_v, resp_a <span style="font-weight:bold">=</span> sdof<span style="font-weight:bold">.</span>integrate(rec, motion_step, k_spring, <span style="color:#099">2</span><span style="font-weight:bold">*</span>xi<span style="font-weight:bold">*</span>mass<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sqrt(k_spring<span style="font-weight:bold">/</span>mass), mass, fy<span style="font-weight:bold">=</span>f_yield)
+</span></span><span style="display:flex;"><span>    resp_u, resp_v, resp_a <span style="font-weight:bold">=</span> sdof<span style="font-weight:bold">.</span>integrate(rec, dt, k, <span style="color:#099">2</span><span style="font-weight:bold">*</span>xi<span style="font-weight:bold">*</span>mass<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sqrt(k<span style="font-weight:bold">/</span>mass), mass, fy<span style="font-weight:bold">=</span>f_yield)
 </span></span><span style="display:flex;"><span>    sps[<span style="color:#099">0</span>]<span style="font-weight:bold">.</span>plot(acc_signal<span style="font-weight:bold">.</span>time, resp_u, label<span style="font-weight:bold">=</span><span style="color:#b84">&#34;sdof&#34;</span>)
 </span></span><span style="display:flex;"><span>    sps[<span style="color:#099">1</span>]<span style="font-weight:bold">.</span>plot(acc_signal<span style="font-weight:bold">.</span>time, resp_a, label<span style="font-weight:bold">=</span><span style="color:#b84">&#34;sdof&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   resp_u, resp_v, resp_a = duhamels.response_series(motion=rec, dt=motion_step, periods=periods, xi=xi)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   resp_u, resp_v, resp_a = duhamels.response_series(motion=rec, dt=dt, periods=periods, xi=xi)</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   sps[0].plot(acc_signal.time, resp_u[0], label=&#34;Eqsig&#34;)</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   sps[1].plot(acc_signal.time, resp_a[0], label=&#34;Eqsig&#34;)  # Elastic solution</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   print(&#34;diff&#34;, sum(acc_opensees_elastic - resp_a[0]))</span>
@@ -815,7 +814,7 @@ Done with  [&#39;Elastic&#39;, 1, 5.0] !
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> __name__ <span style="font-weight:bold">==</span> <span style="color:#b84">&#39;__main__&#39;</span>:
-</span></span><span style="display:flex;"><span>    show_single_comparison()
+</span></span><span style="display:flex;"><span>    main()
 </span></span><span style="display:flex;"><span>
 </span></span></code></pre></td></tr></table>
 </div>
