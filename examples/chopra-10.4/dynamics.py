@@ -2,27 +2,26 @@ import numpy as np
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 from opensees.units.iks import gravity
-# Eigen analysis of a two-storey one-bay frame
-# Example 10.5 from "Dynamics of Structures" by Anil Chopra
-
-# units: kips, in, sec
-
-#       Vesna Terzic, 2010 
 
 # set input variables
 #--------------------
 def create_model():
+    # Eigen analysis of a two-storey one-bay frame
+    # Example 10.5 from "Dynamics of Structures" by Anil Chopra
+    # units: kips, in, sec
+    # Vesna Terzic, 2010
+
     # mass
     m =  100.0/gravity
 
     #material
-    A = 63.41
-    I = 320.0
+    A =    63.41
+    I =   320.0
     E = 29000.0
 
     #geometry
-    L = 240.
-    h = 120.
+    h = 1 #20.
+    L = 2*h
 
     # define the model
     #---------------------------------
@@ -36,16 +35,16 @@ def create_model():
     model.node(4, L ,  h )
     model.node(5, 0., 2*h)
     model.node(6, L , 2*h)
-    
+
     # Single point constraints -- Boundary Conditions
     model.fix(1, 1, 1, 1)
     model.fix(2, 1, 1, 1)
-    
+
     # assign mass
-    model.mass(3,   m,    0., 0.)
-    model.mass(4,   m,    0., 0.)
-    model.mass(5, (m/2.), 0., 0.)
-    model.mass(6, (m/2.), 0., 0.)
+    model.mass(3,  m,   0., 0.)
+    model.mass(4,  m,   0., 0.)
+    model.mass(5, m/2., 0., 0.)
+    model.mass(6, m/2., 0., 0.)
 
     # define geometric transformation:
     TransfTag = 1
@@ -80,6 +79,11 @@ def static_condensation(M, K, mass_dofs=None, model=None, tol=0.0):
     if mass_dofs is None:
         assert model is not None
         mass_dofs = find_mass(model, tol=tol)
+    else:
+        mass_dofs = np.array(mass_dofs)
+
+    if len(mass_dofs.shape) > 1:
+        mass_dofs = np.array([model.nodeDOF(*i) for i in mass_dofs], dtype=int)
 
 
     masslessDOFs = np.setdiff1d(range(N), mass_dofs)

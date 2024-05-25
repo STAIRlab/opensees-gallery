@@ -1,19 +1,18 @@
 import sdof
 import numpy as np
 
-# import openseespy.opensees as op
 import opensees.openseespy as op
 FREE  = 0
 FIXED = 1
 X, Y, RZ = 1, 2, 3
 
 
-def plastic_sdof(mass, k_spring, f_yield, motion, dt, xi=0.05, r_post=0.0):
+def plastic_sdof(material, motion, dt, xi=0.05, r_post=0.0):
     """
     Run seismic analysis of a nonlinear SDOF
 
     :param mass: mass
-    :param k_spring: spring stiffness
+    :param k: spring stiffness
     :param f_yield: yield strength
     :param motion: list, acceleration values
     :param dt: float, time step of acceleration values
@@ -21,7 +20,7 @@ def plastic_sdof(mass, k_spring, f_yield, motion, dt, xi=0.05, r_post=0.0):
     :param r_post: post-yield stiffness
     :return:
     """
-
+    mass, k, f_yield = material
     op.wipe()
     op.model('basic', '-ndm', 2, '-ndf', 3)  # 2 dimensions, 3 dof per node
 
@@ -44,7 +43,7 @@ def plastic_sdof(mass, k_spring, f_yield, motion, dt, xi=0.05, r_post=0.0):
     # Define material
     bilinear_mat_tag = 1
     mat_type = "Steel01"
-    mat_props = [f_yield, k_spring, r_post]
+    mat_props = [f_yield, k, r_post]
     op.uniaxialMaterial(mat_type, bilinear_mat_tag, *mat_props)
 
     # Assign zero length element
@@ -120,7 +119,7 @@ def plastic_sdof(mass, k_spring, f_yield, motion, dt, xi=0.05, r_post=0.0):
     return outputs
 
 
-def show_single_comparison():
+def main():
     """
     Create a plot of an elastic analysis, nonlinear analysis and closed form elastic
 
@@ -130,9 +129,9 @@ def show_single_comparison():
     import matplotlib.pyplot as plt
 
     record_filename = 'test_motion_dt0p01.txt'
-    motion_step = 0.01
+    dt = 0.01
     rec = np.loadtxt(record_filename)
-    acc_signal = eqsig.AccSignal(rec, motion_step)
+    acc_signal = eqsig.AccSignal(rec, dt)
     period = 1.0
     xi = 0.05
     mass = 1.0
@@ -141,10 +140,10 @@ def show_single_comparison():
 
     periods = np.array([period])
 
-    k_spring = 4 * np.pi ** 2 * mass / period ** 2
+    k = 4 * np.pi ** 2 * mass / period ** 2
 
-    outputs = plastic_sdof(mass, k_spring, f_yield, rec, motion_step, xi=xi, r_post=r_post)
-    outputs_elastic = plastic_sdof(mass, k_spring, f_yield * 100, rec, motion_step, xi=xi, r_post=r_post)
+    outputs = plastic_sdof((mass, k, f_yield), rec, dt, xi=xi, r_post=r_post)
+    outputs_elastic = plastic_sdof((mass, k, f_yield * 100), rec, dt, xi=xi, r_post=r_post)
     ux_opensees = outputs["rel_disp"]
     ux_opensees_elastic = outputs_elastic["rel_disp"]
     print(outputs)
@@ -156,11 +155,11 @@ def show_single_comparison():
     acc_opensees_elastic = np.interp(time, outputs_elastic["time"], outputs_elastic["rel_accel"]) - rec
 
 
-    resp_u, resp_v, resp_a = sdof.integrate(rec, motion_step, k_spring, 2*xi*mass*np.sqrt(k_spring/mass), mass, fy=f_yield)
+    resp_u, resp_v, resp_a = sdof.integrate(rec, dt, k, 2*xi*mass*np.sqrt(k/mass), mass, fy=f_yield)
     sps[0].plot(acc_signal.time, resp_u, label="sdof")
     sps[1].plot(acc_signal.time, resp_a, label="sdof")
 
-#   resp_u, resp_v, resp_a = duhamels.response_series(motion=rec, dt=motion_step, periods=periods, xi=xi)
+#   resp_u, resp_v, resp_a = duhamels.response_series(motion=rec, dt=dt, periods=periods, xi=xi)
 #   sps[0].plot(acc_signal.time, resp_u[0], label="Eqsig")
 #   sps[1].plot(acc_signal.time, resp_a[0], label="Eqsig")  # Elastic solution
 #   print("diff", sum(acc_opensees_elastic - resp_a[0]))
@@ -171,5 +170,5 @@ def show_single_comparison():
 
 
 if __name__ == '__main__':
-    show_single_comparison()
+    main()
 
