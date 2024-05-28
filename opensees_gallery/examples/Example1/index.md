@@ -116,14 +116,20 @@ uniaxialMaterial Elastic 1 3000;
 {{% /tab %}}
 {{< /tabs >}}
 
-Finally, define the elements:
+Finally, define the elements. The syntax for creating
+the truss element requires the following arguments:
+1. the element name, in this case always `"Truss"`,
+2. the element tag, in this case `1` through `3`,
+3. the nodes that the element is connected to,
+4. the cross-sectional area, in this case `10.0` for element `1` and `5.0` for elements `2` and `3`.
+5. the tag of the material assigned to the element, in this case always `1`
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-model.element("Truss", 1, 1, 4, 10.0, 1)
-model.element("Truss", 2, 2, 4,  5.0, 1)
-model.element("Truss", 3, 3, 4,  5.0, 1)
+model.element("Truss", 1, (1, 4), 10.0, 1)
+model.element("Truss", 2, (2, 4),  5.0, 1)
+model.element("Truss", 3, (3, 4),  5.0, 1)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
