@@ -1,7 +1,8 @@
 ---
 title: Frame with Viscous Dampers
-image: Viscous-Fig1.jpg
 authors: ["Sarven Akcelyan", "Dimitrios G. Lignos"]
+tags: ["Tcl"]
+image: ViscousDamper.png
 description: This example demonstrates how to use the viscous damper material within a simple single story shear frame.
 ---
 
