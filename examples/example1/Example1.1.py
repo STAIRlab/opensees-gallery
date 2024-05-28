@@ -41,9 +41,9 @@ model.uniaxialMaterial("Elastic", 1, 3000.0)
 # Define elements
 # ---------------
 # Create truss elements - command: element truss trussID node1 node2 A matID
-model.element("Truss", 1, 1, 4, 10.0, 1)
-model.element("Truss", 2, 2, 4,  5.0, 1)
-model.element("Truss", 3, 3, 4,  5.0, 1)
+model.element("Truss", 1, (1, 4), 10.0, 1)
+model.element("Truss", 2, (2, 4),  5.0, 1)
+model.element("Truss", 3, (3, 4),  5.0, 1)
 
 # Define loads
 # ------------
