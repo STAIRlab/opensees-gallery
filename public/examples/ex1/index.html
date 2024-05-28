@@ -63,7 +63,7 @@
   "headline": "Ex1: Time History Analysis of a 2D Elastic Cantilever Column",
   "description" : "This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.",
   "inLanguage" : "en",
-  "wordCount":  2090 ,
+  "wordCount":  2058 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -371,11 +371,6 @@ interpreter will pop out. To run the analysis the user should type:
 <pre style="width:650px"> source Ex1a.Canti2D.EQ.modif.tcl
 </pre> and hit enter.</p>
 <h2 id="create_the_model">Create the model</h2>
-<p>Before creating the model it is advised to call <a
-href="Wipe_Command" title="wikilink">wipe</a> command to destroy all
-previously constructed objects, i.e. all previously defined components
-of the model, all previously defined components of the analysis and all
-previously defined recorders.</p>
 <p>The model of a structural system is created in the following way:</p></p>
 <ol>
 <li>Spatial dimension of the model (NDM) and number of
@@ -392,7 +387,7 @@ to be assigned to each degree of freedom.</li>
 <li>The boundary conditions are defined using using single-point
 constraint command <a href="fix_command" title="wikilink">fix</a>. For
 nodes that have some fixity, constraints have to be defined at all
-degrees of freedom (0 if unconstrained (or free), 1 if constrained (or
+degrees of freedom (<code>0</code> if unconstrained (or free), <code>1</code> if constrained (or
 fixed)). Completely free nodes do not have to be defined.</li>
 <li>Before element is defined, the geometric transformation of the
 element has to be defined using <a
@@ -428,9 +423,8 @@ following way:</p>
 <li>
 <p>The column has two nodes, labeled 1 and 2 (as shown in the Figure
 above). Node 1 has coordinates (0,0) and node 2 has coordinates (0,432)
-in the global coordinate system (x,y). The basic units chosen to build
-the model are: kip, in, sec. Note: y coordinate for node 2 is 36*12=432
-in.
+in the global coordinate system \((x,y)\). The basic units chosen to build
+the model are: kip, in, sec. Note: \(y\) coordinate for node 2 is \(36\times 12=432\) in.
 Nodes are defined using the <a href="node_command" title="wikilink">node</a> command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">node</span> <span style="color:#099">1</span> <span style="color:#099">0</span>. <span style="color:#099">0</span>. 
 </span></span><span style="display:flex;"><span>node <span style="color:#099">2</span> <span style="color:#099">0</span>. <span style="color:#099">432</span>. 
@@ -443,8 +437,8 @@ command.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">fix</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">1</span> 
 </span></span></code></pre></div></li>
 <li>
-<p>Mass is assigned at node 2 using <a href="Mass_Command"
-title="wikilink">mass</a> command. Since transient analysis is going to
+<p>Mass is assigned at node 2 using <a href="Mass_Command" title="wikilink">mass</a>
+command. Since transient analysis is going to
 be performed for one component of ground motion (horizontal component -
 x direction) the mass is to be assigned in x direction. The mass is
 defined as Weight/g=2000/386=5.18. The vertical and rotational mass are
@@ -452,19 +446,19 @@ set to zero.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span> <span style="color:#008080">mass</span> <span style="color:#099">2</span> <span style="color:#099">5.18</span> <span style="color:#099">0</span>. <span style="color:#099">0</span>. 
 </span></span></code></pre></div></li>
 <li>
-<p>The <a href="Geometric_Transformation_Command"
-title="wikilink">geometric transformation</a> with id tag 1 is defined
+<p>The <a href="Geometric_Transformation_Command" title="wikilink">geometric transformation</a>
+with id tag 1 is defined
 to be linear.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">geomTransf</span> Linear <span style="color:#099">1</span> 
 </span></span></code></pre></div></li>
 <li>
 <p>The column is defined to be elastic using <a
-href="Elastic_Beam_Column_Element"
-title="wikilink">elasticBeamColumn</a> element. The element with the id
+href="Elastic_Beam_Column_Element" title="wikilink">elasticBeamColumn</a>
+element. The element with the id
 tag 1 will connect nodes 1 and 2. Cross-sectional area of the element is
-(5<em>12)</em>(5*12)=3600 in^2, Young&rsquo;s modulus of elasticity is
-\(51000*\sqrt{4000}/1000=3225\) ksi (assuming fc&rsquo;=4000 psi), and the moment
-of inertia is \((1/12)*(5*12)^4=1080000\) in<sup>4</sup>.</p>
+\((5\times 12)^2 =3600\) in<sup>2</sup>, Young&rsquo;s modulus of elasticity is
+\(51000*\sqrt{4000}/1000=3225\) ksi (assuming \(f_c^{\prime}=4000\) psi), and the moment
+of inertia is \((5\times 12)^4 / 12 =1080000\) in<sup>4</sup>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">element</span> ElasticBeamColumn <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">2</span> <span style="color:#099">3600</span> <span style="color:#099">3225</span> <span style="color:#099">1080000</span> <span style="color:#099">1</span> 
 </span></span></code></pre></div></li>
 </ol>
@@ -481,7 +475,7 @@ stored as text files in &ldquo;Data&rdquo; folder.</p>
 <p>The <a href="Node_Recorder" title="wikilink">node recorder</a> is
 used to output displacements of the free node (node 2) and support
 reaction of the constrained node (node 1) into files <code>DFree.out</code> and
-RBase.out, respectively. Both files will have a time stored in the first
+<code>RBase.out</code>, respectively. Both files will have a time stored in the first
 column. The columns 2-4 of file <code>DFree.out</code> will contain displacements at
 DOFs 1, 2, and 3. The columns 2-4 of file <code>RBase.out</code> will contain
 reactions that correspond to DOFs 1, 2, and 3.</p>
@@ -493,7 +487,7 @@ the file is the time, and the second column is the lateral drift
 (relative displacements between nodes 1 and 2).</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">recorder</span> Drift <span style="font-weight:bold">-</span>file Data<span style="font-weight:bold">/</span>Drift.out <span style="font-weight:bold">-</span>time <span style="font-weight:bold">-</span>iNode <span style="color:#099">1</span> <span style="font-weight:bold">-</span>jNode <span style="color:#099">2</span> <span style="font-weight:bold">-</span>dof <span style="color:#099">1</span> <span style="font-weight:bold">-</span>perpDirn <span style="color:#099">2</span> 
 </span></span></code></pre></div><p>The <a href="Element_Recorder" title="wikilink">element recorder</a>
-is used to output global forces of the column into file FCol.out. The
+is used to output global forces of the column into file <code>FCol.out</code>. The
 first column of the file is the time. The columns 2-7 of the file will
 contain end node forces (shear, axial, and bending moment); 3 forces at
 node 1 and 3 forces at node 2. These forces correspond to the global
@@ -544,10 +538,8 @@ freedom (mapping between equation numbers and degrees-of-freedom) is
 defined next. Since the model is very simple and small <a
 href="Plain_Numberer" title="wikilink">plain numberer</a> will be
 used:</p>
-```tcl
-numberer Plain 
-```
-<p>To store and solve the system of equations during the analysis <a
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">numberer</span> Plain 
+</span></span></code></pre></div><p>To store and solve the system of equations during the analysis <a
 href="BandGeneral_SOE" title="wikilink">BandGeneral</a> solver is
 used:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">system</span> BandGeneral 

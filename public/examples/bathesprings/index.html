@@ -9,7 +9,10 @@
  
 <title>Bathe&#39;s Springs - OpenSees Examples</title>
 <meta name="description" content="Download (Bathe Model Problem.ipynb)
-Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.">
+March 2020, By Amir Hossein Namadchi
+This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.">
+
+<meta name="keywords" content="Python, " />
 
  
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
@@ -60,13 +63,13 @@ Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy s
     "name" : "STAIRlab"
   },
   "headline": "Bathe\u0027s Springs",
-  "description" : "Download (Bathe Model Problem.ipynb)\nBathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.",
+  "description" : "Download (Bathe Model Problem.ipynb)\nMarch 2020, By Amir Hossein Namadchi\nThis is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.",
   "inLanguage" : "en",
-  "wordCount":  713 ,
+  "wordCount":  694 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
-  "keywords" : [ "" ],
+  "keywords" : [ "Python" ],
   "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/bathesprings\/",
   "publisher" : {
     "@type": "Organization",
@@ -83,7 +86,8 @@ Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy s
 
 <meta property="og:title" content="Bathe&#39;s Springs" />
 <meta property="og:description" content="Download (Bathe Model Problem.ipynb)
-Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.">
+March 2020, By Amir Hossein Namadchi
+This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/ModelProblem.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/bathesprings/" />
 <meta property="og:type" content="website" />
@@ -320,7 +324,6 @@ Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy s
   <ul>
     <li>
       <ul>
-        <li></li>
         <li><a href="#model-construction">Model Construction</a></li>
         <li><a href="#dynamic-analysis">Dynamic Analysis</a></li>
         <li><a href="#visualization">Visualization</a></li>
@@ -354,8 +357,12 @@ Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy s
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
         <p><a href="/opensees-gallery/examples/bathesprings/Bathe%20Model%20Problem.ipynb" download>Download (Bathe Model Problem.ipynb)</a></p>
-<h1 id="bathe-model-problem">Bathe Model Problem</h1>
-<h4 id="march-2020-by-amir-hossein-namadchi">March 2020, By Amir Hossein Namadchi</h4>
+<!-- 
+# Bathe Model Problem
+-->
+<blockquote>
+<p>March 2020, By Amir Hossein Namadchi</p>
+</blockquote>
 <p>This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by <a href="https://www.sciencedirect.com/science/article/abs/pii/S0045794912000107">Bathe and Noh</a>. The model was used to demonstrate the ability of Bathe method in filtering out the unwanted artificial high-frequency responses. The effectiveness of numerical dissipation in a specific time integration algorithm could be evaluated by analyzing this benchmark model problem <a href="https://link.springer.com/article/10.1007/s00366-020-00960-w">[1]</a>.</p>
 <p><img src="ModelProblem.png" alt="ModelProblem"></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
@@ -390,28 +397,27 @@ Bathe Model Problem March 2020, By Amir Hossein Namadchi This is an OpenSeesPy s
 </span></span><span style="display:flex;"><span>a_2_ex <span style="font-weight:bold">=</span> <span style="font-weight:bold">lambda</span> t : <span style="font-weight:bold">-</span>(<span style="color:#099">2.7273e-7</span>)<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(t) <span style="font-weight:bold">-</span> <span style="color:#099">1.2</span><span style="font-weight:bold">*</span><span style="color:#099">1.2</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(<span style="color:#099">1.2</span><span style="font-weight:bold">*</span>t)
 </span></span><span style="display:flex;"><span>a_3_ex <span style="font-weight:bold">=</span> <span style="font-weight:bold">lambda</span> t : <span style="font-weight:bold">-</span>(<span style="color:#099">2.7273</span>)<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(t) <span style="font-weight:bold">+</span> <span style="color:#099">1.2</span><span style="font-weight:bold">*</span><span style="color:#099">1.2</span><span style="font-weight:bold">*</span>(<span style="color:#099">2.2727</span>)<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(<span style="color:#099">1.2</span><span style="font-weight:bold">*</span>t)
 </span></span></code></pre></div><h3 id="model-construction">Model Construction</h3>
-<p>Use <code>ZeroLength</code> elements to model the spings, then add nodal masses via <code>mass</code> command. Also,I wrapped the whole modeling steps in <code>build_model()</code> function to use it later.</p>
+<p>Use <code>ZeroLength</code> elements to model the spings. Note that nodal masses are added via <code>mass</code> option of the <code>node</code> command.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">build_model</span>():
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">1</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Adding nodes</span>
-</span></span><span style="display:flex;"><span>    [model<span style="font-weight:bold">.</span>node(n<span style="font-weight:bold">+</span><span style="color:#099">1</span>, <span style="color:#099">0.0</span>) <span style="font-weight:bold">for</span> n <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">3</span>)]
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> n, mass <span style="font-weight:bold">in</span> <span style="color:#999">enumerate</span>([m_1,m_2,m_3]):
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>node(n<span style="font-weight:bold">+</span><span style="color:#099">1</span>, <span style="color:#099">0.0</span>, mass<span style="font-weight:bold">=</span>mass)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Defining Material (spring stiffness)</span>
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#39;Elastic&#39;</span>, <span style="color:#099">1</span>, E_1)
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#39;Elastic&#39;</span>, <span style="color:#099">2</span>, E_2)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Adding springs</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;zeroLength&#39;</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">1</span>,<span style="color:#099">2</span>], <span style="color:#b84">&#39;-mat&#39;</span>, <span style="color:#099">1</span>, <span style="color:#b84">&#39;-dir&#39;</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;zeroLength&#39;</span>, <span style="color:#099">2</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">2</span>,<span style="color:#099">3</span>], <span style="color:#b84">&#39;-mat&#39;</span>, <span style="color:#099">2</span>, <span style="color:#b84">&#39;-dir&#39;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Add springs</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;ZeroLength&#39;</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">1</span>,<span style="color:#099">2</span>], <span style="color:#b84">&#39;-mat&#39;</span>, <span style="color:#099">1</span>, <span style="color:#b84">&#39;-dir&#39;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;ZeroLength&#39;</span>, <span style="color:#099">2</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">2</span>,<span style="color:#099">3</span>], <span style="color:#b84">&#39;-mat&#39;</span>, <span style="color:#099">2</span>, <span style="color:#b84">&#39;-dir&#39;</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Adding Nodal masses</span>
-</span></span><span style="display:flex;"><span>    [model<span style="font-weight:bold">.</span>mass(n<span style="font-weight:bold">+</span><span style="color:#099">1</span>, mass) <span style="font-weight:bold">for</span> n, mass <span style="font-weight:bold">in</span> <span style="color:#999">enumerate</span>([m_1,m_2,m_3])];
 </span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(<span style="color:#b84">&#39;Model built successfully!&#39;</span>)
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
 </span></span></code></pre></div><h3 id="dynamic-analysis">Dynamic Analysis</h3>
-<p>To use different time integration algorithms, the function <code>do_dynamic_analysis</code> is defined herein. Just pass the <code>time</code>, <code>dt</code> and <code>integrator_params</code> and run it multiple times with different integrators. Here, Newmark with $\gamma=0.5$ and $\beta=0.25$ (a non-dissipative algorithm) and <a href="http://web.mit.edu/kjb/www/Principal_Publications/On_a_Composite_Implicit_Time_Integration_Procedure_for_Nonlinear_Dynamics.pdf">the Bathe method</a>, named as &lsquo;TRBDF2&rsquo; (with asymptotic annihilation property) are used.</p>
+<p>To use different time integration algorithms, the function <code>do_dynamic_analysis</code> is defined herein. Just pass the <code>time</code>, <code>dt</code> and <code>integrator_params</code> and run it multiple times with different integrators. Here, <code>Newmark</code> with $\gamma=0.5$ and $\beta=0.25$ (a non-dissipative algorithm) and <a href="http://web.mit.edu/kjb/www/Principal_Publications/On_a_Composite_Implicit_Time_Integration_Procedure_for_Nonlinear_Dynamics.pdf">the Bathe method</a>, named as <code>'TRBDF2'</code> (with asymptotic annihilation property) are used.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">do_dynamic_analysis</span>(time, dt, integrator_params):
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> build_model()
@@ -524,6 +530,12 @@ Done with  TRBDF2 !
       <hr class="m-0"/>
     </div>
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+      <div class="blog-tags">
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/python/">Python</a>
+        
+      </div>
       
     </div>
 
@@ -643,7 +655,180 @@ Done with  TRBDF2 !
   
   
   
+  
+  
 
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>Read More</h3>
+        <hr />
+      </div>
+
+      
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Arch Instability</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Several nonlinear static analysis methods are used to investigate instabilities in a shallow arch.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/archstaticsnap/arch_hu4b7b505b3ab5e69f3e4a978aaa6b9cbe_12075755_500x0_resize_box_1.gif" alt="arch.gif"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/buildingmodes/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Building Modes</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">CableStayed02</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Model of a cable-stayed bridge sourced from the opstool project.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/gallery/cablestayed02/CableStayed02_hu69a00f7ef0c4538f2e2254ac08df18d7_229537_500x0_resize_box_3.png" alt="CableStayed02.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+    </div>
+  </div>
   
   
 
