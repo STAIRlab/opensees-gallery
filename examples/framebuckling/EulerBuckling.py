@@ -8,28 +8,27 @@ def create_column():
     A = 9.12e3
     L = 60.0
 
-    NumberOfElements = 10
-    ElementType      = "ForceBeamColumn"
+    ne = 10         # Number of elements discretizing the column
+    ElemName      = "ForceBeamColumn"
     GeomTransfType   = "Corotational"
 
-    # END OF INPUT
 
-    NumIntegrationPoints = 3
-    NumberOfNodes = NumberOfElements + 1
-    EulerLoad     = pi*pi*E*I/(L*L)
+    nIP = 3 # number of integration points along each element
+    nn = ne + 1
+    EulerLoad = (pi**2)*E*I/L**2
 
     model = ops.Model(ndm=2,  ndf=3)
 
     # Define nodes
-    for i in range(1, NumberOfNodes+1):
-        y = ((i-1)/float(NumberOfElements)*L)
+    for i in range(1, nn+1):
+        y = (i-1)/float(ne)*L
         model.node(i, 0.0, y)
         model.mass(i, 1.0, 1.0, 1.0)
 
 
     # Define boundary conditions
-    model.fix(            1, 1, 1, 0)
-    model.fix(NumberOfNodes, 1, 0, 0)
+    model.fix( 1, 1, 1, 0) # Fix dofs 1 and 2 at node 1
+    model.fix(nn, 1, 0, 0) # Fix dof 1 at last node
 
     # Define cross-section 
     SectionTag = 1
@@ -41,13 +40,14 @@ def create_column():
 
     # Define elements
     model.eval("pragma openseespy off")
-    for i in range(1, NumberOfElements+1):
-        model.element(ElementType, i, i, i+1, NumIntegrationPoints, SectionTag, GeomTransfTag)
+    for i in range(1, ne+1):
+        model.element(ElemName, i, i, i+1, nIP, SectionTag, GeomTransfTag)
+
     model.eval("pragma openseespy on")
 
     # Apply loads
     model.pattern('Plain', 1, "Linear")
-    model.load(NumberOfNodes, 0.0, -EulerLoad, 0.0, pattern=1)
+    model.load(nn, 0.0, -EulerLoad, 0.0, pattern=1)
 
     return model, EulerLoad
 
@@ -81,7 +81,7 @@ def buckling_analysis(model, EulerLoad):
 
             print(f"Limit Point Found")
 #           print(f"Number Of Elements:              {NumberOfElements}")
-#           print(f"Element Type:                    {ElementType}")
+#           print(f"Element Type:                    {ElemName}")
 #           print(f"Geometric Transformation Type:   {GeomTransfType}")
             print(f"Exact Euler Load:                {EulerLoad:.2f}")
             print(f"Computed Euler Load:             {InterpolatedLoadRatio*EulerLoad:.2f}")

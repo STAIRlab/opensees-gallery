@@ -15,6 +15,13 @@
       <description>Download (IncrementalAnalysis.ipynb)&#xA;Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
     </item>
     <item>
+      <title>Bathe&#39;s Springs</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
+      <description>Download (Bathe Model Problem.ipynb)&#xA;March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
+    </item>
+    <item>
       <title>Building Modes</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -34,6 +41,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</guid>
       <description>This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:</description>
+    </item>
+    <item>
+      <title>Elastic Response Spectra</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</guid>
+      <description>Download (Elastic Response Spectra.ipynb)&#xA;Elastic Response Spectra April 2020, By Amir Hossein Namadchi This one deals with an elastic SDOF system subjected to the El Centro ground acceleration, $\ddot{d_g}$.</description>
     </item>
     <item>
       <title>Euler buckling analysis</title>
@@ -110,7 +124,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
-      <description>Download (Elastoplastic SDOF system.ipynb)&#xA;Elastoplastic SDOF system March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
+      <description>Download (Elastoplastic SDOF system.ipynb)&#xA;March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
     </item>
     <item>
       <title>Matrix Eigenvalue Analysis</title>

@@ -22,7 +22,8 @@ def plastic_sdof(material, motion, dt, xi=0.05, r_post=0.0):
     """
     mass, k, f_yield = material
     op.wipe()
-    op.model('basic', '-ndm', 2, '-ndf', 3)  # 2 dimensions, 3 dof per node
+     # 2 dimensions, 3 dof per node
+    op.model('basic', '-ndm', 2, '-ndf', 3) 
 
     # Establish nodes
     bot_node = 1

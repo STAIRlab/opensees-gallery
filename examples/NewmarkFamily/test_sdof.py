@@ -68,13 +68,11 @@ def ReadRecordAT2(inFilename):
 
             data.extend(map(float, line.split()))
 
-
         else:
             # Search header lines for dt
             words = line.split()
-            lengthLine = len(words)
 
-            if lengthLine >= 4:
+            if len(words) >= 4:
 
                 if words[0] == 'NPTS=':
                     # old SMD format
@@ -134,7 +132,7 @@ tol     = 1.0e-4
 #               periodStruct - desired structure period (used to compute mass)
 #               dampRatio (zeta) - desired damping ratio
 
-def elastic_sdof(K, period, dampRatio):
+def create_sdof(K, period, dampRatio):
 
     wn = 2.0 * pi / period
     m  = K/(wn**2)
@@ -159,7 +157,7 @@ def elastic_sdof(K, period, dampRatio):
 def build_analysis(model, integrator):
     model.constraints('Plain')
     model.numberer('Plain')
-    model.algorithm('Newton')
+    model.algorithm('Linear') #'Newton')
     model.system('ProfileSPD')
     model.integrator(*integrator)
     model.analysis('Transient')
@@ -199,7 +197,7 @@ def test_earthquake():
     dt  = 0.01 # analysis time step
 
     dir = Path(__file__, "..").resolve()
-    dt, nPts, accel = ReadRecordAT2(str(dir/"elCentro.at2"))
+    dt, _, accel = ReadRecordAT2(str(dir/"elCentro.at2"))
 
     # print table header
     print("%15s%15s%15s%15s"%('Period', 'Damping', 'OpenSees', 'Reference'))
@@ -214,7 +212,7 @@ def test_earthquake():
 
 
         # Create a model
-        model = elastic_sdof(K, period, dampRatio)
+        model = create_sdof(K, period, dampRatio)
 
         # add load pattern
 #       model.timeSeries('Path', 1, filePath='elCentro.dat', dt=0.02,  factor=gravity)
@@ -254,10 +252,7 @@ def test_earthquake_inelastic():
                              ( 0.125, 2.07, 1.13)}:
         pass
 
-if __name__ == "__main__":
-
-    print("sdofTransient.tcl: Verification of Elastic SDOF systems (Chopra)")
-
+def test_harmonic_undamped():
     #
     # Section 3.1 - Harmonic Vibrartion of Undamped Elastic SDOF System
     #
@@ -280,7 +275,7 @@ if __name__ == "__main__":
     #
     # build the model
     #
-    model = elastic_sdof(K, periodStruct, 0.0)
+    model = create_sdof(K, periodStruct, 0.0)
 
     # add load pattern
     time = np.linspace(0, 100*periodForce, 100)
@@ -308,18 +303,31 @@ if __name__ == "__main__":
 
     print("%20s%15.5f%10s%15.5f" % ("OpenSees: ", uOpenSees, "Exact: ", uExact))
 
-
-
+def test_harmonic_damped():
+    
     #
     # Section 3.2 - Harmonic Vibrartion of Damped Elastic SDOF System
     #
     print("\n\nDamped System Harmonic Excitation (Section 3.2)")
 
+    # model properties
+    periodStruct = 0.8
+    K  = 2.0
+    # harmonic loading
+    P = 2.0
+    periodForce = 5.0
+    tFinal = 2.251*periodForce
+
+    dt = periodStruct/1.0e4; # something, small, for, accuracy
+
+    w  =  2.0 * pi / periodForce
+    wn =  2.0 * pi / periodStruct
+
     tol = 1.0e-2
     dampRatio = 0.05
 
     # build the model
-    model = elastic_sdof(K, periodStruct, dampRatio)
+    model = create_sdof(K, periodStruct, dampRatio)
 
     # add load pattern
     model.timeSeries('Trig', 1, 0.0, 100.0*periodForce, periodForce , factor=P)
@@ -340,8 +348,15 @@ if __name__ == "__main__":
             t = tFinal
 
 
-    print(f"\n  Displacement Comparison at {tCurrent} (sec):")
+    print(f"\n  Displacement Comparison at {t = } (sec):")
     print("%20s%15.5f%10s%15.5f"%("OpenSees: ", uOpenSees, "Exact: ", uExact))
 
+
+if __name__ == "__main__":
+
+    print("sdofTransient.tcl: Verification of Elastic SDOF systems (Chopra)")
+
+    test_harmonic_undamped()
+    test_harmonic_damped()
     test_earthquake()
 
