@@ -63,7 +63,7 @@
   "headline": "Example 5: Rigid 3D Frame",
   "description" : "A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.",
   "inLanguage" : "en",
-  "wordCount":  453 ,
+  "wordCount":  449 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -109,7 +109,7 @@
   MathJax = {
     tex: {
       displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)']]                  
+      inlineMath: [['\\(', '\\)'], ['$', '$']]      
     }
   };
 </script>
@@ -342,11 +342,12 @@ is subjected to bi-directional earthquake ground motion.</p>
 <p>Or for Python:</p>
 <ol>
 <li><a href="Example5.1.py"><code>Example5.1.py</code></a></li>
-<li><a href="RCsection.py"><code>RCsection.py</code></a></li>
 </ol>
-<p>In both cases, the following ground motion records are required:
-3.  <a href="tabasFN.txt"><code>tabasFN.txt</code></a>
-4.  <a href="tabasFP.txt"><code>tabasFP.txt</code></a></p>
+<p>In both cases, the following ground motion records are required:</p>
+<ol start="3">
+<li><a href="tabasFN.txt"><code>tabasFN.txt</code></a></li>
+<li><a href="tabasFP.txt"><code>tabasFP.txt</code></a></li>
+</ol>
 <p>A model of the rigid frame shown in the
 figure below is created. The model consists of three stories
 and one bay in each direction. Rigid diaphragm multi-point constraints
@@ -364,21 +365,22 @@ nonlinear beam column element.</p>
 The solution algorithm uses a ConvergenceTest which tests convergence on
 the norm of the energy increment vector. The integrator for this
 analysis will be of type Newmark with a $\gamma$ of 0.25 and a $\beta$
-of 0.5. Due to the presence of the multi-point constraints, a
-Transformation constraint handler is used. The equations are formed
+of <code>0.5</code>.
+Due to the presence of the multi-point constraints, a
+<code>Transformation</code> constraint handler is used. The equations are formed
 using a sparse storage scheme which will perform pivoting during the
 equation solving, so the System is SparseGeneral. As SparseGeneral will
 perform it&rsquo;s own internal numbering of the equations, a Plain numberer
 is used which simply assigns equation numbers to the degrees-of-freedom.</p>
 <p>Once all the components of an analysis are defined, the Analysis object
-itself is created. For this problem a Transient Analysis object is used.
-2000 steps are performed with a time step of 0.01.</p>
-<p>The nodal displacements at nodes 9, 14, and 19 (the retained nodes for
+itself is created. For this problem a <code>Transient</code> analysis is used.
+<code>2000</code> steps are performed with a time step of <code>0.01</code>.</p>
+<p>The nodal displacements at nodes <code>9</code>, <code>14</code>, and <code>19</code> (the retained nodes for
 the rigid diaphragms) will be stored in the file node51.out for
 post-processing.</p>
 <p>The results consist of the file node.out, which contains a line for
 every time step. Each line contains the time and the horizontal and
-vertical displacements at the diaphragm retained nodes (9, 14 and 19)
+vertical displacements at the diaphragm retained nodes (<code>9</code>, <code>14</code> and <code>19</code>)
 i.e. time Dx9 Dy9 Dx14 Dy14 Dx19 Dy19. The horizontal displacement time
 history of the first floor diaphragm node 9 is shown in
 figure <a href="#example4disp">[example4disp</a>{reference-type=&ldquo;ref&rdquo;

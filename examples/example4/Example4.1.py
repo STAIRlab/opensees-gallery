@@ -106,13 +106,14 @@ model.layer("straight", 3, 4, 1.0,  9.0, 9.0,  9.0, -9.0, section=3)
 # define beam integration
 model.beamIntegration("Lobatto", 3, 3, np)
 
+
 # Define column elements
 # ----------------------
 # Geometric transformation
 model.geomTransf("Linear", 1)
 
 beamID = 1
-eleType = "forceBeamColumn"
+eleType = "ForceBeamColumn"
 
 # Define elements
 for i in range(numBay+1):
@@ -246,8 +247,8 @@ H = 10.0
 
 # Set lateral load pattern with a Linear TimeSeries
 model.pattern("Plain", 2, 1, "-fact", 1.0)
-model.load(2, H/2.0, 0.0, 0.0)
-model.load(3, H,     0.0, 0.0)
+model.load(2, H/2.0, 0.0, 0.0, pattern=2)
+model.load(3, H,     0.0, 0.0, pattern=2)
 
 
 # ------------------------------
@@ -256,11 +257,8 @@ model.load(3, H,     0.0, 0.0)
 
 # Create a recorder which writes to Node.out and prints
 # the current load factor (pseudo-time) and dof 1 displacements at node 2 & 3
-model.recorder("Node", "-file", "Node41.out", "-time", "-node", 2, 3, "-dof", 1, "disp")
-
-# ------------------------------
-# End of recorder generation
-# ------------------------------
+model.recorder("Node", "disp",  node=(2, 3), dof=(1,), file="Node41.out", time=True)
+#model.recorder("Node", "-file", "Node41.out", "-time", "-node", 2, 3, "-dof", 1, "disp")
 
 
 # ------------------------------
@@ -303,3 +301,5 @@ else:
 # Print the state at node 3
 model.print("node", 3)
 
+# ensure recorders are flushed
+model.wipe()

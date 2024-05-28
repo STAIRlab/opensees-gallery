@@ -63,7 +63,7 @@
   "headline": "Example 3: Portal Frame Examples",
   "description" : "Nonlinear analysis of a concrete portal frame.",
   "inLanguage" : "en",
-  "wordCount":  1277 ,
+  "wordCount":  1321 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -109,7 +109,7 @@
   MathJax = {
     tex: {
       displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)']]                  
+      inlineMath: [['\\(', '\\)'], ['$', '$']]      
     }
   };
 </script>
@@ -350,7 +350,69 @@
         <p><img src="Example2.svg" alt="Example 3.1"></p>
 <p>This set of examples investigates the nonlinear analysis of a reinforced
 concrete frame. The nonlinear beam column element with a fiber
-discretization of the cross section is used in the model.</p>
+discretization of the cross section is used in the model.
+The files for this example are:
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="dfceab-tab" data-bs-toggle="tab" data-bs-target="#dfceab"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="bcdaef-tab" data-bs-toggle="tab" data-bs-target="#bcdaef"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="dfceab" role="tabpanel" aria-labelledby="nav-1">
+
+	<ol>
+<li><a href="portal.py"><code>portal.py</code></a></li>
+</ol>
+
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="bcdaef" role="tabpanel" aria-labelledby="nav-1">
+
+	<ol>
+<li><a href="portal.tcl"><code>portal.tcl</code></a></li>
+</ol>
+
+
+</div>
+
+
+
+</div>
+</p>
+<p>These files define the following functions:</p>
 <table>
 <thead>
 <tr>
@@ -361,19 +423,19 @@ discretization of the cross section is used in the model.</p>
 <tbody>
 <tr>
 <td><code>create_portal</code></td>
-<td></td>
+<td>Creates a model of a portal frame</td>
 </tr>
 <tr>
 <td><code>gravity_analysis</code></td>
-<td></td>
+<td>Performs a gravity analysis on a model</td>
 </tr>
 <tr>
 <td><code>pushover_analysis</code></td>
-<td></td>
+<td>Performs a pushover analysis on a model</td>
 </tr>
 <tr>
 <td><code>transient_analysis</code></td>
-<td></td>
+<td>Performs a transient analysis on a model</td>
 </tr>
 </tbody>
 </table>
@@ -401,13 +463,13 @@ Its use will look like:</p>
 		
 
 		<a class="nav-link  active "
-		   id="fedabc-tab" data-bs-toggle="tab" data-bs-target="#fedabc"
+		   id="fbcaed-tab" data-bs-toggle="tab" data-bs-target="#fbcaed"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="acfdeb-tab" data-bs-toggle="tab" data-bs-target="#acfdeb"
+		   id="ecbdfa-tab" data-bs-toggle="tab" data-bs-target="#ecbdfa"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -423,7 +485,7 @@ Its use will look like:</p>
 
 
 
-<div class="tab-pane fade show active " id="fedabc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="fbcaed" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the model</span>
 </span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> create_portal()
@@ -439,7 +501,7 @@ Its use will look like:</p>
 
 
 
-<div class="tab-pane fade show " id="acfdeb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="ecbdfa" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">create_portal</span><span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">gravity_analysis</span><span style="font-weight:bold">;</span>
