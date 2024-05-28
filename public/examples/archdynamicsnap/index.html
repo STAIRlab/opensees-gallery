@@ -64,7 +64,7 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
   "headline": "Arch Dynamic Snapping",
   "description" : "Download (ArchDynamicSnap.ipynb)\nCurved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.",
   "inLanguage" : "en",
-  "wordCount":  595 ,
+  "wordCount":  825 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -111,7 +111,7 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
   MathJax = {
     tex: {
       displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)']]                  
+      inlineMath: [['\\(', '\\)'], ['$', '$']]      
     }
   };
 </script>
@@ -324,6 +324,10 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
       <ul>
         <li></li>
         <li><a href="#model-defintion">Model Defintion</a></li>
+      </ul>
+    </li>
+    <li><a href="#loading">Loading</a>
+      <ul>
         <li><a href="#visualization">Visualization</a></li>
         <li><a href="#closure">Closure</a></li>
         <li><a href="#references">References</a></li>
@@ -360,6 +364,7 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 <p>This is an OpenSeesPy simulation of one of the numerical examples in <a href="https://link.springer.com/article/10.1007/s00466-015-1152-3">A robust composite time integration scheme for snap-through problems</a> by <em>Yenny Chandra</em> et. al. It&rsquo;s a special problem involving dynamic snap-through with large deformations in elastic range. In their study, a new three sub-step composite time integration algorithm was presented to handle such problems. Here, I will use the Bathe scheme (<code>TRBDF2</code>) to perform transient analysis.</p>
 <p><img src="CurvedArch.png" alt="Curved Arch"></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">from</span> <span style="color:#555">sees</span> <span style="font-weight:bold">import</span> render
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">matplotlib.pyplot</span> <span style="font-weight:bold">as</span> <span style="color:#555">plt</span>
 </span></span><span style="display:flex;"><span>
@@ -369,7 +374,91 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 </span></span><span style="display:flex;"><span>mm <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>   <span style="color:#998;font-style:italic"># milimeters</span>
 </span></span><span style="display:flex;"><span>N <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>    <span style="color:#998;font-style:italic"># Newtons</span>
 </span></span><span style="display:flex;"><span>sec <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>  <span style="color:#998;font-style:italic"># Seconds</span>
-</span></span></code></pre></div><h3 id="model-defintion">Model Defintion</h3>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the model</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">arch_model</span>(
+</span></span><span style="display:flex;"><span>    Rise   <span style="font-weight:bold">=</span> <span style="color:#099">500</span>,
+</span></span><span style="display:flex;"><span>    Offset <span style="font-weight:bold">=</span> <span style="color:#099">200</span>,
+</span></span><span style="display:flex;"><span>    L      <span style="font-weight:bold">=</span> <span style="font-weight:bold">None</span>, <span style="color:#998;font-style:italic">#5000,</span>
+</span></span><span style="display:flex;"><span>    Angle  <span style="font-weight:bold">=</span> <span style="font-weight:bold">None</span>,
+</span></span><span style="display:flex;"><span>    Radius <span style="font-weight:bold">=</span> <span style="font-weight:bold">None</span>,
+</span></span><span style="display:flex;"><span>    ne  <span style="font-weight:bold">=</span> <span style="color:#099">10</span>):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define material parameters</span>
+</span></span><span style="display:flex;"><span>    E <span style="font-weight:bold">=</span> <span style="color:#099">200</span>
+</span></span><span style="display:flex;"><span>    A <span style="font-weight:bold">=</span> <span style="color:#099">1e4</span>
+</span></span><span style="display:flex;"><span>    I <span style="font-weight:bold">=</span> <span style="color:#099">1e8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Compute radius</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">if</span> Radius <span style="font-weight:bold">is</span> <span style="font-weight:bold">None</span>:
+</span></span><span style="display:flex;"><span>        Radius <span style="font-weight:bold">=</span> Rise<span style="font-weight:bold">/</span><span style="color:#099">2</span> <span style="font-weight:bold">+</span> (<span style="color:#099">2</span><span style="font-weight:bold">*</span>L)<span style="font-weight:bold">**</span><span style="color:#099">2</span><span style="font-weight:bold">/</span>(<span style="color:#099">8</span><span style="font-weight:bold">*</span>Rise)
+</span></span><span style="display:flex;"><span>        th <span style="font-weight:bold">=</span> <span style="color:#099">2</span><span style="font-weight:bold">*</span>(np<span style="font-weight:bold">.</span>pi<span style="font-weight:bold">/</span><span style="color:#099">2</span> <span style="font-weight:bold">-</span> Angle)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        L <span style="font-weight:bold">=</span> <span style="color:#099">0.5</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sqrt(<span style="color:#099">8</span><span style="font-weight:bold">*</span>Rise<span style="font-weight:bold">*</span>(Radius <span style="font-weight:bold">-</span> Rise<span style="font-weight:bold">/</span><span style="color:#099">2</span>))
+</span></span><span style="display:flex;"><span>        th <span style="font-weight:bold">=</span> <span style="color:#099">2</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>arcsin(L<span style="font-weight:bold">/</span>Radius)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Build the model</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create nodes</span>
+</span></span><span style="display:flex;"><span>    nen <span style="font-weight:bold">=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>    nn  <span style="font-weight:bold">=</span> ne<span style="font-weight:bold">*</span>(nen<span style="font-weight:bold">-</span><span style="color:#099">1</span>)<span style="font-weight:bold">+</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    mid <span style="font-weight:bold">=</span> (nn<span style="font-weight:bold">+</span><span style="color:#099">1</span>)<span style="font-weight:bold">//</span><span style="color:#099">2</span>      <span style="color:#998;font-style:italic"># midpoint node</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i, angle <span style="font-weight:bold">in</span> <span style="color:#999">enumerate</span>(np<span style="font-weight:bold">.</span>linspace(<span style="font-weight:bold">-</span>th<span style="font-weight:bold">/</span><span style="color:#099">2</span>, th<span style="font-weight:bold">/</span><span style="color:#099">2</span>, nn)):
+</span></span><span style="display:flex;"><span>        tag <span style="font-weight:bold">=</span> i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Compute x and add offset if midpoint</span>
+</span></span><span style="display:flex;"><span>        x <span style="font-weight:bold">=</span> Radius<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angle)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">if</span> tag <span style="font-weight:bold">==</span> mid:
+</span></span><span style="display:flex;"><span>            x <span style="font-weight:bold">-=</span> Offset
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Compute y</span>
+</span></span><span style="display:flex;"><span>        y <span style="font-weight:bold">=</span> Radius<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angle) <span style="font-weight:bold">-</span> Radius<span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(<span style="font-weight:bold">-</span>th<span style="font-weight:bold">/</span><span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># create the node</span>
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>node(tag, x, y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create elements</span>
+</span></span><span style="display:flex;"><span>    transfTag <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>geomTransf(<span style="color:#b84">&#34;Corotational&#34;</span>, transfTag)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(ne):
+</span></span><span style="display:flex;"><span>        tag   <span style="font-weight:bold">=</span> i<span style="font-weight:bold">+</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>        nodes <span style="font-weight:bold">=</span> (i<span style="font-weight:bold">+</span><span style="color:#099">1</span>, i<span style="font-weight:bold">+</span><span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, tag, <span style="font-weight:bold">*</span>nodes, A, E, I, transfTag)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix( <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(nn, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a load pattern that scales linearly</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#34;Plain&#34;</span>, <span style="color:#099">1</span>, <span style="color:#b84">&#34;Linear&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Add a nodal load to the pattern</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>load(mid, <span style="color:#099">0.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">1.0</span>, <span style="color:#099">0.0</span>, pattern<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>system(<span style="color:#b84">&#34;ProfileSPD&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># model.system(&#34;FullGeneral&#34;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># model.system(&#34;BandGeneral&#34;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># model.system(&#34;Umfpack&#34;, det=True)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>test(<span style="color:#b84">&#34;NormUnbalance&#34;</span>, <span style="color:#099">1e-6</span>, <span style="color:#099">25</span>, <span style="color:#099">0</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#34;Newton&#34;</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>analysis(<span style="color:#b84">&#34;Static&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model, mid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>arch_model(<span style="color:#099">15.39553</span>, <span style="color:#099">0</span>, Angle<span style="font-weight:bold">=</span><span style="color:#099">0.2014</span>, Radius<span style="font-weight:bold">=</span><span style="color:#099">762</span>, ne<span style="font-weight:bold">=</span><span style="color:#099">20</span>)
+</span></span></code></pre></div><p>Output:</p>
+<pre tabindex="0"><code>(&lt;opensees.openseespy.Model at 0x7f5666f598e0&gt;, 11)
+</code></pre><h3 id="model-defintion">Model Defintion</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Node Coordinates Matrix (size : nn x 3)</span>
 </span></span><span style="display:flex;"><span>node_coords <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>array([[<span style="font-weight:bold">-</span><span style="color:#099">152.4</span>, <span style="color:#099">0</span>], [<span style="font-weight:bold">-</span><span style="color:#099">137.337</span>, <span style="color:#099">2.91714</span>],
 </span></span><span style="display:flex;"><span>                        [<span style="font-weight:bold">-</span><span style="color:#099">122.218</span>, <span style="color:#099">5.53039</span>], [<span style="font-weight:bold">-</span><span style="color:#099">107.049</span>, <span style="color:#099">7.8387</span>],
@@ -405,11 +494,9 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Mass Density</span>
 </span></span><span style="display:flex;"><span>rho <span style="font-weight:bold">=</span> (<span style="color:#099">7.83e-9</span>)<span style="font-weight:bold">*</span>(N<span style="font-weight:bold">*</span>(sec<span style="font-weight:bold">**</span><span style="color:#099">2</span>)<span style="font-weight:bold">/</span>(mm<span style="font-weight:bold">**</span><span style="color:#099">4</span>))
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Cross-sectional area, 2nd Moment of Inertia</span>
-</span></span><span style="display:flex;"><span>A, I_1 <span style="font-weight:bold">=</span> (<span style="color:#099">12.7</span><span style="font-weight:bold">*</span><span style="color:#099">0.6096</span><span style="font-weight:bold">*</span>mm<span style="font-weight:bold">*</span>mm,
-</span></span><span style="display:flex;"><span>          (<span style="color:#099">1</span><span style="font-weight:bold">/</span><span style="color:#099">12</span>)<span style="font-weight:bold">*</span>(<span style="color:#099">12.7</span><span style="font-weight:bold">*</span>(<span style="color:#099">0.6096</span><span style="font-weight:bold">**</span><span style="color:#099">3</span>))<span style="font-weight:bold">*</span>mm<span style="font-weight:bold">**</span><span style="color:#099">4</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model( ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">3</span>)
+</span></span><span style="display:flex;"><span>A   <span style="font-weight:bold">=</span> <span style="color:#099">12.7</span><span style="font-weight:bold">*</span><span style="color:#099">0.6096</span><span style="font-weight:bold">*</span>mm<span style="font-weight:bold">*</span>mm
+</span></span><span style="display:flex;"><span>I   <span style="font-weight:bold">=</span> (<span style="color:#099">1</span><span style="font-weight:bold">/</span><span style="color:#099">12</span>)<span style="font-weight:bold">*</span>(<span style="color:#099">12.7</span><span style="font-weight:bold">*</span>(<span style="color:#099">0.6096</span><span style="font-weight:bold">**</span><span style="color:#099">3</span>))<span style="font-weight:bold">*</span>mm<span style="font-weight:bold">**</span><span style="color:#099">4</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model( ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">3</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Adding nodes to the model object using list comprehensions</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">for</span> n <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(nn):
@@ -426,34 +513,35 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Adding Elements</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">for</span> e <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(nel):
 </span></span><span style="display:flex;"><span>     model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;elasticBeamColumn&#39;</span>, e<span style="font-weight:bold">+</span><span style="color:#099">1</span>, <span style="font-weight:bold">*</span>connectivity[e], 
-</span></span><span style="display:flex;"><span>                 A, E, I_1,<span style="color:#099">1</span>, <span style="color:#b84">&#39;-mass&#39;</span>,rho<span style="font-weight:bold">*</span>A,<span style="color:#b84">&#39;-cMass&#39;</span>,<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># load function (Applied @ top node)</span>
+</span></span><span style="display:flex;"><span>                   A, E, I, <span style="color:#099">1</span>, <span style="color:#b84">&#39;-mass&#39;</span>, rho<span style="font-weight:bold">*</span>A,<span style="color:#b84">&#39;-cMass&#39;</span>,<span style="color:#099">1</span>)
+</span></span></code></pre></div><h2 id="loading">Loading</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># load function (Applied @ top node)</span>
 </span></span><span style="display:flex;"><span>F <span style="font-weight:bold">=</span> <span style="font-weight:bold">lambda</span> t: (t <span style="font-weight:bold">if</span> t<span style="font-weight:bold">&lt;=</span><span style="color:#099">8</span> <span style="font-weight:bold">else</span> <span style="color:#099">8</span>)<span style="font-weight:bold">*</span>N
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Dynamic Analysis Parameters</span>
 </span></span><span style="display:flex;"><span>dt <span style="font-weight:bold">=</span> <span style="color:#099">0.0001</span>
 </span></span><span style="display:flex;"><span>time <span style="font-weight:bold">=</span> <span style="color:#099">15</span>
 </span></span><span style="display:flex;"><span>time_domain <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>arange(<span style="color:#099">0</span>,time,dt)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Loading Definition</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Loading Definition</span>
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>timeSeries(<span style="color:#b84">&#39;Path&#39;</span>, <span style="color:#099">1</span> , dt<span style="font-weight:bold">=</span>dt,
 </span></span><span style="display:flex;"><span>                 values<span style="font-weight:bold">=</span>np<span style="font-weight:bold">.</span>vectorize(F)(time_domain),
 </span></span><span style="display:flex;"><span>                 time<span style="font-weight:bold">=</span>time_domain)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#39;Plain&#39;</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>load(<span style="color:#099">11</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">0.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">1.0</span>, <span style="color:#099">0.0</span>])
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>load(<span style="color:#099">11</span>, <span style="font-weight:bold">*</span>[<span style="color:#099">0.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">1.0</span>, <span style="color:#099">0.0</span>], pattern<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Analysis</span>
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>constraints(<span style="color:#b84">&#39;Transformation&#39;</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>numberer(<span style="color:#b84">&#39;RCM&#39;</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>system(<span style="color:#b84">&#39;ProfileSPD&#39;</span>)
-</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>test(<span style="color:#b84">&#39;NormUnbalance&#39;</span>, <span style="color:#099">0.000001</span>, <span style="color:#099">100</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>test(<span style="color:#b84">&#39;NormUnbalance&#39;</span>, <span style="color:#099">1e-6</span>, <span style="color:#099">100</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#39;Newton&#39;</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>integrator(<span style="color:#b84">&#39;TRBDF2&#39;</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analysis(<span style="color:#b84">&#39;Transient&#39;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># let&#39;s do this</span>
-</span></span><span style="display:flex;"><span>time_lst <span style="font-weight:bold">=</span>[]     <span style="color:#998;font-style:italic"># list to hold time stations for plotting</span>
+</span></span><span style="display:flex;"><span>time <span style="font-weight:bold">=</span> []     <span style="color:#998;font-style:italic"># list to hold time stations for plotting</span>
 </span></span><span style="display:flex;"><span>d_list <span style="font-weight:bold">=</span> []      <span style="color:#998;font-style:italic"># list to hold vertical displacments of the top node</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># start the timer</span>
@@ -461,7 +549,7 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#999">len</span>(time_domain)):
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>, dt)
-</span></span><span style="display:flex;"><span>    time_lst<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>getTime())
+</span></span><span style="display:flex;"><span>    time<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>getTime())
 </span></span><span style="display:flex;"><span>    d_list<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>nodeDisp(<span style="color:#099">11</span>,<span style="color:#099">2</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># stop the timer</span>
@@ -482,8 +570,8 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 </span></span><span style="display:flex;"><span>ax2 <span style="font-weight:bold">=</span> plt<span style="font-weight:bold">.</span>axes([<span style="color:#099">0.65</span>, <span style="color:#099">0.60</span>, <span style="color:#099">0.2</span>, <span style="color:#099">0.25</span>])
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ax1<span style="font-weight:bold">.</span>plot(time_lst, d_list,<span style="color:#b84">&#39;k&#39;</span>)
-</span></span><span style="display:flex;"><span>ax2<span style="font-weight:bold">.</span>plot(time_lst, d_list,<span style="color:#b84">&#39;k&#39;</span>)
+</span></span><span style="display:flex;"><span>ax1<span style="font-weight:bold">.</span>plot(time, d_list,<span style="color:#b84">&#39;k&#39;</span>)
+</span></span><span style="display:flex;"><span>ax2<span style="font-weight:bold">.</span>plot(time, d_list,<span style="color:#b84">&#39;k&#39;</span>)
 </span></span><span style="display:flex;"><span>ax2<span style="font-weight:bold">.</span>set_xlim(left<span style="font-weight:bold">=</span><span style="color:#099">13.5</span>, right<span style="font-weight:bold">=</span><span style="color:#099">14</span>)
 </span></span><span style="display:flex;"><span>ax2<span style="font-weight:bold">.</span>set_ylim(bottom<span style="font-weight:bold">=-</span><span style="color:#099">15</span>, top<span style="font-weight:bold">=-</span><span style="color:#099">30</span>)
 </span></span><span style="display:flex;"><span>
