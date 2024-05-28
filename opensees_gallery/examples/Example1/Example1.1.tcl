@@ -30,7 +30,7 @@ foreach eleType {truss CorotTruss} {
     
     # Create nodes
     # ------------
-    
+
     # Create nodes & add to Domain - command: node nodeId xCrd yCrd
     node 1   0.0  0.0
     node 2 144.0  0.0
@@ -54,8 +54,8 @@ foreach eleType {truss CorotTruss} {
     
     # Create truss elements - command: element truss trussID node1 node2 A matID
     element $eleType 1 1 4 10.0 1
-    element $eleType 2 2 4 5.0 1
-    element $eleType 3 3 4 1
+    element $eleType 2 2 4  5.0 1
+    element $eleType 3 3 4  1
     
     
     # Define loads
@@ -63,15 +63,11 @@ foreach eleType {truss CorotTruss} {
     
     # Create a Plain load pattern with a linear TimeSeries
     pattern Plain 1 "Linear" {
-	
-	# Create the nodal load - command: load nodeID xForce yForce
-	load 4 100 -50
+        # Create the nodal load
+        #    nodeID xForce yForce
+        load      4    100    -50
     }
-    
-    # ------------------------------
-    # End of model generation
-    # ------------------------------
-    
+
     
     # ------------------------------
     # Start of analysis generation
@@ -93,13 +89,7 @@ foreach eleType {truss CorotTruss} {
     algorithm Newton
     
     # create the analysis object 
-    analysis Static 
-    
-    
-    # ------------------------------
-    # End of analysis generation
-    # ------------------------------
-    
+    analysis Static
     
     # ------------------------------
     # Start of recorder generation
@@ -107,10 +97,6 @@ foreach eleType {truss CorotTruss} {
     
     # create a Recorder object for the nodal displacements at node 4
     recorder Node -file out/example.out -time -node 4 -dof 1 2 disp
-    
-    # --------------------------------
-    # End of recorder generation
-    # ---------------------------------
     
     # ------------------------------
     # Finally perform the analysis
