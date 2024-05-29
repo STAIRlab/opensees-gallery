@@ -1,11 +1,11 @@
 proc getVertCosines {eleTag  vecxz} {
-	set nodeTags [eleNodes $eleTag]
-	set n1Crds	[nodeCoord [lindex $nodeTags 0]]
-	set n2Crds	[nodeCoord [lindex $nodeTags 1]]
-	set eleLocX(0)	[expr [lindex $n2Crds 0]-[lindex $n1Crds 0]]
-	set eleLocX(1)	[expr [lindex $n2Crds 1]-[lindex $n1Crds 1]]
-	set eleLocX(2)	[expr [lindex $n2Crds 2]-[lindex $n1Crds 2]]
-	set eleLocXMag [expr sqrt($eleLocX(0)**2+$eleLocX(1)**2+$eleLocX(2)**2)]
+	set nodeTags            [eleNodes $eleTag]
+	set n1Crds	        [nodeCoord [lindex $nodeTags 0]]
+	set n2Crds	        [nodeCoord [lindex $nodeTags 1]]
+	set eleLocX(0)	        [expr [lindex $n2Crds 0]-[lindex $n1Crds 0]]
+	set eleLocX(1)	        [expr [lindex $n2Crds 1]-[lindex $n1Crds 1]]
+	set eleLocX(2)	        [expr [lindex $n2Crds 2]-[lindex $n1Crds 2]]
+	set eleLocXMag          [expr sqrt($eleLocX(0)**2+$eleLocX(1)**2+$eleLocX(2)**2)]
 	set eleLocXNorm(0)	[expr $eleLocX(0)/$eleLocXMag]
 	set eleLocXNorm(1)	[expr $eleLocX(1)/$eleLocXMag]
 	set eleLocXNorm(2)	[expr $eleLocX(2)/$eleLocXMag]
@@ -32,3 +32,4 @@ proc getVertCosines {eleTag  vecxz} {
 #	puts "$eleLocZNorm(0) $eleLocZNorm(1) $eleLocZNorm(2)"
 	return "$eleLocYNorm(2) $eleLocZNorm(2) $eleLocXNorm(2) $eleTag $eleLocXMag"
 }
+
