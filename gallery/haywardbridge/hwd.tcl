@@ -18,13 +18,15 @@
 # global direction 2 (Y): approximately transverse, north
 # global direction 3 (Z): vertical, upwards
 #
-set override 1;  	# If you want to set the options manually, set this to 1 and
+set override 2;  	# If you want to set the options manually, set this to 1 and
 					# adjust the options in the "#+# HARD-CODED CONFIGURATION" section.
 					# If this is set to 2, then this file is being sourced
 
 # #+# SOME PROCEDURES --------------------------------------------------------------
 proc py {args} {
-    eval "[exec python {*}$args]"
+	set python "/usr/bin/env python"
+	# set python "python"
+    eval "[exec {*}$python {*}$args]"
 }
 proc write_modes {mode_file nmodes} {
   set fid_modes [open $mode_file w+]
@@ -59,12 +61,13 @@ proc make_column {tag inode jnode} {
 if {$override == 0} {
 #
 # #+# PARSED CONFIGURATION ----------------------------------------------------------------
-	set conf_file [lindex $argv 0]; 			# Set model configuration file
-	set analysis_file [lindex $argv 1];			# Set analysis settings file
-	set results_requests_file [lindex $argv 2]; # Set results requests file
-	set output_directory [lindex $argv 3]; 		# Set data output directory
+	set conf_file [lindex $argv 1]; 			# Set model configuration file
+	set analysis_file [lindex $argv 2];			# Set analysis settings file
+	set results_requests_file [lindex $argv 3]; # Set results requests file
+	set nondefaults [lindex $argv 4]; 			# Set nondefaults file
+	set output_directory [lindex $argv 5]; 		# Set data output directory
 	file mkdir $output_directory;  				# Create data output directory if it doesn't exist
-	if {[llength $argv] > 4} {
+	if {[llength $argv] > 6} {
 		set debug "--debug"; 					# Specify whether to print the specified options
 	} else {
 		set debug "";
@@ -74,6 +77,7 @@ if {$override == 0} {
 	set damping_modes [split $damping_modes {,}];
 	set damping_ratios [split $damping_ratios {,}];
 	eval [exec python -m CE58658.set_params $debug $results_requests_file]
+	eval [exec python -m CE58658.set_params $debug $nondefaults]
 
 } elseif {$override == 2} {
 	;
@@ -113,7 +117,7 @@ if {$override == 0} {
 	set model_name "hwd_model"
 	set modeling_matrix 1
 	set runtime 1
-	set eigen_modal_tracking 0
+	set eigen_modal_tracking 1
 	set ssid_modal_tracking 0
 	set compare_response_history 1
 }
@@ -1574,7 +1578,7 @@ algorithm Newton;
 integrator LoadControl 0.1;
 numberer Plain;
 constraints Transformation;
-system SparseGeneral;
+system Umfpack ; # BandGeneral; # SparseGeneral;
 analysis Static;
 analyze 10;
 write_displacements "$output_directory/dispsGrav.yaml"
@@ -1594,9 +1598,10 @@ if {$override != 2} {
 	}
 	close $Periods;
 	write_modes $output_directory/modesPostG.yaml $nmodes
-	for {set ctrRec 0} {$ctrRec<[llength $gravRec]} {incr ctrRec} {
-		remove recorder [lindex $gravRec $ctrRec]
-	}
+	remove recorders
+	# for {set ctrRec 0} {$ctrRec<[llength $gravRec]} {incr ctrRec} {
+	# 	remove recorder [lindex $gravRec $ctrRec]
+	# }
 }
 #
 # #+# TIMER 2 ----------------------------------------------------------------------
@@ -1612,8 +1617,8 @@ loadConst -time 0.0; # maintain constant gravity loads and reset time to zero
 wipeAnalysis
 # RAYLEIGH OR MODAL DAMPING
 set nmodes [tcl::mathfunc::max {*}$damping_modes $nmodes]
-# TODO: Consider removing fullGenLapack
 set lambdaN [eigen -fullGenLapack $nmodes];
+# set lambdaN [eigen $nmodes];
 if {$damping_type == "rayleigh"} {
 	set nEigenI [lindex $damping_modes 0]; 								# first rayleigh damping mode
 	set nEigenJ [lindex $damping_modes 1]; 								# second rayleigh damping mode	
@@ -1666,9 +1671,9 @@ numberer RCM;
 test $TestType $Tol $maxNumIter $printFlag;
 if {$dynamic_integrator == "Newmark"} {
 # set algorithmType   NewtonLineSearch;
-set algorithmType   Newton;
-# system SparseGeneral -piv;
-system BandGeneral;
+set algorithmType   "Newton" ; # " -initial";
+#system SparseSYM;
+system Umfpack; # BandGeneral;
 integrator Newmark $NewmarkGamma $NewmarkBeta;
 } else {
 	puts "\tspecify dynamic integrator"
@@ -1690,7 +1695,7 @@ integrator Newmark $NewmarkGamma $NewmarkBeta;
 # };
 # integrator HHT 0.7;
 # integrator GeneralizedAlpha 1.0 0.8
-algorithm $algorithmType;
+algorithm {*}$algorithmType;
 analysis Transient;
 if {$input_location != 0} {
 	# Uniform Support Excitation
@@ -1874,6 +1879,7 @@ puts $timers "\"tDynDef\": $tDynDef,";
 # Start timer for the dynamic analysis
 puts "\tRunning dynamic ground motion analysis..."
 set t3 [clock clicks -millisec];
+set Nsteps 1000;
 catch {progress create $Nsteps} _
 for {set ik 1} {$ik <= $Nsteps} {incr ik 1} {
 	catch {progress update} _ 
@@ -1942,17 +1948,19 @@ if {[expr $ik-1] == $Nsteps} {
 #
 # #+# MODAL ANALYSIS AFTER DYNAMIC ANALYSIS -------------------------------------------------
 # # Period after dynamic analysis
-# set wb [eigen -fullGenLapack $nmodes];
-# set Periods 	[open $output_directory/PeriodsPostD.txt w];
-# puts "\tFundamental-Period After Dynamic Analysis:"
-# for {set iPd 1} {$iPd <= $nmodes} {incr iPd 1} {
-# 	set wwb [lindex $wb $iPd-1];
-# 	set Tb [expr 2*$pi/sqrt($wwb)];
-# 	puts "\tPeriod$iPd= $Tb"
-# 	puts $Periods "$Tb";
-# }
-# close $Periods;
-# write_modes $output_directory/modesPostD.yaml $nmodes
+if {$override != 2} {
+	set wb [eigen -fullGenLapack $nmodes];
+	set Periods 	[open $output_directory/PeriodsPostD.txt w];
+	puts "\tFundamental-Period After Dynamic Analysis:"
+	for {set iPd 1} {$iPd <= $nmodes} {incr iPd 1} {
+		set wwb [lindex $wb $iPd-1];
+		set Tb [expr 2*$pi/sqrt($wwb)];
+		puts "\tPeriod$iPd= $Tb"
+		puts $Periods "$Tb";
+	}
+	close $Periods;
+	write_modes $output_directory/modesPostD.yaml $nmodes
+}
 #
 # #+# TIMER 4 ----------------------------------------------------------------------
 # Record time post dynamic analysis
@@ -1969,3 +1977,14 @@ close $timers;
 # #+# END ----------------------------------------------------------------------
 #
 wipe
+# # #+# PROCESS AND OUTPUT RESULTS ----------------------------------------------------------------------
+if {$override != 2} {
+	exec python -m CE58658.hwd_results -t $dt $debug $results_requests_file $conf_file $analysis_file $nondefaults $output_directory
+	for {set m 1} {$m <= $nmodes} {incr m} {
+		exec python -m CE58658.render $output_directory/modelDetails.json $output_directory/modesPostG.yaml -o $output_directory/modesPostG$m.svg --vert 3 --scale 300 -m $m
+		exec python -m CE58658.render $output_directory/modelDetails.json $output_directory/modesPostD.yaml -o $output_directory/modesPostD$m.svg --vert 3 --scale 300 -m $m
+		exec bash -c "/usr/bin/convert $output_directory/modesPostG$m.svg -shave 150x150+0+0 $output_directory/modesPostG$m.svg"
+		exec bash -c "/usr/bin/convert $output_directory/modesPostD$m.svg -shave 150x150+0+0 $output_directory/modesPostD$m.svg"
+	}
+}
+

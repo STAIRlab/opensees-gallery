@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portwoods on OpenSeesRT Examples</title>
+    <link>https://stairlab.github.io/opensees-gallery/portwood/</link>
+    <description>Recent content in Portwoods on OpenSeesRT Examples</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://stairlab.github.io/opensees-gallery/portwood/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://stairlab.github.io/opensees-gallery/portwood/inded/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/portwood/inded/</guid>
+      <description>Patch Test Load Patterns and Time Series Constraint Types Beam with Finite-length Plastic Region Localization Problem Timoshenko Beam Shell Elements Shell Mesh Plotting Curvature along Element Analysis of Cable Eccentrically Loaded Bolt Group Arc-length Load Incrementation Method Geometric Nonlinearity Hollow Steel Cross-sections Circular Cross-section Fibre Mesh Rectangular Cross-section Fibre Mesh Axial-moment (P-M) Interaction Section Aggregation Torsion and Fibres Hysteretic Pinching (I) Hysteretic Pinching (II) Concrete Material Models Multi-directional Ground Motion Modal Damping Modal and Rayleigh Damping Quick Modal Damping Careful with Modal Damping Incremental Dynamic Analysis (IDA) </description>
+    </item>
+  </channel>
+</rss>

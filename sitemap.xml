@@ -12,7 +12,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/status/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/legacy/examples/readme/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/portwood/inded/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -321,6 +329,10 @@
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</loc>
     <lastmod>2024-05-28T14:18:43-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/portwood/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
