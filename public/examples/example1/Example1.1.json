@@ -8,7 +8,7 @@
 
         ],
         "uniaxialMaterials": [
-
+      {"name": "1", "type": "ElasticMaterial", "Epos": 3000, "Eneg": 3000, "eta": 0}
         ],
         "crdTransformations": [
 

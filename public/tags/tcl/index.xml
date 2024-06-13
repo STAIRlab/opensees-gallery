@@ -85,18 +85,18 @@
       <description>The Hayward bridge model is used for structural health monitoring on the BRACE2 platform. The files for the model can be browsed on GitHub.</description>
     </item>
     <item>
+      <title>Hinges in Frame Elements</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framehinges/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framehinges/</guid>
+      <description>Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 from math import cos,sin,sqrt,pi import opensees.</description>
+    </item>
+    <item>
       <title>Matrix Eigenvalue Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame.&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.</description>
-    </item>
-    <item>
-      <title>Zero-Length Elements</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/zerolength/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/zerolength/</guid>
-      <description>Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 from math import cos,sin,sqrt,pi import opensees.</description>
     </item>
   </channel>
 </rss>

@@ -47,14 +47,12 @@ model.element("Truss", 3, (3, 4),  5.0, 1)
 
 # Define loads
 # ------------
-# create a Linear TimeSeries (load factor varies linearly with time) - command: timeSeries Linear $tag
-model.timeSeries("Linear", 1)
+# Define the load at node 4 with components 100 and -50 in x and y:
+load = {4: [100, -50.0]}
 
-# create a Plain load pattern - command: pattern Plain $tag $timeSeriesTag { $loads }
-model.pattern("Plain", 1, 1, "-fact", 1.0)
-# create the nodal load 
-#       nodeID xForce yForce
-model.load(4,   100.0, -50.0, pattern=1)
+# Assign the load to a "Plain" load pattern and scale its load factor linearly in time.
+model.pattern("Plain", 1, "Linear", load=load)
+
 
 # print model
 model.print("-json", file="Example1.1.json")
@@ -81,21 +79,17 @@ model.integrator("LoadControl", 1.0)
 # create the analysis object 
 model.analysis("Static")
 
-# ------------------------------
-# End of analysis generation
-# ------------------------------
-
 
 # ------------------------------
-# Start of recorder generation
+# Optionally record results
 # ------------------------------
+if False:
+    # create a Recorder object for the nodal displacements at node 4
+    model.recorder("Node",  "disp", "-file", "example.out", "-time", "-node", 4, "-dof", 1, 2)
 
-# create a Recorder object for the nodal displacements at node 4
-model.recorder("Node",  "disp", "-file", "example.out", "-time", "-node", 4, "-dof", 1, 2)
-
-# create a recorder for element forces, one in global and the other local system
-model.recorder("Element", "forces", "-file", "eleGlobal.out", "-time", "-ele", 1, 2, 3)
-model.recorder("Element", "basicForces", "-file", "eleLocal.out", "-time", "-ele", 1, 2, 3)
+    # create a recorder for element forces, one in global and the other local system
+    model.recorder("Element", "forces", "-file", "eleGlobal.out", "-time", "-ele", 1, 2, 3)
+    model.recorder("Element", "basicForces", "-file", "eleLocal.out", "-time", "-ele", 1, 2, 3)
 
 
 # ------------------------------
@@ -107,7 +101,7 @@ model.analyze(1)
 
 
 # ------------------------------
-# Print Stuff to Screen
+# Print results to screen
 # ------------------------------
 
 # print the current state at node 4 and at all elements
