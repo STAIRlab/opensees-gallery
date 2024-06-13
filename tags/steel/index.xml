@@ -12,7 +12,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
-      <description>This example is sourced from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html</description>
+      <description>This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&#xA;The source file for the example is SteelFrame2D.py.</description>
     </item>
   </channel>
 </rss>

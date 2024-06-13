@@ -255,6 +255,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/framehinges/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/igloo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -449,11 +453,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/zerolength/</loc>
-    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

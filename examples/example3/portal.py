@@ -106,7 +106,7 @@ def gravity_analysis(model, P=180.0):
     model.timeSeries("Linear", 1)
 
     # create a Plain load pattern - command: pattern Plain $tag $timeSeriesTag { $loads }
-    model.pattern("Plain", 1, 1, "-fact", 1.0)
+    model.pattern("Plain", 1, 1, fact=1.0)
 
     # create the nodal load - command: load nodeID xForce yForce zMoment
     model.load(3, 0.0, -P, 0.0, pattern=1)

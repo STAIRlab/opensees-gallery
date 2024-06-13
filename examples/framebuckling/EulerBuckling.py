@@ -1,6 +1,14 @@
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 
+FACTORS = {
+    "pin-pin":     1,
+    "fix-slide":   1,
+    "fix-fix":     0.5,
+    "fix-pin":     0.7,
+    "fix-free":    2,
+    "pin-slide":   2,
+}
 
 def create_column():
     E = 29000.0
@@ -8,18 +16,21 @@ def create_column():
     A = 9.12e3
     L = 60.0
 
-    ne = 10         # Number of elements discretizing the column
-    ElemName      = "ForceBeamColumn"
-    GeomTransfType   = "Corotational"
+    ne              = 10 # Number of elements discretizing the column
+    ElemName        = "ForceBeamColumn"
+    GeomTransfType  = "Corotational"
 
 
     nIP = 3 # number of integration points along each element
     nn = ne + 1
-    EulerLoad = (pi**2)*E*I/L**2
+    kL = FACTORS["pin-pin"]*L
+    EulerLoad = (pi**2)*E*I/kL**2
 
     model = ops.Model(ndm=2,  ndf=3)
 
-    # Define nodes
+    # Define nodes with unit mass so that the
+    # dynamic eigenvalue problem becomes equivalent
+    # to a standard one
     for i in range(1, nn+1):
         y = (i-1)/float(ne)*L
         model.node(i, 0.0, y)
@@ -53,6 +64,8 @@ def create_column():
 
 
 def buckling_analysis(model, EulerLoad):
+    # Apply a load until the first eigenvalue of the stiffness
+    # is zero
     LoadStep      = 0.01
     PeakLoadRatio = 2.00
 
