@@ -28,7 +28,7 @@ block2D $nx $ny 1 1 $Plate $eleArgs {
     4    20    0     0
     5   -10   10    20 
     7    10   10    20   
-    9    0    10    20 
+    9     0   10    20 
 } 
 
 # add some loads
@@ -123,4 +123,5 @@ catch {
   export model.vtk
 } _;
 
+print -json model.json
 

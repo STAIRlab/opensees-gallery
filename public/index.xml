@@ -93,6 +93,13 @@
       <description>source&#xA;The example files (PR.tcl, procMKPC2.tcl, procUniaxialPinching.tcl, procRC2.tcl) create a model of a RC beam column sub-assemblage. The cruciform is subjected to constant gravity load at nodes 4 and 7 and pseudo-static cyclic lateral load under displacement control at node 10.</description>
     </item>
     <item>
+      <title>Bridge Sections</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Building Modes</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -276,9 +283,9 @@
     </item>
     <item>
       <title>Hayward Bridge</title>
-      <link>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</link>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/ce58658/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/ce58658/</guid>
       <description>The Hayward bridge model is used for structural health monitoring on the BRACE2 platform. The files for the model can be browsed on GitHub.</description>
     </item>
     <item>

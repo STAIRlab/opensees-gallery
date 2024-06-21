@@ -82,6 +82,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</loc>
     <lastmod>2024-05-28T14:18:43-07:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -251,7 +255,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/</loc>
+    <loc>https://stairlab.github.io/opensees-gallery/gallery/ce58658/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

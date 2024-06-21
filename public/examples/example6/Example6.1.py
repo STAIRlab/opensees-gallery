@@ -16,28 +16,24 @@
 # Date: September 2017
 #
 # import the OpenSees Python module
-from opensees.openseespy import *
+import opensees.openseespy as ops
 from opensees.units.english import gravity as g
 
 # ----------------------------
 # Start of model generation
 # ----------------------------
 def create_model(Quad: str = "quad"):
-    Quad = "quad"
     #Quad = "SSPquad"
     #Quad = "bbarQuad"
     #Quad = "enhancedQuad"
 
-    # remove existing model
-    wipe()
-
     # create ModelBuilder (with two-dimensions and 2 DOF/node)
-    model("BasicBuilder", "-ndm",2, "-ndf",2)
+    model = ops.Model(ndm=2, ndf=2)
 
     # Define the material
     # -------------------
     #                               matTag  E      nu      rho
-    nDMaterial("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
+    model.nDMaterial("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
 
     # Define geometry
     # ---------------
@@ -52,7 +48,7 @@ def create_model(Quad: str = "quad"):
     # now create the nodes and elements using the block2D command
     if (Quad == "quad" or Quad == "enhancedQuad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
-        block2D(nx, ny, 1, 1,
+        model.block2D(nx, ny, 1, 1,
                     Quad, thick, "PlaneStrain", 1,
                     1,  0.0,  0.0,
                     2, 40.0,  0.0,
@@ -60,7 +56,7 @@ def create_model(Quad: str = "quad"):
                     4,  0.0, 10.0)
     elif (Quad == "SSPquad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
-        block2D(nx, ny, 1, 1,
+        model.block2D(nx, ny, 1, 1,
                     Quad, 1, "PlaneStrain", thick,
                     1,  0.0,  0.0,
                     2, 40.0,  0.0,
@@ -68,7 +64,7 @@ def create_model(Quad: str = "quad"):
                     4,  0.0, 10.0)
     elif (Quad == "bbarQuad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
-        block2D(nx, ny, 1, 1,
+        model.block2D(nx, ny, 1, 1,
                     Quad, thick, 1,
                     1,  0.0,  0.0,
                     2, 40.0,  0.0,
@@ -77,18 +73,18 @@ def create_model(Quad: str = "quad"):
 
     # Single point constraints
     #      node u1 u2    
-    fix( 1, 1, 1)
-    fix(bn, 0, 1)
+    model.fix( 1, 1, 1)
+    model.fix(bn, 0, 1)
 
     # Define gravity loads
     # create a Linear time series
-    timeSeries("Linear", 1)
+    model.timeSeries("Linear", 1)
     # create a Plain load pattern
-    pattern("Plain", 1, 1, fact=1.0)
-    load(l1, 0.0, -1.0, pattern=1)
-    load(l2, 0.0, -1.0, pattern=1)
+    model.pattern("Plain", 1, 1, fact=1.0)
+    model.load(l1, 0.0, -1.0, pattern=1)
+    model.load(l2, 0.0, -1.0, pattern=1)
 
-    return None, (l1, l2)
+    return model, (l1, l2)
 
 
 
@@ -96,84 +92,80 @@ def create_model(Quad: str = "quad"):
 # Start of static analysis (creation of the analysis & analysis itself)
 # --------------------------------------------------------------------
 
-model, (l1, l2) = create_model()
+def static_analysis(model):
+    # Define the system of equation
+    model.system("ProfileSPD")
 
-# create the system of equation
-system("ProfileSPD")
+    # Define the DOF numberer
+    model.numberer("RCM")
 
-# create the DOF numberer
-numberer("RCM")
+    # Define the constraint handler
+    model.constraints("Plain")
 
-# create the constraint handler
-constraints("Plain")
+    # Define the convergence test
+    model.test("EnergyIncr", 1.0E-12, 10)
 
-# create the convergence test
-test("EnergyIncr", 1.0E-12, 10)
+    # Define the solution algorithm, a Newton-Raphson algorithm
+    model.algorithm("Newton")
 
-# create the solution algorithm, a Newton-Raphson algorithm
-algorithm("Newton")
+    # Create the load control with variable load steps
+    model.integrator("LoadControl", 1.0, 1, 1.0, 10.0)
 
-# create the load control with variable load steps
-integrator("LoadControl", 1.0, 1, 1.0, 10.0) 
+    # Declare the analysis type
+    model.analysis("Static")
 
-# create the analysis object 
-analysis("Static")
+    # Perform static analysis in 10 increments
+    model.analyze(10)
 
-# Perform the analysis
-analyze(10)
+def dynamic_analysis(model, l1):
+    # ----------------------------
+    # Start of recorder generation
+    # ----------------------------
 
-# --------------------------
-# End of static analysis
-# --------------------------
+    model.recorder("Node", "-file", "Node.out", "-time", "-node", l1, "-dof", 2, "disp")
+
+    # ---------------------------------------
+    # Create and Perform the dynamic analysis
+    # ---------------------------------------
+    # Remove the static analysis & reset the time to 0.0
+    model.wipeAnalysis()
+    model.setTime(0.0)
+
+    # Now remove the loads and let the beam vibrate
+    model.remove("loadPattern", 1)
+
+    # create the system of equation
+    model.system("ProfileSPD")
+
+    # create the DOF numberer
+    model.numberer("RCM")
+
+    # create the constraint handler
+    model.constraints("Plain")
+
+    # create the convergence test
+    model.test("EnergyIncr", 1.0E-12, 10)
+
+    # create the solution algorithm, a Newton-Raphson algorithm
+    model.algorithm("Newton")
+
+    # create the integration scheme, the Newmark with gamma=0.5 and beta=0.25
+    model.integrator("Newmark", 0.5, 0.25)
+
+    # create the analysis object 
+    model.analysis("Transient")
+
+    # record once at time 0
+    model.record()
+
+    # Perform the transient analysis (20 sec)
+    #        numSteps  dt
+    model.analyze(1000, 0.05)
 
 
-# ----------------------------
-# Start of recorder generation
-# ----------------------------
-
-recorder("Node", "-file", "Node.out", "-time", "-node", l1, "-dof", 2, "disp")
-
-# --------------------------
-# End of recorder generation
-# --------------------------
-
-
-# ---------------------------------------
-# Create and Perform the dynamic analysis
-# ---------------------------------------
-
-# Remove the static analysis & reset the time to 0.0
-wipeAnalysis()
-setTime(0.0)
-
-# Now remove the loads and let the beam vibrate
-remove("loadPattern", 1)
-
-# create the system of equation
-system("ProfileSPD")
-
-# create the DOF numberer
-numberer("RCM")
-
-# create the constraint handler
-constraints("Plain")
-
-# create the convergence test
-test("EnergyIncr", 1.0E-12, 10)
-
-# create the solution algorithm, a Newton-Raphson algorithm
-algorithm("Newton")
-
-# create the integration scheme, the Newmark with gamma=0.5 and beta=0.25
-integrator("Newmark", 0.5, 0.25)
-
-# create the analysis object 
-analysis("Transient")
-
-# record once at time 0
-record()
-
-# Perform the transient analysis (20 sec)
-#        numSteps  dt
-analyze(1000, 0.05)
+if __name__ == "__main__":
+    model, (l1, l2) = create_model()
+    model.print(json="model.json")
+    static_analysis(model)
+#   dynamic_analysis(model, l1)
 

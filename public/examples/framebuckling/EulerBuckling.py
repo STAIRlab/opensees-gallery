@@ -116,3 +116,5 @@ if __name__ == "__main__":
     if not success:
         print("No Limit Point Found")
 
+    model.print(json="model.json")
+

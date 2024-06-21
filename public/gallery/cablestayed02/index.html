@@ -12,6 +12,9 @@
 
 <meta name="keywords" content="Python, Tcl, " />
 
+
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
  
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -327,13 +330,20 @@
         
 
         
+          <model-viewer alt="" 
+                        src="model.glb" ar 
+                        style="width: 100%; height: 300px;"
+                        shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          
+        
+
+        
       </div>
     </div>
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><img src="CableStayed02.png" alt="Rendering of the cable-stayed bridge finite element model."></p>
-<p>The problem is implemented in the file <a href="CableStayedBridge.py"><code>CableStayedBridge.py</code></a>,
+        <p>The problem is implemented in the file <a href="CableStayedBridge.py"><code>CableStayedBridge.py</code></a>,
 and can also be run through the Tcl file <a href="CableStayedBridge.tcl"><code>CableStayedBridge.tcl</code></a>.</p>
 <p>This model is adapted from the <a href="https://opstool.readthedocs.io/en/latest/"><code>opstool</code></a>
 project and has been adapted to use the robust <code>Model</code> class interface.</p>
@@ -447,7 +457,7 @@ project and has been adapted to use the robust <code>Model</code> class interfac
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/gallery/haywardbridge/"
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/gallery/ce58658/"
             data-toggle="tooltip" data-placement="top" title="Hayward Bridge">&larr;
             Previous Post</a>
         </li>
