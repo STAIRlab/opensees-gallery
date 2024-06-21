@@ -380,5 +380,6 @@ if (ok != 0):
     print("analysis FAILED")
 else:
     print("analysis SUCCESSFUL")
+    model.print(json="model.json")
 
 

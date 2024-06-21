@@ -36,6 +36,13 @@
       <description>Download (Bathe Model Problem.ipynb)&#xA;March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
     </item>
     <item>
+      <title>Bridge Sections</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Building Modes</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

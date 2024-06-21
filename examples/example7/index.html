@@ -12,6 +12,9 @@
 
 <meta name="keywords" content="Shell, Dynamic, Python, Tcl, " />
 
+
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
  
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -63,7 +66,7 @@
   "headline": "Example 7: Dynamic Shell Analysis",
   "description" : "Transient analysis of a shell model.",
   "inLanguage" : "en",
-  "wordCount":  426 ,
+  "wordCount":  427 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -327,17 +330,25 @@
         
 
         
+          <model-viewer alt="" 
+                        src="model.glb" ar 
+                        style="width: 100%; height: 300px;"
+                        shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          
+        
+
+        
       </div>
     </div>
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><img src="Example7.png" alt="Shell model rendering."></p>
-<p>In this example a simple problem in shell dynamics is considered. The
+        <p>In this example a simple problem in shell dynamics is considered. The
 structure is a curved hoop shell structure that looks like the roof of a
 Safeway.</p>
 <ol>
-<li><code>Example7.1.tcl</code></li>
+<li><a href="Example7.1.tcl"><code>Example7.1.tcl</code></a></li>
+<li><a href="Example7.1.py"><code>Example7.1.py</code></a></li>
 </ol>
 <p>For shell analysis, a typical shell element is defined as a surface in
 three dimensional space. Each node of a shell analysis has six degrees

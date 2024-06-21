@@ -224,6 +224,7 @@ pattern Plain 1 Constant {
 #set rayleigh damping factors
 rayleigh 0.0 0.0 0.0 0.0018
 
+print -JSON model.json
 
 # Define earthquake excitation
 # ----------------------------
@@ -300,6 +301,4 @@ if {$ok != 0} {
     puts "analysis SUCCESSFUL"
 }
 
-print -JSON Example5.1.json
 
-wipe
