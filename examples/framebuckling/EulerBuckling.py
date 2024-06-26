@@ -1,6 +1,7 @@
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 
+# Effective length factors
 FACTORS = {
     "pin-pin":     1,
     "fix-slide":   1,
@@ -10,7 +11,7 @@ FACTORS = {
     "pin-slide":   2,
 }
 
-def create_column():
+def create_column(boundary="pin-pin"):
     E = 29000.0
     I = 110.0
     A = 9.12e3
@@ -23,7 +24,7 @@ def create_column():
 
     nIP = 3 # number of integration points along each element
     nn = ne + 1
-    kL = FACTORS["pin-pin"]*L
+    kL = FACTORS[boundary]*L
     EulerLoad = (pi**2)*E*I/kL**2
 
     model = ops.Model(ndm=2,  ndf=3)
@@ -105,6 +106,7 @@ def buckling_analysis(model, EulerLoad):
 
         LastLoadRatio =  CurrentLoadRatio
         LastEigenvalue = CurrentEigenvalue
+    return success
 
 
 if __name__ == "__main__":

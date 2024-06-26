@@ -50,7 +50,7 @@ def build_RC_rect_section(model, sec_tag, H, B, cover_H, cover_B, core_tag,
     """
     # The distance from the section z-axis to the edge of the cover concrete
     # -- outer edge of cover concrete
-    cover_y = 0.5*H 
+    cover_y = 0.5*H
     # The distance from the section y-axis to the edge of the cover concrete
     # -- outer edge of cover concrete
     cover_z = 0.5*B
@@ -62,10 +62,10 @@ def build_RC_rect_section(model, sec_tag, H, B, cover_H, cover_B, core_tag,
     core_z = cover_z - cover_B
     # number of intermediate bars per side
     n_bars_int = int(n_bars_int_tot/2)
-    
+
     # constructs a FiberSection 
     model.section('Fiber', sec_tag, '-GJ', 1.0e9)
-    
+
     # Generate a quadrilateral shaped patch (core patch)
     model.patch('quad', core_tag,
           nf_core_z, nf_core_y,
@@ -164,14 +164,14 @@ def build_model(L_X, L_Y, L_Z,
 
 
     # Main Nodes
-    [model.node(n+1,*node_coords[n])
-     for n in range(len(node_coords))];
+    for n in range(len(node_coords)):
+        model.node(n+1, *node_coords[n])
 
 
     # Boundary Conditions
     ## Fixing the Base Nodes
-    [model.fix(n, 1, 1, 1, 1, 1, 1)
-     for n in [1, 2, 3, 4]];
+    for n in [1, 2, 3, 4]:
+        model.fix(n, 1, 1, 1, 1, 1, 1)
 
 
     # Materials
@@ -280,7 +280,7 @@ def run_gravity(model, steps = 10):
     # Record the response of a number of nodes at every converged step
     model.recorder('Node', '-file',
                 os.path.join('assets','Gravity_Reactions.out'),
-        '-time','-node', *list(range(1,5)), '-dof', *list(range(1,7)), 'reaction')
+                '-time','-node', *list(range(1,5)), '-dof', *list(range(1,7)), 'reaction')
 
     # enforce constraints using the transformation method
     model.constraints('Transformation')
@@ -607,3 +607,4 @@ def reset_analysis(model):
     model.remove('recorders')
     ## destroy all components of the Analysis object
     model.wipeAnalysis()
+

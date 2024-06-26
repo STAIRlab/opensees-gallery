@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  
-<title>Example 1: Simple Truss - OpenSeesRT Examples</title>
+<title>Example 1: Linear Truss - OpenSeesRT Examples</title>
 <meta name="description" content="A finite element model of a simple truss is created, and static analysis is performed.">
 
 <meta name="keywords" content="Truss, Python, Tcl, structural analysis, structural engineering" />
@@ -50,7 +50,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/example1\/",
-          "name": "Example 1 simple truss"
+          "name": "Example 1 linear truss"
         }
     }]
 }
@@ -61,10 +61,10 @@
   "author": {
     "name" : "STAIRlab"
   },
-  "headline": "Example 1: Simple Truss",
+  "headline": "Example 1: Linear Truss",
   "description" : "A finite element model of a simple truss is created, and static analysis is performed.",
   "inLanguage" : "en",
-  "wordCount":  1067 ,
+  "wordCount":  1076 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -83,7 +83,7 @@
 }
 </script>
 
-<meta property="og:title" content="Example 1: Simple Truss" />
+<meta property="og:title" content="Example 1: Linear Truss" />
 <meta property="og:description" content="A finite element model of a simple truss is created, and static analysis is performed.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/BasicTruss.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/example1/" />
@@ -283,7 +283,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Example 1: Simple Truss
+                Example 1: Linear Truss
                 
               </h1>
               
@@ -370,13 +370,13 @@ either Python or Tcl as follows:</p>
 		
 
 		<a class="nav-link  active "
-		   id="dafbce-tab" data-bs-toggle="tab" data-bs-target="#dafbce"
+		   id="cedbaf-tab" data-bs-toggle="tab" data-bs-target="#cedbaf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="aecbdf-tab" data-bs-toggle="tab" data-bs-target="#aecbdf"
+		   id="bcdfea-tab" data-bs-toggle="tab" data-bs-target="#bcdfea"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -392,7 +392,7 @@ either Python or Tcl as follows:</p>
 
 
 
-<div class="tab-pane fade show active " id="dafbce" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cedbaf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span>
@@ -406,7 +406,7 @@ either Python or Tcl as follows:</p>
 
 
 
-<div class="tab-pane fade show " id="aecbdf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="bcdfea" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">model</span> <span style="font-weight:bold">-</span>ndm <span style="color:#099">2</span> <span style="font-weight:bold">-</span>ndf <span style="color:#099">2</span>
 </span></span></code></pre></div>
@@ -433,13 +433,13 @@ In general, the <code>node</code> constructor must be passed <code>ndm</code> co
 		
 
 		<a class="nav-link  active "
-		   id="bcdafe-tab" data-bs-toggle="tab" data-bs-target="#bcdafe"
+		   id="acbfed-tab" data-bs-toggle="tab" data-bs-target="#acbfed"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="dfabce-tab" data-bs-toggle="tab" data-bs-target="#dfabce"
+		   id="cedafb-tab" data-bs-toggle="tab" data-bs-target="#cedafb"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -455,7 +455,7 @@ In general, the <code>node</code> constructor must be passed <code>ndm</code> co
 
 
 
-<div class="tab-pane fade show active " id="bcdafe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="acbfed" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#         tag   X     Y</span>
@@ -472,7 +472,7 @@ In general, the <code>node</code> constructor must be passed <code>ndm</code> co
 
 
 
-<div class="tab-pane fade show " id="dfabce" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cedafb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes &amp; add to domain
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   tag  X    Y
@@ -501,13 +501,13 @@ are then defined.</p>
 		
 
 		<a class="nav-link  active "
-		   id="bacefd-tab" data-bs-toggle="tab" data-bs-target="#bacefd"
+		   id="fedcba-tab" data-bs-toggle="tab" data-bs-target="#fedcba"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="cdfabe-tab" data-bs-toggle="tab" data-bs-target="#cdfabe"
+		   id="eacbdf-tab" data-bs-toggle="tab" data-bs-target="#eacbdf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -523,7 +523,7 @@ are then defined.</p>
 
 
 
-<div class="tab-pane fade show active " id="bacefd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="fedcba" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># set the boundary conditions</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#    nodeID xRestrnt? yRestrnt?</span>
@@ -539,7 +539,7 @@ are then defined.</p>
 
 
 
-<div class="tab-pane fade show " id="cdfabe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="eacbdf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Set the boundary conditions
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#  tag  X  Y
@@ -569,13 +569,13 @@ second specifies a Young&rsquo;s modulus of <code>3000</code>.</p>
 		
 
 		<a class="nav-link  active "
-		   id="fbcade-tab" data-bs-toggle="tab" data-bs-target="#fbcade"
+		   id="ebdcfa-tab" data-bs-toggle="tab" data-bs-target="#ebdcfa"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="faecdb-tab" data-bs-toggle="tab" data-bs-target="#faecdb"
+		   id="efcbda-tab" data-bs-toggle="tab" data-bs-target="#efcbda"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -591,7 +591,7 @@ second specifies a Young&rsquo;s modulus of <code>3000</code>.</p>
 
 
 
-<div class="tab-pane fade show active " id="fbcade" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="ebdcfa" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create Elastic material prototype</span>
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#34;Elastic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">3000</span>)
@@ -604,7 +604,7 @@ second specifies a Young&rsquo;s modulus of <code>3000</code>.</p>
 
 
 
-<div class="tab-pane fade show " id="faecdb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="efcbda" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create Elastic material prototype
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">uniaxialMaterial</span> Elastic <span style="color:#099">1</span> <span style="color:#099">3000</span><span style="font-weight:bold">;</span>
@@ -636,13 +636,13 @@ the truss element requires the following arguments:</p>
 		
 
 		<a class="nav-link  active "
-		   id="edbfca-tab" data-bs-toggle="tab" data-bs-target="#edbfca"
+		   id="abcefd-tab" data-bs-toggle="tab" data-bs-target="#abcefd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="dcfaeb-tab" data-bs-toggle="tab" data-bs-target="#dcfaeb"
+		   id="afcdbe-tab" data-bs-toggle="tab" data-bs-target="#afcdbe"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -658,11 +658,12 @@ the truss element requires the following arguments:</p>
 
 
 
-<div class="tab-pane fade show active " id="edbfca" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="abcefd" role="tabpanel" aria-labelledby="nav-1">
 
-	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">1</span>, (<span style="color:#099">1</span>, <span style="color:#099">4</span>), <span style="color:#099">10.0</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">2</span>, (<span style="color:#099">2</span>, <span style="color:#099">4</span>),  <span style="color:#099">5.0</span>, <span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">3</span>, (<span style="color:#099">3</span>, <span style="color:#099">4</span>),  <span style="color:#099">5.0</span>, <span style="color:#099">1</span>)
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#              Type   tag  nodes  Area  material</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">1</span>, (<span style="color:#099">1</span>, <span style="color:#099">4</span>), <span style="color:#099">10.0</span>,    <span style="color:#099">1</span>   )
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">2</span>, (<span style="color:#099">2</span>, <span style="color:#099">4</span>),  <span style="color:#099">5.0</span>,    <span style="color:#099">1</span>   )
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;Truss&#34;</span>, <span style="color:#099">3</span>, (<span style="color:#099">3</span>, <span style="color:#099">4</span>),  <span style="color:#099">5.0</span>,    <span style="color:#099">1</span>   )
 </span></span></code></pre></div>
 
 </div>
@@ -672,7 +673,7 @@ the truss element requires the following arguments:</p>
 
 
 
-<div class="tab-pane fade show " id="dcfaeb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="afcdbe" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">element</span> Truss <span style="color:#099">1</span> <span style="color:#099">1</span> <span style="color:#099">4</span> <span style="color:#099">10.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">element</span> Truss <span style="color:#099">2</span> <span style="color:#099">2</span> <span style="color:#099">4</span>  <span style="color:#099">5.0</span> <span style="color:#099">1</span><span style="font-weight:bold">;</span>
@@ -706,13 +707,13 @@ hand, we want to apply a load to node <code>4</code> with <code>100</code> units
 		
 
 		<a class="nav-link  active "
-		   id="fcdbae-tab" data-bs-toggle="tab" data-bs-target="#fcdbae"
+		   id="cdbafe-tab" data-bs-toggle="tab" data-bs-target="#cdbafe"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="fcbdae-tab" data-bs-toggle="tab" data-bs-target="#fcbdae"
+		   id="fcadeb-tab" data-bs-toggle="tab" data-bs-target="#fcadeb"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -728,7 +729,7 @@ hand, we want to apply a load to node <code>4</code> with <code>100</code> units
 
 
 
-<div class="tab-pane fade show active " id="fcdbae" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cdbafe" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>loads <span style="font-weight:bold">=</span> {<span style="color:#099">4</span>: [<span style="color:#099">100</span>, <span style="font-weight:bold">-</span><span style="color:#099">50</span>]}
 </span></span></code></pre></div>
@@ -740,7 +741,7 @@ hand, we want to apply a load to node <code>4</code> with <code>100</code> units
 
 
 
-<div class="tab-pane fade show " id="fcbdae" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="fcadeb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">set</span> loads <span style="font-weight:bold">{</span><span style="color:#008080">4</span> <span style="color:#099">100</span> <span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">}</span>
 </span></span></code></pre></div>
@@ -765,13 +766,13 @@ to specify that it should be increased linearly with each new load step.
 		
 
 		<a class="nav-link  active "
-		   id="dfbcae-tab" data-bs-toggle="tab" data-bs-target="#dfbcae"
+		   id="bfdcae-tab" data-bs-toggle="tab" data-bs-target="#bfdcae"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="afecbd-tab" data-bs-toggle="tab" data-bs-target="#afecbd"
+		   id="bfadce-tab" data-bs-toggle="tab" data-bs-target="#bfadce"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -787,7 +788,7 @@ to specify that it should be increased linearly with each new load step.
 
 
 
-<div class="tab-pane fade show active " id="dfbcae" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bfdcae" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#34;Plain&#34;</span>, <span style="color:#099">1</span>, <span style="color:#b84">&#34;Linear&#34;</span>, load<span style="font-weight:bold">=</span>loads)
 </span></span></code></pre></div>
@@ -799,7 +800,7 @@ to specify that it should be increased linearly with each new load step.
 
 
 
-<div class="tab-pane fade show " id="afecbd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="bfadce" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">pattern</span> Plain <span style="color:#099">1</span> <span style="color:#b84">&#34;Linear&#34;</span> <span style="color:#b84">&#34;load $loads&#34;</span>
 </span></span></code></pre></div>
@@ -830,7 +831,7 @@ to specify that it should be increased linearly with each new load step.
 		
 
 		<a class="nav-link "
-		   id="bdafce-tab" data-bs-toggle="tab" data-bs-target="#bdafce"
+		   id="acebfd-tab" data-bs-toggle="tab" data-bs-target="#acebfd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -860,7 +861,7 @@ to specify that it should be increased linearly with each new load step.
 
 
 
-<div class="tab-pane fade show " id="bdafce" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="acebfd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">pattern</span> Plain <span style="color:#099">1</span> <span style="color:#b84">&#34;Linear&#34;</span> <span style="font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#999">load</span> <span style="color:#099">4</span> <span style="color:#099">100</span> <span style="font-weight:bold">-</span><span style="color:#099">50</span>
@@ -888,13 +889,13 @@ The model is linear, so we use a solution Algorithm of type <code>Linear</code>.
 		
 
 		<a class="nav-link  active "
-		   id="efdcba-tab" data-bs-toggle="tab" data-bs-target="#efdcba"
+		   id="ecdbaf-tab" data-bs-toggle="tab" data-bs-target="#ecdbaf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="aecbfd-tab" data-bs-toggle="tab" data-bs-target="#aecbfd"
+		   id="deafcb-tab" data-bs-toggle="tab" data-bs-target="#deafcb"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -910,7 +911,7 @@ The model is linear, so we use a solution Algorithm of type <code>Linear</code>.
 
 
 
-<div class="tab-pane fade show active " id="efdcba" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="ecdbaf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>algorithm(<span style="color:#b84">&#34;Linear&#34;</span>)
 </span></span></code></pre></div>
@@ -922,7 +923,7 @@ The model is linear, so we use a solution Algorithm of type <code>Linear</code>.
 
 
 
-<div class="tab-pane fade show " id="aecbfd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="deafcb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">algorithm</span> Linear<span style="font-weight:bold">;</span>
 </span></span></code></pre></div>
@@ -949,13 +950,13 @@ factor of <code>1.0</code> each time the <code>analyze</code> command is called.
 		
 
 		<a class="nav-link  active "
-		   id="ebafcd-tab" data-bs-toggle="tab" data-bs-target="#ebafcd"
+		   id="fcebad-tab" data-bs-toggle="tab" data-bs-target="#fcebad"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="acfbed-tab" data-bs-toggle="tab" data-bs-target="#acfbed"
+		   id="feadbc-tab" data-bs-toggle="tab" data-bs-target="#feadbc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -971,7 +972,7 @@ factor of <code>1.0</code> each time the <code>analyze</code> command is called.
 
 
 
-<div class="tab-pane fade show active " id="ebafcd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="fcebad" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>integrator(<span style="color:#b84">&#34;LoadControl&#34;</span>, <span style="color:#099">1.0</span>)
 </span></span></code></pre></div>
@@ -983,7 +984,7 @@ factor of <code>1.0</code> each time the <code>analyze</code> command is called.
 
 
 
-<div class="tab-pane fade show " id="acfbed" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="feadbc" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">integrator</span> LoadControl <span style="color:#099">1.0</span><span style="font-weight:bold">;</span>
 </span></span></code></pre></div>
@@ -1013,13 +1014,13 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 		
 
 		<a class="nav-link  active "
-		   id="edcabf-tab" data-bs-toggle="tab" data-bs-target="#edcabf"
+		   id="efadbc-tab" data-bs-toggle="tab" data-bs-target="#efadbc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="cafedb-tab" data-bs-toggle="tab" data-bs-target="#cafedb"
+		   id="adbecf-tab" data-bs-toggle="tab" data-bs-target="#adbecf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -1035,7 +1036,7 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 
 
 
-<div class="tab-pane fade show active " id="edcabf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="efadbc" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analysis(<span style="color:#b84">&#34;Static&#34;</span>)
 </span></span></code></pre></div>
@@ -1047,7 +1048,7 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 
 
 
-<div class="tab-pane fade show " id="cafedb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="adbecf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">analysis</span> Static<span style="font-weight:bold">;</span>
 </span></span></code></pre></div>
@@ -1070,13 +1071,13 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 		
 
 		<a class="nav-link  active "
-		   id="dcebaf-tab" data-bs-toggle="tab" data-bs-target="#dcebaf"
+		   id="bfcdea-tab" data-bs-toggle="tab" data-bs-target="#bfcdea"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="afbecd-tab" data-bs-toggle="tab" data-bs-target="#afbecd"
+		   id="dafceb-tab" data-bs-toggle="tab" data-bs-target="#dafceb"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -1092,7 +1093,7 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 
 
 
-<div class="tab-pane fade show active " id="dcebaf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bfcdea" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>)
 </span></span></code></pre></div>
@@ -1104,7 +1105,7 @@ itself is defined. For this problem a <code>Static</code> analysis is used.</p>
 
 
 
-<div class="tab-pane fade show " id="afbecd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dafceb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">analyze</span> <span style="color:#099">1</span>
 </span></span></code></pre></div>
@@ -1128,13 +1129,13 @@ may be printed to the screen:</p>
 		
 
 		<a class="nav-link  active "
-		   id="bafedc-tab" data-bs-toggle="tab" data-bs-target="#bafedc"
+		   id="abcefd-tab" data-bs-toggle="tab" data-bs-target="#abcefd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="adebcf-tab" data-bs-toggle="tab" data-bs-target="#adebcf"
+		   id="cfbdae-tab" data-bs-toggle="tab" data-bs-target="#cfbdae"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -1150,7 +1151,7 @@ may be printed to the screen:</p>
 
 
 
-<div class="tab-pane fade show active " id="bafedc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="abcefd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>print(node<span style="font-weight:bold">=</span><span style="color:#099">4</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>print(<span style="color:#b84">&#34;ele&#34;</span>)
@@ -1163,7 +1164,7 @@ may be printed to the screen:</p>
 
 
 
-<div class="tab-pane fade show " id="adebcf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cfbdae" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">print</span> node <span style="color:#099">4</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">print</span> ele
@@ -1214,8 +1215,8 @@ successfully.</p>
 <p>Scripts for this example can be downloaded for either
 Python or Tcl:</p>
 <ul>
-<li><a href="./Example1.1.py"><code>Example1.1.py</code></a></li>
-<li><a href="./Example1.1.tcl"><code>Example1.1.tcl</code></a></li>
+<li><a href="./Example1.py"><code>Example1.py</code></a></li>
+<li><a href="./Example1.tcl"><code>Example1.tcl</code></a></li>
 </ul>
 
       </article>
@@ -1263,7 +1264,7 @@ Python or Tcl:</p>
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;text=Example%201%3a%20Simple%20Truss&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;text=Example%201%3a%20Linear%20Truss&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -1275,7 +1276,7 @@ Python or Tcl:</p>
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;title=Example%201%3a%20Simple%20Truss"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;title=Example%201%3a%20Linear%20Truss"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -1285,8 +1286,8 @@ Python or Tcl:</p>
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Example 1: Simple Truss on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&title=Example%201%3a%20Simple%20Truss">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Example 1: Linear Truss on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&title=Example%201%3a%20Linear%20Truss">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -1303,7 +1304,7 @@ Python or Tcl:</p>
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;description=Example%201%3a%20Simple%20Truss" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample1%2f&amp;description=Example%201%3a%20Linear%20Truss" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path

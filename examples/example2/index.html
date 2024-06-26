@@ -64,7 +64,7 @@
   "headline": "Example 2: Moment-Curvature",
   "description" : "A reinforced concrete cross-section is modeled using a fiber section,  and a moment-curvature analysis is performed.",
   "inLanguage" : "en",
-  "wordCount":  797 ,
+  "wordCount":  796 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -320,6 +320,7 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#modeling">Modeling</a></li>
+    <li><a href="#analysis">Analysis</a></li>
   </ul>
 </nav>
         
@@ -365,13 +366,13 @@ The files for this example are:
 		
 
 		<a class="nav-link  active "
-		   id="cdfbea-tab" data-bs-toggle="tab" data-bs-target="#cdfbea"
+		   id="eafdbc-tab" data-bs-toggle="tab" data-bs-target="#eafdbc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="cbfdea-tab" data-bs-toggle="tab" data-bs-target="#cbfdea"
+		   id="cbeadf-tab" data-bs-toggle="tab" data-bs-target="#cbeadf"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -387,7 +388,7 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show active " id="cdfbea" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="eafdbc" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
 <li><a href="Example2.1.py"><code>Example2.1.py</code></a></li>
@@ -401,7 +402,7 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show " id="cbfdea" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cbeadf" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
 <li><a href="Example2.1.tcl"><code>Example2.1.tcl</code></a></li>
@@ -440,13 +441,13 @@ moment-curvature analysis.</p>
 		
 
 		<a class="nav-link  active "
-		   id="dacfbe-tab" data-bs-toggle="tab" data-bs-target="#dacfbe"
+		   id="adbcfe-tab" data-bs-toggle="tab" data-bs-target="#adbcfe"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="abcdef-tab" data-bs-toggle="tab" data-bs-target="#abcdef"
+		   id="ecfabd-tab" data-bs-toggle="tab" data-bs-target="#ecfabd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -462,7 +463,7 @@ moment-curvature analysis.</p>
 
 
 
-<div class="tab-pane fade show active " id="dacfbe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="adbcfe" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>section(<span style="color:#b84">&#34;Fiber&#34;</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the concrete core fibers</span>
@@ -485,7 +486,7 @@ moment-curvature analysis.</p>
 
 
 
-<div class="tab-pane fade show " id="abcdef" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="ecfabd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Tcl" data-lang="Tcl"><span style="display:flex;"><span><span style="color:#008080">section</span> Fiber <span style="color:#099">1</span> <span style="font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>
@@ -517,18 +518,20 @@ are created to define the fiber stress-strain relationships: confined
 concrete in the column core, unconfined concrete in the column cover,
 and reinforcing steel.</p>
 <p>The dimensions of the fiber section are shown in
-figure <a href="#rcsection0">rcsection0</a>. The section depth is 24 inches, the width is 15
+figure <a href="#rcsection0">rcsection0</a>.
+The section depth is 24 inches, the width is 15
 inches, and there are 1.5 inches of cover around the entire section.
-Strong axis bending is about the section z-axis. In fact, the section
-z-axis is the strong axis of bending for all fiber sections in planar
+Strong axis bending is about the section $z$-axis. In fact, the section
+$z$-axis is the strong axis of bending for all fiber sections in planar
 problems. The section is separated into confined and unconfined concrete
 regions, for which separate fiber discretizations will be generated.
 Reinforcing steel bars will be placed around the boundary of the
 confined and unconfined regions. The fiber discretization for the
 section is shown in
 figure <a href="#rcsection4">rcsection4</a>.</p>
-<p><img src="./RCsection0.svg" alt="Dimensions of the RC section.">{#fig:rcsection0} </p>
-<p><img src="./RCsection4.svg" alt="Fiber section discretization">{#fig:rcsection4}</p>
+<p><img src="./RCsection0.svg" alt="Dimensions of the RC section."></p>
+<p><img src="./RCsection4.svg" alt="Fiber section discretization"></p>
+<h2 id="analysis">Analysis</h2>
 <p>The section analysis is performed by the procedure <code>moment_curvature</code>
 defined in the file <code>MomentCurvature.tcl</code> for
 Tcl, and <code>Example2.1.py</code> for Python. The arguments to the procedure
@@ -673,7 +676,7 @@ figure <a href="#momcurv">momcurv</a>.</p>
         <li class="list-group-item b-0 p-0">
 
           <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/example3/"
-            data-toggle="tooltip" data-placement="top" title="Example 3: Portal Frame Examples">&larr;
+            data-toggle="tooltip" data-placement="top" title="Example 3: Inelastic Plane Frame">&larr;
             Previous Post</a>
         </li>
         
@@ -682,7 +685,7 @@ figure <a href="#momcurv">momcurv</a>.</p>
         
         <li class="list-group-item ms-auto b-0 p-0">
           <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/example1/"
-            data-toggle="tooltip" data-placement="top" title="Example 1: Simple Truss">Next Post
+            data-toggle="tooltip" data-placement="top" title="Example 1: Linear Truss">Next Post
             &rarr;</a>
         </li>
         
