@@ -285,4 +285,4 @@ if __name__ == "__main__":
 
     # Print the state at node 3
     model.print("node", 3)
-    model.print(json="model.json")
+

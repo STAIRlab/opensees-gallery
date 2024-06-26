@@ -12,6 +12,8 @@
 python -m sees model.">
 
 
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
  
 <meta name="author" content="STAIRlab"><script type="application/ld+json">
 {
@@ -328,15 +330,19 @@ python -m sees model.">
         
 
         
-
+          <model-viewer alt="" 
+                        src="model.glb" ar 
+                        style="width: 100%; height: 300px;"
+                        shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+          
         
+
       </div>
     </div>
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><img src="ArchBridge.png" alt="Rendering of the arch bridge model."></p>
-<p>The rendering is created using the <a href="https://pypi.org/project/sees"><code>sees</code></a>
+        <p>The rendering is created using the <a href="https://pypi.org/project/sees"><code>sees</code></a>
 Python package, and can be recreated by running the shell command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python -m sees model.json -o model.html
 </span></span></code></pre></div>

@@ -56,7 +56,8 @@
 			{"name": "1", "type": "Concrete01", "Ec": 3000, "fc": -6, "epsc": -0.004, "fcu": -5, "epscu": -0.014}
         ],
         "crdTransformations": [
-
+			{"name": "2", "type": "LinearCrdTransf2d"},
+			{"name": "1", "type": "PDeltaCrdTransf2d"}
         ]
     },
     "geometry": {

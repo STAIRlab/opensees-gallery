@@ -66,7 +66,7 @@
   "headline": "Example 7: Dynamic Shell Analysis",
   "description" : "Transient analysis of a shell model.",
   "inLanguage" : "en",
-  "wordCount":  427 ,
+  "wordCount":  455 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -337,7 +337,6 @@
           
         
 
-        
       </div>
     </div>
 
@@ -347,9 +346,12 @@
 structure is a curved hoop shell structure that looks like the roof of a
 Safeway.</p>
 <ol>
-<li><a href="Example7.1.tcl"><code>Example7.1.tcl</code></a></li>
-<li><a href="Example7.1.py"><code>Example7.1.py</code></a></li>
+<li><a href="Example7.tcl"><code>Example7.tcl</code></a></li>
+<li><a href="Example7.py"><code>Example7.py</code></a></li>
 </ol>
+<p>Renderings are created from the script <a href="./render.py"><code>render.py</code></a>, which
+uses the <a href="https://pypi.org/project/sees"><code>sees</code></a> Python package.</p>
+<h2 id="modeling">Modeling</h2>
 <p>For shell analysis, a typical shell element is defined as a surface in
 three dimensional space. Each node of a shell analysis has six degrees
 of freedom, three displacements and three rotations. Thus the model is
@@ -365,8 +367,6 @@ appropriate for shell analysis, is constructed using the
 &ldquo;ElasticMembranePlateSection&rdquo; command. In this case, the elastic modulus
 \(E := 3.0e3\), Poisson&rsquo;s ratio \(\nu :=  0.25\), the thickness \(h = 1.175\)
 and the mass density per unit volume \(\rho := 1.27\)</p>
-<p>For initial gravity load analysis, a single load pattern with a linear
-time series and three vertical nodal loads are used.</p>
 <p>Boundary conditions are applied using the fixZ command. In this case,
 all the nodes whose z-coordiate is $0.0$ have the boundary condition
 <code>{1,1,1, 0,1,1}</code>. All degrees-of-freedom are fixed except rotation about
@@ -376,21 +376,28 @@ where the z-coordinate is \(40.0\).</p>
 solution algorithm uses a ConvergenceTest which tests convergence on the
 norm of the energy increment vector. Five static load steps are
 performed.</p>
-<p>Subsequent to the static analysis, the wipeAnalysis and remove
+<p>For initial gravity load analysis, a single load pattern with a linear
+time series and three vertical nodal loads are used. A scaled rendering
+of the deformed shape under gravity loading is shown below:</p>
+<p><model-viewer alt="Finite element model rendering." 
+src="gravity.glb" ar 
+style="width: 100%; height: 300px;"
+shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer></p>
+<h2 id="dynamic-analysis">Dynamic Analysis</h2>
+<p>After the static analysis, the wipeAnalysis and remove
 loadPatern commands are used to remove the nodal loads and create a new
 analysis. The nodal displacements have not changed. However, with the
 external loads removed the structure is no longer in static equilibrium.</p>
-<p>The integrator for the dynamic analysis if of type GeneralizedMidpoint
-with \(\alpha := 0.5\). This choice is uconditionally stable and energy
+<p>The integrator for the dynamic analysis if of type <code>GeneralizedMidpoint</code>
+with $\alpha = 0.5$. This choice is uconditionally stable and energy
 conserving for linear problems. Additionally, this integrator conserves
 linear and angular momentum for both linear and non-linear problems. The
 dynamic analysis is performed using $250$ time increments with a time
-step \(\Delta t := 0.50\).</p>
-<p>The results consist of the file Node.out, which contains a line for
+step $\Delta t = 0.50$.</p>
+<p>The results consist of the file <code>Node.out</code>, which contains a line for
 every time step. Each line contains the time and the vertical
 displacement at the upper center of the hoop structure. The time history
-is shown in figure <a href="#shelldisp">shelldisp</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;shelldisp&rdquo;}.</p>
+is shown in the figure below.</p>
 <p><img src="hoop.svg" alt="Displacement vs. Time for Top Center of Hoop Structure"></p>
 
       </article>
@@ -630,8 +637,7 @@ reference=&ldquo;shelldisp&rdquo;}.</p>
 
                 <div class="post-entry">
                     
-                    Download (Bathe Model Problem.ipynb)
-March 2020, By Amir Hossein Namadchi
+                    March 2020, By Amir Hossein Namadchi
 This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.
                     
                 </div>

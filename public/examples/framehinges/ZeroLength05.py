@@ -84,3 +84,8 @@ model.analyze(1)
 model.print( 'algorithm')
 model.print( 'node', 4)
 
+
+# import sees
+# state = {i: model.nodeDisp(i) for i in model.getNodeTags()}
+# sees.render(model, state).canvas.popup()
+
