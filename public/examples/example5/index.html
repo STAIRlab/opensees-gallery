@@ -66,7 +66,7 @@
   "headline": "Example 5: Rigid 3D Frame",
   "description" : "A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.",
   "inLanguage" : "en",
-  "wordCount":  449 ,
+  "wordCount":  403 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -342,8 +342,7 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <h2 id="example-51">Example 5.1</h2>
-<p>A three-dimensional reinforced concrete rigid frame,
+        <p>A three-dimensional reinforced concrete rigid frame,
 is subjected to bi-directional earthquake ground motion.</p>
 <ol>
 <li><a href="Example5.tcl"><code>Example5.tcl</code></a></li>
@@ -358,6 +357,7 @@ is subjected to bi-directional earthquake ground motion.</p>
 <li><a href="tabasFN.txt"><code>tabasFN.txt</code></a></li>
 <li><a href="tabasFP.txt"><code>tabasFP.txt</code></a></li>
 </ol>
+<h2 id="modeling">Modeling</h2>
 <p>A model of the rigid frame shown in the
 figure below is created. The model consists of three stories
 and one bay in each direction. Rigid diaphragm multi-point constraints
@@ -371,24 +371,29 @@ elements may have been used for the beam members; but, it is useful to
 see that section models other than fiber sections may be used in the
 nonlinear beam column element.</p>
 <p><img src="Example4.svg" alt="Example 5.1"></p>
+<h2 id="analysis">Analysis</h2>
 <p>A solution Algorithm of type Newton is used for the nonlinear problem.
 The solution algorithm uses a ConvergenceTest which tests convergence on
 the norm of the energy increment vector. The integrator for this
-analysis will be of type Newmark with a $\gamma$ of 0.25 and a $\beta$
+analysis will be of type <code>Newmark</code> with a $\gamma$ of <code>0.25</code> and a $\beta$
 of <code>0.5</code>.
 Due to the presence of the multi-point constraints, a
-<code>Transformation</code> constraint handler is used. The equations are formed
+<code>Transformation</code> constraint handler is used.</p>
+<!--
+The equations are formed
 using a sparse storage scheme which will perform pivoting during the
 equation solving, so the System is SparseGeneral. As SparseGeneral will
-perform it&rsquo;s own internal numbering of the equations, a Plain numberer
-is used which simply assigns equation numbers to the degrees-of-freedom.</p>
-<p>Once all the components of an analysis are defined, the Analysis object
-itself is created. For this problem a <code>Transient</code> analysis is used.
+perform it's own internal numbering of the equations, a Plain numberer
+is used which simply assigns equation numbers to the degrees-of-freedom.
+-->
+<p>Once all the components of an analysis are defined, the Analysis
+itself is defined. For this problem a <code>Transient</code> analysis is used.
 <code>2000</code> steps are performed with a time step of <code>0.01</code>.</p>
+<h2 id="post-processing">Post-Processing</h2>
 <p>The nodal displacements at nodes <code>9</code>, <code>14</code>, and <code>19</code> (the retained nodes for
-the rigid diaphragms) will be stored in the file node51.out for
+the rigid diaphragms) will be stored in the file <code>node51.out</code> for
 post-processing.</p>
-<p>The results consist of the file node.out, which contains a line for
+<p>The results consist of the file <code>node.out</code>, which contains a line for
 every time step. Each line contains the time and the horizontal and
 vertical displacements at the diaphragm retained nodes (<code>9</code>, <code>14</code> and <code>19</code>)
 i.e. time Dx9 Dy9 Dx14 Dy14 Dx19 Dy19. The horizontal displacement time
@@ -398,7 +403,7 @@ seconds of earthquake excitation, when the large pulse in the ground
 motion propogates through the structure. The displacement profile over
 the three stories shows a soft-story mechanism has formed in the first
 floor columns. The numerical solution converges even though the drift is
-$\approx 20 \%$. The inclusion of P-Delta effects shows structural
+$\approx 20 \%$. The inclusion of $P-\Delta$ effects shows structural
 collapse under such large drifts.</p>
 <p><img src="RigidFrameDisp.svg" alt="Node 9 displacement time history"></p>
 <p><model-viewer alt="Finite element model rendering." 

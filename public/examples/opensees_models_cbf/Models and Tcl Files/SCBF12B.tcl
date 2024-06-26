@@ -1147,17 +1147,17 @@ constraints Plain;
 
 set pi [expr 2.0*asin(1.0)];
 set nEigen 12;
-set lambdaN [eigen [expr $nEigen]];
-set lambda1 [lindex $lambdaN 0];
-set lambda2 [lindex $lambdaN 1];
-set lambda3 [lindex $lambdaN 2];
-set lambda4 [lindex $lambdaN 3];
-set lambda5 [lindex $lambdaN 4];
-set lambda6 [lindex $lambdaN 5];
-set lambda7 [lindex $lambdaN 6];
-set lambda8 [lindex $lambdaN 7];
-set lambda9 [lindex $lambdaN 8];
-set lambda10 [lindex $lambdaN 9];
+set lambdaN  [eigen [expr $nEigen]];
+set lambda1  [lindex $lambdaN  0];
+set lambda2  [lindex $lambdaN  1];
+set lambda3  [lindex $lambdaN  2];
+set lambda4  [lindex $lambdaN  3];
+set lambda5  [lindex $lambdaN  4];
+set lambda6  [lindex $lambdaN  5];
+set lambda7  [lindex $lambdaN  6];
+set lambda8  [lindex $lambdaN  7];
+set lambda9  [lindex $lambdaN  8];
+set lambda10 [lindex $lambdaN  9];
 set lambda11 [lindex $lambdaN 10];
 set lambda12 [lindex $lambdaN 11];
 set w1 [expr pow($lambda1,0.5)];
@@ -1197,9 +1197,9 @@ analysis Static;
 analyze 1;
 
 ###################################################################################################
-###################################################################################################
-									puts "Eigen Analysis Done"
-###################################################################################################
+
+puts "Eigen Analysis Done"
+
 ###################################################################################################
 
 ###################################################################################################
@@ -1249,6 +1249,8 @@ analysis Static;
 analyze 10;
 
 loadConst -time 0.0;
+
+print -json SCBF12B.json
 
 ###################################################################################################
 ###################################################################################################

@@ -66,7 +66,7 @@
   "headline": "Example 7: Dynamic Shell Analysis",
   "description" : "Transient analysis of a shell model.",
   "inLanguage" : "en",
-  "wordCount":  455 ,
+  "wordCount":  452 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -355,27 +355,27 @@ uses the <a href="https://pypi.org/project/sees"><code>sees</code></a> Python pa
 <p>For shell analysis, a typical shell element is defined as a surface in
 three dimensional space. Each node of a shell analysis has six degrees
 of freedom, three displacements and three rotations. Thus the model is
-defined with $ndm := 3$ and $ndf := 6$.</p>
-<p>For this model, a mesh is generated using the &ldquo;block2D&rdquo; command. The
+defined with $ndm = 3$ and $ndf = 6$.</p>
+<p>For this model, a mesh is generated using the <code>block2D</code> command. The
 number of nodes in the local x-direction of the block is <code>nx</code> and the
 number of nodes in the local y-direction of the block is <code>ny</code>. The
-block2D generation nodes <code>{1,2,3,4, 5,7,9}</code> are defined such that the
-structure is curved in three dimensional space.</p>
-<p>The OpenSees shell element is constructed using the command
-<code>ShellMITC4</code>. An elastic membrane-plate material section model,
+block2D generates nodes with tags <code>{1,2,3,4, 5,7,9}</code> such that the
+structure is curved in space.</p>
+<p>The shell element is constructed using the <code>ShellMITC4</code> formulation.
+An elastic membrane-plate material section model,
 appropriate for shell analysis, is constructed using the
 &ldquo;ElasticMembranePlateSection&rdquo; command. In this case, the elastic modulus
-\(E := 3.0e3\), Poisson&rsquo;s ratio \(\nu :=  0.25\), the thickness \(h = 1.175\)
-and the mass density per unit volume \(\rho := 1.27\)</p>
-<p>Boundary conditions are applied using the fixZ command. In this case,
+$E = 3.0e3$, Poisson&rsquo;s ratio $\nu =  0.25$, the thickness $h = 1.175$
+and the mass density per unit volume $\rho = 1.27$</p>
+<p>Boundary conditions are applied using the <code>fixZ</code> command. In this case,
 all the nodes whose z-coordiate is $0.0$ have the boundary condition
-<code>{1,1,1, 0,1,1}</code>. All degrees-of-freedom are fixed except rotation about
+<code>{1,1,1, 0,1,1}</code>: all degrees-of-freedom are fixed except rotation about
 the x-axis, which is free. The same boundary conditions are applied
-where the z-coordinate is \(40.0\).</p>
-<p>A solution algorithm of type Newton is used for the problem. The
-solution algorithm uses a ConvergenceTest which tests convergence on the
-norm of the energy increment vector. Five static load steps are
-performed.</p>
+where the $z$-coordinate is $40.0$.</p>
+<p>A solution algorithm of type <code>Newton</code> is used for the problem.
+The solution algorithm uses a ConvergenceTest which tests convergence on the
+norm of the energy increment vector.
+Five static load steps are performed.</p>
 <p>For initial gravity load analysis, a single load pattern with a linear
 time series and three vertical nodal loads are used. A scaled rendering
 of the deformed shape under gravity loading is shown below:</p>

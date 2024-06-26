@@ -64,7 +64,7 @@
   "headline": "Building Modes",
   "description" : "A building is modeled as a cantilever, and the first three mode shapes are plotted.",
   "inLanguage" : "en",
-  "wordCount":  1018 ,
+  "wordCount":  1023 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -531,6 +531,8 @@ can be downloaded from here: <a href="cantilever_modes.py"><code>cantilever_mode
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">181
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">182
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">184
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">185
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Import the opensees package for finite element analysis</span>
@@ -581,7 +583,8 @@ can be downloaded from here: <a href="cantilever_modes.py"><code>cantilever_mode
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  Beam-column elements are defined between each pair of nodes, </span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  simulating the columns of a building</span>
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(numFloors):
-</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>, A, E, I, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>        nodes <span style="font-weight:bold">=</span> (i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;ElasticBeamColumn&#34;</span>, i <span style="font-weight:bold">+</span> <span style="color:#099">1</span>, nodes, A, E, I, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Define mass</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#  Mass is assigned to each node (excluding the fixed base), </span>
@@ -634,6 +637,7 @@ can be downloaded from here: <a href="cantilever_modes.py"><code>cantilever_mode
 </span></span><span style="display:flex;"><span>            coord_i <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_i) <span style="color:#998;font-style:italic"># Get the coordinates of the i-th node</span>
 </span></span><span style="display:flex;"><span>            coord_j <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(nodeTag_j) <span style="color:#998;font-style:italic"># Get the coordinates of the j-th node</span>
 </span></span><span style="display:flex;"><span>            ax[mode <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]<span style="font-weight:bold">.</span>plot([coord_i[<span style="color:#099">0</span>], coord_j[<span style="color:#099">0</span>]], [coord_i[<span style="color:#099">1</span>], coord_j[<span style="color:#099">1</span>]], <span style="color:#b84">&#39;-o&#39;</span>, color<span style="font-weight:bold">=</span><span style="color:#b84">&#39;gray&#39;</span>)
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># get modal displacement and floor number for each node</span>
 </span></span><span style="display:flex;"><span>        all_modal_displacements[mode] <span style="font-weight:bold">=</span> {}
 </span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Scale deformation to the node coordinates for easy visualization</span>

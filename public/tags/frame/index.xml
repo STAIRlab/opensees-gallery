@@ -15,7 +15,7 @@
       <description>This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.</description>
     </item>
     <item>
-      <title>Example 3: Portal Frame Examples</title>
+      <title>Example 3: Inelastic Plane Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
@@ -33,7 +33,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
-      <description>Example 5.1 A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:</description>
+      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
     </item>
     <item>
       <title>Force-based Element vs. Displacement-based Element</title>

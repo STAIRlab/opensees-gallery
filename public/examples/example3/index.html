@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  
-<title>Example 3: Portal Frame Examples - OpenSeesRT Examples</title>
+<title>Example 3: Inelastic Plane Frame - OpenSeesRT Examples</title>
 <meta name="description" content="Nonlinear analysis of a concrete portal frame.">
 
 <meta name="keywords" content="Frame, Python, Tcl, Concrete, " />
@@ -50,7 +50,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/example3\/",
-          "name": "Example 3 portal frame examples"
+          "name": "Example 3 inelastic plane frame"
         }
     }]
 }
@@ -61,10 +61,10 @@
   "author": {
     "name" : "STAIRlab"
   },
-  "headline": "Example 3: Portal Frame Examples",
+  "headline": "Example 3: Inelastic Plane Frame",
   "description" : "Nonlinear analysis of a concrete portal frame.",
   "inLanguage" : "en",
-  "wordCount":  1321 ,
+  "wordCount":  1920 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -83,7 +83,7 @@
 }
 </script>
 
-<meta property="og:title" content="Example 3: Portal Frame Examples" />
+<meta property="og:title" content="Example 3: Inelastic Plane Frame" />
 <meta property="og:description" content="Nonlinear analysis of a concrete portal frame.">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/ConcretePortal.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/example3/" />
@@ -283,7 +283,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Example 3: Portal Frame Examples
+                Example 3: Inelastic Plane Frame
                 
               </h1>
               
@@ -365,13 +365,13 @@ The files for this example are:
 		
 
 		<a class="nav-link  active "
-		   id="fecdba-tab" data-bs-toggle="tab" data-bs-target="#fecdba"
+		   id="dfbeca-tab" data-bs-toggle="tab" data-bs-target="#dfbeca"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="dbafec-tab" data-bs-toggle="tab" data-bs-target="#dbafec"
+		   id="febdac-tab" data-bs-toggle="tab" data-bs-target="#febdac"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -387,7 +387,7 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show active " id="fecdba" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="dfbeca" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
 <li><a href="portal.py"><code>portal.py</code></a></li>
@@ -401,7 +401,7 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show " id="dbafec" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="febdac" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
 <li><a href="portal.tcl"><code>portal.tcl</code></a></li>
@@ -449,6 +449,292 @@ nonlinear beam-column elements modeling the columns and an
 elastic beam element to model the girder. For the column elements a
 section, identical to the section used in <a href="../example2/">Example 2</a>,
 is created using steel and concrete fibers.</p>
+<ol>
+<li>
+<p>Begin with nodes and boundary conditions
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="bfcead-tab" data-bs-toggle="tab" data-bs-target="#bfcead"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="cdfaeb-tab" data-bs-toggle="tab" data-bs-target="#cdfaeb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+   
+
+
+
+
+<div class="tab-pane fade show active " id="bfcead" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># create ModelBuilder (with two-dimensions and 3 DOF/node)</span>
+</span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># create nodes &amp; add to Domain - command: node nodeId xCrd yCrd</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">1</span>, <span style="color:#099">0.0</span>,      <span style="color:#099">0.0</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">2</span>, width,    <span style="color:#099">0.0</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">3</span>, <span style="color:#099">0.0</span>,   height)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>node(<span style="color:#099">4</span>, width, height)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt?</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>fix(<span style="color:#099">2</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+
+
+
+<div class="tab-pane fade show " id="cdfaeb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="font-weight:bold">set</span> width    <span style="color:#099">360</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">set</span> height   <span style="color:#099">144</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">model</span> basic <span style="font-weight:bold">-</span>ndm <span style="color:#099">2</span> <span style="font-weight:bold">-</span>ndf <span style="color:#099">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create nodes
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#    tag        X       Y 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">node</span>  <span style="color:#099">1</span>       <span style="color:#099">0.0</span>     <span style="color:#099">0.0</span> 
+</span></span><span style="display:flex;"><span>node  <span style="color:#099">2</span>    <span style="color:#008080">$width</span>     <span style="color:#099">0.0</span> 
+</span></span><span style="display:flex;"><span>node  <span style="color:#099">3</span>       <span style="color:#099">0.0</span> <span style="color:#008080">$height</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">node</span>  <span style="color:#099">4</span>    <span style="color:#008080">$width</span> <span style="color:#008080">$height</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Fix supports at base of columns
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#    tag   DX   DY   RZ
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">fix</span>   <span style="color:#099">1</span>     <span style="color:#099">1</span>    <span style="color:#099">1</span>    <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">fix</span>   <span style="color:#099">2</span>     <span style="color:#099">1</span>    <span style="color:#099">1</span>    <span style="color:#099">1</span>
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+</div>
+</p>
+</li>
+<li>
+<p>Next define the materials<br>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="efadcb-tab" data-bs-toggle="tab" data-bs-target="#efadcb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="abfdec-tab" data-bs-toggle="tab" data-bs-target="#abfdec"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+   
+
+
+
+
+<div class="tab-pane fade show active " id="efadcb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define materials for nonlinear columns</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CONCRETE                          tag  f&#39;c    ec0    f&#39;cu   ecu</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Core concrete (confined)</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#34;Concrete01&#34;</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span><span style="color:#099">6.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">0.004</span>, <span style="font-weight:bold">-</span><span style="color:#099">5.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">0.014</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Cover concrete (unconfined)</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#34;Concrete01&#34;</span>, <span style="color:#099">2</span>, <span style="font-weight:bold">-</span><span style="color:#099">5.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">0.002</span>, <span style="font-weight:bold">-</span><span style="color:#099">0.0</span>, <span style="font-weight:bold">-</span><span style="color:#099">0.006</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># STEEL</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Reinforcing steel </span>
+</span></span><span style="display:flex;"><span>fy <span style="font-weight:bold">=</span>    <span style="color:#099">60.0</span>;      <span style="color:#998;font-style:italic"># Yield stress</span>
+</span></span><span style="display:flex;"><span>E  <span style="font-weight:bold">=</span> <span style="color:#099">30000.0</span>;      <span style="color:#998;font-style:italic"># Young&#39;s modulus</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                                tag fy  E   b</span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#34;Steel01&#34;</span>, <span style="color:#099">3</span>, fy, E, <span style="color:#099">0.01</span>)
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+
+
+
+<div class="tab-pane fade show " id="abfdec" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define materials for nonlinear columns
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># CONCRETE                  tag   f&#39;c        ec0   f&#39;cu        ecu
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Core concrete (confined)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">uniaxialMaterial</span> Concrete01  <span style="color:#099">1</span>  <span style="font-weight:bold">-</span><span style="color:#099">6.0</span>  <span style="font-weight:bold">-</span><span style="color:#099">0.004</span>   <span style="font-weight:bold">-</span><span style="color:#099">5.0</span>     <span style="font-weight:bold">-</span><span style="color:#099">0.014</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Cover concrete (unconfined)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">uniaxialMaterial</span> Concrete01  <span style="color:#099">2</span>  <span style="font-weight:bold">-</span><span style="color:#099">5.0</span>   <span style="font-weight:bold">-</span><span style="color:#099">0.002</span>   <span style="color:#099">0.0</span>     <span style="font-weight:bold">-</span><span style="color:#099">0.006</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># STEEL
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Reinforcing steel 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> fy <span style="color:#099">60.0</span><span style="font-weight:bold">;</span>      <span style="color:#998;font-style:italic"># Yield stress
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> E <span style="color:#099">30000.0</span><span style="font-weight:bold">;</span>    <span style="color:#998;font-style:italic"># Young&#39;s modulus
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                        tag  fy E0    b
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#008080">uniaxialMaterial</span> Steel01  <span style="color:#099">3</span>  <span style="color:#008080">$fy</span> <span style="color:#008080">$E</span> <span style="color:#099">0.01</span>
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+</div>
+</p>
+</li>
+<li>
+<p>Define a cross section for the columns
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="aebfcd-tab" data-bs-toggle="tab" data-bs-target="#aebfcd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="befdac-tab" data-bs-toggle="tab" data-bs-target="#befdac"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+   
+
+
+
+
+<div class="tab-pane fade show active " id="aebfcd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># Define cross-section for nonlinear columns</span>
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># ------------------------------------------</span>
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># set some parameters</span>
+</span></span><span style="display:flex;"><span> colWidth <span style="font-weight:bold">=</span> <span style="color:#099">15.0</span>
+</span></span><span style="display:flex;"><span> colDepth <span style="font-weight:bold">=</span> <span style="color:#099">24.0</span>
+</span></span><span style="display:flex;"><span> cover    <span style="font-weight:bold">=</span>  <span style="color:#099">1.5</span>
+</span></span><span style="display:flex;"><span> As       <span style="font-weight:bold">=</span>  <span style="color:#099">0.6</span>      <span style="color:#998;font-style:italic"># area of no. 7 bars</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># some variables derived from the parameters</span>
+</span></span><span style="display:flex;"><span> y1 <span style="font-weight:bold">=</span> colDepth<span style="font-weight:bold">/</span><span style="color:#099">2.0</span>
+</span></span><span style="display:flex;"><span> z1 <span style="font-weight:bold">=</span> colWidth<span style="font-weight:bold">/</span><span style="color:#099">2.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>section(<span style="color:#b84">&#34;Fiber&#34;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># Add the concrete core fibers</span>
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, cover<span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, y1<span style="font-weight:bold">-</span>cover, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># Add the concrete cover fibers (top, bottom, left, right)</span>
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, y1, z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>, <span style="color:#099">10</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, <span style="font-weight:bold">-</span>z1, y1, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>,  <span style="color:#099">2</span>, <span style="color:#099">1</span>, <span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, cover<span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>patch(<span style="color:#b84">&#34;rect&#34;</span>, <span style="color:#099">2</span>,  <span style="color:#099">2</span>, <span style="color:#099">1</span>,  y1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>z1, y1, z1<span style="font-weight:bold">-</span>cover, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic"># Add the reinforcing fibers (left, middle, right, section=1)</span>
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">3</span>, As, y1<span style="font-weight:bold">-</span>cover, z1<span style="font-weight:bold">-</span>cover, y1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">2</span>, As,      <span style="color:#099">0.0</span>, z1<span style="font-weight:bold">-</span>cover,      <span style="color:#099">0.0</span>, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span> model<span style="font-weight:bold">.</span>layer(<span style="color:#b84">&#34;straight&#34;</span>, <span style="color:#099">3</span>, <span style="color:#099">3</span>, As, cover<span style="font-weight:bold">-</span>y1, z1<span style="font-weight:bold">-</span>cover, cover<span style="font-weight:bold">-</span>y1, cover<span style="font-weight:bold">-</span>z1, section<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+
+
+
+<div class="tab-pane fade show " id="befdac" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define cross-section for nonlinear columns
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># set some parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> colWidth <span style="color:#099">15</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">set</span> colDepth <span style="color:#099">24</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set cover  <span style="color:#099">1.5</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">set</span> As    <span style="color:#099">0.60</span><span style="font-weight:bold">;</span>     <span style="color:#998;font-style:italic"># area of no. 7 bars
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># some variables derived from the parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">set</span> y1 <span style="font-weight:bold">[expr</span> <span style="color:#008080">$colDepth</span><span style="font-weight:bold">/</span><span style="color:#099">2.0</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">set</span> z1 <span style="font-weight:bold">[expr</span> <span style="color:#008080">$colWidth</span><span style="font-weight:bold">/</span><span style="color:#099">2.0</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">section</span> Fiber <span style="color:#099">1</span> <span style="font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Add the concrete core fibers
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">patch</span> rect <span style="color:#099">1</span> <span style="color:#099">10</span> <span style="color:#099">1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Add the concrete cover fibers (top, bottom, left, right)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span> <span style="color:#099">10</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="color:#008080">$z1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span> <span style="color:#099">10</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$z1</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span>  <span style="color:#099">2</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="font-weight:bold">-</span><span style="color:#008080">$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">patch</span> rect <span style="color:#099">2</span>  <span style="color:#099">2</span> <span style="color:#099">1</span>  <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span> <span style="color:#008080">$y1</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Add the reinforcing fibers (left, middle, right)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">3</span> <span style="color:#008080">$As</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$y1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">2</span> <span style="color:#008080">$As</span> <span style="color:#099">0.0</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="color:#099">0.0</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">layer</span> straight <span style="color:#099">3</span> <span style="color:#099">3</span> <span style="color:#008080">$As</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$z1-$cover</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$y1</span><span style="font-weight:bold">]</span> <span style="font-weight:bold">[expr</span> <span style="color:#008080">$cover-$z1</span><span style="font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">}</span>
+</span></span></code></pre></div>
+
+</div>
+
+   
+
+</div>
+</p>
+</li>
+</ol>
 <h2 id="gravity_analysis"><code>gravity_analysis</code></h2>
 <p>We now implement a function called <code>gravity_analysis</code>
 which takes the instance of <code>Model</code> returned by <code>create_portal</code>,
@@ -465,13 +751,13 @@ Its use will look like:</p>
 		
 
 		<a class="nav-link  active "
-		   id="deacfb-tab" data-bs-toggle="tab" data-bs-target="#deacfb"
+		   id="fdecab-tab" data-bs-toggle="tab" data-bs-target="#fdecab"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="efacbd-tab" data-bs-toggle="tab" data-bs-target="#efacbd"
+		   id="fbadce-tab" data-bs-toggle="tab" data-bs-target="#fbadce"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -487,7 +773,7 @@ Its use will look like:</p>
 
 
 
-<div class="tab-pane fade show active " id="deacfb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="fdecab" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create the model</span>
 </span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> create_portal()
@@ -503,7 +789,7 @@ Its use will look like:</p>
 
 
 
-<div class="tab-pane fade show " id="efacbd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="fbadce" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">create_portal</span><span style="font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008080">gravity_analysis</span><span style="font-weight:bold">;</span>
@@ -570,12 +856,70 @@ the figure below.</p>
 <p><img src="ExampleOut3.2.svg" alt="Load displacement curve for node 3"></p>
 <h2 id="transient_analysis"><code>transient_analysis</code></h2>
 <!-- 3.3 -->
-<p>In this example the reinforced concrete portal frame which has undergone
+<p>The concrete frame which has undergone
 the gravity load analysis of Example 3.1 is now subjected to a uniform
 earthquake excitation.</p>
 <p>After performing the gravity load analysis, the time in the domain is
-reset to 0.0 and the current value of all active loads is set to
-constant. Mass terms are added to nodes 3 and 4. A new uniform
+reset to 0.0 and the time series for all active loads is set to
+constant. This prevents the gravity load from being scaled with each
+step of the dynamic analysis.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="adbcfe-tab" data-bs-toggle="tab" data-bs-target="#adbcfe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+		<a class="nav-link "
+		   id="cdabfe-tab" data-bs-toggle="tab" data-bs-target="#cdabfe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="adbcfe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>loadConst(time<span style="font-weight:bold">=</span><span style="color:#099">0.0</span>)
+</span></span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="cdabfe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tcl" data-lang="tcl"><span style="display:flex;"><span><span style="color:#008080">loadConst</span> <span style="font-weight:bold">-</span>time <span style="color:#099">0.0</span>
+</span></span></code></pre></div>
+
+</div>
+
+
+
+</div>
+
+<p>Mass terms are added to nodes 3 and 4. A new uniform
 excitation load pattern is created. The excitation acts in the
 horizontal direction and reads the acceleration record and time interval
 from the file <code>ARL360.g3</code>. The file <code>ARL360.g3</code> is created from the PEER
@@ -692,7 +1036,7 @@ generate the moment-curvature time history of the base section of column
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;text=Example%203%3a%20Portal%20Frame%20Examples&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;text=Example%203%3a%20Inelastic%20Plane%20Frame&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -704,7 +1048,7 @@ generate the moment-curvature time history of the base section of column
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;title=Example%203%3a%20Portal%20Frame%20Examples"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;title=Example%203%3a%20Inelastic%20Plane%20Frame"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -714,8 +1058,8 @@ generate the moment-curvature time history of the base section of column
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Example 3: Portal Frame Examples on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&title=Example%203%3a%20Portal%20Frame%20Examples">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Example 3: Inelastic Plane Frame on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&title=Example%203%3a%20Inelastic%20Plane%20Frame">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -732,7 +1076,7 @@ generate the moment-curvature time history of the base section of column
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;description=Example%203%3a%20Portal%20Frame%20Examples" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fexample3%2f&amp;description=Example%203%3a%20Inelastic%20Plane%20Frame" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path

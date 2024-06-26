@@ -66,10 +66,11 @@ def create_portal(width  = 360.0, height = 144.0):
     model.patch("rect", 2,  2, 1,  y1-cover, cover-z1, y1, z1-cover, section=1)
     # Create the reinforcing fibers (left, middle, right, section=1)
     model.layer("straight", 3, 3, As, y1-cover, z1-cover, y1-cover, cover-z1, section=1)
-    model.layer("straight", 3, 2, As, 0.0, z1-cover, 0.0, cover-z1, section=1)
+    model.layer("straight", 3, 2, As,      0.0, z1-cover,      0.0, cover-z1, section=1)
     model.layer("straight", 3, 3, As, cover-y1, z1-cover, cover-y1, cover-z1, section=1)
     # define beam integration
     np = 5;  # number of integration points along length of element
+
     model.beamIntegration("Lobatto", 1, 1, np)
 
     # Define column elements
@@ -79,10 +80,9 @@ def create_portal(width  = 360.0, height = 144.0):
     model.geomTransf("PDelta", 1)
 
     # Create the columns using Beam-column elements
-    #                   tag ndI ndJ transfTag integrationTag
-    eleType = "ForceBeamColumn"
-    model.element(eleType, 1, 1, 3, 1, 1)
-    model.element(eleType, 2, 2, 4, 1, 1)
+    #                              tag   nodes transfTag integrationTag
+    model.element("ForceBeamColumn", 1, (1, 3),    1,           1)
+    model.element("ForceBeamColumn", 2, (2, 4),    1,           1)
 
     # Define girder element
     # -----------------------------
@@ -91,8 +91,8 @@ def create_portal(width  = 360.0, height = 144.0):
     model.geomTransf("Linear", 2)
 
     # Create the beam element
-    #                               tag ndI ndJ  A     E       Iz   transfTag
-    model.element("ElasticBeamColumn", 3, 3, 4, 360.0, 4030.0, 8640.0, 2)
+    #                                tag  nodes     A      E       Iz   transfTag
+    model.element("ElasticBeamColumn", 3, (3, 4), 360.0, 4030.0, 8640.0, 2)
 
     return model
 
@@ -168,7 +168,7 @@ def pushover_analysis(model, H=10.0):
     # ----------------------------------------------------
 
     # Set the gravity loads to be constant & reset the time in the domain
-    model.loadConst("-time", 0.0)
+    model.loadConst(time=0.0)
 
 
     # Define lateral loads
@@ -176,16 +176,12 @@ def pushover_analysis(model, H=10.0):
     # Set some parameters
     H = 10.0 		# Reference lateral load
 
-    # Set lateral load pattern with a Linear TimeSeries
-    model.pattern("Plain", 2, 1, "-fact", 1.0)
+    # Define pattern 2  for lateral loads with a Linear TimeSeries
+    model.pattern("Plain", 2, "Linear")
 
-    # create the nodal load - command: load nodeID xForce yForce zMoment
+    # create the nodal loads - command: load nodeID xForce yForce zMoment
     model.load(3, H, 0.0, 0.0, pattern=2)
     model.load(4, H, 0.0, 0.0, pattern=2)
-    # ----------------------------------------------------
-    # End of additional modeling for lateral loads
-    # ----------------------------------------------------
-
 
 
     # ----------------------------------------------------
@@ -199,9 +195,6 @@ def pushover_analysis(model, H=10.0):
     #                                    node dof init Jd min max
     model.integrator("DisplacementControl", 3, 1, dU, 1, dU, dU)
 
-    # ----------------------------------------------------
-    # End of modifications to analysis for push over
-    # ----------------------------------------------------
 
 
     # ------------------------------
@@ -214,10 +207,6 @@ def pushover_analysis(model, H=10.0):
 
     # Create a recorder to monitor element forces in columns
     model.recorder("EnvelopeElement", "-file", "ele32.out", "-time", "-ele", 1, 2, "localForce")
-
-    # --------------------------------
-    # End of recorder generation
-    # --------------------------------
 
 
     # ------------------------------
@@ -250,7 +239,7 @@ def pushover_analysis(model, H=10.0):
             # if the analysis failed, try initial tangent iteration
             if status != ops.successful:
                 print("regular newton failed .. lets try an initial stiffness for this step")
-                model.test("NormDispIncr", 1.0E-12, 1000)
+                model.test("NormDispIncr", 1.0e-12, 1000)
                 model.algorithm("ModifiedNewton", "-initial")
                 status = model.analyze(1)
                 if status == ops.successful:
@@ -262,9 +251,7 @@ def pushover_analysis(model, H=10.0):
 
     return status
 
-
-
-if __name__ == "__main__":
+def main():
     # Create the model
     model = create_portal()
 
@@ -285,4 +272,7 @@ if __name__ == "__main__":
 
     # Print the state at node 3
     model.print("node", 3)
+
+if __name__ == "__main__":
+    main()
 
