@@ -337,7 +337,6 @@
           
         
 
-        
       </div>
     </div>
 
@@ -347,12 +346,12 @@
 <p>A three-dimensional reinforced concrete rigid frame,
 is subjected to bi-directional earthquake ground motion.</p>
 <ol>
-<li><a href="Example5.1.tcl"><code>Example5.1.tcl</code></a></li>
+<li><a href="Example5.tcl"><code>Example5.tcl</code></a></li>
 <li><a href="RCsection.tcl"><code>RCsection.tcl</code></a></li>
 </ol>
 <p>Or for Python:</p>
 <ol>
-<li><a href="Example5.1.py"><code>Example5.1.py</code></a></li>
+<li><a href="Example5.py"><code>Example5.py</code></a></li>
 </ol>
 <p>In both cases, the following ground motion records are required:</p>
 <ol start="3">
@@ -393,9 +392,8 @@ post-processing.</p>
 every time step. Each line contains the time and the horizontal and
 vertical displacements at the diaphragm retained nodes (<code>9</code>, <code>14</code> and <code>19</code>)
 i.e. time Dx9 Dy9 Dx14 Dy14 Dx19 Dy19. The horizontal displacement time
-history of the first floor diaphragm node 9 is shown in
-figure <a href="#example4disp">[example4disp</a>{reference-type=&ldquo;ref&rdquo;
-reference=&ldquo;example4disp&rdquo;}. Notice the increase in period after about 10
+history of the first floor diaphragm node 9 is shown in the
+figure below. Notice the increase in period after about 10
 seconds of earthquake excitation, when the large pulse in the ground
 motion propogates through the structure. The displacement profile over
 the three stories shows a soft-story mechanism has formed in the first
@@ -403,6 +401,10 @@ floor columns. The numerical solution converges even though the drift is
 $\approx 20 \%$. The inclusion of P-Delta effects shows structural
 collapse under such large drifts.</p>
 <p><img src="RigidFrameDisp.svg" alt="Node 9 displacement time history"></p>
+<p><model-viewer alt="Finite element model rendering." 
+src="displaced.glb" ar 
+style="width: 100%; height: 300px;"
+shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer></p>
 
       </article>
     </div>
@@ -645,8 +647,7 @@ collapse under such large drifts.</p>
 
                 <div class="post-entry">
                     
-                    Download (Bathe Model Problem.ipynb)
-March 2020, By Amir Hossein Namadchi
+                    March 2020, By Amir Hossein Namadchi
 This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.
                     
                 </div>

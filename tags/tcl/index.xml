@@ -54,7 +54,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
-      <description>Example 5.1 A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.1.tcl RCsection.tcl Or for Python:</description>
+      <description>Example 5.1 A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:</description>
     </item>
     <item>
       <title>Example 6: Simply Supported Beam</title>
@@ -83,13 +83,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/gallery/ce58658/</guid>
       <description>The Hayward bridge model is used for structural health monitoring on the BRACE2 platform. The files for the model can be browsed on GitHub.</description>
-    </item>
-    <item>
-      <title>Hinges in Frame Elements</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framehinges/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framehinges/</guid>
-      <description>Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 from math import cos,sin,sqrt,pi import opensees.</description>
     </item>
     <item>
       <title>Matrix Eigenvalue Analysis</title>
