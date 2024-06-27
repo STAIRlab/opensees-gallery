@@ -218,12 +218,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/example8/</loc>
+    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/</loc>
     <lastmod>2024-05-28T14:25:13-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/excavation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/export/</loc>
+    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -393,6 +403,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/solid/</loc>
+    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
