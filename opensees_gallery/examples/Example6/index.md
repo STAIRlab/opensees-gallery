@@ -3,16 +3,15 @@ title: "Example 6: Simply Supported Beam"
 tags: ["Plane", "Python", "Tcl"]
 categories: ["Basic"]
 image: Example6.png
+render: model.glb
 ---
-
-![Simply supported beam](Example6.png)
 
 In this example a simple problem in solid dynamics is considered. The
 structure is a simply supported beam modelled with two dimensional solid
 elements.
 
-1.  [`Example6.1.tcl`](Example6.1.tcl)
-2.  [`Example6.1.py`](Example6.1.py)
+1.  [`Example6.tcl`](Example6.tcl)
+2.  [`Example6.py`](Example6.py)
 
 For two dimensional analysis, a typical solid element is defined as a
 volume in two dimensional space. Each node of the analysis has two
@@ -58,5 +57,8 @@ displacement at the bottom center of the beam. The time history is shown
 in Figure 1.
 
 ![Displacement vs. Time for Bottom Center of Beam](SS.svg)
+
+
+{{% render "displaced.glb" %}}
 
 

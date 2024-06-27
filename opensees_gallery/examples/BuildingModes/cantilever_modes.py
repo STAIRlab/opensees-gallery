@@ -46,7 +46,8 @@ def make_model():
     #  Beam-column elements are defined between each pair of nodes, 
     #  simulating the columns of a building
     for i in range(numFloors):
-        model.element("ElasticBeamColumn", i + 1, i + 1, i + 2, A, E, I, 1)
+        nodes = (i + 1, i + 2)
+        model.element("ElasticBeamColumn", i + 1, nodes, A, E, I, 1)
 
     # Define mass
     #  Mass is assigned to each node (excluding the fixed base), 
@@ -99,6 +100,7 @@ def plot_modes(model, numFloors, floorHeight):
             coord_i = model.nodeCoord(nodeTag_i) # Get the coordinates of the i-th node
             coord_j = model.nodeCoord(nodeTag_j) # Get the coordinates of the j-th node
             ax[mode + 1].plot([coord_i[0], coord_j[0]], [coord_i[1], coord_j[1]], '-o', color='gray')
+
         # get modal displacement and floor number for each node
         all_modal_displacements[mode] = {}
         # Scale deformation to the node coordinates for easy visualization

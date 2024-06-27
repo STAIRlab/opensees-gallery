@@ -11,8 +11,6 @@
 # Date: June 2017
 
 # import the OpenSeesPy Compatiblity module.
-# This module contains a private global variable
-# that encapsulates an instance of TclRuntime
 import opensees.openseespy as ops
 
 # ------------------------------
@@ -20,7 +18,7 @@ import opensees.openseespy as ops
 # ------------------------------
 
 # Create a Model (with two-dimensions and 2 DOF/node)
-model = ops.Model("BasicBuilder", ndm=2, ndf=2)
+model = ops.Model(ndm=2, ndf=2)
 
 # Create nodes - command: node nodeId xCrd yCrd
 model.node(1,   0.0,  0.0)
@@ -54,18 +52,9 @@ load = {4: [100, -50.0]}
 model.pattern("Plain", 1, "Linear", load=load)
 
 
-# print model
-model.print("-json", file="Example1.1.json")
-
 # ------------------------------
 # Start of analysis generation
 # ------------------------------
-
-# create the system of equation, a SPD using a band storage scheme
-model.system("BandSPD")
-
-# create the DOF numberer, the reverse Cuthill-McKee algorithm
-model.numberer("RCM")
 
 # create the constraint handler, a Plain handler is used as homo constraints
 model.constraints("Plain")
@@ -96,7 +85,6 @@ if False:
 # Finally perform the analysis
 # ------------------------------
 
-# perform the analysis
 model.analyze(1)
 
 

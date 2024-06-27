@@ -92,10 +92,11 @@ concrete in the column core, unconfined concrete in the column cover,
 and reinforcing steel.
 
 The dimensions of the fiber section are shown in
-figure [rcsection0](#rcsection0). The section depth is 24 inches, the width is 15
+figure [rcsection0](#rcsection0). 
+The section depth is 24 inches, the width is 15
 inches, and there are 1.5 inches of cover around the entire section.
-Strong axis bending is about the section z-axis. In fact, the section
-z-axis is the strong axis of bending for all fiber sections in planar
+Strong axis bending is about the section $z$-axis. In fact, the section
+$z$-axis is the strong axis of bending for all fiber sections in planar
 problems. The section is separated into confined and unconfined concrete
 regions, for which separate fiber discretizations will be generated.
 Reinforcing steel bars will be placed around the boundary of the
@@ -104,12 +105,14 @@ section is shown in
 figure [rcsection4](#rcsection4).
 
 
-![Dimensions of the RC section.](./RCsection0.svg){#fig:rcsection0} 
+![Dimensions of the RC section.](./RCsection0.svg)
 
 
 
-![Fiber section discretization](./RCsection4.svg){#fig:rcsection4}
+![Fiber section discretization](./RCsection4.svg)
 
+
+## Analysis
 
 The section analysis is performed by the procedure `moment_curvature`
 defined in the file `MomentCurvature.tcl` for

@@ -1,5 +1,5 @@
 ---
-title: "Example 1: Simple Truss"
+title: "Example 1: Linear Truss"
 tags: ["Truss", "Python", "Tcl"]
 categories: ["Basic"]
 image: BasicTruss.png
@@ -21,7 +21,7 @@ This includes the definition of nodes,
 materials, elements, loads and constraints. 
 
 
-## The `Model` container
+## Model
 
 We begin the simulation by creating a `Model`, which will manage
 the nodes, elements, loading and state. This is done through
@@ -127,9 +127,10 @@ the truss element requires the following arguments:
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-model.element("Truss", 1, (1, 4), 10.0, 1)
-model.element("Truss", 2, (2, 4),  5.0, 1)
-model.element("Truss", 3, (3, 4),  5.0, 1)
+#              Type   tag  nodes  Area  material
+model.element("Truss", 1, (1, 4), 10.0,    1   )
+model.element("Truss", 2, (2, 4),  5.0,    1   )
+model.element("Truss", 3, (3, 4),  5.0,    1   )
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
@@ -141,7 +142,71 @@ element Truss 3 3 4  5.0 1;
 {{% /tab %}}
 {{< /tabs >}}
 
-## Analysis procedure
+## Loads
+
+The final step before we can configure and run the analysis is to define
+some loading. In this case we have two point loads at the apex of
+the truss (node `4`).
+In OpenSees, loads are assigned to load *patterns*, which define how loads
+are scaled with each load *step*.
+In Python, the simplest way to represent a nodal load is by a dictionary with
+node numbers as keys, and corresponding load vector as values. For the problem at
+hand, we want to apply a load to node `4` with `100` units in the $x$ direction, and
+`-50` units in the $y$ direction; the corresponding definition is:
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+loads = {4: [100, -50]}
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+set loads {4 100 -50}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+We then add a `"Plain"` load pattern to the model with these loads, 
+and use the `"Linear"` option
+to specify that it should be increased linearly with each new load step.
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", load=loads)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+pattern Plain 1 "Linear" "load $loads"
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+<blockquote>
+
+Note that it is common to define the `load` data structure
+*inside* the call to the `pattern` function. This looks like:
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", load={
+  4: [100, -50]
+})
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+pattern Plain 1 "Linear" {
+  load 4 100 -50
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+</blockquote>
+
+## Analysis
 
 Next we configure that analysis procedure.
 The model is linear, so we use a solution Algorithm of type `Linear`. 
@@ -202,8 +267,37 @@ analysis Static;
 {{% /tab %}}
 {{< /tabs >}}
 
+Finally, one analysis step is performed by invoking `analyze`:
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.analyze(1)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+analyze 1
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 When the analysis is complete the state of node `4` and all three elements
-will be printed to the screen.
+may be printed to the screen:
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.print(node=4)
+model.print("ele")
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+print node 4
+print ele
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ```
     Node: 4
@@ -250,6 +344,6 @@ successfully.
 Scripts for this example can be downloaded for either
 Python or Tcl:
 
-- [`Example1.1.py`](./Example1.1.py)
-- [`Example1.1.tcl`](./Example1.1.tcl)
+- [`Example1.py`](./Example1.py)
+- [`Example1.tcl`](./Example1.tcl)
 

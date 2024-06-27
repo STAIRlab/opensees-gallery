@@ -1,5 +1,5 @@
 ---
-title: "Example 3: Portal Frame Examples"
+title: "Example 3: Inelastic Plane Frame"
 tags: ["Frame", "Python", "Tcl", "Concrete"]
 categories: ["Basic"]
 image: ConcretePortal.png
@@ -40,6 +40,154 @@ elastic beam element to model the girder. For the column elements a
 section, identical to the section used in [Example 2](../example2/), 
 is created using steel and concrete fibers.
 
+1. Begin with nodes and boundary conditions
+   {{< tabs tabTotal="2" >}}
+   {{% tab name="Python" %}}
+   ```python
+   # create ModelBuilder (with two-dimensions and 3 DOF/node)
+   model = ops.Model(ndm=2, ndf=3)
+   
+   # Create nodes
+   # ------------
+   # create nodes & add to Domain - command: node nodeId xCrd yCrd
+   model.node(1, 0.0,      0.0)
+   model.node(2, width,    0.0)
+   model.node(3, 0.0,   height)
+   model.node(4, width, height)
+   
+   # set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt?
+   model.fix(1, 1, 1, 1)
+   model.fix(2, 1, 1, 1)
+   ```
+   {{% /tab %}}
+   {{% tab name="Tcl" %}}
+   ```tcl
+   set width    360
+   set height   144
+   
+   model basic -ndm 2 -ndf 3
+   # Create nodes
+   #    tag        X       Y 
+   node  1       0.0     0.0 
+   node  2    $width     0.0 
+   node  3       0.0 $height
+   node  4    $width $height
+   
+   
+   # Fix supports at base of columns
+   #    tag   DX   DY   RZ
+   fix   1     1    1    1
+   fix   2     1    1    1
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+2. Next define the materials   
+   {{< tabs tabTotal="2" >}}
+   {{% tab name="Python" %}}
+   ```python
+   # Define materials for nonlinear columns
+   # ------------------------------------------
+   # CONCRETE                          tag  f'c    ec0    f'cu   ecu
+   # Core concrete (confined)
+   model.uniaxialMaterial("Concrete01", 1, -6.0, -0.004, -5.0, -0.014)
+   # Cover concrete (unconfined)
+   model.uniaxialMaterial("Concrete01", 2, -5.0, -0.002, -0.0, -0.006)
+   
+   # STEEL
+   # Reinforcing steel 
+   fy =    60.0;      # Yield stress
+   E  = 30000.0;      # Young's modulus
+   #                                tag fy  E   b
+   model.uniaxialMaterial("Steel01", 3, fy, E, 0.01)
+   ```
+   {{% /tab %}}
+   {{% tab name="Tcl" %}}
+   ```tcl
+   
+   # Define materials for nonlinear columns
+   # ------------------------------------------
+   # CONCRETE                  tag   f'c        ec0   f'cu        ecu
+   # Core concrete (confined)
+   uniaxialMaterial Concrete01  1  -6.0  -0.004   -5.0     -0.014
+   
+   # Cover concrete (unconfined)
+   uniaxialMaterial Concrete01  2  -5.0   -0.002   0.0     -0.006
+   
+   # STEEL
+   # Reinforcing steel 
+   set fy 60.0;      # Yield stress
+   set E 30000.0;    # Young's modulus
+   #                        tag  fy E0    b
+   uniaxialMaterial Steel01  3  $fy $E 0.01
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
+
+3. Define a cross section for the columns
+   {{< tabs tabTotal="2" >}}
+   {{% tab name="Python" %}}
+   ```python
+    # Define cross-section for nonlinear columns
+    # ------------------------------------------
+    # set some parameters
+    colWidth = 15.0
+    colDepth = 24.0
+    cover    =  1.5
+    As       =  0.6      # area of no. 7 bars
+
+    # some variables derived from the parameters
+    y1 = colDepth/2.0
+    z1 = colWidth/2.0
+
+    model.section("Fiber", 1)
+    # Add the concrete core fibers
+    model.patch("rect", 1, 10, 1, cover-y1, cover-z1, y1-cover, z1-cover, section=1)
+    # Add the concrete cover fibers (top, bottom, left, right)
+    model.patch("rect", 2, 10, 1, -y1, z1-cover, y1, z1, section=1)
+    model.patch("rect", 2, 10, 1, -y1, -z1, y1, cover-z1, section=1)
+    model.patch("rect", 2,  2, 1, -y1, cover-z1, cover-y1, z1-cover, section=1)
+    model.patch("rect", 2,  2, 1,  y1-cover, cover-z1, y1, z1-cover, section=1)
+    # Add the reinforcing fibers (left, middle, right, section=1)
+    model.layer("straight", 3, 3, As, y1-cover, z1-cover, y1-cover, cover-z1, section=1)
+    model.layer("straight", 3, 2, As,      0.0, z1-cover,      0.0, cover-z1, section=1)
+    model.layer("straight", 3, 3, As, cover-y1, z1-cover, cover-y1, cover-z1, section=1)
+   ```
+   {{% /tab %}}
+   {{% tab name="Tcl" %}}
+   ```tcl
+   # Define cross-section for nonlinear columns
+   # ------------------------------------------
+
+   # set some parameters
+   set colWidth 15
+   set colDepth 24 
+
+   set cover  1.5
+   set As    0.60;     # area of no. 7 bars
+
+   # some variables derived from the parameters
+   set y1 [expr $colDepth/2.0]
+   set z1 [expr $colWidth/2.0]
+
+   section Fiber 1 {
+       # Add the concrete core fibers
+       patch rect 1 10 1 [expr $cover-$y1] [expr $cover-$z1] [expr $y1-$cover] [expr $z1-$cover]
+
+       # Add the concrete cover fibers (top, bottom, left, right)
+       patch rect 2 10 1  [expr -$y1] [expr $z1-$cover] $y1 $z1
+       patch rect 2 10 1  [expr -$y1] [expr -$z1] $y1 [expr $cover-$z1]
+       patch rect 2  2 1  [expr -$y1] [expr $cover-$z1] [expr $cover-$y1] [expr $z1-$cover]
+       patch rect 2  2 1  [expr $y1-$cover] [expr $cover-$z1] $y1 [expr $z1-$cover]
+
+       # Add the reinforcing fibers (left, middle, right)
+       layer straight 3 3 $As [expr $y1-$cover] [expr $z1-$cover] [expr $y1-$cover] [expr $cover-$z1]
+       layer straight 3 2 $As 0.0 [expr $z1-$cover] 0.0 [expr $cover-$z1]
+       layer straight 3 3 $As [expr $cover-$y1] [expr $z1-$cover] [expr $cover-$y1] [expr $cover-$z1]
+   }
+   ```
+   {{% /tab %}}
+   {{< /tabs >}}
 
 ## `gravity_analysis`
 
@@ -140,13 +288,29 @@ the figure below.
 
 <!-- 3.3 -->
 
-In this example the reinforced concrete portal frame which has undergone
+The concrete frame which has undergone
 the gravity load analysis of Example 3.1 is now subjected to a uniform
 earthquake excitation.
 
 After performing the gravity load analysis, the time in the domain is
-reset to 0.0 and the current value of all active loads is set to
-constant. Mass terms are added to nodes 3 and 4. A new uniform
+reset to 0.0 and the time series for all active loads is set to
+constant. This prevents the gravity load from being scaled with each
+step of the dynamic analysis.
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.loadConst(time=0.0)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+loadConst -time 0.0
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+Mass terms are added to nodes 3 and 4. A new uniform
 excitation load pattern is created. The excitation acts in the
 horizontal direction and reads the acceleration record and time interval
 from the file `ARL360.g3`. The file `ARL360.g3` is created from the PEER

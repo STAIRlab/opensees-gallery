@@ -2,15 +2,14 @@
 # Pacific Earthquake Engineering Research Center
 # http://opensees.berkeley.edu/
 #
-# Cantilever Beam Example 8.1
-# ---------------------------
-#  Cantilever beam modeled with
-#  three dimensional brick elements
+# Example 8: Cantilever Beam
+# --------------------------
+# Cantilever beam modeled with three dimensional brick elements
 # 
 # Example Objectives
 # ------------------
-#  test different brick elements
-#  free vibration analysis starting from static deflection
+# - test different brick elements
+# - free vibration analysis starting from static deflection
 #
 # Units: kips, in, sec
 #
@@ -33,7 +32,7 @@ model = ops.Model(ndm=3, ndf=3)
 # Define the material
 # -------------------
 #                               matTag  E     nu   rho
-model.nDMaterial("ElasticIsotropic", 1, 100.0, 0.25, 1.27) 
+model.nDMaterial("ElasticIsotropic", 1, 100.0, 0.25, 1.27)
 
 # Define geometry
 # ---------------
@@ -42,45 +41,40 @@ Brick = "stdBrick"
 #Brick = "SSPbrick"
 
 nz = 6
-nx = 2 
+nx = 2
 ny = 2
 
 nn = int((nz+1)*(nx+1)*(ny+1))
 
 # mesh generation
 #          numX numY numZ startNode startEle eleType eleArgs? coords?
-model.block3D(nx, ny, nz, 1, 1,
-            Brick, 1,
-            1, -1.0, -1.0,  0.0,
-            2,  1.0, -1.0,  0.0,
-            3,  1.0,  1.0,  0.0,
-            4, -1.0,  1.0,  0.0,
-            5, -1.0, -1.0, 10.0,
-            6,  1.0, -1.0, 10.0,
-            7,  1.0,  1.0, 10.0,
-            8, -1.0,  1.0, 10.0)
+model.block3D(nx, ny, nz, 1, 1, Brick, 1, {
+              1: [-1.0, -1.0,  0.0],
+              2: [ 1.0, -1.0,  0.0],
+              3: [ 1.0,  1.0,  0.0],
+              4: [-1.0,  1.0,  0.0],
+              5: [-1.0, -1.0, 10.0],
+              6: [ 1.0, -1.0, 10.0],
+              7: [ 1.0,  1.0, 10.0],
+              8: [-1.0,  1.0, 10.0]})
 
 # boundary conditions
-model.fixZ(0.0, 1, 1, 1)
+model.fixZ(0.0, (1, 1, 1))
 
-# Define point load (3 steps)
-# 1) First we create a linear time series which describes
-#    how the loading scales over pseudo time
-#    create a Linear time series
-model.timeSeries("Linear", 1)
+#
+# Define point load (2 steps)
+#
 
-# 2) Next we create a "Plain" load pattern which serves as a
-#    container for the loads
+# 1) First we create a "Plain" load pattern which serves as a
+#    container for the loads. The "Linear" argument prescribes
+#    a linear time series which describes how the loading scales 
+#    over pseudo time
 p = 0.10
-model.pattern("Plain", 1, 1, fact=1.0)
+model.pattern("Plain", 1, "Linear")
 
-# 3) Finally, create the nodal load and assign it to the
+# 2) Finally, create the nodal load and assign it to the
 #    pattern we just created
 model.load(nn, p, p, 0.0, pattern=1)
-
-# print model
-#printModel()
-model.printModel("-JSON", "-file", "Example8.1.json")
 
 # ----------------------- 
 # End of model generation
@@ -130,12 +124,6 @@ model.recorder("Node", "-file", "Node.out", "-time", "-node", nn, "-dof", 1, "di
 model.recorder("Element", "-file", "Elem.out", "-time", "-eleRange", 1, 10, "material", "1", "strains")
 #recorder("plot", "Node.out", "CenterNodeDisp", 625, 10, 625, 450, "-columns", 1, 2)
 
-# create the display
-#recorder("display", "VibratingBeam", 100, 40, 500, 500, "-wipe")
-#prp -100 100 120.5
-#vup 0 1 0 
-#display 1 4 1 
-
 # --------------------------
 # End of recorder generation
 # --------------------------
@@ -171,4 +159,3 @@ model.record()
 #         numSteps dt
 model.analyze(1000, 1.0)
 
-model.wipe()

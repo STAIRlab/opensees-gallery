@@ -1,16 +1,18 @@
 ---
-title: "Example 8: Cantilever Beam"
+title: "Example 8: Continuum Cantilever"
 tags: ["Solid", "Dynamic", "Python", "Tcl", "Export"]
 categories: ["Basic"]
+description: Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.
 image: Example8.png
-draft: true
+render: model.glb
 ---
 
 In this example a simple problem in solid dynamics is considered. The
 structure is a cantilever beam modelled with three dimensional solid
 elements.
 
-1.  `Example8.1.tcl`
+1.  [`Example8.tcl`](./Example8.tcl)
+1.  [`Example8.py`](./Example8.py)
 
 For three dimensional analysis, a typical solid element is defined as a
 volume in three dimensional space. Each node of the analysis has three
@@ -23,7 +25,7 @@ number of nodes in the local y-direction of the block is `ny` and the
 number of nodes in the local z-direction of the block is `nz`. The
 block3D generation nodes `{1,2,3,4,5,6,7,8}` are prescribed to define the
 three dimensional domain of the beam, which is of size
-\(2 \times 2 \times 10\).
+$2 \times 2 \times 10$.
 
 Two possible brick elements can be used for the analysis. These may be
 created using the terms `StdBrick` or `BbarBrick`. An elastic isotropic
@@ -32,8 +34,8 @@ material is used.
 For initial gravity load analysis, a single load pattern with a linear
 time series and a single nodal loads is used.
 
-Boundary conditions are applied using the fixZ command. In this case,
-all the nodes whose z-coordiate is $0.0$ have the boundary condition
+Boundary conditions are applied using the `fixZ` command. In this case,
+all the nodes whose $z$-coordiate is $0.0$ have the boundary condition
 `{1,1,1}`, fully fixed.
 
 A solution algorithm of type Newton is used for the problem. The
@@ -53,13 +55,14 @@ linear and angular momentum for both linear and non-linear problems. The
 dynamic analysis is performed using $100$ time increments with a time
 step \(\Delta t = 2.0\).
 
-The results consist of the file cantilever.out, which contains a line
-for every time step. Each line contains the time and the horizontal
-displacement at the upper right corner the beam. The time history is as
-plotted on the screen.
+The deformed shape at the end of the analysis is rendered below:
 
-figure [cantileverdisp](#cantileverdisp){reference-type="ref"
-reference="cantileverdisp"}.
+{{% render "model.glb" %}}
+
+The results consist of the file `cantilever.out`, which contains a line
+for every time step. Each line contains the time and the horizontal
+displacement at the upper right corner the beam. 
+This is plotted in the figure below:
 
 ![Displacement vs. Time for Upper Right Corner of Beam](cantilever.svg)
 
