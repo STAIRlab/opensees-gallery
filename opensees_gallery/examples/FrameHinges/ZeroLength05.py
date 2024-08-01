@@ -1,3 +1,5 @@
+
+import sees
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 # ZeroLength5.tcl
@@ -8,13 +10,13 @@ import opensees.openseespy as ops
 #
 #  |A        B
 #  |@--------@------------
-#  |    4          6      ^
+#  |    4          6     ^
 
 
 
 def rotSpring2D(model, eleID, nodeR, nodeC, matID):
   # Procedure which creates a rotational spring for a planar problem
-  # rotSpring2D.tcl
+  #
   # SETS A MULTIPOINT CONSTRAINT ON THE TRANSLATIONAL DEGREES OF FREEDOM,
   # SO DO NOT USE THIS PROCEDURE IF THERE ARE TRANSLATIONAL ZEROLENGTH
   # ELEMENTS ALSO BEING USED BETWEEN THESE TWO NODES
@@ -22,7 +24,7 @@ def rotSpring2D(model, eleID, nodeR, nodeC, matID):
   # Written: MHS
   # Date: Jan 2000
   #
-  # Formal arguments
+  # Arguments
   # eleID - unique element ID for this zero length rotational spring
   # nodeR - node ID which will be retained by the multi-point constraint
   # nodeC - node ID which will be constrained by the multi-point constraint
@@ -68,19 +70,28 @@ model.element('elasticBeamColumn', 4, 4, 5, 100, 1000, 1000, 1)
 rotSpring2D(model, 1 ,   1, 2 ,   1)
 rotSpring2D(model, 2 ,   3, 4 ,   2)
 
-model.pattern('Plain', 1, "Linear", "{load  3  0.0  10.0  0.0}")
+model.pattern("Plain", 1, "Linear", "{load  3  0.0 -1.0  0.0}")
 
 
-model.integrator('LoadControl', 1, 1, 1, 1)
-model.test('NormDispIncr', 1.0e-8, 10, 1)
-model.numberer('Plain')
-model.algorithm('KrylovNewton', maxDim=3)
-model.constraints('Penalty', 1.0e12, 1.0e12)
-model.system('UmfPack')
-model.analysis('Static')
+model.integrator("LoadControl", 1, 1, 1, 1)
+model.test("NormDispIncr", 1.0e-8, 10, 1)
+model.numberer("Plain")
+model.algorithm("KrylovNewton", maxDim=3)
+model.constraints("Penalty", 1.0e12, 1.0e12)
+model.system("UmfPack")
+model.analysis("Static")
 
 model.analyze(1)
 
+artist = sees.render(model, canvas="plotly", ndf=3) #.canvas.popup()
+sees.serve(sees.render(model, model.nodeDisp, canvas=artist.canvas, ndf=3)) #.canvas.popup()
+
+
+model.analyze(9)
 model.print( 'algorithm')
 model.print( 'node', 4)
+
+
+artist = sees.render(model, canvas="plotly", ndf=3) #.canvas.popup()
+sees.serve(sees.render(model, model.nodeDisp, canvas=artist.canvas, ndf=3)) #.canvas.popup()
 
