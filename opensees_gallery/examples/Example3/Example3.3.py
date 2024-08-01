@@ -126,7 +126,7 @@ def dynamic_analysis(model):
     status = model.analyze(1, step)
 
     if status != 0:
-        print("... Newton failed, trying initail stiffness")
+        print("... Newton failed, trying initial stiffness")
         model.test('NormDispIncr', 1.0e-12  100 0)
         model.algorithm('ModifiedNewton', initial=True)
         status = model.analyze(1, step)

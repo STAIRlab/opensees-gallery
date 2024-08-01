@@ -6,7 +6,7 @@
 
 #    units: N, mm, MPa
 
-from openseespy.opensees import *
+from opensees.openseespy import *
 
 #    Remove existing model
 wipe()

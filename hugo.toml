@@ -1,6 +1,6 @@
 baseURL = 'https://stairlab.github.io/opensees-gallery/'
 languageCode = 'en-us'
-title = 'OpenSees Gallery'
+title = 'OpenSeesRT Examples'
 theme = [ 'lightbi-hugo', 'hugo-dynamic-tabs'] # 'dot-hugo',
 
 copyrightYear = '2024'
@@ -8,7 +8,16 @@ contentDir = 'opensees_gallery'
 
 # Ignore HTML files to prevent Plotly plots
 # from being processed
-ignoreFiles = ['\.html$', '\.pyc$', '\.ipynb_checkpoints/\.*$', '__pycache__/', '\.out$', '/out/']
+ignoreFiles = ['\.html$',
+               '/archive/',
+               '\.pyc$', '\.ipynb_checkpoints/\.*$', '__pycache__/',
+               '\.out$', '/out/',
+               '\.mpr$',
+               '\.xlsx$',
+               'examples/ShellFrame/renderings/',
+               'validation/',
+               'Records/'
+]
 
 DefaultContentLanguage = "en"
 summaryLength  = "20"
@@ -22,8 +31,8 @@ pygmentsStyle = "trac"
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
 enableRobotsTXT = true
-enableGitInfo = false
-Paginate = 6
+enableGitInfo = true
+Paginate = 9
 
 [Params]
 math = true
@@ -42,8 +51,7 @@ Lastmod = false
 rss = true 
 pagination = "10"
 hideAuthor = true
-#authorInfo = "She was born to be free, let her run wild in her own way and you will never lose her."
-description= "Your can add your website description here."
+description= "Example gallery for the OpenSees finite element platform."
 lunrSearch = true
 previewCardImagePlacement = "bottom"
 
@@ -130,7 +138,7 @@ unsafe= true
   filename = "sitemap.xml"
 
 [Author]
-  name = "STAIRlab"
+  name = "PEER"
   website = "https://stairlab.berkeley.edu"
 # email = "sample@gmail.com"
 # linkedin = "username"
@@ -147,13 +155,13 @@ unsafe= true
   tag      = 'tags'
 
 [[menu.main]]
-    name = "Examples"
-    url = "/examples/"
+    name = "Basics"
+    url = "/categories/basic/"
     weight = 1
 
 [[menu.main]]
-    name = "Categories"
-    url = "/categories/"
+    name = "Modeling"
+    url = "/examples/"
     weight = 2
 
 [[menu.main]]
