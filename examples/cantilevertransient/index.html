@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head><script src="/opensees-gallery/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=opensees-gallery/livereload" data-no-instant defer></script>
+  <head>
     
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+ 
+<title>Inelastic Cantilever - OpenSeesRT Examples</title>
+<meta name="description" content="A plane cantilever column is shaken by an earthquake. Material nonlinearity is accounted for using the force formulation and fiber-discretized cross sections">
 
-<title>Inelastic Cantilever - OpenSees Examples</title>
-<meta name="description" content="A plane cantilever column is shaken by an earthquake. Material nonlinearity
-is accounted for using the force formulation and fiber-discretized cross
-sections
-">
+<meta name="keywords" content="Python, Static, Notebook, Fiber, " />
 
-<meta name="author" content="STAIRlab"><script type="application/ld+json">
+
+ 
+<meta name="author" content="PEER"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "OpenSees Examples",
+    "name": "OpenSeesRT Examples",
     
-    "url": "http:\/\/localhost:1313\/opensees-gallery\/"
+    "url": "https:\/\/stairlab.github.io\/opensees-gallery\/"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "http:\/\/localhost:1313\/opensees-gallery\/"
+  "url": "https:\/\/stairlab.github.io\/opensees-gallery\/"
   
   
   
@@ -41,14 +42,14 @@ sections
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "http:\/\/localhost:1313\/opensees-gallery\/",
+          "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "http:\/\/localhost:1313\/opensees-gallery\/examples\/cantilevertransient\/",
+          "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/cantilevertransient\/",
           "name": "Inelastic cantilever"
         }
     }]
@@ -58,23 +59,23 @@ sections
   "@context": "http://schema.org",
   "@type": "Article",
   "author": {
-    "name" : "STAIRlab"
+    "name" : "PEER"
   },
   "headline": "Inelastic Cantilever",
-  "description" : "A plane cantilever column is shaken by an earthquake. Material nonlinearity\nis accounted for using the force formulation and fiber-discretized cross\nsections\n",
+  "description" : "A plane cantilever column is shaken by an earthquake. Material nonlinearity is accounted for using the force formulation and fiber-discretized cross sections",
   "inLanguage" : "en",
-  "wordCount":  795 ,
+  "wordCount":  793 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
-  "image" : "http:\/\/localhost:1313\/opensees-gallery\/",
+  "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
   "keywords" : [ "Python, Static, Notebook, Fiber" ],
-  "mainEntityOfPage" : "http:\/\/localhost:1313\/opensees-gallery\/examples\/cantilevertransient\/",
+  "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/cantilevertransient\/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "http:\/\/localhost:1313\/opensees-gallery\/",
+    "name" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "http:\/\/localhost:1313\/opensees-gallery\/",
+        "url" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
         "height" :  60 ,
         "width" :  60
     }
@@ -83,21 +84,18 @@ sections
 </script>
 
 <meta property="og:title" content="Inelastic Cantilever" />
-<meta property="og:description" content="A plane cantilever column is shaken by an earthquake. Material nonlinearity
-is accounted for using the force formulation and fiber-discretized cross
-sections
-">
-<meta property="og:url" content="http://localhost:1313/opensees-gallery/examples/cantilevertransient/" />
+<meta property="og:description" content="A plane cantilever column is shaken by an earthquake. Material nonlinearity is accounted for using the force formulation and fiber-discretized cross sections">
+<meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="OpenSees Examples" />
-<link rel="apple-touch-icon" sizes="180x180" href=" http://localhost:1313/opensees-gallery/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/opensees-gallery/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/opensees-gallery/favicon/favicon-16x16.png">
+<meta property="og:site_name" content="OpenSeesRT Examples" />
+<link rel="apple-touch-icon" sizes="180x180" href=" https://stairlab.github.io/opensees-gallery/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://stairlab.github.io/opensees-gallery/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://stairlab.github.io/opensees-gallery/favicon/favicon-16x16.png">
 
 
 <meta name="generator" content="Hugo 0.124.1">
-<link rel="alternate" href="http://localhost:1313/opensees-gallery/index.xml" type="application/rss+xml" title="OpenSees Examples">
-<script src="http://localhost:1313/opensees-gallery/js/dark-mode.js"></script><script src="http://localhost:1313/opensees-gallery/vendor/lunr/lunr.min.js"></script><script src="http://localhost:1313/opensees-gallery/js/lunr-search.js" data-index="/opensees-gallery/search.json"></script><link rel="stylesheet" href="/opensees-gallery/style.min.css">
+<link rel="alternate" href="https://stairlab.github.io/opensees-gallery/index.xml" type="application/rss+xml" title="OpenSeesRT Examples">
+<script src="https://stairlab.github.io/opensees-gallery/js/dark-mode.js"></script><script src="https://stairlab.github.io/opensees-gallery/vendor/lunr/lunr.min.js"></script><script src="https://stairlab.github.io/opensees-gallery/js/lunr-search.js" data-index="/opensees-gallery/search.json"></script><link rel="stylesheet" href="/opensees-gallery/style.min.css">
 
 
 
@@ -111,7 +109,7 @@ sections
   MathJax = {
     tex: {
       displayMath: [['\\[', '\\]'], ['$$', '$$']],  
-      inlineMath: [['\\(', '\\)']]                  
+      inlineMath: [['\\(', '\\)'], ['$', '$']]      
     }
   };
 </script>
@@ -127,7 +125,7 @@ sections
       <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
         <div class="container">
 
-          <a class="navbar-brand fw-bold" href="http://localhost:1313/opensees-gallery/">OpenSees Examples</a>
+          <a class="navbar-brand fw-bold" href="https://stairlab.github.io/opensees-gallery/">OpenSeesRT Examples</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -146,8 +144,8 @@ sections
                 
                 
 
-                <a class="nav-link " title="Examples"
-                  href="/opensees-gallery/examples/"> Examples</a>
+                <a class="nav-link " title="Basics"
+                  href="/opensees-gallery/categories/basic/"> Basics</a>
               </li>
 
               
@@ -162,8 +160,8 @@ sections
                 
                 
 
-                <a class="nav-link " title="Categories"
-                  href="/opensees-gallery/categories/"> Categories</a>
+                <a class="nav-link " title="Modeling"
+                  href="/opensees-gallery/examples/"> Modeling</a>
               </li>
 
               
@@ -352,13 +350,13 @@ sections
         
 
         
+
       </div>
     </div>
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><a href="/opensees-gallery/examples/cantilevertransient/CantileverTransient2D.ipynb" download>Download (CantileverTransient2D.ipynb)</a></p>
-<p>In order to execute this notebook, go to the menu bar and click <strong>Run</strong>/<strong>Run all cells</strong>. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing <code>Shift+Enter</code>.</p>
+        <p>In order to execute this notebook, go to the menu bar and click <strong>Run</strong>/<strong>Run all cells</strong>. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing <code>Shift+Enter</code>.</p>
 <blockquote>
 <p><strong>NOTE</strong> Before running this notebook, you must install the external dependencies.
 To to this, uncomment the following cell by removing the leading <code>#</code> character, execute the cell,
@@ -579,13 +577,13 @@ takes advantage of sparsity in the system</p>
       
       <div class="blog-tags">
         
-        <a href="http://localhost:1313/opensees-gallery/tags/python/">Python</a>
+        <a href="https://stairlab.github.io/opensees-gallery/tags/python/">Python</a>
         
-        <a href="http://localhost:1313/opensees-gallery/tags/static/">Static</a>
+        <a href="https://stairlab.github.io/opensees-gallery/tags/static/">Static</a>
         
-        <a href="http://localhost:1313/opensees-gallery/tags/notebook/">Notebook</a>
+        <a href="https://stairlab.github.io/opensees-gallery/tags/notebook/">Notebook</a>
         
-        <a href="http://localhost:1313/opensees-gallery/tags/fiber/">Fiber</a>
+        <a href="https://stairlab.github.io/opensees-gallery/tags/fiber/">Fiber</a>
         
       </div>
       
@@ -604,7 +602,7 @@ takes advantage of sparsity in the system</p>
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fopensees-gallery%2fexamples%2fcantilevertransient%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fcantilevertransient%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -613,7 +611,7 @@ takes advantage of sparsity in the system</p>
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;text=Inelastic%20Cantilever&amp;via=map%5bgithub%3aSTAIRlab%20name%3aSTAIRlab%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;text=Inelastic%20Cantilever&amp;via=map%5bgithub%3aSTAIRlab%20name%3aPEER%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -625,7 +623,7 @@ takes advantage of sparsity in the system</p>
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;title=Inelastic%20Cantilever"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;title=Inelastic%20Cantilever"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -636,7 +634,7 @@ takes advantage of sparsity in the system</p>
 
     <li>
       <a target="_blank" rel="noopener noreferrer" aria-label="share Inelastic Cantilever on reddit"
-        href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&title=Inelastic%20Cantilever">
+        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&title=Inelastic%20Cantilever">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -653,7 +651,7 @@ takes advantage of sparsity in the system</p>
 
     
     <li>
-      <a href="whatsapp://send?text=http%3a%2f%2flocalhost%3a1313%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;description=Inelastic%20Cantilever" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fcantilevertransient%2f&amp;description=Inelastic%20Cantilever" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -679,8 +677,8 @@ takes advantage of sparsity in the system</p>
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="http://localhost:1313/opensees-gallery/examples/inelasticsdof/"
-            data-toggle="tooltip" data-placement="top" title="Inelastic SDOF">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/example3/"
+            data-toggle="tooltip" data-placement="top" title="Inelastic Plane Frame">&larr;
             Previous Post</a>
         </li>
         
@@ -688,7 +686,7 @@ takes advantage of sparsity in the system</p>
 
         
         <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="http://localhost:1313/opensees-gallery/examples/viscousdamper/"
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/viscousdamper/"
             data-toggle="tooltip" data-placement="top" title="Frame with Viscous Dampers">Next Post
             &rarr;</a>
         </li>
@@ -723,7 +721,113 @@ takes advantage of sparsity in the system</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="http://localhost:1313/opensees-gallery/examples/archdynamicsnap/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example1/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Example 1: Linear Truss</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    A finite element model of a simple truss is created, and static analysis is performed.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/example1/BasicTruss_hu9a9bd330ec352bb86f0cd4a67e685125_59526_500x0_resize_box_3.png" alt="BasicTruss.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example2/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-bold post-title">Moment-Curvature Analysis</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  01 January 0001
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    A reinforced concrete cross-section is modeled using a fiber section,  and a moment-curvature analysis is performed.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/opensees-gallery/examples/example2/Section_huece94951108957de8b91e5b9051ab654_72878_500x0_resize_box_3.png" alt="Section.png"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
                 <h3 class="fw-bold post-title">Arch Dynamic Snapping</h3>
@@ -750,8 +854,7 @@ takes advantage of sparsity in the system</p>
 
                 <div class="post-entry">
                     
-                    Download (ArchDynamicSnap.ipynb)
-Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.
+                    Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.
                     
                 </div>
 
@@ -763,114 +866,6 @@ Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation o
 
             
             <img src="/opensees-gallery/examples/archdynamicsnap/CurvedArch_hu2389c61352ef65a23d6c26fc29dc2403_15946_500x0_resize_box_3.png" alt="CurvedArch.png"
-                class="card-img-bottom img-fluid lazyload">
-            
-
-            
-        </div>
-    </a>
-</div>
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="http://localhost:1313/opensees-gallery/examples/archstaticsnap/">
-        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
-            <div class="card-body">
-                <h3 class="fw-bold post-title">Arch Instability</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  01 January 0001
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-
-                <div class="post-entry">
-                    
-                    Several nonlinear static analysis methods are used to investigate
-instabilities in a shallow arch.
-
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    
-                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-
-            
-            <img src="/opensees-gallery/examples/archstaticsnap/arch_hu4b7b505b3ab5e69f3e4a978aaa6b9cbe_12075755_500x0_resize_box_1.gif" alt="arch.gif"
-                class="card-img-bottom img-fluid lazyload">
-            
-
-            
-        </div>
-    </a>
-</div>
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="http://localhost:1313/opensees-gallery/examples/buildingmodes/">
-        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
-            <div class="card-body">
-                <h3 class="fw-bold post-title">Building Modes</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  01 January 0001
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-
-                <div class="post-entry">
-                    
-                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    
-                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-
-            
-            <img src="/opensees-gallery/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
                 class="card-img-bottom img-fluid lazyload">
             
 
@@ -931,7 +926,7 @@ instabilities in a shallow arch.
         <p class="credits copyright text-muted">
           
           
-          <a href="https://stairlab.berkeley.edu">STAIRlab</a>
+          <a href="https://stairlab.berkeley.edu">PEER</a>
           
           
 
@@ -942,19 +937,19 @@ instabilities in a shallow arch.
 
           
           &nbsp;&bull;&nbsp;
-          <a href="http://localhost:1313/opensees-gallery/">OpenSees Examples</a>
+          <a href="https://stairlab.github.io/opensees-gallery/">OpenSeesRT Examples</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
           Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made by <a href="https://binovarghese.com">Bino</a>
-          
+          &nbsp;&bull;&nbsp;[<a href="bcecc74f443a375fced016c5eb3dbf271c5c48fe">bcecc74f</a>]
         </p>
       </div>
     </div>
   </div>
-</footer><script src="http://localhost:1313/opensees-gallery/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="http://localhost:1313/opensees-gallery/js/highlight.min.js"></script>
+</footer><script src="https://stairlab.github.io/opensees-gallery/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://stairlab.github.io/opensees-gallery/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> $(document).ready(function () { $("pre.chroma").css("padding", "0"); }); </script>
 

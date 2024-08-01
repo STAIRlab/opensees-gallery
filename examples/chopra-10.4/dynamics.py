@@ -96,7 +96,8 @@ def static_condensation(M, K, mass_dofs=None, model=None, tol=0.0):
 
     # Kc = Kmm - Kmn*inv(Knn)*Knm
     if len(masslessDOFs) > 0:
-        Kc = Kmm - np.dot(Kmn,np.linalg.solve(Knn,Knm))
+#       Kc = Kmm - np.dot(Kmn,np.linalg.solve(Knn,Knm))
+        Kc = Kmm - Kmn@np.linalg.solve(Knn,Knm)
     else:
         Kc = K
 
@@ -155,7 +156,7 @@ def eigen_analysis():
     f = []
     T = []
     pi = 3.141593
-    
+
     for lam in lamda:
         omega.append(sqrt(lam))
         f.append( sqrt(lam)/(2*pi) )

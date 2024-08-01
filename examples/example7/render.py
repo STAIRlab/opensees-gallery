@@ -9,7 +9,12 @@ if __name__ == "__main__":
     #
     # Render the model in the undeformed state
     #
-    artist = sees.render(model, canvas="gltf")
+
+    model_config = {
+        "extrude_outline": "square",
+        "extrude_scale": 2.0
+    }
+    artist = sees.render(model, canvas="gltf", reference={"frame.surface"}, model_config=model_config)
 
     # Save the rendering using the GLTF2.0 format
 #   sees.serve(artist)
@@ -27,5 +32,5 @@ if __name__ == "__main__":
     )
 
 #   sees.serve(artist)
-    artist.save("gravity.glb")
+#   artist.save("gravity.glb")
 

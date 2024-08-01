@@ -33,14 +33,14 @@ fix 1 1 1 1;
 fix 2 1 1 1;
 
 # MP constraints
-equalDOF 3 4 2 3 ; #Shear Beam
+equalDOF 3 4 2 3 ; # Shear Beam
 
 # mass
 set W 1000.; #KN
 set g 9810.; #mm/sec2
 set m  [expr $W/$g]; 
 
-# assign mass
+# Assign mass to nodes 3 and 4
 mass 3 [expr 0.5*$m] 0. 0. ;
 mass 4 [expr 0.5*$m] 0. 0. ;
 
@@ -104,8 +104,9 @@ puts $period
 set damp 0.02;
 rayleigh [expr 2*$damp*$freq] 0.  0. 0.   
 
-#pattern UniformExcitation $patternTag $dir -accel $tsTag <-vel0 $ver0>
-pattern UniformExcitation 1 1 -accel 1;		         # define where and how (pattern tag, dof) acceleration is applied
+# define where and how (pattern tag, dof) acceleration is applied
+# pattern UniformExcitation $patternTag $dir -accel $tsTag <-vel0 $ver0>
+pattern UniformExcitation 1 1 -accel 1;	
 
 
 # create the analysis
@@ -121,3 +122,4 @@ set ok [analyze [expr 10*4096] 0.001];  # apply 10*4096 steps for 0.001-sec time
 
 puts "Done!"
 return $ok
+

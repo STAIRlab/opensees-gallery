@@ -256,7 +256,7 @@ proc pushover_analysis {} {
 
           # if the analysis fails try initial tangent iteration
           if {$status != 0} {
-              puts "... Newton failed, trying an initail stiffness"
+              puts "... Newton failed, trying an initial stiffness"
               test NormUnbalance 1.0  1000 5
               algorithm ModifiedNewton -initial
               set status [analyze 1]

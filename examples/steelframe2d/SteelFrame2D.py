@@ -248,11 +248,9 @@ model.equalDOF(33, 3301, 1,2,3)
 ################
 ## Gravity Load 
 ################
-# create TimeSeries
-model.timeSeries("Linear", 1)
 
-# create a plain load pattern
-model.pattern("Plain", 1, 1)
+# create a plain load pattern with Linear scaling
+model.pattern("Plain", 1, "Linear")
 
 # Create the nodal load
 model.load(11, 0.0, -5.0*kip, 0.0)
@@ -266,8 +264,6 @@ model.load(23, 0., -5.*kip, 0.0)
 model.load(31, 0., -5.*kip, 0.0)
 model.load(32, 0., -6.*kip, 0.0)
 model.load(33, 0., -5.*kip, 0.0)
-
-model.print("-json", file="model.json")
 
 # ------------------------------
 # Start of analysis generation

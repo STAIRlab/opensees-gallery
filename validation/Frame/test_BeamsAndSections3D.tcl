@@ -1,3 +1,11 @@
+# 3D Cantilever with Concentrated Load
+#
+#                ^
+#                ^
+#                |
+# #|============== ->>
+#
+
 proc printEigenvalues {E A Iz Iy G J L} {
 
     # Compute element eigenvalues
@@ -13,23 +21,23 @@ proc printEigenvalues {E A Iz Iy G J L} {
     set exact "$e1 $e2 $e3 $e4 $e5 $e6"
     set exact [lsort -real $exact]
 
-    puts "  Eigenvalues"
-    puts "                    Computed                 Exact"
+    puts "    Eigenvalues"
+    puts "              Computed         Exact"
     for {set i 0} {$i < 6} {incr i} {
-        puts "  $i          \t[lindex $eigenValues [expr $i+6]]\t\t[lindex $exact $i]"
+        puts [format "     %d      %10.3f    %10.3f"  $i  [lindex $eigenValues [expr $i+6]]  [lindex $exact $i]]
     }
 }
 
 proc printDisplacements {E A Iz Iy G J L P H M} {
 
-    puts "  Nodal Displacements"
-    puts "                    Computed                 Exact"
-    puts "  dispX [nodeDisp 2 1]  [expr $P*$L/($E*$A)]"
-    puts "  dispY [nodeDisp 2 2]  [expr $H*pow($L,3)/(3*$E*$Iz) + $M*pow($L,2)/(2*$E*$Iz)]"
-    puts "  dispZ [nodeDisp 2 3]  [expr $H*pow($L,3)/(3*$E*$Iy) - $M*pow($L,2)/(2*$E*$Iy)]"
-    puts "  rotX  [nodeDisp 2 4]  [expr $M*$L/($G*$J)]"
-    puts "  rotY  [nodeDisp 2 5]  [expr -$H*pow($L,2)/(2*$E*$Iy) + $M*$L/($E*$Iy)]"
-    puts "  rotZ  [nodeDisp 2 6]  [expr $H*pow($L,2)/(2*$E*$Iz) + $M*$L/($E*$Iz)]"
+    puts "    Displacements"
+    puts "              Computed         Exact"
+    puts [format "    dispX   %10.3f    %10.3f " [nodeDisp 2 1] [expr $P*$L/($E*$A)]]
+    puts [format "    dispY   %10.3f    %10.3f " [nodeDisp 2 2] [expr $H*pow($L,3)/(3*$E*$Iz) + $M*pow($L,2)/(2*$E*$Iz)]]
+    puts [format "    dispZ   %10.3f    %10.3f " [nodeDisp 2 3] [expr $H*pow($L,3)/(3*$E*$Iy) - $M*pow($L,2)/(2*$E*$Iy)]]
+    puts [format "    rotX    %10.3f    %10.3f " [nodeDisp 2 4] [expr $M*$L/($G*$J)]]
+    puts [format "    rotY    %10.3f    %10.3f " [nodeDisp 2 5] [expr -$H*pow($L,2)/(2*$E*$Iy) + $M*$L/($E*$Iy)]]
+    puts [format "    rotZ    %10.3f    %10.3f " [nodeDisp 2 6] [expr $H*pow($L,2)/(2*$E*$Iz) + $M*$L/($E*$Iz)]]
     puts ""
 }
 
@@ -50,8 +58,8 @@ set lp [expr $beta*$L]
 
 set nIP 3
 
-set elements {1 2 3 4}
-set sections {1 2 3}
+set elements { 1 3 4 5 6 2 7 } ; # 
+set sections {1 2 3 4}; # 5};
 
 foreach element $elements {
     foreach section $sections {
@@ -60,7 +68,11 @@ foreach element $elements {
         
         node 1 0.0 0.0 0.0
         node 2  $L 0.0 0.0
+
+        set sec 1;
         
+        puts ""
+
         switch $section {
             1 {
                 puts "  Section: Elastic"
@@ -70,12 +82,12 @@ foreach element $elements {
                 puts "  Section: Aggregator (fiber plus uniaxial)"
                 uniaxialMaterial Elastic 1 $E
                 uniaxialMaterial Elastic 2 [expr $G*$J]
-                # section Aggregator 1 2 T -section 2
                 section Fiber 2 -torsion 2 {
                     set b2 [expr $b/2]
                     set d2 [expr $d/2]
                     patch rect 1 10 10 $d2 $b2 -$d2 -$b2
                 }
+                section Aggregator 1 2 T -section 2
             }
             3 {
                 puts "  Section: Aggregator (four uniaxial)"
@@ -84,6 +96,18 @@ foreach element $elements {
                 uniaxialMaterial Elastic 3 [expr $E*$Iy]
                 uniaxialMaterial Elastic 4 [expr $G*$J]
                 section Aggregator 1 1 P 2 Mz 3 My 4 T
+            }
+            4 {
+                puts "  Section: ElasticFrame"
+                section ElasticFrame 1 $E -A $A -Iz $Iz -Iy $Iy -G $G -J $J
+            }
+            5 {
+                puts "  Section: FiberFrame"
+                section FiberFrame 2 -torsion 2 {
+                    set b2 [expr $b/2]
+                    set d2 [expr $d/2]
+                    patch rect 1 10 10 $d2 $b2 -$d2 -$b2
+                }
             }
         }
 
@@ -99,12 +123,24 @@ foreach element $elements {
                 element dispBeamColumn 1 1 2 $nIP 1 1
             }
             3 {
-                puts "  Element: NonlinearBeamColumn"
+                puts "  Element: ForceBeamColumn"
                 element nonlinearBeamColumn 1 1 2 $nIP 1 1
             }
             4 {
                 puts "  Element: BeamWithHinges"
                 element beamWithHinges 1 1 2 1 $lp 1 $lp $E $A $Iz $Iy $G $J 1
+            }
+            5 {
+                puts "  Element: PrismFrame"
+                element PrismFrame 1 1 2 -section $sec -transform 1
+            }
+            6 {
+                puts "  Element: CubicFrame"
+                element CubicFrame 1 1 2 $nIP 1 1
+            }
+            7 {
+                puts "  Element: ForceFrame"
+                element ForceFrame 1 1 2 $nIP 1 1
             }
         }
 
@@ -120,15 +156,16 @@ foreach element $elements {
             load 2 $P $H $H $M $M $M
         }
         
+        set steps 1
         test NormUnbalance 1.0e-12 10
         algorithm Newton
-        integrator LoadControl 1
+        integrator LoadControl [expr 1.0/$steps]
         constraints Plain
         system ProfileSPD
         numberer Plain
         analysis Static
         
-        analyze 1
+        analyze $steps
 
         printDisplacements $E $A $Iz $Iy $G $J $L $P $H $M
 

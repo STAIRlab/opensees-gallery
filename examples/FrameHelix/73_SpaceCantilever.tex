@@ -1,0 +1,80 @@
+%
+\hypertarget{sec:helical}{%
+\subsection{Spatial Response of Cantilever Beam Under End Moment and End Force}\label{sec:helical}}
+%
+\begin{figure*}
+\centerline{%
+\begin{subfigure}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{Figures/Figure_2a}
+\end{subfigure}
+\begin{subfigure}[b]{0.6\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{Figures/Figure_2b}
+\end{subfigure}
+}
+\caption{Deformed shape of the cantilever beam bent into a helical form at \(\lambda=1\) (left) alongside the relation between the tip displacement in the loading direction and the load factor $\lambda$ (right).}\label{fig:helix}
+\end{figure*}
+%
+The cantilever beam 
+from Section~\ref{sec:plane} is now subjected to a \emph{combined} point moment \(\boldsymbol{M}\) 
+and a point force \(F \, \mathbf{E}_3\) at its free end \(\xi=L\).
+%
+This example is selected to demonstrate the ability of the proposed formulations 
+to naturally accommodate applied moments in various reference frames.
+It also highlights the accuracy and convergence characteristics of the formulations.
+% how different rotation parameterizations are work-conjugate to moments of fundamentally distinct natures. 
+Three common variations of this problem are considered
+with the properties from Section~\ref{sec:circle} for all cases
+\footnote{These parameters were used by \cite{ritto-corrêa2002differentiation,ibrahimbegovic1997choice}.
+
+It is reported in \cite{ibrahimbegović1995computational} that an axial stiffness of \(EA=2GA\)
+was used for simulation, but \cite{ritto-corrêa2002differentiation} observe that this may be a reporting error. The authors believe that the simulations of \cite{ibrahimbegović1995computational}
+have been performed with the parameters of the present study.
+}:
+\[
+\begin{array}{lcr}
+    L  &=&    10\hphantom{..}    \\ % ,& A  &= 1 \\
+    E  &=&    10^4  \\ % ,& I  &= 10^{-2} \\
+    G  &=&    10^4  \\ % ,& J  &= 10^{-2} \\
+\end{array}
+\qquad\qquad
+\begin{array}{lcr}
+    A  &=& 1\hphantom{..} \\
+    I  &=& 10^{-2} \\
+    J  &=& 10^{-2} \\
+\end{array}
+\]
+%
+%
+\subsubsection{Simple Perturbation}
+Following \cite{ibrahimbegović1995computational}, the problem of plane flexure from Section~\ref{sec:circle} is now altered by introducing the point load
+\(\boldsymbol{F} = 1/16 \, \mathbf{E}_3\) in addition to the moment \(\boldsymbol{M}\) so as to induce
+a three-dimensional response. 
+A uniform mesh of 10, 2-node elements is used, and the reference moment in Equation~(\ref{eq:fref}) for \(\lambda = 1/8\) is applied in a single load step. 
+Because the deformation is no longer plane, each choice of nodal parameterization essentially equilibriates the moment in a different coordinate system. %solves a different problem.
+Results are reported in Table~\ref{tab:helical-perturb01}, where the \texttt{None/None/None} and \texttt{Incr/None/Incr} 
+variants match the values reported by \cite{ibrahimbegović1995computational} for the formulations by 
+\cite{simo1986threedimensional} and \cite{ibrahimbegović1995computational}, respectively.
+Once again, the application of external isometry or parameter transformations does not affect the convergence characteristics of the solution.
+%
+\input{Tables/CantileverPerturbed01}
+
+\subsubsection{Consistent Perturbation}
+The problem is simulated again, but now the moment is consistently applied with a spatial orientation.
+Formulations whose final residual moment vector is conjugate to the spatial variations \(\boldsymbol{u}_{\scriptscriptstyle{\Lambda}}\) of the rotation \(\boldsymbol{\Lambda}\) do not need to be treated differently.
+This includes both elements with the \texttt{None} parameter transformation and transformed elements with the Petrov-Galerkin formulation.
+For the simulations with all other elements, a transformation of the nodal force is necessary, as described in \cite{ritto-corrêa2002differentiation,ritto-corrêa2003workconjugacy}.
+Table~\ref{tab:helical-perturb02} lists the tip displacements for the solution. 
+%
+\input{Tables/CantileverPerturbed02}
+
+\hypertarget{sec:helix}{%
+\subsubsection{Oscillating Spiral}\label{sec:helix}}
+%
+To demonstrate the behavior of the
+proposed formulations under large rotations, the reference moment value $M$ in Equation~(\ref{eq:fref}) is now increased to \(\lambda=10\) with a large out-of-plane force of \(F=5 \lambda\).
+The model discretization uses 100 linear finite elements, and the loading is applied in 200 steps under load factor control.
+Figure~\ref{fig:helix} shows the final deformed shape alongside a plot of the tip displacement in the direction of the concentrated force.
+These results are in perfect agreement with %values in 
+the literature \citep{zupan2003finiteelement,makinen2007total,ghosh2009frameinvariant,lolić2020consistent,harsch2023total}.

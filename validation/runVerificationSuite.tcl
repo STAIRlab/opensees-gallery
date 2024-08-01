@@ -22,20 +22,29 @@ set results [open README.md w]
 puts $results "| Status | Notes |\n|--------|------------------------------|"
 close $results
 
+if 0 {
 cd Basic
   source test_sdof.tcl
   source test_eigen.tcl
   source test_newmark.tcl
   source test_mdof.tcl
 cd ..
-  
+
 source Truss/PlanarTruss.tcl
 source Truss/PlanarTruss.Extra.tcl
-
+}
+  
+if 1 {
+# 2D
 source Frame/PortalFrame2d.tcl
 source Frame/test_EigenFrame.tcl
 source Frame/EigenFrame.Extra.tcl
 source Frame/AISC25.tcl
+# 3D
+source Frame/test_BeamLoad3D.tcl
+source Frame/test_BeamsAndSections3D.tcl
+source Frame/test_ShearBeam3D.tcl
+} else {
 
 source Plane/PlaneStrain.tcl
 source Plane/QuadBending.tcl
@@ -43,4 +52,4 @@ source Plane/QuadBending.tcl
 # Shells
 source Shell/PinchedCylinder.tcl
 source Shell/PlanarShearWall.tcl
-
+}

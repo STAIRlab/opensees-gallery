@@ -8,11 +8,18 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/plane/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example 6: Simply Supported Beam</title>
+      <title>Simply Supported Solid Beam</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Wrench</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/wrench/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/wrench/</guid>
+      <description>Script: wrench.py</description>
     </item>
   </channel>
 </rss>

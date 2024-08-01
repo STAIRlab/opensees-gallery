@@ -23,11 +23,13 @@ set nodes {
 foreach elem {{quad8n 8} {quad9n 9} {quad 4}} {
   puts "$elem"
   set eleType [lindex $elem 0];
-  set numNode [lindex $elem 1];
+  set node_count [lindex $elem 1];
 
   wipe
   model Basic -ndm 2 -ndf 2
-  foreach node [range $numNode] {node {*}[lindex $nodes $node]}
+  for {set node 0} {$node < $node_count} {incr node} {
+    node {*}[lindex $nodes $node]
+  }
 
   nDMaterial ElasticIsotropic 1 $E $nu
 
@@ -42,7 +44,7 @@ foreach elem {{quad8n 8} {quad9n 9} {quad 4}} {
   timeSeries Linear 1
 
   pattern Plain 1 1 {
-          load 2 $P 0.
+          load 2  $P 0.
           load 3 -$P 0.
   }
 

@@ -8,6 +8,20 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Example 1: Linear Truss</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
+      <description>This example is of a linear-elastic three bar truss, as shown in the figure above, subject to static loads. The purpose of this example is to develop the basic requirements for performing finite element analysis with OpenSees.</description>
+    </item>
+    <item>
+      <title>Moment-Curvature Analysis</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
+      <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
+    </item>
+    <item>
       <title>Arch Instability</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,6 +57,20 @@
       <description>This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:</description>
     </item>
     <item>
+      <title>Continuum Cantilever</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+    </item>
+    <item>
+      <title>Dynamic Shell Analysis</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
+      <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
+    </item>
+    <item>
       <title>Elastic Response Spectra</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -50,39 +78,11 @@
       <description>Elastic Response Spectra April 2020, By Amir Hossein Namadchi This one deals with an elastic SDOF system subjected to the El Centro ground acceleration, $\ddot{d_g}$.</description>
     </item>
     <item>
-      <title>Euler buckling analysis</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
-      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.</description>
-    </item>
-    <item>
-      <title>Example 1: Linear Truss</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example1/</guid>
-      <description>This example is of a linear-elastic three bar truss, as shown in the figure above, subject to static loads. The purpose of this example is to develop the basic requirements for performing finite element analysis with OpenSees.</description>
-    </item>
-    <item>
-      <title>Example 2: Moment-Curvature</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
-      <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
-    </item>
-    <item>
-      <title>Example 3: Inelastic Plane Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
-      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
-    </item>
-    <item>
       <title>Example 4: Multibay Two Story Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example4/</guid>
-      <description>In this example variables and control structures are demonstrated.&#xA;Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
+      <description>Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
       <title>Example 5: Rigid 3D Frame</title>
@@ -92,32 +92,25 @@
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
     </item>
     <item>
-      <title>Example 6: Simply Supported Beam</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
-      <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
-    </item>
-    <item>
-      <title>Example 7: Dynamic Shell Analysis</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
-      <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
-    </item>
-    <item>
-      <title>Example 8: Cantilever Beam</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
-      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
-    </item>
-    <item>
       <title>Igloo</title>
       <link>https://stairlab.github.io/opensees-gallery/gallery/igloo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/gallery/igloo/</guid>
       <description>This problem is implemented in the file Igloo.py, and has been adapted from the repository of opstool to use the new Model class in Python.</description>
+    </item>
+    <item>
+      <title>Inelastic Cantilever</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
+      <description>In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
+    </item>
+    <item>
+      <title>Inelastic Plane Frame</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
+      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Inelastic SDOF</title>
@@ -134,6 +127,13 @@
       <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame.&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.</description>
     </item>
     <item>
+      <title>Nonlinear Geometry</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.</description>
+    </item>
+    <item>
       <title>Plane Steel Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -145,7 +145,14 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
-      <description>The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html .</description>
+      <description>This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional ground motion records.&#xA;spectra.py&#xA;The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.</description>
+    </item>
+    <item>
+      <title>Simply Supported Solid Beam</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
     </item>
     <item>
       <title>Suspension Bridge</title>

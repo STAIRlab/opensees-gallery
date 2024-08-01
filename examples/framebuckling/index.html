@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  
-<title>Euler buckling analysis - OpenSeesRT Examples</title>
+<title>Nonlinear Geometry - OpenSeesRT Examples</title>
 <meta name="description" content="Corotational frame elements are used to approximate Euler&rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.">
 
-<meta name="keywords" content="Python, Tcl, " />
+<meta name="keywords" content="Python, Tcl, Frame, " />
 
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -52,7 +52,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/framebuckling\/",
-          "name": "Euler buckling analysis"
+          "name": "Nonlinear geometry"
         }
     }]
 }
@@ -63,14 +63,14 @@
   "author": {
     "name" : "PEER"
   },
-  "headline": "Euler buckling analysis",
+  "headline": "Nonlinear Geometry",
   "description" : "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: \\[ P_{\\mathrm{euler}} = \\frac{\\pi^2 EI}{L^2} \\] This example is adapted from https:\/\/github.",
   "inLanguage" : "en",
-  "wordCount":  40 ,
+  "wordCount":  107 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
-  "keywords" : [ "Python, Tcl" ],
+  "keywords" : [ "Python, Tcl, Frame" ],
   "mainEntityOfPage" : "https:\/\/stairlab.github.io\/opensees-gallery\/examples\/framebuckling\/",
   "publisher" : {
     "@type": "Organization",
@@ -85,7 +85,7 @@
 }
 </script>
 
-<meta property="og:title" content="Euler buckling analysis" />
+<meta property="og:title" content="Nonlinear Geometry" />
 <meta property="og:description" content="Corotational frame elements are used to approximate Euler&rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.">
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/framebuckling/" />
 <meta property="og:type" content="website" />
@@ -284,7 +284,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Euler buckling analysis
+                Nonlinear Geometry
                 
               </h1>
               
@@ -348,8 +348,24 @@ which is given by:
 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2}
 \]
 <p>This example is adapted from <a href="https://github.com/denavit/OpenSees-Examples">https://github.com/denavit/OpenSees-Examples</a> .
-The files for the problem are <a href="EulerBuckling.py"><code>EulerBuckling.py</code></a> for
-Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for Tcl.</p>
+The files for the problem are <a href="buckling.py"><code>buckling.py</code></a> for
+Python, and <a href="buckling.tcl"><code>buckling.tcl</code></a> for Tcl.</p>
+$$
+\begin{gathered}
+\lambda=\sqrt{\frac{P L^2}{E I\left[1-P /\left(k_{\mathrm{s}} G A\right)\right]}}=\sqrt{\frac{P L^2}{\chi E I}} \\
+\chi=1-P /\left(k_{\mathrm{s}} G A\right) \\
+P=\chi \lambda^2 E I / L^2 .
+\end{gathered}
+$$
+$$
+\begin{gathered}
+\chi=\frac{1}{1+\lambda^2 E I /\left(k_{\mathrm{s}} G A L^2\right)}=\frac{1}{1+\lambda^2 \varphi / 12} \\
+P=\frac{\lambda^2 E I / L^2}{1+\lambda^2 \varphi / 12} .
+\end{gathered}
+$$
+$$
+\tan \lambda_{\text {cr }}=\chi \lambda_{\text {cr }}=\frac{\lambda_{\text {cr }}}{1+\lambda_{\text {cr }} 2 \varphi / 12}
+$$
 
       </article>
     </div>
@@ -367,6 +383,8 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
         <a href="https://stairlab.github.io/opensees-gallery/tags/python/">Python</a>
         
         <a href="https://stairlab.github.io/opensees-gallery/tags/tcl/">Tcl</a>
+        
+        <a href="https://stairlab.github.io/opensees-gallery/tags/frame/">Frame</a>
         
       </div>
       
@@ -394,7 +412,7 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;text=Euler%20buckling%20analysis&amp;via=map%5bgithub%3aSTAIRlab%20name%3aPEER%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;text=Nonlinear%20Geometry&amp;via=map%5bgithub%3aSTAIRlab%20name%3aPEER%20website%3ahttps%3a%2f%2fstairlab.berkeley.edu%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -406,7 +424,7 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;title=Euler%20buckling%20analysis"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;title=Nonlinear%20Geometry"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -416,8 +434,8 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Euler buckling analysis on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&title=Euler%20buckling%20analysis">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share Nonlinear Geometry on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&title=Nonlinear%20Geometry">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -434,7 +452,7 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;description=Euler%20buckling%20analysis" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fstairlab.github.io%2fopensees-gallery%2fexamples%2fframebuckling%2f&amp;description=Nonlinear%20Geometry" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -460,8 +478,8 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/ex1/"
-            data-toggle="tooltip" data-placement="top" title="Ex1: Time History Analysis of a 2D Elastic Cantilever Column">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/steelframe2d/"
+            data-toggle="tooltip" data-placement="top" title="Plane Steel Frame">&larr;
             Previous Post</a>
         </li>
         
@@ -469,8 +487,8 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
         
         <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/elasticspectra/"
-            data-toggle="tooltip" data-placement="top" title="Elastic Response Spectra">Next Post
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/"
+            data-toggle="tooltip" data-placement="top" title="Matrix Eigenvalue Analysis">Next Post
             &rarr;</a>
         </li>
         
@@ -504,10 +522,10 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example1/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Arch Instability</h3>
+                <h3 class="fw-bold post-title">Example 1: Linear Truss</h3>
                 
 
                 <p class="post-meta">
@@ -531,7 +549,7 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
                 <div class="post-entry">
                     
-                    Several nonlinear static analysis methods are used to investigate instabilities in a shallow arch.
+                    A finite element model of a simple truss is created, and static analysis is performed.
 
                     
                 </div>
@@ -543,7 +561,7 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
             </div>
 
             
-            <img src="/opensees-gallery/examples/archstaticsnap/arch_hu4b7b505b3ab5e69f3e4a978aaa6b9cbe_12075755_500x0_resize_box_1.gif" alt="arch.gif"
+            <img src="/opensees-gallery/examples/example1/BasicTruss_hu9a9bd330ec352bb86f0cd4a67e685125_59526_500x0_resize_box_3.png" alt="BasicTruss.png"
                 class="card-img-bottom img-fluid lazyload">
             
 
@@ -557,10 +575,10 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/bathesprings/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/framespans/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Bathe&#39;s Springs</h3>
+                <h3 class="fw-bold post-title">Frame Spans</h3>
                 
 
                 <p class="post-meta">
@@ -584,8 +602,8 @@ Python, and <a href="EulerBuckling.tcl"><code>EulerBuckling.tcl</code></a> for T
 
                 <div class="post-entry">
                     
-                    March 2020, By Amir Hossein Namadchi
-This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.
+                    Objectives:
+Defining cross sectional properties for frame elements Defining element loads 
                     
                 </div>
 
@@ -595,9 +613,6 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
                 </div>
             </div>
 
-            
-            <img src="/opensees-gallery/examples/bathesprings/ModelProblem_hu0899d03b6f3054590c60913b00c2b6bf_30774_500x0_resize_box_3.png" alt="ModelProblem.png"
-                class="card-img-bottom img-fluid lazyload">
             
 
             
@@ -610,10 +625,10 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/buildingmodes/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example2/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Building Modes</h3>
+                <h3 class="fw-bold post-title">Moment-Curvature Analysis</h3>
                 
 
                 <p class="post-meta">
@@ -637,7 +652,7 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
 
                 <div class="post-entry">
                     
-                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
+                    A reinforced concrete cross-section is modeled using a fiber section,  and a moment-curvature analysis is performed.
 
                     
                 </div>
@@ -649,7 +664,7 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
             </div>
 
             
-            <img src="/opensees-gallery/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
+            <img src="/opensees-gallery/examples/example2/Section_huece94951108957de8b91e5b9051ab654_72878_500x0_resize_box_3.png" alt="Section.png"
                 class="card-img-bottom img-fluid lazyload">
             
 

@@ -12,7 +12,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
-      <description>The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html .</description>
+      <description>This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional ground motion records.&#xA;spectra.py&#xA;The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.</description>
     </item>
   </channel>
 </rss>

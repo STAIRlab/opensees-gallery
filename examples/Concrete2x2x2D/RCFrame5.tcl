@@ -25,9 +25,6 @@ set analysis "LINEAR"
 set patternType "UniformExcitation"
 #set patternType "MultipleSupport"
 
-#set displayMode "displayON"
-set displayMode "displayOFF"
-
 
 model BasicBuilder -ndm 2 -ndf 3
 
@@ -180,12 +177,6 @@ if {$patternType == "UniformExcitation"} {
   pattern UniformExcitation  1 1 -accel $accelSeries -vel0 $vel0
 
   recorder Node -file out/UniformNodeDisp1.out -time -node 3 2 1 -dof 1 2 3 disp
-}
-
-# Source in some g3 commands to display the model
-if {$displayMode == "displayON"} {
-    # a window to show the displayed shape
-    source Library/RCFrameDisplay.tcl 
 }
 
 #                   gamma beta

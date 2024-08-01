@@ -1,5 +1,4 @@
 import opensees.openseespy as ops
-print("==========================")
 
 # OpenSees -- Open System for Earthquake Engineering Simulation
 # Pacific Earthquake Engineering Research Center
@@ -19,8 +18,6 @@ print("==========================")
 # Date: January 2011
 from math import asin, sqrt
 
-print("Start ElasticFrame example")
-
 def test_ElasticFrame():
     #
     # some parameter
@@ -28,8 +25,8 @@ def test_ElasticFrame():
     PI =  2.0 * asin(1.0)
     g =  386.4
     ft = 12.0
-    Load1 = 1185.0 
-    Load2 = 1185.0 
+    Load1 = 1185.0
+    Load2 = 1185.0
     Load3 = 970.0
 
     # floor masses
@@ -58,9 +55,9 @@ def test_ElasticFrame():
     # Create nodes & add to Domain - command: node nodeId xCrd yCrd <-mass massX massY massRz>
     # NOTE: mass in optional
     ops.node( 1,     0.0,   0.0)
-    ops.node( 2,   360.0,   0.0) 
-    ops.node( 3,   720.0,   0.0) 
-    ops.node( 4,  1080.0,   0.0) 
+    ops.node( 2,   360.0,   0.0)
+    ops.node( 3,   720.0,   0.0)
+    ops.node( 4,  1080.0,   0.0)
     ops.node( 5,    0.0,  162.0, '-mass', m1, m1, 0.0)
     ops.node( 6,  360.0,  162.0, '-mass', m1, m1, 0.0)
     ops.node( 7,  720.0,  162.0, '-mass', m1, m1, 0.0)
@@ -121,7 +118,7 @@ def test_ElasticFrame():
 
     # Create a Plain load pattern with a linear TimeSeries: 
     #  command pattern Plain tag timeSeriesTag { loads }
-    ops.pattern('Plain', 1, 1) 
+    ops.pattern('Plain', 1, 1)
     ops.eleLoad( '-ele', 13, 14, 15, '-type', '-beamUniform', -w1)
     ops.eleLoad( '-ele', 16, 17, 18, '-type', '-beamUniform', -w2)
     ops.eleLoad( '-ele', 19, 20, 21, '-type', '-beamUniform', -w3)
@@ -225,7 +222,7 @@ def test_ElasticFrame():
     node3Rxn =ops.nodeReaction( 3)
     node4Rxn =ops.nodeReaction( 4)
 
-    inputedFx =  220.0+180.0+90.0 
+    inputedFx =  220.0 + 180.0 + 90.0
     computedFx = node1Rxn[0] + node2Rxn[0] + node3Rxn[0] + node4Rxn[0]
     computedFy = node1Rxn[1] + node2Rxn[1] + node3Rxn[1] + node4Rxn[1]
 
@@ -270,3 +267,4 @@ def test_ElasticFrame():
 
 
     print("==========================")
+

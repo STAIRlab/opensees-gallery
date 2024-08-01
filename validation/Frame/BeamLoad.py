@@ -13,7 +13,7 @@ A = 20.0
 I = 1400.0
 w = 1.5
 
-model = ops.model('basic', ndm=2, ndf=3)
+model = ops.Model(ndm=2, ndf=3)
 
 model.node(1,0,0)
 model.fix(1,1,1,0)
@@ -27,8 +27,7 @@ model.beamIntegration('Lobatto',1,1,5)
 
 model.element('forceBeamColumn',1,1,2,12,1)
 
-model.timeSeries('Linear',23)
-model.pattern('Plain',1,23)
+model.pattern("Plain",1,"Linear")
 model.eleLoad('-ele',1,'-type','beamUniform',-w)
 
 Nsteps = 2
@@ -41,3 +40,4 @@ model.reactions()
 
 print(model.nodeReaction(1))
 print(model.nodeReaction(2))
+

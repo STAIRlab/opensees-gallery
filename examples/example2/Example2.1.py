@@ -53,9 +53,7 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
     model.recorder("Node", "disp", "-file", "section"+str(secTag)+".out", "-time", "-node", 2, "-dof", 3)
 
     # Define constant axial load
-    model.timeSeries("Constant", 1)
-    model.pattern("Plain", 1, 1)
-    model.load(2, axialLoad, 0.0, 0.0)
+    model.pattern("Plain", 1, "Constant", loads={2: [axialLoad, 0.0, 0.0]})
 
     # Define analysis parameters
     model.system("BandGeneral")
@@ -70,8 +68,7 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
     model.analyze(1)
 
     # Define reference moment
-    model.timeSeries("Linear", 2)
-    model.pattern("Plain", 2, 2)
+    model.pattern("Plain", 2, "Linear")
     model.load(2, 0.0, 0.0, 1.0)
 
     # Compute curvature increment
@@ -109,14 +106,14 @@ def create_section():
     # Define cross-section for nonlinear columns
     # ------------------------------------------
     # set some parameters
-    colWidth = 15.0
-    colDepth = 24.0
+    width = 15.0
+    depth = 24.0
     cover = 1.5
     As = 0.60;     # area of no. 7 bars
 
     # some variables derived from the parameters
-    y1 = colDepth/2.0
-    z1 = colWidth/2.0
+    y1 = depth/2.0
+    z1 = width/2.0
 
     model.section("Fiber", 1)
     # Create the concrete core fibers
@@ -133,7 +130,7 @@ def create_section():
 
     # Estimate yield curvature
     # (Assuming no axial load and only top and bottom steel)
-    d = colDepth - cover   # d -- from cover to rebar
+    d = depth - cover   # d -- from cover to rebar
     epsy = fy/E            # steel yield strain
     Ky = epsy/(0.7*d)
     return model, Ky

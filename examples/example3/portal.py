@@ -80,9 +80,9 @@ def create_portal(width  = 360.0, height = 144.0):
     model.geomTransf("PDelta", 1)
 
     # Create the columns using Beam-column elements
-    #                              tag   nodes transfTag integrationTag
-    model.element("ForceBeamColumn", 1, (1, 3),    1,           1)
-    model.element("ForceBeamColumn", 2, (2, 4),    1,           1)
+    #                              tag   nodes trn itg
+    model.element("ForceBeamColumn", 1, (1, 3), 1, 1)
+    model.element("ForceBeamColumn", 2, (2, 4), 1, 1)
 
     # Define girder element
     # -----------------------------
@@ -97,21 +97,19 @@ def create_portal(width  = 360.0, height = 144.0):
     return model
 
 def gravity_analysis(model, P=180.0):
+    #
     # Define gravity loads
     # --------------------
     # Set a parameter for the axial load
 #   P = 180.0;                # 10% of axial capacity of columns
 
-    # create a Linear TimeSeries (load factor varies linearly with time) - command: timeSeries Linear $tag
-    model.timeSeries("Linear", 1)
-
-    # create a Plain load pattern - command: pattern Plain $tag $timeSeriesTag { $loads }
-    model.pattern("Plain", 1, 1, fact=1.0)
-
-    # create the nodal load - command: load nodeID xForce yForce zMoment
-    model.load(3, 0.0, -P, 0.0, pattern=1)
-    model.load(4, 0.0, -P, 0.0, pattern=1)
-
+    # Create a Plain load pattern
+    #               Type  tag timeSeries loads
+    model.pattern("Plain", 1, "Linear", loads={
+    # nodeID  xForce yForce zMoment
+         3:   [ 0.0,   -P,   0.0],
+         4:   [ 0.0,   -P,   0.0]
+    })
 
     # ------------------------------
     # Start of analysis generation
@@ -130,28 +128,21 @@ def gravity_analysis(model, P=180.0):
     # create the solution algorithm, a Newton-Raphson algorithm
     model.algorithm("Newton")
 
-    # create the integration scheme, the LoadControl scheme using steps of 0.1
+    # Define the integration scheme: the LoadControl scheme using steps of 0.1
     model.integrator("LoadControl", 0.1)
 
-    # create the analysis object 
+    # Define the analysis type
     model.analysis("Static")
-
-    # ------------------------------
-    # End of analysis generation
-    # ------------------------------
-
 
     # ------------------------------
     # Finally perform the analysis
     # ------------------------------
 
-    # perform the gravity load analysis, requires 10 steps to reach the load level
+    # perform the gravity load analysis in 10 steps to reach the load level
     status = model.analyze(10)
 
-    # ----------------------------------------------------
-    # End of Model Generation & Initial Gravity Analysis
-    # ----------------------------------------------------
     return status
+
 
 def pushover_analysis(model, H=10.0):
     #  Nonlinear pushover analysis using Portal Frame Example 3.1 as starting point
@@ -162,9 +153,8 @@ def pushover_analysis(model, H=10.0):
     #  Distributed vertical load on girder
     #  Lateral Load at top of frame
 
-    #
     # ----------------------------------------------------
-    # Start of additional modeling for lateral loads
+    # Define lateral loads
     # ----------------------------------------------------
 
     # Set the gravity loads to be constant & reset the time in the domain
@@ -191,7 +181,7 @@ def pushover_analysis(model, H=10.0):
     # Set some parameters
     dU = 0.1;	        # Displacement increment
 
-    # Change the integration scheme to be displacement control
+    # Set the integration scheme to be displacement control
     #                                    node dof init Jd min max
     model.integrator("DisplacementControl", 3, 1, dU, 1, dU, dU)
 
@@ -250,6 +240,7 @@ def pushover_analysis(model, H=10.0):
             currentDisp = model.nodeDisp(3, 1)
 
     return status
+
 
 def main():
     # Create the model

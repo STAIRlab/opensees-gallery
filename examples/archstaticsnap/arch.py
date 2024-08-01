@@ -2,7 +2,6 @@ import numpy as np
 import opensees.openseespy
 
 # Create the model
-
 def arch_model():
 
     # Define model parameters
@@ -26,7 +25,7 @@ def arch_model():
 
     # Create nodes
     ne  = 10
-    nen = 2
+    nen =  2             # nodes per element
     nn  = ne*(nen-1)+1
     mid = (nn+1)//2      # midpoint node
 
@@ -56,14 +55,14 @@ def arch_model():
 
     model.fix( 1, 1, 1, 0)
     model.fix(nn, 1, 1, 0)
-    
+
     # Create a load pattern that scales linearly
     model.pattern("Plain", 1, "Linear")
 
     # Add a nodal load to the pattern
     model.load(mid, 0.0, -1.0, 0.0, pattern=1)
 
-    
+
     model.system("ProfileSPD")
     # model.system("FullGeneral")
     # model.system("BandGeneral")

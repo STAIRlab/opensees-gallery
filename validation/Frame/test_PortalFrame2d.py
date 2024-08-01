@@ -1,6 +1,5 @@
-import opensees.openseespy as ops
-
-from math import asin, sqrt
+# 2D 7-story 2-bay frame
+#
 # Two dimenional Frame: Eigenvalue & Static Loads
 
 
@@ -10,6 +9,9 @@ from math import asin, sqrt
 # Computers and Structures, 1997. Example 1.
 # and seismo-struct (Example 10)
 # SeismoStruct, Verification Report For Version 6, 2012. Example 11.
+import opensees.openseespy as ops
+
+from math import asin, sqrt
 
 def test_PortalFrame2d():
 
@@ -20,7 +22,7 @@ def test_PortalFrame2d():
 
     ops.wipe()
 
-    ops.model( 'Basic', '-ndm', 2)
+    ops.model('Basic', '-ndm', 2)
 
     # properties  
 
@@ -209,7 +211,6 @@ def test_PortalFrame2d():
         if abs(result-resultOther) > tol:
             ok = -1
             print("failed-> ", i, abs(result-resultOther), tol)
-        
 
 
     assert ok==0

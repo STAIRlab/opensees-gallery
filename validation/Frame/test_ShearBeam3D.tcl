@@ -1,3 +1,5 @@
+# 3D Cantilever column
+#
 set E  30000.0
 set A  20.0
 set Iz 1400.0
@@ -15,7 +17,11 @@ set Pz 300.0
 
 set nIP 3
 
-set elements {1 2}
+set elements {1 2 7}
+
+proc printRow {quantity computed bend shear} {
+  puts [format "%10s %10f %10f (%10f + %10f)" $quantity $computed [expr $bend+$shear] $bend $shear];
+}
 
 foreach element $elements {
 	
@@ -29,9 +35,10 @@ foreach element $elements {
     section Elastic 1 $E $A $Iz $Iy $G $J
 
     uniaxialMaterial Elastic 1 [expr $alpha*$G*$A]
-    section Aggregator 2 1 Vy 1 Vz
+    uniaxialMaterial Elastic 2 [expr $G*$J]
+    section Aggregator 2 1 Vy 1 Vz 2 T
 
-    section Aggregator 3 1 Vy 1 Vz -section 1
+    section Aggregator 3 1 Vy 1 Vz 2 T -section 1
 
     geomTransf Linear 1 0 0 1
     
@@ -48,13 +55,17 @@ foreach element $elements {
 	    puts "Element: BeamWithHinges2"
 	    element beamWithHinges2 1 1 2 1 $lp 1 $lp $E $A $Iz $Iy $G $J 1 -constHinge 2
 	}
+	7 {
+	    puts "Element: ForceFrame"
+	    element ForceFrame 1 1 2 $nIP 3 1
+	}
     }
     
     pattern Plain 1 "Constant" {
 	load 2 0.0 $Py $Pz 0.0 0.0 0.0
     }
     
-    test NormUnbalance 1.0e-10 10 1
+    test NormUnbalance 1.0e-10 10 ; #1
     algorithm Newton
     integrator LoadControl 1.0
     constraints Plain
@@ -63,18 +74,25 @@ foreach element $elements {
     analysis Static
     
     analyze 1
-    
-    print node 2
+ 
 
-    puts "Exact displacement:   [expr $Py*pow($L,3)/(3*$E*$Iz) + $Py*$L/($alpha*$G*$A)]"
-    puts "Bending contribution: [expr $Py*pow($L,3)/(3*$E*$Iz)]"
-    puts "Shear contribution:   [expr $Py*$L/($alpha*$G*$A)]"
-    puts ""
+    set bend [expr $Py*pow($L,3)/(3*$E*$Iz)]
+    set shear [expr $Py*$L/($alpha*$G*$A)]
 
-    puts "Exact displacement:   [expr $Pz*pow($L,3)/(3*$E*$Iy) + $Pz*$L/($alpha*$G*$A)]"
-    puts "Bending contribution: [expr $Pz*pow($L,3)/(3*$E*$Iy)]"
-    puts "Shear contribution:   [expr $Pz*$L/($alpha*$G*$A)]"
-    puts ""
+#   puts "Exact displacement:   [expr $bend + $shear]"
+#   puts "Bending contribution: $bend"
+#   puts "Shear contribution:   $shear"
+#   puts ""
+    printRow "z-z" [nodeDisp 2 2] $bend $shear
+
+    set bend [expr $Pz*pow($L,3)/(3*$E*$Iy)]
+    set shear [expr $Pz*$L/($alpha*$G*$A)]
+#   puts "Exact displacement:   [expr $bend + $shear]"
+#   puts "Bending contribution: $bend"
+#   puts "Shear contribution:   $shear"
+#   puts ""
+
+    printRow "y-y" [nodeDisp 2 3] $bend $shear
 
     wipe
 }

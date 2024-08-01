@@ -210,7 +210,7 @@ foreach {period dampRatio} {0.5 0.02 1.0 0.02 2.0 0.02 2.0 0.0 2.0 0.02 2.0 0.05
     incr counter
 }
 
-set results [open README.md a+]
+set results [open STATUS.md a+]
 if {$testOK == 0} {
     puts "\nPASSED Verification Test sdofTransient.tcl \n\n"
     puts $results "| PASSED |  sdofTransient.tcl"

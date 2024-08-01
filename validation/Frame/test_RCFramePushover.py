@@ -42,8 +42,8 @@ def test_RCFramePushover():
 
     # Create nodal loads at nodes 3 & 4
     #    nd    FX  FY  MZ 
-    ops.load( 3, H, 0.0, 0.0) 
-    ops.load( 4, H, 0.0, 0.0) 
+    ops.load( 3, H, 0.0, 0.0)
+    ops.load( 4, H, 0.0, 0.0)
 
     # ----------------------------------------------------
     # End of additional modelling for lateral loads

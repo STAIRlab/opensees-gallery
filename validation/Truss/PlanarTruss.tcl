@@ -174,7 +174,7 @@ if {[expr abs($osDispB-$dispB)] > $tol} {
 }
 
 
-set results [open README.md a+]
+set results [open STATUS.md a+]
 if {$testOK == 0} {
     puts "\nPASSED Verification Test PlanarTruss.tcl \n\n"
     puts $results "| PASSED |  PlanarTruss.tcl"
