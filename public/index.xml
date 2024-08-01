@@ -134,7 +134,7 @@
       <description>Cold-Formed Steel Wood Sheathed Shear Wall Panel examples In order to check the accuracy of the proposed models, results from quasi-static non-linear analyses of Wood-sheathed Cold-Formed Steel Shear Wall Panel have been carried out using CFSWSWP uniaxialMaterial model implemented into OpenSees version 2.</description>
     </item>
     <item>
-      <title>Columns with Nonlinear Geometry</title>
+      <title>Columns with Nonlinear Geometry and Shear</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/frameshear/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/frameshear/</guid>
