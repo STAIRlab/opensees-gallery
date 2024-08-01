@@ -1,10 +1,9 @@
 ---
-title: "Ex1: Time History Analysis of a 2D Elastic Cantilever Column"
+title: "Ex1: Dynamics of a 2D Elastic Cantilever Column"
 tags: ["2D", "Frame"]
 image: Example1a_EQ.gif
 ---
 
-<hr />
 
 This example demonstrates how to perform time history analysis of a
 2D elastic reinforced concrete cantilever column with a gravity load
@@ -17,14 +16,14 @@ cantilever column, node and element numbering are shown in the figure
 below.
 
 <hr />
-<p>|- <img src="Example1a_EQ.gif" title="Example1a_EQ.gif"
-alt="Example1a_EQ.gif" /></p>
+
+<img src="Example1a_EQ.gif" title="Example1a_EQ.gif" alt="Example1a_EQ.gif" />
+
 <hr />
-<h2
-id="instructions_on_how_to_run_this_example_for_windows_users">Instructions
-on how to run this example (for Windows users)</h2>
-<p>To execute this ananlysis in OpenSees the user has to download these
-files:</p>
+
+## Instructions
+
+To execute this analysis in OpenSees download the following files:
 <ul>
 <li><a href="Media:Ex1a.Canti2D.EQ.modif.tcl"
 title="wikilink">Ex1a.Canti2D.EQ.modif.tcl</a></li>
@@ -35,6 +34,7 @@ title="wikilink">Ex1a.Canti2D.EQ.modif.tcl</a></li>
 <p>Place Ex1a.Canti2D.EQ.tcl and `A10000.tcl` file in the same folder with
 the OpenSees.exe. By double clicking on OpenSees.exe the OpenSees
 interpreter will pop out. To run the analysis the user should type:
+
 <pre style="width:650px"> source Ex1a.Canti2D.EQ.modif.tcl
 </pre> and hit enter.</p>
 

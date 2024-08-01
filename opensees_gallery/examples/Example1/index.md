@@ -1,7 +1,8 @@
 ---
 title: "Example 1: Linear Truss"
+weight: 10
 tags: ["Truss", "Python", "Tcl"]
-categories: ["Basic"]
+categories: ["Basic", "Elastic"]
 image: BasicTruss.png
 description: >-
   A finite element model of a simple truss is created,

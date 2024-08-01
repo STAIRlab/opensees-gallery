@@ -1,7 +1,8 @@
 ---
-title: "Example 2: Moment-Curvature"
+title: "Moment-Curvature Analysis"
+weight: 20
 tags: ["Fiber", "Concrete", "Python", "Tcl"]
-categories: ["Basic"]
+categories: ["Basic", "Inelastic"]
 image: Section.png
 description: >-
   A reinforced concrete cross-section is modeled using a fiber section, 
@@ -14,6 +15,8 @@ concrete section which is represented by a fiber discretization.
 Because we are only interested in the response quantities of the
 cross section, a zero-length element is used to wrap the cross
 section. 
+
+![Confined concrete](confinement.png)
 
 ## Modeling
 

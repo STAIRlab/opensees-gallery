@@ -2,6 +2,7 @@
 title: Force-based Element vs. Displacement-based Element
 image: ForceDispl.png
 tags: ["Frame"]
+draft: true
 ---
 
 Investigate the two most commonly used OpenSees elements for modeling beam-column

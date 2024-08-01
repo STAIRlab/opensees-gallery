@@ -1,7 +1,7 @@
 ---
-title: "Example 3: Inelastic Plane Frame"
+title: "Inelastic Plane Frame"
 tags: ["Frame", "Python", "Tcl", "Concrete"]
-categories: ["Basic"]
+categories: ["Basic", "Inelastic"]
 image: ConcretePortal.png
 description: Nonlinear analysis of a concrete portal frame.
 ---
@@ -214,9 +214,26 @@ gravity_analysis;
 {{% /tab %}}
 {{< /tabs >}}
 
-A single load pattern with a linear time series, two vertical nodal
-loads acting at nodes 3 and 4, and single point constraints to constrain
-nodes 1 and 2 are created.
+A single load pattern with a linear time series is created with two vertical nodal
+loads acting at nodes 3 and 4:
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", loads={
+# nodeID  xForce yForce zMoment
+     3:   [ 0.0,   -P,   0.0],
+     4:   [ 0.0,   -P,   0.0]
+})
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 The model contains material non-linearities, so a solution algorithm of
 type `Newton` is used. The solution algorithm uses a `ConvergenceTest` which

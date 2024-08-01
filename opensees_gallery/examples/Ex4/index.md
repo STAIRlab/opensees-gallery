@@ -1,15 +1,14 @@
 ---
 title: "Ex4 - Portal Frame"
 image: ExampleFigure_FiberSection.GIF
+draft: true
 ---
 
-<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+## Introduction
 
-<p>This is a great example!
 To all the demonstrations that Example 3 has done, Example 4 adds the use of previously-defined Tcl procedures (a procedure is a Tcl command that is created by the proc command) or scripts.
 This example also introduces new kinds of static and dynamic analyses.
-</p><p><br />
-</p>
+
 <h2><span class="mw-headline" id="Input">Input</span></h2>
 <h3><span class="mw-headline" id="Model_Building">Model Building</span></h3>
 <p>The following tasks are performed when building the model

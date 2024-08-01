@@ -1,10 +1,11 @@
 
-foreach section {RCsec Wsec} {
+#foreach section {RCsec Wsec} {
+foreach section {RCsec} {
 #                   Dynamic.EQ.bidirect
   foreach analysis {
-                    Static.Cycle
                     Static.Push
                   } {
+#                   Static.Cycle
 #                   Dynamic.EQ.Uniform
 #                   Dynamic.EQ.multipleSupport
 #                   Dynamic.sine.multipleSupport

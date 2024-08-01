@@ -153,7 +153,7 @@ proc dynamic_analysis {} {
     
     # if the analysis fails try initial tangent iteration
     if {$status != 0} {
-        puts "... Newton failed, trying initail stiffness"
+        puts "... Newton failed, trying initial stiffness"
         test NormDispIncr 1.0e-12  100 0
         algorithm ModifiedNewton -initial
         set status [analyze 1 .01]

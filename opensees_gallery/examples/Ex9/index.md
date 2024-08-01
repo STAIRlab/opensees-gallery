@@ -1,5 +1,6 @@
 ---
 title: Section Library
+description: Building fiber sections
 image: Example9_figure1.GIF #HollowRC.png
 tags: ["Fiber"]
 ---

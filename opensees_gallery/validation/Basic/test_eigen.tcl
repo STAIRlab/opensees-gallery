@@ -127,7 +127,7 @@ for {set i 0} {$i<$numEigen} {incr i 1} {
     }
 }
 
-set results [open README.md a+]
+set results [open STATUS.md a+]
 if {$testOK == 0} {
     puts "PASSED Verification Test SmallEigen.tcl \n\n"
     puts $results "| PASSED |  SmallEigen.tcl"

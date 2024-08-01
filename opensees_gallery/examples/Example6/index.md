@@ -1,7 +1,7 @@
 ---
-title: "Example 6: Simply Supported Beam"
+title: "Simply Supported Solid Beam"
 tags: ["Plane", "Python", "Tcl"]
-categories: ["Basic"]
+categories: ["Basic", "Elastic"]
 image: Example6.png
 render: model.glb
 ---

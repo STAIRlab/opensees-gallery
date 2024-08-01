@@ -1,8 +1,8 @@
 ---
-title: "Example 7: Dynamic Shell Analysis"
+title: "Dynamic Shell Analysis"
 tags: ["Shell", "Dynamic", "Python", "Tcl"]
-categories: ["Basic"]
-image: Example7.png
+categories: ["Basic", "Elastic"]
+image: safeway.png
 render: model.glb
 description: Transient analysis of a shell model.
 ---
@@ -32,14 +32,15 @@ structure is curved in space.
 
 The shell element is constructed using the `ShellMITC4` formulation. 
 An elastic membrane-plate material section model,
-appropriate for shell analysis, is constructed using the
-"ElasticMembranePlateSection" command. In this case, the elastic modulus
+appropriate for shell analysis, is constructed using the `section`
+command and the
+`"ElasticMembranePlateSection"` formulation. In this case, the elastic modulus
 $E = 3.0e3$, Poisson's ratio $\nu =  0.25$, the thickness $h = 1.175$
 and the mass density per unit volume $\rho = 1.27$
 
 
 Boundary conditions are applied using the `fixZ` command. In this case,
-all the nodes whose z-coordiate is $0.0$ have the boundary condition
+all the nodes whose $z$-coordiate is $0.0$ have the boundary condition
 `{1,1,1, 0,1,1}`: all degrees-of-freedom are fixed except rotation about
 the x-axis, which is free. The same boundary conditions are applied
 where the $z$-coordinate is $40.0$.

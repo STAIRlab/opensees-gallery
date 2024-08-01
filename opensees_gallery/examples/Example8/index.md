@@ -1,6 +1,6 @@
 ---
-title: "Example 8: Continuum Cantilever"
-tags: ["Solid", "Dynamic", "Python", "Tcl", "Export"]
+title: "Continuum Cantilever"
+tags: ["Solid", "Dynamic", "Python", "Tcl"]
 categories: ["Basic"]
 description: Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.
 image: Example8.png
