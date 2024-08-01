@@ -22,18 +22,18 @@
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
     </item>
     <item>
-      <title>Arch Instability</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
-      <description>Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
-    </item>
-    <item>
       <title>Bathe&#39;s Springs</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
       <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
+    </item>
+    <item>
+      <title>Arch Instability</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
+      <description>Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
     </item>
     <item>
       <title>Building Modes</title>

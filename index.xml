@@ -29,6 +29,20 @@
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
     </item>
     <item>
+      <title>Bathe&#39;s Springs</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
+      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
+    </item>
+    <item>
+      <title>Arch Dynamic Snapping</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</guid>
+      <description>Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.</description>
+    </item>
+    <item>
       <title>Filter</title>
       <link>https://stairlab.github.io/opensees-gallery/filter/</link>
       <pubDate>Fri, 27 Apr 2018 20:16:13 +1000</pubDate>
@@ -57,25 +71,11 @@
       <description>The rendering is created using the sees Python package, and can be recreated by running the shell command:&#xA;python -m sees model.</description>
     </item>
     <item>
-      <title>Arch Dynamic Snapping</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</guid>
-      <description>Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.</description>
-    </item>
-    <item>
       <title>Arch Instability</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
       <description>Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
-    </item>
-    <item>
-      <title>Bathe&#39;s Springs</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
-      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
     </item>
     <item>
       <title>Beam Column Joint</title>
