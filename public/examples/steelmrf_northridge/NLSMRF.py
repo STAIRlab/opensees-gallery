@@ -165,8 +165,8 @@ ops.equalDOF(27, 102, 1)
 
 # Transformations & Integration
 ## Transformation
-ops.geomTransf('Linear', 1)    # For Beams
-ops.geomTransf('PDelta', 2)    # For leaning Columns
+ops.geomTransf("Linear", 1)    # For Beams
+ops.geomTransf("PDelta", 2)    # For leaning Columns
 ## Integration scheme
 ops.beamIntegration('Lobatto', 1, 1, 5)   # For Beams
 ops.beamIntegration('Lobatto', 2, 2, 5)   # For Columns
@@ -237,11 +237,8 @@ ops.rayleigh(a_m, 0, b_k, 0)
 # In[8]:
 
 
-# Time Series
-ops.timeSeries('Linear', 1)                    # For gravitional loads
-
 # Load Pattern
-ops.pattern('Plain', 1, 1)
+ops.pattern('Plain', 1, "Linear")
 ops.load(101, *[0.0, -P_1, 0.0])
 ops.load(102, *[0.0, -P_1, 0.0])
 

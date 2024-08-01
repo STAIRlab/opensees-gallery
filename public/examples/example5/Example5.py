@@ -20,6 +20,7 @@
 import opensees.openseespy as ops
 import opensees.units.iks as units
 import math
+import sys
 #
 def ReinforcedRectangle(model, id, h, b, cover, coreID, coverID, steelID, numBars, barArea, nfCoreY, nfCoreZ, nfCoverY, nfCoverZ, GJ):
 # Define a procedure which generates a rectangular reinforced concrete section
@@ -193,10 +194,22 @@ def create_model():
     h  = 18.0
     GJ = 1.0E10
     colSec = 1
+    beamSec = 2
 
     # Call the RCsection procedure to generate the column section
     #                              id  h  b cover core cover steel nBars barArea nfCoreY nfCoreZ nfCoverY nfCoverZ GJ
     ReinforcedRectangle(model, colSec, h, h, 2.5, 1,    2,    3,    3,   0.79,     8,      8,      10,      10,   GJ)
+
+    # Define material properties for elastic beams
+    # Using beam depth of 24 and width of 18
+    Abeam = 18.0*24.0
+    # "Cracked" second moments of area
+    Ibeamzz = 0.5*1.0/12.0*18.0*pow(24.0,3)
+    Ibeamyy = 0.5*1.0/12.0*24.0*pow(18.0,3)
+
+    # Define elastic section for beams
+    #                       tag     E    A      Iz       Iy     G    J
+    model.section("Elastic", beamSec, Ec, Abeam, Ibeamzz, Ibeamyy, GJ, 1.0)
 
     # Define column elements
     # ----------------------
@@ -211,39 +224,29 @@ def create_model():
 
     # Number of column integration points (sections)
     np = 4
-    model.beamIntegration("Lobatto", colSec, colSec, np)
+    itg = 1
+    model.beamIntegration("Lobatto", itg, colSec, np)
 
     # Create the nonlinear column elements
-    eleType = "forceBeamColumn"
+    eleType = sys.argv[1] #"forceBeamColumn"
     #                   tag ndI ndJ transfTag integrationTag
-    model.element(eleType, 1, 1, 5, 1, colSec)
-    model.element(eleType, 2, 2, 6, 1, colSec)
-    model.element(eleType, 3, 3, 7, 1, colSec)
-    model.element(eleType, 4, 4, 8, 1, colSec)
+    model.element(eleType, 1, 1, 5, 1, itg)
+    model.element(eleType, 2, 2, 6, 1, itg)
+    model.element(eleType, 3, 3, 7, 1, itg)
+    model.element(eleType, 4, 4, 8, 1, itg)
 
-    model.element(eleType, 5, 5, 10, 1, colSec)
-    model.element(eleType, 6, 6, 11, 1, colSec)
-    model.element(eleType, 7, 7, 12, 1, colSec)
-    model.element(eleType, 8, 8, 13, 1, colSec)
+    model.element(eleType, 5, 5, 10, 1, itg)
+    model.element(eleType, 6, 6, 11, 1, itg)
+    model.element(eleType, 7, 7, 12, 1, itg)
+    model.element(eleType, 8, 8, 13, 1, itg)
 
-    model.element(eleType,  9, 10, 15, 1, colSec)
-    model.element(eleType, 10, 11, 16, 1, colSec)
-    model.element(eleType, 11, 12, 17, 1, colSec)
-    model.element(eleType, 12, 13, 18, 1, colSec)
+    model.element(eleType,  9, 10, 15, 1, itg)
+    model.element(eleType, 10, 11, 16, 1, itg)
+    model.element(eleType, 11, 12, 17, 1, itg)
+    model.element(eleType, 12, 13, 18, 1, itg)
 
     # Define beam elements
     # --------------------
-    # Define material properties for elastic beams
-    # Using beam depth of 24 and width of 18
-    Abeam = 18.0*24.0
-    # "Cracked" second moments of area
-    Ibeamzz = 0.5*1.0/12.0*18.0*pow(24.0,3)
-    Ibeamyy = 0.5*1.0/12.0*24.0*pow(18.0,3)
-    beamSec = 2
-
-    # Define elastic section for beams
-    #                       tag     E    A      Iz       Iy     G    J
-    model.section("Elastic", beamSec, Ec, Abeam, Ibeamzz, Ibeamyy, GJ, 1.0)
 
     # Geometric transformation for beams
     model.geomTransf("Linear", 2, 1.0, 1.0, 0.0)
@@ -289,10 +292,8 @@ def create_model():
     model.mass(19, m, m, 0.0, 0.0, 0.0, i)
 
     # Define gravity loads
-    # create a Constant TimeSeries
-    model.timeSeries("Constant", 1)
-    # create a Plain load pattern
-    model.pattern("Plain", 1, 1, "-fact", 1.0)
+    # create a Plain load pattern with Constant scaling
+    model.pattern("Plain", 1, "Constant")
 
     for i in [5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18]:
         model.load(i, 0.0, 0.0, -p, 0.0, 0.0, 0.0, pattern=1)

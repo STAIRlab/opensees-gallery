@@ -1,3 +1,5 @@
+# 2D 9-story 10-bay Frame
+#
 # Bathe & Wilson eigenvalue problem
 #   Results presented by Bathe & wilson in 1972 and again by Peterson in 1981
 
@@ -14,12 +16,13 @@
 # and seismo-struct (Example 10)
 #   SeismoStruct, Verification Report For Version 6, 2012. Example 10.
 
+set elem_name elasticBeamColumn
 
 puts "EigenFrame.tcl: Verification 2d Bathe & Wilson original Elastic Frame"
 
 wipe
 
-model Basic -ndm 2
+model Basic -ndm 2 -ndf 3
 
 #    units kip, ft                                                                                                                              
 
@@ -63,7 +66,7 @@ for {set i 0} {$i <=$numBay} {incr i 1} {
     set end1 [expr $i+1]
     set end2 [expr $end1 + $numBay +1]
     for {set j 0} {$j<$numFloor} {incr j 1} {
-        element elasticBeamColumn $eleTag $end1 $end2 $A $E $I 1 -mass $M $massType
+        element $elem_name $eleTag $end1 $end2 $A $E $I 1 -mass $M $massType
         set end1 $end2
         set end2 [expr $end1 + $numBay +1]
         incr eleTag 1
@@ -75,7 +78,7 @@ for {set j 1} {$j<=$numFloor} {incr j 1} {
     set end1 [expr ($numBay+1)*$j+1]
     set end2 [expr $end1 + 1]
     for {set i 0} {$i <$numBay} {incr i 1} {
-        element elasticBeamColumn $eleTag $end1 $end2 $A $E $I 1 -mass $M $massType
+        element $elem_name $eleTag $end1 $end2 $A $E $I 1 -mass $M $massType
         set end1 $end2
         set end2 [expr $end1 + 1]
         incr eleTag 1
@@ -111,7 +114,7 @@ for {set i 0} {$i<$numEigen} {incr i 1} {
 }
 
 
-set results [open README.md a+]
+set results [open STATUS.md a+]
 if {$testOK == 0} {
     puts "PASSED Verification Test EigenFrame.tcl \n\n"
     puts $results "| PASSED |  EigenFrame.tcl"

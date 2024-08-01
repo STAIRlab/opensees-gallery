@@ -87,7 +87,7 @@ def steel_cantilever(small_mass = 1e-4, hardening=0.1, damping=None):
 
 
 # #### Perform integration
-def analyze(model, form, init="a", n=None):
+def analyze(model, form, init="a", alpha=None, n=None):
 
     Event = quakeio.read("TAK000.AT2")
     AccHst = Event.data
@@ -104,8 +104,13 @@ def analyze(model, form, init="a", n=None):
     model.pattern('UniformExcitation', 1, 1, accel=load_tag)
 
     model.system("FullGen")
-    #                           gam  bet
-    model.integrator("Newmark", 1/2, 1/4, form=form, init=init)
+
+    if alpha is None:
+        #                           gam  bet
+        model.integrator("Newmark", 1/2, 1/4, form=form, init=init)
+    else:
+        #                           gam  bet
+        model.integrator("Newmark", 1/2, 1/4, form=form, init=init, alpha=alpha)
 
     nt   = len(AccHst)
     if n is None:

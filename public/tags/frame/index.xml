@@ -8,25 +8,32 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/frame/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ex1: Time History Analysis of a 2D Elastic Cantilever Column</title>
+      <title>Frame Spans</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framespans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framespans/</guid>
+      <description>Objectives:&#xA;Defining cross sectional properties for frame elements Defining element loads </description>
+    </item>
+    <item>
+      <title>Columns with Nonlinear Geometry</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/frameshear/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/frameshear/</guid>
+      <description>This example is adapted from https://github.com/denavit/OpenSees-Example</description>
+    </item>
+    <item>
+      <title>Ex1: Dynamics of a 2D Elastic Cantilever Column</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/ex1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/ex1/</guid>
       <description>This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.</description>
     </item>
     <item>
-      <title>Example 3: Inelastic Plane Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
-      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
-    </item>
-    <item>
       <title>Example 4: Multibay Two Story Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example4/</guid>
-      <description>In this example variables and control structures are demonstrated.&#xA;Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
+      <description>Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
       <title>Example 5: Rigid 3D Frame</title>
@@ -36,11 +43,11 @@
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
     </item>
     <item>
-      <title>Force-based Element vs. Displacement-based Element</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</link>
+      <title>Inelastic Plane Frame</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/frameformulations/</guid>
-      <description>Investigate the two most commonly used OpenSees elements for modeling beam-column elements: the force-based element (FBE) and displacement-based element (DBE).</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
+      <description>This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model.</description>
     </item>
     <item>
       <title>Matrix Eigenvalue Analysis</title>
@@ -48,6 +55,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame.&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.</description>
+    </item>
+    <item>
+      <title>Nonlinear Geometry</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.</description>
     </item>
   </channel>
 </rss>

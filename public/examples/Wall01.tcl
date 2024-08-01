@@ -1,33 +1,52 @@
 wipe;
 model basic -ndm 2 -ndf 3
 
-set tolAx 1.0e-3; set iterAx 100;
+set tolAx 1.0e-3
+set iterAx 100;
 
-set tolLatNew 1.0e-6; set iterLatNew 100;
+set tolLatNew 1.0e-6
+set iterLatNew 100;
 
-set tolLatIni 1.0e-5; set iterLatIni 1000;
+set tolLatIni 1.0e-5
+set iterLatIni 1000;
 
 set dUi 0.02; # Displacement increment
 
 set maxU 1.6; # Max. Displacement
 
 # concrete parameters
-set fc -6.21; set eo -0.0021; set r 2.91;
+set fc -6.21; 
+set eo -0.0021; 
+set r 2.91;
 
-set k 1.36; set alphaC 0.32; set fcr 0.294;
+set k 1.36
+set alphaC 0.32
+set fcr 0.294;
 
-set ecr 0.00008; set b 0.4; set alphaT 0.08;
+set ecr 0.00008
+set b 0.4
+set alphaT 0.08;
 
-set fcc -6.91; set ecc -0.0038; set rcc 1.88;
+set fcc -6.91
+set ecc -0.0038
+set rcc 1.88;
 
 # steel parameters
-set fyRed 59.15; set by 0.02; set Ry 1.564;
+set fyRed 59.15
+set by 0.02
+set Ry 1.564;
 
-set roy 0.00327; set fyBRed 57.33; set byB 0.02;
+set roy 0.00327
+set fyBRed 57.33
+set byB 0.02;
 
-set RyB 25.0; set royB 0.0293; set fxRed 59.15;
+set RyB 25.0
+set royB 0.0293
+set fxRed 59.15;
 
-set bx 0.02; set Rx 1.564; set rox 0.00327;
+set bx 0.02
+set Rx 1.564
+set rox 0.00327;
 
 # concrete (confined and unconfined)
 uniaxialMaterial Concrete06 1 $fcc $ecc $rcc 1 $alphaC $fcr $ecr $b $alphaT;
@@ -43,11 +62,14 @@ uniaxialMaterial Steel02 1005 $fxRed $E $bx $Rx 0.9 0.1 0 0.1 0 0.1 ;
 
 # Define cross-section
 
-set t1 6.0; set NStrip1 2; # thickness 1
+set t1 6.0
+set NStrip1 2; # thickness 1
 
-set t2 4.0; set NStrip2 4; # thickness 2
+set t2 4.0
+set NStrip2 4; # thickness 2
 
-set t3 6.0; set NStrip3 2; # thickness 3
+set t3 6.0
+set NStrip3 2; # thickness 3
 
 geomTransf LinearInt 1
 
@@ -158,7 +180,8 @@ integrator DisplacementControl 2 1 $dU 1 $dU $dU
 
 #### end
 
-set ok [analyze $numSteps]; set jump 1;
+set ok [analyze $numSteps]
+set jump 1;
 
 if {$ok != 0} {
 

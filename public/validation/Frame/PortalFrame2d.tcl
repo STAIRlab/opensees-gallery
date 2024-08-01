@@ -122,7 +122,7 @@ for {set j 0} {$j <= $numBay} {incr j 1} {
     set thisColumn [lindex $columns $j]
     for {set i 0} {$i<$numFloor} {incr i 1} {
 	set secType [lindex $thisColumn $i]
-	ElasticBeamColumn $eleTag $end1 $end2 $secType $E 1 $M &massType
+	ElasticBeamColumn $eleTag $end1 $end2 $secType $E 1 $M $massType
 	set end1 $end2
 	set end2 [expr $end1 + $numBay +1]
 	incr eleTag 1
@@ -135,7 +135,7 @@ for {set j 1} {$j<=$numFloor} {incr j 1} {
     set end2 [expr $end1 + 1]
     set secType [lindex $beams [expr $j-1]]
     for {set i 0} {$i <$numBay} {incr i 1} {
-	ElasticBeamColumn $eleTag $end1 $end2 $secType $E 1 $M &massType
+	ElasticBeamColumn $eleTag $end1 $end2 $secType $E 1 $M $massType
         set end1 $end2
 	set end2 [expr $end1 + 1]
         incr eleTag 1
@@ -186,6 +186,8 @@ for {set i 0} {$i<$numEigen} {incr i 1} {
     set resultOther [lindex [lindex $comparisonResults 0] $i]
     if {[expr abs($period-$resultOther)] > 9.99e-5} {
 	set ok -1;
+        print -json
+        exit
     }
 }
 
@@ -216,7 +218,7 @@ for {set i 0} {$i<3} {incr i 1} {
     }
 }
 
-set results [open README.md a+]
+set results [open STATUS.md a+]
 if {$ok == 0} {
     puts "PASSED Verification Test PortalFrame2d.tcl \n\n"
     puts $results "| PASSED |  PortalFrame2d.tcl"

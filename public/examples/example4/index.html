@@ -64,7 +64,7 @@
   "headline": "Example 4: Multibay Two Story Frame",
   "description" : "A multi-bay reinforced concrete frame is investigated.",
   "inLanguage" : "en",
-  "wordCount":  534 ,
+  "wordCount":  432 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -313,18 +313,6 @@
     <div class="row flex-xl-nowrap">
     
       
-      <div class="d-none d-xl-block col-xl-2 docs-toc">
-        <ul class="nav toc-top">
-          <li><a href="#" id="back_to_top" class="docs-toc-title"></a></li>
-        </ul>
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#example-41">Example 4.1</a></li>
-  </ul>
-</nav>
-        
-      </div>
-      
     
       <main class="col-12 col-md-1 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
 
@@ -346,8 +334,7 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>In this example variables and control structures are demonstrated.</p>
-<h2 id="example-41">Example 4.1</h2>
+        <h2 id="example-41">Example 4.1</h2>
 <p>This example is of a reinforced concrete multibay two story frame, as
 shown in Figure 1, subject to gravity loads.
 The files for this example are:
@@ -362,13 +349,13 @@ The files for this example are:
 		
 
 		<a class="nav-link  active "
-		   id="dbacef-tab" data-bs-toggle="tab" data-bs-target="#dbacef"
+		   id="ceafbd-tab" data-bs-toggle="tab" data-bs-target="#ceafbd"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
 
 		
 
 		<a class="nav-link "
-		   id="cedfab-tab" data-bs-toggle="tab" data-bs-target="#cedfab"
+		   id="dfaebc-tab" data-bs-toggle="tab" data-bs-target="#dfaebc"
 		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
 
 		
@@ -384,10 +371,10 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show active " id="dbacef" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="ceafbd" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
-<li><a href="Example4.1.py"><code>Example4.1.py</code></a></li>
+<li><a href="Example4.py"><code>Example4.py</code></a></li>
 </ol>
 
 
@@ -398,10 +385,10 @@ The files for this example are:
 
 
 
-<div class="tab-pane fade show " id="cedfab" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dfaebc" role="tabpanel" aria-labelledby="nav-1">
 
 	<ol>
-<li><a href="Example4.1.tcl"><code>Example4.1.tcl</code></a></li>
+<li><a href="Example4.tcl"><code>Example4.tcl</code></a></li>
 </ol>
 
 
@@ -413,7 +400,7 @@ The files for this example are:
 </p>
 <p>A model of the frame shown in
 Figure 1 is created. The number of objects in the model is
-dependent on the parameter numBay. The <code>(numBay + 1)*3</code> nodes are
+dependent on the parameter <code>numBay</code>. The <code>(numBay + 1)*3</code> nodes are
 created, one column line at a time, with the node at the base of the
 columns fixed in all directions. Three materials are constructed, one
 for the concrete core, one for the concrete cover and one for the
@@ -432,28 +419,20 @@ the exterior columns.</p>
 series is introduced after the gravity load analysis. Associated with
 this load pattern are two nodal loads acting on nodes 2 and 3, with the
 load level at node 3 twice that acting at node 2.</p>
-<p>A solution Algorithm of type Newton is created. The solution algorithm
-uses a ConvergenceTest based on the norm of the displacement increment
-vector. The integrator for the analysis will be LoadControl with a load
-step increment of 0.1. The storage for the system of equations is
-BandGeneral. The equations are numbered using an RCM (reverse
-Cuthill-McKee) numberer. The constraints are enforced with a Plain
-constraint handler. Once the components of the analysis have been
-defined, the analysis object is then created. For this problem a Static
-analysis object is used and 10 steps are performed to load the model
+<p>The integrator for the analysis will be LoadControl with a load
+step increment of <code>0.1</code>.
+The constraints are enforced with a <code>Plain</code> constraint handler.</p>
+<p>Once the components of the analysis have been
+defined, the analysis object is then created.
+For this problem a Static
+analysis is used and <code>10</code> steps are performed to load the model
 with the desired gravity load.</p>
 <p>After the gravity load analysis has been performed, the gravity loads
 are set to constant and the time in the domain is reset to 0.0. A new
 LoadControl integrator is now added. The new LoadControl integrator has
-an initial load step of 1.0, but this can vary between 0.02 and 2.0
+an initial load step of 1.0, but this can vary between <code>0.02</code> and <code>2.0</code>
 depending on the number of iterations required to achieve convergence at
-each load step. 100 steps are then performed.</p>
-<p>For the pushover analysis the lateral displacements at nodes 2 and 3
-will be stored in the file Node41.out for post-processing.
-In addition,
-if the variable displayMode is set to &ldquo;displayON&rdquo; the load-displacement
-curve for horizontal displacements at node 3 will be displayed in a
-window on the user&rsquo;s terminal.</p>
+each load step. <code>100</code> steps are then performed.</p>
 <p>The output consists of the file <code>Node41.out</code> containing a line for each
 step of the lateral load analysis. Each line contains the load factor,
 the lateral displacements at nodes 2 and 3. A plot of the
@@ -583,8 +562,8 @@ Figure 2.</p>
 
         
         <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/example3/"
-            data-toggle="tooltip" data-placement="top" title="Example 3: Inelastic Plane Frame">Next Post
+          <a type="button" class="btn btn-dark" role="button" href="https://stairlab.github.io/opensees-gallery/examples/ex5/"
+            data-toggle="tooltip" data-placement="top" title="Ex5 - 2D Frame, 3-story 3-bay, Reinforced-Concrete Section &amp; Steel W-Section">Next Post
             &rarr;</a>
         </li>
         
@@ -618,10 +597,10 @@ Figure 2.</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example1/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Arch Instability</h3>
+                <h3 class="fw-bold post-title">Example 1: Linear Truss</h3>
                 
 
                 <p class="post-meta">
@@ -645,7 +624,7 @@ Figure 2.</p>
 
                 <div class="post-entry">
                     
-                    Several nonlinear static analysis methods are used to investigate instabilities in a shallow arch.
+                    A finite element model of a simple truss is created, and static analysis is performed.
 
                     
                 </div>
@@ -657,7 +636,7 @@ Figure 2.</p>
             </div>
 
             
-            <img src="/opensees-gallery/examples/archstaticsnap/arch_hu4b7b505b3ab5e69f3e4a978aaa6b9cbe_12075755_500x0_resize_box_1.gif" alt="arch.gif"
+            <img src="/opensees-gallery/examples/example1/BasicTruss_hu9a9bd330ec352bb86f0cd4a67e685125_59526_500x0_resize_box_3.png" alt="BasicTruss.png"
                 class="card-img-bottom img-fluid lazyload">
             
 
@@ -671,10 +650,10 @@ Figure 2.</p>
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/bathesprings/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/framespans/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Bathe&#39;s Springs</h3>
+                <h3 class="fw-bold post-title">Frame Spans</h3>
                 
 
                 <p class="post-meta">
@@ -698,8 +677,8 @@ Figure 2.</p>
 
                 <div class="post-entry">
                     
-                    March 2020, By Amir Hossein Namadchi
-This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.
+                    Objectives:
+Defining cross sectional properties for frame elements Defining element loads 
                     
                 </div>
 
@@ -709,9 +688,6 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
                 </div>
             </div>
 
-            
-            <img src="/opensees-gallery/examples/bathesprings/ModelProblem_hu0899d03b6f3054590c60913b00c2b6bf_30774_500x0_resize_box_3.png" alt="ModelProblem.png"
-                class="card-img-bottom img-fluid lazyload">
             
 
             
@@ -724,10 +700,10 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
-    <a href="https://stairlab.github.io/opensees-gallery/examples/buildingmodes/">
+    <a href="https://stairlab.github.io/opensees-gallery/examples/example2/">
         <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
             <div class="card-body">
-                <h3 class="fw-bold post-title">Building Modes</h3>
+                <h3 class="fw-bold post-title">Moment-Curvature Analysis</h3>
                 
 
                 <p class="post-meta">
@@ -751,7 +727,7 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
 
                 <div class="post-entry">
                     
-                    A building is modeled as a cantilever, and the first three mode shapes are plotted.
+                    A reinforced concrete cross-section is modeled using a fiber section,  and a moment-curvature analysis is performed.
 
                     
                 </div>
@@ -763,7 +739,7 @@ This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by B
             </div>
 
             
-            <img src="/opensees-gallery/examples/buildingmodes/mode_shapes_hud2cb8b002c5b3252b5cbe5254a6d2c04_295644_500x0_resize_box_3.png" alt="mode_shapes.png"
+            <img src="/opensees-gallery/examples/example2/Section_huece94951108957de8b91e5b9051ab654_72878_500x0_resize_box_3.png" alt="Section.png"
                 class="card-img-bottom img-fluid lazyload">
             
 

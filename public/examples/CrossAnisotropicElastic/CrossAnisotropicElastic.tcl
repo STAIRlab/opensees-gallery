@@ -18,10 +18,10 @@ set Ev    2190
 # Young's modulus in any horizontal direction
 set Eh    [expr ($Ev)*($alpha)*($alpha)]
 
-#Poisson's ratio for strain in the vertical direction due to a horizontal direct stress.
+# Poisson's ratio for strain in the vertical direction due to a horizontal direct stress.
 set nuhv  0.15    
 
-#Poisson's ratio for strain in any horizontal dir. due to a horizontal direct stress.
+# Poisson's ratio for strain in any horizontal dir. due to a horizontal direct stress.
 set nuhh  [expr $nuhv/$alpha]
 
 set Ghv   [expr $alpha*$Ev/(2*(1+$nuhv))]

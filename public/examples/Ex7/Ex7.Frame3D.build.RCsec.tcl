@@ -12,8 +12,6 @@ file mkdir $dataDir; 			# create data directory
 set GMdir ./Motions;		# ground-motion file directory
 set ViewScale 0.25;			# scaling factor for viewing deformed shape, it depends on the dimensions of the model
 source LibUnits.tcl;			# define units
-source DisplayPlane.tcl;		# procedure for displaying a plane in model
-source DisplayModel3D.tcl;		# procedure for displaying 3D perspectives of model
 source BuildRCrectSection.tcl;		# procedure for definining RC fiber section
 
 # define GEOMETRY -------------------------------------------------------------
@@ -56,7 +54,6 @@ set RigidDiaphragm ON ;		# options: ON, OFF. specify this before the analysis pa
 set Xa [expr ($X2+$X1)/2];		# mid-span coordinate for rigid diaphragm
 set Za [expr ($Z2+$Z1)/2];
 # rigid-diaphragm nodes in center of each diaphram
-set RigidDiaphragm ON ;		# this communicates to the analysis parameters that I will be using rigid diaphragms
 node 1121 $Xa $Y2 $Za;		# master nodes for rigid diaphragm -- story 2, bay 1, frame 1-2
 node 1131 $Xa $Y3 $Za;		# master nodes for rigid diaphragm -- story 3, bay 1, frame 1-2
 node 1141 $Xa $Y4 $Za;		# master nodes for rigid diaphragm -- story 4, bay 1, frame 1-2
@@ -64,6 +61,7 @@ node 1141 $Xa $Y4 $Za;		# master nodes for rigid diaphragm -- story 4, bay 1, fr
 fix 1121 0  1  0  1  0  1
 fix 1131 0  1  0  1  0  1
 fix 1141 0  1  0  1  0  1
+
 # ------------------------define Rigid Diaphram, dof 2 is normal to floor
 set perpDirn 2;
 rigidDiaphragm $perpDirn 1121 121 122 221 222;	# level 2
@@ -196,40 +194,41 @@ geomTransf Linear $IDGirdTransf 1 0 0
 # Define Beam-Column Elements
 set np 5;	# number of Gauss integration points for nonlinear curvature distribution
 
+set frame_type ForceFrame ; # nonlinearBeamColumn; # 
 # Frame 1
 # columns
-element nonlinearBeamColumn 1111 111 121 $np $ColSecTag $IDColTransf;		# level 1-2
-element nonlinearBeamColumn 1112 112 122 $np $ColSecTag $IDColTransf
-element nonlinearBeamColumn 1121 121 131 $np $ColSecTag $IDColTransf;		# level 2-3
-element nonlinearBeamColumn 1122 122 132 $np $ColSecTag $IDColTransf
-element nonlinearBeamColumn 1131 131 141 $np $ColSecTag $IDColTransf;		# level 3-4
-element nonlinearBeamColumn 1132 132 142 $np $ColSecTag $IDColTransf
+element $frame_type 1111 111 121 $np $ColSecTag $IDColTransf;		# level 1-2
+element $frame_type 1112 112 122 $np $ColSecTag $IDColTransf
+element $frame_type 1121 121 131 $np $ColSecTag $IDColTransf;		# level 2-3
+element $frame_type 1122 122 132 $np $ColSecTag $IDColTransf
+element $frame_type 1131 131 141 $np $ColSecTag $IDColTransf;		# level 3-4
+element $frame_type 1132 132 142 $np $ColSecTag $IDColTransf
 # beams
-element nonlinearBeamColumn 1221 121 122 $np $BeamSecTag $IDBeamTransf;	# level 2
-element nonlinearBeamColumn 1231 131 132 $np $BeamSecTag $IDBeamTransf;	# level 3
-element nonlinearBeamColumn 1241 141 142 $np $BeamSecTag $IDBeamTransf;	# level 4
+element $frame_type 1221 121 122 $np $BeamSecTag $IDBeamTransf;	# level 2
+element $frame_type 1231 131 132 $np $BeamSecTag $IDBeamTransf;	# level 3
+element $frame_type 1241 141 142 $np $BeamSecTag $IDBeamTransf;	# level 4
 
 # Frame 2
 # columns
-element nonlinearBeamColumn 2111 211 221 $np $ColSecTag $IDColTransf;		# level 1-2
-element nonlinearBeamColumn 2112 212 222 $np $ColSecTag $IDColTransf
-element nonlinearBeamColumn 2121 221 231 $np $ColSecTag $IDColTransf;		# level 2-3
-element nonlinearBeamColumn 2122 222 232 $np $ColSecTag $IDColTransf
-element nonlinearBeamColumn 2131 231 241 $np $ColSecTag $IDColTransf;		# level 3-4
-element nonlinearBeamColumn 2132 232 242 $np $ColSecTag $IDColTransf
+element $frame_type 2111 211 221 $np $ColSecTag $IDColTransf;		# level 1-2
+element $frame_type 2112 212 222 $np $ColSecTag $IDColTransf
+element $frame_type 2121 221 231 $np $ColSecTag $IDColTransf;		# level 2-3
+element $frame_type 2122 222 232 $np $ColSecTag $IDColTransf
+element $frame_type 2131 231 241 $np $ColSecTag $IDColTransf;		# level 3-4
+element $frame_type 2132 232 242 $np $ColSecTag $IDColTransf
 # beams
-element nonlinearBeamColumn 2221 221 222 $np $BeamSecTag $IDBeamTransf;	# level 2
-element nonlinearBeamColumn 2231 231 232 $np $BeamSecTag $IDBeamTransf;	# level 3
-element nonlinearBeamColumn 2241 241 242 $np $BeamSecTag $IDBeamTransf;	# level 4
+element $frame_type 2221 221 222 $np $BeamSecTag $IDBeamTransf;	# level 2
+element $frame_type 2231 231 232 $np $BeamSecTag $IDBeamTransf;	# level 3
+element $frame_type 2241 241 242 $np $BeamSecTag $IDBeamTransf;	# level 4
 
 # girders connecting frames
 # Frame 1-2
-element nonlinearBeamColumn  1321 121 221 $np $GirdSecTag $IDGirdTransf;	# level 2
-element nonlinearBeamColumn  1322 122 222 $np $GirdSecTag $IDGirdTransf;
-element nonlinearBeamColumn  1331 131 231 $np $GirdSecTag $IDGirdTransf;	# level 3
-element nonlinearBeamColumn  1332 132 232 $np $GirdSecTag $IDGirdTransf;
-element nonlinearBeamColumn  1341 141 241 $np $GirdSecTag $IDGirdTransf;	# level 4
-element nonlinearBeamColumn  1342 142 242 $np $GirdSecTag $IDGirdTransf;
+element $frame_type  1321 121 221 $np $GirdSecTag $IDGirdTransf;	# level 2
+element $frame_type  1322 122 222 $np $GirdSecTag $IDGirdTransf;
+element $frame_type  1331 131 231 $np $GirdSecTag $IDGirdTransf;	# level 3
+element $frame_type  1332 132 232 $np $GirdSecTag $IDGirdTransf;
+element $frame_type  1341 141 241 $np $GirdSecTag $IDGirdTransf;	# level 4
+element $frame_type  1342 142 242 $np $GirdSecTag $IDGirdTransf;
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -352,10 +351,11 @@ pattern Plain 101 Linear {
 set Tol 1.0e-8;			# convergence tolerance for test
 variable constraintsTypeGravity Plain;		# default;
 if {  [info exists RigidDiaphragm] == 1} {
-	if {$RigidDiaphragm=="ON"} {
-		variable constraintsTypeGravity Lagrange;	#  large model: try Transformation
-	};	# if rigid diaphragm is on
-};	# if rigid diaphragm exists
+      if {$RigidDiaphragm=="ON"} {
+          variable constraintsTypeGravity Lagrange;	#  large model: try Transformation
+      };  # if rigid diaphragm is on
+};  # if rigid diaphragm exists
+
 constraints $constraintsTypeGravity ;     		# how it handles boundary conditions
 numberer RCM;			# renumber dof's to minimize band-width (optimization), if you want to
 system BandGeneral ;		# how to store and solve the system of equations in the analysis (large model: try UmfPack)

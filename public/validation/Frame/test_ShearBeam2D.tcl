@@ -1,3 +1,5 @@
+# 2D Cantilever column
+#
 set E 30000.0
 set A 20.0
 set I 1400.0

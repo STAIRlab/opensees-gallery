@@ -7,7 +7,7 @@ foreach rigidConstraint {no yes} {
     puts "RIGID CONSTRAINT: $rigidConstraint"
 
     foreach matType {steel concrete} {
-        foreach eleType {forceBeamColumn dispBeamColumn} {
+        foreach eleType {forceBeamColumn ForceFrame dispBeamColumn} {
 
             wipe
 
@@ -97,7 +97,7 @@ foreach rigidConstraint {no yes} {
             
 
             # Create the coulumns using Beam-column elements
-            #               e            tag ndI ndJ nsecs secID transfTag
+            #       type     tag ndI ndJ nsecs secID transfTag
             element $eleType  1   1   3   $np    1       1 
             element $eleType  2   2   4   $np    1       1 
             element $eleType  3   3   4   $np    1       1
@@ -142,8 +142,8 @@ foreach rigidConstraint {no yes} {
             set forces [eleResponse 3 forces]
             
 
-            puts "\t$strains1 $forces"
-            puts "\teleType: $eleType matType $matType axialForce [lindex $forces 0] axialDeformation: [lindex $strains 0]"
+            puts "\teleType: $eleType matType $matType \n\t\taxialForce [lindex $forces 0] axialDeformation: [lindex $strains 0]"
+            puts "\t\t$strains1 $forces"
         }
     }
 }

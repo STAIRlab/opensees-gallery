@@ -27,7 +27,6 @@ import math
 # Parameter identifying the number of bays
 numBay = 3
 
-
 # create ModelBuilder (with two-dimensions and 3 DOF/node)
 model = ops.Model(ndm=2, ndf=3)
 
@@ -36,18 +35,18 @@ model = ops.Model(ndm=2, ndf=3)
 # Set parameters for overall model geometry
 bayWidth = 288.0
 m = 0.1
-nodeID = 1
 
 # Define nodes
+tag = 1
 for i in range(numBay+1):
     xDim = i * bayWidth
 
     #         tag       X      Y
-    model.node(nodeID,   xDim,   0.0)
-    model.node(nodeID+1, xDim, 180.0, "-mass", m, m, 0.0)
-    model.node(nodeID+2, xDim, 324.0, "-mass", m, m, 0.0)
+    model.node(tag,   xDim,   0.0)
+    model.node(tag+1, xDim, 180.0, "-mass", m, m, 0.0)
+    model.node(tag+2, xDim, 324.0, "-mass", m, m, 0.0)
 
-    nodeID += 3
+    tag += 3
 
 # Fix supports at base of columns
 for i in range(numBay+1):
@@ -73,7 +72,7 @@ model.uniaxialMaterial("Steel01", 3, fy, E, 0.015)
 # ------------------------------------------
 # Interior column section
 model.section("Fiber", 1)
-#                mat nfIJ nfJK   yI     zI     yJ     zJ     yK     zK     yL     zL
+#                  mat nfIJ nfJK   yI     zI     yJ     zJ     yK     zK     yL     zL
 model.patch("quad", 2,   1,  12, -11.5,  10.0, -11.5, -10.0,  11.5, -10.0,  11.5,  10.0, section=1)
 model.patch("quad", 1,   1,  14, -13.5, -10.0, -13.5, -12.0,  13.5, -12.0,  13.5, -10.0, section=1)
 model.patch("quad", 1,   1,  14, -13.5,  12.0, -13.5,  10.0,  13.5,  10.0,  13.5,  12.0, section=1)
@@ -82,9 +81,7 @@ model.patch("quad", 1,   1,   2,  11.5,  10.0,  11.5, -10.0,  13.5, -10.0,  13.5
 #                    mat nBars area    yI    zI     yF    zF
 model.layer("straight", 3,   6,  1.56, -10.5,  9.0, -10.5, -9.0, section=1)
 model.layer("straight", 3,   6,  1.56,  10.5,  9.0,  10.5, -9.0, section=1)
-# define beam integration
-np = 4   # number of integration points along length of element
-model.beamIntegration("Lobatto", 1, 1, np)
+
 
 # Exterior column section
 model.section("Fiber", 2)
@@ -95,16 +92,14 @@ model.patch("quad", 1, 1,  2, -12.0,  10.0, -12.0, -10.0, -10.0, -10.0, -10.0,  
 model.patch("quad", 1, 1,  2,  10.0,  10.0,  10.0, -10.0,  12.0, -10.0,  12.0,  10.0, section=2)
 model.layer("straight", 3, 6, 0.79, -9.0, 9.0, -9.0, -9.0, section=2)
 model.layer("straight", 3, 6, 0.79,  9.0, 9.0,  9.0, -9.0, section=2)
-# define beam integration
-model.beamIntegration("Lobatto", 2, 2, np)
+
 
 # Girder section
 model.section("Fiber", 3)
 model.patch("quad", 1, 1, 12, -12.0, 9.0, -12.0, -9.0, 12.0, -9.0, 12.0, 9.0, section=3)
 model.layer("straight", 3, 4, 1.0, -9.0, 9.0, -9.0, -9.0, section=3)
 model.layer("straight", 3, 4, 1.0,  9.0, 9.0,  9.0, -9.0, section=3)
-# define beam integration
-model.beamIntegration("Lobatto", 3, 3, np)
+
 
 
 # Define column elements
@@ -123,12 +118,12 @@ for i in range(numBay+1):
 
     for j in range(1, 3):
         # add the column element (secId == 2 if external, 1 if internal column)
-        if (i == 0):
-            model.element(eleType, beamID, iNode, jNode, 1, 2)
-        elif (i == numBay):
-            model.element(eleType, beamID, iNode, jNode, 1, 2)
+        if i == 0:
+            model.element(eleType, beamID, iNode, jNode, 1, section=2)
+        elif i == numBay:
+            model.element(eleType, beamID, iNode, jNode, 1, section=2)
         else:
-            model.element(eleType, beamID, iNode, jNode, 1, 1)
+            model.element(eleType, beamID, iNode, jNode, 1, section=1)
 
         # increment the parameters
         iNode += 1
@@ -147,7 +142,7 @@ for j in range(1, 3):
     jNode = iNode + 3
 
     for i in range(1, numBay+1):
-        model.element(eleType, beamID, iNode, jNode, 2, 3)
+        model.element(eleType, beamID, iNode, jNode, 2, section=3)
 
         # increment the parameters
         iNode += 3
@@ -159,13 +154,10 @@ for j in range(1, 3):
 # Constant gravity load
 P = -192.0
 
-# create a Linear TimeSeries
-model.timeSeries("Linear", 1)
-
 # create a Plain load pattern
-model.pattern("Plain", 1, 1, "-fact", 1.0)
+model.pattern("Plain", 1, "Linear")
 
-# Create nodal loads at nodes 
+# Create nodal loads
 for i in range(numBay+1):
     # set some parameters
     node1 = i*3 + 2
@@ -181,8 +173,8 @@ for i in range(numBay+1):
         model.load(node1, 0.0, 2.0*P, 0.0, pattern=1)
         model.load(node2, 0.0, P,     0.0, pattern=1)
 
-# print model
 
+# print model
 model.print("-JSON", "-file", "Example4.1.json")
 
 # ------------------------------
@@ -193,9 +185,6 @@ model.print("-JSON", "-file", "Example4.1.json")
 # --------------------------------------------------
 # Start of analysis generation for gravity analysis
 # --------------------------------------------------
-
-# create the system of equation
-model.system("BandGeneral")
 
 # create the DOF numberer, the reverse Cuthill-McKee algorithm
 model.numberer("RCM")
@@ -210,10 +199,10 @@ model.test("NormDispIncr", 1.0e-8, 10, 0)
 # create the solution algorithm, a Newton-Raphson algorithm
 model.algorithm("Newton")
 
-# create the integration scheme, the LoadControl scheme using steps of 0.1
+# Define the integration scheme, the LoadControl scheme using steps of 0.1
 model.integrator("LoadControl", 0.1)
 
-# create the analysis object 
+# create the analysis 
 model.analysis("Static")
 
 # ------------------------------------------------
@@ -235,7 +224,7 @@ print("Gravity load analysis completed\n")
 
 # set gravity loads to be const and set pseudo time to be 0.0
 # for start of lateral load analysis
-model.loadConst("-time", 0.0)
+model.loadConst(time=0.0)
 
 
 # ------------------------------
@@ -281,6 +270,7 @@ model.record()
 maxU = 10.0;            # Max displacement
 controlDisp = 0.0
 ok = model.analyze(1)
+
 while (ok == 0) and (controlDisp < maxU):
     ok = model.analyze(1)
     controlDisp = model.nodeDisp(3, 1)
@@ -293,7 +283,7 @@ while (ok == 0) and (controlDisp < maxU):
         model.algorithm("Newton")
 
 # Print a message to indicate if analysis successful or not
-if (ok == 0):
+if ok == 0:
     print("\nPushover analysis completed SUCCESSFULLY\n")
 else:
     print("\nPushover analysis FAILED\n")
@@ -301,5 +291,6 @@ else:
 # Print the state at node 3
 model.print("node", 3)
 
-# ensure recorders are flushed
+# Ensure recorders are flushed
 model.wipe()
+

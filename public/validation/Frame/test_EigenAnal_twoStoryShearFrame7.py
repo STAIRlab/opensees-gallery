@@ -1,9 +1,10 @@
-import opensees.openseespy as ops
-print("==========================================")
-print("Start Eigen analysis of a two-storey shear frame")
-import math
+# Eigen analysis of a two-storey shear frame; 
+# Example 10.4 from "Dynamics of Structures" book by Anil Chopra 
+# - using equalDOF and very high Ib
+#
 import os
-# Eigen analysis of a two-storey shear frame; Example 10.4 from "Dynamics of Structures" book by Anil Chopra - using equalDOF and very high Ib
+import math
+import opensees.openseespy as ops
 
 # units: in, kips
 def test_EigenAnal_twoStoryShearFrame7():
@@ -159,3 +160,4 @@ def test_EigenAnal_twoStoryShearFrame7():
 
     assert abs(T[0]-0.5148773207872785)<1e-12 and abs(T[1]-0.25743866038265584)<1e-12 and abs(f11/f21-0.49999999998933464)<1e-12 and abs(f21/f21-1.0)<1e-12 and abs(f12/f22+1.0000000000213303)<1e-12 and abs(f22/f22-1.0)<1e-12
     print("==========================================")
+

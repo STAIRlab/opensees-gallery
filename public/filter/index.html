@@ -251,11 +251,41 @@
     
   
 
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
 
 
 
 
 
+
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -403,13 +433,6 @@
       
     
       
-        <button xx class="tag-button" id="tag-2d" onclick="htf.checkFilter('2d', 'tag-')">
-          <span>2d</span>
-          <span id="stags-2d"> -count-</span> | <span id="ctags-2d"> -count-</span>
-        </button>
-      
-    
-      
         <button xx class="tag-button" id="tag-fiber" onclick="htf.checkFilter('fiber', 'tag-')">
           <span>Fiber</span>
           <span id="stags-fiber"> -count-</span> | <span id="ctags-fiber"> -count-</span>
@@ -424,6 +447,20 @@
       
     
       
+        <button xx class="tag-button" id="tag-2d" onclick="htf.checkFilter('2d', 'tag-')">
+          <span>2d</span>
+          <span id="stags-2d"> -count-</span> | <span id="ctags-2d"> -count-</span>
+        </button>
+      
+    
+      
+        <button xx class="tag-button" id="tag-plane" onclick="htf.checkFilter('plane', 'tag-')">
+          <span>Plane</span>
+          <span id="stags-plane"> -count-</span> | <span id="ctags-plane"> -count-</span>
+        </button>
+      
+    
+      
         <button xx class="tag-button" id="tag-sdof" onclick="htf.checkFilter('sdof', 'tag-')">
           <span>Sdof</span>
           <span id="stags-sdof"> -count-</span> | <span id="ctags-sdof"> -count-</span>
@@ -431,9 +468,23 @@
       
     
       
+        <button xx class="tag-button" id="tag-shell" onclick="htf.checkFilter('shell', 'tag-')">
+          <span>Shell</span>
+          <span id="stags-shell"> -count-</span> | <span id="ctags-shell"> -count-</span>
+        </button>
+      
+    
+      
         <button xx class="tag-button" id="tag-solid" onclick="htf.checkFilter('solid', 'tag-')">
           <span>Solid</span>
           <span id="stags-solid"> -count-</span> | <span id="ctags-solid"> -count-</span>
+        </button>
+      
+    
+      
+        <button xx class="tag-button" id="tag-static" onclick="htf.checkFilter('static', 'tag-')">
+          <span>Static</span>
+          <span id="stags-static"> -count-</span> | <span id="ctags-static"> -count-</span>
         </button>
       
     
@@ -459,13 +510,6 @@
       
     
       
-        <button xx class="tag-button" id="tag-export" onclick="htf.checkFilter('export', 'tag-')">
-          <span>Export</span>
-          <span id="stags-export"> -count-</span> | <span id="ctags-export"> -count-</span>
-        </button>
-      
-    
-      
         <button xx class="tag-button" id="tag-joint" onclick="htf.checkFilter('joint', 'tag-')">
           <span>Joint</span>
           <span id="stags-joint"> -count-</span> | <span id="ctags-joint"> -count-</span>
@@ -487,30 +531,9 @@
       
     
       
-        <button xx class="tag-button" id="tag-plane" onclick="htf.checkFilter('plane', 'tag-')">
-          <span>Plane</span>
-          <span id="stags-plane"> -count-</span> | <span id="ctags-plane"> -count-</span>
-        </button>
-      
-    
-      
         <button xx class="tag-button" id="tag-seismic" onclick="htf.checkFilter('seismic', 'tag-')">
           <span>Seismic</span>
           <span id="stags-seismic"> -count-</span> | <span id="ctags-seismic"> -count-</span>
-        </button>
-      
-    
-      
-        <button xx class="tag-button" id="tag-shell" onclick="htf.checkFilter('shell', 'tag-')">
-          <span>Shell</span>
-          <span id="stags-shell"> -count-</span> | <span id="ctags-shell"> -count-</span>
-        </button>
-      
-    
-      
-        <button xx class="tag-button" id="tag-static" onclick="htf.checkFilter('static', 'tag-')">
-          <span>Static</span>
-          <span id="stags-static"> -count-</span> | <span id="ctags-static"> -count-</span>
         </button>
       
     
@@ -543,6 +566,38 @@
   <div class="tf-items-container">      
   
     <div  class="tf-filter-item tf-item" 
+          data-tags="plane "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/wrench/">Wrench</a></h4>
+      
+      <div><tag>Plane</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="shell "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/shelltwist/">Twisted Cantilever</a></h4>
+      
+      <div><tag>Shell</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
           data-tags=" tfuntagged"
           data-section="examples"
           
@@ -553,6 +608,22 @@
       <h5>No Author</h5>
       
       <h4><a href="/opensees-gallery/examples/structuralmatrices/">TODO</a></h4>
+      
+      <div><tag>untagged</tag></div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags=" tfuntagged"
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/siniglespan/">Structural Analysis</a></h4>
       
       <div><tag>untagged</tag></div>
       
@@ -600,9 +671,25 @@
       <h6>examples</h6>
       <h5>No Author</h5>
       
-      <h4><a href="/opensees-gallery/examples/opensees_models_cbf/">Special concentrically-braced frames</a></h4>
+      <h4><a href="/opensees-gallery/examples/steelcbf/">Special concentrically-braced frames</a></h4>
       
       <div><tag>untagged</tag></div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="plane python tcl "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example6/">Simply Supported Solid Beam</a></h4>
+      
+      <div><tag>Plane</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   
@@ -703,6 +790,22 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
+          data-tags="python tcl frame "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/framebuckling/">Nonlinear Geometry</a></h4>
+      
+      <div><tag>Python</tag> <tag>Tcl</tag> <tag>Frame</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
           data-tags="eigen frame python tcl "
           data-section="examples"
           
@@ -735,6 +838,38 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
+          data-tags="frame python tcl concrete "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example3/">Inelastic Plane Frame</a></h4>
+      
+      <div><tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Concrete</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="python static notebook fiber "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/cantilevertransient/">Inelastic Cantilever</a></h4>
+      
+      <div><tag>Python</tag> <tag>Static</tag> <tag>Notebook</tag> <tag>Fiber</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
           data-tags="tcl "
           data-section="examples"
           
@@ -747,70 +882,6 @@
       <h4><a href="/opensees-gallery/examples/viscousdamper/">Frame with Viscous Dampers</a></h4>
       
       <div><tag>Tcl</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="frame "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/frameformulations/">Force-based Element vs. Displacement-based Element</a></h4>
-      
-      <div><tag>Frame</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="solid dynamic python tcl export "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example8/">Example 8: Cantilever Beam</a></h4>
-      
-      <div><tag>Solid</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Export</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="shell dynamic python tcl "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example7/">Example 7: Dynamic Shell Analysis</a></h4>
-      
-      <div><tag>Shell</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="plane python tcl "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example6/">Example 6: Simply Supported Beam</a></h4>
-      
-      <div><tag>Plane</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   
@@ -847,54 +918,6 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags="frame python tcl concrete "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example3/">Example 3: Inelastic Plane Frame</a></h4>
-      
-      <div><tag>Frame</tag> <tag>Python</tag> <tag>Tcl</tag> <tag>Concrete</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="fiber concrete python tcl "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example2/">Example 2: Moment-Curvature</a></h4>
-      
-      <div><tag>Fiber</tag> <tag>Concrete</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="truss python tcl "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/example1/">Example 1: Linear Truss</a></h4>
-      
-      <div><tag>Truss</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
           data-tags=" tfuntagged"
           data-section="examples"
           
@@ -911,22 +934,6 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
-          data-tags=" tfuntagged"
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/ex4/">Ex4 - Portal Frame</a></h4>
-      
-      <div><tag>untagged</tag></div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
           data-tags="2d frame "
           data-section="examples"
           
@@ -936,25 +943,9 @@
       <h6>examples</h6>
       <h5>No Author</h5>
       
-      <h4><a href="/opensees-gallery/examples/ex1/">Ex1: Time History Analysis of a 2D Elastic Cantilever Column</a></h4>
+      <h4><a href="/opensees-gallery/examples/ex1/">Ex1: Dynamics of a 2D Elastic Cantilever Column</a></h4>
       
       <div><tag>2 D</tag> <tag>Frame</tag> </div>
-      
-    </div>
-  
-    <div  class="tf-filter-item tf-item" 
-          data-tags="python tcl "
-          data-section="examples"
-          
-          data-authors="no-author"
-          
-          >
-      <h6>examples</h6>
-      <h5>No Author</h5>
-      
-      <h4><a href="/opensees-gallery/examples/framebuckling/">Euler buckling analysis</a></h4>
-      
-      <div><tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   
@@ -975,6 +966,22 @@
     </div>
   
     <div  class="tf-filter-item tf-item" 
+          data-tags="shell dynamic python tcl "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example7/">Dynamic Shell Analysis</a></h4>
+      
+      <div><tag>Shell</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
           data-tags=" tfuntagged"
           data-section="examples"
           
@@ -987,6 +994,38 @@
       <h4><a href="/opensees-gallery/examples/mrf_concentrated/">Dynamic Analysis of 2-Story Moment Frame</a></h4>
       
       <div><tag>untagged</tag></div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags=" tfuntagged"
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/framecurve/">Curved Cantilever Beam Under Point Force</a></h4>
+      
+      <div><tag>untagged</tag></div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="solid dynamic python tcl "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example8/">Continuum Cantilever</a></h4>
+      
+      <div><tag>Solid</tag> <tag>Dynamic</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   
@@ -1019,6 +1058,22 @@
       <h4><a href="/opensees-gallery/examples/concretesurface/">Concrete</a></h4>
       
       <div><tag>Python</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="frame "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/frameshear/">Columns with Nonlinear Geometry</a></h4>
+      
+      <div><tag>Frame</tag> </div>
       
     </div>
   
@@ -1099,6 +1154,54 @@
       <h4><a href="/opensees-gallery/examples/archdynamicsnap/">Arch Dynamic Snapping</a></h4>
       
       <div><tag>Notebook</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="fiber concrete python tcl "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example2/">Moment-Curvature Analysis</a></h4>
+      
+      <div><tag>Fiber</tag> <tag>Concrete</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="frame "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/framespans/">Frame Spans</a></h4>
+      
+      <div><tag>Frame</tag> </div>
+      
+    </div>
+  
+    <div  class="tf-filter-item tf-item" 
+          data-tags="truss python tcl "
+          data-section="examples"
+          
+          data-authors="no-author"
+          
+          >
+      <h6>examples</h6>
+      <h5>No Author</h5>
+      
+      <h4><a href="/opensees-gallery/examples/example1/">Example 1: Linear Truss</a></h4>
+      
+      <div><tag>Truss</tag> <tag>Python</tag> <tag>Tcl</tag> </div>
       
     </div>
   

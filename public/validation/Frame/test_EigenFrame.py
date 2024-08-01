@@ -1,5 +1,5 @@
-import opensees.openseespy as ops
-from math import asin
+# 2D 9-story 10-bay Frame
+#
 # Bathe & Wilson eigenvalue problem
 #   Results presented by Bathe & wilson in 1972
 #   and again by Peterson in 1981
@@ -15,14 +15,18 @@ from math import asin
 # Computers and Structures, 1997. Example 2.
 # and seismo-struct (Example 10)
 # SeismoStruct, Verification Report For Version 6, 2012. Example 10.
+#
+import opensees.openseespy as ops
+from math import asin
 
 print("=====================================================================")
 print("EigenFrame.py: Verification 2d Bathe & Wilson original Elastic Frame")
 print("  - eigenvalue ")
+
 def test_EigenFrame():
     ops.wipe()
 
-    ops.model( 'Basic', '-ndm', 2)
+    ops.model('Basic', '-ndm', 2)
 
     #    units kip, ft                                                                                                                              
 
@@ -70,7 +74,7 @@ def test_EigenFrame():
             end1 = end2
             end2 = end1 + numBay +1
             eleTag += 1
-        
+
 
 
     # add beam elements
@@ -82,7 +86,7 @@ def test_EigenFrame():
             end1 = end2
             end2 = end1 + 1
             eleTag += 1
-        
+
 
 
     # calculate eigenvalues
@@ -112,7 +116,7 @@ def test_EigenFrame():
         if abs(lamb-resultOther) > tol:
             testOK = -1
             print("failed->", abs(lamb-resultOther), tol)
-        
+
 
     assert testOK == 0
 

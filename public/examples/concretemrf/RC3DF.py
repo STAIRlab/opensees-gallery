@@ -249,9 +249,8 @@ def build_model(L_X, L_Y, L_Z,
     model.eval("pragma openseespy on")
 
 
-    model.timeSeries('Linear',1,'-factor',1.0)
 
-    model.pattern('Plain', 1, 1)
+    model.pattern("Plain", 1, "Linear")
 
     loaded_nodes = range(5, 9)
     for n in loaded_nodes:

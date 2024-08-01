@@ -1,13 +1,14 @@
-import opensees.openseespy as ops
-from math import asin
+# 2D 9-story 10-bay frame
+#
 # This Extends EigenFrame.py verification test to:
-#   1) run different element options to test: ForceBeamColumn, DspBeamColumn, ElasticSection and FiberSection2d.
+#   1) run different element options to test: 
+#           ForceBeamColumn, DspBeamColumn, ElasticSection and FiberSection2d.
 #   2) run different solver options to test:
 
-# REFERENCES
-#   as per EigenFrame.py
-print("================================================================================================")
-print("EigenFrame.Extra.py: Verification 2d Bathe & Wilson original Elastic Frame - with other options")
+import opensees.openseespy as ops
+from math import asin
+
+
 print("  - eigenvalue ")
 
 def test_EigenFrameExtra():
@@ -19,13 +20,13 @@ def test_EigenFrameExtra():
         ops.wipe()
 
         ops.model('Basic', '-ndm', 2)
-        
+
         #    units kip, ft                                                                                                                              
-        
+
         # properties  
         bayWidth = 20.0
         storyHeight = 10.0
-        
+
         numBay = 10
         numFloor = 9
 
@@ -67,10 +68,10 @@ def test_EigenFrameExtra():
                 ops.node( nodeTag, xLoc, yLoc)
                 xLoc += bayWidth
                 nodeTag += 1
-            
+
             yLoc += storyHeight
 
-        
+
         # fix base nodes
         for i in range(1,numBay+2):
             ops.fix( i, 1, 1, 1)
@@ -88,19 +89,19 @@ def test_EigenFrameExtra():
             end2 = end1 + numBay +1
             for j in range(numFloor):
 
-                if eleType == "elasticBeam": 
+                if eleType == "elasticBeam":
                     ops.element( 'elasticBeamColumn', eleTag, end1, end2, A, E, I, 1, '-mass', M, massType)
                 elif eleType == "forceBeamElasticSection":
                     ops.element('forceBeamColumn', eleTag, end1, end2, transfTag, integTag1, '-mass', M)
-                elif eleType == "dispBeamElasticSection": 
+                elif eleType == "dispBeamElasticSection":
                     ops.element('dispBeamColumn', eleTag, end1, end2, transfTag, integTag1, '-mass', M, massType)
                 elif eleType == "forceBeamFiberSectionElasticMaterial":
                     ops.element('forceBeamColumn', eleTag, end1, end2, transfTag, integTag2, '-mass', M)
                 elif eleType == "dispBeamFiberSectionElasticMaterial":
                     ops.element('dispBeamColumn', eleTag, end1, end2, transfTag, integTag2, '-mass', M, massType)
-                else: 
+                else:
                     print("BARF")
-                
+
                 end1 = end2
                 end2 = end1 + numBay +1
                 eleTag += 1
@@ -316,8 +317,8 @@ def test_EigenFrameExtra():
             if abs(lamb-resultOther) > tol:
                 testOK = -1
                 print("failed->", abs(lamb-resultOther), tol)
-            
-        
+
+
         assert testOK == 0
 
-        
+

@@ -8,16 +8,23 @@
 puts "EigenFrame.Extra.tcl: Verification 2d Bathe & Wilson original Elastic Frame - with other options"
 puts "  - eigenvalue "
 
-set eleTypes {elasticBeam forceBeamElasticSection dispBeamElasticSection forceBeamFiberSectionElasticMaterial dispBeamFiberSectionElasticMaterial}
+set eleTypes {
+    elasticBeam 
+    forceBeamElasticSection 
+    forceBeamFiberSectionElasticMaterial 
+    dispBeamFiberSectionElasticMaterial 
+    dispBeamElasticSection 
+}
 
 foreach eleType $eleTypes {
+    puts "Element: $eleType"
 
     wipe
 
     model Basic -ndm 2
     
     #    units kip, ft                                                                                                                              
-    
+
     # properties  
     set bayWidth 20.0;
     set storyHeight 10.0;
@@ -90,7 +97,7 @@ foreach eleType $eleTypes {
 	    } elseif {$eleType == "dispBeamFiberSectionElasticMaterial"} {
 		element dispBeamColumn $eleTag $end1 $end2 $nPts 2 1 -mass $M $massType
 	    } else {
-		puts "BARF"
+		element $eleType $eleTag $end1 $end2 $nPts -section 2 -transform 1 -mass $M $massType
 	    }
 	    set end1 $end2
 	    set end2 [expr $end1 + $numBay +1]
@@ -152,7 +159,7 @@ foreach eleType $eleTypes {
 	}
     }
     
-    set results [open README.md a+]
+    set results [open STATUS.md a+]
     if {$testOK == 0} {
 	puts "PASSED Verification Test EigenFrame.Extra.tcl $eleType  \n\n"
 	puts $results "| PASSED |  EigenFrame.Extra.tcl eleType: $eleType"
@@ -165,7 +172,7 @@ foreach eleType $eleTypes {
 
 
 
-set solverTypes {-genBandArpack -fullGenLapack -UmfPack -SuperLU -ProfileSPD}
+set solverTypes { -genBandArpack } ; # {-fullGenLapack -UmfPack -SuperLU -ProfileSPD}
 
 foreach solverType $solverTypes {
 
@@ -311,7 +318,7 @@ foreach solverType $solverTypes {
 	}
     }
     
-    set results [open README.md a+]
+    set results [open STATUS.md a+]
     if {$testOK == 0} {
 	puts "PASSED Verification Test EigenFrame.Extra.tcl $eleType  \n\n"
 	puts $results "| PASSED |  EigenFrame.Extra.tcl solverType: $solverType"

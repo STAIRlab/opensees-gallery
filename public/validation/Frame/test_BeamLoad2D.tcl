@@ -1,3 +1,5 @@
+# Simply supported beam with distributed loads
+
 set E 30000.0
 set A 20.0
 set I 1400.0
@@ -18,7 +20,7 @@ set wa 2.0
 
 set nIP 3
 
-set elements {1 2 3 4}
+set elements {1 2 3 4 5 6}
 
 foreach element $elements {
 	
@@ -50,6 +52,10 @@ foreach element $elements {
 	4 {
 	    puts "Element: BeamWithHinges"
 	    element beamWithHinges 1 1 2 1 $lp 1 $lp $E $A $I 1
+	}
+	5 {
+	    puts "Element: PrismFrame"
+	    element PrismFrame 1 1 2 $A $E $I 1
 	}
     }
     

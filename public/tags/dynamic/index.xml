@@ -8,25 +8,25 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example 5: Rigid 3D Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
+      <title>Continuum Cantilever</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
-      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
     </item>
     <item>
-      <title>Example 7: Dynamic Shell Analysis</title>
+      <title>Dynamic Shell Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
-      <title>Example 8: Cantilever Beam</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
+      <title>Example 5: Rigid 3D Frame</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
-      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
+      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
     </item>
     <item>
       <title>Inelastic SDOF</title>
