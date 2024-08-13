@@ -1,4 +1,5 @@
 
+title = "CST Sample Problem (Logan #8.22)"
 
 #              OO+O+O
 #             O+++OO
@@ -26,13 +27,12 @@
 
 import opensees.openseespy as ops
 
-title = "CST Sample Problem (Logan #8.22)"
 
 
 def create_wrench():
     model = ops.Model(ndm=2, ndf=2)
 
-    # material properties
+    # Material properties
     #                                       E       nu
     model.nDMaterial("ElasticIsotropic", 1, 200000, 0.25) # t=10
 

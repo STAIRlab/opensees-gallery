@@ -1,6 +1,9 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
 #
 # Portal Frame Example 1
 # ----------------------

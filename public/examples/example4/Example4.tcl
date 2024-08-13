@@ -1,6 +1,10 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
 #
 # 2 Story Multi Bay Frame Example 1
 # -----------------------------
@@ -296,6 +300,8 @@ integrator LoadControl 1.0 4 0.02 2.0
 # Perform the analysis
 
 eigen 2
+
+# analysis Static
 
 # Perform the pushover analysis
 # Set some parameters

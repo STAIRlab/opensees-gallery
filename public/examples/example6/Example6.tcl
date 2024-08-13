@@ -1,3 +1,11 @@
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
+
 # ----------------------------
 # Start of model generation
 # ----------------------------

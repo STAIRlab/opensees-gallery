@@ -1,3 +1,10 @@
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
+#
 # Define model builder
 # --------------------
 model basic -ndm 2 -ndf 3

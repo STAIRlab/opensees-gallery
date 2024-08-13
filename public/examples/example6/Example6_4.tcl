@@ -1,5 +1,13 @@
-# OpenSees Example: Simple supported beam modeled with 2D solid elements
-
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
+#
+# Simply supported beam modeled with 2D solid elements
+#
 # Units: kips, in, sec
 # ----------------------------
 
