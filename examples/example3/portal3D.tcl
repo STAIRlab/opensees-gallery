@@ -1,4 +1,10 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
 #
 # Portal Frame Example 3.1
 # ------------------------

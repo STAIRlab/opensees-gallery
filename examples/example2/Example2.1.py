@@ -1,7 +1,10 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
-#
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
+
 # Moment-Curvature Example 2.1
 # ----------------------------
 #  Zero length element with fiber section

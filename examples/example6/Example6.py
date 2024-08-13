@@ -1,6 +1,10 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
 #
 # Simply Supported Beam Example 6.1
 # ---------------------------------

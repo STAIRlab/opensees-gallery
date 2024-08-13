@@ -7,23 +7,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/framespans/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example2/</loc>
     <lastmod>2024-08-01T10:27:45-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</loc>
-    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</loc>
-    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -56,11 +46,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/</loc>
-    <lastmod>2024-06-26T18:24:59-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/archbridge/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -75,11 +66,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/beamcolumnjointexample/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -89,10 +76,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/bwbnexample/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -106,10 +95,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/cfssswp/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/cfswswp/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -119,6 +110,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -141,17 +133,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/framecurve/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/dynamic/</loc>
     <lastmod>2024-08-01T10:27:45-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/slopeanalysis2d/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -210,15 +198,17 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/</loc>
-    <lastmod>2024-08-01T10:30:25-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/excavation/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/material/fatiguematerial/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -238,10 +228,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/ce58658/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/igloo/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -266,18 +258,22 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/infillwall/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/joint/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/kikuchibearing/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/kikuchiaikenhdr/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -286,6 +282,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/staticbnwfpile/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -294,10 +291,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/limitstatematerial/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/material/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -307,6 +306,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/multipleshearspring/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -316,20 +316,22 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/notebook/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/other/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/piles/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/plane/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -348,7 +350,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/python/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -373,6 +375,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/seismic/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -397,15 +400,17 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/centrifuge/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/solid/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -439,20 +444,22 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/</loc>
-    <lastmod>2024-08-01T10:30:25-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/tcl/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/siteresponse3d/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -472,11 +479,12 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/wrench/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/community/yamamotobiaxialhdr/</loc>
+    <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -4,7 +4,7 @@
     <title>OpenSeesRT Examples</title>
     <link>https://stairlab.github.io/opensees-gallery/</link>
     <description>Recent content on OpenSeesRT Examples</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -15,25 +15,11 @@
       <description>This example is of a linear-elastic three bar truss, as shown in the figure above, subject to static loads. The purpose of this example is to develop the basic requirements for performing finite element analysis with OpenSees.</description>
     </item>
     <item>
-      <title>Frame Spans</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framespans/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framespans/</guid>
-      <description>Objectives:&#xA;Defining cross sectional properties for frame elements Defining element loads </description>
-    </item>
-    <item>
       <title>Moment-Curvature Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
-    </item>
-    <item>
-      <title>Bathe&#39;s Springs</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
-      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
     </item>
     <item>
       <title>Arch Dynamic Snapping</title>
@@ -83,13 +69,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/community/beamcolumnjointexample/</guid>
       <description>source&#xA;The example files (PR.tcl, procMKPC2.tcl, procUniaxialPinching.tcl, procRC2.tcl) create a model of a RC beam column sub-assemblage. The cruciform is subjected to constant gravity load at nodes 4 and 7 and pseudo-static cyclic lateral load under displacement control at node 10.</description>
-    </item>
-    <item>
-      <title>Bridge Sections</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/bridgesections/</guid>
-      <description></description>
     </item>
     <item>
       <title>Building Modes</title>
@@ -160,13 +139,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
       <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.</description>
-    </item>
-    <item>
-      <title>Curved Cantilever Beam Under Point Force</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framecurve/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framecurve/</guid>
-      <description>Curved Cantilever Beam The curved cantilever in Figure 1{reference-type=&amp;ldquo;ref&amp;rdquo; reference=&amp;ldquo;fig:bathe&amp;rdquo;} was first studied by [@bathe1979large], and has become a staple in the literature on geometrically nonlinear rods.</description>
     </item>
     <item>
       <title>Dynamic 2D Effective Stress Analysis of Slope</title>
@@ -467,7 +439,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/wrench/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/wrench/</guid>
-      <description>Script: wrench.py</description>
+      <description>Script: wrench.py&#xA;Logan 8.22 </description>
     </item>
     <item>
       <title>YamamotoBiaxialHDR</title>

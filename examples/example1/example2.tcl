@@ -1,12 +1,15 @@
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
+#
 # written: fmk
 # date: 02/99
 #
 # purpose: example2 in OpenSeesIntro.tex modified for TclModelBuilder
 #
-# $Revision: 1.3 $
-# $Date: 2002-12-17 02:03:54 $
-# $Source: /usr/local/cvs/OpenSees/EXAMPLES/ExampleScripts/example2.tcl,v $
-
 
 #create the ModelBuilder object
 model BasicBuilder -ndm 2 -ndf 2

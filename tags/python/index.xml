@@ -4,7 +4,7 @@
     <title>Python on OpenSeesRT Examples</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/python/</link>
     <description>Recent content in Python on OpenSeesRT Examples</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -20,13 +20,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
-    </item>
-    <item>
-      <title>Bathe&#39;s Springs</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/bathesprings/</guid>
-      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple linear 3 DOF system introduced by Bathe and Noh.</description>
     </item>
     <item>
       <title>Arch Instability</title>

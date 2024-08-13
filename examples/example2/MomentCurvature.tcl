@@ -1,3 +1,10 @@
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
+
 # A procedure for performing section analysis (only does
 # moment-curvature, but can be easily modified to do any mode
 # of section response.
