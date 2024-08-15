@@ -1,12 +1,11 @@
 # OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
+#         Pacific Earthquake Engineering Research Center
+
 #
-# 3D Shell Structure Example 7.1
-# ------------------------------
-#  Shell roof modeled with three
-#  dimensional linear shell elements
-# 
+# 3D Shell Structure
+# ------------------
+#  Shell roof modeled with three dimensional linear shell elements
+
 # Example Objectives
 # ------------------
 #  test linear-elastic shell element

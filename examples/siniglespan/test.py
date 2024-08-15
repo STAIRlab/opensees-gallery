@@ -12,18 +12,24 @@ def test_elem(elem):
     model.integrator("Newmark", 1/2, 1/4)
     model.analyze(1, 0.01)
 
-
     print(elem)
 
-#   model.print("-json")
-#   for i in range(500):
-#       model.analyze(1)
-#       model.getTangent(k=1)
+    if False:
+        for i in range(500):
+            model.analyze(1)
+            model.getTangent(k=1)
 
-    R = np.eye(3) #shps.rotor.exp((0.1, 0.2, 0))
+
+
     K = model.getTangent(k=1)
+
+    # Transform to global coordinates
+    R = np.eye(3) #shps.rotor.exp((0.1, 0.2, 0))
     T = block_diag(*[R]*4)
-    K = np.around(T.T@K@T, 2)
+    K = T.T@K@T
+
+    # Round and print
+    K = np.around(K, 2)
     print("Stiffness")
     print(pd.DataFrame(K))
 

@@ -22,13 +22,6 @@
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.</description>
     </item>
     <item>
-      <title>Arch Dynamic Snapping</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/archdynamicsnap/</guid>
-      <description>Curved arch April 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in A robust composite time integration scheme for snap-through problems by Yenny Chandra et.</description>
-    </item>
-    <item>
       <title>Filter</title>
       <link>https://stairlab.github.io/opensees-gallery/filter/</link>
       <pubDate>Fri, 27 Apr 2018 20:16:13 +1000</pubDate>
@@ -117,7 +110,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/frameshear/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/frameshear/</guid>
-      <description>This example is adapted from https://github.com/denavit/OpenSees-Example</description>
+      <description>Case_1.py Case_2.py This example implements the analysis presented in the AISC steel mannual.&#xA;The source code for this example is adapted from https://github.</description>
     </item>
     <item>
       <title>Concrete</title>
@@ -125,13 +118,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</guid>
       <description>This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:</description>
-    </item>
-    <item>
-      <title>Concrete Moment Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/concretemrf/</guid>
-      <description>Reinforced Concrete 3D Frame January 2022, By Amir Hossein Namadchi This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Reinforced%20Concrete%203D%20Frame%20(FGU).ipynb&#xA;In this notebook, a 3-Dimensional one story Reinforced Concrete moment resisting frame is modeled.</description>
     </item>
     <item>
       <title>Continuum Cantilever</title>
@@ -190,13 +176,6 @@
       <description>Example 4.1 This example is of a reinforced concrete multibay two story frame, as shown in Figure 1, subject to gravity loads.</description>
     </item>
     <item>
-      <title>Example 5: Rigid 3D Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
-      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
-    </item>
-    <item>
       <title>Excavation Supported by Cantilevered Sheet Pile Wall</title>
       <link>https://stairlab.github.io/opensees-gallery/community/excavation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -209,6 +188,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/material/fatiguematerial/</guid>
       <description></description>
+    </item>
+    <item>
+      <title>Frame with Diaphragms</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
+      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py In both cases, the following ground motion records are required:</description>
     </item>
     <item>
       <title>Frame with Viscous Dampers</title>
@@ -377,13 +363,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/community/siteresponseanalysis/</guid>
       <description>Example prepared by: Christopher McGann and Pedro Arduino, University of Washington&#xA;Return to OpenSees Examples Page&#xA;This article describes the OpenSees implementation of a site response analysis a soil deposit located above an elastic half-space using total stress analysis.</description>
-    </item>
-    <item>
-      <title>Special concentrically-braced frames</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/steelcbf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/steelcbf/</guid>
-      <description>This folder contains ready-to-run 2-dimensional OpenSees models of four archetype steel buildings designed with perimeter special concentrically-braced frames (SCBFs), with heights of 3, 6, 12 and 16-story.</description>
     </item>
     <item>
       <title>Steel MRF</title>

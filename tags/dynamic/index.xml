@@ -22,7 +22,7 @@
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
-      <title>Example 5: Rigid 3D Frame</title>
+      <title>Frame with Diaphragms</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>

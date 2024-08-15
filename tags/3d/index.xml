@@ -8,7 +8,7 @@
     <language>en-us</language>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/3d/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example 5: Rigid 3D Frame</title>
+      <title>Frame with Diaphragms</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
