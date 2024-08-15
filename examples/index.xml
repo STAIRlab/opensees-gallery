@@ -71,13 +71,6 @@
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
-      <title>Elastic Response Spectra</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/elasticspectra/</guid>
-      <description>Elastic Response Spectra April 2020, By Amir Hossein Namadchi This one deals with an elastic SDOF system subjected to the El Centro ground acceleration, $\ddot{d_g}$.</description>
-    </item>
-    <item>
       <title>Ex1: Dynamics of a 2D Elastic Cantilever Column</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/ex1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -198,31 +191,10 @@
     </item>
     <item>
       <title>Steel MRF</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/steelmrf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/steelmrf/</guid>
-      <description>Two Story Steel MRF December 2021, By Amir Hossein Namadchi In this notebook, a 2 story steel moment resisting frame is modeled.</description>
-    </item>
-    <item>
-      <title>Steel MRF</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</guid>
       <description>Nonlinear seismic response of a MRF March 2020, By Amir Hossein Namadchi This is an OpenSeesPy simulation of a moment resisting frame subjected to seismic excitation.</description>
-    </item>
-    <item>
-      <title>Structural Analysis</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/siniglespan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/siniglespan/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>TODO</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/structuralmatrices/</guid>
-      <description></description>
     </item>
     <item>
       <title>Twisted Cantilever</title>
