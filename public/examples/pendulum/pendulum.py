@@ -4,7 +4,6 @@
 # Claudio Perez
 #
 import opensees.openseespy as ops
-from opensees.units.ips import inch, sec, gravity as g
 
 
 def create_pendulum(m, k, L, W):
@@ -14,25 +13,25 @@ def create_pendulum(m, k, L, W):
 
 
     # Create a node for the pivot point and fix it
-    model.node(1,0,L);
-    model.fix(1,1,1)
+    model.node(1, 0, L);
+    model.fix(1, 1, 1)
 
-    # Create a node for the mass
-    model.node(2,0,0);
-    model.mass(2,m,m)
+    # Create a free node with the mass
+    model.node(2, 0, 0);
+    model.mass(2, m, m)
 
-    # Create a corotational truss linking nodes 1 and 2
-    model.uniaxialMaterial('Elastic',1,k*L)
-    model.element('CorotTruss',1,1,2,1.0,1)
+    # Create a corotational truss between nodes 1 and 2
+    model.uniaxialMaterial('Elastic', 1, k*L)
+    model.element('CorotTruss', 1, 1, 2, 1.0, 1)
 
     # Initial displacements
-    model.setNodeDisp(2,1,0.05*L,'-commit')
-    model.setNodeDisp(2,2,-W/k-(W/k+L)/3,'-commit')
+    model.setNodeDisp(2, 1, 0.05*L, '-commit')
+    model.setNodeDisp(2, 2, -W/k-(W/k+L)/3, '-commit')
 
     # Pendulum weight
-    model.timeSeries('Constant',1)
-    model.pattern('Plain',1,1)
-    model.load(2,0,-W)
+    model.timeSeries('Constant', 1)
+    model.pattern('Plain', 1, 1)
+    model.load(2, 0, -W)
     return model
 
 
@@ -47,19 +46,19 @@ def analyze_pendulum(model):
     Nsteps = int(Tmax/dt)
     u = []
     for i in range(Nsteps):
-        model.analyze(1,dt)
+        model.analyze(1, dt)
         u.append(model.nodeDisp(2))
     return u
 
 
 
 if __name__ == "__main__":
+    from opensees.units.ips import inch, sec, gravity as g
     # Length of pendulum
     L = 10*inch
 
-    # Pendulum mass and weight
+    # Pendulum mass
     m = 1.0
-    W = m*g
 
     # Frequency of pendulum
     omega = (g/L)**0.5
@@ -70,7 +69,7 @@ if __name__ == "__main__":
     # Stiffness of spring
     k = m*w**2
 
-    model = create_pendulum(m, k, L, W)
+    model = create_pendulum(m, k, L, m*g)
 
     u = analyze_pendulum(model)
     print(u)

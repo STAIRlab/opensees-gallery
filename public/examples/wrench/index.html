@@ -66,7 +66,7 @@
   "headline": "Wrench",
   "description" : "Static analysis of a wrench",
   "inLanguage" : "en",
-  "wordCount":  4 ,
+  "wordCount":  638 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -318,6 +318,14 @@
     <div class="row flex-xl-nowrap">
     
       
+      <div class="d-none d-xl-block col-xl-2 docs-toc">
+        <ul class="nav toc-top">
+          <li><a href="#" id="back_to_top" class="docs-toc-title"></a></li>
+        </ul>
+        <nav id="TableOfContents"></nav>
+        
+      </div>
+      
     
       <main class="col-12 col-md-1 col-xl-10 py-md-3 pl-md-5 docs-content" role="main">
 
@@ -345,9 +353,330 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>Script: <a href="wrench.py"><code>wrench.py</code></a></p>
+        <p>This problem is adapted from Logan (2012), Problem 7–28.</p>
+<p>Script: <a href="model.py"><code>model.py</code></a></p>
+
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                 ______</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#               /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#              /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#             /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#            /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#           /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#          /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#         /     /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#        /  7  /</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#       /_____/      ____</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#     /         \</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#    /     6     \    70</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   /_____________\  ____</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#  | \           / |</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#  |  \    3    /  |  20</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#  | 4 \_______/ 2 | _________</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#  |___/       \___|      ____ 20</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#   \5 |       | 1/   70</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#    \_|       |_/        __</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      .       o     ____ __ 10</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#              ^</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#              #</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Chrystal Chern and Claudio Perez</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tanwrench <span style="font-weight:bold">=</span> <span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span>angwrench <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>arctan(<span style="color:#099">1</span><span style="font-weight:bold">/</span>tanwrench)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>blocks <span style="font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#099">1</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [   <span style="color:#099">0</span>,         <span style="color:#099">0</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [  <span style="color:#099">20</span>,        <span style="color:#099">10</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [  <span style="color:#099">40</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">40</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [   <span style="color:#099">0</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">40</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">6</span>:  [  <span style="color:#099">35</span>,        <span style="color:#099">30</span>]},
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      6:  [  25,        30]},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#099">2</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [   <span style="color:#099">0</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">40</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [  <span style="color:#099">40</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">40</span>],
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      6:  [  45, 160-70-20],</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [  <span style="color:#099">40</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span>   ],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">20</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">20</span>]},
+</span></span><span style="display:flex;"><span>    <span style="color:#099">3</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">20</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span><span style="font-weight:bold">-</span><span style="color:#099">20</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [  <span style="color:#099">40</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span>   ],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span>   ],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">60</span>,        <span style="color:#099">70</span>]},
+</span></span><span style="display:flex;"><span>    <span style="color:#099">4</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">60</span>,        <span style="color:#099">70</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>,        <span style="color:#099">90</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>,        <span style="color:#099">50</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">75</span>,        <span style="color:#099">50</span>]},
+</span></span><span style="display:flex;"><span>    <span style="color:#099">5</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">75</span>,        <span style="color:#099">50</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>,        <span style="color:#099">50</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">95</span>,        <span style="color:#099">10</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [ <span style="font-weight:bold">-</span><span style="color:#099">75</span>,         <span style="color:#099">0</span>]},
+</span></span><span style="display:flex;"><span>    <span style="color:#099">6</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [  <span style="color:#099">40</span>,        <span style="color:#099">90</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">5</span>:  [  <span style="color:#099">33</span>,       <span style="color:#099">112</span>],
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      9:  [  12,       140],</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [   <span style="color:#099">0</span>,       <span style="color:#099">160</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span> <span style="font-weight:bold">+</span> <span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span>   ]},
+</span></span><span style="display:flex;"><span>    <span style="color:#099">7</span>:    {
+</span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [   <span style="color:#099">0</span>,       <span style="color:#099">160</span>],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [<span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench), <span style="color:#099">160</span><span style="font-weight:bold">+</span><span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench)],
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      6:  [250*np.sin(angwrench)-25*np.cos(angwrench), 160+270*np.cos(angwrench)],</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span><span style="font-weight:bold">+</span><span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench)],
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span> <span style="font-weight:bold">+</span> <span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)]}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>divs <span style="font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#099">1</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">2</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">3</span>: (<span style="color:#099">3</span>,<span style="color:#099">4</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">4</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">5</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">6</span>: (<span style="color:#099">4</span>,<span style="color:#099">4</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#099">7</span>: (<span style="color:#099">6</span>,<span style="color:#099">4</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sees</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">shps.plane</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_quads</span>():
+</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>) <span style="color:#998;font-style:italic">#, 6.75/g)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> num,block <span style="font-weight:bold">in</span> blocks<span style="font-weight:bold">.</span>items():
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>surface(divs[num],
+</span></span><span style="display:flex;"><span>                      element<span style="font-weight:bold">=</span><span style="color:#b84">&#34;quad&#34;</span>, args<span style="font-weight:bold">=</span>(<span style="color:#099">1</span>, <span style="color:#b84">&#34;PlaneStrain&#34;</span>, <span style="color:#099">1</span>),
+</span></span><span style="display:flex;"><span>                      points <span style="font-weight:bold">=</span> block, kwds<span style="font-weight:bold">=</span><span style="color:#999">dict</span>(parent<span style="font-weight:bold">=</span>shps<span style="font-weight:bold">.</span>plane<span style="font-weight:bold">.</span>Lagrange(<span style="color:#099">2</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_tris</span>():
+</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">2</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>) <span style="color:#998;font-style:italic">#, 6.75/g)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    kwds <span style="font-weight:bold">=</span> <span style="color:#999">dict</span>(parent<span style="font-weight:bold">=</span>shps<span style="font-weight:bold">.</span>plane<span style="font-weight:bold">.</span>Lagrange(<span style="color:#099">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    elem <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> num,block <span style="font-weight:bold">in</span> blocks<span style="font-weight:bold">.</span>items():
+</span></span><span style="display:flex;"><span>        mesh <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>surface(divs[num], <span style="color:#998;font-style:italic">#element=&#34;quad&#34;, args=(1, &#34;PlaneStrain&#34;, 1),</span>
+</span></span><span style="display:flex;"><span>                      points <span style="font-weight:bold">=</span> block, kwds<span style="font-weight:bold">=</span>kwds)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> cell <span style="font-weight:bold">in</span> mesh<span style="font-weight:bold">.</span>cells:
+</span></span><span style="display:flex;"><span>            nodes <span style="font-weight:bold">=</span> mesh<span style="font-weight:bold">.</span>cells[cell]
+</span></span><span style="display:flex;"><span>            model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;tri31&#34;</span>,   elem, (nodes[<span style="color:#099">0</span>], nodes[<span style="color:#099">1</span>], nodes[<span style="color:#099">2</span>]), <span style="color:#099">10</span>, <span style="color:#b84">&#34;PlaneStrain&#34;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;tri31&#34;</span>, elem<span style="font-weight:bold">+</span><span style="color:#099">1</span>, (nodes[<span style="color:#099">0</span>], nodes[<span style="color:#099">2</span>], nodes[<span style="color:#099">3</span>]), <span style="color:#099">10</span>, <span style="color:#b84">&#34;PlaneStrain&#34;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            elem <span style="font-weight:bold">+=</span> <span style="color:#099">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_boundary</span>(model):
+</span></span><span style="display:flex;"><span>    P <span style="font-weight:bold">=</span> <span style="color:#099">700</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a load pattern</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#34;Plain&#34;</span>, <span style="color:#099">1</span>, <span style="color:#b84">&#34;Linear&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> node <span style="font-weight:bold">in</span> model<span style="font-weight:bold">.</span>getNodeTags():
+</span></span><span style="display:flex;"><span>        coord <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>nodeCoord(node)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Fix corner of block 4</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">if</span> np<span style="font-weight:bold">.</span>linalg<span style="font-weight:bold">.</span>norm(np<span style="font-weight:bold">.</span>array(coord) <span style="font-weight:bold">-</span> blocks[<span style="color:#099">4</span>][<span style="color:#099">4</span>]) <span style="font-weight:bold">&lt;</span> <span style="color:#099">1e-12</span>:
+</span></span><span style="display:flex;"><span>            model<span style="font-weight:bold">.</span>fix(node, <span style="color:#099">1</span>,<span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Add load to the corner of block 7</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">elif</span> np<span style="font-weight:bold">.</span>linalg<span style="font-weight:bold">.</span>norm(np<span style="font-weight:bold">.</span>array(coord) <span style="font-weight:bold">-</span> blocks[<span style="color:#099">7</span>][<span style="color:#099">3</span>]) <span style="font-weight:bold">&lt;</span> <span style="color:#099">1e-12</span>:
+</span></span><span style="display:flex;"><span>            model<span style="font-weight:bold">.</span>load(node, (P, <span style="color:#099">0</span>), pattern<span style="font-weight:bold">=</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#model = create_quads()</span>
+</span></span><span style="display:flex;"><span>model <span style="font-weight:bold">=</span> create_tris()
+</span></span><span style="display:flex;"><span>create_boundary(model)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analysis(<span style="color:#b84">&#34;Static&#34;</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>integrator(<span style="color:#b84">&#34;LoadControl&#34;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#sees.serve(sees.render(model, canvas=&#34;gltf&#34;))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sees<span style="font-weight:bold">.</span>serve(sees<span style="font-weight:bold">.</span>render(model, <span style="font-weight:bold">lambda</span> i: [<span style="color:#099">500</span><span style="font-weight:bold">*</span>u <span style="font-weight:bold">for</span> u <span style="font-weight:bold">in</span> model<span style="font-weight:bold">.</span>nodeDisp(i)], canvas<span style="font-weight:bold">=</span><span style="color:#b84">&#34;gltf&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 id="references">References</h1>
 <ul>
-<li>Logan 8.22</li>
+<li>Logan, D.L. (2012) A First Course in the Finite Element Method. 5th ed. Stamford, CT: Cengage Learning.</li>
 </ul>
 
       </article>

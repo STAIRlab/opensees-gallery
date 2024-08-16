@@ -62,7 +62,7 @@
   "headline": "Simple Pendulum",
   "description" : "This example investigates a simple pendulum using the corotational truss element.",
   "inLanguage" : "en",
-  "wordCount":  261 ,
+  "wordCount":  283 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -416,7 +416,6 @@ the corotational truss element.</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
@@ -425,7 +424,6 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Claudio Perez</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">from</span> <span style="color:#555">opensees.units.ips</span> <span style="font-weight:bold">import</span> inch, sec, gravity <span style="font-weight:bold">as</span> g
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_pendulum</span>(m, k, L, W):
@@ -435,25 +433,25 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a node for the pivot point and fix it</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>node(<span style="color:#099">1</span>,<span style="color:#099">0</span>,L);
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>,<span style="color:#099">1</span>,<span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>node(<span style="color:#099">1</span>, <span style="color:#099">0</span>, L);
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a node for the mass</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>node(<span style="color:#099">2</span>,<span style="color:#099">0</span>,<span style="color:#099">0</span>);
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>mass(<span style="color:#099">2</span>,m,m)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a free node with the mass</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>node(<span style="color:#099">2</span>, <span style="color:#099">0</span>, <span style="color:#099">0</span>);
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>mass(<span style="color:#099">2</span>, m, m)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a corotational truss linking nodes 1 and 2</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#39;Elastic&#39;</span>,<span style="color:#099">1</span>,k<span style="font-weight:bold">*</span>L)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;CorotTruss&#39;</span>,<span style="color:#099">1</span>,<span style="color:#099">1</span>,<span style="color:#099">2</span>,<span style="color:#099">1.0</span>,<span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a corotational truss between nodes 1 and 2</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>uniaxialMaterial(<span style="color:#b84">&#39;Elastic&#39;</span>, <span style="color:#099">1</span>, k<span style="font-weight:bold">*</span>L)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#39;CorotTruss&#39;</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">2</span>, <span style="color:#099">1.0</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Initial displacements</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>setNodeDisp(<span style="color:#099">2</span>,<span style="color:#099">1</span>,<span style="color:#099">0.05</span><span style="font-weight:bold">*</span>L,<span style="color:#b84">&#39;-commit&#39;</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>setNodeDisp(<span style="color:#099">2</span>,<span style="color:#099">2</span>,<span style="font-weight:bold">-</span>W<span style="font-weight:bold">/</span>k<span style="font-weight:bold">-</span>(W<span style="font-weight:bold">/</span>k<span style="font-weight:bold">+</span>L)<span style="font-weight:bold">/</span><span style="color:#099">3</span>,<span style="color:#b84">&#39;-commit&#39;</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>setNodeDisp(<span style="color:#099">2</span>, <span style="color:#099">1</span>, <span style="color:#099">0.05</span><span style="font-weight:bold">*</span>L, <span style="color:#b84">&#39;-commit&#39;</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>setNodeDisp(<span style="color:#099">2</span>, <span style="color:#099">2</span>, <span style="font-weight:bold">-</span>W<span style="font-weight:bold">/</span>k<span style="font-weight:bold">-</span>(W<span style="font-weight:bold">/</span>k<span style="font-weight:bold">+</span>L)<span style="font-weight:bold">/</span><span style="color:#099">3</span>, <span style="color:#b84">&#39;-commit&#39;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Pendulum weight</span>
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>timeSeries(<span style="color:#b84">&#39;Constant&#39;</span>,<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#39;Plain&#39;</span>,<span style="color:#099">1</span>,<span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>load(<span style="color:#099">2</span>,<span style="color:#099">0</span>,<span style="font-weight:bold">-</span>W)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>timeSeries(<span style="color:#b84">&#39;Constant&#39;</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>pattern(<span style="color:#b84">&#39;Plain&#39;</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>load(<span style="color:#099">2</span>, <span style="color:#099">0</span>, <span style="font-weight:bold">-</span>W)
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
@@ -468,19 +466,19 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span>    Nsteps <span style="font-weight:bold">=</span> <span style="color:#999">int</span>(Tmax<span style="font-weight:bold">/</span>dt)
 </span></span><span style="display:flex;"><span>    u <span style="font-weight:bold">=</span> []
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(Nsteps):
-</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>,dt)
+</span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>, dt)
 </span></span><span style="display:flex;"><span>        u<span style="font-weight:bold">.</span>append(model<span style="font-weight:bold">.</span>nodeDisp(<span style="color:#099">2</span>))
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> u
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">if</span> __name__ <span style="font-weight:bold">==</span> <span style="color:#b84">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">from</span> <span style="color:#555">opensees.units.ips</span> <span style="font-weight:bold">import</span> inch, sec, gravity <span style="font-weight:bold">as</span> g
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Length of pendulum</span>
 </span></span><span style="display:flex;"><span>    L <span style="font-weight:bold">=</span> <span style="color:#099">10</span><span style="font-weight:bold">*</span>inch
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Pendulum mass and weight</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Pendulum mass</span>
 </span></span><span style="display:flex;"><span>    m <span style="font-weight:bold">=</span> <span style="color:#099">1.0</span>
-</span></span><span style="display:flex;"><span>    W <span style="font-weight:bold">=</span> m<span style="font-weight:bold">*</span>g
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Frequency of pendulum</span>
 </span></span><span style="display:flex;"><span>    omega <span style="font-weight:bold">=</span> (g<span style="font-weight:bold">/</span>L)<span style="font-weight:bold">**</span><span style="color:#099">0.5</span>
@@ -491,7 +489,7 @@ the corotational truss element.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Stiffness of spring</span>
 </span></span><span style="display:flex;"><span>    k <span style="font-weight:bold">=</span> m<span style="font-weight:bold">*</span>w<span style="font-weight:bold">**</span><span style="color:#099">2</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> create_pendulum(m, k, L, W)
+</span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> create_pendulum(m, k, L, m<span style="font-weight:bold">*</span>g)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    u <span style="font-weight:bold">=</span> analyze_pendulum(model)
 </span></span><span style="display:flex;"><span>    <span style="color:#999">print</span>(u)
