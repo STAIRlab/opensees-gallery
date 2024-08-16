@@ -1,3 +1,14 @@
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                          stairlab.berkeley.edu
+# 
+# ===----------------------------------------------------------------------===//
+#
+# Static analysis of a wrench in the plane.
+#
+# The mesh is created from 7 blocks:
 #                 ______
 #                /     /
 #               /     /
@@ -24,11 +35,13 @@
 #
 # Chrystal Chern and Claudio Perez
 #
+import sees
+import opensees.openseespy as ops
 import numpy as np
 
-tanwrench = 5
-angwrench = np.arctan(1/tanwrench)
+angwrench = np.arctan(1/5)
 
+# Quadrilateral blocks that comprise the wrench:
 blocks = {
     1:    {
        1:  [   0,         0],
@@ -61,18 +74,17 @@ blocks = {
     6:    {
        1:  [  40,        90],
        5:  [  33,       112],
-#      9:  [  12,       140],
        2:  [   0,       160],
        3:  [-50*np.cos(angwrench), 160 + 50*np.sin(angwrench)],
        4:  [-115, 160-70   ]},
     7:    {
        1:  [   0,       160],
-       2:  [250*np.sin(angwrench), 160+250*np.cos(angwrench)],
-#      6:  [250*np.sin(angwrench)-25*np.cos(angwrench), 160+270*np.cos(angwrench)],
+       2:  [250*np.sin(angwrench),                      160+250*np.cos(angwrench)],
        3:  [250*np.sin(angwrench)-50*np.cos(angwrench), 160+250*np.cos(angwrench)],
-       4:  [-50*np.cos(angwrench), 160 + 50*np.sin(angwrench)]}
+       4:  [-50*np.cos(angwrench),                      160+ 50*np.sin(angwrench)]}
 }
 
+# Subdivisions to create within each block:
 divs = {
     1: (3,3),
     2: (3,3),
@@ -83,33 +95,32 @@ divs = {
     7: (6,4)
 }
 
-import sees
-import shps.plane
-import opensees.openseespy as ops
 
 def create_quads():
     model = ops.Model(ndm=2, ndf=2)
-    model.nDMaterial("ElasticIsotropic", 1, 200e3, 0.25) #, 6.75/g)
+    model.nDMaterial("ElasticIsotropic", 1, 200e3, 0.25)
 
     for num,block in blocks.items():
         model.surface(divs[num],
                       element="quad", args=(1, "PlaneStrain", 1),
-                      points = block, kwds=dict(parent=shps.plane.Lagrange(2)))
+                      points = block)
 
     return model
 
+
 def create_tris():
     model = ops.Model(ndm=2, ndf=2)
-    model.nDMaterial("ElasticIsotropic", 1, 200e3, 0.25) #, 6.75/g)
+    model.nDMaterial("ElasticIsotropic", 1, 200e3, 0.25)
 
-    kwds = dict(parent=shps.plane.Lagrange(2))
 
     elem = 1
     for num,block in blocks.items():
-        mesh = model.surface(divs[num], #element="quad", args=(1, "PlaneStrain", 1),
-                      points = block, kwds=kwds)
+        # Because no element argument is passed, only nodes are created.
+        # Next we will go back over the newly created cells and manually
+        # create triangles.
+        mesh = model.surface(divs[num], points = block)
 
-
+        # For each new 4-node cell, create two triangles
         for cell in mesh.cells:
             nodes = mesh.cells[cell]
             model.element("tri31",   elem, (nodes[0], nodes[1], nodes[2]), 10, "PlaneStrain", 1)
@@ -120,8 +131,10 @@ def create_tris():
 
 
 def create_boundary(model):
+    # Load magnitude
     P = 700
 
+    # Fix the first node, which is at (0.0, 0.0)
     model.fix(1, 1, 1)
 
     # Create a load pattern
@@ -147,9 +160,8 @@ model.analysis("Static")
 model.integrator("LoadControl", 1)
 model.analyze(1)
 
-#sees.serve(sees.render(model, canvas="gltf"))
 
-
+# Render the deformed shape
 sees.serve(sees.render(model, lambda i: [500*u for u in model.nodeDisp(i)], canvas="gltf"))
 
 

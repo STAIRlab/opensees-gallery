@@ -138,7 +138,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
-      <description>In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.</description>
+      <description>In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:</description>
     </item>
     <item>
       <title>Suspension Bridge</title>
