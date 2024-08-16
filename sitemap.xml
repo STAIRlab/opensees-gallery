@@ -410,11 +410,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/steelmrf_northridge/</loc>
-    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/gallery/suspensionbridge/</loc>
     <lastmod>2024-08-01T11:13:27-07:00</lastmod>
     <changefreq>monthly</changefreq>
