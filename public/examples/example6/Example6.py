@@ -1,10 +1,3 @@
-# ===----------------------------------------------------------------------===//
-# 
-#         OpenSees - Open System for Earthquake Engineering Simulation    
-#                Structural Artificial Intelligence Laboratory
-#                          stairlab.berkeley.edu
-# 
-# ===----------------------------------------------------------------------===//
 #
 # Simply Supported Beam Example 6.1
 # ---------------------------------
@@ -36,7 +29,7 @@ def create_model(Quad: str = "quad"):
 
     # Define the material
     # -------------------
-    #                               matTag  E      nu      rho
+    #                                  tag  E      nu      rho
     model.nDMaterial("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
 
     # Define geometry
@@ -53,11 +46,12 @@ def create_model(Quad: str = "quad"):
     if (Quad == "quad" or Quad == "enhancedQuad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
         model.block2D(nx, ny, 1, 1,
-                    Quad, thick, "PlaneStrain", 1,
+                    Quad, (thick, "PlaneStrain", 1),
                     1,  0.0,  0.0,
                     2, 40.0,  0.0,
                     3, 40.0, 10.0,
                     4,  0.0, 10.0)
+
     elif (Quad == "SSPquad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
         model.block2D(nx, ny, 1, 1,
@@ -66,6 +60,7 @@ def create_model(Quad: str = "quad"):
                     2, 40.0,  0.0,
                     3, 40.0, 10.0,
                     4,  0.0, 10.0)
+
     elif (Quad == "bbarQuad"):
         #          numX numY startNode startEle eleType eleArgs? coords?
         model.block2D(nx, ny, 1, 1,
@@ -120,6 +115,7 @@ def static_analysis(model):
 
     # Perform static analysis in 10 increments
     model.analyze(10)
+
 
 def dynamic_analysis(model, l1):
     # ----------------------------

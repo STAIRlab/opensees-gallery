@@ -66,7 +66,7 @@
   "headline": "Wrench",
   "description" : "Static analysis of a wrench",
   "inLanguage" : "en",
-  "wordCount":  638 ,
+  "wordCount":  729 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -513,9 +513,32 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                 ______</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ===----------------------------------------------------------------------===//</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#         OpenSees - Open System for Earthquake Engineering Simulation    </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                Structural Artificial Intelligence Laboratory</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                          stairlab.berkeley.edu</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># </span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ===----------------------------------------------------------------------===//</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Static analysis of a wrench in the plane.</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># The mesh is created from 7 blocks:</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                 ______</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#                /     /</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#               /     /</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#              /     /</span>
@@ -541,11 +564,13 @@
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Chrystal Chern and Claudio Perez</span>
 </span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sees</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>tanwrench <span style="font-weight:bold">=</span> <span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>angwrench <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>arctan(<span style="color:#099">1</span><span style="font-weight:bold">/</span>tanwrench)
+</span></span><span style="display:flex;"><span>angwrench <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>arctan(<span style="color:#099">1</span><span style="font-weight:bold">/</span><span style="color:#099">5</span>)
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Quadrilateral blocks that comprise the wrench:</span>
 </span></span><span style="display:flex;"><span>blocks <span style="font-weight:bold">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#099">1</span>:    {
 </span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [   <span style="color:#099">0</span>,         <span style="color:#099">0</span>],
@@ -578,18 +603,17 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#099">6</span>:    {
 </span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [  <span style="color:#099">40</span>,        <span style="color:#099">90</span>],
 </span></span><span style="display:flex;"><span>       <span style="color:#099">5</span>:  [  <span style="color:#099">33</span>,       <span style="color:#099">112</span>],
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      9:  [  12,       140],</span>
 </span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [   <span style="color:#099">0</span>,       <span style="color:#099">160</span>],
 </span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span> <span style="font-weight:bold">+</span> <span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)],
 </span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">115</span>, <span style="color:#099">160</span><span style="font-weight:bold">-</span><span style="color:#099">70</span>   ]},
 </span></span><span style="display:flex;"><span>    <span style="color:#099">7</span>:    {
 </span></span><span style="display:flex;"><span>       <span style="color:#099">1</span>:  [   <span style="color:#099">0</span>,       <span style="color:#099">160</span>],
-</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [<span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench), <span style="color:#099">160</span><span style="font-weight:bold">+</span><span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench)],
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#      6:  [250*np.sin(angwrench)-25*np.cos(angwrench), 160+270*np.cos(angwrench)],</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#099">2</span>:  [<span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench),                      <span style="color:#099">160</span><span style="font-weight:bold">+</span><span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench)],
 </span></span><span style="display:flex;"><span>       <span style="color:#099">3</span>:  [<span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span><span style="font-weight:bold">+</span><span style="color:#099">250</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench)],
-</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench), <span style="color:#099">160</span> <span style="font-weight:bold">+</span> <span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)]}
+</span></span><span style="display:flex;"><span>       <span style="color:#099">4</span>:  [<span style="font-weight:bold">-</span><span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>cos(angwrench),                      <span style="color:#099">160</span><span style="font-weight:bold">+</span> <span style="color:#099">50</span><span style="font-weight:bold">*</span>np<span style="font-weight:bold">.</span>sin(angwrench)]}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Subdivisions to create within each block:</span>
 </span></span><span style="display:flex;"><span>divs <span style="font-weight:bold">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#099">1</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#099">2</span>: (<span style="color:#099">3</span>,<span style="color:#099">3</span>),
@@ -600,33 +624,32 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#099">7</span>: (<span style="color:#099">6</span>,<span style="color:#099">4</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sees</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">shps.plane</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">opensees.openseespy</span> <span style="font-weight:bold">as</span> <span style="color:#555">ops</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_quads</span>():
 </span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">2</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>) <span style="color:#998;font-style:italic">#, 6.75/g)</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> num,block <span style="font-weight:bold">in</span> blocks<span style="font-weight:bold">.</span>items():
 </span></span><span style="display:flex;"><span>        model<span style="font-weight:bold">.</span>surface(divs[num],
 </span></span><span style="display:flex;"><span>                      element<span style="font-weight:bold">=</span><span style="color:#b84">&#34;quad&#34;</span>, args<span style="font-weight:bold">=</span>(<span style="color:#099">1</span>, <span style="color:#b84">&#34;PlaneStrain&#34;</span>, <span style="color:#099">1</span>),
-</span></span><span style="display:flex;"><span>                      points <span style="font-weight:bold">=</span> block, kwds<span style="font-weight:bold">=</span><span style="color:#999">dict</span>(parent<span style="font-weight:bold">=</span>shps<span style="font-weight:bold">.</span>plane<span style="font-weight:bold">.</span>Lagrange(<span style="color:#099">2</span>)))
+</span></span><span style="display:flex;"><span>                      points <span style="font-weight:bold">=</span> block)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> model
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_tris</span>():
 </span></span><span style="display:flex;"><span>    model <span style="font-weight:bold">=</span> ops<span style="font-weight:bold">.</span>Model(ndm<span style="font-weight:bold">=</span><span style="color:#099">2</span>, ndf<span style="font-weight:bold">=</span><span style="color:#099">2</span>)
-</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>) <span style="color:#998;font-style:italic">#, 6.75/g)</span>
+</span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>nDMaterial(<span style="color:#b84">&#34;ElasticIsotropic&#34;</span>, <span style="color:#099">1</span>, <span style="color:#099">200e3</span>, <span style="color:#099">0.25</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    kwds <span style="font-weight:bold">=</span> <span style="color:#999">dict</span>(parent<span style="font-weight:bold">=</span>shps<span style="font-weight:bold">.</span>plane<span style="font-weight:bold">.</span>Lagrange(<span style="color:#099">2</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    elem <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
 </span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> num,block <span style="font-weight:bold">in</span> blocks<span style="font-weight:bold">.</span>items():
-</span></span><span style="display:flex;"><span>        mesh <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>surface(divs[num], <span style="color:#998;font-style:italic">#element=&#34;quad&#34;, args=(1, &#34;PlaneStrain&#34;, 1),</span>
-</span></span><span style="display:flex;"><span>                      points <span style="font-weight:bold">=</span> block, kwds<span style="font-weight:bold">=</span>kwds)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Because no element argument is passed, only nodes are created.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Next we will go back over the newly created cells and manually</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># create triangles.</span>
+</span></span><span style="display:flex;"><span>        mesh <span style="font-weight:bold">=</span> model<span style="font-weight:bold">.</span>surface(divs[num], points <span style="font-weight:bold">=</span> block)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># For each new 4-node cell, create two triangles</span>
 </span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> cell <span style="font-weight:bold">in</span> mesh<span style="font-weight:bold">.</span>cells:
 </span></span><span style="display:flex;"><span>            nodes <span style="font-weight:bold">=</span> mesh<span style="font-weight:bold">.</span>cells[cell]
 </span></span><span style="display:flex;"><span>            model<span style="font-weight:bold">.</span>element(<span style="color:#b84">&#34;tri31&#34;</span>,   elem, (nodes[<span style="color:#099">0</span>], nodes[<span style="color:#099">1</span>], nodes[<span style="color:#099">2</span>]), <span style="color:#099">10</span>, <span style="color:#b84">&#34;PlaneStrain&#34;</span>, <span style="color:#099">1</span>)
@@ -637,8 +660,10 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">create_boundary</span>(model):
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Load magnitude</span>
 </span></span><span style="display:flex;"><span>    P <span style="font-weight:bold">=</span> <span style="color:#099">700</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Fix the first node, which is at (0.0, 0.0)</span>
 </span></span><span style="display:flex;"><span>    model<span style="font-weight:bold">.</span>fix(<span style="color:#099">1</span>, <span style="color:#099">1</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Create a load pattern</span>
@@ -664,9 +689,8 @@
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>integrator(<span style="color:#b84">&#34;LoadControl&#34;</span>, <span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>model<span style="font-weight:bold">.</span>analyze(<span style="color:#099">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#sees.serve(sees.render(model, canvas=&#34;gltf&#34;))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Render the deformed shape</span>
 </span></span><span style="display:flex;"><span>sees<span style="font-weight:bold">.</span>serve(sees<span style="font-weight:bold">.</span>render(model, <span style="font-weight:bold">lambda</span> i: [<span style="color:#099">500</span><span style="font-weight:bold">*</span>u <span style="font-weight:bold">for</span> u <span style="font-weight:bold">in</span> model<span style="font-weight:bold">.</span>nodeDisp(i)], canvas<span style="font-weight:bold">=</span><span style="color:#b84">&#34;gltf&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
@@ -850,7 +874,7 @@
 
                 <div class="post-entry">
                     
-                    In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.
+                    In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:
                     
                 </div>
 

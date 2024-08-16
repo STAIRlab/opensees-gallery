@@ -8,7 +8,7 @@
 
  
 <title>Simply Supported Solid Beam - OpenSeesRT Examples</title>
-<meta name="description" content="In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.">
+<meta name="description" content="In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:">
 
 <meta name="keywords" content="Plane, Python, Tcl, " />
 
@@ -64,9 +64,9 @@
     "name" : "PEER"
   },
   "headline": "Simply Supported Solid Beam",
-  "description" : "In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.",
+  "description" : "In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:",
   "inLanguage" : "en",
-  "wordCount":  352 ,
+  "wordCount":  330 ,
   "datePublished" : "0001-01-01T00:00:00",
   "dateModified" : "0001-01-01T00:00:00",
   "image" : "https:\/\/stairlab.github.io\/opensees-gallery\/",
@@ -86,7 +86,7 @@
 </script>
 
 <meta property="og:title" content="Simply Supported Solid Beam" />
-<meta property="og:description" content="In this example a simple problem in solid dynamics is considered. The structure is a simply supported beam modelled with two dimensional solid elements.">
+<meta property="og:description" content="In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:">
 <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/Example6.png" />
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/example6/" />
 <meta property="og:type" content="website" />
@@ -345,35 +345,32 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>In this example a simple problem in solid dynamics is considered. The
-structure is a simply supported beam modelled with two dimensional solid
-elements.</p>
+        <p>In this example a simply supported beam is modelled with two dimensional solid
+elements.
+The example is implemented in both Tcl and Python:</p>
 <ol>
 <li><a href="Example6.tcl"><code>Example6.tcl</code></a></li>
 <li><a href="Example6.py"><code>Example6.py</code></a></li>
 </ol>
-<p>For two dimensional analysis, a typical solid element is defined as a
-volume in two dimensional space. Each node of the analysis has two
-displacement degrees of freedom. Thus the model is defined with
+<p>Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with
 <code>ndm = 2</code> and <code>ndf = 2</code>.</p>
-<p>For this model, a mesh is generated using
+<p>A mesh is generated using
 the <code>block2D</code> command. The number of nodes in the local \(x\)-direction of
 the block is $nx$ and the number of nodes in the local \(y\)-direction of
 the block is $ny$. The <code>block2D</code> generation nodes <code>{1,2,3,4}</code> are prescribed
 to define the two dimensional domain of the beam, which is of size
 \(40\times10\).</p>
-<p>Three possible quadrilateral elements can be used for the analysis.
-These may be created using the terms <code>&quot;BbarQuad&quot;</code>, <code>&quot;EnhancedQuad&quot;</code> or
-<code>&quot;Quad&quot;</code>. This is a plane strain problem. An elastic isotropic material is
-used.</p>
+<p>Three different quadrilateral elements can be used for the analysis.
+These may be created using the names <code>&quot;BbarQuad&quot;</code>, <code>&quot;EnhancedQuad&quot;</code> or
+<code>&quot;Quad&quot;</code>.
+This is a plane strain problem. An elastic isotropic material is used.</p>
 <p>For initial gravity load analysis, a single load pattern with a linear
 time series and two vertical nodal loads are used.</p>
 <p>A solution algorithm of type <code>Newton</code> is used for the problem. The
 solution algorithm uses a <code>ConvergenceTest</code> which tests convergence on the
-norm of the energy increment vector. Ten static load steps are
-performed.</p>
-<p>Subsequent to the static analysis, the wipeAnalysis and remove
-loadPatern commands are used to remove the nodal loads and create a new
+norm of the energy increment vector. Ten static load steps are performed.</p>
+<p>Following the static analysis, the <code>wipeAnalysis</code> and <code>remove loadPatern</code>
+commands are used to remove the nodal loads and create a new
 analysis. The nodal displacements have not changed. However, with the
 external loads removed the structure is no longer in static equilibrium.</p>
 <p>The integrator for the dynamic analysis if of type <code>GeneralizedMidpoint</code>
@@ -382,7 +379,7 @@ conserving for linear problems. Additionally, this integrator conserves
 linear and angular momentum for both linear and non-linear problems. The
 dynamic analysis is performed using \(100\) time increments with a time
 step \(\Delta t = 0.50\).</p>
-<p>The results consist of the file Node.out, which contains a line for
+<p>The results consist of the file <code>Node.out</code>, which contains a line for
 every time step. Each line contains the time and the vertical
 displacement at the bottom center of the beam. The time history is shown
 in Figure 1.</p>
