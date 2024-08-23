@@ -375,6 +375,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/shellframe/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/pendulum/</loc>
     <lastmod>2024-05-28T14:18:43-07:00</lastmod>
     <changefreq>monthly</changefreq>

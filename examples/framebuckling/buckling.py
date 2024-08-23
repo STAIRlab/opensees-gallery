@@ -39,7 +39,7 @@ def buckle_factor(boundary, phi=0):
         return 2*np.pi
 
     if boundary == "fix-pin":
-        f = lambda x: np.tan(x) - x/(1+x**2*phi/12)
+        f = lambda x: np.tan(x) - x/(1 + x**2*phi/12)
         sol = scipy.optimize.root_scalar(f, x0=0.7, bracket=(np.pi, 1.45*np.pi))
         if sol.converged:
             return sol.root
@@ -93,7 +93,7 @@ def fix_node(model, node, type):
     model.fix(node, *reactions)
 
 
-def create_column(boundary="pin-pin", elem_data=None):
+def create_column(boundary="pin-pin", elem_data=None, ndm=3):
     E  = 29000.0
     G =  11200.0
 #   A  = 9.12e3
@@ -102,10 +102,8 @@ def create_column(boundary="pin-pin", elem_data=None):
     Ay = 3/6*A
     Az = 3/6*A
     L  = 60.0
-    ne = 4
     # Number of elements discretizing the column
-
-    ndm = 3
+    ne = 10 # 4
 
     if elem_data is None:
         elem_data = {}
@@ -117,15 +115,6 @@ def create_column(boundary="pin-pin", elem_data=None):
 
     nIP = 5 # number of integration points along each element
     nn = ne + 1
-    if use_shear:
-        phi = 12*E*I/(Ay*G*L**2)
-        lam = buckle_factor(boundary, phi)
-        kL = L/lam
-        euler_load = E*I/kL**2  / (1 + lam**2*phi/12)
-    else:
-#       kL = FACTORS[boundary]*L
-        kL = L/buckle_factor(boundary)
-        euler_load = E*I/kL**2
 
     model = ops.Model(ndm=ndm)
 
@@ -154,7 +143,7 @@ def create_column(boundary="pin-pin", elem_data=None):
     properties = [E, A, I]
     if ndm == 3:
         #                    Iy   G,     J
-        properties.extend([100*I, G, 100*I])
+        properties.extend([ 2*I, G, 100*I])
 
     if use_shear:
         properties.extend(["-Ay", Ay])
@@ -180,6 +169,15 @@ def create_column(boundary="pin-pin", elem_data=None):
 
 
     # Define loads
+    if use_shear:
+        phi = 12*E*I/(Ay*G*L**2)
+        lam = buckle_factor(boundary, phi)
+        kL = L/lam
+        euler_load = E*I/kL**2  / (1 + lam**2*phi/12)
+    else:
+#       kL = FACTORS[boundary]*L
+        kL = L/buckle_factor(boundary)
+        euler_load = E*I/kL**2
     model.pattern('Plain', 1, "Linear")
     if ndm == 2:
         load = (0.0, -euler_load, 0.0)
@@ -190,37 +188,53 @@ def create_column(boundary="pin-pin", elem_data=None):
 
     return model, euler_load
 
+def linearized_buckling(model, peak_load):
+    # Analysis Options
+#   model.system('UmfPack')
+#   model.test('NormUnbalance', 1.0e-6, 20, 0)
+    model.algorithm('Newton')
+    model.integrator('LoadControl', load_step)
+    model.analysis('Static')
+    pass
 
 def buckling_analysis(model, peak_load):
     # Apply a load from zero to peak_load until 
     # the stiffness becomes singular (first eigenvalue is zero)
 
     load_step     = 0.01
-    PeakLoadRatio = 2.00
+    PeakLoadRatio = 1.50
 
     # Analysis Options
-    model.system('UmfPack')
-    model.constraints('Transformation')
-    model.test('NormUnbalance', 1.0e-6, 20, 0)
+#   model.system('UmfPack')
+#   model.constraints('Transformation')
+#   model.test('NormUnbalance', 1.0e-6, 20, 0)
+    model.test("EnergyIncr", 1e-8, 20, 9)
     model.algorithm('Newton')
-    model.numberer('Plain')
     model.integrator('LoadControl', load_step)
     model.analysis('Static')
+
+#   print(pd.DataFrame(model.getTangent()))
 
     lam_0 = model.getTime()
     eig_0 = model.eigen(1)
 
     limit_load = None
+    failed = False
     for i in range(1, int(PeakLoadRatio/load_step)+1):
         if model.analyze(1) != 0:
-            break
+            print(f"  Analysis failed at step {i} with load at {model.getTime()}")
+            failed = True
+#           break
 
         lam =  model.getTime()
         eig =  model.eigen(1)[0]
 
-        if eig <= 0.0:
-            # linear interpolation
-            lam_i = lam_0 + (lam - lam_0)*eig_0/(eig_0-eig)
+        if eig <= 0.0 or failed:
+            if eig_0 != eig:
+                # linear interpolation
+                lam_i = lam_0 + (lam - lam_0)*eig_0/(eig_0-eig)
+            else:
+                lam_i = lam
 
             limit_load = lam_i * peak_load
             break
@@ -233,11 +247,11 @@ def buckling_analysis(model, peak_load):
 
 if __name__ == "__main__":
 
-    for elem in "PrismFrame", "ForceFrame", "ForceDeltaFrame":
+    for elem in "PrismFrame", "ForceFrame", "ForceDeltaFrame", "ExactFrame":
 #               "forceBeamColumn", "forceBeamColumnCBDI":
 
 
-        for shear in False,True:
+        for shear in True,: # , False
             print(elem, f"({shear = })")
             elem_data = {
                 "type": elem,

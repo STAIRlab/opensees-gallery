@@ -32,5 +32,5 @@ if __name__ == "__main__":
     )
 
 #   sees.serve(artist)
-#   artist.save("gravity.glb")
+    artist.save("gravity.glb")
 
