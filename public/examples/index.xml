@@ -176,6 +176,13 @@
       <description>Double-Layer Shallow Dome March 2020, Amir Hossein Namadchi This is an OpenSeesPy simulation of one of the numerical examples in our previously published paper.</description>
     </item>
     <item>
+      <title>Shell Diaphragms</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/shellframe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/shellframe/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Simple Pendulum</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/pendulum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

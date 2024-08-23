@@ -63,7 +63,10 @@ def analyze(element="ForceBeamColumn", use_shear = False):
     else:
         model.section("Elastic", 1, E, A, I)
 
-    model.geomTransf("Corotational", 1)
+    if "Exact" in element:
+        model.geomTransf("Linear", 1)
+    else:
+        model.geomTransf("Corotational", 1)
 #   model.geomTransf("PDelta", 1)
 
     # Elements
@@ -116,7 +119,7 @@ if __name__ == "__main__":
 #   "DispBeamColumn"
 #   "PrismFrame"
 
-    for element in "ForceFrame", "forceBeamColumnCBDI", "PrismFrame":
+    for element in "ForceFrame", "forceBeamColumnCBDI", "PrismFrame", "ExactFrame":
         for shear in True, False:
             print(element, f"({shear = })")
             model = analyze(element, use_shear=shear)
