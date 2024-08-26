@@ -1,4 +1,4 @@
-#-*-coding: UTF-8-*-
+
 #####Units: Length-m, Force-kN, mass-ton, Stress-kpa(10e-3MPa), g=9.81m/s2
 #####Units: Length-mm, Force-N, mass-ton, Stress-Mpa, g=9810mm/s2 pho=ton/mm3
 
@@ -21,7 +21,7 @@ waveNumber = 1
 
 ##################---初始化模型类OpenSeesPyClass---############
 def CableStayed01():
-    openseespyInstance = OpenSeesPyClass(caseNumber=caseNumber, waveNumber=waveNumber)  ###初始化OpenSeesPyClass类
+    openseespyInstance = OpenSeesPyClass(caseNumber=caseNumber, waveNumber=waveNumber)
     sqliteSaveInstance = openseespyInstance.saveInstance  ####得到实例化的数据库
 
 ##################---定义模型维数及自由度数---##################
@@ -92,7 +92,8 @@ def CableStayed01():
     pylonUpperCore = np.loadtxt('fiberInfo/pylonUpper/coreDivide.txt')
     pylonUpperBar = np.loadtxt('fiberInfo/pylonUpper/barDivide.txt')
     pylonUpperList = [pylonUpperCover, pylonUpperCore, pylonUpperBar]
-    pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'], openseespyInstance.materialNumberDict['C55_Core'],
+    pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'], 
+                         openseespyInstance.materialNumberDict['C55_Core'],
                          openseespyInstance.materialNumberDict['HRB400']]
     openseespyInstance.fiber_section(41082, pylonUpperList, pylonUpperMatList, tipsString="fiberSection")
 
@@ -100,7 +101,8 @@ def CableStayed01():
     pylonUpperCore = np.loadtxt('fiberInfo/pierFiber1/coreDivide.txt')
     pylonUpperBar = np.loadtxt('fiberInfo/pierFiber1/barDivide.txt')
     pylonUpperList = [pylonUpperCover, pylonUpperCore, pylonUpperBar]
-    pylonUpperMatList = [openseespyInstance.materialNumberDict['C40_Cover'], openseespyInstance.materialNumberDict['C40_Core'],
+    pylonUpperMatList = [openseespyInstance.materialNumberDict['C40_Cover'], 
+                         openseespyInstance.materialNumberDict['C40_Core'],
                          openseespyInstance.materialNumberDict['HRB400']]
     openseespyInstance.fiber_section(11001, pylonUpperList, pylonUpperMatList, tipsString="fiberSection")
     for i1 in range(41001, 41019):
@@ -108,15 +110,18 @@ def CableStayed01():
         pylonUpperCore = np.loadtxt('fiberInfo/4pylonBottom/' + str(i1) + '_coreDivide.txt')
         pylonUpperBar = np.loadtxt('fiberInfo/4pylonBottom/' + str(i1) + '_barDivide.txt')
         pylonUpperList = [pylonUpperCover, pylonUpperCore, pylonUpperBar]
-        pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'], openseespyInstance.materialNumberDict['C55_Core'],
+        pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'],
+                             openseespyInstance.materialNumberDict['C55_Core'],
                              openseespyInstance.materialNumberDict['HRB400']]
         openseespyInstance.fiber_section(int(i1), pylonUpperList, pylonUpperMatList, tipsString='fiberSection')
+
     for i1 in range(51001, 51015):
         pylonUpperCover = np.loadtxt('fiberInfo/5pylonBottom/' + str(i1) + '_coverDivide.txt')
         pylonUpperCore = np.loadtxt('fiberInfo/5pylonBottom/' + str(i1) + '_coreDivide.txt')
         pylonUpperBar = np.loadtxt('fiberInfo/5pylonBottom/' + str(i1) + '_barDivide.txt')
         pylonUpperList = [pylonUpperCover, pylonUpperCore, pylonUpperBar]
-        pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'], openseespyInstance.materialNumberDict['C55_Core'],
+        pylonUpperMatList = [openseespyInstance.materialNumberDict['C55_Cover'],
+                             openseespyInstance.materialNumberDict['C55_Core'],
                              openseespyInstance.materialNumberDict['HRB400']]
         openseespyInstance.fiber_section(int(i1), pylonUpperList, pylonUpperMatList, tipsString='fiberSection')
     for i1 in range(41019, 41029):

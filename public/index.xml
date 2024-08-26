@@ -78,6 +78,13 @@
       <description>Incremental Dynamic Analysis (IDA) is carried out to identify maximum story drifts for 20 earthquake records and generate fragility curves,</description>
     </item>
     <item>
+      <title>Cable-Stayed Bridge</title>
+      <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/gallery/cablestayed01/</guid>
+      <description>This model is adapted from the work by Junjun Guo (HomePage) in the repository https://github.com/Junjun1guo/OpenSeesPyView</description>
+    </item>
+    <item>
       <title>CableStayed02</title>
       <link>https://stairlab.github.io/opensees-gallery/gallery/cablestayed02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

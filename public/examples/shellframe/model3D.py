@@ -1,10 +1,9 @@
-import opensees.openseespy as ops
-import math
-import pandas as pd
 import os
+import math
 import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd
 
+import opensees.openseespy as ops
 
 
 class StructuralElements:
@@ -26,44 +25,6 @@ class slab:
         self.mesh_size = mesh_size
 
 
-def get_last_node_tag(model):
-    """
-    Returns the last node tag defined in the OpenSeesPy model.
-
-    Returns:
-        int: The tag of the last node.
-    """
-    all_node_tags = model.getNodeTags()
-    if all_node_tags:  # Check if the list is not empty
-        return all_node_tags[-1]
-    else:
-        return 0  # Return None if no nodes have been defined
-
-
-def get_last_element_tag(model):
-    """
-    Returns the last element tag defined in the OpenSeesPy model.
-
-    Returns:
-        int: The tag of the last element.
-    """
-    all_ele_tags = model.getEleTags()
-    if all_ele_tags:  # Check if the list is not empty
-        return all_ele_tags[-1]
-    else:
-        return 0  # Return None if no nodes have been defined
-
-def find_closest_node(model, midpoint):
-
-    # Loop through all node tags to find the closest node
-    for node_id in model.getNodeTags():
-        coord = np.array(model.nodeCoord(node_id))
-
-        if np.linalg.norm(coord - midpoint) < 10**-8:
-            closest_node = node_id
-
-    return closest_node
-
 def target_node(model, target_coord):
     all_node_tags = model.getNodeTags()
     for node_id in all_node_tags:
@@ -71,6 +32,7 @@ def target_node(model, target_coord):
         if np.array_equal(coord, np.array(target_coord)):
             return node_id
     return None
+
 
 def create_slabs(model, corner_nodes, current_ele_id, slab_id, slab):
     """
@@ -119,16 +81,6 @@ def eigenvalue_analysis(model, n_modes, plot_mode_shapes):
     # Calculate circular frequencies (w) for each mode
     w = [math.sqrt(lambda_val) for lambda_val in lambdaN]
 
-    # Set the font to Times New Roman
-    plt.rcParams['font.serif'] = 'Times New Roman'
-    plt.rcParams['font.family'] = 'serif'
-    plt.rcParams.update({
-        'font.size': 16,  # General font size
-        'axes.labelsize': 14,
-        'xtick.labelsize': 14,
-        'ytick.labelsize': 14
-    })
-
     # Assuming 'w' contains angular frequencies for each mode
     # Calculate natural frequencies (f) for each mode
     frequencies = [frequency / (2.0 * math.pi) for frequency in w]
@@ -144,17 +96,6 @@ def eigenvalue_analysis(model, n_modes, plot_mode_shapes):
 
 
     print(df)
-    print("Modal Analysis: Successful.")
-
-    # for i in range(1, len(frequencies) + 1):
-    #     opsv.plot_mode_shape(i)
-
-    #     # Retrieve frequency and period for the current mode
-    #     freq = df.loc[f"Mode {i}", 'Frequency (Hz)']
-    #     period = df.loc[f"Mode {i}", 'Period (s)']
-
-    #     # Setting the title using Greek letters for mode shapes
-    #     plt.title(f'$\\phi_{{{i}}}$ - Freq: {freq:.2f} Hz, Period: {period:.2f} s', fontsize=12)
 
     return df, w
 
@@ -336,9 +277,9 @@ def create_model(spacing, num_bay_x, num_bay_y, num_story, target_coord,
     modify = num_story - 2
     node_id = 1
     eleTag = 1
-    node_map = {}  # Dictionary to map coordinates to node IDs
+    node_map = {}       # Dictionary to map coordinates to node IDs
     column_set = set()  # Set to track created columns to avoid duplication
-    beam_set = set()  # Set to track created beams to avoid duplication
+    beam_set = set()    # Set to track created beams to avoid duplication
     corners =[]
     corner_nodes = []
     slab_id = 1
@@ -387,6 +328,7 @@ def create_model(spacing, num_bay_x, num_bay_y, num_story, target_coord,
                     continue
                 XYZJ = np.array(model.nodeCoord(ndJ))
                 if np.linalg.norm(XYZJ-XYZI) < 1e-8:
+                    print(f"Tieing {ndI} to {ndJ}")
                     model.equalDOF(ndI,ndJ,1,2,3,4,5,6)
 
     #
@@ -557,5 +499,5 @@ def dynamic_analysis(spacing, num_bay_x, num_bay_y, num_story, target_coord,
 
     return max_NSCacc, max_slabacc
 
-# plt.close('all')  
+
 # dynamic_analysis()
