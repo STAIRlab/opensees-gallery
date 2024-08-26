@@ -9,7 +9,8 @@
 ######################################################################
 #  Environemet: Successfully excucted in python 3.8
 #########################################################################
-#import necessary modules
+
+# import necessary modules
 import sys
 import os
 import ctypes
@@ -33,6 +34,7 @@ from SqliteDB import SqliteDB  ##sqlite database to store opensees results
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("myappid")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import (FigureCanvas,NavigationToolbar2QT as NavigationToolbar)
+
 ########################################################################################################################
 ########################################################################################################################
 class MainWindow(QtWidgets.QMainWindow):
@@ -130,7 +132,7 @@ class MainWindow(QtWidgets.QMainWindow):
         timeHistoryPlotAction = QAction('&responsesPlot', self)
         postProcessMenu.addAction(timeHistoryPlotAction)
         timeHistoryPlotAction.triggered.connect(self.timeHistoryPlotSlot)
-        
+
     def backGroundColorChangeSlot(self):
         """---slot function for background color change setting---"""
         color = QColorDialog.getColor()
@@ -1409,6 +1411,7 @@ class DefaultSetting():
         backGroundColor = DefaultSet.getValue(tableName="backGroundColorTable",
                                               tagName="backGroundColor")
         self.mainWindow.plotter.set_background(backGroundColor)
+
 ########################################################################################################################
 ########################################################################################################################
 if __name__ == '__main__':

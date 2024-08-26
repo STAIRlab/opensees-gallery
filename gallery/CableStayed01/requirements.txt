@@ -1,0 +1,4 @@
+# records
+# sQLAlchemy
+records==0.5.3
+sQLAlchemy==1.3.20
