@@ -32,7 +32,7 @@ def check(model, Mbench, Dbench):
     print(f"Base moment (kip-in)   {Mbase:8.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench))
     print(f"Tip displacement (in)  {Dtip:8.4f}    {Dbench:8.3f} %8.2f %%\n" % (100*(Dbench-Dtip)/Dbench))
 
-def create_column(element, use_shear=False):
+def create_column(element, use_shear=False, ndm=2):
     L = 28*ft
     # Material
     E =  29000.0*ksi
@@ -47,7 +47,6 @@ def create_column(element, use_shear=False):
     k = (d*tw)/A
 
     ne = 4
-    ndm = 2
 
     if ndm == 2:
         vecxz = ()
@@ -62,13 +61,24 @@ def create_column(element, use_shear=False):
         model.node(tag, 0.0,   y)
 
 
-    model.fix(1, 1, 1, 1)
+    boundary = [1, 1, 1]
+    if ndm == 3:
+        boundary = boundary + [1, 1, 1]
+    model.fix(1, *boundary)
 
     # Cross-Section
-    if  use_shear :
-        model.section("Elastic", 1, E, A, I, G, k)
+    if ndm == 2:
+        if  use_shear :
+            model.section("Elastic", 1, E, A, I, G, k)
+        else:
+            model.section("Elastic", 1, E, A, I)
     else:
-        model.section("Elastic", 1, E, A, I)
+        #                     Iy  G   J
+        properties = [E, A, I, I, G, 100*I]
+        if use_shear:
+            properties.extend(["-Ay", k*A, "-Az", k*A])
+        model.section("FrameElastic", 1, *properties)
+
 
     model.geomTransf("Corotational", 1, *vecxz)
 
@@ -125,5 +135,6 @@ def analyze(model, Mbench, Dbench):
 if __name__ == "__main__":
     analyze(create_column("forceBeamColumn"), Mbench, Dbench)
     analyze(create_column("forceBeamColumnCBDI"), Mbench, Dbench)
+    analyze(create_column("ExactFrame", True, ndm=3), Mbench, Dbench)
 
 
