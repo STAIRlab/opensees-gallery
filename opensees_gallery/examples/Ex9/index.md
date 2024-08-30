@@ -3,6 +3,7 @@ title: Section Library
 description: Building fiber sections
 image: Example9_figure1.GIF #HollowRC.png
 tags: ["Fiber"]
+draft: true
 ---
 
 
@@ -16,14 +17,6 @@ For the case of the uniaxial section, moment-curvature and axial force-deformati
 
 For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.
 
-#### 2D vs. 3D
-
-While this distinction does not affect the section definition itself, it
-affects the degree-of-freedom associated with moment and curvature in the
-subsequent analysis. There are two differences between the two models:
-
-1. The space defined with the model command (Defining the model builder, `ndm=#dimension ndf=#dofs`)
-2. In the 3D model, torsional stiffness needs to be aggregated to the section.
 
 
 <table style="margin:0; background:none; border:3px solid #ccc;">

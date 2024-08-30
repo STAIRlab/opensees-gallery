@@ -2,6 +2,7 @@
 title: "Ex1: Dynamics of a 2D Elastic Cantilever Column"
 tags: ["2D", "Frame"]
 image: Example1a_EQ.gif
+draft: true
 ---
 
 

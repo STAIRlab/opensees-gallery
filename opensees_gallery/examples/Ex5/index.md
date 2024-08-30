@@ -1,5 +1,6 @@
 ---
 title: "Ex5 - 2D Frame, 3-story 3-bay, Reinforced-Concrete Section & Steel W-Section"
+draft: true
 ---
 
 <h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
