@@ -83,6 +83,7 @@ proc Case1 {element subdivide alpha {integration ""} {ndm 2}} {
         load  $node_count $H [expr -$alpha*$Pr] 0.
     }
 
+    print -json
     constraints Plain
     system ProfileSPD
     numberer Plain

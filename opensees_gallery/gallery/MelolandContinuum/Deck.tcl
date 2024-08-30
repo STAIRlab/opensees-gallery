@@ -126,10 +126,10 @@ for { set i 1 } { $i <= [ expr $numXele_D+1] } { incr i 1 } {
          if { $i == [expr $numXele_D+1] && $j == 1 } {
            set DeckRnode $nodeNum25
          }
-                  
-               fix $nodeNum25 0 0 0 0 0 1
-       
-               set  nodeNum25  [expr $nodeNum25+1]
+
+         fix $nodeNum25 0 0 0 0 0 1
+ 
+         set  nodeNum25  [expr $nodeNum25+1]
 
     }
 }

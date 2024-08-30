@@ -29,12 +29,26 @@ proc printEigenvalues {E A Iz Iy G J L} {
 }
 
 proc printDisplacements {E A Iz Iy G J L P H M} {
+#   foreach  dof_soln  {
+#                        {1 [expr $P*$L/($E*$A)] }
+#                        {2 [expr $H*pow($L,3)/(3*$E*$Iz) + $M*pow($L,2)/(2*$E*$Iz)] }
+#                        {3 [expr $H*pow($L,3)/(3*$E*$Iy) - $M*pow($L,2)/(2*$E*$Iy)] }} {
+#     set dof [lindex $dof_soln 0]
+#     set sol [lindex $dof_soln 1]
+#     set val [nodeDisp 2 $dof]
+#     puts "$val $sol"
+#     puts "[expr ($val-$sol)/$sol]"
+#   }
+
+    set dispX [expr $P*$L/($E*$A)]
+    set dispY [expr $H*pow($L,3)/(3*$E*$Iz) + $M*pow($L,2)/(2*$E*$Iz)]
+    set dispZ [expr $H*pow($L,3)/(3*$E*$Iy) - $M*pow($L,2)/(2*$E*$Iy)]
 
     puts "    Displacements"
     puts "              Computed         Exact"
-    puts [format "    dispX   %10.3f    %10.3f " [nodeDisp 2 1] [expr $P*$L/($E*$A)]]
-    puts [format "    dispY   %10.3f    %10.3f " [nodeDisp 2 2] [expr $H*pow($L,3)/(3*$E*$Iz) + $M*pow($L,2)/(2*$E*$Iz)]]
-    puts [format "    dispZ   %10.3f    %10.3f " [nodeDisp 2 3] [expr $H*pow($L,3)/(3*$E*$Iy) - $M*pow($L,2)/(2*$E*$Iy)]]
+    puts [format "    dispX   %10.3f    %10.3f " [nodeDisp 2 1] $dispX]
+    puts [format "    dispY   %10.3f    %10.3f " [nodeDisp 2 2] $dispY]
+    puts [format "    dispZ   %10.3f    %10.3f " [nodeDisp 2 3] $dispZ]
     puts [format "    rotX    %10.3f    %10.3f " [nodeDisp 2 4] [expr $M*$L/($G*$J)]]
     puts [format "    rotY    %10.3f    %10.3f " [nodeDisp 2 5] [expr -$H*pow($L,2)/(2*$E*$Iy) + $M*$L/($E*$Iy)]]
     puts [format "    rotZ    %10.3f    %10.3f " [nodeDisp 2 6] [expr $H*pow($L,2)/(2*$E*$Iz) + $M*$L/($E*$Iz)]]
