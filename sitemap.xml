@@ -167,16 +167,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/ex1/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/ex5/</loc>
-    <lastmod>2024-05-28T14:18:43-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example4/</loc>
     <lastmod>2024-08-01T10:27:45-07:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -356,11 +346,6 @@
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/sdof/</loc>
     <lastmod>2024-05-28T14:18:43-07:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/examples/ex9/</loc>
-    <lastmod>2024-08-01T10:27:45-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

@@ -155,20 +155,6 @@
       <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.</description>
     </item>
     <item>
-      <title>Ex1: Dynamics of a 2D Elastic Cantilever Column</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/ex1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/ex1/</guid>
-      <description>This example demonstrates how to perform time history analysis of a 2D elastic reinforced concrete cantilever column with a gravity load included in the analysis.</description>
-    </item>
-    <item>
-      <title>Ex5 - 2D Frame, 3-story 3-bay, Reinforced-Concrete Section &amp; Steel W-Section</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/ex5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/ex5/</guid>
-      <description>Introduction This examples demonstrates how to build a 3-story,3-bay frame. The nodes and elements are specified one by one. Input Model Building The following tasks are performed when building the model define units define model define recorders for output define &amp;amp; apply gravity Card title This is a wider card with supporting text below as a natural lead-in to additional content.</description>
-    </item>
-    <item>
       <title>Example 4: Multibay Two Story Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -292,7 +278,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
-      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \] This example is adapted from https://github.</description>
+      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: \[ P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} \]This example is adapted from https://github.</description>
     </item>
     <item>
       <title>Plane Steel Frame</title>
@@ -321,13 +307,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/gallery/sathertower/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>Section Library</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/ex9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/ex9/</guid>
-      <description>For the case of the uniaxial section, moment-curvature and axial force-deformation curves are defined independently, and numerically.&#xA;For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.</description>
     </item>
     <item>
       <title>Shallow Dome</title>
