@@ -21,6 +21,13 @@ finite element analysis with OpenSees.
 This includes the definition of nodes,
 materials, elements, loads and constraints. 
 
+Scripts for this example can be downloaded for either
+Python or Tcl:
+
+- [`Example1.py`](./Example1.py)
+- [`Example1.tcl`](./Example1.tcl)
+
+
 
 ## Model
 
@@ -29,16 +36,16 @@ the nodes, elements, loading and state. This is done through
 either Python or Tcl as follows:
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 2 -ndf 2
+```
+{{% /tab %}}
 {{% tab name="Python" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=2, ndf=2)
-```
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 2 -ndf 2
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -50,16 +57,6 @@ a tag which identifies the node, and coordinates in the $x-y$ plane.
 In general, the `node` constructor must be passed `ndm` coordinates.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-# Create nodes
-#         tag   X     Y
-model.node(1,   0.0,  0.0)
-model.node(2, 144.0,  0.0)
-model.node(3, 168.0,  0.0)
-model.node(4,  72.0, 96.0)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 # Create nodes & add to domain
@@ -70,21 +67,22 @@ node 3 168.0  0.0;
 node 4  72.0 96.0;
 ```
 {{% /tab %}}
+{{% tab name="Python" %}}
+```python
+# Create nodes
+#         tag   X     Y
+model.node(1,   0.0,  0.0)
+model.node(2, 144.0,  0.0)
+model.node(3, 168.0,  0.0)
+model.node(4,  72.0, 96.0)
+```
+{{% /tab %}}
 {{< /tabs >}}
 
 The restraints at the nodes with reactions (ie, nodes `1`, `2`, and `3`)
 are then defined.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-# set the boundary conditions
-#    nodeID xRestrnt? yRestrnt?
-model.fix(1, 1, 1)
-model.fix(2, 1, 1)
-model.fix(3, 1, 1)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 # Set the boundary conditions
@@ -92,6 +90,15 @@ model.fix(3, 1, 1)
 fix 1   1  1;
 fix 2   1  1;
 fix 3   1  1;
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+# set the boundary conditions
+#    nodeID xRestrnt? yRestrnt?
+model.fix(1, 1, 1)
+model.fix(2, 1, 1)
+model.fix(3, 1, 1)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -103,16 +110,16 @@ argument assigns the tag `1` to the material, and the
 second specifies a Young's modulus of `3000`.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-# Create Elastic material prototype
-model.uniaxialMaterial("Elastic", 1, 3000)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 # Create Elastic material prototype
 uniaxialMaterial Elastic 1 3000;
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+# Create Elastic material prototype
+model.uniaxialMaterial("Elastic", 1, 3000)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -126,19 +133,19 @@ the truss element requires the following arguments:
 5. the tag of the material assigned to the element, in this case always `1`
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+element Truss 1 1 4 10.0 1;
+element Truss 2 2 4  5.0 1;
+element Truss 3 3 4  5.0 1;
+```
+{{% /tab %}}
 {{% tab name="Python" %}}
 ```python
 #              Type   tag  nodes  Area  material
 model.element("Truss", 1, (1, 4), 10.0,    1   )
 model.element("Truss", 2, (2, 4),  5.0,    1   )
 model.element("Truss", 3, (3, 4),  5.0,    1   )
-```
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-```tcl
-element Truss 1 1 4 10.0 1;
-element Truss 2 2 4  5.0 1;
-element Truss 3 3 4  5.0 1;
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -155,14 +162,14 @@ node numbers as keys, and corresponding load vector as values. For the problem a
 hand, we want to apply a load to node `4` with `100` units in the $x$ direction, and
 `-50` units in the $y$ direction; the corresponding definition is:
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-loads = {4: [100, -50]}
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 set loads {4 100 -50}
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+loads = {4: [100, -50]}
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -171,14 +178,14 @@ We then add a `"Plain"` load pattern to the model with these loads,
 and use the `"Linear"` option
 to specify that it should be increased linearly with each new load step.
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.pattern("Plain", 1, "Linear", load=loads)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 pattern Plain 1 "Linear" "load $loads"
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", load=loads)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -189,18 +196,18 @@ Note that it is common to define the `load` data structure
 *inside* the call to the `pattern` function. This looks like:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.pattern("Plain", 1, "Linear", load={
-  4: [100, -50]
-})
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 pattern Plain 1 "Linear" {
   load 4 100 -50
 }
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", load={
+  4: [100, -50]
+})
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -213,18 +220,17 @@ Next we configure that analysis procedure.
 The model is linear, so we use a solution Algorithm of type `Linear`. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.algorithm("Linear")
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 algorithm Linear;
 ```
 {{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.algorithm("Linear")
+```
+{{% /tab %}}
 {{< /tabs >}}
-
 
 Even though the solution is linear, we have to select a procedure for
 applying the load, which is called an `Integrator`. 
@@ -233,14 +239,14 @@ advances the solution by incrementing the applied loads by a
 factor of `1.0` each time the `analyze` command is called.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.integrator("LoadControl", 1.0)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 integrator LoadControl 1.0;
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.integrator("LoadControl", 1.0)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -256,28 +262,28 @@ Once all the components of an analysis are defined, the Analysis
 itself is defined. For this problem a `Static` analysis is used.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.analysis("Static")
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 analysis Static;
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.analysis("Static")
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
 Finally, one analysis step is performed by invoking `analyze`:
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.analyze(1)
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 analyze 1
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.analyze(1)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -286,16 +292,16 @@ When the analysis is complete the state of node `4` and all three elements
 may be printed to the screen:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
-model.print(node=4)
-model.print("ele")
-```
-{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 print node 4
 print ele
+```
+{{% /tab %}}
+{{% tab name="Python" %}}
+```python
+model.print(node=4)
+model.print("ele")
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -341,10 +347,4 @@ correspond to the response at node `4` for the 1 and 2
 degree-of-freedom. Note that if more analysis steps had been performed,
 the line would contain a line for every analysis step that completed
 successfully.
-
-Scripts for this example can be downloaded for either
-Python or Tcl:
-
-- [`Example1.py`](./Example1.py)
-- [`Example1.tcl`](./Example1.tcl)
 
