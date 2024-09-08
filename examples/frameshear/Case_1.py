@@ -1,4 +1,5 @@
 # AISC Benchmark Problem, Case 1
+#
 # AISC 360-16, Commentary Figure C-C2.2
 #
 # Pinned-pinned column with uniform lateral load of 0.200 kip/ft and varying axial load
@@ -67,6 +68,7 @@ def analyze(element="ForceBeamColumn", use_shear = False):
         model.geomTransf("Linear", 1)
     else:
         model.geomTransf("Corotational", 1)
+
 #   model.geomTransf("PDelta", 1)
 
     # Elements

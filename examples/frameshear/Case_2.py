@@ -11,26 +11,20 @@ import opensees.openseespy as ops
 from opensees.units.iks import ft, inch, ksi
 
 
-use_shear = False
-
-if  use_shear :
-    Mbench = [ 336.0, 470.0, 601.0, 856.0]
-    Dbench = [ 0.907,  1.34,  1.77,  2.60]
-
-else:
-    Mbench = [ 336.0, 469.0, 598.0, 848.0]
-    Dbench = [ 0.901, 1.33 , 1.75 , 2.56 ]
-
 
 def check(model, Mbench, Dbench):
     nn = len(model.getNodeTags())
     Axial  = model.getTime()
     Mbase  = model.eleResponse( 1, "forces")[2]
     Dtip   = model.nodeDisp(nn, 1)
-    print("                       Computed       Exact     Error")
-    print(f"Axial Force (kips)     {Axial:8.0f}")
-    print(f"Base moment (kip-in)   {Mbase:8.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench))
-    print(f"Tip displacement (in)  {Dtip:8.4f}    {Dbench:8.3f} %8.2f %%\n" % (100*(Dbench-Dtip)/Dbench))
+#   print( "                           Computed       Exact     Error")
+#   print(f"    Axial Force (kips)     {Axial:8.0f}")
+#   print(f"    Base moment (kip-in)   {Mbase:8.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench), end="   ")
+#   print(f"    Tip displacement (in)  {Dtip:8.4f}    {Dbench:8.3f} %8.2f %%\n" % (100*(Dbench-Dtip)/Dbench))
+    print(f"  {Axial:5.0f}", end="   ")
+    print(f"  {Mbase:5.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench), end="   ")
+    print(f"  {Dtip:5.4f}    {Dbench:8.3f} %8.2f %%" % (100*(Dbench-Dtip)/Dbench))
+
 
 def create_column(element, use_shear=False, ndm=2):
     L = 28*ft
@@ -46,24 +40,30 @@ def create_column(element, use_shear=False, ndm=2):
     # shear coefficient A/Av
     k = (d*tw)/A
 
-    ne = 4
+    ne = 3
 
     if ndm == 2:
         vecxz = ()
     else:
         vecxz = (0, 0, 1)
 
-    model = ops.Model(ndm=2,  ndf=3)
+    model = ops.Model(ndm=ndm)
 
     # Create ne+1 linearly spaced nodes
     for i,y in enumerate(np.linspace(0, L, ne+1)):
         tag = i+1
-        model.node(tag, 0.0,   y)
+        if ndm == 3:
+            location = (0.0, y, 0.0)
+        else:
+            location = (0.0, y)
+
+        model.node(tag, location)
 
 
     boundary = [1, 1, 1]
     if ndm == 3:
         boundary = boundary + [1, 1, 1]
+
     model.fix(1, *boundary)
 
     # Cross-Section
@@ -94,13 +94,13 @@ def create_column(element, use_shear=False, ndm=2):
 #       model.element('DispBeamColumn', i+1, node_i, node_j, 3, 1, 1)
 
     model.pattern("Plain", 1, "Linear", load={
-            ne+1: [1, 0, 0]
+            ne+1: [1, 0, 0] + ([0, 0, 0] if ndm == 3 else [])
     })
 
     return model
 
 
-def analyze(model, Mbench, Dbench):
+def analyze(model, Mbench, Dbench, ndm=2):
     model.constraints('Transformation')
     model.numberer('Plain')
     model.system('UmfPack')
@@ -116,7 +116,10 @@ def analyze(model, Mbench, Dbench):
 
     check(model, Mbench[0], Dbench[0])
 
-    model.pattern("Plain", 2, "Linear", load={ne+1: [0, -1, 0]})
+    model.pattern("Plain", 2, "Linear", load={
+        ne+1: [0, -1, 0] + ([0, 0, 0] if ndm == 3 else [])
+        }
+    )
 
     model.integrator("LoadControl", 10.0)
     model.analyze(10)
@@ -133,8 +136,24 @@ def analyze(model, Mbench, Dbench):
 
 
 if __name__ == "__main__":
-    analyze(create_column("forceBeamColumn"), Mbench, Dbench)
-    analyze(create_column("forceBeamColumnCBDI"), Mbench, Dbench)
-    analyze(create_column("ExactFrame", True, ndm=3), Mbench, Dbench)
+
+    for shear in False, True:
+
+        if  shear :
+            Mbench = [ 336.0, 470.0, 601.0, 856.0]
+            Dbench = [ 0.907,  1.34,  1.77,  2.60]
+
+        else:
+            Mbench = [ 336.0, 469.0, 598.0, 848.0]
+            Dbench = [ 0.901, 1.33 , 1.75 , 2.56 ]
+
+        print(f"Force ({shear = })")
+        analyze(create_column("forceBeamColumn", shear), Mbench, Dbench)
+        print(f"ForceCBDI ({shear = })")
+        analyze(create_column("forceBeamColumnCBDI", shear), Mbench, Dbench)
+
+        if shear:
+            print("Exact")
+            analyze(create_column("ExactFrame", shear, ndm=3), Mbench, Dbench, ndm=3)
 
 

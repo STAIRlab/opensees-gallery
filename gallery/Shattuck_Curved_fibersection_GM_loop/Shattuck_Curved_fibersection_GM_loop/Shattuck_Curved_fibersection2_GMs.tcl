@@ -68,8 +68,6 @@ for { set igrx [expr $gmshift+1] } { $igrx <= $numgrmot } { incr igrx } {
 	set GMdir "../GMfiles";		# ground-motion file directory
 	set ViewScale 0.25;			# scaling factor for viewing deformed shape, it depends on the dimensions of the model
 	source LibUnits.tcl;			# define units
-	source DisplayPlane.tcl;		# procedure for displaying a plane in model
-	source DisplayModel3D.tcl;		# procedure for displaying 3D perspectives of model
 	source BuildRCrectSection1.tcl;		# procedure for definining RC fiber section
 
 	# define GEOMETRY -------------------------------------------------------------

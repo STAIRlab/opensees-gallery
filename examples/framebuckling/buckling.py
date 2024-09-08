@@ -93,7 +93,15 @@ def fix_node(model, node, type):
     model.fix(node, *reactions)
 
 
-def create_column(boundary="pin-pin", elem_data=None, ndm=3):
+def create_column(boundary="pin-pin", elem_data=None, ndm=2):
+    if elem_data is None:
+        elem_data = {}
+
+    elem_type  = elem_data.get("type",      "forceBeamColumnCBDI")
+    geom_type  = elem_data.get("transform", "Corotational")
+    use_shear  = elem_data.get("shear", False)
+    kinematics = elem_data.get("order", 0)
+
     E  = 29000.0
     G =  11200.0
 #   A  = 9.12e3
@@ -102,16 +110,9 @@ def create_column(boundary="pin-pin", elem_data=None, ndm=3):
     Ay = 3/6*A
     Az = 3/6*A
     L  = 60.0
+
     # Number of elements discretizing the column
     ne = 10 # 4
-
-    if elem_data is None:
-        elem_data = {}
-
-    elem_type  = elem_data.get("type",      "forceBeamColumnCBDI")
-    geom_type  = elem_data.get("transform", "Corotational")
-    use_shear  = elem_data.get("shear", False)
-
 
     nIP = 5 # number of integration points along each element
     nn = ne + 1
@@ -142,11 +143,11 @@ def create_column(boundary="pin-pin", elem_data=None, ndm=3):
 #   properties = {"E": E, "A": A, "Iz": I}
     properties = [E, A, I]
     if ndm == 3:
-        #                    Iy   G,     J
-        properties.extend([ 2*I, G, 100*I])
+        #                    Iy       J
+        properties.extend([ 2*I, "-J", 100*I, "-G", G])
 
     if use_shear:
-        properties.extend(["-Ay", Ay])
+        properties.extend(["-Ay", Ay, "-G", G])
         if ndm == 3:
             properties.extend(["-Az", Az])
 
@@ -165,7 +166,8 @@ def create_column(boundary="pin-pin", elem_data=None, ndm=3):
     for i in range(1, ne+1):
         model.element(elem_type, i, (i, i+1),
                       section=sec_tag,
-                      transform=geo_tag)
+                      transform=geo_tag,
+                      order=kinematics)
 
 
     # Define loads
@@ -191,7 +193,7 @@ def create_column(boundary="pin-pin", elem_data=None, ndm=3):
 def linearized_buckling(model, peak_load):
     # Analysis Options
 #   model.system('UmfPack')
-#   model.test('NormUnbalance', 1.0e-6, 20, 0)
+    model.test('NormUnbalance', 1.0e-6, 20, 0)
     model.algorithm('Newton')
     model.integrator('LoadControl', load_step)
     model.analysis('Static')
@@ -247,26 +249,34 @@ def buckling_analysis(model, peak_load):
 
 if __name__ == "__main__":
 
-    for elem in "PrismFrame", "ForceFrame", "ForceDeltaFrame", "ExactFrame":
-#               "forceBeamColumn", "forceBeamColumnCBDI":
+    for ndm in 3,:
+        for elem in "PrismFrame", "ForceFrame", "ExactFrame":
+    #               "forceBeamColumn", "forceBeamColumnCBDI":
 
 
-        for shear in True,: # , False
-            print(elem, f"({shear = })")
-            elem_data = {
-                "type": elem,
-                "shear": shear,
-                "transform": "Corotational"
-            }
+            for shear in False, True:
 
-            for boundary in FACTORS:
+                if not shear and "Exact" in elem:
+                    continue
+                orders = (0,2) if "Exact" not in elem else (1,)
+                for order in orders:
+                    print(elem, f"({ndm = }, {shear = }, {order = })")
+                    elem_data = {
+                        "type": elem,
+                        "shear": shear,
+                        "order": order,
+                        "transform": "Corotational"
+                    }
 
-                model, euler_load  = create_column(boundary, elem_data)
-                limit_load   = buckling_analysis(model, euler_load)
+    #               create_column("pin-pin", elem_data)[0].print("-json")
+                    for boundary in FACTORS:
 
-                print(f"  {boundary:10}", end="")
-                if limit_load is None:
-                    print(f"No singularity found.")
-                else:
-                    print(f"{euler_load:10.2f} {limit_load:10.2f} {100*(limit_load/euler_load-1):10.3f} %")
+                        model, euler_load  = create_column(boundary, elem_data, ndm=ndm)
+                        limit_load   = buckling_analysis(model, euler_load)
+
+                        print(f"  {boundary:10}", end="")
+                        if limit_load is None:
+                            print(f"No singularity found.")
+                        else:
+                            print(f"{euler_load:10.2f} {limit_load:10.2f} {100*(limit_load/euler_load-1):10.3f} %")
 
