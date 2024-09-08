@@ -1,0 +1,154 @@
+[main]
+    separator = "-"
+    description = "Hinode is a clean documentation and blog theme for your Hugo site based on Bootstrap 5."
+    enableDarkMode = true
+    enableLanguageSelectionStorage = false
+    modes = ["light", "dark"]
+    canonifyAssetsURLs = false
+    endorse = true
+    footerBelowFold = false
+    loading = "lazy"
+    breakpoint = "md"
+    [main.externalLinks]
+        cue = false
+        tab = false
+    [main.build]
+        transpiler = "libsass"
+
+[debugging]
+    showJS = false
+    showSCSS = false
+    purgeHTMLComments = false
+
+[docs]
+    github = "https://github.com/gethinode/hinode"
+    release = "https://github.com/gethinode/hinode/releases/tag/"
+    checkVersion = false
+
+[home]
+    # sections = ["posts"]
+    fullCover = false
+    centerHeadline = false
+    style = ""
+
+[navigation]
+    anchor = true
+    logo = "/img/logo_icon.svg"
+    color = "body"
+    fixed = true
+    offset = "5.5rem"
+    search = true
+    searchModal = false
+    breadcrumb = true
+    toc = true
+    sidebar = true
+    size = "md"
+
+[messages]
+    placement = "bottom-right"
+
+[sharing]
+    enabled = true
+    sort = "weight"
+    reverse = false
+    webshare = true
+
+[[sharing.providers]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/sharing/share-offsite/?url={url}"
+    icon = "fab linkedin"
+    weight = 10
+
+[[sharing.providers]]
+    name = "Twitter"
+    url = "https://twitter.com/home?status={url}"
+    icon = "fab x-twitter"
+    weight = 20
+
+[[sharing.providers]]
+    name = "Facebook"
+    url = "https://www.facebook.com/sharer.php?u={url}"
+    icon = "fab facebook"
+    weight = 30
+
+[[sharing.providers]]
+    name = "WhatsApp"
+    url = "whatsapp://send?text={title}%20{url}"
+    icon = "fab whatsapp"
+    weight = 40
+
+[[sharing.providers]]
+    name = "email"
+    url = "{url}"
+    icon = "fas link"
+    weight = 50
+    clipboard = true
+
+# toml-docs-start sections
+# [sections]
+#     [sections.posts]
+#         title = "Posts"
+#         sort = "date"
+#         reverse = true
+#         nested = true
+#         cols = 3
+#         color = ""
+#         padding = "0"
+#         header = "full"
+#         footer = "none"
+#         orientation = "stacked"
+#         style = "border-0 card-zoom"
+#         homepage = 3
+#         separator = true
+# toml-docs-end sections
+
+[favicon]
+    logo = "img/favicon.png"
+    sizes = [16, 32, 48]
+
+[style]
+    primary = "#d43900"
+    secondary = "#6c757d"
+    success = "#198754"
+    info = "#0dcaf0"
+    warning = "#ffc107"
+    danger = "#dc3545"
+    light = "#f8f9fa"
+    dark = "#212529"
+    themeOpacity = "10"
+    darkModeShade = "20%"
+    darkModeTint = "40%"
+    themeFont = "Inter"
+    # themeFontPath = "https://fonts.googleapis.com/css2?family=Inter:wght@200;300;600&display=swap" # external path
+    themeFontPath = "/fonts" # local path
+    fontSizeBase = "1rem"
+    purge = false
+
+[schema]
+    type = "Organization"
+    name = "Hinode"
+    locale = "en-US"
+    # twitter = "https://twitter.com/gethinode"
+    # linkedIn = ""
+    github = "https://github.com/gethinode/hinode"
+    section = "blog"
+    [schema.author]
+        name = "Mark Dumay"
+        # twitter = "https://twitter.com/markdumay"
+        linkedin = "https://www.linkedin.com/in/markdumay/"
+        github = "https://github.com/markdumay"
+    [schema.logo]
+        url = "img/logo512x512.png"
+        width = 512
+        height = 512
+    [schema.image]
+        url = "img/logo1280x640.png"
+        width = 1280
+        height = 640
+
+[opengraph]
+    images = ["logo.png"]
+    locale = "en_US"
+
+[links]
+    hinode = "https://gethinode.com"
