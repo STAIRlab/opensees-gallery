@@ -139,15 +139,6 @@ The main site configuration is available in `./config/_default`. Review the foll
   {{< accordion-item header="Adjust the theme colors" >}}
     Hinode uses eight configurable theme colors. You can adjust them in the `style` section of  `/config/_default/params.toml`. Review the [colors documentation]({{% relref "colors" %}}) for more details.
   {{< /accordion-item >}}
-  {{< accordion-item header="Set the main font" >}}
-    Set the `themeFont` and `themeFontPath` in the `style` section of `/config/_default/params.toml` to adjust the main font. Hinode includes supports for [Emoji]({{% relref "typography#emoji" %}}) by default. Review the [fonts documentation]({{% relref "fonts" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Configure the supported languages">}}
-    Configure each supported language in `config/_default/languages.toml`. Set the default behavior in `config/_default/hugo.toml`. Review the [languages documentation]({{% relref "languages" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Define the main menu" >}}
-    Define the main menu entries for each language in `config/_default/menus`. For example, the English menu entries are defined in `menus.en.toml`. See the [navigation documentation]({{% relref "navigation" %}}) for more details.
-  {{< /accordion-item >}}
 {{< /accordion >}}
 
 ## Advanced configuration settings
@@ -169,7 +160,7 @@ The next topics give an overview of the advanced configuration settings.
     Hinode replaces Bootstrap's embedded icons with file-based icons to comply with its security settings. The icon files are parameterized to use the theme colors. See the [icons documentation]({{% relref "../advanced-settings/icons" %}}) for more details.
   {{< /accordion-item >}}
   {{< accordion-item header="Refine header settings to adjust the Content Security Policy" >}}
-    Hinode uses rather strict security policies to ensure the site is secure by default. Be sure to include references to external sources in the header configuration to avoid broken links. The settings of the local development server are defined in `config/_default/server.toml`. Similar settings are defined in the `netlify.toml` file provided in the repository's root when deploying to {{</* link netlify >}}Netlify{{< /link */>}}. See the [server documentation]({{% relref "server-headers" %}}) for more details.
+    Hinode uses rather strict security policies to ensure the site is secure by default. Be sure to include references to external sources in the header configuration to avoid broken links. The settings of the local development server are defined in `config/_default/server.toml`. Similar settings are defined in the `netlify.toml` file provided in the repository's root when deploying to {{</* link netlify >}}Netlify{{< /link */>}}. 
   {{< /accordion-item >}}
 {{< /accordion >}}
 <!-- markdownlint-enable MD037 -->
