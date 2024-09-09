@@ -1,9 +1,9 @@
 ---
 author: Mark Dumay
-title: Responsive
+title: Interactive
 date: 2023-08-04
 weight: 1
-thumbnail: /img/responsive-light.png
+thumbnail: /img/getTangent.png
 colormode: true
 ---
 

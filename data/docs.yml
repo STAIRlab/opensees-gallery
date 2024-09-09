@@ -3,93 +3,33 @@
 - title: Getting started
   pages:
     - title: Introduction
+    - title: Modeling
     - title: Compiling
-    - title: Hosting and deployment
-    - title: Upgrading
     - title: Contribute
 
 - title: Content
   pages:
     - title: Content management
-    - title: Content organization
-    - title: Typography
-    - title: Links and cross-references
-    - title: Images and figures
-    - title: Tables
-    - title: Icons
 
-- title: Configuration
-  pages:
-    - title: Layout
-    - title: Colors
-    - title: Color modes
-    - title: Fonts
-    - title: Languages
-    - title: Navigation
-    - title: Documentation
-    - title: Analytics
-    - title: Modules
-    - title: Digital Asset Managers
-
-# - title: Forms
-#   pages:
-#     - title: Overview
-#     - title: Form control
-#     - title: Select
-#     - title: Checks & radios
-#     - title: Range
-#     - title: Input group
-#     - title: Floating labels
-#     - title: Layout
-#     - title: Validation
 
 - title: Components
   pages:
-    - title: Abbr
-    - title: Accordion
     - title: Alert
-    - title: Animation
     - title: Args
-    - title: Badge
-    - title: Breadcrumb
-    - title: Button
-    - title: Button group
-    - title: Card
+      pages:
+      - title: Badge
+      - title: Breadcrumb
+      - title: Card
     - title: Card group
     - title: Carousel
-    # - title: Close button
-    - title: Collapse
-    - title: Command prompt
-    - title: Docs
-    # - title: Dropdowns
-    - title: Example
-    - title: File
-    # - title: List group
     - title: Icon
     - title: Image
     - title: Kbd
     - title: Link
     - title: Map
     - title: Mark
-    # - title: Modal
-    - title: Navbar
-    - title: Navs and tabs
-    # - title: Offcanvas
-    # - title: Pagination
-    # - title: Placeholder
-    # - title: Popover
-    # - title: Progress
-    # - title: Scrollspy
     - title: Persona
     - title: Release
-    - title: Spinner
-    - title: Sub
-    - title: Sup
-    - title: Table
-    - title: Timeline
-    - title: Toast
-    - title: Tooltip
-    - title: Video
 
 - title: Advanced settings
   pages:

@@ -18,8 +18,8 @@
     alias = true
 
 [[main]]
-  name = "Guides"
-  pageRef = "/guides/"
+  name = "Examples"
+  pageRef = "/examples/"
   weight = 40
 
 [[main]]
@@ -44,31 +44,31 @@
     alias = true
 
 [[sample]]
-  name = "Guides"
-  pageRef = "/guides/"
+  name = "Examples"
+  pageRef = "/examples/"
   weight = 30
 
 [[sample]]
-  parent = "Guides"
+  parent = "Examples"
   name = "Getting started"
-  pageRef = "/guides/editing/"
+  pageRef = "/examples/Example1/"
   weight = 10
 
 [[sample]]
-  parent = "Guides"
-  name = "Developing Hugo modules"
-  pageRef = "/guides/modules/"
+  parent = "Examples"
+  name = "Section analysis"
+  pageRef = "/examples/Example2/"
   weight = 20
 
 [[sample]]
-  parent = "Guides"
-  name = "Optimization"
-  pageRef = "/guides/optimization/"
+  parent = "Examples"
+  name = "3D Dynamics"
+  pageRef = "/examples/Example5/"
   weight = 30
 
 [[sample]]
   name = "GitHub"
-  url = "https://github.com/gethinode/hinode"
+  url = "https://github.com/claudioperez/OpenSeesRT"
   weight = 40
 # toml-docs-end sample-navigation
 
@@ -85,26 +85,26 @@
   weight = 20
 
 [[alias]]
-  name = "Guides"
-  pageRef = "/guides/"
+  name = "Examples"
+  pageRef = "/examples/"
   weight = 30
 
 [[alias]]
-  parent = "Guides"
+  parent = "Examples"
   name = "Getting started"
-  pageRef = "/guides/editing/"
+  pageRef = "/examples/editing/"
   weight = 10
 
 [[alias]]
-  parent = "Guides"
-  name = "Developing Hugo modules"
-  pageRef = "/guides/modules/"
+  parent = "Examples"
+  name = "Dynamic analysis"
+  pageRef = "/examples/example5/"
   weight = 20
 
 [[alias]]
-  parent = "Guides"
+  parent = "Examples"
   name = "Optimization"
-  pageRef = "/guides/optimization/"
+  pageRef = "/examples/optimization/"
   weight = 30
 
 [[alias]]
@@ -151,31 +151,26 @@
   weight = 40
 
 [[footer]]
-  name = "Guides"
+  name = "Examples"
   weight = 20
 
 [[footer]]
-  parent = "Guides"
+  parent = "Examples"
   name = "Getting started"
-  pageRef = "/guides/editing"
+  pageRef = "/examples/editing"
   weight = 10
 
 [[footer]]
-  parent = "Guides"
-  name = "Developing modules"
-  pageRef = "/guides/modules"
+  parent = "Examples"
+  name = "Nonlinear dynamics"
+  pageRef = "/examples/Example7"
   weight = 20
 
-[[footer]]
-  parent = "Guides"
-  name = "Optimization"
-  pageRef = "/guides/optimization"
-  weight = 30
 
 [[footer]]
-  parent = "Guides"
-  name = "Versioning"
-  pageRef = "/guides/versioning"
+  parent = "Examples"
+  name = "Basic Statics"
+  pageRef = "/examples/Example1"
   weight = 40
 
 [[footer]]
@@ -185,13 +180,13 @@
 [[footer]]
   parent = "Community"
   name = "Issues"
-  url = "https://github.com/gethinode/hinode/issues"
+  url = "https://github.com/claudioperez/OpenSeesRT/issues"
   weight = 10
 
 [[footer]]
   parent = "Community"
   name = "Discussions"
-  url = "https://github.com/gethinode/hinode/discussions"
+  url = "https://github.com/claudioperez/OpenSeesRT/discussions"
   weight = 20
 
 [[footer]]

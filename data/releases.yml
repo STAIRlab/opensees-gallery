@@ -21,22 +21,7 @@
   content:
     Hinode includes search support out of the box. To limit the bundle size, the search index now includes entries for
     the current translation only. To enable localization, the module configuration includes a new parameter `localize`.
-    By default, the FlexSearch module sets localization to true. See the
-    {{< link "docs/configuration/modules#configuring-modules" >}} module configuration{{< /link >}} for all available
-    options.
-
-- title: Digital Asset Managers
-  icon: fa image
-  color: primary
-  date: 2024-06-03
-  badge: v0.24.0
-  url: v0.24.0
-  content:
-    Hinodes uses Hugo’s image processing to preprocess images on the server side. Hugo uses caching to reduce the build
-    time. Despite the caching techniques, the image processing can take significant time, especially on larger sites. 
-    An alternative approach is to use a dedicated Digital Asset Manager. Most managers offer an API to transform images
-    on the fly. This release introduces support for several {{< link "docs/configuration/digital-asset-managers" />}},
-    including Cloudinary, ImageKit.io, and Imgix. The required adapters are configurable.
+    By default, the FlexSearch module sets localization to true.
 
 - title: Maintenance
   icon: fas screwdriver-wrench
@@ -52,19 +37,6 @@
     page elements such as a hero section, about section, and more. A sneak preview is available on
     https://theme-agency.gethinode.com/en/.
 
-- title: Argument validation
-  icon: fas sliders
-  color: warning
-  date: 2024-01-04
-  badge: v0.22.0
-  url: v0.22.0
-  content:
-    Hinode supports more than 30 shortcodes. Most of these shortcodes support multiple arguments to configure their
-    behavior and to adjust their visual appearance. A new utility uses a data file to validate the available arguments,
-    their types, and supported values for each shortcode and underlying partial. A new shortcode
-    {{< link "docs/components/args" >}}args{{< /link >}} uses the same specification to generate shortcode
-    documentation. Visit the page about {{< link "docs/advanced-settings/partial-development/" />}} to familiarize
-    yourself with the new conventions.
 
 - title: Taxonomies
   icon: fas list
@@ -78,45 +50,6 @@
     implementation of new layout types. Finally, the handling of images and scripts has been improved to further reduce
     the loading time of the site.
 
-- title: Dart Sass
-  icon: fab sass
-  color: info
-  date: 2023-09-07
-  badge: v0.20.0
-  url: v0.20.0
-  content:
-    The extended version of Hugo includes LibSass to transpile Sass to CSS. In 2020, the Sass team
-    {{< link hugo_sass >}}deprecated LibSass in favor of Dart Sass{{< /link >}}. Hinode now supports this new library so
-    you can use the latest features of the Sass language. Visit the {{< link "docs/advanced-settings/styles" >}}styles
-    settings on how to enable Dart Sass {{< /link >}}. The stylesheet now also takes advantage of caching, so you can
-    expect a reduction of ~25% build time.
-
-- title: Markdown by default
-  icon: fab markdown
-  color: warning
-  date: 2023-09-02
-  badge: v0.19.0
-  url: v0.19.0
-  content:
-    This release ensures Hinode is Markdown-only by default. Although still supported, HTML is now opt-in instead of
-    opt-out to improve security and to simplify content management. Several new shortcodes, such as
-    {{< link "docs/components/abbr" >}}abbr{{< /link >}} and {{< link "docs/components/badge" >}}badge{{< /link >}}, are
-    introduced to replace previous HTML elements.
-
-- title: Accessibility
-  icon: fas circle-half-stroke
-  color: primary
-  date: 2023-08-14
-  badge: v0.18.0
-  url: v0.18.0
-  content:
-    This release simplifies the initial setup of Hinode. Install Hinode either as regular theme, or use the template to
-    take advantage of automation via npm. This release also introduces several styling changes to improve accessibility.
-    Two new helpers are available to improve the
-    [contrast of the primary color in dark mode]({{% relref "color-modes#accessibility" %}}). In addition, several
-    accessibility improvements have been made under the hood. Finally, with the help of
-    {{< link github_aefly >}}@aefly{{< /link>}}, {{< link hinode_fr >}}Hinode is now available in the French language
-    {{< /link >}} as well.
 
 - title: Inline icons
   icon: fas bezier-curve
@@ -129,17 +62,6 @@
     inline icons using vector images. These vector icons still support the common styling and animation directives. When
     enabled, the size of the generated site's assets should be ~200k less on average.
 
-- title: Hugo modules
-  icon: fas puzzle-piece
-  color: warning
-  date: 2023-07-21
-  badge: v0.16.0
-  url: v0.16.0
-  content:
-    This release of Hinode introduces support for Hugo modules to create a flexible build system. By configuring a
-    module as either core or optional, you have full control of how these modules are processed and integrated with
-    your Hinode site. npm is still supported, but is no longer a prerequisite. Visit the instructions
-    to [upgrade your existing site]({{% relref "upgrading" %}}).
 
 - title: Versioned documentation
   icon: fas book-open
@@ -283,17 +205,6 @@
     This release introduces support for native syntax highlighting of code blocks. A button is added at run-time to
     enable copying of the code to the clipboard.
 
-- title: Template
-  icon: fas copy
-  color: info
-  date: 2022-04-14
-  badge: v0.2
-  url: v0.2
-  content:
-    Inspired by Doks, this release introduces a child theme of Hinode. The child theme uses npm to refer to the latest
-    available package. npm brings the benefit that dependencies can be automatically upgraded as part of the
-    {{< abbr "CI/CD" >}} process. It also abstracts from the core code of Hinode, keeping child repositories small and
-    focused.
 
 - title: Initial launch
   icon: fas rocket

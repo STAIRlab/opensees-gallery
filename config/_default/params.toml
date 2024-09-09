@@ -26,7 +26,7 @@
 # toml-docs-end version
 
 [home]
-    sections = ["guides", "users", "features", "opensource"]
+    sections = ["guides", "users", "features", "ecosystem"]
     fullCover = true
     centerHeadline = true
     style = "gradient-featured"
@@ -97,7 +97,7 @@
         reverse = true
         background = ""
         color = "body-tertiary"
-        style = "border-0 shadow card-zoom card-body-margin"
+        style = "border-0 shadow card-body-margin" # card-zoom 
         cols = 3
         padding = "3"
         header = "full"
@@ -133,12 +133,12 @@
         width = 50
         vertical = false
     [sections.features]
-        title = "Bring your static site to a new level"
+        title = "The bleeding edge of finite element modeling"
         layout = "list"
         sort = "weight"
         reverse = false
         style = "justify-content-center"
-    [sections.opensource]
+    [sections.ecosystem]
         title = "Embrace the power of open source"
         sectionHeader = "justify-content-end"
         layout = "card"
@@ -162,7 +162,7 @@
 [style]
     purge = true
 # toml-docs-end purge
-    primary = "#D43900"
+    primary = "#808080" #"#D43900"
     secondary = "#6c757d"
     success = "#198754"
     info = "#0dcaf0"
@@ -208,6 +208,7 @@
     az_blob_pricing = "https://azure.microsoft.com/en-us/free"
     az_cdn_rules = "https://learn.microsoft.com/en-us/azure/cdn/cdn-standard-rules-engine-reference"
     blist = "https://github.com/apvarun/blist-hugo-theme"
+    numpy = "https://numpy.org/"
     bootstrap = "https://getbootstrap.com"
     bs_reduced_motion = "https://getbootstrap.com/docs/5.3/getting-started/accessibility/#reduced-motion"
     bs_badge_heading = "https://getbootstrap.com/docs/5.2/components/badge/#headings"
@@ -262,10 +263,13 @@
     hinode = "https://gethinode.com"
     hinode_demo = "https://demo.gethinode.com/"
     hinode_fr = "https://demo.gethinode.com/fr/"
-    hinode_release_v0_22_0 = "https://github.com/gethinode/hinode/releases/tag/v0.22.0-beta7"
-    hinode_customization_demo = "https://customization-demo.gethinode.com/"
+#   hinode_release_v0_22_0 = "https://github.com/gethinode/hinode/releases/tag/v0.22.0-beta7"
+#   hinode_customization_demo = "https://customization-demo.gethinode.com/"
     hinode_version_demo = "https://version-demo.gethinode.com/"
     html_codeguide = "https://codeguide.co/#html"
+    osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
+    openblas = "https://www.openblas.net/"
+    umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
     hugo = "https://gohugo.io"
     hugo_alias = "https://gohugo.io/content-management/urls/#aliases"
     hugo_build = "https://gohugo.io/content-management/build-options"
@@ -356,6 +360,8 @@
     package_npm = "https://www.npmjs.com/package/@gethinode/hinode"
     pagespeed = "https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F"
     repository = "https://github.com/claudioperez/OpenSeesRT"
+    repository_releases = "https://github.com/claudioperez/OpenSeesRT/releases/"
+    repository_tag = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
     repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
     repository_docs = "https://github.com/OpenSees/Documentation.git"
     repository_owner = "https://github.com/claudioperez/"
@@ -367,8 +373,6 @@
     repository_mod_template = "https://github.com/gethinode/mod-template"
     repository_mod_utils = "https://github.com/gethinode/mod-utils"
     repository_leaflet = "https://github.com/gethinode/leaflet-demo"
-    repository_releases = "https://github.com/gethinode/hinode/releases/"
-    repository_tag = "https://github.com/gethinode/hinode/releases/tag/"
     repository_template = "https://github.com/gethinode/template.git"
     repository_versioning = "https://github.com/gethinode/version-demo"
     repository_versioning_overview = "https://raw.githubusercontent.com/gethinode/version-demo/main/content/en/docs/versions.md"
