@@ -1,48 +1,52 @@
 [main]
     separator = "-"
-    description = "Hinode is a clean documentation and blog theme for your Hugo site based on Bootstrap 5."
+    description = "Nonlinear finite element analysis."
     enableDarkMode = true
     enableLanguageSelectionStorage = false
     modes = ["light", "dark"]
     canonifyAssetsURLs = false
-    endorse = true
     footerBelowFold = false
     loading = "lazy"
-    breakpoint = "md"
     [main.externalLinks]
-        cue = false
-        tab = false
+        cue = true
+        tab = true
     [main.build]
-        transpiler = "libsass"
+        transpiler = "dartsass"
 
 [debugging]
     showJS = false
     showSCSS = false
-    purgeHTMLComments = false
+    purgeHTMLComments = true
 
+# toml-docs-start version
 [docs]
-    github = "https://github.com/gethinode/hinode"
+    basePath = "_vendor/github.com/gethinode/hinode"
+    github = "https://github.com/gethinode/docs"
     release = "https://github.com/gethinode/hinode/releases/tag/"
-    checkVersion = false
+# toml-docs-end version
 
 [home]
-    # sections = ["posts"]
-    fullCover = false
-    centerHeadline = false
-    style = ""
+    sections = ["guides", "users", "features", "opensource"]
+    fullCover = true
+    centerHeadline = true
+    style = "gradient-featured"
+    [home.feature]
+        orientation = "stacked"
+        color = ""
+        width = 6
+        align = "start"
 
 [navigation]
     anchor = true
     logo = "/img/logo_icon.svg"
-    color = "body"
+    color = ""
     fixed = true
-    offset = "5.5rem"
+    offset = "5.5em"
     search = true
-    searchModal = false
-    breadcrumb = true
+    breadcrumb = false
     toc = true
     sidebar = true
-    size = "md"
+    size = "lg"
 
 [messages]
     placement = "bottom-right"
@@ -78,36 +82,87 @@
     weight = 40
 
 [[sharing.providers]]
-    name = "email"
+    name = "link"
     url = "{url}"
     icon = "fas link"
     weight = 50
     clipboard = true
 
 # toml-docs-start sections
-# [sections]
-#     [sections.posts]
-#         title = "Posts"
-#         sort = "date"
-#         reverse = true
-#         nested = true
-#         cols = 3
-#         color = ""
-#         padding = "0"
-#         header = "full"
-#         footer = "none"
-#         orientation = "stacked"
-#         style = "border-0 card-zoom"
-#         homepage = 3
-#         separator = true
+[sections]
+    [sections.guides]
+        title = "Check our guides to get you started"
+        layout = "card"
+        sort = "date"
+        reverse = true
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow card-zoom card-body-margin"
+        cols = 3
+        padding = "3"
+        header = "full"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
 # toml-docs-end sections
+    [sections.docs]
+        title = "Components"
+        layout = "card"
+        sort = "title"
+        reverse = false
+        nested = false
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow card-feature card-shrink card-body-margin"
+        cols = 3
+        padding = "3"
+        header = "none"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
+    [sections.users]
+        title = "Discover how Hinode can help you"
+        layout = "nav"
+        sort = "weight"
+        reverse = false
+        background = "body-tertiary"
+        color = "primary"
+        style = "justify-content-center"
+        pane = "persona"
+        type = "pills"
+        width = 50
+        vertical = false
+    [sections.features]
+        title = "Bring your static site to a new level"
+        layout = "list"
+        sort = "weight"
+        reverse = false
+        style = "justify-content-center"
+    [sections.opensource]
+        title = "Embrace the power of open source"
+        sectionHeader = "justify-content-end"
+        layout = "card"
+        sort = "weight"
+        reverse = false
+        background = "body-tertiary"
+        color = "body"
+        style = "border card-feature"
+        cols = 3
+        padding = "3"
+        header = "none"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
 
 [favicon]
     logo = "img/favicon.png"
     sizes = [16, 32, 48]
 
+# toml-docs-start purge
 [style]
-    primary = "#d43900"
+    purge = true
+# toml-docs-end purge
+    primary = "#D43900"
     secondary = "#6c757d"
     success = "#198754"
     info = "#0dcaf0"
@@ -119,29 +174,25 @@
     darkModeShade = "20%"
     darkModeTint = "40%"
     themeFont = "Inter"
-    # themeFontPath = "https://fonts.googleapis.com/css2?family=Inter:wght@200;300;600&display=swap" # external path
     themeFontPath = "/fonts" # local path
+    themeFontPreload = "/fonts/inter-v12-latin-regular.woff2"
     fontSizeBase = "1rem"
-    purge = false
 
 [schema]
     type = "Organization"
-    name = "Hinode"
+    name = "STAIRlab"
     locale = "en-US"
-    # twitter = "https://twitter.com/gethinode"
-    # linkedIn = ""
-    github = "https://github.com/gethinode/hinode"
+    github = "https://github.com/claudioperez/OpenSeesRT"
     section = "blog"
-    [schema.author]
-        name = "Mark Dumay"
-        # twitter = "https://twitter.com/markdumay"
+    [author]
+        name = "Claudio M. Perez"
         linkedin = "https://www.linkedin.com/in/markdumay/"
-        github = "https://github.com/markdumay"
-    [schema.logo]
+        github = "https://github.com/claudioperez"
+    [logo]
         url = "img/logo512x512.png"
         width = 512
         height = 512
-    [schema.image]
+    [image]
         url = "img/logo1280x640.png"
         width = 1280
         height = 640
@@ -151,4 +202,184 @@
     locale = "en_US"
 
 [links]
+    conventional_commit = "https://www.conventionalcommits.org"
+    azure = "https://azure.microsoft.com"
+    az_blob_domain = "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name"
+    az_blob_pricing = "https://azure.microsoft.com/en-us/free"
+    az_cdn_rules = "https://learn.microsoft.com/en-us/azure/cdn/cdn-standard-rules-engine-reference"
+    blist = "https://github.com/apvarun/blist-hugo-theme"
+    bootstrap = "https://getbootstrap.com"
+    bs_reduced_motion = "https://getbootstrap.com/docs/5.3/getting-started/accessibility/#reduced-motion"
+    bs_badge_heading = "https://getbootstrap.com/docs/5.2/components/badge/#headings"
+    bs_breakpoints = "https://getbootstrap.com/docs/5.3/layout/breakpoints"
+    bs_color = "https://getbootstrap.com/docs/5.3/customize/color-modes"
+    bs_color_helpers = "https://getbootstrap.com/docs/5.3/helpers/color-background"
+    bs_color_sass = "https://getbootstrap.com/docs/5.3/customize/color-modes/#building-with-sass"
+    bs_container = "https://getbootstrap.com/docs/5.3/layout/containers/#how-they-work"
+    bs_grid = "https://getbootstrap.com/docs/5.3/layout/grid"
+    bs_lean = "https://getbootstrap.com/docs/5.3/customize/optimize"
+    bs_offcanvas = "https://getbootstrap.com/docs/5.3/components/offcanvas"
+    bs_navbar_placement = "https://getbootstrap.com/docs/5.3/components/navbar/#placement"
+    bs_tables = "https://getbootstrap.com/docs/5.3/content/tables"
+    caniuse_container = "https://caniuse.com/?search=%40container"
+    caniuse_webshare = "https://caniuse.com/?search=navigator.share"
+    cc_by_nc_4_0 = "https://creativecommons.org/licenses/by-nc/4.0/"
+    cloudflare = "https://cloudflare.com"
+    cloudinary = "https://cloudinary.com"
+    commit_message = "https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html"
+    community_guidelines = "https://docs.github.com/articles/github-community-guidelines"
+    contrast_checker = "https://accessibleweb.com/color-contrast-checker/"
+    core_web_vitals = "https://web.dev/vitals/#core-web-vitals"
+    create_pr = "https://github.com/peter-evans/create-pull-request"
+    css_codeguide = "https://codeguide.co/#css"
+    dependabot = "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates"
+    dependabot_issue_6860 = "https://github.com/dependabot/dependabot-core/issues/6860"
+    devops_journal = "https://devopsjournal.io/blog/2021/02/06/GitHub-Actions-Forking-Repositories"
+    discussions = "https://github.com/claudioperez/OpenSeesRT/discussions"
+    discussions_help = "https://github.com/gethinode/hinode/discussions/categories/help"
+    discussions_ideas = "https://github.com/gethinode/hinode/discussions/categories/ideas"
+    discussions_showcases = "https://github.com/gethinode/hinode/discussions/categories/show-and-tell"
+    doks = "https://github.com/h-enk/doks"
+    eslint = "https://eslint.org"
+    flexsearch = "https://github.com/nextapps-de/flexsearch"
+    fontawesome = "https://fontawesome.com"
+    fa_icons = "https://fontawesome.com/icons"
+    fa_styling = "https://fontawesome.com/docs/web/style/styling"
+    fa_animation = "https://fontawesome.com/docs/web/style/animate"
+    git_download = "https://git-scm.com"
+    github_actions = "https://github.com/features/actions"
+    github_cli = "https://cli.github.com"
+    github_signup = "https://github.com/signup"
+    github_plans = "https://docs.github.com/en/get-started/learning-about-github/githubs-plans"
+    github_pr = "https://help.github.com/articles/about-pull-requests/"
+    github_rebase = "https://help.github.com/articles/about-git-rebase/"
+    github_aefly = "https://github.com/aefly"
+    golang = "https://go.dev/"
+    golang_download = "https://go.dev/dl/"
+    google_analytics_csp = "https://developers.google.com/tag-platform/tag-manager/web/csp#google_analytics_4_google_analytics"
+    google_chrome = "https://www.google.com/chrome"
+    google_fonts = "https://fonts.google.com"
     hinode = "https://gethinode.com"
+    hinode_demo = "https://demo.gethinode.com/"
+    hinode_fr = "https://demo.gethinode.com/fr/"
+    hinode_release_v0_22_0 = "https://github.com/gethinode/hinode/releases/tag/v0.22.0-beta7"
+    hinode_customization_demo = "https://customization-demo.gethinode.com/"
+    hinode_version_demo = "https://version-demo.gethinode.com/"
+    html_codeguide = "https://codeguide.co/#html"
+    hugo = "https://gohugo.io"
+    hugo_alias = "https://gohugo.io/content-management/urls/#aliases"
+    hugo_build = "https://gohugo.io/content-management/build-options"
+    hugo_config_overview = "https://gohugo.io/getting-started/configuration/"
+    hugo_config = "https://gohugo.io/getting-started/configuration/#all-configuration-settings"
+    hugo_config_dir = "https://gohugo.io/getting-started/configuration/#configuration-directory"
+    hugo_content = "https://gohugo.io/content-management/formats"
+    hugo_content_view = "https://gohugo.io/templates/views/"
+    hugo_chroma = "https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages"
+    hugo_data_sources = "https://gohugo.io/content-management/data-sources/"
+    hugo_deploy = "https://gohugo.io/hosting-and-deployment/hugo-deploy"
+    hugo_deployment = "https://gohugo.io/hosting-and-deployment"
+    hugo_config_deploy = "https://gohugo.io/hosting-and-deployment/hugo-deploy/#configure-the-deployment"
+    hugo_download = "https://gohugo.io/installation"
+    hugo_fingerprint = "https://gohugo.io/hugo-pipes/fingerprint"
+    hugo_frontmatter = "https://gohugo.io/content-management/front-matter"
+    hugo_goldmark = "https://gohugo.io/getting-started/configuration-markup/#goldmark"
+    hugo_headless = "https://gohugo.io/content-management/page-bundles/#headless-bundle"
+    hugo_i18n = "https://gohugo.io/functions/i18n"
+    hugo_image = "https://gohugo.io/content-management/image-processing"
+    hugo_lang = "https://gohugo.io/content-management/multilingual"
+    hugo_lang_config = "https://gohugo.io/content-management/multilingual/#configure-languages"
+    hugo_links = "https://gohugo.io/content-management/cross-references"
+    hugo_menus = "https://gohugo.io/content-management/menus/"
+    hugo_modules = "https://gohugo.io/hugo-modules/"
+    hugo_module_config = "https://gohugo.io/hugo-modules/configuration/"
+    hugo_module_config_import = "https://gohugo.io/hugo-modules/configuration/#module-configuration-imports"
+    hugo_mounts = "https://gohugo.io/hugo-modules/configuration/#module-config-mounts"
+    hugo_imaging = "https://gohugo.io/content-management/image-processing/#imaging-configuration"
+    hugo_ordering = "https://gohugo.io/templates/lists/#order-content"
+    hugo_page_resources = "https://gohugo.io/content-management/page-resources/"
+    hugo_pagination = "https://gohugo.io/templates/pagination/#configuration"
+    hugo_pipes = "https://gohugo.io/hugo-pipes/introduction"
+    hugo_postprocess = "https://gohugo.io/hugo-pipes/postprocess"
+    hugo_release_v0_109_0 = "https://github.com/gohugoio/hugo/releases/tag/v0.109.0"
+    hugo_scratch = "https://gohugo.io/methods/shortcode/scratch"
+    hugo_sections = "https://gohugo.io/content-management/sections"
+    hugo_shortcodes = "https://gohugo.io/content-management/shortcodes"
+    hugo_structure = "https://gohugo.io/content-management/organization"
+    hugo_templates = "https://gohugo.io/templates/introduction"
+    hugo_resource_from_template = "https://gohugo.io/hugo-pipes/resource-from-template/"
+    hugo_lookup_order = "https://gohugo.io/templates/lookup-order"
+    hugo_sass = "https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installing-in-a-development-environment"
+    hugo_toc = "https://gohugo.io/content-management/toc"
+    hugo_vars = "https://discourse.gohugo.io/t/initialize-sass-variables-from-hugo-templates"
+    hugo_vimeo_privacy = "https://gohugo.io/about/privacy/#vimeo"
+    hugo_youtube_privacy = "https://gohugo.io/about/hugo-and-gdpr/#youtube"
+    hugo_issue_10719 = "https://github.com/gohugoio/hugo/issues/10719"
+    hugo_parser_image = "https://gohugo.io/getting-started/configuration-markup/#parserwrapstandaloneimagewithinparagraph"
+    imagekit = "https://imagekit.io"
+    imgix = "https://imgix.com"
+    initialcommit = "https://initialcommit.com/blog/git-commit-messages-best-practices"
+    issue_tracker = "https://github.com/gethinode/hinode/issues"
+    katex = "https://katex.org"
+    katex_autorender = "https://katex.org/docs/autorender.html"
+    katex_load = "https://katex.org/docs/autorender.html#usage"
+    katex_github = "https://github.com/KaTeX/KaTeX"
+    katex_self_hosted = "https://katex.org/docs/browser.html#download--host-things-yourself"
+    leaflet = "https://leafletjs.com"
+    license = "https://github.com/gethinode/hinode/blob/main/LICENSE"
+    logrocket_optimization = "https://blog.logrocket.com/9-tricks-eliminate-render-blocking-resources"
+    lottie = "https://airbnb.io/lottie/"
+    markdown_guide = "https://www.markdownguide.org"
+    markdown_emoji = "https://gist.github.com/rxaviers/7360908"
+    markdown_md013 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md013---line-length"
+    markdown_md024 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md024---multiple-headings-with-the-same-content"
+    markdown_md026 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md026---trailing-punctuation-in-heading"
+    markdown_md033 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md033---inline-html"
+    markdown_md034 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md034---bare-url-used"
+    markdown_md051 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md051---link-fragments-should-be-valid"
+    markdown_md053 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md053---link-and-image-reference-definitions-should-be-needed"
+    markdown_rules = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md"
+    markdownlint = "https://github.com/DavidAnson/markdownlint-cli2"
+    mermaid = "https://mermaid.js.org"
+    mozilla_image = "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"
+    netlify = "https://www.netlify.com"
+    netlify_cache = "https://www.netlify.com/blog/2017/02/23/better-living-through-caching/"
+    netlify_rewrite = "https://docs.netlify.com/routing/redirects/rewrites-proxies/"
+    nicolasiensen = "https://nicolasiensen.github.io/2022-07-23-automating-dependency-updates-with-dependabot-github-auto-merge-and-github-actions/"
+    nodejs = "https://nodejs.org"
+    npm = "https://www.npmjs.com"
+    npm_cpy = "https://www.npmjs.com/package/cpy"
+    npm_purgecss = "https://www.npmjs.com/package/@fullhuman/postcss-purgecss"
+    npm_run_all = "https://www.npmjs.com/package/npm-run-all"
+    npm_whitelister = "https://www.npmjs.com/package/purgecss-whitelister"
+    observatory = "https://observatory.mozilla.org/analyze/demo.gethinode.com"
+    openstreetmap = "https://www.openstreetmap.org"
+    package_npm = "https://www.npmjs.com/package/@gethinode/hinode"
+    pagespeed = "https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F"
+    repository = "https://github.com/claudioperez/OpenSeesRT"
+    repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
+    repository_docs = "https://github.com/OpenSees/Documentation.git"
+    repository_owner = "https://github.com/claudioperez/"
+    repository_mod_bootstrap = "https://github.com/gethinode/mod-bootstrap"
+    repository_mod_flexsearch = "https://github.com/gethinode/mod-flexsearch"
+    repository_mod_fontawesome = "https://github.com/gethinode/mod-fontawesome"
+    repository_mod_katex = "https://github.com/gethinode/mod-katex"
+    repository_mod_leaflet = "https://github.com/gethinode/mod-leaflet"
+    repository_mod_template = "https://github.com/gethinode/mod-template"
+    repository_mod_utils = "https://github.com/gethinode/mod-utils"
+    repository_leaflet = "https://github.com/gethinode/leaflet-demo"
+    repository_releases = "https://github.com/gethinode/hinode/releases/"
+    repository_tag = "https://github.com/gethinode/hinode/releases/tag/"
+    repository_template = "https://github.com/gethinode/template.git"
+    repository_versioning = "https://github.com/gethinode/version-demo"
+    repository_versioning_overview = "https://raw.githubusercontent.com/gethinode/version-demo/main/content/en/docs/versions.md"
+    semantic-release = "https://semantic-release.gitbook.io/semantic-release/"
+    semver = "https://semver.org"
+    simple_datatables = "https://github.com/fiduswriter/simple-datatables/tree/main"
+    siteground_compression = "https://www.siteground.com/blog/brotli-vs-gzip-compression"
+    stylelint = "https://stylelint.io"
+    vimeo = "https://vimeo.com"
+    vscode_download = "https://code.visualstudio.com/download"
+    wcag_contrast = "https://www.w3.org/TR/WCAG20/#visual-audio-contrast"
+    webfonts_helper = "https://gwfh.mranftl.com"
+    youtube = "https://youtube.com"
+

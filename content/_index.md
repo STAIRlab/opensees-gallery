@@ -1,6 +1,6 @@
 ---
-title: Welcome to Hinode!
-description: A clean documentation and blog theme for your Hugo site based on Bootstrap 5.
+title: Welcome to OpenSees
+description: A framework for nonlinear finite element analysis.
 thumbnail:
     url: /img/sunrise.jpg
     author: Harris Vo

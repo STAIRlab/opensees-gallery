@@ -1,51 +1,201 @@
 [[main]]
-  name = "Home"
-  pageRef = "/"
+  name = "About"
+  pageRef = "/docs/about/credits/"
   weight = 10
+  [main.params]
+    alias = true
 
 [[main]]
-  name = "Tags"
-  pageRef = "/tags"
+  name = "Docs"
+  pageRef = "/docs/"
   weight = 20
 
-[[social]]
-  name = "LinkedIn"
-  pre = "fab linkedin"
-  url = "https://linkedin.com/"
-  weight = 10
+[[main]]
+  name = "Components"
+  pageRef = "/docs/components/"
+  weight = 30
+  [main.params]
+    alias = true
 
-[[social]]
+[[main]]
+  name = "Guides"
+  pageRef = "/guides/"
+  weight = 40
+
+[[main]]
+  name = "Releases"
+  pageRef = "/releases/"
+  weight = 50
+
+[[main]]
   name = "GitHub"
   pre = "fab fa-github"
-  url = "https://github.com/"
-  weight = 20
-
-[[social]]
-  name = "Medium"
-  pre = "fab medium"
-  url = "https://medium.com/"
-  weight = 30
-
+  url = "https://github.com/gethinode/hinode"
+  weight = 60
+  [main.params]
+    icon = true
+      
 # toml-docs-start sample-navigation
 [[sample]]
-  name = "Blog"
-  pageRef = "/blog/"
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [sample.params]
+    alias = true
+
+[[sample]]
+  name = "Guides"
+  pageRef = "/guides/"
+  weight = 30
+
+[[sample]]
+  parent = "Guides"
+  name = "Getting started"
+  pageRef = "/guides/editing/"
   weight = 10
 
 [[sample]]
-  name = "Projects"
-  pageRef = "/projects/"
+  parent = "Guides"
+  name = "Developing Hugo modules"
+  pageRef = "/guides/modules/"
   weight = 20
 
 [[sample]]
-  name = "Sample project"
-  pageRef = "/projects/sample-project/"
-  parent = "Projects"
-  weight = 1
+  parent = "Guides"
+  name = "Optimization"
+  pageRef = "/guides/optimization/"
+  weight = 30
 
 [[sample]]
-  name = "Another project"
-  pageRef = "/projects/another-project/"
-  parent = "Projects"
-  weight = 2
+  name = "GitHub"
+  url = "https://github.com/gethinode/hinode"
+  weight = 40
 # toml-docs-end sample-navigation
+
+[[alias]]
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [alias.params]
+    alias = true
+
+[[alias]]
+  name = "About (no alias)"
+  pageRef = "/docs/about/credits/"
+  weight = 20
+
+[[alias]]
+  name = "Guides"
+  pageRef = "/guides/"
+  weight = 30
+
+[[alias]]
+  parent = "Guides"
+  name = "Getting started"
+  pageRef = "/guides/editing/"
+  weight = 10
+
+[[alias]]
+  parent = "Guides"
+  name = "Developing Hugo modules"
+  pageRef = "/guides/modules/"
+  weight = 20
+
+[[alias]]
+  parent = "Guides"
+  name = "Optimization"
+  pageRef = "/guides/optimization/"
+  weight = 30
+
+[[alias]]
+  name = "GitHub"
+  url = "https://github.com/gethinode/hinode"
+  weight = 40
+
+[[footer]]
+  name = "Links"
+  weight = 10
+
+[[footer]]
+  parent = "Links"
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+
+[[footer]]
+  parent = "Links"
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [footer.params]
+    alias = true
+
+[[footer]]
+  parent = "Links"
+  name = "Docs"
+  pageRef = "/docs/"
+  weight = 20
+
+[[footer]]
+  parent = "Links"
+  name = "Components"
+  pageRef = "/docs/components/"
+  weight = 30
+  [footer.params]
+    alias = true
+
+[[footer]]
+  parent = "Links"
+  name = "Releases"
+  pageRef = "/releases/"
+  weight = 40
+
+[[footer]]
+  name = "Guides"
+  weight = 20
+
+[[footer]]
+  parent = "Guides"
+  name = "Getting started"
+  pageRef = "/guides/editing"
+  weight = 10
+
+[[footer]]
+  parent = "Guides"
+  name = "Developing modules"
+  pageRef = "/guides/modules"
+  weight = 20
+
+[[footer]]
+  parent = "Guides"
+  name = "Optimization"
+  pageRef = "/guides/optimization"
+  weight = 30
+
+[[footer]]
+  parent = "Guides"
+  name = "Versioning"
+  pageRef = "/guides/versioning"
+  weight = 40
+
+[[footer]]
+  name = "Community"
+  weight = 30
+
+[[footer]]
+  parent = "Community"
+  name = "Issues"
+  url = "https://github.com/gethinode/hinode/issues"
+  weight = 10
+
+[[footer]]
+  parent = "Community"
+  name = "Discussions"
+  url = "https://github.com/gethinode/hinode/discussions"
+  weight = 20
+
+[[footer]]
+  parent = "Community"
+  name = "Contribute"
+  pageRef = "/docs/getting-started/contribute/"
+  weight = 30

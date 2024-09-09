@@ -1,0 +1,32 @@
+- id: ci/cd
+  long: "Continuous Integration/Continuous Deployment"
+
+- id: css
+  long: "Cascading Style Sheets"
+
+- id: cdn
+  long: "Content Delivery Network"
+
+- id: ddos
+  long: "Distributed Denial of Service"
+
+- id: dry
+  long: "Don't Repeat Yourself"
+
+- id: html
+  long: "HyperText Markup Language"
+
+- id: scss
+  long: "Sassy Cascading Style Sheets"
+
+- id: seo
+  long: "Search Engine Optimization"
+
+- id: svg
+  long: "Scalable Vector Graphics"
+
+- id: wysiwyg
+  long: "What you see is what you get"
+
+- id: yaml
+  long: "Yet Another Markup Language"
