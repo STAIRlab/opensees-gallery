@@ -1,7 +1,8 @@
 ---
-author: Claudio Perez
-title: Creating your website has never been easier
-description: Focus on your content and let Hinode generate your static website. Use powerful shortcodes to add interactive elements with ease. And best of all - it is open source.
+title: Nonlinear finite element analysis
+description: |
+   opensees is a Python package that provides an intuitive API for nonlinear finite element analysis, implemented in C++ through the OpenSees framework. OpenSees features state-of-the-art finite element formulations and solution algorithms, including mixed formulations for beams and solids, over 200 material models, and an extensive collection of continuation algorithms to solve highly nonlinear problems.
+
 thumbnail: /img/logo_var.svg#logo
 actions:
     getstarted:
@@ -9,9 +10,9 @@ actions:
         title: "Get Started"
         icon: "fas book-open"
         weight: 1
-    demo:
-        url: "https://demo.gethinode.com"
-        title: "Live Demo"
+    examples:
+        url: "examples/"
+        title: "Examples"
         icon: "fas display"
         outline: true
         weight: 2

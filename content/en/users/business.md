@@ -1,6 +1,6 @@
 ---
 author: Mark Dumay
-title: Business
+title:  Business
 date: 2023-04-16
 weight: 30
 thumbnail: 

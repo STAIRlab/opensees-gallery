@@ -1,4 +1,4 @@
 ---
 headless: true
-title: Discover how Hinode can help you
+title: Discover how OpenSees fits into your workflow.
 ---

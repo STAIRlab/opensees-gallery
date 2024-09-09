@@ -9,7 +9,12 @@ aliases:
 layout: docs
 ---
 
-Hinode is a clean documentation and blog theme for {{< link hugo >}}Hugo{{< /link >}} - an open-source static site generator. Based on the {{< link bootstrap >}}Bootstrap{{< /link >}} framework, the rendered site is fast, secure, and responsive. Hinode uses {{< link flexsearch >}}FlexSearch{{< /link >}} to enable full text search across your site. Finally, the theme provides optional support for {{< link npm >}}Node Package Manager{{< /link >}} (npm) to automate the build process and to keep track of dependencies. More information is available on the [about]({{% relref "credits" %}} "about") page.
+`opensees` is a Python package that provides an intuitive API for nonlinear
+finite element analysis, implemented in C++ through the OpenSees framework. 
+OpenSees features state-of-the-art finite element formulations and solution 
+algorithms, including mixed formulations for beams and solids, over 200 material models, and an
+extensive collection of continuation algorithms to solve highly nonlinear
+problems.
 
 ## Prerequisites
 
@@ -102,65 +107,17 @@ The next steps describe the approach how to initialize a new Hinode site using e
 
 ## Adding content
 
-The {{< link repository >}}main Hinode repository{{< /link >}} contains a folder `exampleSite` with sample content for a blog and a project portfolio. The examples are available in English, French, and Dutch. Review the following items on to how organize and enrich your content.
+The {{< link repository >}}main OpenSeesRT repository{{< /link >}} contains a 
+folder `exampleSite` with sample content for a blog and a project portfolio. 
+The examples are available in English, French, and Dutch. 
 
 {{< accordion class="accordion-theme accordion-flush" >}}
   {{< accordion-item header="Adding content" >}}
-    Hinode uses Markdown and templates to define the content for your website. See the [content management]({{% relref "content-management" %}}) page for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Organize the content" >}}
-    Hinode uses a structured approach to organize and present content. See the [content organization]({{% relref "content-organization" %}}) page for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Enrich Markdown content with Bootstrap styling" >}}
-    Hinode uses a mix of basic Markdown syntax enriched with Bootstrap styling for the typography. Review the [typography documentation]({{% relref "typography" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Use Markdown and Hugo shortcodes to generate links and cross-references" >}}
-    Generate internal links and external links using a combination of Markdown and Hugo shortcodes. You can optionally manage your external links in a central configuration file. Review the [links documentation]({{% relref "links-and-cross-references" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Add responsive images optimized for multiple screen sizes and devices">}}
-    Hinode supports responsive images out-of-the-box. Hinode uses Hugo to preprocess images on the server. By taking advantage of so-called image sets, the client’s browser can decide which image to download whilst reducing the download size. Review the [image documentation]({{% relref "images-and-figures" %}}) for more details.
+    OpenSeesRT uses Markdown and templates to define the content for your website. 
   {{< /accordion-item >}}
   {{< accordion-item header="Apply Bootstrap styling to your tables" >}}
-    Hinode enhances the basic tables available in Markdown with optional styling features provided by Bootstrap. You can customize the accentuation, adjust the borders, and make tables more compact. Review the [tables documentation]({{% relref "tables" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Include Font Awesome icons on the fly" >}}
-    Hinode provides out-of-the box access to the free icons of {{</* link fontawesome >}}Font Awesome{{< /link */>}}. The icon library provides various styling options. Review the [icons documentation]({{% relref "../content/icons" %}}) for more details.
+    OpenSeesRT enhances the basic tables available in Markdown with optional styling features provided by Bootstrap. You can customize the accentuation, adjust the borders, and make tables more compact. Review the [tables documentation]({{% relref "tables" %}}) for more details.
   {{< /accordion-item >}}
 {{< /accordion >}}
 
-## Quick configuration settings
 
-The main site configuration is available in `./config/_default`. Review the following items to get you started.
-
-{{< accordion class="accordion-theme accordion-flush" >}}
-  {{< accordion-item header="Review the layout options" >}}
-    Hinode uses a base layout for the home page, list pages, and individual pages. Individual pages can also be configured as documentation page instead of a regular page. Review the [layout documentation]({{% relref "colors" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Adjust the theme colors" >}}
-    Hinode uses eight configurable theme colors. You can adjust them in the `style` section of  `/config/_default/params.toml`. Review the [colors documentation]({{% relref "colors" %}}) for more details.
-  {{< /accordion-item >}}
-{{< /accordion >}}
-
-## Advanced configuration settings
-
-The next topics give an overview of the advanced configuration settings.
-
-<!-- markdownlint-disable MD037 -->
-{{< accordion class="accordion-theme accordion-flush" >}}
-  {{< accordion-item header="Review the approach to dependency management and virtualization" >}}
-    Hinode supports {{</* link npm >}}npm{{< /link */>}} packages to automate various tasks. In addition, it uses Hugo's {{</* link hugo_mounts >}}mounted folders{{< /link */>}} to create a virtual file system. Review the [advanced settings overview]({{% relref "../advanced-settings/overview" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Adjust the build pipeline for Sass files" >}}
-    Hinode uses Bootstrap's Sass files to generate the cascading style sheets of the website. The main entrypoint is defined in `assets/scss/app.scss`. See the [styles documentation]({{% relref "styles" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Bundle JavaScript files for deployment">}}
-    Hinodes uses npm to include the latest JavaScript files of external packages such as {{</* link bootstrap >}}Bootstrap{{< /link */>}} and {{</* link flexsearch >}}FlexSearch{{< /link */>}}. All local and external files are bundled in a single JavaScript file. See the [scripts documentation]({{% relref "scripts" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Process icon files to apply theme colors" >}}
-    Hinode replaces Bootstrap's embedded icons with file-based icons to comply with its security settings. The icon files are parameterized to use the theme colors. See the [icons documentation]({{% relref "../advanced-settings/icons" %}}) for more details.
-  {{< /accordion-item >}}
-  {{< accordion-item header="Refine header settings to adjust the Content Security Policy" >}}
-    Hinode uses rather strict security policies to ensure the site is secure by default. Be sure to include references to external sources in the header configuration to avoid broken links. The settings of the local development server are defined in `config/_default/server.toml`. Similar settings are defined in the `netlify.toml` file provided in the repository's root when deploying to {{</* link netlify >}}Netlify{{< /link */>}}. 
-  {{< /accordion-item >}}
-{{< /accordion >}}
-<!-- markdownlint-enable MD037 -->
