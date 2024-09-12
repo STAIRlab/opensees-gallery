@@ -12,24 +12,16 @@
     - title: Content management
 
 
-- title: Components
+- title: Library
   pages:
     - title: Alert
-    - title: Args
       pages:
       - title: Badge
       - title: Breadcrumb
       - title: Card
     - title: Card group
-    - title: Carousel
-    - title: Icon
     - title: Image
     - title: Kbd
-    - title: Link
-    - title: Map
-    - title: Mark
-    - title: Persona
-    - title: Release
 
 - title: Advanced settings
   pages:

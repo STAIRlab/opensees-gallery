@@ -22,7 +22,7 @@
 [docs]
     basePath = "_vendor/github.com/gethinode/hinode"
     github = "https://github.com/gethinode/docs"
-    release = "https://github.com/gethinode/hinode/releases/tag/"
+    release = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
 # toml-docs-end version
 
 [home]
@@ -38,7 +38,7 @@
 
 [navigation]
     anchor = true
-    logo = "/img/logo_icon.svg"
+    logo = "/img/stairlab.svg"
     color = ""
     fixed = true
     offset = "5.5em"
@@ -162,7 +162,7 @@
 [style]
     purge = true
 # toml-docs-end purge
-    primary = "#808080" #"#D43900"
+    primary =  "#003262" # "#2D637F" # "#FDB515" # "#888888" #"#D43900"
     secondary = "#6c757d"
     success = "#198754"
     info = "#0dcaf0"
@@ -202,6 +202,11 @@
     locale = "en_US"
 
 [links]
+    issue_tracker = "https://github.com/claudioperez/OpenSeesRT/issues"
+    discussions = "https://github.com/claudioperez/OpenSeesRT/discussions"
+    discussions_help = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/help"
+    discussions_ideas = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/ideas"
+    discussions_showcases = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/show-and-tell"
     conventional_commit = "https://www.conventionalcommits.org"
     azure = "https://azure.microsoft.com"
     az_blob_domain = "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name"
@@ -236,10 +241,6 @@
     dependabot = "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates"
     dependabot_issue_6860 = "https://github.com/dependabot/dependabot-core/issues/6860"
     devops_journal = "https://devopsjournal.io/blog/2021/02/06/GitHub-Actions-Forking-Repositories"
-    discussions = "https://github.com/claudioperez/OpenSeesRT/discussions"
-    discussions_help = "https://github.com/gethinode/hinode/discussions/categories/help"
-    discussions_ideas = "https://github.com/gethinode/hinode/discussions/categories/ideas"
-    discussions_showcases = "https://github.com/gethinode/hinode/discussions/categories/show-and-tell"
     doks = "https://github.com/h-enk/doks"
     eslint = "https://eslint.org"
     flexsearch = "https://github.com/nextapps-de/flexsearch"
@@ -268,6 +269,7 @@
     hinode_version_demo = "https://version-demo.gethinode.com/"
     html_codeguide = "https://codeguide.co/#html"
     osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
+    sees = "https://github.com/STAIRlab/sees"
     openblas = "https://www.openblas.net/"
     umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
     hugo = "https://gohugo.io"
@@ -322,14 +324,13 @@
     imagekit = "https://imagekit.io"
     imgix = "https://imgix.com"
     initialcommit = "https://initialcommit.com/blog/git-commit-messages-best-practices"
-    issue_tracker = "https://github.com/gethinode/hinode/issues"
     katex = "https://katex.org"
     katex_autorender = "https://katex.org/docs/autorender.html"
     katex_load = "https://katex.org/docs/autorender.html#usage"
     katex_github = "https://github.com/KaTeX/KaTeX"
     katex_self_hosted = "https://katex.org/docs/browser.html#download--host-things-yourself"
     leaflet = "https://leafletjs.com"
-    license = "https://github.com/gethinode/hinode/blob/main/LICENSE"
+    license = "https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt"
     logrocket_optimization = "https://blog.logrocket.com/9-tricks-eliminate-render-blocking-resources"
     lottie = "https://airbnb.io/lottie/"
     markdown_guide = "https://www.markdownguide.org"

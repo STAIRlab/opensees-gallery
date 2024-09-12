@@ -1,0 +1,106 @@
+.gradient-featured {
+    background: $white;
+    background: linear-gradient(135deg, $white 0%, tint-color($primary, 80%) 100%);
+}
+
+.card-feature {
+    background-color: var(--#{$prefix}light) if($enable-important-utilities, !important, null);
+}
+
+.card-feature div i {
+    background: linear-gradient(135deg, tint-color($primary, 80%) 0%, $primary 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+// scss-docs-start styling
+.card-shrink {
+    transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow, 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+    cursor: pointer;
+}
+
+.card-shrink:hover {
+    transform: scale(0.99);
+    box-shadow: none if($enable-important-utilities, !important, null);
+}
+// scss-docs-end styling
+
+.footer {
+    background-color: $gray-800 if($enable-important-utilities, !important, null);
+    color: var(--#{$prefix}light) if($enable-important-utilities, !important, null);
+}
+
+.footer-muted {
+    color: var(--#{$prefix}light) if($enable-important-utilities, !important, null);
+    opacity: .7 if($enable-important-utilities, !important, null);
+}
+
+.link-bg-footer {
+    color: var(--#{$prefix}light) if($enable-important-utilities, !important, null);
+    &:hover,
+    &:focus {
+        color: $gray-400 if($enable-important-utilities, !important, null);
+    }
+}
+
+@if $enable-dark-mode {
+    @include color-mode(dark) {
+        .gradient-featured {
+            background: $gray-900;
+            background: linear-gradient(135deg, $gray-900 0%, shade-color($primary, 60%) 100%);
+        }
+
+        .card-feature {
+            background-color: var(--#{$prefix}tertiary-bg) if($enable-important-utilities, !important, null);
+        }
+
+        .card-feature div i {
+            background: linear-gradient(135deg, $primary 0%, shade-color($primary, 60%) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer {
+            background-color: var(--#{$prefix}tertiary-bg) if($enable-important-utilities, !important, null);
+            color: var(--#{$prefix}tertiary) if($enable-important-utilities, !important, null);
+        }
+
+        .link-bg-footer {
+            color: var(--#{$prefix}tertiary) if($enable-important-utilities, !important, null);
+            &:hover,
+            &:focus {
+                color: $gray-400 if($enable-important-utilities, !important, null);
+            }
+        }
+    }
+}
+
+.accordion-theme {
+    --#{$prefix}accordion-btn-padding-x: 0;
+    --#{$prefix}accordion-btn-focus-border-color: none;
+    --#{$prefix}accordion-btn-focus-box-shadow: none;
+    --#{$prefix}accordion-body-padding-x: 0;
+    --#{$prefix}accordion-active-color: var(--#{$prefix}primary);
+    --#{$prefix}accordion-active-bg: none;
+}
+
+@if $enable-dark-mode {
+    @include color-mode(dark) {
+        .accordion-theme .accordion-button {
+            background-color: transparent;
+        }
+    }
+}
+
+.math {
+    overflow-x: auto;
+    font-size: 0.7rem !important;
+}
+
+@include media-breakpoint-up(md) {
+    .math {
+        font-size: 1rem !important;
+    }
+}

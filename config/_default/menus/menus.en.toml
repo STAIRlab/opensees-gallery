@@ -11,8 +11,8 @@
   weight = 20
 
 [[main]]
-  name = "Components"
-  pageRef = "/docs/components/"
+  name = "Library"
+  pageRef = "/docs/library/"
   weight = 30
   [main.params]
     alias = true
@@ -30,7 +30,7 @@
 [[main]]
   name = "GitHub"
   pre = "fab fa-github"
-  url = "https://github.com/gethinode/hinode"
+  url = "https://github.com/OpenSees/OpenSees"
   weight = 60
   [main.params]
     icon = true
@@ -138,8 +138,8 @@
 
 [[footer]]
   parent = "Links"
-  name = "Components"
-  pageRef = "/docs/components/"
+  name = "Library"
+  pageRef = "/docs/library/"
   weight = 30
   [footer.params]
     alias = true
