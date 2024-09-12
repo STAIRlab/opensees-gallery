@@ -115,7 +115,7 @@ The examples are available in English, French, and Dutch.
     OpenSeesRT uses Markdown and templates to define the content for your website. 
   {{< /accordion-item >}}
   {{< accordion-item header="Apply Bootstrap styling to your tables" >}}
-    OpenSeesRT enhances the basic tables available in Markdown with optional styling features provided by Bootstrap. You can customize the accentuation, adjust the borders, and make tables more compact. Review the [tables documentation]({{% relref "tables" %}}) for more details.
+    OpenSeesRT enhances the basic tables available in Markdown with optional styling features provided by Bootstrap. You can customize the accentuation, adjust the borders, and make tables more compact. 
   {{< /accordion-item >}}
 {{< /accordion >}}
 

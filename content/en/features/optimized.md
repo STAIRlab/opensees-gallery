@@ -8,6 +8,6 @@ tilted: true
 ---
 
 
-{{< button relref="content-organization" >}}
-    Check the content organization
+{{< button relref="developing" >}}
+    Developers
 {{< /button >}}

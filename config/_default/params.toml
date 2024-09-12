@@ -26,7 +26,7 @@
 # toml-docs-end version
 
 [home]
-    sections = ["guides", "users", "features", "ecosystem"]
+    sections = ["examples", "features", "ecosystem"] #"users",
     fullCover = true
     centerHeadline = true
     style = "gradient-featured"
@@ -90,8 +90,8 @@
 
 # toml-docs-start sections
 [sections]
-    [sections.guides]
-        title = "Check our guides to get you started"
+    [sections.examples]
+        title = "Get started with basic examples"
         layout = "card"
         sort = "date"
         reverse = true
@@ -139,7 +139,7 @@
         reverse = false
         style = "justify-content-center"
     [sections.ecosystem]
-        title = "Embrace the power of open source"
+        title = "An open source ecosystem"
         sectionHeader = "justify-content-end"
         layout = "card"
         sort = "weight"
@@ -207,13 +207,18 @@
     discussions_help = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/help"
     discussions_ideas = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/ideas"
     discussions_showcases = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/show-and-tell"
+    osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
+    sees = "https://github.com/STAIRlab/sees"
+    numpy = "https://numpy.org/"
+    openblas = "https://www.openblas.net/"
+    umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
+
     conventional_commit = "https://www.conventionalcommits.org"
     azure = "https://azure.microsoft.com"
     az_blob_domain = "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name"
     az_blob_pricing = "https://azure.microsoft.com/en-us/free"
     az_cdn_rules = "https://learn.microsoft.com/en-us/azure/cdn/cdn-standard-rules-engine-reference"
     blist = "https://github.com/apvarun/blist-hugo-theme"
-    numpy = "https://numpy.org/"
     bootstrap = "https://getbootstrap.com"
     bs_reduced_motion = "https://getbootstrap.com/docs/5.3/getting-started/accessibility/#reduced-motion"
     bs_badge_heading = "https://getbootstrap.com/docs/5.2/components/badge/#headings"
@@ -261,17 +266,11 @@
     google_analytics_csp = "https://developers.google.com/tag-platform/tag-manager/web/csp#google_analytics_4_google_analytics"
     google_chrome = "https://www.google.com/chrome"
     google_fonts = "https://fonts.google.com"
-    hinode = "https://gethinode.com"
-    hinode_demo = "https://demo.gethinode.com/"
+    hinode = "https://opensees.berkeley.edu"
+    hinode_demo = "https://stairlab.github.io/opensees-gallery/"
     hinode_fr = "https://demo.gethinode.com/fr/"
-#   hinode_release_v0_22_0 = "https://github.com/gethinode/hinode/releases/tag/v0.22.0-beta7"
-#   hinode_customization_demo = "https://customization-demo.gethinode.com/"
-    hinode_version_demo = "https://version-demo.gethinode.com/"
+#   hinode_version_demo = "https://version-demo.gethinode.com/"
     html_codeguide = "https://codeguide.co/#html"
-    osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
-    sees = "https://github.com/STAIRlab/sees"
-    openblas = "https://www.openblas.net/"
-    umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
     hugo = "https://gohugo.io"
     hugo_alias = "https://gohugo.io/content-management/urls/#aliases"
     hugo_build = "https://gohugo.io/content-management/build-options"
@@ -334,15 +333,6 @@
     logrocket_optimization = "https://blog.logrocket.com/9-tricks-eliminate-render-blocking-resources"
     lottie = "https://airbnb.io/lottie/"
     markdown_guide = "https://www.markdownguide.org"
-    markdown_emoji = "https://gist.github.com/rxaviers/7360908"
-    markdown_md013 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md013---line-length"
-    markdown_md024 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md024---multiple-headings-with-the-same-content"
-    markdown_md026 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md026---trailing-punctuation-in-heading"
-    markdown_md033 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md033---inline-html"
-    markdown_md034 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md034---bare-url-used"
-    markdown_md051 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md051---link-fragments-should-be-valid"
-    markdown_md053 = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md053---link-and-image-reference-definitions-should-be-needed"
-    markdown_rules = "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md"
     markdownlint = "https://github.com/DavidAnson/markdownlint-cli2"
     mermaid = "https://mermaid.js.org"
     mozilla_image = "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"
