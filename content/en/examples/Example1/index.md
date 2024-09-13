@@ -41,7 +41,7 @@ either Python or Tcl as follows:
 model -ndm 2 -ndf 2
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 import opensees.openseespy as ops
 
@@ -67,7 +67,7 @@ node 3 168.0  0.0;
 node 4  72.0 96.0;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 # Create nodes
 #         tag   X     Y
@@ -92,7 +92,7 @@ fix 2   1  1;
 fix 3   1  1;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 # set the boundary conditions
 #    nodeID xRestrnt? yRestrnt?
@@ -116,7 +116,7 @@ second specifies a Young's modulus of `3000`.
 uniaxialMaterial Elastic 1 3000;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 # Create Elastic material prototype
 model.uniaxialMaterial("Elastic", 1, 3000)
@@ -140,7 +140,7 @@ element Truss 2 2 4  5.0 1;
 element Truss 3 3 4  5.0 1;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 #              Type   tag  nodes  Area  material
 model.element("Truss", 1, (1, 4), 10.0,    1   )
@@ -167,7 +167,7 @@ hand, we want to apply a load to node `4` with `100` units in the $x$ direction,
 set loads {4 100 -50}
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 loads = {4: [100, -50]}
 ```
@@ -183,7 +183,7 @@ to specify that it should be increased linearly with each new load step.
 pattern Plain 1 "Linear" "load $loads"
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.pattern("Plain", 1, "Linear", load=loads)
 ```
@@ -203,7 +203,7 @@ pattern Plain 1 "Linear" {
 }
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.pattern("Plain", 1, "Linear", load={
   4: [100, -50]
@@ -225,7 +225,7 @@ The model is linear, so we use a solution Algorithm of type `Linear`.
 algorithm Linear;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.algorithm("Linear")
 ```
@@ -244,7 +244,7 @@ factor of `1.0` each time the `analyze` command is called.
 integrator LoadControl 1.0;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.integrator("LoadControl", 1.0)
 ```
@@ -267,7 +267,7 @@ itself is defined. For this problem a `Static` analysis is used.
 analysis Static;
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.analysis("Static")
 ```
@@ -281,7 +281,7 @@ Finally, one analysis step is performed by invoking `analyze`:
 analyze 1
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.analyze(1)
 ```
@@ -298,7 +298,7 @@ print node 4
 print ele
 ```
 {{% /tab %}}
-{{% tab name="Python" %}}
+{{% tab name="Python (RT)" %}}
 ```python
 model.print(node=4)
 model.print("ele")
