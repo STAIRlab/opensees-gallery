@@ -1,4 +1,7 @@
-# CentralDifference 
+---
+title: CentralDifference 
+layout: docs
+---
 
 ```cpp
 #include <analysis/integrator/CentralDifference.h>

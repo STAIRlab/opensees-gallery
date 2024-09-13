@@ -1,4 +1,7 @@
-# IncrementalIntegrator 
+---
+title: IncrementalIntegrator 
+layout: docs
+---
 
 ```cpp
 #include <analysis/integrator/IncrementalIntegrator.h>

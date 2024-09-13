@@ -1,4 +1,7 @@
-# LoadPattern
+---
+title: LoadPattern
+layout: docs
+---
 
 ```cpp
 #include <domain/pattern/LoadPattern.h>

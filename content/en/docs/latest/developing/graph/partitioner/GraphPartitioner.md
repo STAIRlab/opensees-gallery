@@ -1,4 +1,7 @@
-# GraphPartitioner 
+---
+title: GraphPartitioner 
+layout: docs
+---
 
 ```cpp
 #include <graph/partitioner/GraphPartitioner.h>

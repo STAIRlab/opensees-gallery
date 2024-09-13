@@ -1,6 +1,9 @@
 UNDER CONSTRUCTION - removeVertex & printSpecial NEED TO BE ADDED.
 
-# ArrayGraph 
+---
+title: ArrayGraph 
+layout: docs
+---
 
 ```cpp
 #include <graph/graph/ArrayGraph.h>

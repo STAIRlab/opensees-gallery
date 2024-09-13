@@ -1,4 +1,7 @@
-# DirectIntegrationAnalysis 
+---
+title: DirectIntegrationAnalysis 
+layout: docs
+---
 
 ```python
 class DirectIntegrationAnalysis(model, patterns, strategy)

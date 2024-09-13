@@ -1,4 +1,7 @@
-# EquiSolnAlgo
+---
+title: EquiSolnAlgo
+layout: docs
+---
 
 ```cpp
 #include <analysis/algorithm/equiSolnAlgo/EquiSolnAlgo.h>

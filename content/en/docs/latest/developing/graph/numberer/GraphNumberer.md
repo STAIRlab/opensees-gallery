@@ -1,4 +1,7 @@
-# GraphNumberer 
+---
+title: GraphNumberer 
+layout: docs
+---
 
 ```cpp
 #include <graph/numberer/GraphNumberer.h>
@@ -6,8 +9,8 @@
 class GraphNumberer: public MovableObject;
 ```
 
-- [RCM]()
-- [MinDegree]()
+- [RCM](rcm)
+- [AMD](amd)
 
 GraphNumberer is an abstract class. The GraphNumberer class defines the
 interface that all programmers must provide when introducing new

@@ -5,7 +5,10 @@ description: |
   to perform a static analysis on the Domain.
 ---
 
-# StaticAnalysis
+---
+title: StaticAnalysis
+layout: docs
+---
 
 `StaticAnalysis` is a subclass of `Analysis`, it is used to perform a static
 analysis on the Domain. The following are the aggregates of such an

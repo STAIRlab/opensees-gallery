@@ -1,4 +1,7 @@
-# Analysis Model
+---
+title: Analysis Model Classes
+layout: docs
+---
 
 The AnalysisModel object is a container class for
 storing and providing access to the following types of objects:

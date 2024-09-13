@@ -1,4 +1,7 @@
-# StaticIntegrator 
+---
+title: StaticIntegrator 
+layout: docs
+---
 
 ```cpp
 #include <analysis/integrator/StaticIntegrator.h>

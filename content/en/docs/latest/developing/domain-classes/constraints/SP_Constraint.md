@@ -1,4 +1,7 @@
-# SP_Constraint 
+---
+title: SP_Constraint 
+layout: docs
+---
 
 ```cpp
 #include <domain/constraints/SP_Constraint.h>

@@ -1,4 +1,7 @@
-# LagrangeMP_FE 
+---
+title: LagrangeMP_FE 
+layout: docs
+---
 
 ```cpp
 #include <analysis/fe_ele/lagrange/LagrangeMP_FE.h>

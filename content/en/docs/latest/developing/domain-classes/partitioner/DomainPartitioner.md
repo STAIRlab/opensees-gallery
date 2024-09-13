@@ -1,7 +1,7 @@
-UNDER CONSTRUCTION
-
-
-# DomainPartitioner 
+---
+title: DomainPartitioner 
+layout: docs
+---
 
 ```cpp
 #include <domain/partitioner/DomainPartitioner.h>

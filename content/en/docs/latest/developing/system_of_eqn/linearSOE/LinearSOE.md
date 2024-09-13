@@ -1,5 +1,8 @@
 
-# LinearSOE 
+---
+title: LinearSOE 
+layout: docs
+---
 
 ```cpp
 #include <system_of_eqn/linearSOE/LinearSOE.h>

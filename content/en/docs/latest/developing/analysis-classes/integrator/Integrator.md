@@ -1,4 +1,7 @@
-# Integrator 
+---
+title: Integrator 
+layout: docs
+---
 
 ```cpp
 #include <analysis/integrator/Integrator.h>

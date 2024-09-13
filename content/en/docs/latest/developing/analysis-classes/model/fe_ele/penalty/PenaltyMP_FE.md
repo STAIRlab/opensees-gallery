@@ -1,4 +1,7 @@
-# PenaltyMP_FE 
+---
+title: PenaltyMP_FE 
+layout: docs
+---
 
 ```cpp
 #include <analysis/fe_ele/penalty/PenaltyMP_FE.h>

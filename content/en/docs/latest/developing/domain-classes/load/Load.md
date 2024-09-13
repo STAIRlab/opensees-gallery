@@ -1,4 +1,7 @@
-# Load 
+---
+title: Load 
+layout: docs
+---
 
 ```cpp
 #include <domain/load/Load.h>

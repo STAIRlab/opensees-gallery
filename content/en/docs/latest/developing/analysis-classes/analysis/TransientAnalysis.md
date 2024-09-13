@@ -1,4 +1,7 @@
-# TransientAnalysis 
+---
+title: TransientAnalysis 
+layout: docs
+---
 
 ```cpp
 #include <analysis/analysis/TransientAnalysis.h>

@@ -1,4 +1,7 @@
-# LagrangeSP_FE 
+---
+title: LagrangeSP_FE 
+layout: docs
+---
 
 ```cpp
 #include <analysis/fe_ele/lagrange/LagrangeSP_FE.h>

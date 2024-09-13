@@ -1,5 +1,8 @@
 
-# EarthquakePattern 
+---
+title: EarthquakePattern 
+layout: docs
+---
 
 ```cpp
 #include <domain/pattern/EarthquakePattern.h>

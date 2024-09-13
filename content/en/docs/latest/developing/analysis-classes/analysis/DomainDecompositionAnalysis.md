@@ -1,4 +1,7 @@
-# DomainDecompositionAnalysis
+---
+title: DomainDecompositionAnalysis
+layout: docs
+---
 
 UNDER CONSTRUCTION
 

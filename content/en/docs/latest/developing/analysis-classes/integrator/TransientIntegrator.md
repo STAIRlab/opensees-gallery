@@ -1,4 +1,7 @@
-# TransientIntegrator 
+---
+title: TransientIntegrator 
+layout: docs
+---
 
 ```cpp
 #include <analysis/integrator/TransientIntegrator.h>

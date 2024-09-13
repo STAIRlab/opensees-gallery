@@ -1,4 +1,7 @@
-# SolutionAlgorithm 
+---
+title: SolutionAlgorithm 
+layout: docs
+---
 
 ```cpp
 #include <analysis/algorithm/SolutionAlgorithm.h>

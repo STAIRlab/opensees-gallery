@@ -1,4 +1,7 @@
-# FE_Element
+---
+title: FE_Element
+layout: docs
+---
 
 ```cpp
 #include <analysis/fe_ele/FE_Element.h>

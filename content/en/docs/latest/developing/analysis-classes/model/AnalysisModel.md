@@ -1,4 +1,7 @@
-# AnalysisModel
+---
+title: AnalysisModel
+layout: docs
+---
 
 MODIFY INTERFACE TO OFFER USER DEFINED STORAGE TYPE.
 
@@ -34,58 +37,11 @@ objects are not TaggedObjects and for this reason TaggedObjectStorage
 classes cannot be used for storage. This may change to allow efficient
 storage classes to be used.
 
-### Constructors
+
+### Public Methods - Population/Depopulation
 
 
 
-### Destructor
-
-\
-// Public Methods - Population/Depopulation\
-
-\
-
-\
-// Public Member Functions - Access\
-
-\
-
-\
-
-// Public Member Functions - Connectivity\
-
-\
-
-\
-
-// Public Member Functions - Update\
-
-\
-
-\
-
-\
-
-\
-// Public Member Functions - Trigger\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-// Public Methods for Output\
-
-\
-
-// Protected Member Functions\
-
-\
 
 Constructs an empty AnalysisModel. The constructor allocates space for
 two arrays of 256 pointers to FE_Elements and DOF_Groups. If not enough
@@ -94,9 +50,9 @@ the program is terminated. Note these arrays grow automatically if the
 problem needs it.
 
 Provided for subclasses to be used. The storage of the FE_Elements and
-DOF_Groups and iters to access them must be provided by the subclass.
+`DOF_Groups` and iters to access them must be provided by the subclass.
 
-\
+
 Is responsible for returning to memory the arrays used for storing
 pointers to the `FE_Element` and DOF_Groups which have been added to the
 AnalysisModel. It is not responsible for deleting the individual
@@ -305,6 +261,7 @@ and whatever subclasses might need need to be sent.
 ;\
 Returns $0$.
 
-\
+
 Returns a pointer to the associated Domain, that is the Domain set when
 `setLinks()` was last invoked.
+

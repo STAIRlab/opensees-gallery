@@ -1,4 +1,7 @@
-# MP_Constraint 
+---
+title: MP_Constraint 
+layout: docs
+---
 
 ```cpp
 #include <domain/constraints/MP_Constraint.h>

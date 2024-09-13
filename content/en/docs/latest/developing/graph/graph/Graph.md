@@ -1,4 +1,7 @@
-# Graph 
+---
+title: Graph 
+layout: docs
+---
 
 ```cpp
 #include <graph/graph/Graph.h>

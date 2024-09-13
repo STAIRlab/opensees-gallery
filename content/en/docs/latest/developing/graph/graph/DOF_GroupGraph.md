@@ -1,4 +1,7 @@
-# DOF_GroupGraph
+---
+title: DOF_GroupGraph
+layout: docs
+---
 
 ```cpp
 #include  <DOF_GroupGraph.h>

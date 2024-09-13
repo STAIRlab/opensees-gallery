@@ -1,4 +1,7 @@
-# Analysis 
+---
+title: Analysis 
+layout: docs
+---
 
 ```cpp
 #include <analysis/analysis/Analysis.h>

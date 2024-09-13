@@ -1,13 +1,18 @@
+---
+title: DOF_Group
+layout: docs
+---
+
 NEED A GETTANGFORCE() LIKE `FE_Element` FOR ELE_BY_ELE SOLVERS. KEEP A
 POINTER TO LAST INTEGRATOR.
 
-# `DOF_Group` 
 
 ```cpp
 #include <analysis/dof_grp/DOF_Group.h>
+
+class DOF_Group;
 ```
 
-class DOF_Group;\
 
 DOF_Group is a base class. An object of type `DOF_Group` represents an
 unconstrained node of the domain in the model. Each node in the domain

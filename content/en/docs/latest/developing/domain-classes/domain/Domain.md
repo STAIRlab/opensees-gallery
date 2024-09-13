@@ -1,4 +1,7 @@
-# Domain
+---
+title: Domain
+layout: docs
+---
 
 ```cpp
 #include  <domain/domain/Domain.h>
@@ -280,28 +283,28 @@ To return an iter for the Elements in the domain. It returns an
 `addElement()`.
 
 ```{.cpp}
-virtual NodeIter &getNodes(void);
+virtual NodeIter &getNodes();
 ```
 
 It returns a *NodeIter* for the nodes which have been added to the
 domain.
 
 ```{.cpp}
-virtual SP_ConstraintIter &getSPs(void);
+virtual SP_ConstraintIter &getSPs();
 ```
 
 To return an `SP_ConstraintIter` for the single point constraints which
 have been added to the domain.
 
 ```{.cpp}
-virtual MP_ConstraintIter &getMPs(void);
+virtual MP_ConstraintIter &getMPs();
 ```
 
 To return an `MP_ConstraintIter` for the multiple point constraints
 which have been added to the domain.
 
 ```{.cpp}
-virtual LoadPatternIter &getLoadPatterns(void);
+virtual LoadPatternIter &getLoadPatterns();
 ```
 
 To return an `LoadPatternIter` for the LoadPattern objects which have
@@ -360,14 +363,14 @@ To return the number of elements in the domain. It does this by invoking
 `getNumComponents()` on the container for the elements.
 
 ```{.cpp}
-virtual int getNumNodes(void) const;
+virtual int getNumNodes() const;
 ```
 
 To return the number of nodes in the domain. It does this by invoking
 `getNumComponents()` on the container for the nodes.
 
 ```{.cpp}
-virtual int getNumSPs(void) const;
+virtual int getNumSPs() const;
 ```
 
 To return the number of single point constraints in the domain. It does
@@ -375,7 +378,7 @@ this by invoking `getNumComponents()` on the container for the single
 point constraints.
 
 ```{.cpp}
-virtual int getNumMPs(void) const;
+virtual int getNumMPs() const;
 ```
 
 To return the number of multi point constraints in the domain. It does
@@ -383,14 +386,14 @@ this by invoking `getNumComponents()` on the container for the multi
 point constraints.
 
 ```{.cpp}
-virtual int getNumLoadPatterns(void) const;
+virtual int getNumLoadPatterns() const;
 ```
 
 To return the number of load patterns in the domain. It does this by
 invoking `getNumComponents()` on the container for the load patterns.
 
 ```{.cpp}
-virtual const Vector &getPhysicalBounds(void);
+virtual const Vector &getPhysicalBounds();
 ```
 
 To return the bounding rectangle for the Domain. The information is
@@ -399,7 +402,7 @@ contained in a `Vector` of size 6 containing in the following order {`xmin`,
 added to the domain, initially all are set to $0$ in the constructor.
 
 ```{.cpp}
-virtual Graph &getElementGraph(void);
+virtual Graph &getElementGraph();
 ```
 
 Returns the current element graph (the connectivity of the elements in
@@ -409,7 +412,7 @@ graph. The vertices in the element graph are to be labeled $0$ through
 $numEle-1$. The Vertices references contain the elemental tags.
 
 ```{.cpp}
-virtual Graph &getNodeGraph(void);
+virtual Graph &getNodeGraph();
 ```
 
 Returns the current node graph (the connectivity of the nodes in the
@@ -446,7 +449,7 @@ has been invoked will not be constant until this method is invoked
 again.
 
 ```{.cpp}
-virtual void commit(void);
+virtual void commit();
 ```
 
 To commit the state of the domain , that is to accept the current state
@@ -458,7 +461,7 @@ time variable to be equal to the current time and lastly increments its
 commit tag by $1$.
 
 ```{.cpp}
-virtual int revertToLastCommit(void);
+virtual int revertToLastCommit();
 ```
 
 To return the domain to the state it was in at the last commit. The
@@ -469,7 +472,7 @@ commitTag by $1$. Finally it invokes `applyLoad()` on itself with the
 current time.
 
 ```{.cpp}
-virtual void update(void);
+virtual void update();
 ```
 
 Called by the AnalysisModel to update the state of the domain. Iterates
@@ -480,7 +483,7 @@ returned by `hasDomainChanged()`.
 
 
 ```{.cpp}
-virtual int hasDomainChanged(void);
+virtual int hasDomainChanged();
 ```
 
 To return an integer stamp indicating the state of the domain. Initially
@@ -515,7 +518,7 @@ function invokes `M.Print(s)` before returning `s`.
 ### Protected Member Functions
 
 ```{.cpp}
-virtual void domainChange(void);
+virtual void domainChange();
 ```
 Sets a flag indicating that the integer returned in the next call to
 `hasDomainChanged()` must be incremented by $1$. This method is invoked
@@ -532,7 +535,7 @@ if successful otherwise $-1$ is returned along with an error message to
 `opserr`.
 
 
-```
+```{.cpp}
 virtual int buildNodeGraph(Graph &theNodeGraph)
 ```
 

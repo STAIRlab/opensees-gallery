@@ -1,4 +1,7 @@
-# DOFGraph
+---
+title: DOFGraph
+layout: docs
+---
 
 ```cpp
 #include  <DOFGraph.h>
