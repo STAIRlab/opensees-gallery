@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solid on OpenSees</title>
+    <link>http://localhost:1313/tags/solid/</link>
+    <description>Recent content in Solid on OpenSees</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
+    <atom:link href="http://localhost:1313/tags/solid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuum Cantilever</title>
+      <link>http://localhost:1313/examples/example8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/examples/example8/</guid>
+      <description>&lt;p&gt;In this example a simple problem in solid dynamics is considered. The&#xA;structure is a cantilever beam modelled with three dimensional solid&#xA;elements.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;src/Example8.tcl&#34;&gt;&lt;code&gt;Example8.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;src/Example8.py&#34;&gt;&lt;code&gt;Example8.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;For three dimensional analysis, a typical solid element is defined as a&#xA;volume in three dimensional space. Each node of the analysis has three&#xA;displacement degrees of freedom. Thus the model is defined with&#xA;&lt;code&gt;ndm = 3&lt;/code&gt; and &lt;code&gt;ndf = 3&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

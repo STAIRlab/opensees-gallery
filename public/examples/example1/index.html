@@ -1,0 +1,2688 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+
+
+
+
+
+<script src="/js/critical.bundle.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.134.1">
+    <meta name="theme" content="Hinode 0.26.7">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+
+    
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>OpenSees - Example 1: Linear Truss</title>
+    <meta name="description" content="A finite element model of a simple truss is created, and static analysis is performed.">
+
+<link rel="canonical" href="http://localhost:1313/examples/example1/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Example 1: Linear Truss">
+<meta property="og:description" content="A finite element model of a simple truss is created, and static analysis is performed.">
+<meta property="og:url" content="http://localhost:1313/examples/example1/">
+<meta property="og:site_name" content="OpenSees">
+<meta property="article:modified_time" content="2024-09-09T12:37:31-07:00">
+    <meta property="og:image" content="http://localhost:1313/examples/example1/img/BasicTruss-1280x640.png">
+<meta property="og:image:alt" content="Example 1: Linear Truss">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="Example 1: Linear Truss">
+<meta name="twitter:description" content="A finite element model of a simple truss is created, and static analysis is performed.">
+<meta name="twitter:image" content="http://localhost:1313/examples/example1/img/BasicTruss-1280x640.png">
+<meta name="twitter:image:alt" content="Example 1: Linear Truss">
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "http://localhost:1313/#/schema/organization/1",
+      "name": "STAIRlab",
+      "url": "http://localhost:1313/",
+      "sameAs": [null,"https://github.com/claudioperez/OpenSeesRT"],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "http://localhost:1313/#/schema/image/1",
+          "url": "http://localhost:1313/img/logo1280x640.png",
+          "width": 1280 ,
+          "height": 640 ,
+          "caption": "STAIRlab"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:1313/#/schema/website/1",
+      "url": "http://localhost:1313/",
+      "name": "OpenSees",
+      "description": "Nonlinear finite element analysis.",
+      "publisher": {
+          "@id": "http://localhost:1313/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "http://localhost:1313/examples/example1/",
+      "url": "http://localhost:1313/examples/example1/",
+      "name": "Example 1: Linear Truss",
+      "description": "A finite element model of a simple truss is created, and static analysis is performed.",
+      "isPartOf": {
+        "@id": "http://localhost:1313/#/schema/website/1"
+      },
+      "about": {
+          "@id": "http://localhost:1313/#/schema/organization/1"
+        },
+      "dateModified": "2024-09-09T12:37:31CET","breadcrumb": {
+        "@id": "http://localhost:1313/examples/example1/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "http://localhost:1313/examples/example1/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["http://localhost:1313/examples/example1/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "http://localhost:1313/examples/example1/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/",
+          "url": "http://localhost:1313/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/examples/",
+          "url": "http://localhost:1313/examples/",
+          "name": "Examples"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@id": "http://localhost:1313/examples/example1/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "http://localhost:1313/examples/example1/#/schema/image/2",
+          "url": "http://localhost:1313/examples/example1/img/BasicTruss-1280x640.png",
+          "contentUrl": "http://localhost:1313/examples/example1/img/BasicTruss-1280x640.png",
+          "caption": "Example 1: Linear Truss"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu4859157644406506559.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu7625285411303010146.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu613555693725536282.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu3675745231128929066.png">
+    
+
+</head>
+
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 navbar-fixed-top navbar-expand-lg"
+                
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+<!-- <i class="fas fa-ellipsis fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-ellipsis"></use></svg></button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/stairlab.svg" alt="OpenSees logo" height="30" width="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                
+                    <div class="d-flex flex-fill ms-md-3 mt-4 mt-lg-0">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+             href="/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/docs/" ><span >Docs</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="examples" 
+             href="/examples/" ><span  class="active">Examples</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            aria-label="GitHub"
+            data-nav="main" data-nav-main="github" 
+             href="https://github.com/OpenSees/OpenSees" target="_blank" rel="noopener noreferrer" >
+                
+                    
+<!-- <i class="fab fa-github "></i> -->
+        <svg class="svg-inline--fa fab fa-github " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><use href="#fab-github"></use></svg>&nbsp;
+                
+            <span ></span></a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+<!-- <i class="fas fa-sun fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-sun"></use></svg>
+<!-- <i class="fas fa-moon fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><use href="#fas-moon"></use></svg>
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+    
+
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    <p class="display-4 mt-5">Example 1: Linear Truss</p>
+
+    <small class="text-body-secondary text-uppercase">
+        
+        6&nbsp;min read &bull;
+        1,082&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Truss"
+        href="/tags/truss/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Truss</span>
+        </span></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Python"
+        href="/tags/python/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Python</span>
+        </span></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Tcl"
+        href="/tags/tcl/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Tcl</span>
+        </span></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Truss"
+        href="/tags/truss/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Truss</span>
+        </span></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Python"
+        href="/tags/python/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Python</span>
+        </span></a>&nbsp;
+
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Tcl"
+        href="/tags/tcl/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Tcl</span>
+        </span></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<p class="lead mb-5 mt-3">A finite element model of a simple truss is created, and static analysis is performed.</p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <span class="d-flex justify-content-between">
+            <span class="my-auto">On this page</span><span class="align-self-center ps-1">
+<!-- <i class="fas fa-sort "></i> -->
+        <svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><use href="#fas-sort"></use></svg></span>
+        </span></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#loads">Loads</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+        <!-- <svg src="Example1.svg"> -->
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg class="%!s(<nil>)"
+   width="349pt"
+   height="255pt"
+   viewBox="0 0 349 255"
+   version="1.2"
+   id="svg318"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs97">
+    <g
+       id="g83">
+      <symbol
+         overflow="visible"
+         id="glyph0-0">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path2" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-1">
+        <path
+           style="stroke:none;"
+           d="M 4.8125 -7.390625 C 3.578125 -7.28125 2.953125 -7.078125 2.171875 -6.515625 C 1 -5.6875 0.359375 -4.453125 0.359375 -3.015625 C 0.359375 -2.078125 0.65625 -1.125 1.125 -0.578125 C 1.53125 -0.109375 2.109375 0.15625 2.78125 0.15625 C 4.125 0.15625 5.046875 -0.875 5.046875 -2.359375 C 5.046875 -3.75 4.28125 -4.625 3.015625 -4.625 C 2.53125 -4.625 2.328125 -4.546875 1.640625 -4.140625 C 1.9375 -5.765625 3.140625 -6.9375 4.84375 -7.21875 Z M 2.609375 -4.125 C 3.546875 -4.125 4.078125 -3.34375 4.078125 -2 C 4.078125 -0.8125 3.65625 -0.15625 2.90625 -0.15625 C 1.953125 -0.15625 1.375 -1.171875 1.375 -2.84375 C 1.375 -3.390625 1.453125 -3.6875 1.671875 -3.859375 C 1.90625 -4.03125 2.234375 -4.125 2.609375 -4.125 Z M 2.609375 -4.125 "
+           id="path5" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-2">
+        <path
+           style="stroke:none;"
+           d="M 1.140625 -4.671875 C 1.875 -5.03125 2.359375 -5.6875 2.359375 -6.34375 C 2.359375 -6.875 1.96875 -7.296875 1.484375 -7.296875 C 1.109375 -7.296875 0.859375 -7.046875 0.859375 -6.6875 C 0.859375 -6.34375 1.09375 -6.125 1.5 -6.125 C 1.578125 -6.125 1.640625 -6.140625 1.703125 -6.15625 C 1.765625 -6.171875 1.765625 -6.171875 1.78125 -6.171875 C 1.875 -6.171875 1.9375 -6.109375 1.9375 -6.03125 C 1.9375 -5.671875 1.625 -5.28125 1.046875 -4.875 Z M 1.140625 -4.671875 "
+           id="path8" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-3">
+        <path
+           style="stroke:none;"
+           d="M 5.125 -1.484375 L 4.984375 -1.53125 C 4.59375 -0.90625 4.46875 -0.828125 3.96875 -0.828125 L 1.375 -0.828125 L 3.203125 -2.71875 C 4.15625 -3.71875 4.578125 -4.546875 4.578125 -5.390625 C 4.578125 -6.46875 3.703125 -7.296875 2.578125 -7.296875 C 1.984375 -7.296875 1.421875 -7.0625 1.03125 -6.625 C 0.6875 -6.265625 0.515625 -5.921875 0.328125 -5.15625 L 0.5625 -5.09375 C 1 -6.15625 1.375 -6.5 2.125 -6.5 C 3.046875 -6.5 3.65625 -5.890625 3.65625 -4.984375 C 3.65625 -4.125 3.15625 -3.125 2.25 -2.171875 L 0.328125 -0.125 L 0.328125 0 L 4.53125 0 Z M 5.125 -1.484375 "
+           id="path11" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-4">
+        <path
+           style="stroke:none;"
+           d="M 3.125 -4 C 4.203125 -4.59375 4.578125 -5.03125 4.578125 -5.765625 C 4.578125 -6.65625 3.8125 -7.296875 2.71875 -7.296875 C 1.546875 -7.296875 0.671875 -6.578125 0.671875 -5.59375 C 0.671875 -4.890625 0.875 -4.578125 2.015625 -3.578125 C 0.828125 -2.6875 0.609375 -2.375 0.609375 -1.625 C 0.609375 -0.578125 1.453125 0.15625 2.671875 0.15625 C 3.96875 0.15625 4.796875 -0.5625 4.796875 -1.671875 C 4.796875 -2.5 4.4375 -3.015625 3.125 -4 Z M 2.9375 -2.890625 C 3.71875 -2.328125 3.984375 -1.9375 3.984375 -1.34375 C 3.984375 -0.640625 3.5 -0.15625 2.796875 -0.15625 C 1.96875 -0.15625 1.421875 -0.78125 1.421875 -1.703125 C 1.421875 -2.40625 1.65625 -2.84375 2.28125 -3.375 Z M 2.8125 -4.203125 C 1.859375 -4.828125 1.46875 -5.328125 1.46875 -5.921875 C 1.46875 -6.546875 1.953125 -7 2.640625 -7 C 3.375 -7 3.828125 -6.515625 3.828125 -5.78125 C 3.828125 -5.125 3.546875 -4.6875 2.8125 -4.203125 Z M 2.8125 -4.203125 "
+           id="path14" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-5">
+        <path
+           style="stroke:none;"
+           d="M 6.453125 -1.828125 L 6.140625 -1.828125 C 5.625 -0.6875 5.140625 -0.40625 3.59375 -0.40625 L 3.296875 -0.40625 C 2.1875 -0.4375 2.171875 -0.4375 2.171875 -0.859375 L 2.171875 -3.53125 L 3.828125 -3.53125 C 4.734375 -3.515625 4.875 -3.375 5.015625 -2.5 L 5.265625 -2.5 L 5.265625 -5 L 5.015625 -5 C 4.890625 -4.125 4.734375 -4 3.828125 -3.96875 L 2.171875 -3.96875 L 2.171875 -6.375 C 2.1875 -6.6875 2.21875 -6.734375 2.53125 -6.734375 L 3.984375 -6.734375 C 5.234375 -6.71875 5.453125 -6.5625 5.625 -5.609375 L 5.890625 -5.609375 L 5.859375 -7.140625 L 0.125 -7.140625 L 0.125 -6.9375 C 0.921875 -6.890625 1.046875 -6.75 1.0625 -5.96875 L 1.0625 -1.171875 C 1.046875 -0.40625 0.90625 -0.25 0.125 -0.203125 L 0.125 0 L 5.953125 0 Z M 6.453125 -1.828125 "
+           id="path17" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-6">
+        <path
+           style="stroke:none;"
+           d="M 5.765625 -4.171875 L 0.328125 -4.171875 L 0.328125 -3.453125 L 5.765625 -3.453125 Z M 5.765625 -2.015625 L 0.328125 -2.015625 L 0.328125 -1.296875 L 5.765625 -1.296875 Z M 5.765625 -2.015625 "
+           id="path20" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-7">
+        <path
+           style="stroke:none;"
+           d="M 1.65625 -3.5625 C 2.28125 -3.5625 2.53125 -3.546875 2.78125 -3.4375 C 3.46875 -3.203125 3.875 -2.59375 3.875 -1.84375 C 3.875 -0.921875 3.265625 -0.234375 2.46875 -0.234375 C 2.171875 -0.234375 1.953125 -0.3125 1.5625 -0.578125 C 1.234375 -0.765625 1.0625 -0.84375 0.875 -0.84375 C 0.625 -0.84375 0.46875 -0.6875 0.46875 -0.46875 C 0.46875 -0.09375 0.921875 0.15625 1.6875 0.15625 C 2.5 0.15625 3.359375 -0.125 3.875 -0.578125 C 4.390625 -1.015625 4.65625 -1.640625 4.65625 -2.359375 C 4.65625 -2.921875 4.484375 -3.421875 4.171875 -3.75 C 3.953125 -4 3.75 -4.125 3.28125 -4.328125 C 4.015625 -4.84375 4.28125 -5.234375 4.28125 -5.8125 C 4.28125 -6.703125 3.609375 -7.296875 2.609375 -7.296875 C 2.0625 -7.296875 1.59375 -7.109375 1.203125 -6.765625 C 0.875 -6.46875 0.71875 -6.203125 0.484375 -5.546875 L 0.640625 -5.5 C 1.078125 -6.3125 1.5625 -6.65625 2.25 -6.65625 C 2.953125 -6.65625 3.4375 -6.1875 3.4375 -5.5 C 3.4375 -5.109375 3.265625 -4.734375 3 -4.453125 C 2.671875 -4.125 2.375 -3.96875 1.640625 -3.703125 Z M 1.65625 -3.5625 "
+           id="path23" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-8">
+        <path
+           style="stroke:none;"
+           d="M 2.75 -7.296875 C 2.15625 -7.296875 1.6875 -7.125 1.296875 -6.734375 C 0.671875 -6.125 0.265625 -4.890625 0.265625 -3.625 C 0.265625 -2.4375 0.609375 -1.1875 1.125 -0.578125 C 1.515625 -0.109375 2.078125 0.15625 2.703125 0.15625 C 3.25 0.15625 3.71875 -0.03125 4.109375 -0.40625 C 4.734375 -1 5.140625 -2.25 5.140625 -3.5625 C 5.140625 -5.78125 4.15625 -7.296875 2.75 -7.296875 Z M 2.703125 -7.015625 C 3.609375 -7.015625 4.109375 -5.796875 4.109375 -3.546875 C 4.109375 -1.28125 3.625 -0.125 2.703125 -0.125 C 1.765625 -0.125 1.296875 -1.28125 1.296875 -3.53125 C 1.296875 -5.828125 1.78125 -7.015625 2.703125 -7.015625 Z M 2.703125 -7.015625 "
+           id="path26" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-9">
+        <path
+           style="stroke:none;"
+           d="M 0.078125 0 L 2.609375 0 L 2.609375 -0.15625 L 2.390625 -0.171875 C 1.9375 -0.203125 1.796875 -0.328125 1.796875 -0.71875 L 1.796875 -2.703125 L 3.296875 -0.6875 C 3.34375 -0.640625 3.375 -0.578125 3.40625 -0.546875 C 3.5 -0.4375 3.53125 -0.375 3.53125 -0.328125 C 3.53125 -0.234375 3.4375 -0.15625 3.296875 -0.15625 L 3.09375 -0.15625 L 3.09375 0 L 5.453125 0 L 5.453125 -0.15625 C 4.984375 -0.1875 4.640625 -0.40625 4.1875 -0.953125 L 2.53125 -3.046875 L 2.84375 -3.34375 C 4.203125 -4.546875 4.484375 -4.71875 5.1875 -4.703125 L 5.1875 -4.859375 L 2.984375 -4.859375 L 2.984375 -4.703125 C 3.40625 -4.703125 3.515625 -4.65625 3.515625 -4.515625 C 3.515625 -4.421875 3.421875 -4.28125 3.265625 -4.140625 L 1.796875 -2.8125 L 1.796875 -7.359375 L 1.75 -7.375 C 1.328125 -7.25 1.015625 -7.140625 0.40625 -6.984375 L 0.078125 -6.90625 L 0.078125 -6.71875 C 0.21875 -6.734375 0.3125 -6.75 0.421875 -6.75 C 0.78125 -6.75 0.890625 -6.609375 0.890625 -6.09375 L 0.890625 -0.890625 C 0.875 -0.3125 0.84375 -0.28125 0.078125 -0.15625 Z M 0.078125 0 "
+           id="path29" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-10">
+        <path
+           style="stroke:none;"
+           d="M 3.40625 -3.390625 L 3.359375 -4.875 L 3.234375 -4.875 C 3.1875 -4.78125 3.125 -4.75 3.0625 -4.75 C 3 -4.75 2.890625 -4.765625 2.78125 -4.828125 C 2.53125 -4.90625 2.28125 -4.96875 2.015625 -4.96875 C 1.171875 -4.96875 0.546875 -4.40625 0.546875 -3.625 C 0.546875 -3.015625 0.890625 -2.59375 1.8125 -2.078125 L 2.4375 -1.71875 C 2.8125 -1.5 3 -1.234375 3 -0.90625 C 3 -0.4375 2.65625 -0.125 2.109375 -0.125 C 1.359375 -0.125 0.984375 -0.546875 0.734375 -1.640625 L 0.5625 -1.640625 L 0.5625 0.046875 L 0.703125 0.046875 C 0.78125 -0.0625 0.828125 -0.09375 0.953125 -0.09375 C 1.0625 -0.09375 1.203125 -0.0625 1.453125 0 C 1.734375 0.0625 2.015625 0.109375 2.234375 0.109375 C 3.078125 0.109375 3.75 -0.515625 3.75 -1.28125 C 3.75 -1.8125 3.5 -2.171875 2.84375 -2.5625 L 1.6875 -3.25 C 1.375 -3.4375 1.21875 -3.6875 1.21875 -3.984375 C 1.21875 -4.421875 1.5625 -4.71875 2.046875 -4.71875 C 2.671875 -4.71875 2.984375 -4.359375 3.234375 -3.390625 Z M 3.40625 -3.390625 "
+           id="path32" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-11">
+        <path
+           style="stroke:none;"
+           d="M 0.171875 0 L 2.734375 0 L 2.734375 -0.15625 C 2.015625 -0.21875 1.9375 -0.3125 1.9375 -1.09375 L 1.9375 -4.9375 L 1.890625 -4.96875 L 0.21875 -4.375 L 0.21875 -4.203125 L 0.296875 -4.21875 C 0.4375 -4.25 0.5625 -4.25 0.671875 -4.25 C 0.921875 -4.25 1.03125 -4.078125 1.03125 -3.609375 L 1.03125 -1.09375 C 1 -0.296875 0.90625 -0.1875 0.171875 -0.15625 Z M 1.375 -7.375 C 1.09375 -7.375 0.84375 -7.125 0.84375 -6.828125 C 0.84375 -6.515625 1.078125 -6.265625 1.375 -6.265625 C 1.703125 -6.265625 1.9375 -6.515625 1.9375 -6.828125 C 1.9375 -7.140625 1.6875 -7.375 1.375 -7.375 Z M 1.375 -7.375 "
+           id="path35" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-12">
+        <path
+           style="stroke:none;"
+           d="M 7.625 -0.203125 C 7.140625 -0.234375 7.03125 -0.34375 6.65625 -1.140625 L 3.96875 -7.28125 L 3.75 -7.28125 L 1.5 -1.96875 C 0.8125 -0.40625 0.6875 -0.234375 0.15625 -0.203125 L 0.15625 0 L 2.296875 0 L 2.296875 -0.203125 C 1.78125 -0.203125 1.5625 -0.328125 1.5625 -0.640625 C 1.5625 -0.78125 1.59375 -0.921875 1.65625 -1.0625 L 2.15625 -2.328125 L 4.984375 -2.328125 L 5.421875 -1.296875 C 5.546875 -1 5.625 -0.71875 5.625 -0.578125 C 5.625 -0.296875 5.4375 -0.21875 4.875 -0.203125 L 4.875 0 L 7.625 0 Z M 2.328125 -2.78125 L 3.578125 -5.75 L 4.828125 -2.78125 Z M 2.328125 -2.78125 "
+           id="path38" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-13">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path41" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-14">
+        <path
+           style="stroke:none;"
+           d="M 1.28125 0 L 4.25 0 L 4.25 -0.15625 C 3.421875 -0.15625 3.234375 -0.28125 3.234375 -0.796875 L 3.234375 -7.28125 L 3.140625 -7.296875 L 1.203125 -6.3125 L 1.203125 -6.171875 C 1.625 -6.328125 1.875 -6.40625 1.96875 -6.40625 C 2.203125 -6.40625 2.296875 -6.234375 2.296875 -5.890625 L 2.296875 -1 C 2.28125 -0.328125 2.09375 -0.171875 1.28125 -0.15625 Z M 1.28125 0 "
+           id="path44" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-15">
+        <path
+           style="stroke:none;"
+           d="M 0.1875 0 L 2.484375 0 L 2.484375 -0.15625 C 1.9375 -0.1875 1.765625 -0.328125 1.765625 -0.71875 L 1.765625 -3.75 C 2.28125 -4.25 2.53125 -4.375 2.875 -4.375 C 3.40625 -4.375 3.671875 -4.03125 3.671875 -3.328125 L 3.671875 -1.0625 C 3.65625 -0.359375 3.515625 -0.1875 2.984375 -0.15625 L 2.984375 0 L 5.234375 0 L 5.234375 -0.15625 C 4.703125 -0.21875 4.59375 -0.34375 4.578125 -0.875 L 4.578125 -3.34375 C 4.578125 -4.359375 4.109375 -4.96875 3.296875 -4.96875 C 2.8125 -4.96875 2.46875 -4.78125 1.734375 -4.09375 L 1.734375 -4.9375 L 1.65625 -4.96875 C 1.09375 -4.765625 0.734375 -4.640625 0.171875 -4.484375 L 0.171875 -4.296875 C 0.25 -4.328125 0.34375 -4.34375 0.46875 -4.34375 C 0.765625 -4.34375 0.859375 -4.171875 0.859375 -3.65625 L 0.859375 -0.96875 C 0.859375 -0.328125 0.734375 -0.1875 0.1875 -0.15625 Z M 0.1875 0 "
+           id="path47" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-16">
+        <path
+           style="stroke:none;"
+           d="M 1 -3.1875 L 2.53125 -6.28125 L 4.0625 -3.1875 L 4.796875 -3.1875 L 2.84375 -7.09375 L 2.21875 -7.09375 L 0.265625 -3.1875 Z M 1 -3.1875 "
+           id="path50" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-17">
+        <path
+           style="stroke:none;"
+           d="M 1.953125 -6.296875 L 4.078125 -6.296875 C 4.25 -6.296875 4.28125 -6.3125 4.3125 -6.390625 L 4.734375 -7.359375 L 4.625 -7.421875 C 4.46875 -7.21875 4.375 -7.140625 4.140625 -7.140625 L 1.875 -7.140625 L 0.703125 -4.59375 C 0.6875 -4.5625 0.6875 -4.5625 0.6875 -4.53125 C 0.6875 -4.46875 0.734375 -4.453125 0.828125 -4.453125 C 1.171875 -4.453125 1.59375 -4.375 2.046875 -4.234375 C 3.28125 -3.828125 3.84375 -3.171875 3.84375 -2.09375 C 3.84375 -1.0625 3.203125 -0.25 2.34375 -0.25 C 2.125 -0.25 1.953125 -0.328125 1.625 -0.5625 C 1.28125 -0.828125 1.046875 -0.921875 0.796875 -0.921875 C 0.5 -0.921875 0.34375 -0.78125 0.34375 -0.515625 C 0.34375 -0.109375 0.84375 0.15625 1.65625 0.15625 C 2.5625 0.15625 3.34375 -0.140625 3.890625 -0.6875 C 4.375 -1.171875 4.59375 -1.796875 4.59375 -2.609375 C 4.59375 -3.390625 4.390625 -3.890625 3.859375 -4.421875 C 3.390625 -4.90625 2.78125 -5.15625 1.5 -5.375 Z M 1.953125 -6.296875 "
+           id="path53" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-18">
+        <path
+           style="stroke:none;"
+           d="M 5.09375 -2.5 L 4 -2.5 L 4 -7.296875 L 3.515625 -7.296875 L 0.125 -2.5 L 0.125 -1.796875 L 3.15625 -1.796875 L 3.15625 0 L 4 0 L 4 -1.796875 L 5.09375 -1.796875 Z M 3.15625 -2.5 L 0.5625 -2.5 L 3.15625 -6.203125 Z M 3.15625 -2.5 "
+           id="path56" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-19">
+        <path
+           style="stroke:none;"
+           d="M 3.1875 -7.296875 C 2.390625 -6.765625 2.0625 -6.5 1.65625 -6 C 0.890625 -5.0625 0.515625 -3.984375 0.515625 -2.71875 C 0.515625 -1.34375 0.921875 -0.296875 1.875 0.8125 C 2.3125 1.328125 2.59375 1.5625 3.15625 1.90625 L 3.28125 1.734375 C 2.421875 1.0625 2.109375 0.671875 1.828125 -0.125 C 1.5625 -0.859375 1.453125 -1.65625 1.453125 -2.75 C 1.453125 -3.890625 1.59375 -4.78125 1.875 -5.4375 C 2.1875 -6.109375 2.5 -6.5 3.28125 -7.125 Z M 3.1875 -7.296875 "
+           id="path59" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-20">
+        <path
+           style="stroke:none;"
+           d="M 0.40625 1.90625 C 1.203125 1.375 1.53125 1.109375 1.9375 0.609375 C 2.703125 -0.328125 3.078125 -1.40625 3.078125 -2.671875 C 3.078125 -4.046875 2.671875 -5.09375 1.734375 -6.203125 C 1.28125 -6.71875 1 -6.953125 0.4375 -7.296875 L 0.3125 -7.125 C 1.171875 -6.453125 1.46875 -6.0625 1.765625 -5.265625 C 2.03125 -4.53125 2.15625 -3.71875 2.15625 -2.640625 C 2.15625 -1.5 2.015625 -0.609375 1.71875 0.046875 C 1.421875 0.71875 1.09375 1.109375 0.3125 1.734375 Z M 0.40625 1.90625 "
+           id="path62" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph0-21">
+        <path
+           style="stroke:none;"
+           d="M 0.046875 2.34375 L 2.671875 2.34375 L 2.671875 2.15625 C 1.859375 2.140625 1.734375 2.03125 1.71875 1.34375 L 1.71875 -0.359375 C 2.109375 0 2.359375 0.109375 2.8125 0.109375 C 4.09375 0.109375 5.078125 -1.09375 5.078125 -2.671875 C 5.078125 -4 4.3125 -4.96875 3.265625 -4.96875 C 2.671875 -4.96875 2.1875 -4.703125 1.71875 -4.109375 L 1.71875 -4.9375 L 1.65625 -4.96875 C 1.0625 -4.734375 0.6875 -4.59375 0.09375 -4.421875 L 0.09375 -4.25 C 0.1875 -4.25 0.265625 -4.25 0.359375 -4.25 C 0.734375 -4.25 0.8125 -4.140625 0.8125 -3.640625 L 0.8125 1.421875 C 0.8125 1.984375 0.6875 2.09375 0.046875 2.15625 Z M 1.71875 -3.609375 C 1.71875 -3.9375 2.328125 -4.3125 2.8125 -4.3125 C 3.609375 -4.3125 4.140625 -3.5 4.140625 -2.234375 C 4.140625 -1.046875 3.609375 -0.234375 2.84375 -0.234375 C 2.328125 -0.234375 1.71875 -0.625 1.71875 -0.953125 Z M 1.71875 -3.609375 "
+           id="path65" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph1-0">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path68" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph1-1">
+        <path
+           style="stroke:none;"
+           d="M 0.84375 0 L 2.84375 0 L 2.84375 -0.109375 C 2.28125 -0.109375 2.15625 -0.1875 2.15625 -0.53125 L 2.15625 -4.859375 L 2.09375 -4.875 L 0.796875 -4.21875 L 0.796875 -4.109375 C 1.078125 -4.21875 1.25 -4.265625 1.3125 -4.265625 C 1.46875 -4.265625 1.53125 -4.15625 1.53125 -3.9375 L 1.53125 -0.671875 C 1.515625 -0.21875 1.390625 -0.109375 0.84375 -0.109375 Z M 0.84375 0 "
+           id="path71" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph1-2">
+        <path
+           style="stroke:none;"
+           d="M 3.421875 -0.984375 L 3.328125 -1.015625 C 3.0625 -0.609375 2.984375 -0.546875 2.640625 -0.546875 L 0.921875 -0.546875 L 2.125 -1.8125 C 2.765625 -2.484375 3.046875 -3.03125 3.046875 -3.59375 C 3.046875 -4.3125 2.46875 -4.875 1.71875 -4.875 C 1.328125 -4.875 0.953125 -4.703125 0.6875 -4.421875 C 0.453125 -4.171875 0.34375 -3.953125 0.21875 -3.4375 L 0.375 -3.40625 C 0.65625 -4.109375 0.921875 -4.34375 1.421875 -4.34375 C 2.03125 -4.34375 2.4375 -3.921875 2.4375 -3.328125 C 2.4375 -2.75 2.109375 -2.09375 1.5 -1.453125 L 0.21875 -0.09375 L 0.21875 0 L 3.03125 0 Z M 3.421875 -0.984375 "
+           id="path74" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph1-3">
+        <path
+           style="stroke:none;"
+           d="M 0.59375 1.015625 C 1.078125 0.78125 1.40625 0.34375 1.40625 -0.09375 C 1.40625 -0.453125 1.15625 -0.734375 0.828125 -0.734375 C 0.578125 -0.734375 0.40625 -0.5625 0.40625 -0.328125 C 0.40625 -0.09375 0.5625 0.046875 0.828125 0.046875 C 0.875 0.046875 0.921875 0.03125 0.96875 0.03125 C 1.015625 0.015625 1.015625 0.015625 1.015625 0.015625 C 1.078125 0.015625 1.125 0.0625 1.125 0.109375 C 1.125 0.34375 0.921875 0.609375 0.53125 0.875 Z M 0.59375 1.015625 "
+           id="path77" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="glyph1-4">
+        <path
+           style="stroke:none;"
+           d="M 1.109375 -2.375 C 1.53125 -2.375 1.6875 -2.359375 1.859375 -2.296875 C 2.3125 -2.125 2.578125 -1.734375 2.578125 -1.234375 C 2.578125 -0.625 2.1875 -0.15625 1.65625 -0.15625 C 1.453125 -0.15625 1.296875 -0.203125 1.03125 -0.375 C 0.828125 -0.515625 0.703125 -0.5625 0.578125 -0.5625 C 0.421875 -0.5625 0.3125 -0.46875 0.3125 -0.3125 C 0.3125 -0.0625 0.625 0.09375 1.125 0.09375 C 1.671875 0.09375 2.234375 -0.09375 2.578125 -0.375 C 2.921875 -0.671875 3.109375 -1.09375 3.109375 -1.578125 C 3.109375 -1.953125 2.984375 -2.28125 2.78125 -2.5 C 2.640625 -2.671875 2.5 -2.75 2.1875 -2.890625 C 2.671875 -3.234375 2.859375 -3.5 2.859375 -3.875 C 2.859375 -4.46875 2.40625 -4.875 1.734375 -4.875 C 1.375 -4.875 1.0625 -4.75 0.796875 -4.515625 C 0.578125 -4.3125 0.46875 -4.140625 0.328125 -3.703125 L 0.4375 -3.671875 C 0.71875 -4.203125 1.046875 -4.4375 1.5 -4.4375 C 1.96875 -4.4375 2.296875 -4.125 2.296875 -3.671875 C 2.296875 -3.40625 2.1875 -3.15625 2 -2.96875 C 1.78125 -2.75 1.578125 -2.640625 1.09375 -2.46875 Z M 1.109375 -2.375 "
+           id="path80" />
+      </symbol>
+    </g>
+    <clipPath
+       id="clip1">
+      <path
+         d="M 163 46 L 205 46 L 205 48 L 163 48 Z M 163 46 "
+         id="path85" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <path
+         d="M 0 0 L 349 0 L 349 255 L 0 255 Z M 189.601562 43.878906 L 204 47 L 189.601562 50.179688 L 205.800781 50.179688 L 205.800781 43.878906 Z M 189.601562 43.878906 "
+         id="path88" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <path
+         d="M 154 1 L 155 1 L 155 39 L 154 39 Z M 154 1 "
+         id="path91" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <path
+         d="M 0 0 L 349 0 L 349 255 L 0 255 Z M 157.679688 23.601562 L 154.5 38 L 151.378906 23.601562 L 151.378906 39.800781 L 157.679688 39.800781 Z M 157.679688 23.601562 "
+         id="path94" />
+    </clipPath>
+  </defs>
+  <g
+     id="surface1">
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 465 100 L 2985 100 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path99" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 465 190 L 465 10 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path101" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 1545 190 L 1545 10 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path103" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2985 190 L 2985 10 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path105" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2625 190 L 2625 10 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path107" />
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g113">
+      <use
+         xlink:href="#glyph0-1"
+         x="100.5"
+         y="240.5"
+         id="use109" />
+      <use
+         xlink:href="#glyph0-2"
+         x="105.9"
+         y="240.5"
+         id="use111" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g119">
+      <use
+         xlink:href="#glyph0-1"
+         x="203.999964"
+         y="240.5"
+         id="use115" />
+      <use
+         xlink:href="#glyph0-2"
+         x="209.399964"
+         y="240.5"
+         id="use117" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g125">
+      <use
+         xlink:href="#glyph0-3"
+         x="276"
+         y="240.5"
+         id="use121" />
+      <use
+         xlink:href="#glyph0-2"
+         x="281.4"
+         y="240.5"
+         id="use123" />
+    </g>
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 375 460 L 465 595 L 555 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path127" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 285 460 L 645 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path129" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2895 460 L 2985 595 L 3075 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path131" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2805 460 L 3165 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path133" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2535 460 L 2625 595 L 2715 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path135" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2445 460 L 2805 460 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path137" />
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 420 595 L 510 595 L 510 685 L 420 685 Z M 420 595 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path139" />
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 1500 2035 L 1590 2035 L 1590 2125 L 1500 2125 Z M 1500 2035 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path141" />
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2580 595 L 2670 595 L 2670 685 L 2580 685 Z M 2580 595 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path143" />
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 2940 595 L 3030 595 L 3030 685 L 2940 685 Z M 2940 595 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path145" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 465 640 L 1545 2080 L 2625 640 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path147" />
+    <path
+       style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 1545 2080 L 2985 640 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path149" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 15 640 L 195 640 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path151" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 15 2080 L 195 2080 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path153" />
+    <path
+       style="fill:none;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 105 640 L 105 2080 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path155" />
+    <g
+       clip-path="url(#clip1)"
+       clip-rule="nonzero"
+       id="g161">
+      <g
+         clip-path="url(#clip2)"
+         clip-rule="nonzero"
+         id="g159">
+        <path
+           style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+           d="M 1635 2080 L 2040 2080 "
+           transform="matrix(0.1,0,0,-0.1,0,255)"
+           id="path157" />
+      </g>
+    </g>
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 1896.015625 2111.210938 L 2040 2080 L 1896.015625 2048.203125 Z M 1896.015625 2111.210938 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path163" />
+    <g
+       clip-path="url(#clip3)"
+       clip-rule="nonzero"
+       id="g169">
+      <g
+         clip-path="url(#clip4)"
+         clip-rule="nonzero"
+         id="g167">
+        <path
+           style="fill:none;stroke-width:9;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+           d="M 1545 2530 L 1545 2170 "
+           transform="matrix(0.1,0,0,-0.1,0,255)"
+           id="path165" />
+      </g>
+    </g>
+    <path
+       style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:4.5;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;"
+       d="M 1576.796875 2313.984375 L 1545 2170 L 1513.789062 2313.984375 Z M 1576.796875 2313.984375 "
+       transform="matrix(0.1,0,0,-0.1,0,255)"
+       id="path171" />
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g177">
+      <use
+         xlink:href="#glyph0-4"
+         x="15"
+         y="119"
+         id="use173" />
+      <use
+         xlink:href="#glyph0-2"
+         x="20.4"
+         y="119"
+         id="use175" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g197">
+      <use
+         xlink:href="#glyph0-5"
+         x="298.5"
+         y="74"
+         id="use179" />
+      <use
+         xlink:href="#glyph0-6"
+         x="305.0988"
+         y="74"
+         id="use181" />
+      <use
+         xlink:href="#glyph0-7"
+         x="311.19"
+         y="74"
+         id="use183" />
+      <use
+         xlink:href="#glyph0-8"
+         x="316.59"
+         y="74"
+         id="use185" />
+      <use
+         xlink:href="#glyph0-8"
+         x="321.99"
+         y="74"
+         id="use187" />
+      <use
+         xlink:href="#glyph0-8"
+         x="327.39"
+         y="74"
+         id="use189" />
+      <use
+         xlink:href="#glyph0-9"
+         x="332.79"
+         y="74"
+         id="use191" />
+      <use
+         xlink:href="#glyph0-10"
+         x="338.19"
+         y="74"
+         id="use193" />
+      <use
+         xlink:href="#glyph0-11"
+         x="342.3912"
+         y="74"
+         id="use195" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g217">
+      <use
+         xlink:href="#glyph0-12"
+         x="298.5"
+         y="92"
+         id="use199" />
+      <use
+         xlink:href="#glyph0-13"
+         x="306.2976"
+         y="92"
+         id="use201" />
+      <use
+         xlink:href="#glyph0-6"
+         x="308.9976"
+         y="92"
+         id="use203" />
+      <use
+         xlink:href="#glyph0-14"
+         x="315.0888"
+         y="92"
+         id="use205" />
+      <use
+         xlink:href="#glyph0-8"
+         x="320.4888"
+         y="92"
+         id="use207" />
+      <use
+         xlink:href="#glyph0-11"
+         x="325.8888"
+         y="92"
+         id="use209" />
+      <use
+         xlink:href="#glyph0-15"
+         x="328.8912"
+         y="92"
+         id="use211" />
+      <use
+         xlink:href="#glyph0-16"
+         x="334.2912"
+         y="92"
+         id="use213" />
+      <use
+         xlink:href="#glyph0-3"
+         x="339.3564"
+         y="92"
+         id="use215" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g237">
+      <use
+         xlink:href="#glyph0-12"
+         x="303"
+         y="110"
+         id="use219" />
+      <use
+         xlink:href="#glyph0-13"
+         x="310.7976"
+         y="110"
+         id="use221" />
+      <use
+         xlink:href="#glyph0-13"
+         x="313.4976"
+         y="110"
+         id="use223" />
+      <use
+         xlink:href="#glyph0-6"
+         x="316.1976"
+         y="110"
+         id="use225" />
+      <use
+         xlink:href="#glyph0-17"
+         x="322.2888"
+         y="110"
+         id="use227" />
+      <use
+         xlink:href="#glyph0-11"
+         x="327.6888"
+         y="110"
+         id="use229" />
+      <use
+         xlink:href="#glyph0-15"
+         x="330.6912"
+         y="110"
+         id="use231" />
+      <use
+         xlink:href="#glyph0-16"
+         x="336.0912"
+         y="110"
+         id="use233" />
+      <use
+         xlink:href="#glyph0-3"
+         x="341.1564"
+         y="110"
+         id="use235" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g241">
+      <use
+         xlink:href="#glyph0-14"
+         x="37.5"
+         y="182"
+         id="use239" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g245">
+      <use
+         xlink:href="#glyph0-3"
+         x="240"
+         y="191"
+         id="use243" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g249">
+      <use
+         xlink:href="#glyph0-7"
+         x="312.000036"
+         y="191"
+         id="use247" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g253">
+      <use
+         xlink:href="#glyph0-18"
+         x="136.5"
+         y="47"
+         id="use251" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g261">
+      <use
+         xlink:href="#glyph0-19"
+         x="78"
+         y="119"
+         id="use255" />
+      <use
+         xlink:href="#glyph0-14"
+         x="81.5964"
+         y="119"
+         id="use257" />
+      <use
+         xlink:href="#glyph0-20"
+         x="86.9964"
+         y="119"
+         id="use259" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g269">
+      <use
+         xlink:href="#glyph0-19"
+         x="204"
+         y="146"
+         id="use263" />
+      <use
+         xlink:href="#glyph0-3"
+         x="207.5964"
+         y="146"
+         id="use265" />
+      <use
+         xlink:href="#glyph0-20"
+         x="212.9964"
+         y="146"
+         id="use267" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g277">
+      <use
+         xlink:href="#glyph0-19"
+         x="231"
+         y="114.5"
+         id="use271" />
+      <use
+         xlink:href="#glyph0-7"
+         x="234.5964"
+         y="114.5"
+         id="use273" />
+      <use
+         xlink:href="#glyph0-20"
+         x="239.9964"
+         y="114.5"
+         id="use275" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g289">
+      <use
+         xlink:href="#glyph0-17"
+         x="159"
+         y="15.5"
+         id="use279" />
+      <use
+         xlink:href="#glyph0-8"
+         x="164.4"
+         y="15.5"
+         id="use281" />
+      <use
+         xlink:href="#glyph0-9"
+         x="169.8"
+         y="15.5"
+         id="use283" />
+      <use
+         xlink:href="#glyph0-11"
+         x="175.2"
+         y="15.5"
+         id="use285" />
+      <use
+         xlink:href="#glyph0-21"
+         x="178.2024"
+         y="15.5"
+         id="use287" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g303">
+      <use
+         xlink:href="#glyph0-14"
+         x="195"
+         y="42.5"
+         id="use291" />
+      <use
+         xlink:href="#glyph0-8"
+         x="200.4"
+         y="42.5"
+         id="use293" />
+      <use
+         xlink:href="#glyph0-8"
+         x="205.8"
+         y="42.5"
+         id="use295" />
+      <use
+         xlink:href="#glyph0-9"
+         x="211.2"
+         y="42.5"
+         id="use297" />
+      <use
+         xlink:href="#glyph0-11"
+         x="216.6"
+         y="42.5"
+         id="use299" />
+      <use
+         xlink:href="#glyph0-21"
+         x="219.6024"
+         y="42.5"
+         id="use301" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g307">
+      <use
+         xlink:href="#glyph1-1"
+         x="307.5"
+         y="96.5"
+         id="use305" />
+    </g>
+    <g
+       style="fill:rgb(0%,0%,0%);fill-opacity:1;"
+       id="g315">
+      <use
+         xlink:href="#glyph1-2"
+         x="312"
+         y="114.5"
+         id="use309" />
+      <use
+         xlink:href="#glyph1-3"
+         x="315.6"
+         y="114.5"
+         id="use311" />
+      <use
+         xlink:href="#glyph1-4"
+         x="317.4"
+         y="114.5"
+         id="use313" />
+    </g>
+  </g>
+</svg>
+
+<p>This example is of a linear-elastic three bar truss, as shown in
+the figure above, subject to static loads. The purpose of this
+example is to develop the basic requirements for performing
+finite element analysis with OpenSees.
+This includes the definition of nodes,
+materials, elements, loads and constraints.</p>
+<p>Scripts for this example can be downloaded for either
+Python or Tcl:</p>
+<ul>
+<li>
+    
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="./Example1.py"><code>Example1.py</code></a></li>
+<li>
+    
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="./Example1.tcl"><code>Example1.tcl</code></a></li>
+</ul>
+
+<h2 id="model" class="heading">Model <a href="#model" aria-labelledby="model">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
+<p>We begin the simulation by creating a <code>Model</code>, which will manage
+the nodes, elements, loading and state. This is done through
+either Python or Tcl as follows:</p>
+<p><nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="ebdfac-tab" data-bs-toggle="tab" data-bs-target="#ebdfac"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="efbcad-tab" data-bs-toggle="tab" data-bs-target="#efbcad"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="ebdfac" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">model</span> <span class="o">-</span>ndm <span class="mi">2</span> <span class="o">-</span>ndf <span class="mi">2</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="efbcad" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">opensees.openseespy</span> <span class="k">as</span> <span class="nn">ops</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">ndm</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ndf</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+where we&rsquo;ve specified <code>2</code> for the spatial dimension <code>ndm</code>, and
+<code>2</code> for the number of degrees of freedom <code>ndf</code>.</p>
+<p>Next we define the four nodes of the structural model by specifying
+a tag which identifies the node, and coordinates in the 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x-y</annotation></semantics></math></span>
+    
+
+ plane.
+In general, the <code>node</code> constructor must be passed <code>ndm</code> coordinates.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="abcdfe-tab" data-bs-toggle="tab" data-bs-target="#abcdfe"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="cbedfa-tab" data-bs-toggle="tab" data-bs-target="#cbedfa"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="abcdfe" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># Create nodes &amp; add to domain
+</span></span></span><span class="line"><span class="cl"><span class="c">#   tag  X    Y
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">node</span> <span class="mi">1</span>   <span class="mf">0.0</span>  <span class="mf">0.0</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">node</span> <span class="mi">2</span> <span class="mf">144.0</span>  <span class="mf">0.0</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">node</span> <span class="mi">3</span> <span class="mf">168.0</span>  <span class="mf">0.0</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">node</span> <span class="mi">4</span>  <span class="mf">72.0</span> <span class="mf">96.0</span><span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="cbedfa" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create nodes</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         tag   X     Y</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">144.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">168.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>  <span class="mf">72.0</span><span class="p">,</span> <span class="mf">96.0</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>The restraints at the nodes with reactions (ie, nodes <code>1</code>, <code>2</code>, and <code>3</code>)
+are then defined.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="bdeacf-tab" data-bs-toggle="tab" data-bs-target="#bdeacf"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="feadbc-tab" data-bs-toggle="tab" data-bs-target="#feadbc"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="bdeacf" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># Set the boundary conditions
+</span></span></span><span class="line"><span class="cl"><span class="c">#  tag  X  Y
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">fix</span> <span class="mi">1</span>   <span class="mi">1</span>  <span class="mi">1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">fix</span> <span class="mi">2</span>   <span class="mi">1</span>  <span class="mi">1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">fix</span> <span class="mi">3</span>   <span class="mi">1</span>  <span class="mi">1</span><span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="feadbc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># set the boundary conditions</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    nodeID xRestrnt? yRestrnt?</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>Since the truss elements have the same elastic material,
+a single Elastic material object is created. The first
+argument assigns the tag <code>1</code> to the material, and the
+second specifies a Young&rsquo;s modulus of <code>3000</code>.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="edcafb-tab" data-bs-toggle="tab" data-bs-target="#edcafb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="dbecaf-tab" data-bs-toggle="tab" data-bs-target="#dbecaf"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="edcafb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># Create Elastic material prototype
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">uniaxialMaterial</span> Elastic <span class="mi">1</span> <span class="mi">3000</span><span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="dbecaf" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create Elastic material prototype</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">uniaxialMaterial</span><span class="p">(</span><span class="s2">&#34;Elastic&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>Finally, define the elements. The syntax for creating
+the truss element requires the following arguments:</p>
+<ol>
+<li>the element name, in this case always <code>&quot;Truss&quot;</code>,</li>
+<li>the element tag, in this case <code>1</code> through <code>3</code>,</li>
+<li>the nodes that the element is connected to,</li>
+<li>the cross-sectional area, in this case <code>10.0</code> for element <code>1</code> and <code>5.0</code> for elements <code>2</code> and <code>3</code>.</li>
+<li>the tag of the material assigned to the element, in this case always <code>1</code></li>
+</ol>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="bdacef-tab" data-bs-toggle="tab" data-bs-target="#bdacef"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="dbfeca-tab" data-bs-toggle="tab" data-bs-target="#dbfeca"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="bdacef" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">element</span> Truss <span class="mi">1</span> <span class="mi">1</span> <span class="mi">4</span> <span class="mf">10.0</span> <span class="mi">1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">element</span> Truss <span class="mi">2</span> <span class="mi">2</span> <span class="mi">4</span>  <span class="mf">5.0</span> <span class="mi">1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">element</span> Truss <span class="mi">3</span> <span class="mi">3</span> <span class="mi">4</span>  <span class="mf">5.0</span> <span class="mi">1</span><span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="dbfeca" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#              Type   tag  nodes  Area  material</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">element</span><span class="p">(</span><span class="s2">&#34;Truss&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mf">10.0</span><span class="p">,</span>    <span class="mi">1</span>   <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">element</span><span class="p">(</span><span class="s2">&#34;Truss&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>  <span class="mf">5.0</span><span class="p">,</span>    <span class="mi">1</span>   <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">element</span><span class="p">(</span><span class="s2">&#34;Truss&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>  <span class="mf">5.0</span><span class="p">,</span>    <span class="mi">1</span>   <span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+
+<h2 id="loads" class="heading">Loads <a href="#loads" aria-labelledby="loads">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
+<p>The final step before we can configure and run the analysis is to define
+some loading. In this case we have two point loads at the apex of
+the truss (node <code>4</code>).
+In OpenSees, loads are assigned to load <em>patterns</em>, which define how loads
+are scaled with each load <em>step</em>.
+In Python, the simplest way to represent a nodal load is by a dictionary with
+node numbers as keys, and corresponding load vector as values. For the problem at
+hand, we want to apply a load to node <code>4</code> with <code>100</code> units in the 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>
+    
+
+ direction, and
+<code>-50</code> units in the 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>
+    
+
+ direction; the corresponding definition is:
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="efcdba-tab" data-bs-toggle="tab" data-bs-target="#efcdba"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="afdbec-tab" data-bs-toggle="tab" data-bs-target="#afdbec"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="efcdba" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> loads <span class="k">{</span><span class="nv">4</span> <span class="mi">100</span> <span class="o">-</span><span class="mi">50</span><span class="k">}</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="afdbec" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">loads</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">]}</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+</p>
+<p>We then add a <code>&quot;Plain&quot;</code> load pattern to the model with these loads,
+and use the <code>&quot;Linear&quot;</code> option
+to specify that it should be increased linearly with each new load step.
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="febdca-tab" data-bs-toggle="tab" data-bs-target="#febdca"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="befadc-tab" data-bs-toggle="tab" data-bs-target="#befadc"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="febdca" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">pattern</span> Plain <span class="mi">1</span> <span class="s2">&#34;Linear&#34;</span> <span class="s2">&#34;load $loads&#34;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="befadc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">pattern</span><span class="p">(</span><span class="s2">&#34;Plain&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Linear&#34;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">loads</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+</p>
+<blockquote>
+<p>Note that it is common to define the <code>load</code> data structure
+<em>inside</em> the call to the <code>pattern</code> function. This looks like:</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="cfbdea-tab" data-bs-toggle="tab" data-bs-target="#cfbdea"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="fdeabc-tab" data-bs-toggle="tab" data-bs-target="#fdeabc"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="cfbdea" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">pattern</span> Plain <span class="mi">1</span> <span class="s2">&#34;Linear&#34;</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">load</span> <span class="mi">4</span> <span class="mi">100</span> <span class="o">-</span><span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="fdeabc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">pattern</span><span class="p">(</span><span class="s2">&#34;Plain&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Linear&#34;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+</blockquote>
+
+<h2 id="analysis" class="heading">Analysis <a href="#analysis" aria-labelledby="analysis">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
+<p>Next we configure that analysis procedure.
+The model is linear, so we use a solution Algorithm of type <code>Linear</code>.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="acefbd-tab" data-bs-toggle="tab" data-bs-target="#acefbd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="edafcb-tab" data-bs-toggle="tab" data-bs-target="#edafcb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="acefbd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">algorithm</span> Linear<span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="edafcb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">algorithm</span><span class="p">(</span><span class="s2">&#34;Linear&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>Even though the solution is linear, we have to select a procedure for
+applying the load, which is called an <code>Integrator</code>.
+For this problem, a <code>LoadControl</code> integrator is selected, which
+advances the solution by incrementing the applied loads by a
+factor of <code>1.0</code> each time the <code>analyze</code> command is called.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="caebfd-tab" data-bs-toggle="tab" data-bs-target="#caebfd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="efacbd-tab" data-bs-toggle="tab" data-bs-target="#efacbd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="caebfd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">integrator</span> LoadControl <span class="mf">1.0</span><span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="efacbd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">integrator</span><span class="p">(</span><span class="s2">&#34;LoadControl&#34;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>The equations are formed
+using a banded system, so the System is <code>BandSPD</code> (banded, symmetric
+positive definite). This is a good choice for most moderate size models.
+The equations have to be numbered, so typically an RCM numberer object
+is used (for Reverse Cuthill-McKee).
+The constraints are most easily represented with a <code>Plain</code> constraint handler.</p>
+<p>Once all the components of an analysis are defined, the Analysis
+itself is defined. For this problem a <code>Static</code> analysis is used.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="dcaebf-tab" data-bs-toggle="tab" data-bs-target="#dcaebf"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="eafcbd-tab" data-bs-toggle="tab" data-bs-target="#eafcbd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="dcaebf" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">analysis</span> Static<span class="k">;</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="eafcbd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="s2">&#34;Static&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<p>Finally, one analysis step is performed by invoking <code>analyze</code>:
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="badcef-tab" data-bs-toggle="tab" data-bs-target="#badcef"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="fecadb-tab" data-bs-toggle="tab" data-bs-target="#fecadb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="badcef" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">analyze</span> <span class="mi">1</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="fecadb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+</p>
+<p>When the analysis is complete the state of node <code>4</code> and all three elements
+may be printed to the screen:</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="dafbec-tab" data-bs-toggle="tab" data-bs-target="#dafbec"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="eabfcd-tab" data-bs-toggle="tab" data-bs-target="#eabfcd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="dafbec" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">print</span> node <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="nv">print</span> ele</span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="eabfcd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">node</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&#34;ele&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">    <span class="ne">Node</span><span class="p">:</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Coordinates</span>  <span class="p">:</span> <span class="mi">72</span> <span class="mi">96</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">commitDisps</span><span class="p">:</span> <span class="mf">0.530093</span> <span class="o">-</span><span class="mf">0.177894</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">unbalanced</span> <span class="n">Load</span><span class="p">:</span> <span class="mi">100</span> <span class="o">-</span><span class="mi">50</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Element</span><span class="p">:</span> <span class="mi">1</span> <span class="n">type</span><span class="p">:</span> <span class="n">Truss</span>  <span class="n">iNode</span><span class="p">:</span> <span class="mi">1</span> <span class="n">jNode</span><span class="p">:</span> <span class="mi">4</span> <span class="ne">Area</span><span class="p">:</span> <span class="mi">10</span> <span class="n">Total</span> <span class="n">Mass</span><span class="p">:</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">strain</span><span class="p">:</span> <span class="mf">0.00146451</span> <span class="n">axial</span> <span class="nb">load</span><span class="p">:</span> <span class="mf">43.9352</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">unbalanced</span> <span class="nb">load</span><span class="p">:</span> <span class="o">-</span><span class="mf">26.3611</span> <span class="o">-</span><span class="mf">35.1482</span> <span class="mf">26.3611</span> <span class="mf">35.1482</span> 
+</span></span><span class="line"><span class="cl">             <span class="ne">Material</span><span class="p">:</span> <span class="n">Elastic</span> <span class="n">tag</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">             <span class="n">E</span><span class="p">:</span> <span class="mi">3000</span> <span class="n">eta</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Element</span><span class="p">:</span> <span class="mi">2</span> <span class="n">type</span><span class="p">:</span> <span class="n">Truss</span>  <span class="n">iNode</span><span class="p">:</span> <span class="mi">2</span> <span class="n">jNode</span><span class="p">:</span> <span class="mi">4</span> <span class="ne">Area</span><span class="p">:</span> <span class="mi">5</span> <span class="n">Total</span> <span class="n">Mass</span><span class="p">:</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">strain</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.00383642</span> <span class="n">axial</span> <span class="nb">load</span><span class="p">:</span> <span class="o">-</span><span class="mf">57.5463</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">unbalanced</span> <span class="nb">load</span><span class="p">:</span> <span class="o">-</span><span class="mf">34.5278</span> <span class="mf">46.0371</span> <span class="mf">34.5278</span> <span class="o">-</span><span class="mf">46.0371</span> 
+</span></span><span class="line"><span class="cl">             <span class="ne">Material</span><span class="p">:</span> <span class="n">Elastic</span> <span class="n">tag</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">             <span class="n">E</span><span class="p">:</span> <span class="mi">3000</span> <span class="n">eta</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Element</span><span class="p">:</span> <span class="mi">3</span> <span class="n">type</span><span class="p">:</span> <span class="n">Truss</span>  <span class="n">iNode</span><span class="p">:</span> <span class="mi">3</span> <span class="n">jNode</span><span class="p">:</span> <span class="mi">4</span> <span class="ne">Area</span><span class="p">:</span> <span class="mi">5</span> <span class="n">Total</span> <span class="n">Mass</span><span class="p">:</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">strain</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.00368743</span> <span class="n">axial</span> <span class="nb">load</span><span class="p">:</span> <span class="o">-</span><span class="mf">55.3114</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">unbalanced</span> <span class="nb">load</span><span class="p">:</span> <span class="o">-</span><span class="mf">39.1111</span> <span class="mf">39.1111</span> <span class="mf">39.1111</span> <span class="o">-</span><span class="mf">39.1111</span> 
+</span></span><span class="line"><span class="cl">             <span class="ne">Material</span><span class="p">:</span> <span class="n">Elastic</span> <span class="n">tag</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">             <span class="n">E</span><span class="p">:</span> <span class="mi">3000</span> <span class="n">eta</span><span class="p">:</span> <span class="mi">0</span></span></span></code></pre></div></div><p>For the node, displacements and loads are given. For the truss elements,
+the axial strain and force are provided along with the resisting forces
+in the global coordinate system.</p>
+<p>The file <code>example.out</code>, specified in the recorder command, provides
+the nodal displacements for the 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>
+    
+
+ and 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>
+    
+
+ directions of node <code>4</code>. The file
+consists of a single line:</p>
+<pre><code>1.0 0.530093 -0.177894 
+</code></pre>
+<p>The 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.0</mn></mrow><annotation encoding="application/x-tex">1.0</annotation></semantics></math></span>
+    
+
+ corresponds to the load factor (pseudo time) in the model at
+which point the recorder was invoked. The 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.530093</mn></mrow><annotation encoding="application/x-tex">0.530093</annotation></semantics></math></span>
+    
+
+ and 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>0.177894</mn></mrow><annotation encoding="application/x-tex">-0.177894</annotation></semantics></math></span>
+    
+
+
+correspond to the response at node <code>4</code> for the 1 and 2
+degree-of-freedom. Note that if more analysis steps had been performed,
+the line would contain a line for every analysis step that completed
+successfully.</p>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        </div>
+    <div class="col text-end">
+        <a class="previous" href="/examples/example2/">
+                    Moment-Curvature Analysis&nbsp;
+<!-- <i class="fas fa-arrow-right "></i> -->
+        <svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-right"></use></svg>
+                </a></div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#model">Model</a></li>
+    <li><a href="#loads">Loads</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+<footer class="container-fluid footer p-0 border-top">
+    <div class="container-xxl px-3 px-xxl-0 py-5">
+        <div class="row">
+            <div class="col-md-4 small">
+                <a href="/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-dark">
+
+
+<img class="img-fluid "
+        src="/img/logo-mono-light.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Example 1: Linear Truss">
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-light">
+
+
+<img class="img-fluid "
+        src="/img/logo-mono-dark.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Example 1: Linear Truss">
+    </div></a>
+                <div class="pt-3">Nonlinear finite element analysis.</div>
+                <div class="pt-2">Code licensed <a href='https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>BSD</a>, docs <a href='https://creativecommons.org/licenses/by-nc/4.0/' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>CC BY-NC 4.0</a></div>
+                <div class="pt-2">Currently <a href='https://github.com/claudioperez/OpenSeesRT/releases/tag/v0.26.7' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>v0.26.7</a></div>
+            </div>
+            <div class="col-md-2 small">&nbsp</div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Links</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="home" 
+             href="/" ><span >Home</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="about" 
+             href="/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/docs/" ><span >Docs</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="releases" 
+             href="/releases/" ><span >Releases</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Examples</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="working-with-solids" 
+             href="/examples/Example8" ><span >Working with solids</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="nonlinear-dynamics" 
+             href="/examples/Example7" ><span >Nonlinear dynamics</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="basic-statics" 
+             href="/examples/Example1" ><span >Basic Statics</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Community</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="issues" 
+             href="https://github.com/claudioperez/OpenSeesRT/issues" target="_blank" rel="noopener noreferrer" ><span >Issues</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="discussions" 
+             href="https://github.com/claudioperez/OpenSeesRT/discussions" target="_blank" rel="noopener noreferrer" ><span >Discussions</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="contribute" 
+             href="/docs/getting-started/contribute/" ><span >Contribute</span>&nbsp;</a>
+    
+</div></div></div>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">OpenSees</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+<!-- SVG symbol map -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+        <symbol id="fas-ellipsis" ><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></symbol>
+<symbol id="fas-up-right-from-square" ><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></symbol>
+<symbol id="fab-github" ><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
+<symbol id="fas-sun" ><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></symbol>
+<symbol id="fas-moon" ><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></symbol>
+<symbol id="fas-sort" ><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></symbol>
+<symbol id="fas-link" ><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></symbol>
+<symbol id="fas-arrow-right" ><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></symbol>
+    </svg>
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script src="/js/main.bundle.en.js" async></script>
+    
+
+    
+
+
+
+
+
+        
+    </body>
+</html>

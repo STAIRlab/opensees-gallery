@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on OpenSees</title>
+    <link>http://localhost:1313/tags/shell/</link>
+    <description>Recent content in Shell on OpenSees</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
+    <atom:link href="http://localhost:1313/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic Shell Analysis</title>
+      <link>http://localhost:1313/examples/example7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/examples/example7/</guid>
+      <description>&lt;p&gt;In this example a simple problem in shell dynamics is considered. The&#xA;structure is a curved hoop shell structure that looks like the roof of a&#xA;Safeway.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example7.tcl&#34;&gt;&lt;code&gt;Example7.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example7.py&#34;&gt;&lt;code&gt;Example7.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Renderings are created from the script &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;./render.py&#34;&gt;&lt;code&gt;render.py&lt;/code&gt;&lt;/a&gt;, which&#xA;uses the &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://pypi.org/project/sees&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&lt;code&gt;sees&lt;/code&gt;&amp;nbsp;&#xA;&lt;!-- &lt;i class=&#34;fas fa-up-right-from-square fa-2xs&#34;&gt;&lt;/i&gt; --&gt;&#xA;        &lt;svg class=&#34;svg-inline--fa fas fa-up-right-from-square fa-2xs&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;use href=&#34;#fas-up-right-from-square&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/a&gt; Python package.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
