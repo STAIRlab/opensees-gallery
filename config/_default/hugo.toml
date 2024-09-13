@@ -3,7 +3,7 @@ copyright = "© 2024 <a href='https://github.com/stairlab' class='link-bg-footer
 enableGitInfo = true
 
 # additional settings
-baseURL = "https://gethinode.com/"
+baseURL = "https://stairlab.github.io/opensees-gallery/"
 canonifyURLs = false
 # disableKinds = ["taxonomy", "term"]
 enableEmoji = true
@@ -52,8 +52,8 @@ defaultContentLanguageInSubdir = false
     disableInlineCSS = true
   [services.twitter]
     disableInlineCSS = true
-  [services.googleAnalytics]
-    ID = "G-T85PPZ36GN"
+# [services.googleAnalytics]
+#   ID = "G-T85PPZ36GN"
 
 [outputFormats]
   [outputFormats.XML]
