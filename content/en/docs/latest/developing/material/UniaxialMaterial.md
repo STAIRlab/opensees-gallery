@@ -1,4 +1,7 @@
-# UniaxialMaterial
+---
+title: UniaxialMaterial
+layout: docs
+---
 
 ```cpp
 #include <material/UniaxialMaterial.h>

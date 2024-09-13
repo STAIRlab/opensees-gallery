@@ -1,7 +1,9 @@
 /_vendor
-/public
+#/public
 resources/
 node_modules/
+*.pyc
+__pycache__/
 
 .DS_store
 .hugo_build.lock

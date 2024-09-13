@@ -1,4 +1,7 @@
-# SectionForceDeformation 
+---
+title: SectionForceDeformation 
+layout: docs
+---
 
 ```cpp
 #include <material/section/SectionForceDeformation.h>

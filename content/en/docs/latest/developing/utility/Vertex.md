@@ -1,4 +1,7 @@
-# Vertex
+---
+title: Vertex
+layout: docs
+---
 
 ```cpp
 #include <graph/graph/Vertex.h>

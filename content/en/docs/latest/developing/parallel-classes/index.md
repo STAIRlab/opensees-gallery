@@ -1,4 +1,9 @@
-# Parallel Classes
+---
+title: Parallel Classes
+layout: docs
+date: December 20, 1999
+#author: ["Frank McKenna", "Gregory L. Fenves"]
+---
 
 To facilitate the development of parallel object-oriented finite element
 programs, a new framework is presented in this section. The classes in
@@ -34,15 +39,4 @@ are:
     process that is responsible for creating remote actor processes at
     the request of Shadow objects in the same local process.
 
-
-::: {.center}
-**Frank McKenna and Gregory L. Fenves**
-
-**Version 0.1 - Preliminary Draft**
-
-**December 20, 1999**
-
-
-**PEER, University of California at Berkeley**
-:::
 

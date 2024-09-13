@@ -1,7 +1,7 @@
-
-
-
-# FE_Datastore 
+---
+title: FE_Datastore 
+layout: docs
+---
 
 ```cpp
 #include <database/FE_Datastore.h>

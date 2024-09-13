@@ -1,4 +1,7 @@
-# ConvergenceTest
+---
+title: ConvergenceTest
+layout: docs
+---
 
 
 ```tcl

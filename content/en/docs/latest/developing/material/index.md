@@ -1,4 +1,7 @@
-# Material Classes
+---
+title: Material Classes
+layout: docs
+---
 
 Material classes are used to provide information to the Elements about
 the material. There is one main class `Material`. The Element objects

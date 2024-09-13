@@ -1,7 +1,7 @@
-
-
-
-# Solver 
+---
+title: Solver 
+layout: docs
+---
 
 ```cpp
 #include <system_of_eqn/Solver.h>

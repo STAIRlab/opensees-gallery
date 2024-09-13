@@ -1,4 +1,7 @@
-# DOF_Numberer 
+---
+title: DOF_Numberer 
+layout: docs
+---
 
 ```cpp
 #include <analysis/numberer/DOF_Numberer.h>

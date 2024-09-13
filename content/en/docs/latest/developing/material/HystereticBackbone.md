@@ -1,4 +1,7 @@
-# HystereticBackbone
+---
+title: HystereticBackbone
+layout: docs
+---
 
 // Description: This file contains the interface for HystereticBackbone,
 // which represents a backbone curve for hysteretic models.

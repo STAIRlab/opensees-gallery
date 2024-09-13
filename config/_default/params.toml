@@ -1,6 +1,6 @@
 [main]
     separator = "-"
-    description = "Nonlinear finite element analysis."
+    description = "OpenSees Examples."
     enableDarkMode = true
     enableLanguageSelectionStorage = false
     modes = ["light", "dark"]
@@ -21,7 +21,7 @@
 # toml-docs-start version
 [docs]
     basePath = "_vendor/github.com/gethinode/hinode"
-    github = "https://github.com/gethinode/docs"
+    github = "https://github.com/STAIRlab/opensees-gallery"
     release = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
 # toml-docs-end version
 
@@ -52,10 +52,10 @@
     placement = "bottom-right"
 
 [sharing]
-    enabled = true
+    enabled = false
     sort = "weight"
     reverse = false
-    webshare = true
+    webshare = false
 
 [[sharing.providers]]
     name = "LinkedIn"
@@ -90,6 +90,20 @@
 
 # toml-docs-start sections
 [sections]
+    [sections.library]
+        title = "Library"
+        layout = "card"
+        reverse = true
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow" # card-body-margin" # card-zoom 
+        cols = 3
+        padding = "3"
+        header = "full"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 4
+
     [sections.examples]
         title = "Get started with basic examples"
         layout = "card"
@@ -350,23 +364,27 @@
     openstreetmap = "https://www.openstreetmap.org"
     package_npm = "https://www.npmjs.com/package/@gethinode/hinode"
     pagespeed = "https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F"
+
     repository = "https://github.com/claudioperez/OpenSeesRT"
     repository_releases = "https://github.com/claudioperez/OpenSeesRT/releases/"
     repository_tag = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
-    repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
     repository_docs = "https://github.com/OpenSees/Documentation.git"
-    repository_owner = "https://github.com/claudioperez/"
-    repository_mod_bootstrap = "https://github.com/gethinode/mod-bootstrap"
-    repository_mod_flexsearch = "https://github.com/gethinode/mod-flexsearch"
-    repository_mod_fontawesome = "https://github.com/gethinode/mod-fontawesome"
-    repository_mod_katex = "https://github.com/gethinode/mod-katex"
-    repository_mod_leaflet = "https://github.com/gethinode/mod-leaflet"
-    repository_mod_template = "https://github.com/gethinode/mod-template"
-    repository_mod_utils = "https://github.com/gethinode/mod-utils"
-    repository_leaflet = "https://github.com/gethinode/leaflet-demo"
-    repository_template = "https://github.com/gethinode/template.git"
-    repository_versioning = "https://github.com/gethinode/version-demo"
-    repository_versioning_overview = "https://raw.githubusercontent.com/gethinode/version-demo/main/content/en/docs/versions.md"
+
+    repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
+
+    repository_owner = "https://github.com/OpenSees/"
+
+#   repository_mod_bootstrap = "https://github.com/gethinode/mod-bootstrap"
+#   repository_mod_flexsearch = "https://github.com/gethinode/mod-flexsearch"
+#   repository_mod_fontawesome = "https://github.com/gethinode/mod-fontawesome"
+#   repository_mod_katex = "https://github.com/gethinode/mod-katex"
+#   repository_mod_leaflet = "https://github.com/gethinode/mod-leaflet"
+#   repository_mod_template = "https://github.com/gethinode/mod-template"
+#   repository_mod_utils = "https://github.com/gethinode/mod-utils"
+#   repository_leaflet = "https://github.com/gethinode/leaflet-demo"
+#   repository_template = "https://github.com/gethinode/template.git"
+#   repository_versioning = "https://github.com/gethinode/version-demo"
+#   repository_versioning_overview = "https://raw.githubusercontent.com/gethinode/version-demo/main/content/en/docs/versions.md"
     semantic-release = "https://semantic-release.gitbook.io/semantic-release/"
     semver = "https://semver.org"
     simple_datatables = "https://github.com/fiduswriter/simple-datatables/tree/main"

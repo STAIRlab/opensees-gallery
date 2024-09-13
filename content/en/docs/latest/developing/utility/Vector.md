@@ -1,4 +1,7 @@
-# Vector
+---
+title: Vector
+layout: docs
+---
 
 
 ```cpp

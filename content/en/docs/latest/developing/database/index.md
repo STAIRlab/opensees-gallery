@@ -1,5 +1,8 @@
 
-# Data Storage
+---
+title: Data Storage
+layout: docs
+---
 
 In this work there are two general types of data storage classes
 provided:

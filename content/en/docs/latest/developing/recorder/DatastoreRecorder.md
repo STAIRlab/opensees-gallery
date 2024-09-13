@@ -1,7 +1,7 @@
-
-
-
-# DatastoreRecorder 
+---
+title: DatastoreRecorder 
+layout: docs
+---
 
 ```cpp
 #include <recorder/DatastoreRecorder.h>

@@ -1,4 +1,7 @@
-# ID 
+---
+title: ID 
+layout: docs
+---
 
 ```cpp
 #include <matrix/ID.h>

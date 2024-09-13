@@ -1,4 +1,7 @@
-# Graph Classes
+---
+title: Graph Classes
+layout: docs
+---
 
 In this work Graphs are used for three purposes:
 

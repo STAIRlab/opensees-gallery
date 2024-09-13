@@ -1,7 +1,7 @@
-
-
-
-# FileDatastore 
+---
+title: FileDatastore 
+layout: docs
+---
 
 ```cpp
 #include <database/FileDatastore.h>

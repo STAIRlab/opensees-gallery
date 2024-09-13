@@ -1,7 +1,7 @@
-
-
-
-# Recorder 
+---
+title: Recorder 
+layout: docs
+---
 
 ```cpp
 #include <recorder/Recorder.h>

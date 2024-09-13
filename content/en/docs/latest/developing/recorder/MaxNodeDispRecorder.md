@@ -1,7 +1,7 @@
-
-
-
-# MaxNodeDispRecorder 
+---
+title: MaxNodeDispRecorder 
+layout: docs
+---
 
 ```cpp
 #include <recorder/MaxNodeDispRecorder.h>

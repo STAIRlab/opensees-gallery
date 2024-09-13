@@ -1,4 +1,7 @@
-# Analysis Classes
+---
+title: Analysis Classes
+layout: docs
+---
 
 The **Analysis** object is an aggregation of objects of the following types:
 
@@ -34,7 +37,7 @@ The **Analysis** object is an aggregation of objects of the following types:
 
 
 
-```plantuml
+{{< plantuml >}}
 'package "OpenSees Analysis" #DDDDDD {
 abstract class Integrator 
 abstract class Analysis 
@@ -48,4 +51,4 @@ Analysis o- ConvergenceTest
 Analysis o- Integrator 
 Analysis o- SystemOfEqn 
 '}
-```
+{{</ plantuml >}}

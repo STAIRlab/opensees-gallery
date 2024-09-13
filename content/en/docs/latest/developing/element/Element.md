@@ -1,4 +1,7 @@
-# Element 
+---
+title: Element 
+layout: docs
+---
 
 NEED TO ADD ADD_INERTIA_LOAD TO INTERFACE .. SEE EARTHQUAKE_PATTERN
 CLASS.

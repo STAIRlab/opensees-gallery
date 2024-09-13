@@ -1,4 +1,7 @@
-# Matrix
+---
+title: Matrix
+layout: docs
+---
 
 ```cpp
 #include <matrix/Matrix.h>

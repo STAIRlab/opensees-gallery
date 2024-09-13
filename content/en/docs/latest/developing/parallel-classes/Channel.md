@@ -1,5 +1,8 @@
 
-# Channel 
+---
+title: Channel 
+layout: docs
+---
 
 ```cpp
 #include <actor/channel/Channel.h>
