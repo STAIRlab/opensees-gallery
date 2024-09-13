@@ -1,0 +1,1918 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+
+
+
+
+
+<script src="/js/critical.bundle.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.134.1">
+    <meta name="theme" content="Hinode 0.26.7">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+    
+
+
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>OpenSees - Domain</title>
+    <meta name="description" content="#include class DomainDomain is container class for storing and providing access to the components of a domain, i.e. nodes, elements, boundary conditio...">
+
+<link rel="canonical" href="http://localhost:1313/docs/developing/domain-classes/domain/domain/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Domain">
+<meta property="og:description" content="#include class DomainDomain is container class for storing and providing access to the components of a domain, i.e. nodes, elements, boundary conditio...">
+<meta property="og:url" content="http://localhost:1313/docs/developing/domain-classes/domain/domain/">
+<meta property="og:site_name" content="OpenSees">
+<meta property="article:modified_time" content="2024-09-13T09:48:08-07:00">
+    <meta property="og:image" content="http://localhost:1313/img/logo1280x640.png">
+<meta property="og:image:alt" content="Domain">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="Domain">
+<meta name="twitter:description" content="#include class DomainDomain is container class for storing and providing access to the components of a domain, i.e. nodes, elements, boundary conditio...">
+<meta name="twitter:image" content="http://localhost:1313/img/logo1280x640.png">
+<meta name="twitter:image:alt" content="Domain">
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "http://localhost:1313/#/schema/organization/1",
+      "name": "STAIRlab",
+      "url": "http://localhost:1313/",
+      "sameAs": [null,"https://github.com/claudioperez/OpenSeesRT"],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "http://localhost:1313/#/schema/image/1",
+          "url": "http://localhost:1313/img/logo1280x640.png",
+          "width": 1280 ,
+          "height": 640 ,
+          "caption": "STAIRlab"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:1313/#/schema/website/1",
+      "url": "http://localhost:1313/",
+      "name": "OpenSees",
+      "description": "OpenSees Examples.",
+      "publisher": {
+          "@id": "http://localhost:1313/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/",
+      "url": "http://localhost:1313/docs/developing/domain-classes/domain/domain/",
+      "name": "Domain",
+      "description": "",
+      "isPartOf": {
+        "@id": "http://localhost:1313/#/schema/website/1"
+      },
+      "about": {
+          "@id": "http://localhost:1313/#/schema/organization/1"
+        },
+      "dateModified": "2024-09-13T09:48:08CET","breadcrumb": {
+        "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["http://localhost:1313/docs/developing/domain-classes/domain/domain/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/",
+          "url": "http://localhost:1313/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/docs/",
+          "url": "http://localhost:1313/docs/",
+          "name": "Docs"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/docs/developing/",
+          "url": "http://localhost:1313/docs/developing/",
+          "name": "Developing"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/docs/developing/domain-classes/",
+          "url": "http://localhost:1313/docs/developing/domain-classes/",
+          "name": "Domain Classes"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  5 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "http://localhost:1313/docs/developing/domain-classes/domain/",
+          "url": "http://localhost:1313/docs/developing/domain-classes/domain/",
+          "name": "Domain"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  6 ,
+        "item": {
+          "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "http://localhost:1313/#/schema/article/1",
+          "headline": "Domain",
+          "description": "",
+          "isPartOf": {
+            "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/"
+          },
+          "mainEntityOfPage": {
+            "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/"
+          },
+          "dateModified": "2024-09-13T09:48:08CET","author": {
+            "@id": "http://localhost:1313/#/schema/person/2"
+          },
+          "publisher": {
+              "@id": "http://localhost:1313/#/schema/organization/1"
+            },
+          "image": {
+            "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/#/schema/image/2"
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "http://localhost:1313/#/schema/person/2",
+          "name": "Mark Dumay",
+          "sameAs": [
+            , "https://www.linkedin.com/in/markdumay/"
+            , "https://github.com/markdumay"
+            ]
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "http://localhost:1313/docs/developing/domain-classes/domain/domain/#/schema/image/2",
+          "url": "http://localhost:1313/img/logo1280x640.png",
+          "contentUrl": "http://localhost:1313/img/logo1280x640.png",
+          "caption": "Domain"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon_hu4859157644406506559.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_hu7625285411303010146.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon_hu613555693725536282.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon_hu3675745231128929066.png">
+    
+
+</head>
+
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 navbar-fixed-top navbar-expand-lg"
+                
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center"><button class="navbar-toggler collapsed p-0 mx-auto fw-30" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvass-sidebar" aria-controls="offcanvass-sidebar" aria-label="Toggle sidebar navigation">
+<!-- <i class="fas fa-ellipsis fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-ellipsis"></use></svg></button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/" aria-label="Home">
+                            <img src="/img/stairlab.svg" alt="OpenSees logo" height="30" width="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                
+                    <div class="d-flex flex-fill ms-md-3 mt-4 mt-lg-0">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="about" 
+             href="/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/docs/" ><span  class="active">Docs</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/docs/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="examples" 
+             href="/examples/" ><span >Examples</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            aria-label="GitHub"
+            data-nav="main" data-nav-main="github" 
+             href="https://github.com/OpenSees/OpenSees" target="_blank" rel="noopener noreferrer" >
+                
+                    
+<!-- <i class="fab fa-github "></i> -->
+        <svg class="svg-inline--fa fab fa-github " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><use href="#fab-github"></use></svg>&nbsp;
+                
+            <span ></span></a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+<!-- <i class="fas fa-sun fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-sun"></use></svg>
+<!-- <i class="fas fa-moon fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><use href="#fas-moon"></use></svg>
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+    
+
+    
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvass-sidebar" aria-inledby="offcanvas-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-label">Docs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                
+    
+
+
+
+
+
+
+
+
+    <nav class="sidebar flex-shrink-0 ps-1 pt-3" aria-label="Docs navigation">
+
+        <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-0-1" aria-expanded="false">
+            <div class="text-start flex-fill">Getting started</div>
+        </button>
+        <div class="collapse " id="sidebar-collapse-0-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/introduction/" class="sidebar-item text-decoration-none rounded small" >Introduction</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/modeling/" class="sidebar-item text-decoration-none rounded small" >Modeling</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/compiling/" class="sidebar-item text-decoration-none rounded small" >Compiling</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/contribute/" class="sidebar-item text-decoration-none rounded small" >Contribute</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-1-1" aria-expanded="true">
+            <div class="text-start flex-fill">Developing</div>
+        </button>
+        <div class="collapse show" id="sidebar-collapse-1-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/developing/domain-classes/" class="sidebar-item text-decoration-none rounded small" >Domain Classes</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="/docs/developing/analysis-classes" class="sidebar-item text-decoration-none rounded small" >Analysis Classes</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/developing/parallel-classes/" class="sidebar-item text-decoration-none rounded small" >Parallel Classes</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-2-1" aria-expanded="false">
+            <div class="text-start flex-fill">Library</div>
+        </button>
+        <div class="collapse " id="sidebar-collapse-2-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/library/frame/" class="sidebar-item text-decoration-none rounded small" >Frame</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+        </ul>
+    </nav>
+
+
+            </div>
+        </div>
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+    
+
+
+
+
+
+
+
+
+    <nav class="sidebar flex-shrink-0 ps-1 pt-3" aria-label="Docs navigation">
+
+        <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-0-1" aria-expanded="false">
+            <div class="text-start flex-fill">Getting started</div>
+        </button>
+        <div class="collapse " id="sidebar-collapse-0-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/introduction/" class="sidebar-item text-decoration-none rounded small" >Introduction</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/modeling/" class="sidebar-item text-decoration-none rounded small" >Modeling</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/compiling/" class="sidebar-item text-decoration-none rounded small" >Compiling</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/getting-started/contribute/" class="sidebar-item text-decoration-none rounded small" >Contribute</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-1-1" aria-expanded="true">
+            <div class="text-start flex-fill">Developing</div>
+        </button>
+        <div class="collapse show" id="sidebar-collapse-1-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/developing/domain-classes/" class="sidebar-item text-decoration-none rounded small" >Domain Classes</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="/docs/developing/analysis-classes" class="sidebar-item text-decoration-none rounded small" >Analysis Classes</a>
+            
+        </li>
+    
+
+                    
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/developing/parallel-classes/" class="sidebar-item text-decoration-none rounded small" >Parallel Classes</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+                <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse-2-1" aria-expanded="false">
+            <div class="text-start flex-fill">Library</div>
+        </button>
+        <div class="collapse " id="sidebar-collapse-2-1">
+            <ul class="btn-toggle-nav list-unstyled fw-normal ps-3">
+
+    
+        <li>
+            
+            
+            
+            
+                
+
+
+
+
+
+
+
+
+    
+        <a href="/docs/library/frame/" class="sidebar-item text-decoration-none rounded small" >Frame</a>
+            
+        </li>
+    
+
+                    
+            </ul>
+        </div>
+    </li>
+
+        </ul>
+    </nav>
+
+
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    <p class="display-4 mt-5">Domain</p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="lead mb-5"></p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <span class="d-flex justify-content-between">
+            <span class="my-auto">On this page</span><span class="align-self-center ps-1">
+<!-- <i class="fas fa-sort "></i> -->
+        <svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><use href="#fas-sort"></use></svg></span>
+        </span></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#destructor">Destructor</a></li>
+        <li><a href="#constructors">Constructors</a></li>
+        <li><a href="#public-methods-to-populate-the-domain">Public Methods to Populate the Domain</a></li>
+        <li><a href="#public-methods-to-populate-the-loadpatterns">Public Methods to Populate the LoadPatterns</a></li>
+        <li><a href="#public-methods-to-depopulate-the-domain">Public Methods to Depopulate the Domain</a></li>
+        <li><a href="#public-methods-to-access-the-components-of-the-domain">Public Methods to Access the Components of the Domain</a></li>
+        <li><a href="#public-methods-to-query-the-state-of-the-domain">Public Methods to Query the State of the Domain</a></li>
+        <li><a href="#public-methods-to-update-the-domain">Public Methods to Update the Domain</a></li>
+        <li><a href="#public-methods-for-output">Public Methods for Output</a></li>
+        <li><a href="#protected-member-functions">Protected Member Functions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span>  <span class="cpf">&lt;domain/domain/Domain.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Domain</span></span></span></code></pre></div></div><p><code>Domain</code> is container class for storing and providing access to the
+components of a domain, i.e. nodes, elements, boundary conditions, and
+load patterns. A Domain is a container class which contains the all
+elements, nodes, load cases, single point constraints and multiple point
+constraints that the model builder uses to create the model of the
+structure. It provides operations for the following:</p>
+<ul>
+<li>
+<p>Population: Methods so that the DomainComponents can be addled to
+the Domain.</p>
+</li>
+<li>
+<p>Depopulation: Methods so that the DomainComponents can be removed
+from the Domain.</p>
+</li>
+<li>
+<p>Access: Methods so that other classes, i.e. analysis and design, can
+access the DomainComponents.</p>
+</li>
+<li>
+<p>Query: Methods for determining the state of the domain.</p>
+</li>
+<li>
+<p>Update: Methods for updating the state of the Domain</p>
+</li>
+<li>
+<p>Analysis: Methods added for the Analysis class.</p>
+</li>
+<li>
+<p>Output: Methods added for outputting information.</p>
+</li>
+</ul>
+<p>The Domain class stores each type of object, i.e. <code>Nodes</code>, <code>Elements</code>,
+<code>SP_Constraints</code>, <code>MP_Constraints</code>, <code>NodalLoads</code> and <code>ElementalLoads</code>, in a
+container object. Currently these container objects are a subtype of
+TaggedObjectStorage (templates are not used as yet due to present
+difficulties in porting code which uses templates).</p>
+
+<h3 id="destructor" class="heading">Destructor <a href="#destructor" aria-labelledby="destructor">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+
+<h3 id="constructors" class="heading">Constructors <a href="#constructors" aria-labelledby="constructors">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>Constructs an empty domain. The storage for the DomainComponents uses
+ArrayOfTaggedObjects objects for each type of object to be stored. The
+initial sizes specified for these objects are 4096 for the Elements and
+Nodes, 256 SP_Constraints and MP_Constraints, and 32 for the container
+for the LoadPatterns. A check is made to ensure that memory is allocated
+for these objects, if not the <code>fatal()</code> method of the global
+ErrorHandler is invoked.</p>
+<p>Constructs an empty Domain. The storage for the DomainComponents uses
+ArrayOfTaggedObjects objects for each type of object to be stored. The
+initial sizes specified for these objects are as given in the arguments
+for this constructor, i.e. <em>numElements</em> for the Elements and <em>numNodes</em>
+for the Nodes. A size of 32 is used for the LoadPatterns. A check is
+made to ensure that memory is allocated for these objects, if not the
+<code>fatal()</code> method of the global ErrorHandler is invoked.</p>
+<p>Constructs a Domain where the Nodes, Elements, MP_Constraints,
+SP_Constraint and LoadPattern objects will be stored in the storage
+objects provided. A check is made to ensure these container objects are
+empty is made; if not empty the <code>warning()</code> method of the global
+ErrorHandler is invoked and the objects are cleared.</p>
+<p>Constructs a Domain where the Nodes, Elements, MP_Constraints,
+SP_Constraint and LoadPattern objects will be stored in the storage
+objects obtained by invoking <code>getEmptyCopy()</code> on the <em>theStorageType</em>
+object. A check is made to ensure that memory is allocated for these
+objects, if not the <code>fatal()</code> method of the global ErrorHandler is
+invoked.</p>
+<p>Invokes delete on all the storage objects. This means that, if the two
+latter constructors have been called, the container objects must have
+been created using <em>new</em> and that at no other point in the program is
+the destructor invoked on these objects. It should be noted, that the
+objects in the Domain, i.e. the DomainComponents, are not destroyed. To
+clean up these objects <code>clearAll()</code> should be invoked before the
+destructor is called.</p>
+
+<h3 id="public-methods-to-populate-the-domain" class="heading">Public Methods to Populate the Domain <a href="#public-methods-to-populate-the-domain" aria-labelledby="public-methods-to-populate-the-domain">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">addElement</span><span class="p">(</span><span class="n">Element</span> <span class="o">*</span><span class="n">theElementPtr</span><span class="p">);</span></span></span></code></pre></div></div><p>To add the element pointed to by theElementPtr to the domain. If
+<code>_DEBUG</code> is defined the domain checks to see that: 1) that all external
+nodes for the element exists in the domain. and 2) that the sum of the
+dof at all the nodes equals the num of dof at the element. In addition
+the domain always checks to ensure that no other element with a similar
+tag exists in the domain. If the checks are successful, the element is
+added to the domain by the domain invoking <code>addComponent(theElePtr)</code> on
+the container for the elements. The domain then invokes
+<code>setDomain(this)</code> on the element and <code>domainChange()</code> on itself if the
+element is successfully added. The call returns <em>true</em> if the element is
+added, otherwise the <code>warning()</code> method of the global ErrorHandler is
+invoked and <code>false</code> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual bool addNode(Node *theNodePtr = false);</span></span></code></pre></div></div><p>To add the node pointed to by <code>theNodePtr</code> to the domain. The domain
+first checks that no other node with a similar tag, node number, has
+been previously added to the domain. The domain will then add the node
+to it&rsquo;s node container object, by invoking <code>addComponent(theNodePtr)</code>.
+If successful, the Domain invokes <code>setDomain(this)</code> on the node,
+<code>domainChange()</code> on itself, and checks the coordinates of the domain to
+see if they effect the box encompassing the Domain. The call returns
+<code>true</code> if the node was added, otherwise the <code>warning()</code> method of the
+global ErrorHandler is invoked and <code>false</code> is returned.</p>
+
+<h3 id="public-methods-to-populate-the-loadpatterns" class="heading">Public Methods to Populate the LoadPatterns <a href="#public-methods-to-populate-the-loadpatterns" aria-labelledby="public-methods-to-populate-the-loadpatterns">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual bool addSP(SP_Constraint *theSPptr = false);</span></span></code></pre></div></div><p>To add the single point constraint pointed to by theSPptr to the domain.
+If <em>_DEBUG</em> is defined the domain is responsible for checking to see
+that 1) the constrained node exists in the domain and 2) that the node
+has the dof that is to be constrained. In addition the domain always
+checks to ensure that no other constraint with a similar tag exists in
+the domain. If the checks are successful, the constraint is added to
+domain by the domain invoking <code>addComponent(theSPptr)</code> on the container
+for the SP_Constraints. The domain then invokes <code>setDomain(this)</code> on the
+constraint and <code>domainChange()</code> on itself. The call returns <em>true</em> if
+the constraint was added, otherwise the <code>warning()</code> method of the global
+ErrorHandler is invoked and <em>false</em> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual bool addMP(MP_Constraint *theMPptr = false);</span></span></code></pre></div></div><p>To add the multiple point constraint pointed to by theMPptr, to the
+domain. If <em>_DEBUG</em> is defined the domain first checks to see that the
+retained and the constrained node both exist in the model and that the
+matrix is of proper dimensions (THIS LAST PART NOT YET IMPLEMENTED). In
+addition the domain always checks to ensure that no other MP_Constraint
+with a similar tag exists in the domain. If the checks are successful,
+the constraint is added to domain by the domain invoking
+<code>addComponent(theMPptr)</code> on the container for the MP_Constraints. The
+domain then invokes <code>setDomain(this)</code> on the constraint and
+<code>domainChange()</code> on itself. The call returns <em>true</em> if the constraint
+was added, otherwise the <code>warning()</code> method of the global ErrorHandler
+is invoked and <em>false</em> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual bool addLoadPattern(LoadPattern *thePattern);</span></span></code></pre></div></div><p>To add the LoadPattern <em>thePattern</em> to the domain. The load is added to
+domain by the domain invoking <code>addComponent(theLd)</code> on the container for
+the LoadPatterns. The domain is responsible for invoking
+<code>setDomain(this)</code> on the load. The call returns <em>true</em> if the load was
+added, otherwise the <code>warning()</code> method of the global ErrorHandler is
+invoked and <em>false</em> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">bool</span> <span class="n">addNodalLoad</span><span class="p">(</span><span class="n">NodalLoad</span> <span class="o">*</span><span class="n">theLd</span><span class="p">,</span> <span class="ne">int</span> <span class="n">loadPatternTag</span><span class="p">);</span></span></span></code></pre></div></div><p>To add the nodal load <em>theld</em> to the LoadPattern in the domain whose tag
+is given by <em>loadPatternTag</em>. If <em>_DEBUG</em> is defines, checks to see
+that corresponding node exists in the domain. A pointer to the
+LoadPattern is obtained from the LoadPattern container and the load is
+added to LoadPattern by invoking <code>addNodalLoad(theLd)</code> on the
+LoadPattern object. The domain is responsible for invoking
+<code>setDomain(this)</code> on the load. The call returns <em>true</em> if the load was
+added, otherwise the <code>warning()</code> method on the global ErrorHandler is
+invoked and <em>false</em> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">bool</span> <span class="n">addElementalLoad</span><span class="p">(</span><span class="n">ElementalLoad</span> <span class="o">*</span><span class="n">theLd</span><span class="p">,</span> <span class="ne">int</span> <span class="n">loadPatternTag</span><span class="p">);</span></span></span></code></pre></div></div><p>To add the elemental load <em>theld</em> to the LoadPattern in the domain whose
+tag is given by <em>loadPatternTag</em>. If <em>_DEBUG</em> is defines, checks to see
+that corresponding element exists in the domain. A pointer to the
+LoadPattern is obtained from the LoadPattern container and the load is
+added to LoadPattern by invoking <code>addElementalLoad(theLd)</code> on the
+LoadPattern object. The domain is responsible for invoking
+<code>setDomain(this)</code> on the load. The call returns <em>true</em> if the load was
+added, otherwise the <code>warning()</code> method on the global ErrorHandler is
+invoked and <em>false</em> is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">bool</span> <span class="n">addSP_Constraint</span><span class="p">(</span><span class="n">SP_Constraint</span> <span class="o">*</span><span class="n">theConstraint</span><span class="p">,</span> <span class="ne">int</span> <span class="n">loadPatternTag</span><span class="p">);</span></span></span></code></pre></div></div><p>To add the elemental load <em>theConstraint</em> to the LoadPattern in the
+domain whose tag is given by <em>loadPatternTag</em>. If <em>_DEBUG</em> is defines,
+checks to see that corresponding node exists in the domain. A pointer to
+the LoadPattern is obtained from the LoadPattern container and the load
+is added to LoadPattern by invoking <code>addSP_Constraint(theConstraint)</code> on
+the LoadPattern object. The domain is responsible for invoking
+<code>setDomain(this)</code> on the constraint. The call returns <em>true</em> if the load
+was added, otherwise the <code>warning()</code> method on the global ErrorHandler
+is invoked and <em>false</em> is returned.</p>
+
+<h3 id="public-methods-to-depopulate-the-domain" class="heading">Public Methods to Depopulate the Domain <a href="#public-methods-to-depopulate-the-domain" aria-labelledby="public-methods-to-depopulate-the-domain">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p><br>
+To remove all the components from the model and invoke the destructor on
+these objects. First <code>clearAll()</code> is invoked on all the LoadPattern
+objects. Then the domain object invokes <code>clearAll()</code> on its container
+objects. In addition the destructor for each Recorder object that has
+been added to the domain is invoked. In addition the current time and
+load factor are set to 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+, and the box bounding the domain is set to
+the box enclosing the origin.</p>
+<p>To remove the element whose tag is given by <em>tag</em> from the domain. The
+domain achieves this by invoking <code>removeComponent(tag)</code> on the container
+for the elements. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if no such element exists in the domain.
+Otherwise the domain invokes <code>setDomain(0)</code>{.cpp} on the element (using a cast
+to go from a TaggedObject to an Element, which is safe as only an
+Element objects are added to this container) and <code>domainChange()</code> on
+itself before a pointer to the element is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual Node *removeNode(int tag);</span></span></code></pre></div></div><p>To remove the node whose tag is given by <em>tag</em> from the domain. The
+domain achieves this by invoking <code>removeComponent(tag)</code> on the container
+for the nodes. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if no such node exists in the domain. If the
+node is to be removed the domain invokes <code>setDomain(0)</code>{.cpp} on the node and
+<code>domainChange()</code> on itself before a pointer to the Node is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual SP_Constraint *removeSP_Constraint(int tag);</span></span></code></pre></div></div><p>To remove the SP_Constraint whose tag is given by <em>tag</em> from the domain.
+The domain achieves this by invoking <code>removeComponent(tag)</code> on the
+container for the single point constraints. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if the
+constraint was not in the domain, otherwise the domain invokes
+<em>setDomain(0)</em> on the constraint and <code>domainChange()</code> on itself before a
+pointer to the constraint is returned. Note this will only remove
+SP_Constraints which have been added to the domain and not directly to
+LoadPatterns.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">virtual</span><span class="w"> </span><span class="o">`</span><span class="n">MP_Constraint</span><span class="o">`</span><span class="w"> </span><span class="o">*</span><span class="nf">removeMP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span></span></span></code></pre></div></div><p>To remove the <code>MP_Constraint</code> whose tag is given by <em>tag</em> from the domain.
+The domain achieves this by invoking <code>removeComponent(tag)</code> on the
+container for the multi point constraints. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if the constraint
+was not in the domain, otherwise the domain invokes <code>setDomain(0)</code>{.cpp} on
+the constraint and <code>domainChange()</code> on itself before a pointer to the
+constraint is returned.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual LoadPattern *removeLoadPattern(int tag);</span></span></code></pre></div></div><p>To remove the LoadPattern whose tag is given by <em>tag</em> from the domain.
+The domain achieves this by invoking <code>removeComponent(tag)</code> on the
+container for the load patterns. If the LoadPattern exists, the domain
+then iterates through the loads and constraints of the LoadPattern
+invoking <code>setDomain(0)</code>{.cpp} on these objects. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if the load was
+not in the domain, otherwise returns a pointer to the load that was
+removed. Invokes <code>setDomain(0)</code>{.cpp} on the load case before it is returned.</p>
+
+<h3 id="public-methods-to-access-the-components-of-the-domain" class="heading">Public Methods to Access the Components of the Domain <a href="#public-methods-to-access-the-components-of-the-domain" aria-labelledby="public-methods-to-access-the-components-of-the-domain">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p><br>
+To return an iter for the Elements in the domain. It returns an
+<em>ElementIter</em> for the elements of the domain that were added using
+<code>addElement()</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual NodeIter &amp;getNodes();</span></span></code></pre></div></div><p>It returns a <em>NodeIter</em> for the nodes which have been added to the
+domain.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual SP_ConstraintIter &amp;getSPs();</span></span></code></pre></div></div><p>To return an <code>SP_ConstraintIter</code> for the single point constraints which
+have been added to the domain.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual MP_ConstraintIter &amp;getMPs();</span></span></code></pre></div></div><p>To return an <code>MP_ConstraintIter</code> for the multiple point constraints
+which have been added to the domain.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual LoadPatternIter &amp;getLoadPatterns();</span></span></code></pre></div></div><p>To return an <code>LoadPatternIter</code> for the LoadPattern objects which have
+been added to the domain.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual Element *getElement(int tag);</span></span></code></pre></div></div><p>To return a pointer to the element <code>tag</code>. If no such element exists 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+
+is returned. It does this by invoking em getComponentPtr(tag) on the
+element container and performing a cast to an element if the object
+exists.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual Node `getNode(int tag);</span></span></code></pre></div></div><p>To return a pointer to the node whose tag is given by <code>tag</code>. If no such
+node exists 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ is returned. It does this by invoking em
+getComponentPtr(tag) on the node container and performing a cast to a
+node if the object exists.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual SP_Constraint `getSP_ConstraintPtr(int tag);</span></span></code></pre></div></div><p>To return a pointer to the SP_Constraint whose tag is given by <code>tag</code>. If
+no such SP_Constraint exists 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ is returned. It does this by invoking
+em getComponentPtr(tag) on the single-point constraint container and
+performing a cast to an SP_Constraint if the object exists.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual MP_Constraint `getMP_ConstraintPtr(int tag);</span></span></code></pre></div></div><p>To return a pointer to the <code>MP_Constraint</code> whose tag is given by <code>tag</code>. If
+no such <code>MP_Constraint</code> exists 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ is returned. It does this by invoking
+em getComponentPtr(tag) on the multi-point constraint container and
+performing a cast to an <code>MP_Constraint</code> if the object exists.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual ElementalLoad *getLoadPattern(int tag);</span></span></code></pre></div></div><p>To return a pointer to the LoadPattern whose tag is given by <code>tag</code>. If
+no such LoadPattern exists 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ is returned. It does this by invoking em
+<code>getComponentPtr(tag)</code> on the elemental load container and performing a
+cast to a LoadPattern if the object exists.</p>
+
+<h3 id="public-methods-to-query-the-state-of-the-domain" class="heading">Public Methods to Query the State of the Domain <a href="#public-methods-to-query-the-state-of-the-domain" aria-labelledby="public-methods-to-query-the-state-of-the-domain">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>To return the number of elements in the domain. It does this by invoking
+<code>getNumComponents()</code> on the container for the elements.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">int</span> <span class="n">getNumNodes</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span></span></span></code></pre></div></div><p>To return the number of nodes in the domain. It does this by invoking
+<code>getNumComponents()</code> on the container for the nodes.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">int</span> <span class="n">getNumSPs</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span></span></span></code></pre></div></div><p>To return the number of single point constraints in the domain. It does
+this by invoking <code>getNumComponents()</code> on the container for the single
+point constraints.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">int</span> <span class="n">getNumMPs</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span></span></span></code></pre></div></div><p>To return the number of multi point constraints in the domain. It does
+this by invoking <code>getNumComponents()</code> on the container for the multi
+point constraints.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="ne">int</span> <span class="n">getNumLoadPatterns</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span></span></span></code></pre></div></div><p>To return the number of load patterns in the domain. It does this by
+invoking <code>getNumComponents()</code> on the container for the load patterns.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">virtual</span> <span class="k">const</span> <span class="n">Vector</span> <span class="o">&amp;</span><span class="n">getPhysicalBounds</span><span class="p">();</span></span></span></code></pre></div></div><p>To return the bounding rectangle for the Domain. The information is
+contained in a <code>Vector</code> of size 6 containing in the following order {<code>xmin</code>,
+<code>ymin</code>, <code>zmin</code>, <code>xmax</code>, <code>ymax</code>, <code>zmax</code>}. This information is built up as nodes are
+added to the domain, initially all are set to 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ in the constructor.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual Graph &amp;getElementGraph();</span></span></code></pre></div></div><p>Returns the current element graph (the connectivity of the elements in
+the domain). If the <em>eleChangeFlag</em> has been set to <em>true</em> the method
+will invoke <code>buildEleGraph(theEleGraph)</code> on itself before returning the
+graph. The vertices in the element graph are to be labeled 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ through
+
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>u</mi><mi>m</mi><mi>E</mi><mi>l</mi><mi>e</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">numEle-1</annotation></semantics></math></span>
+    
+
+. The Vertices references contain the elemental tags.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual Graph &amp;getNodeGraph();</span></span></code></pre></div></div><p>Returns the current node graph (the connectivity of the nodes in the
+domain). If the <em>nodeChangeFlag</em> has been set to <em>true</em> the will invoke
+<code>buildNodeGraph(theNodeGraph)</code> on itself before returning the graph. The
+vertices in the node graph are to be labeled 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ through 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>u</mi><mi>m</mi><mi>N</mi><mi>o</mi><mi>d</mi><mi>e</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">numNode-1</annotation></semantics></math></span>
+    
+
+.
+The Vertices references contain the nodal tags.</p>
+
+<h3 id="public-methods-to-update-the-domain" class="heading">Public Methods to Update the Domain <a href="#public-methods-to-update-the-domain" aria-labelledby="public-methods-to-update-the-domain">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p><br>
+To set the current commitTag to <em>newTag</em>.</p>
+<p>To set the current time to <em>newTime</em>.</p>
+<p>To set the committed time to <em>newTime</em>.</p>
+<p>To apply the loads for the given time <em>pseudoTime</em>. The domain first
+clears the current load at all nodes and elements, done by invoking
+<code>zeroUnbalancedLoad()</code> on each node and <code>zeroLoad()</code> on each element.
+The domain then invokes <code>applyLoad(pseudoTime)</code> on all LoadPatterns
+which have been added to the domain. The domain will then invoke
+<code>applyConstraint(pseudoTime)</code> on all the constraints in the single and
+multi point constraint containers. Finally the domain sets its current
+time to be <em>pseudoTime</em>.</p>
+<p>To set the loads in the LoadPatterns to be constant. The domain achieves
+this by invoking <code>setLoadConstant()</code> on all the LoadPatterns which have
+been added to the domain. Note that LoadPatterns added after this method
+has been invoked will not be constant until this method is invoked
+again.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual void commit();</span></span></code></pre></div></div><p>To commit the state of the domain , that is to accept the current state
+as being ion the solution path. The domain invokes <code>commit()</code> on all
+nodes in the domain and then <code>commit()</code> on all elements of the domain.
+These are calls for the nodes and elements to set there committed state
+as given by their current state. The domain will then set its committed
+time variable to be equal to the current time and lastly increments its
+commit tag by 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual int revertToLastCommit();</span></span></code></pre></div></div><p>To return the domain to the state it was in at the last commit. The
+domain invokes <code>revertToLastCommit()</code> on all nodes and elements in the
+domain. The domain sets its current loadFactor and time stamp to be
+equal to the last committed values. The domain decrements the current
+commitTag by 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+. Finally it invokes <code>applyLoad()</code> on itself with the
+current time.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual void update();</span></span></code></pre></div></div><p>Called by the AnalysisModel to update the state of the domain. Iterates
+over all the elements of the Domain and invokes <code>update()</code>.</p>
+<p>To set the domain stamp to be <em>newStamp</em>. Domain stamp is the integer
+returned by <code>hasDomainChanged()</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual int hasDomainChanged();</span></span></code></pre></div></div><p>To return an integer stamp indicating the state of the domain. Initially
+
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+, this integer is incremented by 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+ if <code>domainChange()</code> has been
+invoked since the last invocation of the method. If the domain has
+changed it marks the element and node graph flags as not having been
+built.</p>
+
+<h3 id="public-methods-for-output" class="heading">Public Methods for Output <a href="#public-methods-for-output" aria-labelledby="public-methods-for-output">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>To add a recorder object <em>theRecorder</em> to the domain.
+<code>record(commitTag)</code> is invoked on each <code>commit()</code>. The pointers to the
+recorders are stored in an array which is resized on each invocation of
+this method.</p>
+<p>The domain will invoke <code>playback(commitTag)</code> on all recorder objects
+which have been added to the domain.</p>
+<p>To print the state of the domain. The domain invokes <code>Print(s,flag)</code>{.cpp} on
+all it&rsquo;s container objects.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">friend OPS_Stream &amp;operator&lt;&lt;(OPS_Stream &amp;s, Domain &amp;M)</span></span></code></pre></div></div><p>This function allows domain objects to be printed to streams. The
+function invokes <code>M.Print(s)</code> before returning <code>s</code>.</p>
+
+<h3 id="protected-member-functions" class="heading">Protected Member Functions <a href="#protected-member-functions" aria-labelledby="protected-member-functions">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual void domainChange();</span></span></code></pre></div></div><p>Sets a flag indicating that the integer returned in the next call to
+<code>hasDomainChanged()</code> must be incremented by 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+. This method is invoked
+whenever a Node, Element or Constraint object is added to the domain.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual int buildEleGraph(Graph &amp;theEleGraph)</span></span></code></pre></div></div><p>A method which will cause the domain to discard the current element
+graph and build a new one based on the element connectivity. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+
+if successful otherwise 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span>
+    
+
+ is returned along with an error message to
+<code>opserr</code>.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight cpp"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">virtual int buildNodeGraph(Graph &amp;theNodeGraph)</span></span></code></pre></div></div><p>A method which will cause the domain to discard the current node graph
+and build a new one based on the node connectivity. Returns 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span>
+    
+
+ if
+successful otherwise 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span>
+    
+
+ is returned along with an error message to
+<code>opserr</code>.</p>
+
+
+
+<div class="mt-5 small">
+    
+&bull;&nbsp;<a href="https://github.com/STAIRlab/opensees-gallery/commit/f0a40e84affab798f17a06679f3a8c4731db73eb">cmp (f0a40e8)</a>
+
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#destructor">Destructor</a></li>
+        <li><a href="#constructors">Constructors</a></li>
+        <li><a href="#public-methods-to-populate-the-domain">Public Methods to Populate the Domain</a></li>
+        <li><a href="#public-methods-to-populate-the-loadpatterns">Public Methods to Populate the LoadPatterns</a></li>
+        <li><a href="#public-methods-to-depopulate-the-domain">Public Methods to Depopulate the Domain</a></li>
+        <li><a href="#public-methods-to-access-the-components-of-the-domain">Public Methods to Access the Components of the Domain</a></li>
+        <li><a href="#public-methods-to-query-the-state-of-the-domain">Public Methods to Query the State of the Domain</a></li>
+        <li><a href="#public-methods-to-update-the-domain">Public Methods to Update the Domain</a></li>
+        <li><a href="#public-methods-for-output">Public Methods for Output</a></li>
+        <li><a href="#protected-member-functions">Protected Member Functions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+<footer class="container-fluid footer p-0 border-top">
+    <div class="container-xxl px-3 px-xxl-0 py-5">
+        <div class="row">
+            <div class="col-md-4 small">
+                <a href="/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-dark">
+
+
+<img class="img-fluid "
+        src="/img/logo-mono-light.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Domain">
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-light">
+
+
+<img class="img-fluid "
+        src="/img/logo-mono-dark.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Domain">
+    </div></a>
+                <div class="pt-3">OpenSees Examples.</div>
+                <div class="pt-2">Code licensed <a href='https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>BSD</a>, docs <a href='https://creativecommons.org/licenses/by-nc/4.0/' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>CC BY-NC 4.0</a></div>
+                <div class="pt-2">Currently <a href='https://github.com/claudioperez/OpenSeesRT/releases/tag/v0.26.7' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>v0.26.7</a></div>
+            </div>
+            <div class="col-md-2 small">&nbsp</div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Links</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="home" 
+             href="/" ><span >Home</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="about" 
+             href="/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link active link-bg-footer" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/docs/" ><span  class="active">Docs</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/docs/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="releases" 
+             href="/releases/" ><span >Releases</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Examples</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="working-with-solids" 
+             href="/examples/Example8" ><span >Working with solids</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="nonlinear-dynamics" 
+             href="/examples/Example7" ><span >Nonlinear dynamics</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="basic-statics" 
+             href="/examples/Example1" ><span >Basic Statics</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Community</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="issues" 
+             href="https://github.com/claudioperez/OpenSeesRT/issues" target="_blank" rel="noopener noreferrer" ><span >Issues</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="discussions" 
+             href="https://github.com/claudioperez/OpenSeesRT/discussions" target="_blank" rel="noopener noreferrer" ><span >Discussions</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="contribute" 
+             href="/docs/getting-started/contribute/" ><span >Contribute</span>&nbsp;</a>
+    
+</div></div></div>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">OpenSees</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+<!-- SVG symbol map -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+        <symbol id="fas-link" ><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></symbol>
+<symbol id="fas-ellipsis" ><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></symbol>
+<symbol id="fas-up-right-from-square" ><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></symbol>
+<symbol id="fab-github" ><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
+<symbol id="fas-sun" ><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></symbol>
+<symbol id="fas-moon" ><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></symbol>
+<symbol id="fas-sort" ><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></symbol>
+    </svg>
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script src="/js/main.bundle.en.js" async></script>
+    
+
+    
+
+
+
+
+
+        
+    </body>
+</html>
