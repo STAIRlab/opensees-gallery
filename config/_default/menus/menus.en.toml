@@ -22,10 +22,10 @@
   pageRef = "/examples/"
   weight = 40
 
-[[main]]
-  name = "Releases"
-  pageRef = "/releases/"
-  weight = 50
+# [[main]]
+#   name = "Releases"
+#   pageRef = "/releases/"
+#   weight = 50
 
 [[main]]
   name = "GitHub"
