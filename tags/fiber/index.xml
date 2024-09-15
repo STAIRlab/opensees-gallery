@@ -15,5 +15,12 @@
       <guid>https://stairlab.github.io/opensees-gallery/examples/example2/</guid>
       <description>This example performs a moment-curvature analysis of a reinforced concrete section which is represented by a fiber discretization. Because we are only interested in the response quantities of the cross section, a zero-length element is used to wrap the cross section.&#xA;Modeling &amp;nbsp; The figure below shows the fiber discretization for the section. The files for this example are: Python Tcl &amp;lt;a href=&amp;quot;Example2.py&amp;quot;&amp;gt;&amp;lt;code&amp;gt;Example2.py&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;a href=&amp;quot;Example2.tcl&amp;quot;&amp;gt;&amp;lt;code&amp;gt;Example2.tcl&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;a href=&amp;quot;MomentCurvature.tcl&amp;quot;&amp;gt;&amp;lt;code&amp;gt;MomentCurvature.tcl&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; The model consists of two nodes and a ZeroLengthSection element.</description>
     </item>
+    <item>
+      <title>Inelastic Cantilever</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
+      <description>In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.&#xA;NOTE Before running this notebook, you must install the external dependencies. To to this, uncomment the following cell by removing the leading # character, execute the cell, then put the # character back to prevent it from running again, thereby &amp;ldquo;commenting it out&amp;rdquo;.</description>
+    </item>
   </channel>
 </rss>

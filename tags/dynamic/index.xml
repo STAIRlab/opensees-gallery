@@ -29,5 +29,12 @@
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py render.py In both cases, the following ground motion records are required:&#xA;tabasFN.txt tabasFP.txt Modeling &amp;nbsp; A model of the rigid frame shown in the figure below is created. The model consists of three stories and one bay in each direction. Rigid diaphragm multi-point constraints are used to enforce the rigid in-plane stiffness assumption for the floors.</description>
     </item>
+    <item>
+      <title>Inelastic SDOF</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
+      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.&#xA;This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb&amp;nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:</description>
+    </item>
   </channel>
 </rss>

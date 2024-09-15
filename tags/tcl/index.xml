@@ -51,11 +51,32 @@
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py render.py In both cases, the following ground motion records are required:&#xA;tabasFN.txt tabasFP.txt Modeling &amp;nbsp; A model of the rigid frame shown in the figure below is created. The model consists of three stories and one bay in each direction. Rigid diaphragm multi-point constraints are used to enforce the rigid in-plane stiffness assumption for the floors.</description>
     </item>
     <item>
+      <title>Frame with Viscous Dampers</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</guid>
+      <description>This example demonstrates how to use the viscous damper material within a simple single story shear frame.&#xA;The files needed to analyze this structure in OpenSees are included here:&#xA;The main file: Supporting files&#xA;TakY.th - uses the JR Takatori record from the Kobe 1995 earthquake (available in the zip file below) All files are available in a compressed format here: Viscous_Damper_Example.zip&#xA;The rest of this example describes the model and shows the analysis results.</description>
+    </item>
+    <item>
       <title>Inelastic Plane Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
       <description>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt; This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. The files for this example are: Python Tcl &amp;lt;a href=&amp;quot;portal.py&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.py&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;a href=&amp;quot;portal.tcl&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.tcl&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; These files define the following functions:&#xA;Function Description create_portal Creates a model of a portal frame gravity_analysis Performs a gravity analysis on a model pushover_analysis Performs a pushover analysis on a model transient_analysis Performs a transient analysis on a model create_portal &amp;nbsp; The function create_portal creates a model representing the portal frame in the figure above.</description>
+    </item>
+    <item>
+      <title>Matrix Eigenvalue Analysis</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
+      <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame&amp;nbsp; .&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.&#xA;An idealized two-storey shear frame (Example 10.4 from &amp;ldquo;Dynamic of Structures&amp;rdquo; book by Professor Anil K. Chopra) is used for this purpose. In this idealization beams are rigid in flexure, axial deformation of beams and columns are neglected, and the effect of axial force on the stiffness of the columns is neglected.</description>
+    </item>
+    <item>
+      <title>Nonlinear Geometry</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples&amp;nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.&#xA;λ=PL2EI[1−P/(ksGA)]=PL2χEIχ=1−P/(ksGA)P=χλ2EI/L2. \begin{gathered} \lambda=\sqrt{\frac{P L^2}{E I\left[1-P /\left(k_{\mathrm{s}} G A\right)\right]}}=\sqrt{\frac{P L^2}{\chi E I}} \\ \chi=1-P /\left(k_{\mathrm{s}} G A\right) \\ P=\chi \lambda^2 E I / L^2 . \end{gathered} χ=11+λ2EI/(ksGAL2)=11+λ2φ/12P=λ2EI/L21+λ2φ/12. \begin{gathered} \chi=\frac{1}{1+\lambda^2 E I /\left(k_{\mathrm{s}} G A L^2\right)}=\frac{1}{1+\lambda^2 \varphi / 12} \\ P=\frac{\lambda^2 E I / L^2}{1+\lambda^2 \varphi / 12} .</description>
     </item>
     <item>
       <title>Simply Supported Solid Beam</title>

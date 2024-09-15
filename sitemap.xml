@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example1/</loc>
-    <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+    <lastmod>2024-09-13T14:17:08-07:00</lastmod>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example2/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
@@ -53,14 +53,22 @@
     <loc>https://stairlab.github.io/opensees-gallery/browserconfig.xml</loc>
     <lastmod>2024-09-09T02:57:34-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/spacetruss/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/2d/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/3d/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/cable-stayed/</loc>
     <lastmod>2024-09-11T19:46:57-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/frameshear/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/docs/getting-started/command-line/</loc>
     <lastmod>2024-09-13T09:48:08-07:00</lastmod>
@@ -71,8 +79,12 @@
     <loc>https://stairlab.github.io/opensees-gallery/tags/concrete/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/concretesurface/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example8/</loc>
     <lastmod>2024-09-11T19:46:57-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/soliddam/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/docs/developing/</loc>
     <lastmod>2024-09-13T09:48:08-07:00</lastmod>
@@ -80,8 +92,14 @@
     <loc>https://stairlab.github.io/opensees-gallery/tags/dynamic/</loc>
     <lastmod>2024-09-11T19:46:57-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/mrf_concentrated/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example7/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/dynamics/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/eigen/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example4/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
@@ -101,8 +119,16 @@
     <loc>https://stairlab.github.io/opensees-gallery/examples/example5/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/viscousdamper/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example3/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/docs/getting-started/modeling/</loc>
     <lastmod>2024-09-13T13:22:57-07:00</lastmod>
@@ -110,20 +136,33 @@
     <loc>https://stairlab.github.io/opensees-gallery/</loc>
     <lastmod>2024-09-09T14:30:36-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/notebook/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/plane/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/python/</loc>
-    <lastmod>2024-09-11T19:46:57-07:00</lastmod>
+    <lastmod>2024-09-13T14:17:08-07:00</lastmod>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/docs/getting-started/python/</loc>
     <lastmod>2024-09-13T09:48:08-07:00</lastmod>
   </url><url>
-    <loc>https://stairlab.github.io/opensees-gallery/tags/python-rt/</loc>
-    <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/spectrum/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/sdof/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/shallowdome/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/shell/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/shellframe/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/pendulum/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example6/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
@@ -131,14 +170,20 @@
     <loc>https://stairlab.github.io/opensees-gallery/tags/solid/</loc>
     <lastmod>2024-09-11T19:46:57-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/static/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/steel/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/</loc>
-    <lastmod>2024-09-13T13:22:57-07:00</lastmod>
+    <lastmod>2024-09-13T14:17:08-07:00</lastmod>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/tcl/</loc>
-    <lastmod>2024-09-11T19:46:57-07:00</lastmod>
+    <lastmod>2024-09-13T14:17:08-07:00</lastmod>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/truss/</loc>
-    <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+    <lastmod>2024-09-13T14:17:08-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/shelltwist/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/wrench/</loc>
   </url>

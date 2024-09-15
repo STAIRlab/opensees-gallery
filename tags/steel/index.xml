@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Steel on OpenSeesRT Examples</title>
+    <title>Steel on OpenSees</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/steel/</link>
-    <description>Recent content in Steel on OpenSeesRT Examples</description>
+    <description>Recent content in Steel on OpenSees</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/steel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Plane Steel Frame</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
-      <description>This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&#xA;The source file for the example is SteelFrame2D.py.</description>
+      <description>This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&amp;nbsp; The source file for the example is SteelFrame2D.py.</description>
     </item>
   </channel>
 </rss>

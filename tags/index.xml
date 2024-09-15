@@ -44,6 +44,20 @@
       <description></description>
     </item>
     <item>
+      <title>Dynamics</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/dynamics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/dynamics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Eigen</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/eigen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/eigen/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Fiber</title>
       <link>https://stairlab.github.io/opensees-gallery/tags/fiber/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -55,6 +69,13 @@
       <link>https://stairlab.github.io/opensees-gallery/tags/frame/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/tags/frame/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Notebook</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/notebook/</guid>
       <description></description>
     </item>
     <item>
@@ -72,10 +93,10 @@
       <description></description>
     </item>
     <item>
-      <title>Python (RT)</title>
-      <link>https://stairlab.github.io/opensees-gallery/tags/python-rt/</link>
+      <title>SDOF</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/sdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/tags/python-rt/</guid>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/sdof/</guid>
       <description></description>
     </item>
     <item>
@@ -90,6 +111,20 @@
       <link>https://stairlab.github.io/opensees-gallery/tags/solid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/tags/solid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Static</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/static/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/static/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Steel</title>
+      <link>https://stairlab.github.io/opensees-gallery/tags/steel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/tags/steel/</guid>
       <description></description>
     </item>
     <item>

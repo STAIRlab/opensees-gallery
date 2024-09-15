@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Static on OpenSeesRT Examples</title>
+    <title>Static on OpenSees</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/static/</link>
-    <description>Recent content in Static on OpenSeesRT Examples</description>
+    <description>Recent content in Static on OpenSees</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/static/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Instability</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
-      <description>Incremental Analysis of a Shallow Arch Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp.</description>
+      <description>Incremental Analysis of a Shallow Arch &amp;nbsp; launchlaunchbinderbinder &amp;nbsp; Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp. 1365–1391. Available at: https://doi.org/10.1002/nme.1620290702&amp;nbsp; .&#xA;Begin by importing the arch_model helper function from the file arch.py:&#xA;from arch import arch_modelImport some helpful third-party libraries&#xA;import numpy as np import matplotlib.pyplot as plt try: import scienceplots plt.style.use(&amp;#34;steel&amp;#34;) #([&amp;#34;ieee&amp;#34;, &amp;#34;science&amp;#34;, &amp;#34;notebook&amp;#34;]) except: pass The Framework &amp;nbsp; def analyze(model, mid, increment, steps, dx, *args): dof = 2 xy = [] status = 0 increment(model, mid, dof, dx, *args) for step in range(steps): if status !</description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/cantilevertransient/</guid>
-      <description>In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.</description>
+      <description>In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.&#xA;NOTE Before running this notebook, you must install the external dependencies. To to this, uncomment the following cell by removing the leading # character, execute the cell, then put the # character back to prevent it from running again, thereby &amp;ldquo;commenting it out&amp;rdquo;.</description>
     </item>
   </channel>
 </rss>

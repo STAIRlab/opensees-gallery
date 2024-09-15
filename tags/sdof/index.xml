@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SDOF on OpenSeesRT Examples</title>
+    <title>SDOF on OpenSees</title>
     <link>https://stairlab.github.io/opensees-gallery/tags/sdof/</link>
-    <description>Recent content in SDOF on OpenSeesRT Examples</description>
+    <description>Recent content in SDOF on OpenSees</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/sdof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Inelastic SDOF</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
-      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W.</description>
+      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.&#xA;This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb&amp;nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:</description>
     </item>
   </channel>
 </rss>
