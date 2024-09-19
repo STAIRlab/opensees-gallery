@@ -1,3 +1,4 @@
 ---
-draft: Space Truss
+title: Space Truss
+draft: true
 ---
