@@ -19,10 +19,7 @@ from opensees.units.english import gravity as g
 # ----------------------------
 # Start of model generation
 # ----------------------------
-def create_model(Quad: str = "quad"):
-    #Quad = "SSPquad"
-    #Quad = "bbarQuad"
-    #Quad = "enhancedQuad"
+def create_model(element: str = "quad"):
 
     # create ModelBuilder (with two-dimensions and 2 DOF/node)
     model = ops.Model(ndm=2, ndf=2)
@@ -42,33 +39,25 @@ def create_model(Quad: str = "quad"):
     l1 = int(nx/2 + 1)
     l2 = int(l1 + ny*(nx+1))
 
-    # now create the nodes and elements using the block2D command
-    if (Quad == "quad" or Quad == "enhancedQuad"):
-        #          numX numY startNode startEle eleType eleArgs? coords?
-        model.block2D(nx, ny, 1, 1,
-                    Quad, (thick, "PlaneStrain", 1),
-                    1,  0.0,  0.0,
-                    2, 40.0,  0.0,
-                    3, 40.0, 10.0,
-                    4,  0.0, 10.0)
+    # now create the nodes and elements using the surface command
+    if element in { "quad", "enhancedQuad", "tri31"}:
+        args = (thick, "PlaneStrain", 1)
 
-    elif (Quad == "SSPquad"):
-        #          numX numY startNode startEle eleType eleArgs? coords?
-        model.block2D(nx, ny, 1, 1,
-                    Quad, 1, "PlaneStrain", thick,
-                    1,  0.0,  0.0,
-                    2, 40.0,  0.0,
-                    3, 40.0, 10.0,
-                    4,  0.0, 10.0)
+    elif element == "SSPquad":
+#       args = (1, "PlaneStrain", thick)
+        args = (thick, "PlaneStrain", 1)
 
-    elif (Quad == "bbarQuad"):
-        #          numX numY startNode startEle eleType eleArgs? coords?
-        model.block2D(nx, ny, 1, 1,
-                    Quad, thick, 1,
-                    1,  0.0,  0.0,
-                    2, 40.0,  0.0,
-                    3, 40.0, 10.0,
-                    4,  0.0, 10.0)
+    elif element == "bbarQuad":
+        args = (thick, 1)
+
+    surface = model.surface((nx, ny),
+                  element=element, args=args,
+                  points={
+                    1: [  0.0,  0.0],
+                    2: [ 40.0,  0.0],
+                    3: [ 40.0, 10.0],
+                    4: [  0.0, 10.0]
+                  })
 
     # Single point constraints
     #      node u1 u2    
@@ -164,9 +153,12 @@ def dynamic_analysis(model, l1):
 
 
 if __name__ == "__main__":
-    model, (l1, l2) = create_model()
-    model.print(json="model.json")
-    static_analysis(model)
+    for element in "quad", "SSPquad", "bbarQuad", "enhancedQuad":
+        model, (l1, l2) = create_model(element)
+        model.print("-json")
+        static_analysis(model)
+        print(model.nodeDisp(l2))
+
 #   dynamic_analysis(model, l1)
 
 

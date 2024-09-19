@@ -2,7 +2,7 @@
 title: "Frame with Diaphragms"
 tags: ["3D", "Concrete", "Frame", "Python", "Tcl", "Dynamic"]
 categories: ["Basic"]
-thumbnail:  img/render.png
+thumbnail: img/render.png
 render: model.glb
 description: >-
     A three-dimensional reinforced concrete rigid frame,
@@ -18,6 +18,7 @@ is subjected to bi-directional earthquake ground motion.
 
 Or for Python:
 1.  [`Example5.py`](Example5.py)
+2.  [`render.py`](render.py)
 
 In both cases, the following ground motion records are required:
 
@@ -41,7 +42,7 @@ elements may have been used for the beam members; but, it is useful to
 see that section models other than fiber sections may be used in the
 nonlinear beam column element.
 
-![Example 5.1](Example4.svg)
+![Example 5.1](img/Example4.svg)
 
 
 ## Analysis

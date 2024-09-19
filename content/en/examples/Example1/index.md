@@ -12,7 +12,7 @@ keywords: ["structural analysis", "structural engineering"]
 ---
 
 
-![Example 1.1](Example1.svg)
+![Example 1.1](img/Example1.svg)
 
 This example is of a linear-elastic three bar truss, as shown in
 the figure above, subject to static loads. The purpose of this

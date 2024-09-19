@@ -64,5 +64,5 @@ for every time step. Each line contains the time and the horizontal
 displacement at the upper right corner the beam. 
 This is plotted in the figure below:
 
-![Displacement vs. Time for Upper Right Corner of Beam](cantilever.svg)
+![Displacement vs. Time for Upper Right Corner of Beam](img/cantilever.svg)
 

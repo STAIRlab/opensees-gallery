@@ -1,0 +1,3 @@
+---
+draft: Space Truss
+---
