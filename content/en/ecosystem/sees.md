@@ -8,6 +8,6 @@ icon: fas brush
 
 {{< link sees >}}sees{{< /link >}} is an open-source finite element visualization framework. Using a mobile-first approach, it provides several functions and components to simplify the creation of responsive websites.
 
-{{< button relref="layout" outline="true" >}}
-    Check the grid system
+{{< button relref="examples" outline="true" >}}
+    Explore examples
 {{< /button >}}
