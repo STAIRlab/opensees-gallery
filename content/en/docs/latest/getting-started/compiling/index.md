@@ -9,132 +9,198 @@ aliases:
 layout: docs
 ---
 
-## Prerequisites
+## Dependencies
 
 Compiling OpenSees requires the following software to be installed on your local machine:
 
 <!-- markdownlint-disable MD037 -->
 {{< table >}}
-| Software                                                   | Hugo                  | npm                   | Remarks |
-|------------------------------------------------------------|-----------------------|-----------------------|---------|
-| {{</* link golang_download >}}Go binary{{< /link */>}}     | {{</* fas check */>}} | {{</* fas check */>}} | Required for Hugo modules, including Hinode itself |
-| {{</* link hugo_download >}}Hugo (extended){{< /link */>}} | {{</* fas check */>}} |                       | Embedded as npm binary |
-| {{</* link nodejs >}}Node.js{{< /link */>}}                |                       | {{</* fas check */>}} | The installation package includes npm |
-| {{</* link git_download >}}Git{{< /link */>}}              | recommended           | {{</* fas check */>}} | Recommended for version control |
+| Software                                                   | Hugo                  | Remarks |
+|------------------------------------------------------------|-----------------------|---------|
+| {{</* link git_download >}}Git{{< /link */>}}              | recommended           | Recommended for version control |
+| C/C++ Compilers                                            | {{</* fas check */>}} | Embedded as npm binary |
+| {{</* link nodejs >}}Node.js{{< /link */>}}                |                       | The installation package includes npm |
 {{< /table >}}
 <!-- markdownlint-enable MD037 -->
 
-## Installation
+The primary system dependencies required for compiling are LAPACK/BLAS and Tcl.
+Packages providing these libraries are listed below for various package
+management ecosystems.
 
-The next steps describe the approach how to initialize a new Hinode site using either Hugo or npm.
+> [!NOTE]
+> When building in an Anaconda environment, you should install 
+> **all** dependencies with `conda` or `mamba`, and preferably from the
+> `conda-forge` channel. Expand the notes on Anaconda below.
 
+
+
+{{< accordion class="accordion-theme accordion-flush" >}}
+  {{< accordion-item header="Anaconda (Mac, Windows, Linux)" >}}
+
+When using conda, you need to ensure that CMake only finds 
+compilers that are compatible with the libraries in the
+environment. <b>System compilers (like those installed
+by the operating system's package manager) often cannot be used
+and can lead to segfaults.</b>
+The following command should install everything you need:
+
+``` shell
+conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
+```
+
+  {{< /accordion-item >}}
+  {{< accordion-item header="APT (Ubuntu, Debian Linux)" >}}
+
+| Dependency  | Package              |
+|:------------|:---------------------|
+| LAPACK      | `liblapack-dev`      |
+| BLAS        | `libblas-dev`        |
+| Tcl\*       | `tcl-dev`            |
+
+  {{< /accordion-item >}}
+
+
+  {{< accordion-item header="Pacman (Arch, Manjaro Linux)" >}}
+
+| Dependency  | Package       |
+|:------------|:--------------|
+| LAPACK      | `lapack`      |
+| BLAS        | `blas`        |
+| Tcl\*       | `tcl`         |
+
+  {{< /accordion-item >}}
+  {{< accordion-item header="Yum (CentOS, Redhat Linux)" >}}
+
+| Dependency | Package        |
+|------------|----------------|
+| LAPACK     | `lapack-devel` |
+| Tcl\*      | `tcl-devel`    |
+
+
+  {{< /accordion-item >}}
+{{< /accordion >}}
+
+
+
+## Prerequisites
+
+1. Clone the package repository:
+   {{</* command */>}}
+   git clone https://github.com/claudioperez/OpenSeesRT
+   {{</* /command */>}}
+
+2. install *run-time* dependencies. These are the libraries that will be needed 
+   in order to use OpenSees. To install these, run:
+   {{</* command */>}}
+   python -m pip install opensees
+   {{</* /command */>}}
+
+
+2. Install *compile-time* dependencies; see **Dependencies** below. These dependencies are only
+   needed for the compilinf process.
 
 {{< button collapse="collapse-1" outline=true color="secondary" icon="fab windows" order="first" size="sm" class="mb-4" >}}
     Windows installation notes
 {{< /button >}}
 
 {{< collapse id="collapse-1" class="p-3 border rounded mt-n4" >}}
-  The installation for Windows requires PowerShell v7. Download it from the Microsoft Store as needed. Check your current version with the command `$PSVersionTable`.
+On Windows you should additionally install Intel compilers and Conan
 {{< /collapse >}}
+
+
+
+## Compiling
+
+The next steps describe how to set up your compilers and build the OpenSees library.
+
 
 <!-- markdownlint-disable MD005 MD029 MD037 -->
 {{< nav type="tabs" id="pills-1" >}}
-  {{< nav-item header="Hugo" show="true" >}}
+  {{< nav-item header="CMake" show="true" >}}
 
-1. **Create a new site**
-
-    {{</* command */>}}
-    hugo new site my-hinode-site && cd my-hinode-site
-    {{</* /command */>}}
-
-2. **Initialize the module system**
+1. **Create a directory to hold build artifacts**
 
     {{</* command */>}}
-    hugo mod init example.com/my-hinode-site
-    echo "[[module.imports]]" >> hugo.toml
-    echo "path = 'github.com/gethinode/hinode'" >> hugo.toml
+    mkdir build
     {{</* /command */>}}
 
-3. **Start a development server**
+2. **Configure the system for your system**
 
     {{</* command */>}}
-    hugo server
+    cd build
+    cmake ..
     {{</* /command */>}}
+
+3. **Start compiling**
+
+    {{</* command */>}}
+    cmake --build . --target OpenSees -j8
+    {{</* /command */>}}
+
+4. When `libOpenSeesRT.so` is compiled locally, the `opensees` 
+   package needs to be told where to find it. This can be done by setting
+   an environment variable with the name `OPENSEESRT_LIB` to point to
+   the location of `libOpenSeesRT.so` in the build tree.
+   To this end, you may want to add a line like the following to your shell
+   startup script (e.g., `.bashrc`):
+   ```bash
+   export OPENSEESRT_LIB="/path/to/your/compiled/libOpenSeesRT.so"
+   ```
+
   {{< /nav-item >}}
-  {{< nav-item header="npm" >}}
+  {{< nav-item header="CMake+Conan" >}}
 
-1. **Create a new repository**
-
-    Go to {{</* link repository_template /*/>}} and login to GitHub as needed. Next, click the green button `Use this template {{</* fas caret-down */>}}` to initialize a new repository based on the Hinode template.
-
-    **Alternatively**, you can use the {{</* link github_cli >}}GitHub cli{{< /link */>}} to initialize the repository from the command line. Replace `--private` with `--public` if you wish to create a public repository instead.
+1. **Create a directory to hold build artifacts**
 
     {{</* command */>}}
-    gh repo create my-hinode-site --private --template="{{</* param "links.repository_template" */>}}"
+    mkdir build
+    cd build
     {{</* /command */>}}
 
-2. **Configure a local site**
-
-    Assuming your repository is `owner/my-hinode-site`, use the `git` command to clone the repository to your local machine.
+2. **Run Conan**
 
     {{</* command */>}}
-    git clone https://github.com/owner/my-hinode-site && cd my-hinode-site
+    conan install .. --build missing
     {{</* /command */>}}
 
-    Now install the npm packages and hugo modules.
+3. **Configure the system for your system**
 
     {{</* command */>}}
-    npm install && npm run mod:update
+    cmake ..
     {{</* /command */>}}
 
-3. **Start the development server**
+4. **Start compiling**
 
     {{</* command */>}}
-    npm run start
+    cmake --build . --target OpenSees -j8
     {{</* /command */>}}
+
+5. When `libOpenSeesRT.so` is compiled locally, the `opensees` 
+   package needs to be told where to find it. This can be done by setting
+   an environment variable with the name `OPENSEESRT_LIB` to point to
+   the location of `libOpenSeesRT.so` in the build tree.
+   To this end, you may want to add a line like the following to your shell
+   startup script (e.g., `.bashrc`):
+   {{</* command */>}}
+   export OPENSEESRT_LIB="/path/to/your/compiled/libOpenSeesRT.so"
+   {{</* /command */>}}
   {{< /nav-item >}}
 {{< /nav >}}
 <!-- markdownlint-enable MD005 MD029 -->
 
 
+Check that everything was built properly by running the following command:
+```shell
+python -m opensees
+```
+This should start an OpenSees interpreter which can be closed by running
+the `exit` command.
+
 --------------------------------------------
 
 
-As a static website, your Hinode site can be deployed virtually anywhere. Hugo provides a comprehensive overview of the more popular {{< link hugo_deployment >}}deployment solutions{{< /link >}}. Hinode uses a different build process compared to a default Hugo site. Review the [considerations]({{% relref "#considerations" %}}) for more details. The next paragraphs highlight the specific build and deployment process of Hinode for a few selected hosting providers.
+<!--
 
-## Considerations
-
-Before deciding on your hosting and deployment approach, review the following considerations.
-
-1. **Include npm in your build process**
-
-   Hinode supports npm to automate the build process. Visit the [Hinode introduction]({{% relref "introduction" %}}) and [commands overview]({{% relref "compiling" %}}) for more details.
-
-2. **Configure the build timeout**
-
-   You might encounter timeout errors when you generate a large site that contains many resources (such as images). Adjust the `timeout` in `config/_default/hugo.toml` as needed.
-
-   {{< docs name="timeout" file="config/_default/hugo.toml" >}}
-
-3. **Consider using build automation**
-
-   Many popular Git providers provide the option to automate the build and deployment process ({{ abbr "CI/CD" >}}). You can trigger this process on each release to your main repository branch, or set up a preview during a Pull Request. The examples on this page assume you have a Git repository with GitHub.
-
-4. **Understand the support for custom domain names**
-
-   Most hosting providers provide a subdomain, such as `<username>.github.io`, to access your website by default. Usually you have the ability to use a custom domain instead, although additional services and configuration might be needed.
-
-5. **Decide on multiregion and CDN support**
-
-   Websites that serve a global audience might benefit from a multiregion or edge deployment to increase availability and reduce latency. You can also consider adding a dedicated {{< abbr CDN >}}, which has the ability to reduce the impact of {{< abbr DDoS >}} attacks for example.
-
-6. **Consider using custom HTTP headers**
-
-   Hinode uses custom HTTP headers to enable the [Content Security Policy]({{% relref "modeling" %}}). The support for custom HTTP headers varies per provider, and might need additional services and configuration.
-
-The table below gives a brief overview of the features supported by a few selected hosting providers. The next paragraphs describe the build and deployment process for each provider in more detail.
-
-<!-- markdownlint-disable MD037 -->
 {{< table class="table-striped-columns w-auto" >}}
 | Feature            | Azure blob storage | Netlify           |
 |--------------------|--------------------|-------------------|
@@ -143,31 +209,7 @@ The table below gives a brief overview of the features supported by a few select
 | CDN / Edge network | Requires Azure CDN | {{</* fas check */>}} |
 | HTTP headers       | Requires Azure CDN | {{</* fas check */>}} |
 {{< /table >}}
-<!-- markdownlint-enable MD037 -->
 
-<!-- | Feature            | Azure blob storage | Azure Static Web App | GitHub pages      | Netlify           |
-|--------------------|--------------------|----------------------|-------------------|-------------------|
-| Automation         | Custom action      | {{</* fas check */>}}    | {{</* fas check */>}} | {{</* fas check */>}} |
-| Custom domain name | Requires Azure CDN | {{</* fas check */>}}    | {{</* fas check */>}} | {{</* fas check */>}} |
-| CDN / Edge network | Requires Azure CDN | {{</* fas check */>}}    | {{</* fas check */>}} | {{</* fas check */>}} |
-| HTTP headers       | Requires Azure CDN | {{</* fas check */>}}    |                   | {{</* fas check */>}} |
-{.table} -->
-
-
-
-## Host on Netlify
-
-Netlify can host your website with continuous deployment from your Git
-provider. The starter price plan is free for any public repository and provides
-
-
-> [!NOTE]
-> The starter plan requires your repository to be public. You will require a paid plan if your repository is set to private.
-
-### Assumptions
-
-- You have a Hinode website you are ready to deploy.
-- You do not already have a Netlify account.
 
 ### Preparations
 
@@ -201,7 +243,6 @@ Sign up for Netlify and configure your site in seven steps.
   {{< img src="img/netlify-step7.png" caption="Step 7. Configure the build settings" >}}
 {{< /carousel >}}
 
-<!-- markdownlint-disable MD037 -->
 {{< accordion class="accordion-theme accordion-flush" >}}
   {{< accordion-item header="Step 1. Sign up for Netlify" >}}
     Go to {{</* link netlify >}}netlify.com{{< /link */>}} and click on the button `Sign up`. Select your preferred signup method next. This will likely be a hosted Git provider, although you also have the option to sign up with an email address. The next steps use GitHub, but other Git providers will follow a similar process.
@@ -225,7 +266,8 @@ Sign up for Netlify and configure your site in seven steps.
     Review the basic build settings. Netlify will use the settings provided in the [preparations]({{% relref "#preparations-1" %}}). Click on the button `Deploy site` to start the build and deployment process.
   {{< /accordion-item >}}
 {{< /accordion >}}
-<!-- markdownlint-enable MD037 -->
 
 Your site is now ready to be used. Click on the domain settings of your site within the `Site overview` page to provide a domain alias and to edit the site name as needed. The same section also allows the configuration of a custom domain. Be sure to review your [server configuration]({{% relref "modeling" %}}) if you encounter any rendering issues, such as broken links or garbled stylesheets.
+
+-->
 
