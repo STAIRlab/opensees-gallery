@@ -6494,6 +6494,32 @@ function initIndex() {
       {
         id: 0,
         tag: "en",
+        href: "/opensees-gallery/examples/archstaticsnap/",
+        title: "Arch Instability",
+        description: "Several nonlinear static analysis methods are used to investigate instabilities in a shallow arch.",
+        
+        
+        content: "Incremental Analysis of a Shallow Arch \u0026nbsp; launchlaunchbinderbinder \u0026nbsp; Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp. 1365–1391. Available at: https://doi.org/10.1002/nme.1620290702\u0026nbsp; .\nBegin by importing the arch_model helper function from the file arch.py:\nfrom arch import arch_modelImport some helpful third-party libraries\nimport numpy as np import matplotlib.pyplot as plt try: import scienceplots plt.style.use(\u0026#34;steel\u0026#34;) #([\u0026#34;ieee\u0026#34;, \u0026#34;science\u0026#34;, \u0026#34;notebook\u0026#34;]) except: pass The Framework \u0026nbsp; def analyze(model, mid, increment, steps, dx, *args): dof = 2 xy = [] status = 0 increment(model, mid, dof, dx, *args) for step in range(steps): if status != 0: dx /= 2 increment(model, mid, dof, dx, *args) status = model.analyze(1) xy.append([model.nodeDisp(mid, dof), model.getTime()]) return np.array(xy).TThe strategies used by Clarke and Hancock are:\nSolution 1 Iterative strategy: Constant load (Section 3.1) Load incrementation strategy: Direct incrementation of the load parameter (Section 4.1.1) Solution 2 Iterative strategy: Constant vertical displacement under the load, $v_6$ (Section 3.2) Load incrementation strategy: Incrementation of the displacement component $v_6$ (Section 4.1.2) Solution 3 Iterative strategy: Constant arc-length (Section 3.3) Load incrementation strategy: Incrementation of the arc-length (Section 4.1.3) Solution 4 Iterative strategy: Minimum unbalanced displacement norm (Section 3.5) Load incrementation strategy: Incrementation of the arc-length (Section 4.1.3) Solution 5 Iterative strategy: Constant weighted response (Section 3.7, equation (39)) Load incrementation strategy: Incrementation of the arc-length (Section 4.1.3) Solution 6 Iterative strategy: Minimum unbalanced force norm (Section 3.6) Load incrementation strategy: Using the current stiffness parameter (Section 4.2, equation (57)) Solution 7 Iterative strategy: Minimum unbalanced force norm (Section 3.6) Load incrementation strategy: Incrementation of the arc-length (Section 4.1.3) Solution 8 Iterative strategy: Constant arc-length (Section 3.3) Load incrementation strategy: Using the current stiffness parameter (Section 4.2, equation (57)) def solution0(model, mid, dof, dx): model.integrator(\u0026#34;LoadControl\u0026#34;, 400.0) def solution1(model, mid, dof, dx): Jd = 5 model.integrator(\u0026#34;LoadControl\u0026#34;, dx, Jd, -800., 800.) def solution2(model, mid, dof, dx): Jd = 5 model.integrator(\u0026#34;DisplacementControl\u0026#34;, mid, dof, dx, Jd) def norm_control(model, mid, dof, dx): Jd = 15 model.integrator(\u0026#34;MinUnbalDispNorm\u0026#34;, dx, Jd, -10, 10, \u0026#34;-det\u0026#34;) def arc_control(model, mid, dof, dx, a): model.integrator(\u0026#34;ArcLength\u0026#34;, dx, a, det=True, exp=0.5, reference=\u0026#34;point\u0026#34;)fig, ax = plt.subplots() # x, y = solution0(*arch_model(), 6, 400.0) # ax.plot(-x, y, \u0026#39;x\u0026#39;, label=\u0026#34;S0\u0026#34;) # x, y = analyze(*arch_model(), solution1, 6, 400.0) # ax.plot(-x, y, \u0026#39;x\u0026#39;, label=\u0026#34;S1\u0026#34;) # print(y) x, y = analyze(*arch_model(), solution2, 7, -150) ax.plot(-x, y, \u0026#39;o\u0026#39;, label=\u0026#34;S2\u0026#34;) x, y = analyze(*arch_model(), solution2, 536, -1.5) ax.plot(-x, y, \u0026#39;-\u0026#39;, label=\u0026#34;S2\u0026#34;) # x, y = analyze(*arch_model(), arc_control, 9500, 0.5, 0) # ax.plot(-x, y, \u0026#34;-\u0026#34;, label=\u0026#34;arc\u0026#34;) # Requires -det x, y = analyze(*arch_model(), arc_control, 110, 45, 0) ax.plot(-x, y, \u0026#34;x\u0026#34;, label=\u0026#34;arc\u0026#34;) x, y = analyze(*arch_model(), arc_control, 80, 88, 0) ax.plot(-x, y, \u0026#34;+\u0026#34;, label=\u0026#34;arc\u0026#34;) x, y = analyze(*arch_model(), arc_control, 80, 188, 0) ax.plot(-x, y, \u0026#34;*\u0026#34;, label=\u0026#34;arc\u0026#34;) # x, y = analyze(*arch_model(), arc_control, 8000, 0.8, 0) # ax.plot(-x, y, \u0026#34;x\u0026#34;, label=\u0026#34;arc\u0026#34;) # x, y = analyze(*arch_model(), norm_control, 7000, 1.0) # ax.plot(-x, y, \u0026#34;-\u0026#34;, label=\u0026#34;norm\u0026#34;) ax.set_xlim([0, 1200]) ax.set_ylim([-800, 3000]) fig.legend()Output:\n\u001b[0;31m FAILURE\u001b[0m :: Iter: 25, Norm: 49845.5, Norm deltaX: 152.498 \u001b[0;31m FAILURE\u001b[0m :: Iter: 25, Norm: 11340.8, Norm deltaX: 123.419 ArcLength::update() - imaginary roots due to multiple instability directions - initial load increment was too large a: 6.20586 b: -2674.5 c: 319258 b24ac: -772128 \u001b[0;31m FAILURE\u001b[0m :: Iter: 25, Norm: 3293.9, Norm deltaX: 54.5382\u0026lt;matplotlib.legend.Legend at 0x7f1ddb0b8d00\u0026gt; \u0026lt;Figure size 2560x1920 with 1 Axes\u0026gt;plt.plot(-x, \u0026#39;.\u0026#39;)Output:\n[\u0026lt;matplotlib.lines.Line2D at 0x7f1dd8e8ec40\u0026gt;] \u0026lt;Figure size 2560x1920 with 1 Axes\u0026gt;ax.plot(-x, \u0026#34;.\u0026#34;)Output:\n[\u0026lt;matplotlib.lines.Line2D at 0x7f1dd8cc8340\u0026gt;]The following animation of the solution is created in Animating.ipynb"
+      })
+      .add(
+      
+      
+      {
+        id: 1,
+        tag: "en",
+        href: "/opensees-gallery/examples/buildingmodes/",
+        title: "Building Modes",
+        description: "A building is modeled as a cantilever, and the first three mode shapes are plotted.",
+        
+        
+        content: "This example is implemented in the following Python script, which can be downloaded from here: cantilever_modes.py.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 # Import the opensees package for finite element analysis import opensees.openseespy as ops # Import some additional dependencies import matplotlib.pyplot as plt import numpy as np import pandas as pd plt.rcParams.update(\u0026#39;font.size\u0026#39;: 16) def make_model(): # Define a basic model with 2 dimensions and 3 degrees of freedom per node # (translation in X and Y directions, and rotation about the Z-axis) model = ops.Model(ndm=2, ndf=3) # # Define material # # Sets up an elastic material with given Young\u0026#39;s modulus (E), # moment of inertia (I), and cross-sectional area (A) E = 200e6 # Young\u0026#39;s modulus in kPa I = 0.0001 # Area moment of inertia in m^4 A = 0.01 # Cross-sectional area in m^2 model.uniaxialMaterial(\u0026#34;Elastic\u0026#34;, 1, E) # # Create nodes # # Nodes are created along a vertical line with a defined height between each, # representing floors of a building numFloors = 56 # Number of floors floorHeight = 3.0 # Height of each floor in meters for i in range(numFloors + 1): model.node(i + 1, 0, i * floorHeight) # Fix base node # The base node is fixed, meaning no translations or rotations are allowed, # mimicking a fixed foundation model.fix(1, 1, 1, 1) # Define geometric transformation (required for beam-column elements) ## A linear geometric transformation is defined for beam-column elements, ## essential for how elements behave in the model space model.geomTransf(\u0026#39;Linear\u0026#39;, 1) # Define elements (cantilever columns) # Beam-column elements are defined between each pair of nodes, # simulating the columns of a building for i in range(numFloors): nodes = (i + 1, i + 2) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, i + 1, nodes, A, E, I, 1) # Define mass # Mass is assigned to each node (excluding the fixed base), # essential for dynamic analysis like modal analysis m = 2000 # Mass in kg for i in range(1, numFloors + 1): model.mass(i + 1, m, 1e-9, 0.0) # Mass assigned to each node return model, numFloors, floorHeight def plot_modes(model, numFloors, floorHeight): # Perform eigenvalue analysis # Eigenvalue analysis is performed to obtain the # first three natural frequencies and associated mode shapes numEigen = 3 eigenValues = model.eigen(numEigen) # Plotting fig, ax = plt.subplots(1, numEigen + 1, figsize=(15, 10), sharey=True, gridspec_kw=\u0026#39;wspace\u0026#39;: 0.1) # Floor height positions and labels for y-ticks floor_positions = [(i * floorHeight) for i in range(0, numFloors, 5)] # Every 5 floors floor_labels = [f\u0026#39;Fi\u0026#39; for i in range(1, numFloors + 1, 5)] # Every 5 floors for fp, fl in zip(floor_positions, floor_labels): print(f\u0026#39;Floor Position: fp - Floor Label: fl\u0026#39;) # Plot undeformed shape for i in range(numFloors): nodeTag_i = i + 1 nodeTag_j = i + 2 coord_i = model.nodeCoord(nodeTag_i) # Get the coordinates of the i-th node coord_j = model.nodeCoord(nodeTag_j) # Get the coordinates of the j-th node ax[0].plot([coord_i[0], coord_j[0]], [coord_i[1], coord_j[1]], \u0026#39;b-o\u0026#39;) ax[0].set_title(\u0026#39;Undeformed Shape\u0026#39;) ax[0].set_xlabel(\u0026#39;X\u0026#39;) # ax[0].set_ylabel(\u0026#39;Y\u0026#39;) ax[0].set_yticks(floor_positions) ax[0].set_yticklabels(floor_labels) # Adjust fontsize as needed # Plot mode shapes all_modal_displacements =  for mode in range(numEigen): for i in range(numFloors): nodeTag_i = i + 1 nodeTag_j = i + 2 coord_i = model.nodeCoord(nodeTag_i) # Get the coordinates of the i-th node coord_j = model.nodeCoord(nodeTag_j) # Get the coordinates of the j-th node ax[mode + 1].plot([coord_i[0], coord_j[0]], [coord_i[1], coord_j[1]], \u0026#39;-o\u0026#39;, color=\u0026#39;gray\u0026#39;) # get modal displacement and floor number for each node all_modal_displacements[mode] =  # Scale deformation to the node coordinates for easy visualization scaleFactor = 15 # Scale factor for deformation amplification for i in range(numFloors): nodeTag_i = i + 1 nodeTag_j = i + 2 coord_i = model.nodeCoord(nodeTag_i) coord_j = model.nodeCoord(nodeTag_j) eigenvector_i = model.nodeEigenvector(nodeTag_i, mode + 1) eigenvector_j = model.nodeEigenvector(nodeTag_j, mode + 1) # Apply scale factor to mode shape coord_i[0] += scaleFactor * eigenvector_i[0] coord_j[0] += scaleFactor * eigenvector_j[0] all_modal_displacements[mode][nodeTag_i] = coord_i[0] ax[mode + 1].plot([coord_i[0], coord_j[0]], [coord_i[1], coord_j[1]], \u0026#39;r-o\u0026#39;) print(f\u0026#39;Mode mode + 1 - Frequency: np.sqrt(eigenValues[mode]) / (2 * np.pi) Hz\u0026#39;) # print(f\u0026#39;Modal Displacements: modalDisplacements\u0026#39;) ax[mode + 1].set_title(f\u0026#39;Mode mode\u0026#39;) ax[mode + 1].set_xlabel(\u0026#39;X\u0026#39;) ax[mode + 1].set_ylim(ax[0].get_ylim()) # ax[mode + 1].set_yticks(floor_positions) # ax[mode + 1].set_yticklabels(floor_labels) ## Draw horizontal line at each floor level for a in ax: for y in floor_positions: a.axhline(y, color=\u0026#39;gray\u0026#39;, linestyle=\u0026#39;--\u0026#39;, linewidth=0.5) ## rotate x-axis labels for a in ax: plt.sca(a) plt.xticks(rotation=45) max_disp = 0.1 for a in ax: a.set_xlim([-max_disp, max_disp]) plt.savefig(\u0026#39;mode_shapes.png\u0026#39;, dpi=300, bbox_inches=\u0026#39;tight\u0026#39;) plt.close() # print(all_modal_displacements) ## all_modal_displacements to pandas dataframe df = pd.DataFrame(all_modal_displacements) # print(df.head()) ## ylocations for each mode yloc_offset = 0.1 ylocations = [i * yloc_offset for i in range(df.shape[1])] print(ylocations) fig, ax = plt.subplots(1, 1, figsize=(12, 8)) # plot for first mode ax.plot(df[0], \u0026#39;bo-\u0026#39;, label=\u0026#39;Mode 1\u0026#39;) ax.axhline(ylocations[0], color=\u0026#39;black\u0026#39;, linestyle=\u0026#39;--\u0026#39;, linewidth=1.0) ## plot for second mode with yaxis offset of 0.5 ax.plot(df[1] + ylocations[1], \u0026#39;ro-\u0026#39;, label=\u0026#39;Mode 2\u0026#39;) ax.axhline(ylocations[1], color=\u0026#39;black\u0026#39;, linestyle=\u0026#39;--\u0026#39;, linewidth=1.0) ## plot for third mode with yaxis offset of 1.0 ax.plot(df[2] + ylocations[2], \u0026#39;go-\u0026#39;, label=\u0026#39;Mode 3\u0026#39;) ax.axhline(ylocations[2], color=\u0026#39;black\u0026#39;, linestyle=\u0026#39;--\u0026#39;, linewidth=1.0) ax.set_xlabel(\u0026#39;Floor Number\u0026#39;) ax.set_ylabel(\u0026#39;Normalized Displacement\u0026#39;) ## xticks ax.set_xticks(range(1, numFloors + 1, 5)) ## yticks for each mode ax.set_yticks(ylocations) ax.set_yticklabels([f\u0026#39;Mode i\u0026#39; for i in range(len(ylocations))]) plt.savefig(\u0026#39;modal_displacements.png\u0026#39;, dpi=300, bbox_inches=\u0026#39;tight\u0026#39;) if __name__ == \u0026#39;__main__\u0026#39;: plot_modes(*make_model())"
+      })
+      .add(
+      
+      
+      {
+        id: 2,
+        tag: "en",
         href: "/opensees-gallery/examples/cable-stayed/",
         title: "Cable Stayed",
         description: "",
@@ -6505,7 +6531,20 @@ function initIndex() {
       
       
       {
-        id: 1,
+        id: 3,
+        tag: "en",
+        href: "/opensees-gallery/examples/cablestayed/",
+        title: "Cable Stayed",
+        description: "Model of a cable-stayed bridge imported from CSiBridge",
+        
+        
+        content: "The problem is implemented in the file CableStayedBridge.py, and can also be run through the Tcl file CableStayedBridge.tcl."
+      })
+      .add(
+      
+      
+      {
+        id: 4,
         tag: "en",
         href: "/opensees-gallery/docs/configuration/colors/",
         title: "Colors",
@@ -6518,7 +6557,20 @@ function initIndex() {
       
       
       {
-        id: 2,
+        id: 5,
+        tag: "en",
+        href: "/opensees-gallery/examples/frameshear/",
+        title: "Columns with Nonlinear Geometry and Shear",
+        description: "This example investigates P-Delta effects in columns with and without shear.",
+        
+        
+        content: "Case_1.py Case_2.py This example implements the analysis presented in the AISC steel mannual.\nThe source code for this example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp;"
+      })
+      .add(
+      
+      
+      {
+        id: 6,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/command-line/",
         title: "Command line",
@@ -6531,20 +6583,33 @@ function initIndex() {
       
       
       {
-        id: 3,
+        id: 7,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/compiling/",
         title: "Compiling",
         description: "Compiling your own version of OpenSees.",
         
         
-        content: "Dependencies \u0026nbsp; Compiling OpenSees requires the following software to be installed on your local machine:\nSoftware Hugo Remarks Git\u0026nbsp; recommended Recommended for version control C/C++ Compilers \u0026nbsp; Embedded as npm binary Node.js\u0026nbsp; The installation package includes npm The primary system dependencies required for compiling are LAPACK/BLAS and Tcl. Packages providing these libraries are listed below for various package management ecosystems.\n\u0026nbsp; Note When building in an Anaconda environment, you should install all dependencies with conda or mamba, and preferably from the conda-forge channel. Expand the notes on Anaconda below.\nAnaconda (Mac, Windows, Linux) When using conda, you need to ensure that CMake only finds compilers that are compatible with the libraries in the environment. System compilers (like those installed by the operating system\u0026rsquo;s package manager) often cannot be used and can lead to segfaults. The following command should install everything you need:\nconda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas APT (Ubuntu, Debian Linux) Dependency Package LAPACK liblapack-dev BLAS libblas-dev Tcl* tcl-dev Pacman (Arch, Manjaro Linux) Dependency Package LAPACK lapack BLAS blas Tcl* tcl Yum (CentOS, Redhat Linux) Dependency Package LAPACK lapack-devel Tcl* tcl-devel Prerequisites \u0026nbsp; Clone the package repository:\ngit clone https://github.com/claudioperez/OpenSeesRT install run-time dependencies. These are the libraries that will be needed in order to use OpenSees. To install these, run:\npython -m pip install opensees Install compile-time dependencies; see Dependencies below. These dependencies are only needed for the compilinf process.\nWindows installation notes \u0026nbsp; On Windows you should additionally install Intel compilers and Conan Compiling \u0026nbsp; The next steps describe how to set up your compilers and build the OpenSees library.\nCMake npm Create a directory to hold build artifacts\nmkdir build Configure the system for your system\ncd build cmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc):\nexport OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Create a new repository\nConfigure a local site\nAssuming your repository is owner/my-hinode-site, use the git command to clone the repository to your local machine.\ngit clone https://github.com/owner/my-hinode-site \u0026amp;\u0026amp; cd my-hinode-site Now install the npm packages and hugo modules.\nnpm install \u0026amp;\u0026amp; npm run mod:update Start the development server\nnpm run start Check that everything was built properly by running the following command:\npython -m openseesThis should start an OpenSees interpreter which can be closed by running the exit command.\n\u0026nbsp; Custom domain name Requires Azure CDN \u0026nbsp; CDN / Edge network Requires Azure CDN \u0026nbsp; HTTP headers Requires Azure CDN \u0026nbsp; ### Preparations The repository root should include a file `netlify.toml`. If not, copy it from the Hinode main repository\u0026nbsp; . The configuration file contains the build settings that Netlify will pick up when connecting to your repository. The panel below shows the default build settings. The key command to observe is `npm run build`, which ensures the site is built properly. \u003e [!NOTE] \u003e The default configuration provides basic security headers. Please review the [server configuration](/opensees-gallery/docs/getting-started/modeling/) for more details about the Content Security Policy. The cache settings are explained in more detail in the Netlify blog\u0026nbsp; . netlify.toml [build] publish = \u0026#34;exampleSite/public\u0026#34; command = \u0026#34;npm run build:example\u0026#34; [build.environment] DART_SASS_VERSION = \u0026#34;1.77.5\u0026#34; HUGO_VERSION = \u0026#34;0.131.0\u0026#34; HUGO_ENV = \u0026#34;production\u0026#34; HUGO_ENABLEGITINFO = \u0026#34;true\u0026#34; NODE_VERSION = \u0026#34;20.16.0\u0026#34; NPM_VERSION = \u0026#34;10.8.1\u0026#34; ... The same file also configures several optional plugins. netlify.toml [[plugins]] package = \u0026#34;@gethinode/netlify-plugin-dartsass\u0026#34; [[plugins]] package = \u0026#34;netlify-plugin-hugo-cache-resources\u0026#34; [plugins.inputs] # Redirected in exampleSite/config/_default/hugo.toml # srcdir = \u0026#34;\u0026#34; # [[plugins]] # package = \u0026#34;@netlify/plugin-lighthouse\u0026#34; # [plugins.inputs] # output_path = \u0026#34;reports/lighthouse.html\u0026#34; ... ### Configure your site Sign up for Netlify and configure your site in seven steps. Step 1. Sign up for Netlify Step 2. Sign in with your Git provider Step 3. Authenticate your sign in (2FA) Step 4. Add a new site Step 5. Connect to your Git provider Step 6. Import an existing project Step 7. Configure the build settings Previous Next Step 1. Sign up for Netlify Go to netlify.com\u0026nbsp; and click on the button Sign up. Select your preferred signup method next. This will likely be a hosted Git provider, although you also have the option to sign up with an email address. The next steps use GitHub, but other Git providers will follow a similar process. Step 2. Sign in with your Git provider Enter the credentials for your Git provider and click the button to sign in. Step 3. Authenticate your sign in (2FA) Assuming you have enabled two-factor authentication with your Git provider, authenticate the sign in next. This example uses the GitHub Mobile app. Step 4. Add a new site Click on the button Add new site to set up a new site with Netlify. Step 5. Connect to your Git provider Connect to your Git provider to import your existing Hinode repository. Step 6. Import an existing project Pick a repository from your Git provider. Ensure Netlify has access to the correct repository. Step 7. Configure the build settings Review the basic build settings. Netlify will use the settings provided in the preparations. Click on the button Deploy site to start the build and deployment process. Your site is now ready to be used. Click on the domain settings of your site within the `Site overview` page to provide a domain alias and to edit the site name as needed. The same section also allows the configuration of a custom domain. Be sure to review your [server configuration](/opensees-gallery/docs/getting-started/modeling/) if you encounter any rendering issues, such as broken links or garbled stylesheets. --\u003e"
+        content: "Dependencies \u0026nbsp; Compiling OpenSees requires the following software to be installed on your local machine:\nSoftware Hugo Remarks Git\u0026nbsp; recommended Recommended for version control C/C++ Compilers \u0026nbsp; Embedded as npm binary Node.js\u0026nbsp; The installation package includes npm The primary system dependencies required for compiling are LAPACK/BLAS and Tcl. Packages providing these libraries are listed below for various package management ecosystems.\n\u0026nbsp; Note When building in an Anaconda environment, you should install all dependencies with conda or mamba, and preferably from the conda-forge channel. Expand the notes on Anaconda below.\nAnaconda (Mac, Windows, Linux) When using conda, you need to ensure that CMake only finds compilers that are compatible with the libraries in the environment. System compilers (like those installed by the operating system\u0026rsquo;s package manager) often cannot be used and can lead to segfaults. The following command should install everything you need:\nconda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas APT (Ubuntu, Debian Linux) Dependency Package LAPACK liblapack-dev BLAS libblas-dev Tcl* tcl-dev Pacman (Arch, Manjaro Linux) Dependency Package LAPACK lapack BLAS blas Tcl* tcl Yum (CentOS, Redhat Linux) Dependency Package LAPACK lapack-devel Tcl* tcl-devel Prerequisites \u0026nbsp; Clone the package repository: \u0026lt; command \u0026gt; git clone https://github.com/claudioperez/OpenSeesRT\u0026nbsp; \u0026lt; /command \u0026gt;\ninstall run-time dependencies. These are the libraries that will be needed in order to use OpenSees. To install these, run: \u0026lt; command \u0026gt; python -m pip install opensees \u0026lt; /command \u0026gt;\nInstall compile-time dependencies; see Dependencies below. These dependencies are only needed for the compilinf process.\nWindows installation notes \u0026nbsp; On Windows you should additionally install Intel compilers and Conan Compiling \u0026nbsp; The next steps describe how to set up your compilers and build the OpenSees library.\nCMake CMake\u0026amp;#43;Conan Create a directory to hold build artifacts\nmkdir build Configure the system for your system\ncd build cmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc):\nexport OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Create a directory to hold build artifacts\nmkdir build cd build Run Conan\nconan install .. --build missing Configure the system for your system\ncmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc): export OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Check that everything was built properly by running the following command:\npython -m openseesThis should start an OpenSees interpreter which can be closed by running the exit command.\n\u0026nbsp; Custom domain name Requires Azure CDN \u0026nbsp; CDN / Edge network Requires Azure CDN \u0026nbsp; HTTP headers Requires Azure CDN \u0026nbsp; ### Preparations The repository root should include a file `netlify.toml`. If not, copy it from the Hinode main repository\u0026nbsp; . The configuration file contains the build settings that Netlify will pick up when connecting to your repository. The panel below shows the default build settings. The key command to observe is `npm run build`, which ensures the site is built properly. \u003e [!NOTE] \u003e The default configuration provides basic security headers. Please review the [server configuration](/opensees-gallery/docs/getting-started/modeling/) for more details about the Content Security Policy. The cache settings are explained in more detail in the Netlify blog\u0026nbsp; . netlify.toml [build] publish = \u0026#34;exampleSite/public\u0026#34; command = \u0026#34;npm run build:example\u0026#34; [build.environment] DART_SASS_VERSION = \u0026#34;1.77.5\u0026#34; HUGO_VERSION = \u0026#34;0.131.0\u0026#34; HUGO_ENV = \u0026#34;production\u0026#34; HUGO_ENABLEGITINFO = \u0026#34;true\u0026#34; NODE_VERSION = \u0026#34;20.16.0\u0026#34; NPM_VERSION = \u0026#34;10.8.1\u0026#34; ... The same file also configures several optional plugins. netlify.toml [[plugins]] package = \u0026#34;@gethinode/netlify-plugin-dartsass\u0026#34; [[plugins]] package = \u0026#34;netlify-plugin-hugo-cache-resources\u0026#34; [plugins.inputs] # Redirected in exampleSite/config/_default/hugo.toml # srcdir = \u0026#34;\u0026#34; # [[plugins]] # package = \u0026#34;@netlify/plugin-lighthouse\u0026#34; # [plugins.inputs] # output_path = \u0026#34;reports/lighthouse.html\u0026#34; ... ### Configure your site Sign up for Netlify and configure your site in seven steps. Step 1. Sign up for Netlify Step 2. Sign in with your Git provider Step 3. Authenticate your sign in (2FA) Step 4. Add a new site Step 5. Connect to your Git provider Step 6. Import an existing project Step 7. Configure the build settings Previous Next Step 1. Sign up for Netlify Go to netlify.com\u0026nbsp; and click on the button Sign up. Select your preferred signup method next. This will likely be a hosted Git provider, although you also have the option to sign up with an email address. The next steps use GitHub, but other Git providers will follow a similar process. Step 2. Sign in with your Git provider Enter the credentials for your Git provider and click the button to sign in. Step 3. Authenticate your sign in (2FA) Assuming you have enabled two-factor authentication with your Git provider, authenticate the sign in next. This example uses the GitHub Mobile app. Step 4. Add a new site Click on the button Add new site to set up a new site with Netlify. Step 5. Connect to your Git provider Connect to your Git provider to import your existing Hinode repository. Step 6. Import an existing project Pick a repository from your Git provider. Ensure Netlify has access to the correct repository. Step 7. Configure the build settings Review the basic build settings. Netlify will use the settings provided in the preparations. Click on the button Deploy site to start the build and deployment process. Your site is now ready to be used. Click on the domain settings of your site within the `Site overview` page to provide a domain alias and to edit the site name as needed. The same section also allows the configuration of a custom domain. Be sure to review your [server configuration](/opensees-gallery/docs/getting-started/modeling/) if you encounter any rendering issues, such as broken links or garbled stylesheets. --\u003e"
       })
       .add(
       
       
       {
-        id: 4,
+        id: 8,
+        tag: "en",
+        href: "/opensees-gallery/examples/concretesurface/",
+        title: "Concrete",
+        description: "An investigation of 3D concrete material models",
+        
+        
+        content: "This example is adapted from the OpenSees documentation for the ASDConcrete material. The analysis is implemented in the Python scripts:\nASDConcrete3D_Ex_CyclicUniaxialCompression.py ASDConcrete3D_Ex_Surface.py ASDConcrete3D_MakeLaws.py"
+      })
+      .add(
+      
+      
+      {
+        id: 9,
         tag: "en",
         href: "/opensees-gallery/examples/example8/",
         title: "Continuum Cantilever",
@@ -6557,7 +6622,7 @@ function initIndex() {
       
       
       {
-        id: 5,
+        id: 10,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/contribute/",
         title: "Contribute",
@@ -6570,7 +6635,7 @@ function initIndex() {
       
       
       {
-        id: 6,
+        id: 11,
         tag: "en",
         href: "/opensees-gallery/docs/about/credits/",
         title: "Credits",
@@ -6583,7 +6648,20 @@ function initIndex() {
       
       
       {
-        id: 7,
+        id: 12,
+        tag: "en",
+        href: "/opensees-gallery/examples/soliddam/",
+        title: "Dam",
+        description: "",
+        
+        
+        content: ""
+      })
+      .add(
+      
+      
+      {
+        id: 13,
         tag: "en",
         href: "/opensees-gallery/docs/developing/",
         title: "Developing",
@@ -6596,7 +6674,20 @@ function initIndex() {
       
       
       {
-        id: 8,
+        id: 14,
+        tag: "en",
+        href: "/opensees-gallery/examples/mrf_concentrated/",
+        title: "Dynamic Analysis of 2-Story Moment Frame",
+        description: "This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake. The nonlinear behavior is represented using the concentrated plasticity concept with rotational springs. The rotational behavior of the plastic regions follows a bilinear hysteretic response based on the Modified Ibarra Krawinkler Deterioration Model (Ibarra et al. 2005, Lignos and Krawinkler 2009, 2010). For this example, all modes of cyclic deterioration are neglected. A leaning column carrying gravity loads is linked to the frame to simulate P-Delta effects.\n",
+        
+        
+        content: "This example demonstrates how to perform a dynamic analysis in OpenSees using a 2-story, 1-bay steel moment resisting frame. The structure is subjected to the Canoga Park record from the 1994 Northridge earthquake. The nonlinear behavior is represented using the concentrated plasticity concept with rotational springs. The rotational behavior of the plastic regions follows a bilinear hysteretic response based on the Modified Ibarra Krawinkler Deterioration Model (Ibarra et al. 2005, Lignos and Krawinkler 2009, 2010). For this example, all modes of cyclic deterioration are neglected. A leaning column carrying gravity loads is linked to the frame to simulate P-Delta effects.\nThe files needed to analyze this structure in OpenSees are included here:\nThe main file: MRF_2Story_Concentrated.tcl (last update: 10 Oct 2013) Supporting procedure files\nRotSpring2DModIKModel.tcl - creates a bilinear rotational spring that follows the Modified Ibarra Krawinkler Deterioration Model (used in the concentrated model) RotLeaningCol.tcl - creates a low-stiffness rotational spring used in a leaning column The acceleration history for the Canoga Park record\nNR94cnp.tcl - contains acceleration history in units of g All files are available in a compressed format here: dynamic_example_10Oct2013.zip (last update: 10 Oct 2013)\nThe rest of this example describes the model and shows the analysis results.\nModel Description Figure 1. Schematic representation of concentrated plasticity OpenSees model with element number labels and [node number] labels. Note: The springs are zeroLength elements, but their sizes are greatly exaggerated in this figure for clarity. The 2-story, 1-bay steel moment resisting frame is modeled with elastic beam-column elements connected by ZeroLength elements which serve as rotational springs to represent the structure’s nonlinear behavior. The springs follow a bilinear hysteretic response based on the Modified Ibarra Krawinkler Deterioration Model. A leaning column with gravity loads is linked to the frame by truss elements to simulate P-Delta effects. An idealized schematic of the model is presented in Figure 1.\nTo simplify this model, panel zone contributions are neglected, plastic hinges form at the beam-column joints, and centerline dimensions are used. For an example that explicitly models the panel zone shear distortions and includes reduced beam sections (RBS), see Pushover and Dynamic Analyses of 2-Story Moment Frame with Panel Zones and RBS.\nFor a detailed description of this model, see Pushover Analysis of 2-Story Moment Frame. The units of the model are kips, inches, and seconds.\nDamping and the Rayleigh Command This model uses Rayleigh damping which formulates the damping matrix as a linear combination of the mass matrix and stiffness matrix: c = a0m + a1k, where a0 is the mass proportional damping coefficient and a1 is the stiffness proportional damping coefficient. A damping ratio of 2%, which is a typical value for steel buildings, is assigned to the first two modes of the structure. The rayleigh command allows the user to specify whether the initial, current, or last committed stiffness matrix is used in the damping matrix formulation. In this example, only the initial stiffness matrix is used, which is accomplished by assigning values of 0.0 to the other stiffness matrix coefficients.\nTo properly model the structure, stiffness proportional damping is applied only to the frame elements and not to the highly rigid truss elements that link the frame and leaning column, nor to the leaning column itself. OpenSees does not apply stiffness proportional damping to zeroLength elements. In order to apply damping to only certain elements, the rayleigh command is used in combination with the region command. As noted in the region command documentation, the region cannot be defined by BOTH elements and nodes. Because mass proportional damping assigns damping to nodes with mass, OpenSees will ignore any mass proportional damping that is assigned using the rayleigh command in combination with the region command for a region of elements. Therefore, if using the region command to assign damping, the mass proportional damping and stiffness proportional damping must be assigned in separate steps.\nModifications to the Stiffness Proportional Damping Coefficient As described in the “Stiffness Modifications to Elastic Frame Elements” section of Pushover Analysis of 2-Story Moment Frame, the stiffness of the elastic frame elements has been modified. As explained in Ibarra and Krawinkler (2005) and Zareian and Medina (2010), the stiffness proportional damping coefficient that is used with these elements must also be modified. As the stiffness of the elastic elements was made “(n+1)/n” times greater than the stiffness of the actual frame member, the stiffness proportional damping coefficient of these elements must also be made “(n+1)/n” times greater than the traditional stiffness proportional damping coefficient.\nDynamic Analysis Recorders The recorders used in this example include:\nThe drift recorder to track the story and roof drift histories The node recorder to track the floor displacement and base shear reaction histories The element recorder to track the element forces in the first story columns as well as the moment and rotation histories of the springs in the concentrated plasticity model For the element recorder, the region command was used to assign all column springs to one group and all beam springs to a separate group.\nIt is important to note that the recorders only record information for analyze commands that are called after the recorder commands are called. In this example, the recorders are placed after the gravity analysis so that the steps of the gravity analysis do not appear in the output files.\nAnalysis The structure is analyzed under gravity loads before the dynamic analysis is conducted. The gravity loads are applied using a load-controlled static analysis with 10 steps. So that the gravity loads remain on the structure for all subsequent analyses, the loadConst command is used after the gravity analysis is completed. This command is also used to reset the time to zero so that the dynamic analysis starts from time zero.\nFor the dynamic analysis, the structure is subjected to the Canoga Park record from the 1994 Northridge earthquake. To apply the ground motion to the structure, the uniform excitation pattern is used. The name of the file containing the acceleration record, timestep of the ground motion, scale factor applied to the ground motion, and the direction in which the motion is to be applied must all be specified as part of the uniform excitation pattern command.\nTo execute the dynamic analysis, the analyze command is used with the specified number of analysis steps and the timestep of the analysis. The timestep used in the analysis should be less than or equal to the timestep of the input ground motion.\nResults Figure 2. Floor Displacement History The floor displacement histories from the dynamic analysis are shown in Figure 2. The top graph shows the ground acceleration history while the middle and bottom graphs show the displacement time histories of the 3rd floor (roof) and 2nd floor, respectively.\nReferences Ibarra, L. F., and Krawinkler, H. (2005). “Global collapse of frame structures under seismic excitations,” Technical Report 152, The John A. Blume Earthquake Engineering Research Center, Department of Civil Engineering, Stanford University, Stanford, CA. [electronic version: https://blume.stanford.edu/tech_reports] Ibarra, L. F., Medina, R. A., and Krawinkler, H. (2005). “Hysteretic models that incorporate strength and stiffness deterioration,” Earthquake Engineering and Structural Dynamics, Vol. 34, 12, pp. 1489-1511. Lignos, D. G., and Krawinkler, H. (2009). “Sidesway Collapse of Deteriorating Structural Systems under Seismic Excitations,” Technical Report 172, The John A. Blume Earthquake Engineering Research Center, Department of Civil Engineering, Stanford University, Stanford, CA. Lignos, D. G., and Krawinkler, H. (2011). “Deterioration Modeling of Steel Beams and Columns in Support to Collapse Prediction of Steel Moment Frames,” ASCE, Journal of Structural Engineering, Vol. 137 (11), 1291-1302. Zareian, F. and Medina, R. A. (2010). “A practical method for proper modeling of structural damping in inelastic plane structural systems,” Computers \u0026amp; Structures, Vol. 88, 1-2, pp. 45-53. Example posted by: Laura Eads, Stanford University; Modified: Filipe Ribeiro, Andre Barbosa (09/03/2013)"
+      })
+      .add(
+      
+      
+      {
+        id: 15,
         tag: "en",
         href: "/opensees-gallery/examples/example7/",
         title: "Dynamic Shell Analysis",
@@ -6609,7 +6700,7 @@ function initIndex() {
       
       
       {
-        id: 9,
+        id: 16,
         tag: "en",
         href: "/opensees-gallery/examples/example1/",
         title: "Example 1: Linear Truss",
@@ -6622,7 +6713,7 @@ function initIndex() {
       
       
       {
-        id: 10,
+        id: 17,
         tag: "en",
         href: "/opensees-gallery/examples/example4/",
         title: "Example 4: Multibay Two Story Frame",
@@ -6635,7 +6726,7 @@ function initIndex() {
       
       
       {
-        id: 11,
+        id: 18,
         tag: "en",
         href: "/opensees-gallery/docs/library/frame/",
         title: "Frame",
@@ -6648,7 +6739,7 @@ function initIndex() {
       
       
       {
-        id: 12,
+        id: 19,
         tag: "en",
         href: "/opensees-gallery/examples/example5/",
         title: "Frame with Diaphragms",
@@ -6661,7 +6752,20 @@ function initIndex() {
       
       
       {
-        id: 13,
+        id: 20,
+        tag: "en",
+        href: "/opensees-gallery/examples/viscousdamper/",
+        title: "Frame with Viscous Dampers",
+        description: "This example demonstrates how to use the viscous damper material within a simple single story shear frame.",
+        
+        
+        content: "This example demonstrates how to use the viscous damper material within a simple single story shear frame.\nThe files needed to analyze this structure in OpenSees are included here:\nThe main file: Supporting files\nTakY.th - uses the JR Takatori record from the Kobe 1995 earthquake (available in the zip file below) All files are available in a compressed format here: Viscous_Damper_Example.zip\nThe rest of this example describes the model and shows the analysis results.\nModel Description \u0026nbsp; Figure 1. Schematic representation of a viscous damper installed in the single story moment resisting frame. The viscous damper is modeled with a Two Node Link Element. This element follows a Viscous damper hysteretic response. An idealized schematic of the model is presented in Figure 1.\nThe units of the model are mm, kN, and seconds.\nBasic Geometry \u0026nbsp; The single bay single story frame shown in Figure 1 has 5000mm bay width and 3000mm story height (centerline). The period of the system is 0.7sec. Columns and beams of the frame are modeled with elastic beam-column elements.\nDamper Links \u0026nbsp; A Two Node Link Element is used to link the two nodes that define the geometry of the viscous damper.\nConstraints \u0026nbsp; the Nodes at the base of the frame are fixed. The beam (element 3 in Figure 1) is considered to be rigid.\nViscous Damper Material \u0026nbsp; To model the viscous damper the ViscousDamper is used. The input parameters that are selected for the damper example are as follows: Axial Stiffness K = 25 kN/mm, Damping Coefficient Cd=20.74 kN(s/mm)\u0026lt;sup\u0026gt;0.35\u0026lt;/sup\u0026gt; and exponent a=0.35.\nLoading \u0026nbsp; The single story frame with viscous damper is subjected to the 50% JR Takatori record from the Kobe 1995 earthquake in Japan.\nRecorders \u0026nbsp; The recorders used in this example include:\nThe Element recorder to track the damper axial force and axial displacement. The Node recorder to track the Frame displacement history at its roof. Analysis \u0026nbsp; A uniform excitation option is selected with application of ground acceleration history as the imposed motion. The Newmark integration scheme is selected for integration of the equations of motion with a time step dt = 0.001sec. Two percent mass proportional damping is used.\nResults \u0026nbsp; Simulation Results for the 50% JR Takatori Record \u0026nbsp; Figure 2. Displacement history at the roof of the single story MRF The force - displacement relationship from the viscous damper are shown in Figure 3. A comparison with results from a SAP2000 model is also shown in Figure 3. Results are nearly identical between the two models. Figure 3. Force - displacement relationship of the viscous damper and comparison with identical model in SAP2000 Example posted by: Sarven Akcelyan\u0026nbsp; and Prof. Dimitrios G. Lignos\u0026nbsp; (McGill University)"
+      })
+      .add(
+      
+      
+      {
+        id: 21,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/icons/",
         title: "Icons",
@@ -6674,7 +6778,20 @@ function initIndex() {
       
       
       {
-        id: 14,
+        id: 22,
+        tag: "en",
+        href: "/opensees-gallery/examples/cantilevertransient/",
+        title: "Inelastic Cantilever",
+        description: "A plane cantilever column is shaken by an earthquake. Material nonlinearity is accounted for using the force formulation and fiber-discretized cross sections",
+        
+        
+        content: "In order to execute this notebook, go to the menu bar and click Run/Run all cells. You can also run individual cells by selecting the cell (a blue bar will appear to the left of the active cell, then pressing Shift+Enter.\nNOTE Before running this notebook, you must install the external dependencies. To to this, uncomment the following cell by removing the leading # character, execute the cell, then put the # character back to prevent it from running again, thereby \u0026ldquo;commenting it out\u0026rdquo;. Once everything is installed you may re-run the commented-out cell to hide the text generated by the installation.\n# !pip install -Ur requirements.txt# Linear algebra library import numpy as np # Plotting library import matplotlib.pyplot as plt # The next two lines set reasonable plot style defaults import scienceplots plt.style.use(\u0026#39;science\u0026#39;)## Configure units # Units are based on inch-kip-seconds import opensees.units.iks as units pi = units.pi; ft = units.ft; ksi = units.ksi; inch = units.inch;## Distributed Inelasticity 2d Beam-Column Element # fiber sectionSet up basic model geometry\n# import the openseespy interface which contains the \u0026#34;Model\u0026#34; class import opensees.openseespy as ops# generate Model data structure model = ops.Model(ndm=2, ndf=3) # Length of cantilever column L = 8*ft; # specify node coordinates model.node(1, 0, 0 ); # first node model.node(2, 0, L ); # second node # boundary conditions model.fix(1, 1, 1, 1 ) ## specify mass model.mass(2, 2.0, 1e-8, 1e-8)## Element name: 2d nonlinear frame element with distributed inelasticity # Create material and add to Model mat_tag = 1 # identifier that will be assigned to the new material E = 29000*ksi fy = 60*ksi Hkin = 0 Hiso = 0 model.uniaxialMaterial(\u0026#34;Steel01\u0026#34;, mat_tag, fy, E, 0.01) # model.uniaxialMaterial(\u0026#34;ElasticPP\u0026#34;, mat_tag, E, fy/E) # model.uniaxialMaterial(\u0026#34;UniaxialJ2Plasticity\u0026#34;, mat_tag, E, fy, Hkin, Hiso) Create a section \u0026nbsp; import opensees.section # Load cross section geometry and add to Model sec_tag = 1 # identifier that will be assigned to the new section SecData =  SecData[\u0026#34;nft\u0026#34;] = 4 # no of layers in flange SecData[\u0026#34;nwl\u0026#34;] = 8 # no of layers in web SecData[\u0026#34;IntTyp\u0026#34;] = \u0026#34;Midpoint\u0026#34;; SecData[\u0026#34;FlgOpt\u0026#34;] = True section = opensees.section.from_aisc(\u0026#34;Fiber\u0026#34;, \u0026#34;W24x131\u0026#34;, # \u0026#34;W14x426\u0026#34;, sec_tag, tag=mat_tag, mesh=SecData, ndm=2, units=units)import sees.section sees.section.render(section);Output:\n\u0026lt;Figure size 350x262.5 with 1 Axes\u0026gt;Printing the fiber section will display the effective cross-sectional properties which result from quadrature over the cross section fibers:\nprint(section)Output:\nSectionGeometry area: 38.42890000000003 ixc: 4013.509824163335 iyc: 343.8869259102087 Create an element \u0026nbsp; cmd = opensees.tcl.dumps(section, skip_int_refs=True) model.eval(cmd) # Create element integration scheme nIP = 4 int_tag = 1 model.beamIntegration(\u0026#34;Lobatto\u0026#34;, int_tag, sec_tag, nIP) # Create element geometric transformation model.geomTransf(\u0026#34;Linear\u0026#34;, 1) # Finally, create the element # CONN Geom Int model.element(\u0026#34;ForceBeamColumn\u0026#34;, 1, (1, 2), 1, int_tag) Analysis \u0026nbsp; Eigenvalue Analysis \u0026nbsp; # State = Initialize_State (Model,ElemData) # State = Structure(\u0026#39;stif\u0026#39;,Model,ElemData,State) # Initialize the analysis state for transient analysis model.analysis(\u0026#34;Transient\u0026#34;) # Form stiffness and mass matrices Kf = model.getTangent(k=1.0) # free DOF stiffness matrix Kf for initial State Mf = model.getTangent(m=1.0) # free DOF mass matrix Ml print(\u0026#34;Kf:\u0026#34;, Kf, sep=\u0026#34;\\n\u0026#34;) print(\u0026#34;Mf:\u0026#34;, Mf, sep=\u0026#34;\\n\u0026#34;)Output:\nKf: [[ 1.57505061e+03 0.00000000e+00 7.56024291e+04] [ 0.00000000e+00 1.16087302e+04 -1.21265960e-12] [ 7.56024291e+04 -1.21265960e-12 4.83855547e+06]] Mf: [[2.e+00 0.e+00 0.e+00] [0.e+00 1.e-08 0.e+00] [0.e+00 0.e+00 1.e-08]]Solve dynamic eigenvalue problem with scipy function eig\nimport scipy.linalg omega,Ueig = scipy.linalg.eig(Kf,Mf) # echo eigenmode periods print(\u0026#39; The three lowest eigenmode periods are\u0026#39;) T = 2*pi/np.sqrt(omega) print(T)Output:\nThe three lowest eigenmode periods are [4.47793313e-01+0.j 2.85641961e-07+0.j 5.83159707e-06+0.j]In general the eigen function should be used, which takes advantage of sparsity in the system\nfor w in model.eigen(2): print(2*pi/np.sqrt(w))Output:\n0.44779331340120765 5.8315970735940395e-06 Configure ground motion \u0026nbsp; # Apply damping in the first mode zeta = 0.02 model.modalDamping(zeta) # alphaM, betaK = 0.01, 0.01 # model.rayleigh(alphaM, betaK, 0, 0) # State = Add_Damping2State(\u0026#39;Modal\u0026#39;,Model,State,zeta)# Deltat = 0.02 # AccHst = np.loadtxt(\u0026#34;tabasFN.txt\u0026#34;) import quakeio Event = quakeio.read(\u0026#34;TAK000.AT2\u0026#34;) AccHst = Event.data Deltat = Event[\u0026#34;time_step\u0026#34;]load_tag = 1 model.timeSeries(\u0026#39;Path\u0026#39;, load_tag, dt=Deltat, factor=1.0, values=units.gravity*AccHst) model.pattern(\u0026#39;UniformExcitation\u0026#39;, 1, 1, accel=load_tag) Configure integration method \u0026nbsp; ## initialize data for solution strategy # gam bet model.integrator(\u0026#34;Newmark\u0026#34;, 1/2, 1/4, form=\u0026#34;d\u0026#34;) Perform integration \u0026nbsp; nt = len(AccHst) Uplt = np.zeros(nt) Vplt = np.zeros(nt) Aplt = np.zeros(nt) Pplt = np.zeros(nt) # Defo = zeros(np,1) # Forc = zeros(np,1) for k in range(nt): if model.analyze(1, Deltat) != 0: print(\u0026#34;Analysis failed\u0026#34;) break # extract values for plotting from response history Uplt[k] = model.nodeDisp (2, 1) Vplt[k] = model.nodeVel (2, 1) Aplt[k] = model.nodeAccel(2, 1) # Pplt[k] = Post[k].Pr[Pdof,:]; # Defo(k) = Post(k).Elem1.v; # Forc(k) = Post(k).Elem1.q; Post-processing \u0026nbsp; Displacement History \u0026nbsp; t = np.arange(nt)*Deltat; Xp = t Yp = (Uplt/L)*100 FigHndl, AxHndl = plt.subplots() AxHndl.set_xlabel(\u0026#39;Time (sec)\u0026#39;) AxHndl.set_ylabel(\u0026#39;Drift in X (\\\\%)\u0026#39;) AxHndl.plot(Xp,Yp,\u0026#39;b\u0026#39;) FigHndl.savefig(\u0026#34;drift.png\u0026#34;)Output:\n\u0026lt;Figure size 350x262.5 with 1 Axes\u0026gt; Shear force-displacement history \u0026nbsp; Xp = (Uplt/L)*100 Yp = Pplt FigHndl, AxHndl = plt.subplots() AxHndl.set_xlabel(\u0026#39;Lateral Drift (\\#)\u0026#39;) AxHndl.set_ylabel(\u0026#39;Lateral Force $P$\u0026#39;) AxHndl.plot(Xp, Yp, \u0026#39;b\u0026#39;) plt.show()Output:\n\u0026lt;Figure size 350x262.5 with 1 Axes\u0026gt;"
+      })
+      .add(
+      
+      
+      {
+        id: 23,
         tag: "en",
         href: "/opensees-gallery/examples/example3/",
         title: "Inelastic Plane Frame",
@@ -6687,7 +6804,20 @@ function initIndex() {
       
       
       {
-        id: 15,
+        id: 24,
+        tag: "en",
+        href: "/opensees-gallery/examples/inelasticsdof/",
+        title: "Inelastic SDOF",
+        description: "Integration of an inelastic single-degree-of-freedom (SDOF) system.",
+        
+        
+        content: "March 2020, By Amir Hossein Namadchi\nThis is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.\nThis notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb\u0026nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:\nm = 0.1*lb # Mass k = 5.0*(kips/inch) # Stiffness c = 0.2*(kips*sec/inch) # Damping dy_p = 1.2*inch # Plastic state displacment alpha_m = c/m # Rayleigh damping ratio # Variation of p(t) in tabular form load_history = np.array([[0, 0], [0.1, 5], [0.2, 8], [0.3, 7], [0.4, 5], [0.5, 3], [0.6, 2], [0.7, 1], [0.8, 0]]) # Dynamic Analysis Parameters dt = 0.01 time = 1.0 Analysis \u0026nbsp; Let\u0026rsquo;s wrap the whole part in a function so that different material behavior could be passed to the function:\ndef do_analysis(dt, time, material_params): model = ops.Model(ndm=1, ndf=1) time_domain = np.arange(0, time, dt) # Nodes model.node(1,0.0,0.0) model.node(2,0.0,0.0) model.uniaxialMaterial(*material_params) model.element(\u0026#39;ZeroLength\u0026#39;, 1, *[1,2], mat=1, dir=1) model.mass(2, m) model.rayleigh(alpha_m, 0.0, 0.0, 0.0) model.fix(1,1) model.timeSeries(\u0026#39;Path\u0026#39;, 1, values=load_history[:,1], time=load_history[:,0]) model.pattern(\u0026#39;Plain\u0026#39;, 1, 1) model.load(2, 1) # Analysis model.constraints(\u0026#39;Plain\u0026#39;) model.numberer(\u0026#39;Plain\u0026#39;) model.system(\u0026#39;ProfileSPD\u0026#39;) model.test(\u0026#39;NormUnbalance\u0026#39;, 0.0000001, 100) model.algorithm(\u0026#39;ModifiedNewton\u0026#39;) model.integrator(\u0026#39;Newmark\u0026#39;, 0.5, 0.25) model.analysis(\u0026#39;Transient\u0026#39;) time_lst =[0] # list to hold time stations for plotting response = [0] # response params of node 2 for i in range(len(time_domain)): model.analyze(1, dt) time_lst.append(model.getTime()) response.append(model.nodeDisp(2,1)) return \u0026#39;time_list\u0026#39;:np.array(time_lst), \u0026#39;d\u0026#39;: np.array(response)For comparison (similar to the book), elastic analysis is also inculded:\nepp = do_analysis(dt, time, [\u0026#39;ElasticPP\u0026#39;, 1, k, dy_p]) # Elastic-Perfectly Plastic els = do_analysis(dt, time, [\u0026#39;Elastic\u0026#39;, 1, k]) # Elastic Visualization \u0026nbsp; plt.figure(figsize=(7,5)) plt.plot(epp[\u0026#39;time_list\u0026#39;], epp[\u0026#39;d\u0026#39;], color = \u0026#39;#fe4a49\u0026#39;, linewidth=1.75, label = \u0026#39;Nonlinear (EPP)\u0026#39;) plt.plot(els[\u0026#39;time_list\u0026#39;], els[\u0026#39;d\u0026#39;], color = \u0026#39;#2ab7ca\u0026#39;, linewidth=1.75, label = \u0026#39;Linear (Elastic)\u0026#39;) plt.ylabel(\u0026#39;Displacement (inch)\u0026#39;, \u0026#39;fontstyle\u0026#39;:\u0026#39;italic\u0026#39;,\u0026#39;size\u0026#39;:14) plt.xlabel(\u0026#39;Time (sec)\u0026#39;, \u0026#39;fontstyle\u0026#39;:\u0026#39;italic\u0026#39;,\u0026#39;size\u0026#39;:14) plt.xlim([0.0, time]) plt.legend() plt.grid() plt.yticks(fontsize = 14) plt.xticks(fontsize = 14);Output:\n\u0026lt;Figure size 700x500 with 1 Axes\u0026gt; Closure \u0026nbsp; Results obtained here with OpenSees perfectly agree with the ones in the book.\nReferences \u0026nbsp; Clough, R.W. and Penzien, J., 2003. Dynamics of structures. Berkeley. CA: Computers and Structures, Inc. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 import sdof import numpy as np import opensees.openseespy as op FREE = 0 FIXED = 1 X, Y, RZ = 1, 2, 3 def plastic_sdof(material, motion, dt, xi=0.05, r_post=0.0): \u0026#34;\u0026#34;\u0026#34; Run seismic analysis of a nonlinear SDOF :param mass: mass :param k: spring stiffness :param f_yield: yield strength :param motion: list, acceleration values :param dt: float, time step of acceleration values :param xi: damping ratio :param r_post: post-yield stiffness :return: \u0026#34;\u0026#34;\u0026#34; mass, k, f_yield = material op.wipe() # 2 dimensions, 3 dof per node op.model(\u0026#39;basic\u0026#39;, \u0026#39;-ndm\u0026#39;, 2, \u0026#39;-ndf\u0026#39;, 3) # Establish nodes bot_node = 1 top_node = 2 op.node(bot_node, 0., 0.) op.node(top_node, 0., 0.) # Fix bottom node op.fix(top_node, FREE, FIXED, FIXED) op.fix(bot_node, FIXED, FIXED, FIXED) # Set out-of-plane DOFs to be slaved op.equalDOF(1, 2, *[2, 3]) # nodal mass (weight / g): op.mass(top_node, mass, 0., 0.) # Define material bilinear_mat_tag = 1 mat_type = \u0026#34;Steel01\u0026#34; mat_props = [f_yield, k, r_post] op.uniaxialMaterial(mat_type, bilinear_mat_tag, *mat_props) # Assign zero length element beam_tag = 1 op.element(\u0026#39;zeroLength\u0026#39;, beam_tag, bot_node, top_node, \u0026#34;-mat\u0026#34;, bilinear_mat_tag, \u0026#34;-dir\u0026#34;, 1, \u0026#39;-doRayleigh\u0026#39;, 1) # Define the dynamic analysis load_tag_dynamic = 1 pattern_tag_dynamic = 1 values = list(-1 * motion) # should be negative # op.timeSeries(\u0026#39;Path\u0026#39;, load_tag_dynamic, dt=dt, values=values) op.timeSeries(\u0026#39;Path\u0026#39;, load_tag_dynamic, \u0026#34;-dt\u0026#34;, dt, \u0026#34;-values\u0026#34;, *values) # op.pattern(\u0026#39;UniformExcitation\u0026#39;, pattern_tag_dynamic, X, accel=load_tag_dynamic) op.pattern(\u0026#39;UniformExcitation\u0026#39;, pattern_tag_dynamic, X, \u0026#34;-accel\u0026#34;, load_tag_dynamic) # set damping based on first eigen mode eig = op.eigen(\u0026#39;-fullGenLapack\u0026#39;, 1) try: angular_freq = eig**0.5 except: angular_freq = eig[0]**0.5 alpha_m = 0.0 beta_k = 2 * xi / angular_freq beta_k_comm = 0.0 beta_k_init = 0.0 op.rayleigh(alpha_m, beta_k, beta_k_init, beta_k_comm) # Run the dynamic analysis # op.wipeAnalysis() op.algorithm(\u0026#39;Newton\u0026#39;) # op.system(\u0026#39;SparseGeneral\u0026#39;) op.numberer(\u0026#39;RCM\u0026#39;) op.constraints(\u0026#39;Transformation\u0026#39;) op.integrator(\u0026#39;Newmark\u0026#39;, 0.5, 0.25) op.analysis(\u0026#39;Transient\u0026#39;) tol = 1.0e-10 iterations = 10 op.test(\u0026#39;EnergyIncr\u0026#39;, tol, iterations, 0, 2) analysis_time = (len(values) - 1) * dt analysis_dt = 0.001 outputs =  \u0026#34;time\u0026#34;: [], \u0026#34;rel_disp\u0026#34;: [], \u0026#34;rel_accel\u0026#34;: [], \u0026#34;rel_vel\u0026#34;: [], \u0026#34;force\u0026#34;: []  while op.getTime() \u0026lt; analysis_time: curr_time = op.getTime() if op.analyze(1, analysis_dt) != 0: print(f\u0026#34;Failed at time op.getTime()\u0026#34;) break outputs[\u0026#34;time\u0026#34;].append(curr_time) outputs[\u0026#34;rel_disp\u0026#34;].append(op.nodeDisp(top_node, 1)) outputs[\u0026#34;rel_vel\u0026#34;].append(op.nodeVel(top_node, 1)) outputs[\u0026#34;rel_accel\u0026#34;].append(op.nodeAccel(top_node, 1)) op.reactions() outputs[\u0026#34;force\u0026#34;].append(-op.nodeReaction(bot_node, 1)) # Negative since diff node op.wipe() for item in outputs: outputs[item] = np.array(outputs[item]) return outputs def main(): \u0026#34;\u0026#34;\u0026#34; Create a plot of an elastic analysis, nonlinear analysis and closed form elastic :return: \u0026#34;\u0026#34;\u0026#34; import eqsig import matplotlib.pyplot as plt record_filename = \u0026#39;test_motion_dt0p01.txt\u0026#39; dt = 0.01 rec = np.loadtxt(record_filename) acc_signal = eqsig.AccSignal(rec, dt) period = 1.0 xi = 0.05 mass = 1.0 f_yield = 1.5 # Reduce this to make it nonlinear r_post = 0.0 periods = np.array([period]) k = 4 * np.pi ** 2 * mass / period ** 2 outputs = plastic_sdof((mass, k, f_yield), rec, dt, xi=xi, r_post=r_post) outputs_elastic = plastic_sdof((mass, k, f_yield * 100), rec, dt, xi=xi, r_post=r_post) ux_opensees = outputs[\u0026#34;rel_disp\u0026#34;] ux_opensees_elastic = outputs_elastic[\u0026#34;rel_disp\u0026#34;] print(outputs) bf, sps = plt.subplots(nrows=2) sps[0].plot(outputs[\u0026#34;time\u0026#34;], ux_opensees, label=\u0026#34;OpenSees fy=%.3gN\u0026#34; % f_yield, ls=\u0026#34;-\u0026#34;) sps[0].plot(outputs[\u0026#34;time\u0026#34;], ux_opensees_elastic, label=\u0026#34;OpenSees fy=%.3gN\u0026#34; % (f_yield * 100), ls=\u0026#34;--\u0026#34;) time = acc_signal.time acc_opensees_elastic = np.interp(time, outputs_elastic[\u0026#34;time\u0026#34;], outputs_elastic[\u0026#34;rel_accel\u0026#34;]) - rec resp_u, resp_v, resp_a = sdof.integrate(rec, dt, k, 2*xi*mass*np.sqrt(k/mass), mass, fy=f_yield) sps[0].plot(acc_signal.time, resp_u, label=\u0026#34;sdof\u0026#34;) sps[1].plot(acc_signal.time, resp_a, label=\u0026#34;sdof\u0026#34;) # resp_u, resp_v, resp_a = duhamels.response_series(motion=rec, dt=dt, periods=periods, xi=xi) # sps[0].plot(acc_signal.time, resp_u[0], label=\u0026#34;Eqsig\u0026#34;) # sps[1].plot(acc_signal.time, resp_a[0], label=\u0026#34;Eqsig\u0026#34;) # Elastic solution # print(\u0026#34;diff\u0026#34;, sum(acc_opensees_elastic - resp_a[0])) sps[1].plot(time, acc_opensees_elastic, label=\u0026#34;Opensees fy=%.2gN\u0026#34; % (f_yield * 100), ls=\u0026#34;--\u0026#34;) sps[0].legend() sps[1].legend() plt.show() if __name__ == \u0026#39;__main__\u0026#39;: main()"
+      })
+      .add(
+      
+      
+      {
+        id: 25,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/introduction/",
         title: "Introduction",
@@ -6700,7 +6830,7 @@ function initIndex() {
       
       
       {
-        id: 16,
+        id: 26,
         tag: "en",
         href: "/opensees-gallery/docs/configuration/layout/",
         title: "Layout",
@@ -6713,7 +6843,7 @@ function initIndex() {
       
       
       {
-        id: 17,
+        id: 27,
         tag: "en",
         href: "/opensees-gallery/docs/about/license/",
         title: "License",
@@ -6726,7 +6856,20 @@ function initIndex() {
       
       
       {
-        id: 18,
+        id: 28,
+        tag: "en",
+        href: "/opensees-gallery/examples/chopra-10.4/",
+        title: "Matrix Eigenvalue Analysis",
+        description: "This example demonstrates how to perform eigenvalue analysis and plot mode shapes. ",
+        
+        
+        content: "This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame\u0026nbsp; .\nThis example demonstrates how to perform eigenvalue analysis and plot mode shapes.\nAn idealized two-storey shear frame (Example 10.4 from \u0026ldquo;Dynamic of Structures\u0026rdquo; book by Professor Anil K. Chopra) is used for this purpose. In this idealization beams are rigid in flexure, axial deformation of beams and columns are neglected, and the effect of axial force on the stiffness of the columns is neglected. Geometry and material characteristics of the frame structure are shown in Figure 1. Node and element numbering is given in Figure 2.\nShearFrame5.png Instructions on how to run this example \u0026nbsp; To execute this ananlysis in OpenSees the user has to download this files:\nEigenAnal_twoStoryShearFrame.tcl Place EigenAnal_twoStoryShearFrame.tcl in the same folder with the OpenSees.exe. By double clicking on OpenSees.exe the OpenSees interpreter will pop out. To run the analysis the user should type:\nPython Tcl python EigenAnal_twoStoryShearFrame8.py python -m opensees EigenAnal_twoStoryShearFrame8.tcl and hit enter. To create output files (stored in directory \u0026ldquo;data\u0026rdquo;) the user has to exit OpenSees interpreter by typing \u0026ldquo;exit\u0026rdquo;.\nCreate the model \u0026nbsp; Spatial dimension of the model and number of degrees-of-freedom (DOF) at nodes are defined using model command. In this example we have 2D model with 3 DOFs at each node. This is defined in the following way:\nPython Tcl import opensees.openseespy as ops model = ops.Model(ndm=2, ndf=3) model BasicBuilder -ndm 2 -ndf 3 Note: geometry, mass, and material characteristics are assigned to variables that correspond to the ones shown in Figure 1 (e.g., the height of the column is set to be 144 in. and assigned to variable h; the value of the height can be accessed by $h).\nNodes of the structure (Figure 2) are defined using the node command:\nPython Tcl model.node(1, 0., 0.) model.node(2, L , 0.) model.node(3, 0., h ) model.node(4, L , h ) model.node(5, 0., 2*h ) model.node(6, L , 2*h ) node 1 0. 0. ; node 2 $L 0. ; node 3 0. $h ; node 4 $L $h ; node 5 0. [expr 2*$h]; node 6 $L [expr 2*$h]; The boundary conditions are defined next using single-point constraint command fix. In this example nodes 1 and 2 are fully fixed at all three DOFs:\nPython Tcl model.fix(1, 1, 1, 1) model.fix(2, 1, 1, 1) fix 1 1 1 1; fix 2 1 1 1; Masses are assigned at nodes 3, 4, 5, and 6 using mass command. Since the considered shear frame system has only two degrees of freedom (displacements in x at the 1st and the 2nd storey), the masses have to be assigned in x direction only.\nPython Tcl model.mass(3, m , 0., 0. ) model.mass(4, m , 0., 0. ) model.mass(5, m/2., 0., 0. ) model.mass(6, m/2., 0., 0. ) mass 3 $m 0. 0. ; mass 4 $m 0. 0. ; mass 5 [expr $m/2.] 0. 0. ; mass 6 [expr $m/2.] 0. 0. ; The geometric transformation with id tag 1 is defined to be linear.\nset TransfTag 1; geomTransf Linear $TransfTag ; The beams and columns of the frame are defined to be elastic using elasticBeamColumn element. In order to make beams infinitely rigid moment of inertia for beams (Ib) is set to very high value (10e+12).\nPython Tcl model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 1, 1, 3, Ac, Ec, 2.*Ic, TransfTag) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 2, 3, 5, Ac, Ec, Ic, TransfTag) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 3, 2, 4, Ac, Ec, 2.*Ic, TransfTag) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 4, 4, 6, Ac, Ec, Ic, TransfTag) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 5, 3, 4, Ab, E, Ib, TransfTag) model.element(\u0026#34;ElasticBeamColumn\u0026#34;, 6, 5, 6, Ab, E, Ib, TransfTag) element elasticBeamColumn 1 1 3 $Ac $Ec [expr 2.*$Ic] $TransfTag; element elasticBeamColumn 2 3 5 $Ac $Ec $Ic $TransfTag; element elasticBeamColumn 3 2 4 $Ac $Ec [expr 2.*$Ic] $TransfTag; element elasticBeamColumn 4 4 6 $Ac $Ec $Ic $TransfTag; element elasticBeamColumn 5 3 4 $Ab $E $Ib $TransfTag; element elasticBeamColumn 6 5 6 $Ab $E $Ib $TransfTag; To comply with the assumptions of the shear frame (no vertical displacemnts and rotations at nodes) end nodes of the beams are constrained to each other in the 2nd DOF (vertical displacement) and the 3rd DOF (rotation). EqualDOF command is used to imply these constraints.\nequalDOF 3 4 2 3; equalDOF 5 6 2 3; Define recorders \u0026nbsp; For the specified number of eigenvalues (numModes) (for this example it is 2) the eigenvectors are recorded at all nodes in all DOFs using node recorder command.\nPython Tcl for k in range(numModes): model.recorder(\u0026#34;Node\u0026#34;, f\u0026#34;eigen k\u0026#34;, file=f\u0026#34;modes/modek.out\u0026#34;, nodeRange=[1, 6], dof=[1, 2, 3]) foreach k [range $numModes]  recorder Node -file [format \u0026#34;modes/mode%i.out\u0026#34; $k] -nodeRange 1 6 -dof 1 2 3 \u0026#34;eigen $k\u0026#34;  Perform eigenvalue analysis and store periods into a file \u0026nbsp; The eigenvalues are calculated using eigen commnad and stored in lambda variable.\nset lambda [eigen $numModes];The periods and frequencies of the structure are calculated next.\nset omega  set f  set T  set pi 3.141593 foreach lam $lambda  lappend omega [expr sqrt($lam)]; lappend f [expr sqrt($lam)/(2*$pi)]; lappend T [expr (2*$pi)/sqrt($lam)]; The periods are stored in a Periods.txt file inside of directory modes/.\nset period \u0026#34;modes/Periods.txt\u0026#34; set Periods [open $period \u0026#34;w\u0026#34;] foreach t $T  puts $Periods \u0026#34; $t\u0026#34;  close $Periods Record the eigenvectors \u0026nbsp; For eigenvectors to be recorded record command has to be issued following the eigen command.\nrecord Display mode shapes \u0026nbsp; TODO\nExample Provided by: Vesna Terzic, UC Berkeley"
+      })
+      .add(
+      
+      
+      {
+        id: 29,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/modeling/",
         title: "Modeling",
@@ -6739,7 +6882,7 @@ function initIndex() {
       
       
       {
-        id: 19,
+        id: 30,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/module-development/",
         title: "Module development",
@@ -6752,7 +6895,7 @@ function initIndex() {
       
       
       {
-        id: 20,
+        id: 31,
         tag: "en",
         href: "/opensees-gallery/examples/example2/",
         title: "Moment-Curvature Analysis",
@@ -6765,7 +6908,20 @@ function initIndex() {
       
       
       {
-        id: 21,
+        id: 32,
+        tag: "en",
+        href: "/opensees-gallery/examples/framebuckling/",
+        title: "Nonlinear Geometry",
+        description: "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_{\\mathrm{euler}} = \\frac{\\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.\n",
+        
+        
+        content: "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_\\mathrmeuler = \\frac\\pi^2 EIL^2 This example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.\nλ=PL2EI[1−P/(ksGA)]=PL2χEIχ=1−P/(ksGA)P=χλ2EI/L2. \\begingathered \\lambda=\\sqrt\\fracP L^2E I\\left[1-P /\\left(k_\\mathrms G A\\right)\\right]=\\sqrt\\fracP L^2\\chi E I \\\\ \\chi=1-P /\\left(k_\\mathrms G A\\right) \\\\ P=\\chi \\lambda^2 E I / L^2 . \\endgathered χ=11+λ2EI/(ksGAL2)=11+λ2φ/12P=λ2EI/L21+λ2φ/12. \\begingathered \\chi=\\frac11+\\lambda^2 E I /\\left(k_\\mathrms G A L^2\\right)=\\frac11+\\lambda^2 \\varphi / 12 \\\\ P=\\frac\\lambda^2 E I / L^21+\\lambda^2 \\varphi / 12 . \\endgathered tan⁡λcr =χλcr =λcr 1+λcr 2φ/12 \\tan \\lambda_\\text cr =\\chi \\lambda_\\text cr =\\frac\\lambda_\\text cr 1+\\lambda_\\text cr  2 \\varphi / 12"
+      })
+      .add(
+      
+      
+      {
+        id: 33,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/overview/",
         title: "Overview",
@@ -6778,7 +6934,7 @@ function initIndex() {
       
       
       {
-        id: 22,
+        id: 34,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/partial-development/",
         title: "Partial development",
@@ -6791,7 +6947,20 @@ function initIndex() {
       
       
       {
-        id: 23,
+        id: 35,
+        tag: "en",
+        href: "/opensees-gallery/examples/steelframe2d/",
+        title: "Plane Steel Frame",
+        description: "This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html\u0026nbsp; The source file for the example is SteelFrame2D.py.\n",
+        
+        
+        content: "This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html\u0026nbsp; The source file for the example is SteelFrame2D.py."
+      })
+      .add(
+      
+      
+      {
+        id: 36,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/python/",
         title: "Python",
@@ -6804,7 +6973,7 @@ function initIndex() {
       
       
       {
-        id: 24,
+        id: 37,
         tag: "en",
         href: "/opensees-gallery/releases/",
         title: "Releases",
@@ -6817,20 +6986,98 @@ function initIndex() {
       
       
       {
-        id: 25,
+        id: 38,
+        tag: "en",
+        href: "/opensees-gallery/examples/spectrum/",
+        title: "RotD Spectrum",
+        description: "This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional ground motion records.\nspectra.py\n",
+        
+        
+        content: "This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional ground motion records.\nspectra.py\nThe source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html\u0026nbsp; ."
+      })
+      .add(
+      
+      
+      {
+        id: 39,
+        tag: "en",
+        href: "/opensees-gallery/examples/sathertower/",
+        title: "Sather Tower",
+        description: "",
+        
+        
+        content: ""
+      })
+      .add(
+      
+      
+      {
+        id: 40,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/scripts/",
         title: "Scripts",
         description: "Automatically bundle local and external JavaScript files into a single file.",
         
         
-        content: "Hinode bundles local JavaScript files and JavaScript files defined in a core module into a single file. By utilizing Hugo modules, external JavaScript files are automatically ingested and kept up to date.\nBuild pipeline \u0026nbsp; Hinodes uses Hugo modules and mounted folders to create a flexible virtual file system that is automatically kept up to date. Review the overview for a detailed explanation. The build pipeline of the JavaScript files consists of four steps.\nMount the JavaScript files maintained within the core modules\nMake JavaScripts defined in core modules available by mounting them into a separate assets/js/modules/MODULE NAME/ folder for each module. Adjust the mount points in config/_default/hugo.toml as needed.\nAdd the local JavaScript files\nAdd the local JavaScript files to the assets/js folder with a recognizable filename.\nBundle the JavaScript files\nThe partial partials/footer/scripts.html bundles all files that end with .js recursively into a single file called js/main.bundle.js. The files are processed in the order of the configured core modules and are sorted alphabetically within each module. JavaScript files defined in the current repository are added last, sorted alphabetically too. In production mode, the bundled output is minified and linked to with a fingerprint\u0026nbsp; .\nLink to the JavaScript in the base layout\nHinode\u0026rsquo;s base layout layouts/_default/baseof.html imports the bundled JavaScript file in the footer. The file is cached to improve performance.\nCritical files \u0026nbsp; [...] \u0026lt;!doctype html\u0026gt; \u0026lt;html lang=\u0026#34; .Site.Language.Lang \u0026#34; class=\u0026#34;no-js\u0026#34;\u0026gt; \u0026lt;head\u0026gt;  block \u0026#34;head\u0026#34; .  end - \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; - if site.Params.main.enableDarkMode - - partial \u0026#34;footer/scripts.html\u0026#34; (dict \u0026#34;filename\u0026#34; \u0026#34;js/critical.bundle.js\u0026#34; \u0026#34;match\u0026#34; \u0026#34;js/critical/**.js\u0026#34; \u0026#34;page\u0026#34; .) - - end - [...] \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt; Optional module files \u0026nbsp;"
+        content: "Hinode bundles local JavaScript files and JavaScript files defined in a core module into a single file. By utilizing Hugo modules, external JavaScript files are automatically ingested and kept up to date."
       })
       .add(
       
       
       {
-        id: 26,
+        id: 41,
+        tag: "en",
+        href: "/opensees-gallery/examples/sensitivity/",
+        title: "Sensitivity",
+        description: "",
+        
+        
+        content: ""
+      })
+      .add(
+      
+      
+      {
+        id: 42,
+        tag: "en",
+        href: "/opensees-gallery/examples/shallowdome/",
+        title: "Shallow Dome",
+        description: "Double-Layer Shallow Dome \u0026nbsp; March 2020, Amir Hossein Namadchi \u0026nbsp; This is an OpenSeesPy simulation of one of the numerical examples in our previously published paper\u0026nbsp; . The Core was purely written in Mathematica. This is my attempt to perform the analysis again via Opensees Core, to see if I can get the similar results. In the paper, we used Total Lagrangian framework to model the structure. Unfortunately, OpenSees does not include this framework, so, alternatively, I will use Corotational truss element.\n",
+        
+        
+        content: "Double-Layer Shallow Dome \u0026nbsp; March 2020, Amir Hossein Namadchi \u0026nbsp; This is an OpenSeesPy simulation of one of the numerical examples in our previously published paper\u0026nbsp; . The Core was purely written in Mathematica. This is my attempt to perform the analysis again via Opensees Core, to see if I can get the similar results. In the paper, we used Total Lagrangian framework to model the structure. Unfortunately, OpenSees does not include this framework, so, alternatively, I will use Corotational truss element.\nimport numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt import sees # %matplotlib notebook # %matplotlib widgetBelow, the base units are defined as python variables:\n## Units m = 1 # Meters KN = 1 # KiloNewtons s = 1 # Seconds Model Defintion \u0026nbsp; The coordinates information for each node are stored node_coords. Each row represent a node with the corresponding coordinates. Elements configuration are also described in connectivity, each row representing an element with its node IDs. Elements cross-sectional areas are stored in area_list. This appraoch, offers a more pythonic and flexible code when building the model. Since this is a relatively large model, some data will be read from external .txt files to keep the code cleaner.\n# Node Coordinates Matrix (size : nn x 3) node_coords = np.loadtxt(\u0026#39;assets/nodes.txt\u0026#39;, dtype = np.float64) * m # Element Connectivity Matrix (size: nel x 2) connectivity = np.loadtxt(\u0026#39;assets/connectivity.txt\u0026#39;, dtype = np.int64).tolist() # Loaded Nodes loaded_nodes = np.loadtxt(\u0026#39;assets/loaded_nodes.txt\u0026#39;, dtype = np.int64).tolist() # Get Number of total Nodes nn = len(node_coords) # Get Number of total Elements nel = len(connectivity) # Cross-sectional area list (size: nel) area_list = np.ones(nel)*(0.001)*(m**2) # Modulus of Elasticity list (size: nel) E_list = np.ones(nel)*(2.0*10**8)*(KN/m**2) # Mass Density rho = 7.850*((KN*s**2)/(m**4)) #Boundary Conditions (size: fixed_nodes x 4) B_C = np.column_stack((np.arange(1,31), np.ones((30,3), dtype = np.int64)) ).tolist() Model Construction \u0026nbsp; I use list comprehension to add nodes,elements and other objects to the domain.\nmodel = ops.Model(ndm=3, ndf=3) # Adding nodes to the model object using list comprehensions [model.node(n+1,*node_coords[n]) for n in range(nn)]; # Applying BC [model.fix(B_C[n][0],*B_C[n][1:]) for n in range(len(B_C))]; # Set Material model.uniaxialMaterial(\u0026#39;Elastic\u0026#39;,1, E_list[0]) # Adding Elements [model.element(\u0026#39;corotTruss\u0026#39;, e+1, *connectivity[e], area_list[e], 1,\u0026#39;-rho\u0026#39;, rho*area_list[e], \u0026#39;-cMass\u0026#39;, 1) for e in range(nel)]; Draw model \u0026nbsp; The model can now be drawn using the sees Python package:\nsees.render(model)Output:\n\u0026lt;Figure size 640x480 with 1 Axes\u0026gt;\u0026lt;sees.SkeletalRenderer at 0x7fb589684a90\u0026gt; Eigenvalue Analysis \u0026nbsp; Let\u0026rsquo;s get the first 6 periods of the structure to see if they coincide with the ones in paper.\neigenvalues = model.eigen(6) T_list = 2*np.pi/np.sqrt(eigenvalues) print(\u0026#39;The first 6 period of the structure are as follows:\\n\u0026#39;, T_list)Output:\nThe first 6 period of the structure are as follows: [0.07189215 0.06809579 0.06809578 0.04648394 0.04648388 0.03117022] Dynamic Analysis \u0026nbsp; Great accordance is obtained in eigenvalue analysis. Now, let\u0026rsquo;s do wipeAnalysis() and perform dynamic analysis. The Newmark time integration algorithm with γ=0.5\\gamma=0.5 and β=0.25\\beta=0.25 (Constant Average Acceleration Algorithm) is used. Harmonic loads are applied vertically on the loaded_nodes nodes.\nmodel.wipeAnalysis() # define load function P = lambda t: 250*np.sin(250*t) # Dynamic Analysis Parameters dt = 0.00025 time = 0.2 time_domain = np.arange(0,time,dt) # Adding loads to the domain beautifully model.timeSeries(\u0026#39;Path\u0026#39;, 1, dt=dt, values=np.vectorize(P)(time_domain), time=time_domain) model.pattern(\u0026#39;Plain\u0026#39;, 1, 1) for n in loaded_nodes: model.load(n, *[0,0,-1]) # Analysis model.constraints(\u0026#39;Plain\u0026#39;) model.numberer(\u0026#39;Plain\u0026#39;) model.system(\u0026#39;ProfileSPD\u0026#39;) model.test(\u0026#39;NormUnbalance\u0026#39;, 0.0000001, 100) model.algorithm(\u0026#39;ModifiedNewton\u0026#39;) model.integrator(\u0026#39;Newmark\u0026#39;, 0.5, 0.25) model.analysis(\u0026#39;Transient\u0026#39;)time_lst =[] # list to hold time stations for plotting d_apex_list = [] # list to hold vertical displacments of the apex for i in range(len(time_domain)): is_done = model.analyze(1, dt) if is_done != 0: print(\u0026#39;Failed to Converge!\u0026#39;) break time_lst.append(model.getTime()) d_apex_list.append(model.nodeDisp(362,3)) Visualization \u0026nbsp; Below, the time history of the vertical displacement of the apex is plotted.\nplt.figure(figsize=(12,4)) plt.plot(time_lst, np.array(d_apex_list), color = \u0026#39;#d62d20\u0026#39;, linewidth=1.75) plt.ylabel(\u0026#39;Vertical Displacement (m)\u0026#39;, \u0026#39;fontstyle\u0026#39;:\u0026#39;italic\u0026#39;,\u0026#39;size\u0026#39;:14) plt.xlabel(\u0026#39;Time (sec)\u0026#39;, \u0026#39;fontstyle\u0026#39;:\u0026#39;italic\u0026#39;,\u0026#39;size\u0026#39;:14) plt.xlim([0.0, time]) plt.grid() plt.yticks(fontsize = 14) plt.xticks(fontsize = 14);Output:\n\u0026lt;Figure size 1200x400 with 1 Axes\u0026gt; Closure \u0026nbsp; Very good agreements with the paper are obtained.\nNamadchi, Amir Hossein, Farhang Fattahi, and Javad Alamatian. \"Semiexplicit Unconditionally Stable Time Integration for Dynamic Analysis Based on Composite Scheme.\" Journal of Engineering Mechanics 143, no. 10 (2017): 04017119."
+      })
+      .add(
+      
+      
+      {
+        id: 43,
+        tag: "en",
+        href: "/opensees-gallery/examples/shellframe/",
+        title: "Shell Diaphragms",
+        description: "",
+        
+        
+        content: ""
+      })
+      .add(
+      
+      
+      {
+        id: 44,
+        tag: "en",
+        href: "/opensees-gallery/examples/pendulum/",
+        title: "Simple Pendulum",
+        description: "This example investigates a simple pendulum using the corotational truss element.",
+        
+        
+        content: "This example investigates a simple pendulum using the corotational truss element.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 # # Adapted from https://portwooddigital.com/2022/08/14/parametric-oscillator/ # # Claudio Perez # import opensees.openseespy as ops def create_pendulum(m, k, L, W): # Create a model with 2 dimensions (ndm) # and 2 degrees of freedom per node (ndf) model = ops.Model(ndm=2, ndf=2) # Create a node for the pivot point and fix it model.node(1, 0, L); model.fix(1, 1, 1) # Create a free node with the mass model.node(2, 0, 0); model.mass(2, m, m) # Create a corotational truss between nodes 1 and 2 model.uniaxialMaterial(\u0026#39;Elastic\u0026#39;, 1, k*L) model.element(\u0026#39;CorotTruss\u0026#39;, 1, 1, 2, 1.0, 1) # Initial displacements model.setNodeDisp(2, 1, 0.05*L, \u0026#39;-commit\u0026#39;) model.setNodeDisp(2, 2, -W/k-(W/k+L)/3, \u0026#39;-commit\u0026#39;) # Pendulum weight model.timeSeries(\u0026#39;Constant\u0026#39;, 1) model.pattern(\u0026#39;Plain\u0026#39;, 1, 1) model.load(2, 0, -W) return model def analyze_pendulum(model): model.algorithm(\u0026#39;Newton\u0026#39;) model.integrator(\u0026#39;Newmark\u0026#39;,0.5,0.25) model.analysis(\u0026#39;Transient\u0026#39;) Tmax = 12*sec dt = 0.01*sec Nsteps = int(Tmax/dt) u = [] for i in range(Nsteps): model.analyze(1, dt) u.append(model.nodeDisp(2)) return u if __name__ == \u0026#34;__main__\u0026#34;: from opensees.units.ips import inch, sec, gravity as g # Length of pendulum L = 10*inch # Pendulum mass m = 1.0 # Frequency of pendulum omega = (g/L)**0.5 # Frequency of oscillator w = 2*omega # Stiffness of spring k = m*w**2 model = create_pendulum(m, k, L, m*g) u = analyze_pendulum(model) print(u)"
+      })
+      .add(
+      
+      
+      {
+        id: 45,
         tag: "en",
         href: "/opensees-gallery/examples/example6/",
         title: "Simply Supported Solid Beam",
@@ -6843,7 +7090,7 @@ function initIndex() {
       
       
       {
-        id: 27,
+        id: 46,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/styles/",
         title: "Styles",
@@ -6856,7 +7103,20 @@ function initIndex() {
       
       
       {
-        id: 28,
+        id: 47,
+        tag: "en",
+        href: "/opensees-gallery/examples/shelltwist/",
+        title: "Twisted Cantilever",
+        description: "",
+        
+        
+        content: ""
+      })
+      .add(
+      
+      
+      {
+        id: 48,
         tag: "en",
         href: "/opensees-gallery/examples/wrench/",
         title: "Wrench",

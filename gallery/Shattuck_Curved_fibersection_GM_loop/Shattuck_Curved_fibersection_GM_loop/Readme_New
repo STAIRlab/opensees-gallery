@@ -1,2 +1,0 @@
-Rows 9-63     for running multiple ground motions with the same tcl file. Each ground motion starts from the initial undamaged state
-Rows 296-361  for defining the ground motion and running the dynamic analysis
