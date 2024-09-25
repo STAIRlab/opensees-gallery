@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dynamics on OpenSees</title>
-    <link>http://localhost:1313/opensees-gallery/tags/dynamics/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/dynamics/</link>
     <description>Recent content in Dynamics on OpenSees</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
-    <atom:link href="http://localhost:1313/opensees-gallery/tags/dynamics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/dynamics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RotD Spectrum</title>
-      <link>http://localhost:1313/opensees-gallery/examples/spectrum/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/spectrum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/spectrum/</guid>
-      <description>&lt;p&gt;This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional&#xA;ground motion records.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;spectra.py&#34;&gt;&lt;code&gt;spectra.py&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/spectrum/</guid>
+      <description>This code computes the RotD50 Sa and RotD100 Sa Spectra of bi-directional ground motion records.&#xA;spectra.py&#xA;The source code for this problem is adapted from the example by Jawad Fayaz at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html&amp;nbsp; .</description>
     </item>
   </channel>
 </rss>

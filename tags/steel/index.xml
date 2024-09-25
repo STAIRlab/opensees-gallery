@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Steel on OpenSees</title>
-    <link>http://localhost:1313/opensees-gallery/tags/steel/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/steel/</link>
     <description>Recent content in Steel on OpenSees</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
-    <atom:link href="http://localhost:1313/opensees-gallery/tags/steel/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/steel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Plane Steel Frame</title>
-      <link>http://localhost:1313/opensees-gallery/examples/steelframe2d/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/steelframe2d/</guid>
-      <description>&lt;p&gt;This example is adapted from &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&amp;nbsp;&#xA;&lt;!-- &lt;i class=&#34;fas fa-up-right-from-square fa-2xs&#34;&gt;&lt;/i&gt; --&gt;&#xA;        &lt;svg class=&#34;svg-inline--fa fas fa-up-right-from-square fa-2xs&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;use href=&#34;#fas-up-right-from-square&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;&#xA;&#xA;&lt;img class=&#34;img-fluid &#34;&#xA;        src=&#34;http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-2800x1947.png&#34;&#xA;        &#xA;        &#xA;        srcset=&#34;http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-576x401.webp 576w, http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-768x534.webp 768w, http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-992x690.webp 992w, http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-1200x834.webp 1200w, http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-1400x974.webp 1400w, http://localhost:1313/opensees-gallery/opensees-gallery/opensees-gallery/examples/steelframe2d/SteelFrame2D-2800x1947.webp 2800w&#34; sizes=&#34;100vw&#34;&#xA;        height=&#34;1947&#34;&#xA;        width=&#34;2800&#34;&#xA;        &gt;&#xA;&lt;p&gt;The source file for the example is &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;SteelFrame2D.py&#34;&gt;&lt;code&gt;SteelFrame2D.py&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/steelframe2d/</guid>
+      <description>This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html&amp;nbsp; The source file for the example is SteelFrame2D.py.</description>
     </item>
   </channel>
 </rss>

@@ -58,8 +58,9 @@ The 'GMi_Spectra.txt' file will consist of space-saperated file with:
 
 """
 import os, sys, pathlib, fnmatch
+from pathlib import Path
 import shutil as st
-from IPython import get_ipython
+#from IPython import get_ipython
 
 from opensees.openseespy import *
 from opensees.openseespy import uniaxialMaterial
@@ -182,7 +183,7 @@ def spectra(
 
     # Spectra Generation
     for iEQ in range(1,No_of_GMs+1):
-        print('Generating Spectra for GM: {} ...\n'.format(np.round(iEQ,0)))
+        print(f'Generating Spectra for GM: {iEQ} ...\n')
         Periods = np.concatenate((list(np.arange(Int_T_Reg_1,End_T_Reg_1+Int_T_Reg_1,Int_T_Reg_1)),
                                   list(np.arange(End_T_Reg_1+Int_T_Reg_2,End_T_Reg_2+Int_T_Reg_2,Int_T_Reg_2)),
                                   list(np.arange(End_T_Reg_2+Int_T_Reg_3,End_T_Reg_3+Int_T_Reg_3,Int_T_Reg_3))),axis=0)
@@ -200,7 +201,7 @@ def spectra(
             iGMinput = 'GM1'+str(iEQ)+' GM2'+str(iEQ) ;
             GMinput  = iGMinput.split(' ');
             gmXY     = {}
-            for i in range(0,2):
+            for i in range(2):
                 inFile   = GMdir/(GMinput[i]+'.AT2');
                 dt, NumPts , gmXY[i+1] = ReadGMFile(inFile)
 
@@ -218,12 +219,10 @@ def spectra(
                             np.sin( GMinter*np.pi/180),
                             np.cos( GMinter*np.pi/180)]
             IDTag        = 2
-            loop         = [1,2,3,4]
-
 
             beam_sdof(T)
 
-            for i in loop:
+            for i in (1, 2, 3, 4):
                 # Setting time series to be passed to uniform excitation
                 timeSeries('Path',IDTag +i, '-dt', dt, '-values', *list(gmXY_mat[:,i-1]), '-factor', GMfact[i-1]*gravity)
                 # Creating UniformExcitation load pattern
@@ -258,15 +257,7 @@ def spectra(
                 ok = analyze(1, dtAnalysis)
                 # if the analysis fails try initial tangent iteration
                 if ok != 0:
-                    print("Iteration failed .. lets try an initial stiffness for this step")
-                    test('NormDispIncr', 1.0e-12,  100, 0)
-                    algorithm('ModifiedNewton', '-initial')
-                    ok =analyze( 1, .001)
-
-                    if ok == 0:
-                        print("that worked .. back to regular newton")
-                        test('NormDispIncr', 1.0e-12,  10 )
-                        algorithm('Newton')
+                    raise Exception("Failed to converge")
 
                 tCurrent = getTime()
                 time.append(tCurrent)
@@ -298,11 +289,11 @@ def spectra(
 
         # TODO: END HERE AND RETURN
 
-        # Writing Spectra to Files
-        if not os.path.exists('Spectra'):
-            os.makedirs('Spectra')
+#       # Writing Spectra to Files
+#       if not os.path.exists('Spectra'):
+#           os.makedirs('Spectra')
 
-        GM_SPECTRA.to_csv('Spectra//GM'+str(iEQ)+'_Spectra.txt', sep=' ',header=True,index=False)
+#       GM_SPECTRA.to_csv('Spectra//GM'+str(iEQ)+'_Spectra.txt', sep=' ',header=True,index=False)
 
         # Plotting Spectra
         if Plot_Spectra == True:
@@ -318,7 +309,7 @@ def spectra(
                 axes.set_xlim(0, np.ceil(max(GM_SPECTRA['Period(s)'])))
                 axes.set_ylim(0, np.ceil(max(GM_SPECTRA[SpectraType])))
                 axes.legend(fontsize =30)
-                fig.savefig(PlotTitle + f"_{iGM}.png")
+                fig.savefig(Path("./img/")/(PlotTitle + f"_{iGM}.png").replace(" ","_"))
 
             fig = plt.figure(1,figsize=(18,12))
             plot_spectra('RotD50 Spectra','RotD50Sa(g)',iEQ, fig)
@@ -330,7 +321,7 @@ def spectra(
         SDOF_RESPONSE.insert(iEQ-1,DISPLACEMENTS)
         GM_RESPONSE.insert(iEQ-1,GM_SPECTRA)
 
-        print('\nGenerated Spectra for GM: {}\n\n'.format(np.round(iEQ,0)))
+        print(f'\nGenerated Spectra for GM: {iEQ}\n\n')
 
 if __name__ == "__main__":
     spectra()

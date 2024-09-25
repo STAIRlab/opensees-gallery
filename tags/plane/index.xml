@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Plane on OpenSees</title>
-    <link>http://localhost:1313/opensees-gallery/tags/plane/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/plane/</link>
     <description>Recent content in Plane on OpenSees</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
-    <atom:link href="http://localhost:1313/opensees-gallery/tags/plane/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/plane/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simply Supported Solid Beam</title>
-      <link>http://localhost:1313/opensees-gallery/examples/example6/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/example6/</guid>
-      <description>&lt;p&gt;In this example a simply supported beam is modelled with two dimensional solid&#xA;elements.&#xA;The example is implemented in both Tcl and Python:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example6.tcl&#34;&gt;&lt;code&gt;Example6.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example6.py&#34;&gt;&lt;code&gt;Example6.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with&#xA;&lt;code&gt;ndm = 2&lt;/code&gt; and &lt;code&gt;ndf = 2&lt;/code&gt;.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example6/</guid>
+      <description>In this example a simply supported beam is modelled with two dimensional solid elements. The example is implemented in both Tcl and Python:&#xA;Example6.tcl Example6.py Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with ndm = 2 and ndf = 2.&#xA;A mesh is generated using the block2D command. The number of nodes in the local xx -direction of the block is nxnx and the number of nodes in the local yy -direction of the block is nyny .</description>
     </item>
     <item>
       <title>Wrench</title>
-      <link>http://localhost:1313/opensees-gallery/examples/wrench/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/wrench/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/wrench/</guid>
-      <description>&lt;p&gt;This problem is adapted from Logan (2012), Problem 7–28.&lt;/p&gt;&#xA;&lt;p&gt;Script: &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;model.py&#34;&gt;&lt;code&gt;model.py&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/wrench/</guid>
+      <description>This problem is adapted from Logan (2012), Problem 7–28.&#xA;Script: model.py&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 # ===----------------------------------------------------------------------===// # # OpenSees - Open System for Earthquake Engineering Simulation # Structural Artificial Intelligence Laboratory # stairlab.</description>
     </item>
   </channel>
 </rss>

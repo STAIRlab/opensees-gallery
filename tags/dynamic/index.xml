@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dynamic on OpenSees</title>
-    <link>http://localhost:1313/opensees-gallery/tags/dynamic/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/dynamic/</link>
     <description>Recent content in Dynamic on OpenSees</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
-    <atom:link href="http://localhost:1313/opensees-gallery/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/dynamic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Continuum Cantilever</title>
-      <link>http://localhost:1313/opensees-gallery/examples/example8/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/example8/</guid>
-      <description>&lt;p&gt;In this example a simple problem in solid dynamics is considered. The&#xA;structure is a cantilever beam modelled with three dimensional solid&#xA;elements.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;src/Example8.tcl&#34;&gt;&lt;code&gt;Example8.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;src/Example8.py&#34;&gt;&lt;code&gt;Example8.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;For three dimensional analysis, a typical solid element is defined as a&#xA;volume in three dimensional space. Each node of the analysis has three&#xA;displacement degrees of freedom. Thus the model is defined with&#xA;&lt;code&gt;ndm = 3&lt;/code&gt; and &lt;code&gt;ndf = 3&lt;/code&gt;.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.&#xA;Example8.tcl Example8.py For three dimensional analysis, a typical solid element is defined as a volume in three dimensional space. Each node of the analysis has three displacement degrees of freedom. Thus the model is defined with ndm = 3 and ndf = 3.&#xA;For this model, a mesh is generated using the &amp;ldquo;block3D&amp;rdquo; command.</description>
     </item>
     <item>
       <title>Dynamic Shell Analysis</title>
-      <link>http://localhost:1313/opensees-gallery/examples/example7/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example7/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/example7/</guid>
-      <description>&lt;p&gt;In this example a simple problem in shell dynamics is considered. The&#xA;structure is a curved hoop shell structure that looks like the roof of a&#xA;Safeway.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example7.tcl&#34;&gt;&lt;code&gt;Example7.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example7.py&#34;&gt;&lt;code&gt;Example7.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Renderings are created from the script &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;./render.py&#34;&gt;&lt;code&gt;render.py&lt;/code&gt;&lt;/a&gt;, which&#xA;uses the &#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://pypi.org/project/sees&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&lt;code&gt;sees&lt;/code&gt;&amp;nbsp;&#xA;&lt;!-- &lt;i class=&#34;fas fa-up-right-from-square fa-2xs&#34;&gt;&lt;/i&gt; --&gt;&#xA;        &lt;svg class=&#34;svg-inline--fa fas fa-up-right-from-square fa-2xs&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34; role=&#34;img&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;use href=&#34;#fas-up-right-from-square&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/a&gt; Python package.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example7/</guid>
+      <description>In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.&#xA;Example7.tcl Example7.py Renderings are created from the script render.py, which uses the sees&amp;nbsp; Python package.&#xA;Modeling &amp;nbsp; For shell analysis, a typical shell element is defined as a surface in three dimensional space. Each node of a shell analysis has six degrees of freedom, three displacements and three rotations.</description>
     </item>
     <item>
       <title>Frame with Diaphragms</title>
-      <link>http://localhost:1313/opensees-gallery/examples/example5/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/example5/</guid>
-      <description>&lt;p&gt;A three-dimensional reinforced concrete rigid frame,&#xA;is subjected to bi-directional earthquake ground motion.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;Example5.tcl&#34;&gt;&lt;code&gt;Example5.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;    &#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;        &#xA;            &#xA;            &#xA;            &#xA;            &lt;a href=&#34;RCsection.tcl&#34;&gt;&lt;code&gt;RCsection.tcl&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Or for Python:&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
+      <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py render.py In both cases, the following ground motion records are required:&#xA;tabasFN.txt tabasFP.txt Modeling &amp;nbsp; A model of the rigid frame shown in the figure below is created. The model consists of three stories and one bay in each direction. Rigid diaphragm multi-point constraints are used to enforce the rigid in-plane stiffness assumption for the floors.</description>
     </item>
     <item>
       <title>Inelastic SDOF</title>
-      <link>http://localhost:1313/opensees-gallery/examples/inelasticsdof/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/inelasticsdof/</guid>
-      <description>&lt;!-- # Elastoplastic SDOF system --&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &lt;blockquote class=&#34;blockquote&#34;&gt;&#xA;        &lt;p&gt;March 2020, By Amir Hossein Namadchi&lt;/p&gt;&#xA;    &lt;/blockquote&gt;&#xA;&lt;p&gt;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in &lt;em&gt;Dynamics of Structures&lt;/em&gt; book by  &lt;em&gt;Ray W. Clough&lt;/em&gt; and &lt;em&gt;J. Penzien&lt;/em&gt;. This example has been solved in the book, so the result obtained here can be compared with the reference.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
+      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.&#xA;This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb&amp;nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:</description>
     </item>
   </channel>
 </rss>

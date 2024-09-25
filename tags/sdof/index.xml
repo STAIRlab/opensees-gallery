@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SDOF on OpenSees</title>
-    <link>http://localhost:1313/opensees-gallery/tags/sdof/</link>
+    <link>https://stairlab.github.io/opensees-gallery/tags/sdof/</link>
     <description>Recent content in SDOF on OpenSees</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
-    <atom:link href="http://localhost:1313/opensees-gallery/tags/sdof/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://stairlab.github.io/opensees-gallery/tags/sdof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Inelastic SDOF</title>
-      <link>http://localhost:1313/opensees-gallery/examples/inelasticsdof/</link>
+      <link>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/opensees-gallery/examples/inelasticsdof/</guid>
-      <description>&lt;!-- # Elastoplastic SDOF system --&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;    &lt;blockquote class=&#34;blockquote&#34;&gt;&#xA;        &lt;p&gt;March 2020, By Amir Hossein Namadchi&lt;/p&gt;&#xA;    &lt;/blockquote&gt;&#xA;&lt;p&gt;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in &lt;em&gt;Dynamics of Structures&lt;/em&gt; book by  &lt;em&gt;Ray W. Clough&lt;/em&gt; and &lt;em&gt;J. Penzien&lt;/em&gt;. This example has been solved in the book, so the result obtained here can be compared with the reference.&lt;/p&gt;</description>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/inelasticsdof/</guid>
+      <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.&#xA;This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb&amp;nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:</description>
     </item>
   </channel>
 </rss>
