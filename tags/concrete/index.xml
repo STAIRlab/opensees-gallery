@@ -9,6 +9,13 @@
     <copyright>© 2024 &lt;a href=&#39;https://github.com/stairlab&#39; class=&#39;link-bg-footer&#39; target=&#39;_blank&#39; rel=&#39;noopener noreferrer&#39;&gt;PEER&lt;/a&gt;</copyright>
     <atom:link href="https://stairlab.github.io/opensees-gallery/tags/concrete/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Inelastic Plane Frame</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
+      <description>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt; This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. The files for this example are: Python Tcl &amp;lt;a href=&amp;quot;portal.py&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.py&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;a href=&amp;quot;portal.tcl&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.tcl&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt; These files define the following functions:&#xA;Function Description create_portal Creates a model of a portal frame gravity_analysis Performs a gravity analysis on a model pushover_analysis Performs a pushover analysis on a model transient_analysis Performs a transient analysis on a model create_portal &amp;nbsp; The function create_portal creates a model representing the portal frame in the figure above.</description>
+    </item>
+    <item>
       <title>Moment-Curvature Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/example2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -21,13 +28,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example5/</guid>
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py render.py In both cases, the following ground motion records are required:&#xA;tabasFN.txt tabasFP.txt Modeling &amp;nbsp; A model of the rigid frame shown in the figure below is created. The model consists of three stories and one bay in each direction. Rigid diaphragm multi-point constraints are used to enforce the rigid in-plane stiffness assumption for the floors.</description>
-    </item>
-    <item>
-      <title>Inelastic Plane Frame</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/example3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/example3/</guid>
-      <description>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt; This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. The files for this example are: Python Tcl &amp;lt;a href=&amp;quot;portal.py&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.py&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;a href=&amp;quot;portal.tcl&amp;quot;&amp;gt;&amp;lt;code&amp;gt;portal.tcl&amp;lt;/code&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; These files define the following functions:&#xA;Function Description create_portal Creates a model of a portal frame gravity_analysis Performs a gravity analysis on a model pushover_analysis Performs a pushover analysis on a model transient_analysis Performs a transient analysis on a model create_portal &amp;nbsp; The function create_portal creates a model representing the portal frame in the figure above.</description>
     </item>
   </channel>
 </rss>

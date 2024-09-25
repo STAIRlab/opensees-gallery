@@ -7,7 +7,7 @@ model basic -ndm 3 -ndf 6
 section ElasticMembranePlateSection  1   3.0e3  0.25  1.175  1.27
 
 # set some parameters for node and element generation
-set Plate shell
+set element shell
 
 set eleArgs "1"
 
@@ -21,7 +21,7 @@ set side1 [expr ($nx + 2)/2 ]
 set side2 [expr ($nx+1)*($ny+1) - $side1 + 1 ]
 
 # generate the nodes and elements
-block2D $nx $ny 1 1 $Plate $eleArgs {
+block2D $nx $ny 1 1 $element $eleArgs {
     1   -20    0     0
     2   -20    0    40
     3    20    0    40

@@ -41,14 +41,14 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <title>OpenSees - Sensitivity</title>
-    <meta name="description" content="OpenSees Examples.">
+    <meta name="description" content="Basic sensitivity analysis is performed">
 
 <link rel="canonical" href="https://stairlab.github.io/opensees-gallery/examples/sensitivity/">
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sensitivity">
-<meta property="og:description" content="OpenSees Examples.">
+<meta property="og:description" content="Basic sensitivity analysis is performed">
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/sensitivity/">
 <meta property="og:site_name" content="OpenSees">
 <meta property="article:modified_time" content="2024-09-23T15:35:45-07:00">
@@ -61,7 +61,7 @@
 
 
 <meta name="twitter:title" content="Sensitivity">
-<meta name="twitter:description" content="OpenSees Examples.">
+<meta name="twitter:description" content="Basic sensitivity analysis is performed">
 <meta name="twitter:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
 <meta name="twitter:image:alt" content="Sensitivity">
 
@@ -102,7 +102,7 @@
       "@id": "https://stairlab.github.io/opensees-gallery/examples/sensitivity/",
       "url": "https://stairlab.github.io/opensees-gallery/examples/sensitivity/",
       "name": "Sensitivity",
-      "description": "",
+      "description": "Basic sensitivity analysis is performed",
       "isPartOf": {
         "@id": "https://stairlab.github.io/#/schema/website/1"
       },
@@ -253,24 +253,6 @@
     
         <a class="nav-link" 
             
-            data-nav="main" data-nav-main="about" 
-             href="/opensees-gallery/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
-    
-</li>
-                            <li class="nav-item ">
-
-
-
-
-
-
-
-    
-
-
-    
-        <a class="nav-link" 
-            
             data-nav="main" data-nav-main="docs" 
              href="/opensees-gallery/docs/" ><span >Docs</span>&nbsp;</a>
     
@@ -371,8 +353,8 @@
 
     <small class="text-body-secondary text-uppercase">
         
-        0&nbsp;min read &bull;
-        0&nbsp;words
+        2&nbsp;min read &bull;
+        399&nbsp;words
     </small>
 
 
@@ -385,7 +367,7 @@
 
 
 
-<p class="lead mb-5 mt-3"></p>
+<p class="lead mb-5 mt-3">Basic sensitivity analysis is performed</p>
 <div class="d-md-none pb-5">
 
 
@@ -393,6 +375,211 @@
 
 
 
+</div>
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">opensees.openseespy</span> <span class="k">as</span> <span class="nn">ops</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Input [N, m, kg, sec]</span>
+</span></span><span class="line"><span class="cl"><span class="n">L</span> <span class="o">=</span> <span class="mf">5.0</span>              <span class="c1"># Total length of cantilever</span>
+</span></span><span class="line"><span class="cl"><span class="n">F</span> <span class="o">=</span> <span class="mf">300000.0</span>         <span class="c1"># Lateral point load</span>
+</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">=</span> <span class="mf">0.0</span>              <span class="c1"># Axial force</span>
+</span></span><span class="line"><span class="cl"><span class="n">w</span> <span class="o">=</span> <span class="mf">10000.0</span>          <span class="c1"># Distributed load</span>
+</span></span><span class="line"><span class="cl"><span class="n">E</span> <span class="o">=</span> <span class="mf">200e9</span>            <span class="c1"># Modulus of elasticity</span>
+</span></span><span class="line"><span class="cl"><span class="n">G</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="mf">0.6</span>
+</span></span><span class="line"><span class="cl"><span class="n">hw</span> <span class="o">=</span> <span class="mf">0.355</span>            <span class="c1"># Web height</span>
+</span></span><span class="line"><span class="cl"><span class="n">bf</span> <span class="o">=</span> <span class="mf">0.365</span>           <span class="c1"># Flange width</span>
+</span></span><span class="line"><span class="cl"><span class="n">tf</span> <span class="o">=</span> <span class="mf">0.018</span>           <span class="c1"># Flange thickness</span>
+</span></span><span class="line"><span class="cl"><span class="n">tw</span> <span class="o">=</span> <span class="mf">0.011</span>           <span class="c1"># Web thickness</span>
+</span></span><span class="line"><span class="cl"><span class="n">nf</span> <span class="o">=</span> <span class="mi">3</span>               <span class="c1"># Number of fibers in the flange</span>
+</span></span><span class="line"><span class="cl"><span class="n">nw</span> <span class="o">=</span> <span class="mi">8</span>               <span class="c1"># Number of fibres in the web</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">nel</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Area and moment of inertia</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">tw</span> <span class="o">*</span> <span class="p">(</span><span class="n">hw</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tf</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">bf</span> <span class="o">*</span> <span class="n">tf</span>
+</span></span><span class="line"><span class="cl"><span class="n">I</span> <span class="o">=</span> <span class="n">tw</span> <span class="o">*</span> <span class="p">(</span><span class="n">hw</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tf</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="mf">12.0</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">bf</span> <span class="o">*</span> <span class="n">tf</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">hw</span> <span class="o">-</span> <span class="n">tf</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Ay</span> <span class="o">=</span>  <span class="n">A</span><span class="o">*</span><span class="mf">1e5</span>
+</span></span><span class="line"><span class="cl"><span class="n">Az</span> <span class="o">=</span>  <span class="n">A</span><span class="o">*</span><span class="mf">1e5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Iz</span> <span class="o">=</span> <span class="n">I</span>
+</span></span><span class="line"><span class="cl"><span class="n">Iy</span> <span class="o">=</span> <span class="n">I</span>
+</span></span><span class="line"><span class="cl"><span class="n">J</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">I</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">ndm</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ndf</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="s2">&#34;FrameElastic&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">Ay</span><span class="o">=</span><span class="n">Ay</span><span class="p">,</span> <span class="n">Az</span><span class="o">=</span><span class="n">Az</span><span class="p">,</span> <span class="n">Iz</span><span class="o">=</span><span class="n">Iz</span><span class="p">,</span> <span class="n">Iy</span><span class="o">=</span><span class="n">Iy</span><span class="p">,</span> <span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">geomTransf</span><span class="p">(</span><span class="s2">&#34;Linear&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">element</span><span class="p">(</span><span class="s2">&#34;CubicFrame&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">section</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;element&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;E&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&#34;element&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;A&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&#34;element&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Iz&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">parameter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&#34;node&#34;</span><span class="p">,</span> <span class="n">nel</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;coord&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">pattern</span><span class="p">(</span><span class="s2">&#34;Plain&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Linear&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">pattern</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">constraints</span><span class="p">(</span><span class="s2">&#34;Plain&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&#34;ProfileSPD&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Pmax</span> <span class="o">=</span> <span class="n">F</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Nsteps</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dP</span> <span class="o">=</span> <span class="n">Pmax</span> <span class="o">/</span> <span class="n">Nsteps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">integrator</span><span class="p">(</span><span class="s2">&#34;LoadControl&#34;</span><span class="p">,</span> <span class="n">dP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="s2">&#34;Static&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">sensitivityAlgorithm</span><span class="p">(</span><span class="s2">&#34;-computeAtEachStep&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsteps</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">nodeDisp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">model</span><span class="o">.</span><span class="n">getLoadFactor</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getParamTags</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">sensNodeDisp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">param</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">wipeAnalysis</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Umax</span> <span class="o">=</span> <span class="mf">2.2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Nsteps</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Uincr</span> <span class="o">=</span> <span class="n">Umax</span><span class="o">/</span><span class="n">Nsteps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">integrator</span><span class="p">(</span><span class="s2">&#34;DisplacementControl&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Uincr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="s2">&#34;Static&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">sensitivityAlgorithm</span><span class="p">(</span><span class="s2">&#34;-computeAtEachStep&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsteps</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">nodeDisp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">model</span><span class="o">.</span><span class="n">getLoadFactor</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getParamTags</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">sensLambda</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">param</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#           print(param, model.sensNodeDisp(2, 1, param))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;u&#34;</span><span class="p">,</span> <span class="n">F</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">I</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;L&#34;</span><span class="p">,</span> <span class="n">F</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">E</span><span class="o">*</span><span class="n">I</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;F&#34;</span><span class="p">,</span>   <span class="n">L</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">I</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span></code></pre></td></tr></table>
+</div>
 </div>
 
 
@@ -737,7 +924,7 @@
     
 
 
-<script src="/opensees-gallery/js/main.bundle.en.min.bf573e2369bdea46d091f198145b858a2083d6bacc689b70145afe788b8e145b.js" integrity="sha256-v1c&#43;I2m96kbQkfGYFFuFiiCD1rrMaJtwFFr&#43;eIuOFFs=" crossorigin="anonymous" async></script>
+<script src="/opensees-gallery/js/main.bundle.en.min.277420fd77ce9360a4bf77c666ad0034d5e2f184911c803d341e3d3b1e19f798.js" integrity="sha256-J3Qg/XfOk2Ckv3fGZq0ANNXi8YSRHIA9NB49Ox4Z95g=" crossorigin="anonymous" async></script>
     
 
     

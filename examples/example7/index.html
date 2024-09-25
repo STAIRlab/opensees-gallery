@@ -254,24 +254,6 @@
     
         <a class="nav-link" 
             
-            data-nav="main" data-nav-main="about" 
-             href="/opensees-gallery/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
-    
-</li>
-                            <li class="nav-item ">
-
-
-
-
-
-
-
-    
-
-
-    
-        <a class="nav-link" 
-            
             data-nav="main" data-nav-main="docs" 
              href="/opensees-gallery/docs/" ><span >Docs</span>&nbsp;</a>
     
@@ -373,7 +355,7 @@
     <small class="text-body-secondary text-uppercase">
         
         3&nbsp;min read &bull;
-        470&nbsp;words
+        562&nbsp;words
     </small>
 <div class="mt-3">
         <div class="d-none-dark">
@@ -700,6 +682,80 @@ number of nodes in the local x-direction of the block is <code>nx</code> and the
 number of nodes in the local y-direction of the block is <code>ny</code>. The
 block2D generates nodes with tags <code>{1,2,3,4, 5,7,9}</code> such that the
 structure is curved in space.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="badecf-tab" data-bs-toggle="tab" data-bs-target="#badecf"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="adcefb-tab" data-bs-toggle="tab" data-bs-target="#adcefb"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python(RT)</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="badecf" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># generate the nodes and elements
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">block2D</span> <span class="nv">$nx</span> <span class="nv">$ny</span> <span class="mi">1</span> <span class="mi">1</span> <span class="nv">$element</span> <span class="nv">$eleArgs</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">1</span>   <span class="o">-</span><span class="mi">20</span>    <span class="mi">0</span>     <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">2</span>   <span class="o">-</span><span class="mi">20</span>    <span class="mi">0</span>    <span class="mi">40</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">3</span>    <span class="mi">20</span>    <span class="mi">0</span>    <span class="mi">40</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">4</span>    <span class="mi">20</span>    <span class="mi">0</span>     <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">5</span>   <span class="o">-</span><span class="mi">10</span>   <span class="mi">10</span>    <span class="mi">20</span> 
+</span></span><span class="line"><span class="cl">    <span class="mi">7</span>    <span class="mi">10</span>   <span class="mi">10</span>    <span class="mi">20</span>   
+</span></span><span class="line"><span class="cl">    <span class="mi">9</span>     <span class="mi">0</span>   <span class="mi">10</span>    <span class="mi">20</span> 
+</span></span><span class="line"><span class="cl"><span class="k">}</span> </span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="adcefb" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># generate the surface nodes and elements</span>
+</span></span><span class="line"><span class="cl"><span class="n">surface</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">surface</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">element</span><span class="o">=</span><span class="s2">&#34;ShellMITC4&#34;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">points</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">20.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">3</span><span class="p">:</span> <span class="p">[</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">4</span><span class="p">:</span> <span class="p">[</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">7</span><span class="p">:</span> <span class="p">[</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="mi">9</span><span class="p">:</span> <span class="p">[</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">              <span class="p">})</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
 <p>The shell element is constructed using the <code>ShellMITC4</code> formulation.
 An elastic membrane-plate material section model,
 appropriate for shell analysis, is constructed using the <code>section</code>
@@ -1780,13 +1836,13 @@ is shown in the figure below.</p>
 
 <div class="row row-cols-2 mt-5 mb-3">
     <div class="col">
-        <a class="next" href="/opensees-gallery/examples/mrf_concentrated/">
+        <a class="next" href="/opensees-gallery/examples/example3/">
 <!-- <i class="fas fa-arrow-left "></i> -->
-        <svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-left"></use></svg>&nbsp;Dynamic Analysis of 2-Story Moment Frame
+        <svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-left"></use></svg>&nbsp;Inelastic Plane Frame
                 </a></div>
     <div class="col text-end">
-        <a class="previous" href="/opensees-gallery/examples/example4/">
-                    Example 4: Multibay Two Story Frame&nbsp;
+        <a class="previous" href="/opensees-gallery/examples/example8/">
+                    Continuum Cantilever&nbsp;
 <!-- <i class="fas fa-arrow-right "></i> -->
         <svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-right"></use></svg>
                 </a></div>
@@ -2126,7 +2182,7 @@ is shown in the figure below.</p>
     
 
 
-<script src="/opensees-gallery/js/main.bundle.en.min.bf573e2369bdea46d091f198145b858a2083d6bacc689b70145afe788b8e145b.js" integrity="sha256-v1c&#43;I2m96kbQkfGYFFuFiiCD1rrMaJtwFFr&#43;eIuOFFs=" crossorigin="anonymous" async></script>
+<script src="/opensees-gallery/js/main.bundle.en.min.277420fd77ce9360a4bf77c666ad0034d5e2f184911c803d341e3d3b1e19f798.js" integrity="sha256-J3Qg/XfOk2Ckv3fGZq0ANNXi8YSRHIA9NB49Ox4Z95g=" crossorigin="anonymous" async></script>
     
 
     

@@ -254,24 +254,6 @@
     
         <a class="nav-link" 
             
-            data-nav="main" data-nav-main="about" 
-             href="/opensees-gallery/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
-    
-</li>
-                            <li class="nav-item ">
-
-
-
-
-
-
-
-    
-
-
-    
-        <a class="nav-link" 
-            
             data-nav="main" data-nav-main="docs" 
              href="/opensees-gallery/docs/" ><span >Docs</span>&nbsp;</a>
     
@@ -372,8 +354,8 @@
 
     <small class="text-body-secondary text-uppercase">
         
-        2&nbsp;min read &bull;
-        405&nbsp;words
+        3&nbsp;min read &bull;
+        499&nbsp;words
     </small>
 <div class="mt-3">
         <div class="d-none-dark">
@@ -612,11 +594,38 @@ elements.</p>
 volume in three dimensional space. Each node of the analysis has three
 displacement degrees of freedom. Thus the model is defined with
 <code>ndm = 3</code> and <code>ndf = 3</code>.</p>
-<p>For this model, a mesh is generated using the &ldquo;block3D&rdquo; command. The
-number of nodes in the local x-direction of the block is <code>nx</code>, the
-number of nodes in the local y-direction of the block is <code>ny</code> and the
-number of nodes in the local z-direction of the block is <code>nz</code>. The
-block3D generation nodes <code>{1,2,3,4,5,6,7,8}</code> are prescribed to define the
+<p>For this model, a mesh is generated using the <code>block3D</code> command. The
+number of nodes in the local 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>
+    
+
+-direction of the block is <code>nx</code>, the
+number of nodes in the local 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>
+    
+
+-direction of the block is <code>ny</code> and the
+number of nodes in the local 
+
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span>
+    
+
+-direction of the block is <code>nz</code>. The
+<code>block3D</code> generation nodes <code>{1,2,3,4,5,6,7,8}</code> are prescribed to define the
 three dimensional domain of the beam, which is of size
 
 
@@ -628,6 +637,78 @@ three dimensional domain of the beam, which is of size
     
 
 .</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-link  active "
+		   id="acfebd-tab" data-bs-toggle="tab" data-bs-target="#acfebd"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Tcl</a>
+
+		
+
+		<a class="nav-link "
+		   id="bcdfea-tab" data-bs-toggle="tab" data-bs-target="#bcdfea"
+		   type="button" role="tab" aria-controls="nav-home" aria-selected="true">Python(RT)</a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="acfebd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># mesh generation
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">block3D</span> <span class="nv">$nx</span> <span class="nv">$ny</span> <span class="nv">$nz</span>   <span class="mi">1</span> <span class="mi">1</span>  <span class="nv">$element</span>  <span class="nv">$eleArgs</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">1</span>   <span class="o">-</span><span class="mi">1</span>     <span class="o">-</span><span class="mi">1</span>      <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">2</span>    <span class="mi">1</span>     <span class="o">-</span><span class="mi">1</span>      <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">3</span>    <span class="mi">1</span>      <span class="mi">1</span>      <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">4</span>   <span class="o">-</span><span class="mi">1</span>      <span class="mi">1</span>      <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">    <span class="mi">5</span>   <span class="o">-</span><span class="mi">1</span>     <span class="o">-</span><span class="mi">1</span>     <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">6</span>    <span class="mi">1</span>     <span class="o">-</span><span class="mi">1</span>     <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">7</span>    <span class="mi">1</span>      <span class="mi">1</span>     <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">8</span>   <span class="o">-</span><span class="mi">1</span>      <span class="mi">1</span>     <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+
+
+
+<div class="tab-pane fade show " id="bcdfea" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">block3D</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Brick</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">2</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">3</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">6</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">7</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="mi">8</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]})</span></span></span></code></pre></div></div>
+
+</div>
+
+
+
+</div>
+
 <p>Two possible brick elements can be used for the analysis. These may be
 created using the terms <code>StdBrick</code> or <code>BbarBrick</code>. An elastic isotropic
 material is used.</p>
@@ -1626,13 +1707,13 @@ This is plotted in the figure below:</p>
 
 <div class="row row-cols-2 mt-5 mb-3">
     <div class="col">
-        <a class="next" href="/opensees-gallery/examples/concretesurface/">
+        <a class="next" href="/opensees-gallery/examples/example7/">
 <!-- <i class="fas fa-arrow-left "></i> -->
-        <svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-left"></use></svg>&nbsp;Concrete
+        <svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-left"></use></svg>&nbsp;Dynamic Shell Analysis
                 </a></div>
     <div class="col text-end">
-        <a class="previous" href="/opensees-gallery/examples/soliddam/">
-                    Dam&nbsp;
+        <a class="previous" href="/opensees-gallery/examples/example2/">
+                    Moment-Curvature Analysis&nbsp;
 <!-- <i class="fas fa-arrow-right "></i> -->
         <svg class="svg-inline--fa fas fa-arrow-right " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-right"></use></svg>
                 </a></div>
@@ -1963,7 +2044,7 @@ This is plotted in the figure below:</p>
     
 
 
-<script src="/opensees-gallery/js/main.bundle.en.min.bf573e2369bdea46d091f198145b858a2083d6bacc689b70145afe788b8e145b.js" integrity="sha256-v1c&#43;I2m96kbQkfGYFFuFiiCD1rrMaJtwFFr&#43;eIuOFFs=" crossorigin="anonymous" async></script>
+<script src="/opensees-gallery/js/main.bundle.en.min.277420fd77ce9360a4bf77c666ad0034d5e2f184911c803d341e3d3b1e19f798.js" integrity="sha256-J3Qg/XfOk2Ckv3fGZq0ANNXi8YSRHIA9NB49Ox4Z95g=" crossorigin="anonymous" async></script>
     
 
     

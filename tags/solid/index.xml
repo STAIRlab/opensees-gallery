@@ -13,7 +13,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/example8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/example8/</guid>
-      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.&#xA;Example8.tcl Example8.py For three dimensional analysis, a typical solid element is defined as a volume in three dimensional space. Each node of the analysis has three displacement degrees of freedom. Thus the model is defined with ndm = 3 and ndf = 3.&#xA;For this model, a mesh is generated using the &amp;ldquo;block3D&amp;rdquo; command.</description>
+      <description>In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.&#xA;Example8.tcl Example8.py For three dimensional analysis, a typical solid element is defined as a volume in three dimensional space. Each node of the analysis has three displacement degrees of freedom. Thus the model is defined with ndm = 3 and ndf = 3.&#xA;For this model, a mesh is generated using the block3D command.</description>
     </item>
   </channel>
 </rss>
