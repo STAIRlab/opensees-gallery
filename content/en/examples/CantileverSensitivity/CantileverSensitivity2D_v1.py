@@ -85,7 +85,7 @@ TunitTXT = "seconds"  # (Time) define basic-unit text for output
 # +===============================================================================+
 
 
-def run_sensitivity_analysis(ctrlNode, dof, baseNode, SensParam, steps=500, IOflag=False):
+def run_sensitivity_analysis(ctrlNode, dof, baseNode, SensParam, steps=500, verbose=False):
     """
     Run load-control sensitivity analysis
     """
@@ -101,7 +101,8 @@ def run_sensitivity_analysis(ctrlNode, dof, baseNode, SensParam, steps=500, IOfl
     ops.algorithm("Newton")  # KrylovNewton
     ops.integrator("LoadControl", 1/steps)
     ops.analysis("Static")
-    ops.sensitivityAlgorithm("-computeAtEachStep")  # automatically compute sensitivity at the end of each step
+    # automatically compute sensitivity at the end of each step
+    ops.sensitivityAlgorithm("-computeAtEachStep")
 
     outputs = {"time": np.array([]),
                "disp": np.array([]),
@@ -113,10 +114,10 @@ def run_sensitivity_analysis(ctrlNode, dof, baseNode, SensParam, steps=500, IOfl
 
     for i in range(steps):
         ops.reactions()
-        if IOflag:
+        if verbose:
             print(
                 f"Single Cycle Response: Step #{i}, Node #{ctrlNode}: {ops.nodeDisp(ctrlNode, dof):.3f} {LunitTXT} / {-ops.nodeReaction(baseNode, dof):.2f} {FunitTXT}.")
-        ops.analyze(1)
+        print(ops.analyze(1))
         tCurrent = ops.getTime()
 
         outputs["time"] = np.append(outputs["time"], tCurrent)
@@ -139,7 +140,7 @@ def run_sensitivity_analysis(ctrlNode, dof, baseNode, SensParam, steps=500, IOfl
 # Create ModelBuilder
 # -------------------
 ops.wipe()
-ops.model("basic", "-ndm", 2, "-ndf", 3)
+ops.model("basic", "-ndm", 2)
 
 # Create nodes
 # ------------
@@ -170,28 +171,28 @@ ops.uniaxialMaterial("Hardening", matTag, Es, Fy, 0, Hkin)
 # ---------------
 # Sections defined with "canned" section ("WFSection2d"), otherwise use a FiberSection object (ops.section("Fiber",...))
 beamSecTag = 1
+w, h = 10*cm, 50*cm
 beamWidth, beamDepth = 10*cm, 50*cm
 #                          secTag,     matTag, d,         tw,        bf,       tf, Nfw, Nff
 #ops.section("WFSection2d", beamSecTag, matTag, beamDepth, beamWidth, beamWidth, 0, 20, 0)  # Beam section
-ops.section("Fiber", beamSecTag, shape=("W14X90", matTag, (10,5)))
+ops.section("Fiber", beamSecTag) #, shape=("W14X90", matTag, (10,5)))
+ops.patch("rect", matTag, (10,5), (-w/2, h/2), (-w/2, -h/2), ( w/2, -h/2), (w/2,  h/2), section=beamSecTag)
 
 # Define elements
 # ---------------
 beamTransTag, beamIntTag = 1, 1
 # Linear, PDelta, Corotational
-ops.geomTransf("Corotational", beamTransTag)
+ops.geomTransf("Linear", beamTransTag) #, (0, 0, 1))
 
 nip = 5
-# Lobatto, Legendre, NewtonCotes, Radau, Trapezoidal, CompositeSimpson
 ops.beamIntegration("Legendre", beamIntTag, beamSecTag, nip)
 
 # Beam elements
-numEle = 5
-meshSize = L/numEle  # mesh size
+numEle = 1
 
-eleType = "dispBeamColumn"  # forceBeamColumn, "dispBeamColumn"
+eleType = "dispBeamColumn"; # "forceBeamColumn"  # 
 #           tag, Npts, nodes, type, dofs, size, eleType, transfTag,    beamIntTag
-ops.mesh("line", 1, 2, *[1, 2], 0, 3, meshSize, eleType, beamTransTag, beamIntTag)
+ops.element(eleType, 1, (1, 2), beamTransTag, beamIntTag)
 
 # Create a Plain load pattern with a Sine/Trig TimeSeries
 # -------------------------------------------------------
@@ -207,25 +208,26 @@ ops.load(2, 0.0, P, 0.0)
 # +===============================================================================+
 # |                       Define Sensitivity Parameters                           |
 # +===============================================================================+
-# /// Each parameter must be unique in the FE domain, and all parameter tags MUST be numbered sequentially starting from 1! ///
+# Each parameter must be unique in the FE domain, and all parameter tags MUST 
+# be numbered sequentially starting from 1! ///
 ops.parameter(1)  # Blank parameters
 ops.parameter(2)
 ops.parameter(3)
-ops.parameter(4)
+#ops.parameter(4)
 for ele in range(1, numEle+1):  # Only column elements
     ops.addToParameter(1, "element", ele, "E")  # E
     # Check the sensitivity parameter names in *.cpp files ("sigmaY" or "fy" or "Fy")
     # https://github.com/OpenSees/OpenSees/blob/master/SRC/material/uniaxial/HardeningMaterial.cpp
     ops.addToParameter(2, "element", ele, "Fy")  # "sigmaY" or "fy" or "Fy"
     ops.addToParameter(3, "element", ele, "Hkin")  # "H_kin" or "Hkin" or "b"
-    ops.addToParameter(4, "element", ele, "d")  # "d"
+#   ops.addToParameter(4, "element", ele, "d")  # "d"
 
-ops.parameter(5, "node", 2, "coord", 1)  # parameter for coordinate of node 2 in DOF "1" (PX=1, PY=2, MZ=3)
+ops.parameter(4, "node", 2, "coord", 1)  # parameter for coordinate of node 2 in DOF "1" (PX=1, PY=2, MZ=3)
 # Map parameter 6 to vertical load at node 2 contained in load pattern 1 (last argument is global DOF, e.g., in 2D PX=1, PY=2, MZ=3)
-ops.parameter(6, "loadPattern", 1, "loadAtNode", 2, 2)
+ops.parameter(5, "loadPattern", 1, "loadAtNode", 2, 2)
 
-ParamSym = ["E", "F_y", "H_{kin}", "d", "L", "P"]
-ParamVars = [Es, Fy, Hkin, beamDepth, L, P]
+ParamSym = ["E", "F_y", "H_{kin}", "L", "P"]
+ParamVars = [Es, Fy, Hkin, L, P]
 
 title("Model Built")
 
@@ -234,8 +236,9 @@ title("Model Built")
 # +===============================================================================+
 # Run analysis with 500 steps
 # -------------------------
+ops.printModel("-json")
 outputs = run_sensitivity_analysis(
-    ctrlNode=2, dof=2, baseNode=1, SensParam=ops.getParamTags(), steps=500, IOflag=False)
+    ctrlNode=2, dof=2, baseNode=1, SensParam=ops.getParamTags(), steps=500, verbose=False)
 
 # +===============================================================================+
 # |                               Plot results                                    |

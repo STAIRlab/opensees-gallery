@@ -1,5 +1,5 @@
 ---
-title:  CableStayed02
+title:  Cable Stayed
 tags: ["Python", "Tcl"]
 description: Model of a cable-stayed bridge imported from CSiBridge
 image: img/CableStayed02.png

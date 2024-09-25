@@ -8,9 +8,6 @@
 ## Date - 08/06/2018
 ##################################################################
 
-print("=========================================================")
-print("Start 2D Steel Frame Example")
-
 import os
 import math
 import opensees
@@ -105,8 +102,8 @@ s4 = from_aisc("Fiber",  "W8x48", tag=beamSecTag2, material=matTag, mesh=mesh, u
 s5 = from_aisc("Fiber",  "W8x48", tag=beamSecTag3, material=matTag, mesh=mesh, units=units)
 
 for s in s1, s2, s3, s4, s5:
-    cmds = opensees.tcl.dumps(s, skip_int_refs=True)
-    model.eval(cmds)
+    cmd = opensees.tcl.dumps(s, skip_int_refs=True)
+    model.eval(cmd)
 
 # section('WFSection2d', colSecTag1, matTag, 10.5*inch, 0.26*inch, 5.77*inch, 0.44*inch, 15, 16)    # outer Column, W10x26
 # section('WFSection2d', colSecTag2, matTag, 10.5*inch, 0.26*inch, 5.77*inch, 0.44*inch, 15, 16)    # Inner Column, W10x26
@@ -299,56 +296,56 @@ model.wipeAnalysis()
 
 if AnalysisType == "Pushover":
 
-	print("<<<< Running Pushover Analysis >>>>")
+    print("<<<< Running Pushover Analysis >>>>")
 
-	# Create load pattern for pushover analysis
-	# create a plain load pattern
-	model.pattern("Plain", 2, 1)
+    # Create load pattern for pushover analysis
+    # create a plain load pattern
+    model.pattern("Plain", 2, 1)
 
-	model.load(11, 1.61, 0.0, 0.0)
-	model.load(21, 3.22, 0.0, 0.0)
-	model.load(31, 4.83, 0.0, 0.0)
+    model.load(11, 1.61, 0.0, 0.0)
+    model.load(21, 3.22, 0.0, 0.0)
+    model.load(31, 4.83, 0.0, 0.0)
 
-	ControlNode=31
-	ControlDOF=1
-	MaxDisp=0.15*H_story
-	DispIncr=0.1
-	NstepsPush=int(MaxDisp/DispIncr)
+    ControlNode=31
+    ControlDOF=1
+    MaxDisp=0.15*H_story
+    DispIncr=0.1
+    NstepsPush=int(MaxDisp/DispIncr)
 
-	model.numberer("Plain")
-	model.constraints("Plain")
-	model.integrator("DisplacementControl", ControlNode, ControlDOF, DispIncr)
-	model.algorithm("Newton")
-	model.test('NormUnbalance',1e-8, 10)
-	model.analysis("Static")
+    model.numberer("Plain")
+    model.constraints("Plain")
+    model.integrator("DisplacementControl", ControlNode, ControlDOF, DispIncr)
+    model.algorithm("Newton")
+    model.test('NormUnbalance',1e-8, 10)
+    model.analysis("Static")
 
-	PushDataDir = r'PushoverOut'
-	if not os.path.exists(PushDataDir):
-		os.makedirs(PushDataDir)
+#   PushDataDir = 'PushoverOut'
+#   if not os.path.exists(PushDataDir):
+#       os.makedirs(PushDataDir)
 
-	model.recorder('Node', '-file', "PushoverOut/Node2React.out", '-closeOnWrite', '-node', 2, '-dof',1, 'reaction')
-	model.recorder('Node', '-file', "PushoverOut/Node31Disp.out", '-closeOnWrite', '-node', 31, '-dof',1, 'disp')
-	model.recorder('Element', '-file', "PushoverOut/BeamStress.out", '-closeOnWrite', '-ele', 102, 'section', '4', 'fiber','1', 'stressStrain')
+#   model.recorder('Node', '-file', "PushoverOut/Node2React.out", '-closeOnWrite', '-node', 2, '-dof',1, 'reaction')
+#   model.recorder('Node', '-file', "PushoverOut/Node31Disp.out", '-closeOnWrite', '-node', 31, '-dof',1, 'disp')
+#   model.recorder('Element', '-file', "PushoverOut/BeamStress.out", '-closeOnWrite', '-ele', 102, 'section', '4', 'fiber','1', 'stressStrain')
 
-	# analyze(NstepsPush)
+    # analyze(NstepsPush)
 
-	# Perform pushover analysis
-	dataPush = np.zeros((NstepsPush+1,5))
-	for j in range(NstepsPush):
-		model.analyze(1)
-		dataPush[j+1,0] = model.nodeDisp(31,1)
-		model.reactions()
-		dataPush[j+1,1] = model.nodeReaction(1, 1) + model.nodeReaction(2, 1) + model.nodeReaction(3, 1)
+    # Perform pushover analysis
+    dataPush = np.zeros((NstepsPush+1,5))
+    for j in range(NstepsPush):
+        model.analyze(1)
+        dataPush[j+1,0] = model.nodeDisp(31,1)
+        model.reactions()
+        dataPush[j+1,1] = model.nodeReaction(1, 1) + model.nodeReaction(2, 1) + model.nodeReaction(3, 1)
 
-	plt.plot(dataPush[:,0], -dataPush[:,1])
-	plt.xlim(0, MaxDisp)
-	plt.xticks(np.linspace(0,MaxDisp,5,endpoint=True))
-	plt.yticks(np.linspace(0, -int(dataPush[NstepsPush,1]),10,endpoint=True))
-	plt.grid(linestyle='dotted')
-	plt.xlabel('Top Displacement (inch)')
-	plt.ylabel('Base Shear (kip)')
-	plt.show()
+    plt.plot(dataPush[:,0], -dataPush[:,1])
+    plt.xlim(0, MaxDisp)
+    plt.xticks(np.linspace(0,MaxDisp,5,endpoint=True))
+    plt.yticks(np.linspace(0, -int(dataPush[NstepsPush,1]),10,endpoint=True))
+    plt.grid(linestyle='dotted')
+    plt.xlabel('Top Displacement (inch)')
+    plt.ylabel('Base Shear (kip)')
+    plt.show()
 
 
-	print("Pushover analysis complete")
+    print("Pushover analysis complete")
 

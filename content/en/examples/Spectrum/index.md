@@ -12,7 +12,7 @@ ground motion records.
 The source code for this problem is adapted from the example by Jawad Fayaz 
 at https://openseespydoc.readthedocs.io/en/latest/src/exampleRotDSpectra.html .
 
-![](RotD100.png)
+![](img/RotD100.png)
 
-![](RotD50.png)
+![](img/RotD50.png)
 
