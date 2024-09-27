@@ -1,6 +1,7 @@
 ---
 title: "Dynamic Shell Analysis"
 tags: ["Shell", "Dynamic", "Python", "Tcl"]
+weight: 15
 categories: ["Basic", "Elastic"]
 thumbnail:  img/safeway.png
 render: model.glb
@@ -29,6 +30,40 @@ number of nodes in the local x-direction of the block is `nx` and the
 number of nodes in the local y-direction of the block is `ny`. The
 block2D generates nodes with tags `{1,2,3,4, 5,7,9}` such that the
 structure is curved in space.
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+# generate the nodes and elements
+block2D $nx $ny 1 1 $element $eleArgs {
+    1   -20    0     0
+    2   -20    0    40
+    3    20    0    40
+    4    20    0     0
+    5   -10   10    20 
+    7    10   10    20   
+    9     0   10    20 
+} 
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+# generate the surface nodes and elements
+surface = model.surface((nx, ny),
+              element="ShellMITC4", args=(1,),
+              points={
+                  1: [-20.0,  0.0,  0.0],
+                  2: [-20.0,  0.0, 40.0],
+                  3: [ 20.0,  0.0, 40.0],
+                  4: [ 20.0,  0.0,  0.0],
+                  5: [-10.0, 10.0, 20.0],
+                  7: [ 10.0, 10.0, 20.0],
+                  9: [  0.0, 10.0, 20.0]
+              })
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 
 The shell element is constructed using the `ShellMITC4` formulation. 
 An elastic membrane-plate material section model,

@@ -2,6 +2,7 @@
 title: Plane Steel Frame
 thumbnail: img/SteelFrame2D.png
 tags: ["Python", "Steel"]
+draft: true
 ---
 
 This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html

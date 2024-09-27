@@ -1,5 +1,6 @@
 ---
 title: "Inelastic Plane Frame"
+weight: 10
 tags: ["Frame", "Python", "Tcl", "Concrete"]
 categories: ["Basic", "Inelastic"]
 thumbnail: img/ConcretePortal.png
@@ -14,10 +15,10 @@ discretization of the cross section is used in the model.
 The files for this example are:
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
-1. [`portal.py`](portal.py)
+[`portal.py`](portal.py)
 {{% /tab %}}
 {{% tab name="Tcl" %}}
-1. [`portal.tcl`](portal.tcl)
+[`portal.tcl`](portal.tcl)
 {{% /tab %}}
 {{< /tabs >}}
 
