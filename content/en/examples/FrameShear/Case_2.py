@@ -7,6 +7,7 @@
 import numpy as np
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
+
 # import units (inch-kip-sec)
 from opensees.units.iks import ft, inch, ksi
 
@@ -17,16 +18,13 @@ def check(model, Mbench, Dbench):
     Axial  = model.getTime()
     Mbase  = model.eleResponse( 1, "forces")[2]
     Dtip   = model.nodeDisp(nn, 1)
-#   print( "                           Computed       Exact     Error")
-#   print(f"    Axial Force (kips)     {Axial:8.0f}")
-#   print(f"    Base moment (kip-in)   {Mbase:8.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench), end="   ")
-#   print(f"    Tip displacement (in)  {Dtip:8.4f}    {Dbench:8.3f} %8.2f %%\n" % (100*(Dbench-Dtip)/Dbench))
+
     print(f"  {Axial:5.0f}", end="   ")
     print(f"  {Mbase:5.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench), end="   ")
     print(f"  {Dtip:5.4f}    {Dbench:8.3f} %8.2f %%" % (100*(Dbench-Dtip)/Dbench))
 
 
-def create_column(element, use_shear=False, ndm=2):
+def create_column(element, use_shear=False, ndm=3):
     L = 28*ft
     # Material
     E =  29000.0*ksi
@@ -88,7 +86,8 @@ def create_column(element, use_shear=False, ndm=2):
         nodes = (tag, tag+1)
 #       model.element('PrismFrame', i+1, nodes, A, E, I, 1, "-order", 1)
 
-        model.element(element, i+1, nodes, 3, 1, 1)
+#       model.element(element, i+1, nodes, 3, 1, 1)
+        model.element(element, i+1, nodes, transform=1, section=1)
 #       model.element('ForceBeamColumnCBDI', i+1, node_i, node_j, 3, 1, 1)
 #       model.element('DispBeamColumnNL', i+1, node_i, node_j, 3, 1, 1)
 #       model.element('DispBeamColumn', i+1, node_i, node_j, 3, 1, 1)
@@ -100,14 +99,14 @@ def create_column(element, use_shear=False, ndm=2):
     return model
 
 
-def analyze(model, Mbench, Dbench, ndm=2):
-    model.constraints('Transformation')
-    model.numberer('Plain')
-    model.system('UmfPack')
-    model.test('NormDispIncr', 1.0e-6, 30, 0)
-    model.algorithm('Newton')
-    model.integrator('LoadControl', 0.1)
-    model.analysis('Static')
+def analyze(model, Mbench, Dbench, ndm=3):
+    model.constraints("Transformation")
+    model.numberer("Plain")
+    model.system("UmfPack")
+    model.test("NormDispIncr", 1.0e-6, 30, 0)
+    model.algorithm("Newton")
+    model.integrator("LoadControl", 0.1)
+    model.analysis("Static")
     model.analyze(10)
 
     ne = len(model.getNodeTags()) - 1
@@ -136,6 +135,7 @@ def analyze(model, Mbench, Dbench, ndm=2):
 
 
 if __name__ == "__main__":
+    ndm = 3
 
     for shear in False, True:
 
@@ -147,13 +147,9 @@ if __name__ == "__main__":
             Mbench = [ 336.0, 469.0, 598.0, 848.0]
             Dbench = [ 0.901, 1.33 , 1.75 , 2.56 ]
 
-        print(f"Force ({shear = })")
-        analyze(create_column("forceBeamColumn", shear), Mbench, Dbench)
-        print(f"ForceCBDI ({shear = })")
-        analyze(create_column("forceBeamColumnCBDI", shear), Mbench, Dbench)
-
-        if shear:
-            print("Exact")
-            analyze(create_column("ExactFrame", shear, ndm=3), Mbench, Dbench, ndm=3)
-
+        for element in "ForceFrame", "ExactFrame", "PrismFrame":
+            if "Exact" in element and (ndm == 2 or not shear):
+                continue
+            print(f"{element} ({shear = })")
+            analyze(create_column(element, shear, ndm=ndm), Mbench, Dbench, ndm=ndm)
 
