@@ -120,9 +120,16 @@ model.analyze(5)
 # Start of recorder generation
 # ----------------------------
 
-model.recorder("Node", "-file", "Node.out", "-time", "-node", nn, "-dof", 1, "disp")
-model.recorder("Element", "-file", "Elem.out", "-time", "-eleRange", 1, 10, "material", "1", "strains")
-#recorder("plot", "Node.out", "CenterNodeDisp", 625, 10, 625, 450, "-columns", 1, 2)
+model.recorder("Node", "-file", "out/Node.out", "-time", "-node", nn, "-dof", 1, "disp")
+model.recorder("Element", "-file", "out/Elem.out", "-time", "-eleRange", 1, 10, "material", "1", "strains")
+
+# Alternatively, using new syntax
+model.recorder("Node", "disp",
+               file="out/Node2.out", time=True, node=nn, dof=1)
+
+model.recorder("Element", ("material", 1, "strains"),
+               file="out/Elem2.out", time=True, eleRange=(1, 10))
+
 
 # --------------------------
 # End of recorder generation
