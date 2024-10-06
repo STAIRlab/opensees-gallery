@@ -5,7 +5,7 @@ if __name__ == "__main__":
     from Example6 import create_model, static_analysis
 
     dir = Path(".")
-    for element in "quad", "SSPquad", "bbarQuad", "enhancedQuad":
+    for element in "quad",:# "SSPquad", "bbarQuad", "enhancedQuad":
 
         model, (l1, l2) = create_model()
         static_analysis(model)
