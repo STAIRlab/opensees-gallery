@@ -103,8 +103,8 @@ proc create_model {} {
   fix 2 1 1 1 1 1 1
   fix 3 1 1 1 1 1 1
 
-  recorder Node -file disp.txt -time -nodeRange 37 39 -dof 1  disp
-  recorder Node -file disp2.txt -time -nodeRange 37 39 -dof 2  disp;
+  recorder Node -file disp.out -time -nodeRange 37 39 -dof 1  disp
+  recorder Node -file disp2.out -time -nodeRange 37 39 -dof 2  disp;
 
   pattern Plain 1 Linear {
     load 38 1 0 0 0 0 0 

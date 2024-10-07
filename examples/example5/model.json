@@ -129,7 +129,11 @@
         "crdTransformations": [
           {"name": "2", "type": "LinearFrameTransf3d", "vecInLocXZPlane": [1, 1, 0]},
           {"name": "1", "type": "LinearFrameTransf3d", "vecInLocXZPlane": [1, 0, 0]}
+        ],
+        "parameters": [
+
         ]
+
     },
     "geometry": {
         "nodes": [
@@ -154,18 +158,18 @@
           {"name": 19, "ndf": 6, "crd": [0, 0, 432], "mass": [1.3427, 1.3427, 0, 0, 0, 12889.9]}
         ],
         "elements": [
-          {"name": 1, "type": "ForceFrame3d", "nodes": [1, 5], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 2, "type": "ForceFrame3d", "nodes": [2, 6], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 3, "type": "ForceFrame3d", "nodes": [3, 7], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 4, "type": "ForceFrame3d", "nodes": [4, 8], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 5, "type": "ForceFrame3d", "nodes": [5, 10], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 6, "type": "ForceFrame3d", "nodes": [6, 11], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 7, "type": "ForceFrame3d", "nodes": [7, 12], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 8, "type": "ForceFrame3d", "nodes": [8, 13], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 9, "type": "ForceFrame3d", "nodes": [10, 15], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 10, "type": "ForceFrame3d", "nodes": [11, 16], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 11, "type": "ForceFrame3d", "nodes": [12, 17], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
-          {"name": 12, "type": "ForceFrame3d", "nodes": [13, 18], "mass": 0, "mass_flag": 0, "sections": [1, 1, 1, 1], "crdTransformation": 1, "integration": {"type": "Lobatto"}},
+			{"name": 1, "type": "ForceBeamColumn3d", "nodes": [1, 5], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 2, "type": "ForceBeamColumn3d", "nodes": [2, 6], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 3, "type": "ForceBeamColumn3d", "nodes": [3, 7], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 4, "type": "ForceBeamColumn3d", "nodes": [4, 8], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 5, "type": "ForceBeamColumn3d", "nodes": [5, 10], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 6, "type": "ForceBeamColumn3d", "nodes": [6, 11], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 7, "type": "ForceBeamColumn3d", "nodes": [7, 12], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 8, "type": "ForceBeamColumn3d", "nodes": [8, 13], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 9, "type": "ForceBeamColumn3d", "nodes": [10, 15], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 10, "type": "ForceBeamColumn3d", "nodes": [11, 16], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 11, "type": "ForceBeamColumn3d", "nodes": [12, 17], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
+			{"name": 12, "type": "ForceBeamColumn3d", "nodes": [13, 18], "sections": ["1", "1", "1", "1"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "1"},
 			{"name": 13, "type": "ForceBeamColumn3d", "nodes": [5, 6], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
 			{"name": 14, "type": "ForceBeamColumn3d", "nodes": [6, 7], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
 			{"name": 15, "type": "ForceBeamColumn3d", "nodes": [7, 8], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
@@ -178,6 +182,53 @@
 			{"name": 22, "type": "ForceBeamColumn3d", "nodes": [16, 17], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
 			{"name": 23, "type": "ForceBeamColumn3d", "nodes": [17, 18], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"},
 			{"name": 24, "type": "ForceBeamColumn3d", "nodes": [18, 15], "sections": ["2", "2", "2"], "integration": {"type": "Lobatto"}, "massperlength": 0, "crdTransformation": "2"}
+        ],
+        "constraints": [
+          { "name": "0",  "node": 5,  "ref_node": 9,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "1",  "node": 6,  "ref_node": 9,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "2",  "node": 7,  "ref_node": 9,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "3",  "node": 8,  "ref_node": 9,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "4",  "node": 10,  "ref_node": 14,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "5",  "node": 11,  "ref_node": 14,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "6",  "node": 12,  "ref_node": 14,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "7",  "node": 13,  "ref_node": 14,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "8",  "node": 15,  "ref_node": 19,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "9",  "node": 16,  "ref_node": 19,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "10",  "node": 17,  "ref_node": 19,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          { "name": "11",  "node": 18,  "ref_node": 19,  "dof": [1, 2, 6],  "ref_dof": [1, 2, 6],  "matrix": []},
+          {"name": 0, "node": 1, "dof": 1, "ref_value": 0},
+          {"name": 1, "node": 1, "dof": 2, "ref_value": 0},
+          {"name": 2, "node": 1, "dof": 3, "ref_value": 0},
+          {"name": 3, "node": 1, "dof": 4, "ref_value": 0},
+          {"name": 4, "node": 1, "dof": 5, "ref_value": 0},
+          {"name": 5, "node": 1, "dof": 6, "ref_value": 0},
+          {"name": 6, "node": 2, "dof": 1, "ref_value": 0},
+          {"name": 7, "node": 2, "dof": 2, "ref_value": 0},
+          {"name": 8, "node": 2, "dof": 3, "ref_value": 0},
+          {"name": 9, "node": 2, "dof": 4, "ref_value": 0},
+          {"name": 10, "node": 2, "dof": 5, "ref_value": 0},
+          {"name": 11, "node": 2, "dof": 6, "ref_value": 0},
+          {"name": 12, "node": 3, "dof": 1, "ref_value": 0},
+          {"name": 13, "node": 3, "dof": 2, "ref_value": 0},
+          {"name": 14, "node": 3, "dof": 3, "ref_value": 0},
+          {"name": 15, "node": 3, "dof": 4, "ref_value": 0},
+          {"name": 16, "node": 3, "dof": 5, "ref_value": 0},
+          {"name": 17, "node": 3, "dof": 6, "ref_value": 0},
+          {"name": 18, "node": 4, "dof": 1, "ref_value": 0},
+          {"name": 19, "node": 4, "dof": 2, "ref_value": 0},
+          {"name": 20, "node": 4, "dof": 3, "ref_value": 0},
+          {"name": 21, "node": 4, "dof": 4, "ref_value": 0},
+          {"name": 22, "node": 4, "dof": 5, "ref_value": 0},
+          {"name": 23, "node": 4, "dof": 6, "ref_value": 0},
+          {"name": 24, "node": 9, "dof": 3, "ref_value": 0},
+          {"name": 25, "node": 9, "dof": 4, "ref_value": 0},
+          {"name": 26, "node": 9, "dof": 5, "ref_value": 0},
+          {"name": 27, "node": 14, "dof": 3, "ref_value": 0},
+          {"name": 28, "node": 14, "dof": 4, "ref_value": 0},
+          {"name": 29, "node": 14, "dof": 5, "ref_value": 0},
+          {"name": 30, "node": 19, "dof": 3, "ref_value": 0},
+          {"name": 31, "node": 19, "dof": 4, "ref_value": 0},
+          {"name": 32, "node": 19, "dof": 5, "ref_value": 0}
         ]
     }
 }

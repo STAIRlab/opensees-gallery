@@ -65,10 +65,8 @@ def create_model(element: str = "quad"):
     model.fix(bn, 0, 1)
 
     # Define gravity loads
-    # create a Linear time series
-    model.timeSeries("Linear", 1)
-    # create a Plain load pattern
-    model.pattern("Plain", 1, 1, fact=1.0)
+    # create a Plain load pattern with a linear time series
+    model.pattern("Plain", 1, "Linear")
     model.load(l1, 0.0, -1.0, pattern=1)
     model.load(l2, 0.0, -1.0, pattern=1)
 

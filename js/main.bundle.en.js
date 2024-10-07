@@ -6520,19 +6520,6 @@ function initIndex() {
       {
         id: 2,
         tag: "en",
-        href: "/opensees-gallery/examples/cable-stayed/",
-        title: "Cable Stayed",
-        description: "",
-        
-        
-        content: ""
-      })
-      .add(
-      
-      
-      {
-        id: 3,
-        tag: "en",
         href: "/opensees-gallery/examples/cablestayed/",
         title: "Cable Stayed",
         description: "Model of a cable-stayed bridge imported from CSiBridge",
@@ -6544,7 +6531,7 @@ function initIndex() {
       
       
       {
-        id: 4,
+        id: 3,
         tag: "en",
         href: "/opensees-gallery/docs/configuration/colors/",
         title: "Colors",
@@ -6557,7 +6544,7 @@ function initIndex() {
       
       
       {
-        id: 5,
+        id: 4,
         tag: "en",
         href: "/opensees-gallery/examples/frameshear/",
         title: "Columns with Nonlinear Geometry and Shear",
@@ -6570,7 +6557,7 @@ function initIndex() {
       
       
       {
-        id: 6,
+        id: 5,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/command-line/",
         title: "Command line",
@@ -6583,7 +6570,7 @@ function initIndex() {
       
       
       {
-        id: 7,
+        id: 6,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/compiling/",
         title: "Compiling",
@@ -6596,7 +6583,7 @@ function initIndex() {
       
       
       {
-        id: 8,
+        id: 7,
         tag: "en",
         href: "/opensees-gallery/examples/concretesurface/",
         title: "Concrete",
@@ -6609,20 +6596,20 @@ function initIndex() {
       
       
       {
-        id: 9,
+        id: 8,
         tag: "en",
         href: "/opensees-gallery/examples/example8/",
         title: "Continuum Cantilever",
         description: "Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.",
         
         
-        content: "In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.\nExample8.tcl Example8.py For three dimensional analysis, a typical solid element is defined as a volume in three dimensional space. Each node of the analysis has three displacement degrees of freedom. Thus the model is defined with ndm = 3 and ndf = 3.\nFor this model, a mesh is generated using the \u0026ldquo;block3D\u0026rdquo; command. The number of nodes in the local x-direction of the block is nx, the number of nodes in the local y-direction of the block is ny and the number of nodes in the local z-direction of the block is nz. The block3D generation nodes 1,2,3,4,5,6,7,8 are prescribed to define the three dimensional domain of the beam, which is of size 2×2×102 \\times 2 \\times 10 .\nTwo possible brick elements can be used for the analysis. These may be created using the terms StdBrick or BbarBrick. An elastic isotropic material is used.\nFor initial gravity load analysis, a single load pattern with a linear time series and a single nodal loads is used.\nBoundary conditions are applied using the fixZ command. In this case, all the nodes whose zz -coordiate is 0.00.0 have the boundary condition 1,1,1, fully fixed.\nA solution algorithm of type Newton is used for the problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. Five static load steps are performed.\nSubsequent to the static analysis, the wipeAnalysis and remove loadPatern commands are used to remove the nodal loads and create a new analysis. The nodal displacements have not changed. However, with the external loads removed the structure is no longer in static equilibrium.\nThe integrator for the dynamic analysis if of type GeneralizedMidpoint with α=0.5\\alpha = 0.5 . This choice is uconditionally stable and energy conserving for linear problems. Additionally, this integrator conserves linear and angular momentum for both linear and non-linear problems. The dynamic analysis is performed using 100100 time increments with a time step Δt=2.0\\Delta t = 2.0 .\nThe deformed shape at the end of the analysis is rendered below:\nThe results consist of the file cantilever.out, which contains a line for every time step. Each line contains the time and the horizontal displacement at the upper right corner the beam. This is plotted in the figure below:\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
+        content: "In this example a simple problem in solid dynamics is considered. The structure is a cantilever beam modelled with three dimensional solid elements.\nExample8.tcl Example8.py For three dimensional analysis, a typical solid element is defined as a volume in three dimensional space. Each node of the analysis has three displacement degrees of freedom. Thus the model is defined with ndm = 3 and ndf = 3.\nFor this model, a mesh is generated using the block3D command. The number of nodes in the local xx -direction of the block is nx, the number of nodes in the local yy -direction of the block is ny and the number of nodes in the local zz -direction of the block is nz. The block3D generation nodes 1,2,3,4,5,6,7,8 are prescribed to define the three dimensional domain of the beam, which is of size 2×2×102 \\times 2 \\times 10 .\nTcl Python(RT) # mesh generation block3D $nx $ny $nz 1 1 $element $eleArgs  1 -1 -1 0 2 1 -1 0 3 1 1 0 4 -1 1 0 5 -1 -1 10 6 1 -1 10 7 1 1 10 8 -1 1 10  model.block3D(nx, ny, nz, 1, 1, Brick, 1,  1: [-1.0, -1.0, 0.0], 2: [ 1.0, -1.0, 0.0], 3: [ 1.0, 1.0, 0.0], 4: [-1.0, 1.0, 0.0], 5: [-1.0, -1.0, 10.0], 6: [ 1.0, -1.0, 10.0], 7: [ 1.0, 1.0, 10.0], 8: [-1.0, 1.0, 10.0]) Two possible brick elements can be used for the analysis. These may be created using the terms StdBrick or BbarBrick. An elastic isotropic material is used.\nFor initial gravity load analysis, a single load pattern with a linear time series and a single nodal loads is used.\nBoundary conditions are applied using the fixZ command. In this case, all the nodes whose zz -coordiate is 0.00.0 have the boundary condition 1,1,1, fully fixed.\nA solution algorithm of type Newton is used for the problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. Five static load steps are performed.\nSubsequent to the static analysis, the wipeAnalysis and remove loadPatern commands are used to remove the nodal loads and create a new analysis. The nodal displacements have not changed. However, with the external loads removed the structure is no longer in static equilibrium.\nThe integrator for the dynamic analysis if of type GeneralizedMidpoint with α=0.5\\alpha = 0.5 . This choice is uconditionally stable and energy conserving for linear problems. Additionally, this integrator conserves linear and angular momentum for both linear and non-linear problems. The dynamic analysis is performed using 100100 time increments with a time step Δt=2.0\\Delta t = 2.0 .\nThe deformed shape at the end of the analysis is rendered below:\nThe results consist of the file cantilever.out, which contains a line for every time step. Each line contains the time and the horizontal displacement at the upper right corner the beam. This is plotted in the figure below:\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
       })
       .add(
       
       
       {
-        id: 10,
+        id: 9,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/contribute/",
         title: "Contribute",
@@ -6635,7 +6622,7 @@ function initIndex() {
       
       
       {
-        id: 11,
+        id: 10,
         tag: "en",
         href: "/opensees-gallery/docs/about/credits/",
         title: "Credits",
@@ -6648,7 +6635,7 @@ function initIndex() {
       
       
       {
-        id: 12,
+        id: 11,
         tag: "en",
         href: "/opensees-gallery/examples/soliddam/",
         title: "Dam",
@@ -6661,7 +6648,7 @@ function initIndex() {
       
       
       {
-        id: 13,
+        id: 12,
         tag: "en",
         href: "/opensees-gallery/docs/developing/",
         title: "Developing",
@@ -6674,7 +6661,7 @@ function initIndex() {
       
       
       {
-        id: 14,
+        id: 13,
         tag: "en",
         href: "/opensees-gallery/examples/mrf_concentrated/",
         title: "Dynamic Analysis of 2-Story Moment Frame",
@@ -6687,20 +6674,20 @@ function initIndex() {
       
       
       {
-        id: 15,
+        id: 14,
         tag: "en",
         href: "/opensees-gallery/examples/example7/",
         title: "Dynamic Shell Analysis",
         description: "Transient analysis of a shell model.",
         
         
-        content: "In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.\nExample7.tcl Example7.py Renderings are created from the script render.py, which uses the sees\u0026nbsp; Python package.\nModeling \u0026nbsp; For shell analysis, a typical shell element is defined as a surface in three dimensional space. Each node of a shell analysis has six degrees of freedom, three displacements and three rotations. Thus the model is defined with ndm=3ndm = 3 and ndf=6ndf = 6 .\nFor this model, a mesh is generated using the block2D command. The number of nodes in the local x-direction of the block is nx and the number of nodes in the local y-direction of the block is ny. The block2D generates nodes with tags 1,2,3,4, 5,7,9 such that the structure is curved in space.\nThe shell element is constructed using the ShellMITC4 formulation. An elastic membrane-plate material section model, appropriate for shell analysis, is constructed using the section command and the \u0026quot;ElasticMembranePlateSection\u0026quot; formulation. In this case, the elastic modulus E=3.0e3E = 3.0e3 , Poisson\u0026rsquo;s ratio ν=0.25\\nu = 0.25 , the thickness h=1.175h = 1.175 and the mass density per unit volume ρ=1.27\\rho = 1.27 Boundary conditions are applied using the fixZ command. In this case, all the nodes whose zz -coordiate is 0.00.0 have the boundary condition 1,1,1, 0,1,1: all degrees-of-freedom are fixed except rotation about the x-axis, which is free. The same boundary conditions are applied where the zz -coordinate is 40.040.0 .\nA solution algorithm of type Newton is used for the problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. Five static load steps are performed.\nFor initial gravity load analysis, a single load pattern with a linear time series and three vertical nodal loads are used. A scaled rendering of the deformed shape under gravity loading is shown below:\nDynamic Analysis \u0026nbsp; After the static analysis, the wipeAnalysis and remove loadPatern commands are used to remove the nodal loads and create a new analysis. The nodal displacements have not changed. However, with the external loads removed the structure is no longer in static equilibrium.\nThe integrator for the dynamic analysis if of type GeneralizedMidpoint with α=0.5\\alpha = 0.5 . This choice is uconditionally stable and energy conserving for linear problems. Additionally, this integrator conserves linear and angular momentum for both linear and non-linear problems. The dynamic analysis is performed using 250250 time increments with a time step Δt=0.50\\Delta t = 0.50 .\nThe results consist of the file Node.out, which contains a line for every time step. Each line contains the time and the vertical displacement at the upper center of the hoop structure. The time history is shown in the figure below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
+        content: "In this example a simple problem in shell dynamics is considered. The structure is a curved hoop shell structure that looks like the roof of a Safeway.\nExample7.tcl Example7.py Renderings are created from the script render.py, which uses the sees\u0026nbsp; Python package.\nModeling \u0026nbsp; For shell analysis, a typical shell element is defined as a surface in three dimensional space. Each node of a shell analysis has six degrees of freedom, three displacements and three rotations. Thus the model is defined with ndm=3ndm = 3 and ndf=6ndf = 6 .\nFor this model, a mesh is generated using the block2D command. The number of nodes in the local x-direction of the block is nx and the number of nodes in the local y-direction of the block is ny. The block2D generates nodes with tags 1,2,3,4, 5,7,9 such that the structure is curved in space.\nTcl Python(RT) # generate the nodes and elements block2D $nx $ny 1 1 $element $eleArgs  1 -20 0 0 2 -20 0 40 3 20 0 40 4 20 0 0 5 -10 10 20 7 10 10 20 9 0 10 20  # generate the surface nodes and elements surface = model.surface((nx, ny), element=\u0026#34;ShellMITC4\u0026#34;, args=(1,), points= 1: [-20.0, 0.0, 0.0], 2: [-20.0, 0.0, 40.0], 3: [ 20.0, 0.0, 40.0], 4: [ 20.0, 0.0, 0.0], 5: [-10.0, 10.0, 20.0], 7: [ 10.0, 10.0, 20.0], 9: [ 0.0, 10.0, 20.0] ) The shell element is constructed using the ShellMITC4 formulation. An elastic membrane-plate material section model, appropriate for shell analysis, is constructed using the section command and the \u0026quot;ElasticMembranePlateSection\u0026quot; formulation. In this case, the elastic modulus E=3.0e3E = 3.0e3 , Poisson\u0026rsquo;s ratio ν=0.25\\nu = 0.25 , the thickness h=1.175h = 1.175 and the mass density per unit volume ρ=1.27\\rho = 1.27 Boundary conditions are applied using the fixZ command. In this case, all the nodes whose zz -coordiate is 0.00.0 have the boundary condition 1,1,1, 0,1,1: all degrees-of-freedom are fixed except rotation about the x-axis, which is free. The same boundary conditions are applied where the zz -coordinate is 40.040.0 .\nA solution algorithm of type Newton is used for the problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. Five static load steps are performed.\nFor initial gravity load analysis, a single load pattern with a linear time series and three vertical nodal loads are used. A scaled rendering of the deformed shape under gravity loading is shown below:\nDynamic Analysis \u0026nbsp; After the static analysis, the wipeAnalysis and remove loadPatern commands are used to remove the nodal loads and create a new analysis. The nodal displacements have not changed. However, with the external loads removed the structure is no longer in static equilibrium.\nThe integrator for the dynamic analysis if of type GeneralizedMidpoint with α=0.5\\alpha = 0.5 . This choice is uconditionally stable and energy conserving for linear problems. Additionally, this integrator conserves linear and angular momentum for both linear and non-linear problems. The dynamic analysis is performed using 250250 time increments with a time step Δt=0.50\\Delta t = 0.50 .\nThe results consist of the file Node.out, which contains a line for every time step. Each line contains the time and the vertical displacement at the upper center of the hoop structure. The time history is shown in the figure below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
       })
       .add(
       
       
       {
-        id: 16,
+        id: 15,
         tag: "en",
         href: "/opensees-gallery/examples/example1/",
         title: "Example 1: Linear Truss",
@@ -6713,7 +6700,7 @@ function initIndex() {
       
       
       {
-        id: 17,
+        id: 16,
         tag: "en",
         href: "/opensees-gallery/examples/example4/",
         title: "Example 4: Multibay Two Story Frame",
@@ -6726,7 +6713,7 @@ function initIndex() {
       
       
       {
-        id: 18,
+        id: 17,
         tag: "en",
         href: "/opensees-gallery/docs/library/frame/",
         title: "Frame",
@@ -6739,7 +6726,7 @@ function initIndex() {
       
       
       {
-        id: 19,
+        id: 18,
         tag: "en",
         href: "/opensees-gallery/examples/example5/",
         title: "Frame with Diaphragms",
@@ -6752,7 +6739,7 @@ function initIndex() {
       
       
       {
-        id: 20,
+        id: 19,
         tag: "en",
         href: "/opensees-gallery/examples/viscousdamper/",
         title: "Frame with Viscous Dampers",
@@ -6765,7 +6752,7 @@ function initIndex() {
       
       
       {
-        id: 21,
+        id: 20,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/icons/",
         title: "Icons",
@@ -6778,7 +6765,7 @@ function initIndex() {
       
       
       {
-        id: 22,
+        id: 21,
         tag: "en",
         href: "/opensees-gallery/examples/cantilevertransient/",
         title: "Inelastic Cantilever",
@@ -6791,20 +6778,20 @@ function initIndex() {
       
       
       {
-        id: 23,
+        id: 22,
         tag: "en",
         href: "/opensees-gallery/examples/example3/",
         title: "Inelastic Plane Frame",
         description: "Nonlinear analysis of a concrete portal frame.",
         
         
-        content: "\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. The files for this example are: Python Tcl \u0026lt;a href=\u0026quot;portal.py\u0026quot;\u0026gt;\u0026lt;code\u0026gt;portal.py\u0026lt;/code\u0026gt;\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt; \u0026lt;a href=\u0026quot;portal.tcl\u0026quot;\u0026gt;\u0026lt;code\u0026gt;portal.tcl\u0026lt;/code\u0026gt;\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt; These files define the following functions:\nFunction Description create_portal Creates a model of a portal frame gravity_analysis Performs a gravity analysis on a model pushover_analysis Performs a pushover analysis on a model transient_analysis Performs a transient analysis on a model create_portal \u0026nbsp; The function create_portal creates a model representing the portal frame in the figure above. The model consists of four nodes, two nonlinear beam-column elements modeling the columns and an elastic beam element to model the girder. For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.\nBegin with nodes and boundary conditions Python Tcl # create ModelBuilder (with two-dimensions and 3 DOF/node) model = ops.Model(ndm=2, ndf=3) # Create nodes # ------------ # create nodes \u0026amp; add to Domain - command: node nodeId xCrd yCrd model.node(1, 0.0, 0.0) model.node(2, width, 0.0) model.node(3, 0.0, height) model.node(4, width, height) # set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt? model.fix(1, 1, 1, 1) model.fix(2, 1, 1, 1) set width 360 set height 144 model basic -ndm 2 -ndf 3 # Create nodes # tag X Y node 1 0.0 0.0 node 2 $width 0.0 node 3 0.0 $height node 4 $width $height # Fix supports at base of columns # tag DX DY RZ fix 1 1 1 1 fix 2 1 1 1 Next define the materials\nPython Tcl # Define materials for nonlinear columns # ------------------------------------------ # CONCRETE tag f\u0026#39;c ec0 f\u0026#39;cu ecu # Core concrete (confined) model.uniaxialMaterial(\u0026#34;Concrete01\u0026#34;, 1, -6.0, -0.004, -5.0, -0.014) # Cover concrete (unconfined) model.uniaxialMaterial(\u0026#34;Concrete01\u0026#34;, 2, -5.0, -0.002, -0.0, -0.006) # STEEL # Reinforcing steel fy = 60.0; # Yield stress E = 30000.0; # Young\u0026#39;s modulus # tag fy E b model.uniaxialMaterial(\u0026#34;Steel01\u0026#34;, 3, fy, E, 0.01) # Define materials for nonlinear columns # ------------------------------------------ # CONCRETE tag f\u0026#39;c ec0 f\u0026#39;cu ecu # Core concrete (confined) uniaxialMaterial Concrete01 1 -6.0 -0.004 -5.0 -0.014 # Cover concrete (unconfined) uniaxialMaterial Concrete01 2 -5.0 -0.002 0.0 -0.006 # STEEL # Reinforcing steel set fy 60.0; # Yield stress set E 30000.0; # Young\u0026#39;s modulus # tag fy E0 b uniaxialMaterial Steel01 3 $fy $E 0.01 Define a cross section for the columns Python Tcl # Define cross-section for nonlinear columns # ------------------------------------------ # set some parameters colWidth = 15.0 colDepth = 24.0 cover = 1.5 As = 0.6 # area of no. 7 bars # some variables derived from the parameters y1 = colDepth/2.0 z1 = colWidth/2.0 model.section(\u0026#34;Fiber\u0026#34;, 1) # Add the concrete core fibers model.patch(\u0026#34;rect\u0026#34;, 1, 10, 1, cover-y1, cover-z1, y1-cover, z1-cover, section=1) # Add the concrete cover fibers (top, bottom, left, right) model.patch(\u0026#34;rect\u0026#34;, 2, 10, 1, -y1, z1-cover, y1, z1, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 10, 1, -y1, -z1, y1, cover-z1, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 2, 1, -y1, cover-z1, cover-y1, z1-cover, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 2, 1, y1-cover, cover-z1, y1, z1-cover, section=1) # Add the reinforcing fibers (left, middle, right, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 3, As, y1-cover, z1-cover, y1-cover, cover-z1, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 2, As, 0.0, z1-cover, 0.0, cover-z1, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 3, As, cover-y1, z1-cover, cover-y1, cover-z1, section=1) # Define cross-section for nonlinear columns # ------------------------------------------ # set some parameters set colWidth 15 set colDepth 24 set cover 1.5 set As 0.60; # area of no. 7 bars # some variables derived from the parameters set y1 [expr $colDepth/2.0] set z1 [expr $colWidth/2.0] section Fiber 1  # Add the concrete core fibers patch rect 1 10 1 [expr $cover-$y1] [expr $cover-$z1] [expr $y1-$cover] [expr $z1-$cover] # Add the concrete cover fibers (top, bottom, left, right) patch rect 2 10 1 [expr -$y1] [expr $z1-$cover] $y1 $z1 patch rect 2 10 1 [expr -$y1] [expr -$z1] $y1 [expr $cover-$z1] patch rect 2 2 1 [expr -$y1] [expr $cover-$z1] [expr $cover-$y1] [expr $z1-$cover] patch rect 2 2 1 [expr $y1-$cover] [expr $cover-$z1] $y1 [expr $z1-$cover] # Add the reinforcing fibers (left, middle, right) layer straight 3 3 $As [expr $y1-$cover] [expr $z1-$cover] [expr $y1-$cover] [expr $cover-$z1] layer straight 3 2 $As 0.0 [expr $z1-$cover] 0.0 [expr $cover-$z1] layer straight 3 3 $As [expr $cover-$y1] [expr $z1-$cover] [expr $cover-$y1] [expr $cover-$z1]  gravity_analysis \u0026nbsp; We now implement a function called gravity_analysis which takes the instance of Model returned by create_portal, and proceeds to impose gravity loads and perform a static analysis. Its use will look like:\nPython Tcl # Create the model model = create_portal() # perform analysis under gravity loads status = gravity_analysis(model) create_portal; gravity_analysis; A single load pattern with a linear time series is created with two vertical nodal loads acting at nodes 3 and 4:\nPython Tcl model.pattern(\u0026#34;Plain\u0026#34;, 1, \u0026#34;Linear\u0026#34;, loads= # nodeID xForce yForce zMoment 3: [ 0.0, -P, 0.0], 4: [ 0.0, -P, 0.0] ) The model contains material non-linearities, so a solution algorithm of type Newton is used. The solution algorithm uses a ConvergenceTest which tests convergence of the equilibrium solution with the norm of the displacement increment vector. For this nonlinear problem, the gravity loads are applied incrementally until the full load is applied. To achieve this, a LoadControl integrator which advances the solution with an increment of 0.1 at each load step is used. The equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.\nOnce all the components of an analysis are defined, the Analysis object itself is created. For this problem a Static Analysis object is used. To achieve the full gravity load, 10 load steps are performed.\nAt end of analysis, the state at nodes 3 and 4 is output. The state of element 1 is also output.\nFor the two nodes, displacements and loads are given. For the beam-column elements, the element end forces in the local system are provided.\nThe nodeGravity.out file contains ten lines, each line containing 7 entries. The first entry is time in the domain at end of the load step. The next 3 entries are the displacements at node 3, and the final 3 entries the displacements at node 4.\npushover_analysis \u0026nbsp; In this example the nonlinear reinforced concrete portal frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a pushover analysis.\nAfter performing the gravity load analysis on the model, the time in the domain is reset to 0.0 and the current value of all loads acting are held constant. A new load pattern with a linear time series and horizontal loads acting at nodes 3 and 4 is then added to the model.\nThe static analysis used to perform the gravity load analysis is modified to take a new DisplacementControl integrator. At each new step in the analysis the integrator will determine the load increment necessary to increment the horizontal displacement at node 3 by 0.1 in. 60 analysis steps are performed in this new analysis.\nFor this analysis the nodal displacements at nodes 3 and 4 will be stored in the file nodePushover.out for post-processing. In addition, the end forces in the local coordinate system for elements 1 and 2 will be stored in the file elePushover.out. At the end of the analysis, the state of node 3 is printed to the screen.\nIn addition to what is displayed on the screen, the file node32.out and ele32.out have been created by the script. Each line of node32.out contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4 at the end of an iteration. Each line of eleForce.out contains the time, and the element end forces in the local coordinate system. A plot of the load-displacement relationship at node 3 is shown in the figure below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e transient_analysis \u0026nbsp; The concrete frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a uniform earthquake excitation.\nAfter performing the gravity load analysis, the time in the domain is reset to 0.0 and the time series for all active loads is set to constant. This prevents the gravity load from being scaled with each step of the dynamic analysis.\nPython Tcl model.loadConst(time=0.0) loadConst -time 0.0 Mass terms are added to nodes 3 and 4. A new uniform excitation load pattern is created. The excitation acts in the horizontal direction and reads the acceleration record and time interval from the file ARL360.g3. The file ARL360.g3 is created from the PEER Strong Motion Database ( http://peer.berkeley.edu/smcat/\u0026nbsp; ) record ARL360.at2 using the Tcl procedure ReadSMDFile contained in the file ReadSMDFile.tcl.\nThe static analysis object and its components are first deleted so that a new transient analysis object can be created.\nA new solution Algorithm of type Newton is then created. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the displacement increment vector. The integrator for this analysis will be of type Newmark with a γ=0.25\\gamma = 0.25 and β=0.5\\beta = 0.5 .\nThe integrator will add some stiffness proportional damping to the system, the damping term will be based on the last committed stifness of the elements, i.e. C=acKcommitC = a_c K_\\textcommit with ac=0.000625a_c = 0.000625 .\nThe equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.\nOnce all the components of an analysis are defined, the Analysis object itself is created. For this problem a Transient Analysis object is used. 2000 time steps are performed with a time step of 0.01.\nIn addition to the transient analysis, two eigenvalue analysis are performed on the model. The first is performed after the gravity analysis and the second after the transient analysis.\nFor this analysis the nodal displacenments at Nodes 3 and 4 will be stored in the file nodeTransient.out for post-processing. In addition the section forces and deformations for the section at the base of column 1 will also be stored in two seperate files. The results of the eigenvalue analysis will be displayed on the screen.\nGravity load analysis completed eigen values at start of transient: 2.695422e+02 1.750711e+04 Transient analysis completed SUCCESSFULLY eigen values at start of transient: 1.578616e+02 1.658481e+04 Node: 3 Coordinates : 0 144 commitDisps: -0.0464287 -0.0246641 0.000196066 Velocities : -0.733071 1.86329e-05 0.00467983 commitAccels: -9.13525 0.277302 38.2972 unbalanced Load: -3.9475 -180 0 Mass : 0.465839 0 0 0 0.465839 0 0 0 0 Eigenvectors: -1.03587 -0.0482103 -0.00179081 0.00612275 0.00663473 3.21404e-05 The two eigenvalues for the eigenvalue analysis are printed to the screen. The state of node 3 at the end of the analysis is also printed. The information contains the last committed displacements, velocities and accelerations at the node, the unbalanced nodal forces and the nodal masses. In addition, the eigenvector components of the eigenvector pertaining to the node 3 is also displayed.\nIn addition to the contents displayed on the screen, three files have been created. Each line of nodeTransient.out contains the domain time, and DX, DY and RZ for node 3. Plotting the first and second columns of this file the lateral displacement versus time for node 3 can be obtained as shown in the figure below. Each line of the files ele1secForce.out and ele1secDef.out contain the domain time and the forces and deformations for section 1 (the base section) of element 1. These can be used to generate the moment-curvature time history of the base section of column 1 as shown below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e \u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
+        content: "\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e This set of examples investigates the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. The files for this example are: Python Tcl \u0026lt;a href=\u0026quot;portal.py\u0026quot;\u0026gt;\u0026lt;code\u0026gt;portal.py\u0026lt;/code\u0026gt;\u0026lt;/a\u0026gt;\u0026lt;/p\u0026gt; \u0026lt;a href=\u0026quot;portal.tcl\u0026quot;\u0026gt;\u0026lt;code\u0026gt;portal.tcl\u0026lt;/code\u0026gt;\u0026lt;/a\u0026gt;\u0026lt;/p\u0026gt; These files define the following functions:\nFunction Description create_portal Creates a model of a portal frame gravity_analysis Performs a gravity analysis on a model pushover_analysis Performs a pushover analysis on a model transient_analysis Performs a transient analysis on a model create_portal \u0026nbsp; The function create_portal creates a model representing the portal frame in the figure above. The model consists of four nodes, two nonlinear beam-column elements modeling the columns and an elastic beam element to model the girder. For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.\nBegin with nodes and boundary conditions Python Tcl # create ModelBuilder (with two-dimensions and 3 DOF/node) model = ops.Model(ndm=2, ndf=3) # Create nodes # ------------ # create nodes \u0026amp; add to Domain - command: node nodeId xCrd yCrd model.node(1, 0.0, 0.0) model.node(2, width, 0.0) model.node(3, 0.0, height) model.node(4, width, height) # set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt? model.fix(1, 1, 1, 1) model.fix(2, 1, 1, 1) set width 360 set height 144 model basic -ndm 2 -ndf 3 # Create nodes # tag X Y node 1 0.0 0.0 node 2 $width 0.0 node 3 0.0 $height node 4 $width $height # Fix supports at base of columns # tag DX DY RZ fix 1 1 1 1 fix 2 1 1 1 Next define the materials\nPython Tcl # Define materials for nonlinear columns # ------------------------------------------ # CONCRETE tag f\u0026#39;c ec0 f\u0026#39;cu ecu # Core concrete (confined) model.uniaxialMaterial(\u0026#34;Concrete01\u0026#34;, 1, -6.0, -0.004, -5.0, -0.014) # Cover concrete (unconfined) model.uniaxialMaterial(\u0026#34;Concrete01\u0026#34;, 2, -5.0, -0.002, -0.0, -0.006) # STEEL # Reinforcing steel fy = 60.0; # Yield stress E = 30000.0; # Young\u0026#39;s modulus # tag fy E b model.uniaxialMaterial(\u0026#34;Steel01\u0026#34;, 3, fy, E, 0.01) # Define materials for nonlinear columns # ------------------------------------------ # CONCRETE tag f\u0026#39;c ec0 f\u0026#39;cu ecu # Core concrete (confined) uniaxialMaterial Concrete01 1 -6.0 -0.004 -5.0 -0.014 # Cover concrete (unconfined) uniaxialMaterial Concrete01 2 -5.0 -0.002 0.0 -0.006 # STEEL # Reinforcing steel set fy 60.0; # Yield stress set E 30000.0; # Young\u0026#39;s modulus # tag fy E0 b uniaxialMaterial Steel01 3 $fy $E 0.01 Define a cross section for the columns Python Tcl # Define cross-section for nonlinear columns # ------------------------------------------ # set some parameters colWidth = 15.0 colDepth = 24.0 cover = 1.5 As = 0.6 # area of no. 7 bars # some variables derived from the parameters y1 = colDepth/2.0 z1 = colWidth/2.0 model.section(\u0026#34;Fiber\u0026#34;, 1) # Add the concrete core fibers model.patch(\u0026#34;rect\u0026#34;, 1, 10, 1, cover-y1, cover-z1, y1-cover, z1-cover, section=1) # Add the concrete cover fibers (top, bottom, left, right) model.patch(\u0026#34;rect\u0026#34;, 2, 10, 1, -y1, z1-cover, y1, z1, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 10, 1, -y1, -z1, y1, cover-z1, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 2, 1, -y1, cover-z1, cover-y1, z1-cover, section=1) model.patch(\u0026#34;rect\u0026#34;, 2, 2, 1, y1-cover, cover-z1, y1, z1-cover, section=1) # Add the reinforcing fibers (left, middle, right, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 3, As, y1-cover, z1-cover, y1-cover, cover-z1, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 2, As, 0.0, z1-cover, 0.0, cover-z1, section=1) model.layer(\u0026#34;straight\u0026#34;, 3, 3, As, cover-y1, z1-cover, cover-y1, cover-z1, section=1) # Define cross-section for nonlinear columns # ------------------------------------------ # set some parameters set colWidth 15 set colDepth 24 set cover 1.5 set As 0.60; # area of no. 7 bars # some variables derived from the parameters set y1 [expr $colDepth/2.0] set z1 [expr $colWidth/2.0] section Fiber 1  # Add the concrete core fibers patch rect 1 10 1 [expr $cover-$y1] [expr $cover-$z1] [expr $y1-$cover] [expr $z1-$cover] # Add the concrete cover fibers (top, bottom, left, right) patch rect 2 10 1 [expr -$y1] [expr $z1-$cover] $y1 $z1 patch rect 2 10 1 [expr -$y1] [expr -$z1] $y1 [expr $cover-$z1] patch rect 2 2 1 [expr -$y1] [expr $cover-$z1] [expr $cover-$y1] [expr $z1-$cover] patch rect 2 2 1 [expr $y1-$cover] [expr $cover-$z1] $y1 [expr $z1-$cover] # Add the reinforcing fibers (left, middle, right) layer straight 3 3 $As [expr $y1-$cover] [expr $z1-$cover] [expr $y1-$cover] [expr $cover-$z1] layer straight 3 2 $As 0.0 [expr $z1-$cover] 0.0 [expr $cover-$z1] layer straight 3 3 $As [expr $cover-$y1] [expr $z1-$cover] [expr $cover-$y1] [expr $cover-$z1]  gravity_analysis \u0026nbsp; We now implement a function called gravity_analysis which takes the instance of Model returned by create_portal, and proceeds to impose gravity loads and perform a static analysis. Its use will look like:\nPython Tcl # Create the model model = create_portal() # perform analysis under gravity loads status = gravity_analysis(model) create_portal; gravity_analysis; A single load pattern with a linear time series is created with two vertical nodal loads acting at nodes 3 and 4:\nPython Tcl model.pattern(\u0026#34;Plain\u0026#34;, 1, \u0026#34;Linear\u0026#34;, loads= # nodeID xForce yForce zMoment 3: [ 0.0, -P, 0.0], 4: [ 0.0, -P, 0.0] ) The model contains material non-linearities, so a solution algorithm of type Newton is used. The solution algorithm uses a ConvergenceTest which tests convergence of the equilibrium solution with the norm of the displacement increment vector. For this nonlinear problem, the gravity loads are applied incrementally until the full load is applied. To achieve this, a LoadControl integrator which advances the solution with an increment of 0.1 at each load step is used. The equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.\nOnce all the components of an analysis are defined, the Analysis object itself is created. For this problem a Static Analysis object is used. To achieve the full gravity load, 10 load steps are performed.\nAt end of analysis, the state at nodes 3 and 4 is output. The state of element 1 is also output.\nFor the two nodes, displacements and loads are given. For the beam-column elements, the element end forces in the local system are provided.\nThe nodeGravity.out file contains ten lines, each line containing 7 entries. The first entry is time in the domain at end of the load step. The next 3 entries are the displacements at node 3, and the final 3 entries the displacements at node 4.\npushover_analysis \u0026nbsp; In this example the nonlinear reinforced concrete portal frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a pushover analysis.\nAfter performing the gravity load analysis on the model, the time in the domain is reset to 0.0 and the current value of all loads acting are held constant. A new load pattern with a linear time series and horizontal loads acting at nodes 3 and 4 is then added to the model.\nThe static analysis used to perform the gravity load analysis is modified to take a new DisplacementControl integrator. At each new step in the analysis the integrator will determine the load increment necessary to increment the horizontal displacement at node 3 by 0.1 in. 60 analysis steps are performed in this new analysis.\nFor this analysis the nodal displacements at nodes 3 and 4 will be stored in the file nodePushover.out for post-processing. In addition, the end forces in the local coordinate system for elements 1 and 2 will be stored in the file elePushover.out. At the end of the analysis, the state of node 3 is printed to the screen.\nIn addition to what is displayed on the screen, the file node32.out and ele32.out have been created by the script. Each line of node32.out contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4 at the end of an iteration. Each line of eleForce.out contains the time, and the element end forces in the local coordinate system. A plot of the load-displacement relationship at node 3 is shown in the figure below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e transient_analysis \u0026nbsp; The concrete frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a uniform earthquake excitation.\nAfter performing the gravity load analysis, the time in the domain is reset to 0.0 and the time series for all active loads is set to constant. This prevents the gravity load from being scaled with each step of the dynamic analysis.\nPython Tcl model.loadConst(time=0.0) loadConst -time 0.0 Mass terms are added to nodes 3 and 4. A new uniform excitation load pattern is created. The excitation acts in the horizontal direction and reads the acceleration record and time interval from the file ARL360.g3. The file ARL360.g3 is created from the PEER Strong Motion Database ( http://peer.berkeley.edu/smcat/\u0026nbsp; ) record ARL360.at2 using the Tcl procedure ReadSMDFile contained in the file ReadSMDFile.tcl.\nThe static analysis object and its components are first deleted so that a new transient analysis object can be created.\nA new solution Algorithm of type Newton is then created. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the displacement increment vector. The integrator for this analysis will be of type Newmark with a γ=0.25\\gamma = 0.25 and β=0.5\\beta = 0.5 .\nThe integrator will add some stiffness proportional damping to the system, the damping term will be based on the last committed stifness of the elements, i.e. C=acKcommitC = a_c K_\\textcommit with ac=0.000625a_c = 0.000625 .\nThe equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.\nOnce all the components of an analysis are defined, the Analysis object itself is created. For this problem a Transient Analysis object is used. 2000 time steps are performed with a time step of 0.01.\nIn addition to the transient analysis, two eigenvalue analysis are performed on the model. The first is performed after the gravity analysis and the second after the transient analysis.\nFor this analysis the nodal displacenments at Nodes 3 and 4 will be stored in the file nodeTransient.out for post-processing. In addition the section forces and deformations for the section at the base of column 1 will also be stored in two seperate files. The results of the eigenvalue analysis will be displayed on the screen.\nGravity load analysis completed eigen values at start of transient: 2.695422e+02 1.750711e+04 Transient analysis completed SUCCESSFULLY eigen values at start of transient: 1.578616e+02 1.658481e+04 Node: 3 Coordinates : 0 144 commitDisps: -0.0464287 -0.0246641 0.000196066 Velocities : -0.733071 1.86329e-05 0.00467983 commitAccels: -9.13525 0.277302 38.2972 unbalanced Load: -3.9475 -180 0 Mass : 0.465839 0 0 0 0.465839 0 0 0 0 Eigenvectors: -1.03587 -0.0482103 -0.00179081 0.00612275 0.00663473 3.21404e-05 The two eigenvalues for the eigenvalue analysis are printed to the screen. The state of node 3 at the end of the analysis is also printed. The information contains the last committed displacements, velocities and accelerations at the node, the unbalanced nodal forces and the nodal masses. In addition, the eigenvector components of the eigenvector pertaining to the node 3 is also displayed.\nIn addition to the contents displayed on the screen, three files have been created. Each line of nodeTransient.out contains the domain time, and DX, DY and RZ for node 3. Plotting the first and second columns of this file the lateral displacement versus time for node 3 can be obtained as shown in the figure below. Each line of the files ele1secForce.out and ele1secDef.out contain the domain time and the forces and deformations for section 1 (the base section) of element 1. These can be used to generate the moment-curvature time history of the base section of column 1 as shown below.\n\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e \u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?\u003e"
       })
       .add(
       
       
       {
-        id: 24,
+        id: 23,
         tag: "en",
         href: "/opensees-gallery/examples/inelasticsdof/",
         title: "Inelastic SDOF",
@@ -6817,7 +6804,7 @@ function initIndex() {
       
       
       {
-        id: 25,
+        id: 24,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/introduction/",
         title: "Introduction",
@@ -6830,7 +6817,7 @@ function initIndex() {
       
       
       {
-        id: 26,
+        id: 25,
         tag: "en",
         href: "/opensees-gallery/docs/configuration/layout/",
         title: "Layout",
@@ -6843,7 +6830,7 @@ function initIndex() {
       
       
       {
-        id: 27,
+        id: 26,
         tag: "en",
         href: "/opensees-gallery/docs/about/license/",
         title: "License",
@@ -6856,7 +6843,7 @@ function initIndex() {
       
       
       {
-        id: 28,
+        id: 27,
         tag: "en",
         href: "/opensees-gallery/examples/chopra-10.4/",
         title: "Matrix Eigenvalue Analysis",
@@ -6869,7 +6856,7 @@ function initIndex() {
       
       
       {
-        id: 29,
+        id: 28,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/modeling/",
         title: "Modeling",
@@ -6882,7 +6869,7 @@ function initIndex() {
       
       
       {
-        id: 30,
+        id: 29,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/module-development/",
         title: "Module development",
@@ -6895,7 +6882,7 @@ function initIndex() {
       
       
       {
-        id: 31,
+        id: 30,
         tag: "en",
         href: "/opensees-gallery/examples/example2/",
         title: "Moment-Curvature Analysis",
@@ -6908,7 +6895,7 @@ function initIndex() {
       
       
       {
-        id: 32,
+        id: 31,
         tag: "en",
         href: "/opensees-gallery/examples/framebuckling/",
         title: "Nonlinear Geometry",
@@ -6921,7 +6908,7 @@ function initIndex() {
       
       
       {
-        id: 33,
+        id: 32,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/overview/",
         title: "Overview",
@@ -6934,7 +6921,7 @@ function initIndex() {
       
       
       {
-        id: 34,
+        id: 33,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/partial-development/",
         title: "Partial development",
@@ -6947,20 +6934,7 @@ function initIndex() {
       
       
       {
-        id: 35,
-        tag: "en",
-        href: "/opensees-gallery/examples/steelframe2d/",
-        title: "Plane Steel Frame",
-        description: "This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html\u0026nbsp; The source file for the example is SteelFrame2D.py.\n",
-        
-        
-        content: "This example is adapted from https://openseespydoc.readthedocs.io/en/latest/src/ThreeStorySteel.html\u0026nbsp; The source file for the example is SteelFrame2D.py."
-      })
-      .add(
-      
-      
-      {
-        id: 36,
+        id: 34,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/python/",
         title: "Python",
@@ -6973,7 +6947,7 @@ function initIndex() {
       
       
       {
-        id: 37,
+        id: 35,
         tag: "en",
         href: "/opensees-gallery/releases/",
         title: "Releases",
@@ -6986,7 +6960,7 @@ function initIndex() {
       
       
       {
-        id: 38,
+        id: 36,
         tag: "en",
         href: "/opensees-gallery/examples/spectrum/",
         title: "RotD Spectrum",
@@ -6999,7 +6973,7 @@ function initIndex() {
       
       
       {
-        id: 39,
+        id: 37,
         tag: "en",
         href: "/opensees-gallery/examples/sathertower/",
         title: "Sather Tower",
@@ -7012,7 +6986,7 @@ function initIndex() {
       
       
       {
-        id: 40,
+        id: 38,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/scripts/",
         title: "Scripts",
@@ -7025,20 +6999,20 @@ function initIndex() {
       
       
       {
-        id: 41,
+        id: 39,
         tag: "en",
         href: "/opensees-gallery/examples/sensitivity/",
         title: "Sensitivity",
-        description: "",
+        description: "Basic sensitivity analysis is performed",
         
         
-        content: ""
+        content: "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 import opensees.openseespy as ops # Input [N, m, kg, sec] L = 5.0 # Total length of cantilever F = 300000.0 # Lateral point load P = 0.0 # Axial force w = 10000.0 # Distributed load E = 200e9 # Modulus of elasticity G = E*0.6 hw = 0.355 # Web height bf = 0.365 # Flange width tf = 0.018 # Flange thickness tw = 0.011 # Web thickness nf = 3 # Number of fibers in the flange nw = 8 # Number of fibres in the web nel = 1 # Area and moment of inertia A = tw * (hw - 2 * tf) + 2 * bf * tf I = tw * (hw - 2 * tf) ** 3 / 12.0 + 2 * bf * tf * (0.5 * (hw - tf)) ** 2 Ay = A*1e5 Az = A*1e5 Iz = I Iy = I J = 2*I model = ops.Model(ndm=3, ndf=6) model.node(1, 0, 0, 0) model.node(2, L, 0, 0) model.fix(1, 1, 1, 1, 1, 1, 1) model.section(\u0026#34;FrameElastic\u0026#34;, 1, E=E, A=A, Ay=Ay, Az=Az, Iz=Iz, Iy=Iy, J=J, G=G) model.geomTransf(\u0026#34;Linear\u0026#34;, 1, (0, 0, 1)) model.element(\u0026#34;CubicFrame\u0026#34;, 1, (1, 2), section=1, transform=1) model.parameter(1, \u0026#34;element\u0026#34;, 1, \u0026#34;E\u0026#34;) model.parameter(2, \u0026#34;element\u0026#34;, 1, \u0026#34;A\u0026#34;) model.parameter(3, \u0026#34;element\u0026#34;, 1, \u0026#34;Iz\u0026#34;) model.parameter(4, \u0026#34;node\u0026#34;, nel+1, \u0026#34;coord\u0026#34;, 1) model.pattern(\u0026#34;Plain\u0026#34;, 1, \u0026#34;Linear\u0026#34;) model.load(2, (0.0, 1.0, 0.0, 0.0, 0.0, 0.0), pattern=1) model.constraints(\u0026#34;Plain\u0026#34;) model.system(\u0026#34;ProfileSPD\u0026#34;) if True: Pmax = F Nsteps = 1 dP = Pmax / Nsteps model.integrator(\u0026#34;LoadControl\u0026#34;, dP) model.analysis(\u0026#34;Static\u0026#34;) model.sensitivityAlgorithm(\u0026#34;-computeAtEachStep\u0026#34;) for i in range(Nsteps): print(model.analyze(1)) print(model.nodeDisp(2, 2), model.getLoadFactor(1)) for param in model.getParamTags(): print(\u0026#34;\\t\u0026#34;, param, model.sensNodeDisp(2, 2, param)) if False: model.wipeAnalysis() Umax = 2.2 Nsteps = 100 Uincr = Umax/Nsteps model.integrator(\u0026#34;DisplacementControl\u0026#34;,2,2,Uincr) model.analysis(\u0026#34;Static\u0026#34;) model.sensitivityAlgorithm(\u0026#34;-computeAtEachStep\u0026#34;) for i in range(Nsteps): model.analyze(1) print(model.nodeDisp(2,1), model.getLoadFactor(1)) for param in model.getParamTags(): print(param, model.sensLambda(1, param)) # print(param, model.sensNodeDisp(2, 1, param)) print(\u0026#34;u\u0026#34;, F*L**3/(3*E*I)) print(\u0026#34;L\u0026#34;, F*L**2/(E*I)) print(\u0026#34;F\u0026#34;, L**3/(3*E*I))"
       })
       .add(
       
       
       {
-        id: 42,
+        id: 40,
         tag: "en",
         href: "/opensees-gallery/examples/shallowdome/",
         title: "Shallow Dome",
@@ -7051,7 +7025,7 @@ function initIndex() {
       
       
       {
-        id: 43,
+        id: 41,
         tag: "en",
         href: "/opensees-gallery/examples/shellframe/",
         title: "Shell Diaphragms",
@@ -7064,7 +7038,7 @@ function initIndex() {
       
       
       {
-        id: 44,
+        id: 42,
         tag: "en",
         href: "/opensees-gallery/examples/pendulum/",
         title: "Simple Pendulum",
@@ -7077,7 +7051,7 @@ function initIndex() {
       
       
       {
-        id: 45,
+        id: 43,
         tag: "en",
         href: "/opensees-gallery/examples/example6/",
         title: "Simply Supported Solid Beam",
@@ -7090,7 +7064,7 @@ function initIndex() {
       
       
       {
-        id: 46,
+        id: 44,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/styles/",
         title: "Styles",
@@ -7103,7 +7077,7 @@ function initIndex() {
       
       
       {
-        id: 47,
+        id: 45,
         tag: "en",
         href: "/opensees-gallery/examples/shelltwist/",
         title: "Twisted Cantilever",
@@ -7116,7 +7090,7 @@ function initIndex() {
       
       
       {
-        id: 48,
+        id: 46,
         tag: "en",
         href: "/opensees-gallery/examples/wrench/",
         title: "Wrench",
