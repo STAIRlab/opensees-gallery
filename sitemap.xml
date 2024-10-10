@@ -110,8 +110,18 @@
     <loc>https://stairlab.github.io/opensees-gallery/tags/eigen/</loc>
     <lastmod>2024-09-19T09:17:28-07:00</lastmod>
   </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample2/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample3/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample4/</loc>
+  </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/example4/</loc>
     <lastmod>2024-09-09T12:37:31-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/examples/</loc>
     <lastmod>2024-09-19T10:13:24-07:00</lastmod>
@@ -199,6 +209,10 @@
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/tcl/</loc>
     <lastmod>2024-10-02T19:39:51-07:00</lastmod>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/tags/thermal/</loc>
+  </url><url>
+    <loc>https://stairlab.github.io/opensees-gallery/examples/thermalexamples/</loc>
   </url><url>
     <loc>https://stairlab.github.io/opensees-gallery/tags/truss/</loc>
     <lastmod>2024-09-19T09:17:28-07:00</lastmod>

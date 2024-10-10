@@ -1,0 +1,1347 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+
+
+
+
+
+
+
+
+<script src="/opensees-gallery/js/critical.bundle.min.16c3e2798e7d1697ad0df8d405528c6d6d26d7974dfd8b0c40c6d65f0d9a10a9.js" integrity="sha256-FsPieY59FpetDfjUBVKMbW0m15dN/YsMQMbWXw2aEKk=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="theme" content="Hinode 0.26.7">
+    
+
+
+
+
+
+    
+    
+<link rel="stylesheet" href="/opensees-gallery/css/main.min.eb96f8061a675eb30592705ff27b82406b011b22694bad06631ad56ffb28c12f.css" integrity="sha256-65b4BhpnXrMFknBf8nuCQGsBGyJpS60GYxrVb/sowS8=" crossorigin="anonymous">
+    
+        
+    
+    
+         
+        <link rel="preload" href="/opensees-gallery/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+
+    
+
+
+  <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>OpenSees - Example 5</title>
+    <meta name="description" content="A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heat...">
+
+<link rel="canonical" href="https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Example 5">
+<meta property="og:description" content="A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heat...">
+<meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/">
+<meta property="og:site_name" content="OpenSees">
+<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
+<meta property="og:image:alt" content="Example 5">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+
+<meta name="twitter:title" content="Example 5">
+<meta name="twitter:description" content="A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heat...">
+<meta name="twitter:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
+<meta name="twitter:image:alt" content="Example 5">
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+        "@id": "https://stairlab.github.io/#/schema/organization/1",
+      "name": "STAIRlab",
+      "url": "https://stairlab.github.io/",
+      "sameAs": [null,"https://github.com/claudioperez/OpenSeesRT"],
+      "image": {
+          "@type": "ImageObject",
+          "@id": "https://stairlab.github.io/#/schema/image/1",
+          "url": "https://stairlab.github.io/img/logo1280x640.png",
+          "width": 1280 ,
+          "height": 640 ,
+          "caption": "STAIRlab"
+        }
+      },
+    {
+      "@type": "WebSite",
+      "@id": "https://stairlab.github.io/#/schema/website/1",
+      "url": "https://stairlab.github.io/",
+      "name": "OpenSees",
+      "description": "OpenSees Examples.",
+      "publisher": {
+          "@id": "https://stairlab.github.io/#/schema/organization/1"
+        }
+      },
+    {
+      "@type": "WebPage",
+      "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/",
+      "url": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/",
+      "name": "Example 5",
+      "description": "",
+      "isPartOf": {
+        "@id": "https://stairlab.github.io/#/schema/website/1"
+      },
+      "about": {
+          "@id": "https://stairlab.github.io/#/schema/organization/1"
+        },
+      "breadcrumb": {
+        "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/#/schema/breadcrumb/1"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/#/schema/image/2"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": [{
+        "@type": "ReadAction", "target": ["https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/"]
+      }]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/#/schema/breadcrumb/1",
+      "name": "Breadcrumbs",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position":  1 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://stairlab.github.io/opensees-gallery/",
+          "url": "https://stairlab.github.io/opensees-gallery/",
+          "name": "Home"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  2 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://stairlab.github.io/opensees-gallery/examples/",
+          "url": "https://stairlab.github.io/opensees-gallery/examples/",
+          "name": "Examples"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  3 ,
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/",
+          "url": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/",
+          "name": "Thermalexamples"
+          }
+        },{
+        "@type": "ListItem",
+        "position":  4 ,
+        "item": {
+          "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/"
+          }
+        }]
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/#/schema/image/2",
+          "url": "https://stairlab.github.io/opensees-gallery/img/logo1280x640.png",
+          "contentUrl": "https://stairlab.github.io/opensees-gallery/img/logo1280x640.png",
+          "caption": "Example 5"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="/opensees-gallery/img/favicon_hu4859157644406506559.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/opensees-gallery/img/favicon_hu7625285411303010146.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/opensees-gallery/img/favicon_hu613555693725536282.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/opensees-gallery/img/favicon_hu3675745231128929066.png">
+    
+
+</head>
+
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            <div class="d-flex flex-column ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top p-0">
+
+
+
+
+
+
+<nav class="navbar p-4 navbar-fixed-top navbar-expand-lg"
+                
+        >
+        <div class="container-xxl p-0">
+            <div class="d-flex navbar-container justify-content-center">
+                
+                <div class="d-flex align-items-center">
+                        <button class="navbar-toggler collapsed p-0 mx-auto invisible fw-30" type="button">
+<!-- <i class="fas fa-ellipsis fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-ellipsis fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-ellipsis"></use></svg></button></div>
+        
+                
+                <div class="mx-auto">
+                    <a class="navbar-brand" href="/opensees-gallery/" aria-label="Home">
+                            <img src="/opensees-gallery/img/stairlab.svg" alt="OpenSees logo" height="30"></a>
+                </div>
+        
+                
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-0-collapse"
+                        aria-controls="navbar-0" aria-expanded="false" aria-label="Toggle main navigation">
+                        <span class="toggler-icon top-bar emphasis"></span>
+                        <span class="toggler-icon middle-bar emphasis"></span>
+                        <span class="toggler-icon bottom-bar emphasis"></span>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="navbar-collapse collapse" id="navbar-0-collapse">
+                
+                    <div class="d-flex flex-fill ms-md-3 mt-4 mt-lg-0">
+    <form class="search flex-fill position-relative me-auto">
+        <input class="search-input form-control is-search" type="search" placeholder="Search this site" aria-label="Search this site" autocomplete="off">
+        <div class="search-suggestions shadow bg-body rounded d-none" data-no-results="No results for"></div>
+    </form>
+</div>
+
+                
+                <ul class="navbar-nav ms-auto">
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/opensees-gallery/docs/" ><span >Docs</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/opensees-gallery/docs/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link active" 
+            
+            data-nav="main" data-nav-main="examples" 
+             href="/opensees-gallery/examples/" ><span  class="active">Examples</span>&nbsp;</a>
+    
+</li>
+                            <li class="nav-item ">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link" 
+            aria-label="GitHub"
+            data-nav="main" data-nav-main="github" 
+             href="https://github.com/OpenSees/OpenSees" target="_blank" rel="noopener noreferrer" >
+                
+                    
+<!-- <i class="fab fa-github "></i> -->
+        <svg class="svg-inline--fa fab fa-github " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 496 512"><use href="#fab-github"></use></svg>&nbsp;
+                
+            <span ></span></a>
+    
+</li><div class="d-flex mode-switch align-items-center" id="navbar-mode">
+        <input type="checkbox" class="checkbox navbar-mode-selector" id="navbar-mode-checkbox" />
+        <label class="label" for="navbar-mode-checkbox">
+<!-- <i class="fas fa-sun fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-sun fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-sun"></use></svg>
+<!-- <i class="fas fa-moon fa-fw"></i> -->
+        <svg class="svg-inline--fa fas fa-moon fa-fw" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 384 512"><use href="#fas-moon"></use></svg>
+            <div class="ball"></div>
+        </label>
+    </div></ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="main-content">
+                    </div>
+                
+            </div>
+
+            
+                
+    
+    
+
+    
+
+    <div class="container-xxl flex-fill p-4 px-xxl-0">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col col-lg-2 d-none d-lg-block sidebar-overflow sticky-top pt-5">
+                    
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 mb-5 p-4">
+                    <p class="display-4 mt-5">Example 5</p>
+
+    <small class="text-body-secondary text-uppercase">
+        
+        7&nbsp;min read &bull;
+        1,377&nbsp;words
+    </small>
+<div class="mt-3">
+        <div class="d-none-dark">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Thermal"
+        href="/opensees-gallery/tags/thermal/" class="btn btn-light btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Thermal</span>
+        </span></a>&nbsp;
+
+                </div>
+        </div>
+        
+        <div class="d-none-light">
+            <div class="hstack gap-1">
+                
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="Thermal"
+        href="/opensees-gallery/tags/thermal/" class="btn btn-outline-primary btn-sm position-relative  "
+        role="button"
+        >
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Thermal</span>
+        </span></a>&nbsp;
+
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<p class="lead mb-5 mt-3"></p>
+<div class="d-md-none pb-5">
+
+
+
+
+
+
+<div class="d-grid gap-2 mx-auto">
+        
+
+
+
+
+
+
+
+
+
+    
+
+    <a aria-label="On this page"
+        href="#toc-collapse" class="btn btn-outline-secondary  position-relative  toc-button"
+         data-bs-toggle="collapse" aria-expanded="false" aria-controls="toc-collapse"role="button"
+        >
+        <span class="d-flex justify-content-between">
+            <span class="my-auto">On this page</span><span class="align-self-center ps-1">
+<!-- <i class="fas fa-sort "></i> -->
+        <svg class="svg-inline--fa fas fa-sort " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 320 512"><use href="#fas-sort"></use></svg></span>
+        </span></a>
+</div>
+
+    <div class="collapse border bg-body-tertiary rounded p-1 navbar-nav-scroll" id="toc-collapse">
+        <div class="toc toc-panel text-body p-2">
+            <small><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#material">Material</a></li>
+        <li><a href="#transformation">Transformation</a></li>
+        <li><a href="#section">Section</a></li>
+        <li><a href="#element">Element</a></li>
+        <li><a href="#output-recorders">Output Recorders</a></li>
+        <li><a href="#thermal-loading">Thermal Loading</a></li>
+        <li><a href="#thermal-analysis">Thermal Analysis</a></li>
+        <li><a href="#output-plots">Output Plots</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></small>
+        </div>
+    </div>
+</div>
+
+<p>A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 ° C.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<img class="img-fluid "
+        src=""
+        
+        
+        
+        
+        
+        >
+{.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
+<p><strong>Elevation of two-bay frame</strong></p>
+<p>Example overview: This example will combine the modeling methodologies
+developed through the other examples and apply them to a two-bay frame
+with a fire in one of the bays. Recorded data from the OpenSees analysis
+will be compared with the experimental test data </p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span>
+    
+
+<p>. Heat transfer
+analyses were performed using a commercially available finite element
+program to calculate the temperature distribution through the cross
+sections when the members are exposed to a linear gas time-temperature
+curve. Horizontal displacement of upper corners, U1 &amp; U2 are recorded.</p>
+<p>Download Example 5 files:</p>
+<p>
+    
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="files/Example5.tcl"><code>Example5.tcl</code></a></p>
+<p>
+    
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+            
+            <a href="files/WsectionThermal.tcl"><code>WsectionThermal.tcl</code></a></p>
+<p><code>Example 5 Outputs &lt;files/Example5_OUTPUT.zip&gt;</code>{.interpreted-text
+role=&ldquo;download&rdquo;}.</p>
+
+<h3 id="objectives" class="heading">Objectives <a href="#objectives" aria-labelledby="objectives">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>Example 5 Objectives: 1. Create a two-bay frame in OpenSees using
+displacement-based elements with tempurature-dependent material
+properties, 2. Implementing user-defined time-tempurature histories for
+the elements calculated through heat transfer analysis, and 3. Compare
+recorded parameters from the OpenSees model to experimental testing data
+</p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span>
+    
+
+<p> to benchmark modeling methodologies.</p>
+<p><strong>Experimental Test Overview</strong></p>
+<p>A two-bay frame was tested by researchers </p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span>
+    
+
+<p>. Each bay size was 1.2 m
+in width and 1.18 m in height. Point loads were applied at the
+beam-column joints in the lateral and gravity directions in addition to
+a uniformly distributed load applied to the beams. The columns and beam
+of one of the bays was heated using electrical heaters that surrounded
+each of the members, therefore, uniformly heating each member (there was
+no thermal gradient through the cross section). The temperature was
+increased until failure.</p>
+
+<h3 id="material" class="heading">Material <a href="#material" aria-labelledby="material">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>The uniaxialMaterial Steel01Thermal includes temperature-dependent steel
+thermal and mechanical properties per Eurocode 3 </p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+<p>. More details of
+Steel01 can be found at: 
+    
+
+
+
+
+
+
+<a href="https://opensees.berkeley.edu/wiki/index.php/Steel01_Material" target="_blank" rel="noopener noreferrer">Steel01 Material&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg></a></p>
+<ul>
+<li>Es = 210 GPa (Young&rsquo;s modulus of elasticity at ambient temperatures)</li>
+<li>Fy = 355 MPa (Yield strength of material at ambient temperatures)</li>
+<li>b = 0.001 (Strain-Hardening Ratio)</li>
+</ul>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> matTag <span class="mi">1</span><span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">uniaxialMaterial</span> Steel01Thermal <span class="nv">$matTag</span> <span class="nv">$Fy</span> <span class="nv">$Es</span> <span class="nv">$b</span><span class="k">;</span></span></span></code></pre></div></div>
+<h3 id="transformation" class="heading">Transformation <a href="#transformation" aria-labelledby="transformation">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>Because the beams and columns in this example experience bending, 2nd
+order bending effects were considered using the Corotational geometric
+transformation.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">geomTransf</span> Corotational <span class="nv">$transftag</span><span class="k">;</span></span></span></code></pre></div></div><p>Learn more about geometric transofrmations: 
+    
+
+
+
+
+
+
+<a href="http://opensees.berkeley.edu/wiki/index.php/Geometric_Transformation_Command" target="_blank" rel="noopener noreferrer">Geometric
+Transformation&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg></a></p>
+
+<h3 id="section" class="heading">Section <a href="#section" aria-labelledby="section">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>This example uses an external .tcl script to define the cross section.
+This script uses fibersecThermal to procure a fibered W-shape section
+with a section tag to be used while defining elements. Eight fibers are
+used throughout the web and four fibers within each flange.</p>
+<p>In previous versions of OpenSees, a default value for torsional
+stiffness was used (GJ). In versions 3.1.0 and newer fiber sections
+require a value for torsional stiffness. This is a 2D example with
+negligible torsion, however a value is required. The Young&rsquo;s Modulus is
+used for convenience. Wsection dimensions are (units are meters):</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> secTag <span class="mi">1</span><span class="k">;</span> <span class="c"># section Tag 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> d <span class="mf">0.08</span><span class="k">;</span> <span class="c"># depth of beam 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> bf <span class="mf">0.046</span><span class="k">;</span> <span class="c"># flange width 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> tf <span class="mf">0.0052</span><span class="k">;</span> <span class="c"># flange thickness 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> tw <span class="mf">0.0038</span><span class="k">;</span> <span class="c">#</span><span class="err"> web thickness</span></span></span></code></pre></div></div><ul>
+<li>secTag - section tag</li>
+<li>matTag - material tag</li>
+<li>d = nominal depth</li>
+<li>tw = web thickness</li>
+<li>bf = flange width</li>
+<li>tf = flange thickness</li>
+<li>nfdw = number of fibers along web depth</li>
+<li>nftw = number of fibers along web thickness</li>
+<li>nfbf = number of fibers along flange width</li>
+<li>nftf = number of fibers along flange thickness</li>
+<li>Gj = torsional stiffness</li>
+</ul>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># WsectionThermal secTag matTag d bf tf tw nfdw nftw nfbf nftf Gj
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">WsectionThermal</span> <span class="nv">$secTag</span> <span class="nv">$matTag</span> <span class="nv">$d</span> <span class="nv">$bf</span> <span class="nv">$tf</span> <span class="nv">$tw</span> <span class="mi">8</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">4</span> <span class="nv">$Es</span></span></span></code></pre></div></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<img class="img-fluid "
+        src=""
+        
+        
+        
+        
+        
+        >
+{.align-centeralign-center
+width=&ldquo;500px&rdquo;}</p>
+<p><strong>Cross section of W-shape showing fibers in the flanges and the web</strong></p>
+
+<h3 id="element" class="heading">Element <a href="#element" aria-labelledby="element">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>dispBeamColumnThermal elements are used because temperature-dependent
+thermal and mechanical steel properties can be applied to these
+elements. Any portion of the structure that is being heated must use
+elements that are compatible with uniaxialMaterial Steel01Thermal. At
+the time this model was developed, dispBeamColumnThermal was the only
+element type that could have tempurature-dependent thermal and
+mechanical properties applied to them.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># $eleTag $iNode $jNode $numIntgrPts $secTag $TransfTag;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">element</span> dispBeamColumnThermal <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="nv">$secTag</span> <span class="nv">$transftag</span><span class="k">;</span></span></span></code></pre></div></div><p>Each column and beam element is created using ten displacement-based
+elements with 3 iteration points in each element.</p>
+
+<h3 id="output-recorders" class="heading">Output Recorders <a href="#output-recorders" aria-labelledby="output-recorders">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p><code>dataDir</code> is defined at the beginning of the model, this creates a
+folder within your working directory where output files will be saved.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> dataDir Examples<span class="o">/</span>EXAMPLE5_OUTPUT<span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nb">file</span> mkdir <span class="nv">$dataDir</span><span class="k">;</span></span></span></code></pre></div></div><p>displacements of node U1 (node 11, top left), DOF 1 (Horizontal
+Displacement)</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>Midspan_BeamDisp.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">11</span> <span class="o">-</span>dof <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disp</span><span class="k">;</span></span></span></code></pre></div></div><p>displacements of node U2 (node 22, top-middle), DOF 1 (Horizontal
+Displacement)</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>Midspan_BeamDisp.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">22</span> <span class="o">-</span>dof <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disp</span><span class="k">;</span></span></span></code></pre></div></div><p>Reaction forces at support nodes (1, 12 and 23):</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>RXNS.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">1</span> <span class="mi">12</span> <span class="mi">23</span> <span class="o">-</span>dof <span class="mi">2</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nv">reaction</span><span class="k">;</span></span></span></code></pre></div></div><p>Learn more about the Recorder Command: 
+    
+
+
+
+
+
+
+<a href="http://opensees.berkeley.edu/wiki/index.php/Recorder_Command" target="_blank" rel="noopener noreferrer">Recorder
+Command&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg></a></p>
+
+<h3 id="thermal-loading" class="heading">Thermal Loading <a href="#thermal-loading" aria-labelledby="thermal-loading">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>In this model, the beams and columns of the left bay are heated by
+increasing the temperature linearly from ambient temperature until
+failure. The right bay remains at ambient tempurature.</p>
+<p>Therefore, we set the maximum temperature as follows:</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> T <span class="mi">550</span><span class="k">;</span> <span class="c">#</span><span class="err"> Max Temperature, deg C</span></span></span></code></pre></div></div><p>In OpenSees, the user can define 2 or 9 temperature data points through
+the cross section. In a 2D analysis framework, like this example,
+temperature data point locations are specified on the y-axis of the
+local coordinate system (as shown in the figure above). And are linearly
+interpolated between the defined points. Because this example is using a
+uniformly heated beam, two temperature points on each extreme fiber on
+the y-axis will be chosen. The beam has a depth of <code>d</code>, therefore,
+<code>Y1 = d/2</code> and <code>Y2 = -d/2</code> the top and bottom fibers respectively.</p>
+<p>Top fiber of beam</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Y1 <span class="k">[expr</span> <span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span></span></span></code></pre></div></div><p>Bottom fiber of beam</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Y2 <span class="k">[expr</span> <span class="o">-</span><span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span></span></span></code></pre></div></div><p><strong>Location of defined input temperature locations on the member cross section (both beam and columns)</strong></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<img class="img-fluid "
+        src=""
+        
+        
+        
+        
+        
+        >
+{.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
+<p>The bottom extreme fiber temperature must be defined first. The target
+maximum temperature for each extreme fiber is set to 550 ° C and will
+be increased linearly and incrementally as the time step continues in
+the analysis. An external temperature data set can could also be used
+for more complex temperature loading.</p>
+<p>Using a for-loop and a plain linear loading pattern, elements 1-20 &amp;
+31-40 will be subjected to tempurature, <code>T</code>. These elements define the
+heated bay.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">pattern</span> Plain <span class="mi">2</span> Linear <span class="k">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">1</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="err">\</span><span class="o">&lt;=</span> <span class="nv">20</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="nv">$i</span> <span class="o">-</span>type <span class="o">-</span>beamThermal <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">31</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="err">\</span><span class="o">&lt;=</span> <span class="nv">40</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span><span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="nv">$i</span> <span class="o">-</span>type
+</span></span><span class="line"><span class="cl"><span class="nv">-beamThermal</span> <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span><span class="k">;}};</span></span></span></code></pre></div></div>
+<h3 id="thermal-analysis" class="heading">Thermal Analysis <a href="#thermal-analysis" aria-labelledby="thermal-analysis">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>Thermal loading is applied in 1000 steps, with a load factor of 0.001.
+Each step is a 0.001 increment of the maximum temperature specified in
+the thermal loading step: <code>T</code>. The analysis is a static analysis and the
+contraints of the beam are plain. 1000 increments was also used during
+thermal analysis to allow for easy correlation between the input
+temperatures and the recorded output. Each step is an 0.001 increment of
+the maximum temperature specified in the thermal loading step: <code>T</code>.</p>
+<p>A variety of load factors were examined and the solution converged when
+a load factor of 0.001 was used. OpenSees is sensitive to the load
+factor, therefore, it is important to ensure that benchmarking examples
+are performed to determine the proper load factor to use in structural
+fire engineering analyses.</p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Nstep <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">set</span> Factor <span class="err">\</span><span class="k">[expr</span> <span class="mf">1.0</span><span class="o">/</span><span class="nv">$Nstep</span><span class="err">\</span><span class="k">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">integrator</span> LoadControl <span class="nv">$Factor</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">analyze</span> <span class="nv">$Nstep</span><span class="k">;</span></span></span></code></pre></div></div>
+<h3 id="output-plots" class="heading">Output Plots <a href="#output-plots" aria-labelledby="output-plots">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+<p>After the model has completed running, the results will be horizontal
+displacements of the recorded node. Since the temperature was linearly
+ramped up from ambient to 550 ° C, the user can develop a temperature
+history that matches every increment of the model. The displacements are
+benchmarked against test data </p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span>
+    
+
+<p> as shown in the figure below.</p>
+<p><strong>Node U1 horizontal displacement versus temperature compared with the
+testing data</strong></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<img class="img-fluid "
+        src=""
+        
+        
+        
+        
+        
+        >
+{.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
+<p><strong>Node U2 horizontal displacement versus temperature compared with the
+testing data</strong></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<img class="img-fluid "
+        src=""
+        
+        
+        
+        
+        
+        >
+{.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
+
+<h3 id="sources" class="heading">Sources <a href="#sources" aria-labelledby="sources">
+<!-- <i class="fas fa-link anchor"></i> -->
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span>
+    
+
+<p> European Committee for Standardization (CEN). (2005). Eurocode 3:
+Design of Steel Structures, Part 1.2: General Rules - Structural Fire
+Design.</p>
+
+
+
+    
+
+
+
+    
+        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span>
+    
+
+<p> Rubert A, Schaumann P. (1986). &ldquo;Structural steel and plane frame
+assemblies under ﬁre action.&rdquo; Fire Safety Journal, vol. 10, pp.173&ndash;184.</p>
+
+
+
+<div class="row row-cols-2 mt-5 mb-3">
+    <div class="col">
+        <a class="next" href="/opensees-gallery/examples/thermalexamples/thermalexample4/">
+<!-- <i class="fas fa-arrow-left "></i> -->
+        <svg class="svg-inline--fa fas fa-arrow-left " fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 448 512"><use href="#fas-arrow-left"></use></svg>&nbsp;Example 4
+                </a></div>
+    <div class="col text-end">
+        </div>
+</div>
+
+
+                </div>
+                <div class="col col-md-3 col-lg-2 d-none d-md-block pt-5">
+                    
+    
+
+
+<div class="toc toc-sidebar mb-5 my-md-0 mb-lg-5 p-3 text-body-secondary sticky-top">
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+<strong class="d-block h6 my-2 pb-2">On this page:</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#material">Material</a></li>
+        <li><a href="#transformation">Transformation</a></li>
+        <li><a href="#section">Section</a></li>
+        <li><a href="#element">Element</a></li>
+        <li><a href="#output-recorders">Output Recorders</a></li>
+        <li><a href="#thermal-loading">Thermal Loading</a></li>
+        <li><a href="#thermal-analysis">Thermal Analysis</a></li>
+        <li><a href="#output-plots">Output Plots</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+                </div>
+            </div>
+        </div>
+<footer class="container-fluid footer p-0 border-top">
+    <div class="container-xxl px-3 px-xxl-0 py-5">
+        <div class="row">
+            <div class="col-md-4 small">
+                <a href="/opensees-gallery/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-dark">
+
+
+<img class="img-fluid "
+        src="/opensees-gallery/img/logo-mono-light.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Example 5">
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="w-25 d-none-light">
+
+
+<img class="img-fluid "
+        src="/opensees-gallery/img/logo-mono-dark.svg"
+        
+        
+        
+        height="500"
+        width="501"
+        alt="Example 5">
+    </div></a>
+                <div class="pt-3">OpenSees Examples.</div>
+                <div class="pt-2">Code licensed <a href='https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>BSD</a>, docs <a href='https://creativecommons.org/licenses/by-nc/4.0/' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>CC BY-NC 4.0</a></div>
+                <div class="pt-2">Currently <a href='https://github.com/claudioperez/OpenSeesRT/releases/tag/v0.26.7' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>v0.26.7</a></div>
+            </div>
+            <div class="col-md-2 small">&nbsp</div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Links</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link active link-bg-footer" 
+            
+            data-nav="main" data-nav-main="home" 
+             href="/opensees-gallery/" ><span  class="active">Home</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="about" 
+             href="/opensees-gallery/docs/about/credits/?menu=about" ><span >About</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="docs" 
+             href="/opensees-gallery/docs/" ><span >Docs</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="library" 
+             href="/opensees-gallery/docs/library/?menu=library" ><span >Library</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="releases" 
+             href="/opensees-gallery/releases/" ><span >Releases</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Examples</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="working-with-solids" 
+             href="/opensees-gallery/examples/Example8" ><span >Working with solids</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="nonlinear-dynamics" 
+             href="/opensees-gallery/examples/Example7" ><span >Nonlinear dynamics</span>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="basic-statics" 
+             href="/opensees-gallery/examples/Example1" ><span >Basic Statics</span>&nbsp;</a>
+    
+</div></div><div class="col-md-2 col-4 pt-5 pt-md-0">
+                    <div class="fs-md-5 fs-6 fw-bold footer-muted">Community</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="issues" 
+             href="https://github.com/claudioperez/OpenSeesRT/issues" target="_blank" rel="noopener noreferrer" ><span >Issues</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="discussions" 
+             href="https://github.com/claudioperez/OpenSeesRT/discussions" target="_blank" rel="noopener noreferrer" ><span >Discussions</span>&nbsp;
+<!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
+        <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg>&nbsp;</a>
+    
+</div><div class="py-1">
+
+
+
+
+
+
+
+    
+
+
+    
+        <a class="nav-link link-bg-footer" 
+            
+            data-nav="main" data-nav-main="contribute" 
+             href="/opensees-gallery/docs/getting-started/contribute/" ><span >Contribute</span>&nbsp;</a>
+    
+</div></div></div>
+    </div>
+</footer>
+        </div>
+
+        <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3">
+
+
+
+
+
+
+
+<div id="toast-copied-code-message" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">OpenSees</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Code copied to clipboard</div>
+</div>
+</div>
+<!-- SVG symbol map -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+        <symbol id="fas-ellipsis" ><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></symbol>
+<symbol id="fas-up-right-from-square" ><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></symbol>
+<symbol id="fab-github" ><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
+<symbol id="fas-sun" ><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></symbol>
+<symbol id="fas-moon" ><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></symbol>
+<symbol id="fas-sort" ><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></symbol>
+<symbol id="fas-link" ><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></symbol>
+<symbol id="fas-arrow-left" ><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></symbol>
+    </svg>
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<script src="/opensees-gallery/js/main.bundle.en.min.d4c74b7538dce1f49e854302330c53f26de8ef70327915eaa2b7aea55585b707.js" integrity="sha256-1MdLdTjc4fSehUMCMwxT8m3o73AyeRXqoreupVWFtwc=" crossorigin="anonymous" async></script>
+    
+
+    
+
+
+
+
+
+        
+    </body>
+</html>

@@ -6577,7 +6577,7 @@ function initIndex() {
         description: "Compiling your own version of OpenSees.",
         
         
-        content: "Dependencies \u0026nbsp; Compiling OpenSees requires the following software to be installed on your local machine:\nSoftware Hugo Remarks Git\u0026nbsp; recommended Recommended for version control C/C++ Compilers \u0026nbsp; Embedded as npm binary Node.js\u0026nbsp; The installation package includes npm The primary system dependencies required for compiling are LAPACK/BLAS and Tcl. Packages providing these libraries are listed below for various package management ecosystems.\n\u0026nbsp; Note When building in an Anaconda environment, you should install all dependencies with conda or mamba, and preferably from the conda-forge channel. Expand the notes on Anaconda below.\nAnaconda (Mac, Windows, Linux) When using conda, you need to ensure that CMake only finds compilers that are compatible with the libraries in the environment. System compilers (like those installed by the operating system\u0026rsquo;s package manager) often cannot be used and can lead to segfaults. The following command should install everything you need:\nconda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas APT (Ubuntu, Debian Linux) Dependency Package LAPACK liblapack-dev BLAS libblas-dev Tcl* tcl-dev Pacman (Arch, Manjaro Linux) Dependency Package LAPACK lapack BLAS blas Tcl* tcl Yum (CentOS, Redhat Linux) Dependency Package LAPACK lapack-devel Tcl* tcl-devel Prerequisites \u0026nbsp; Clone the package repository: \u0026lt; command \u0026gt; git clone https://github.com/claudioperez/OpenSeesRT\u0026nbsp; \u0026lt; /command \u0026gt;\ninstall run-time dependencies. These are the libraries that will be needed in order to use OpenSees. To install these, run: \u0026lt; command \u0026gt; python -m pip install opensees \u0026lt; /command \u0026gt;\nInstall compile-time dependencies; see Dependencies below. These dependencies are only needed for the compilinf process.\nWindows installation notes \u0026nbsp; On Windows you should additionally install Intel compilers and Conan Compiling \u0026nbsp; The next steps describe how to set up your compilers and build the OpenSees library.\nCMake CMake\u0026amp;#43;Conan Create a directory to hold build artifacts\nmkdir build Configure the system for your system\ncd build cmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc):\nexport OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Create a directory to hold build artifacts\nmkdir build cd build Run Conan\nconan install .. --build missing Configure the system for your system\ncmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc): export OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Check that everything was built properly by running the following command:\npython -m openseesThis should start an OpenSees interpreter which can be closed by running the exit command.\n\u0026nbsp; Custom domain name Requires Azure CDN \u0026nbsp; CDN / Edge network Requires Azure CDN \u0026nbsp; HTTP headers Requires Azure CDN \u0026nbsp; ### Preparations The repository root should include a file `netlify.toml`. If not, copy it from the Hinode main repository\u0026nbsp; . The configuration file contains the build settings that Netlify will pick up when connecting to your repository. The panel below shows the default build settings. The key command to observe is `npm run build`, which ensures the site is built properly. \u003e [!NOTE] \u003e The default configuration provides basic security headers. Please review the [server configuration](/opensees-gallery/docs/getting-started/modeling/) for more details about the Content Security Policy. The cache settings are explained in more detail in the Netlify blog\u0026nbsp; . netlify.toml [build] publish = \u0026#34;exampleSite/public\u0026#34; command = \u0026#34;npm run build:example\u0026#34; [build.environment] DART_SASS_VERSION = \u0026#34;1.77.5\u0026#34; HUGO_VERSION = \u0026#34;0.131.0\u0026#34; HUGO_ENV = \u0026#34;production\u0026#34; HUGO_ENABLEGITINFO = \u0026#34;true\u0026#34; NODE_VERSION = \u0026#34;20.16.0\u0026#34; NPM_VERSION = \u0026#34;10.8.1\u0026#34; ... The same file also configures several optional plugins. netlify.toml [[plugins]] package = \u0026#34;@gethinode/netlify-plugin-dartsass\u0026#34; [[plugins]] package = \u0026#34;netlify-plugin-hugo-cache-resources\u0026#34; [plugins.inputs] # Redirected in exampleSite/config/_default/hugo.toml # srcdir = \u0026#34;\u0026#34; # [[plugins]] # package = \u0026#34;@netlify/plugin-lighthouse\u0026#34; # [plugins.inputs] # output_path = \u0026#34;reports/lighthouse.html\u0026#34; ... ### Configure your site Sign up for Netlify and configure your site in seven steps. Step 1. Sign up for Netlify Step 2. Sign in with your Git provider Step 3. Authenticate your sign in (2FA) Step 4. Add a new site Step 5. Connect to your Git provider Step 6. Import an existing project Step 7. Configure the build settings Previous Next Step 1. Sign up for Netlify Go to netlify.com\u0026nbsp; and click on the button Sign up. Select your preferred signup method next. This will likely be a hosted Git provider, although you also have the option to sign up with an email address. The next steps use GitHub, but other Git providers will follow a similar process. Step 2. Sign in with your Git provider Enter the credentials for your Git provider and click the button to sign in. Step 3. Authenticate your sign in (2FA) Assuming you have enabled two-factor authentication with your Git provider, authenticate the sign in next. This example uses the GitHub Mobile app. Step 4. Add a new site Click on the button Add new site to set up a new site with Netlify. Step 5. Connect to your Git provider Connect to your Git provider to import your existing Hinode repository. Step 6. Import an existing project Pick a repository from your Git provider. Ensure Netlify has access to the correct repository. Step 7. Configure the build settings Review the basic build settings. Netlify will use the settings provided in the preparations. Click on the button Deploy site to start the build and deployment process. Your site is now ready to be used. Click on the domain settings of your site within the `Site overview` page to provide a domain alias and to edit the site name as needed. The same section also allows the configuration of a custom domain. Be sure to review your [server configuration](/opensees-gallery/docs/getting-started/modeling/) if you encounter any rendering issues, such as broken links or garbled stylesheets. --\u003e"
+        content: "Dependencies \u0026nbsp; Compiling OpenSees requires the following software to be installed on your local machine:\nSoftware Hugo Remarks Git\u0026nbsp; recommended Recommended for version control C/C++ Compilers \u0026nbsp; Embedded as npm binary Node.js\u0026nbsp; The installation package includes npm The primary system dependencies required for compiling are LAPACK/BLAS and Tcl. Packages providing these libraries are listed below for various package management ecosystems.\n\u0026nbsp; Note When building in an Anaconda environment, you should install all dependencies with conda or mamba, and preferably from the conda-forge channel. Expand the notes on Anaconda below.\nAnaconda (Mac, Windows, Linux) When using conda, you need to ensure that CMake only finds compilers that are compatible with the libraries in the environment. System compilers (like those installed by the operating system\u0026rsquo;s package manager) often cannot be used and can lead to segfaults. The following command should install everything you need:\nconda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas openmpi APT (Ubuntu, Debian Linux) Dependency Package LAPACK liblapack-dev BLAS libblas-dev Tcl* tcl-dev Pacman (Arch, Manjaro Linux) Dependency Package LAPACK lapack BLAS blas Tcl* tcl Yum (CentOS, Redhat Linux) Dependency Package LAPACK lapack-devel Tcl* tcl-devel Prerequisites \u0026nbsp; Clone the package repository: \u0026lt; command \u0026gt; git clone https://github.com/claudioperez/OpenSeesRT\u0026nbsp; \u0026lt; /command \u0026gt;\ninstall run-time dependencies. These are the libraries that will be needed in order to use OpenSees. To install these, run: \u0026lt; command \u0026gt; python -m pip install opensees \u0026lt; /command \u0026gt;\nInstall compile-time dependencies; see Dependencies below. These dependencies are only needed for the compilinf process.\nWindows installation notes \u0026nbsp; On Windows you should additionally install Intel compilers and Conan Compiling \u0026nbsp; The next steps describe how to set up your compilers and build the OpenSees library.\nCMake CMake\u0026amp;#43;Conan Create a directory to hold build artifacts\nmkdir build Configure the system for your system\ncd build cmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc):\nexport OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Create a directory to hold build artifacts\nmkdir build cd build Run Conan\nconan install .. --build missing Configure the system for your system\ncmake .. Start compiling\ncmake --build . --target OpenSees -j8 When libOpenSeesRT.so is compiled locally, the opensees package needs to be told where to find it. This can be done by setting an environment variable with the name OPENSEESRT_LIB to point to the location of libOpenSeesRT.so in the build tree. To this end, you may want to add a line like the following to your shell startup script (e.g., .bashrc): export OPENSEESRT_LIB=\u0026#34;/path/to/your/compiled/libOpenSeesRT.so\u0026#34; Check that everything was built properly by running the following command:\npython -m openseesThis should start an OpenSees interpreter which can be closed by running the exit command.\n\u0026nbsp; Custom domain name Requires Azure CDN \u0026nbsp; CDN / Edge network Requires Azure CDN \u0026nbsp; HTTP headers Requires Azure CDN \u0026nbsp; ### Preparations The repository root should include a file `netlify.toml`. If not, copy it from the Hinode main repository\u0026nbsp; . The configuration file contains the build settings that Netlify will pick up when connecting to your repository. The panel below shows the default build settings. The key command to observe is `npm run build`, which ensures the site is built properly. \u003e [!NOTE] \u003e The default configuration provides basic security headers. Please review the [server configuration](/opensees-gallery/docs/getting-started/modeling/) for more details about the Content Security Policy. The cache settings are explained in more detail in the Netlify blog\u0026nbsp; . netlify.toml [build] publish = \u0026#34;exampleSite/public\u0026#34; command = \u0026#34;npm run build:example\u0026#34; [build.environment] DART_SASS_VERSION = \u0026#34;1.77.5\u0026#34; HUGO_VERSION = \u0026#34;0.131.0\u0026#34; HUGO_ENV = \u0026#34;production\u0026#34; HUGO_ENABLEGITINFO = \u0026#34;true\u0026#34; NODE_VERSION = \u0026#34;20.16.0\u0026#34; NPM_VERSION = \u0026#34;10.8.1\u0026#34; ... The same file also configures several optional plugins. netlify.toml [[plugins]] package = \u0026#34;@gethinode/netlify-plugin-dartsass\u0026#34; [[plugins]] package = \u0026#34;netlify-plugin-hugo-cache-resources\u0026#34; [plugins.inputs] # Redirected in exampleSite/config/_default/hugo.toml # srcdir = \u0026#34;\u0026#34; # [[plugins]] # package = \u0026#34;@netlify/plugin-lighthouse\u0026#34; # [plugins.inputs] # output_path = \u0026#34;reports/lighthouse.html\u0026#34; ... ### Configure your site Sign up for Netlify and configure your site in seven steps. Step 1. Sign up for Netlify Step 2. Sign in with your Git provider Step 3. Authenticate your sign in (2FA) Step 4. Add a new site Step 5. Connect to your Git provider Step 6. Import an existing project Step 7. Configure the build settings Previous Next Step 1. Sign up for Netlify Go to netlify.com\u0026nbsp; and click on the button Sign up. Select your preferred signup method next. This will likely be a hosted Git provider, although you also have the option to sign up with an email address. The next steps use GitHub, but other Git providers will follow a similar process. Step 2. Sign in with your Git provider Enter the credentials for your Git provider and click the button to sign in. Step 3. Authenticate your sign in (2FA) Assuming you have enabled two-factor authentication with your Git provider, authenticate the sign in next. This example uses the GitHub Mobile app. Step 4. Add a new site Click on the button Add new site to set up a new site with Netlify. Step 5. Connect to your Git provider Connect to your Git provider to import your existing Hinode repository. Step 6. Import an existing project Pick a repository from your Git provider. Ensure Netlify has access to the correct repository. Step 7. Configure the build settings Review the basic build settings. Netlify will use the settings provided in the preparations. Click on the button Deploy site to start the build and deployment process. Your site is now ready to be used. Click on the domain settings of your site within the `Site overview` page to provide a domain alias and to edit the site name as needed. The same section also allows the configuration of a custom domain. Be sure to review your [server configuration](/opensees-gallery/docs/getting-started/modeling/) if you encounter any rendering issues, such as broken links or garbled stylesheets. --\u003e"
       })
       .add(
       
@@ -6689,6 +6689,19 @@ function initIndex() {
       {
         id: 15,
         tag: "en",
+        href: "/opensees-gallery/examples/thermalexamples/thermalexample1/",
+        title: "Example 1",
+        description: "Thermal expansion of a beam \u0026nbsp; {.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;}\n",
+        
+        
+        content: "Thermal expansion of a beam \u0026nbsp; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nElevation of beam\nExample Overview: A steel beam is heated to 1180 ° C. Horizontal displacement of right end is recorded. This displacement is normalized against the original length and plotted against temperature. The calculated thermal expansion is compared against the steel temperature-dependent thermal expansion in Eurocode 3, Part 1-2 11 .\nDownload Example 1 files:\nExample1.tcl\nExample 1 Outputs \u0026lt;files/Example1_OUTPUT.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nMaterial Properties \u0026nbsp; The uniaxialMaterial Steel01Thermal includes temperature-dependent steel thermal and mechanical properties per Eurocode 3 11 . More details of Steel01 can be found at: Steel01 Material\u0026nbsp; uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b;Es = 210 GPa (Young\u0026rsquo;s modulus of elasticity at ambient temperatures)\nFy = 250 MPa (Yield strength of material at ambient temperatures)\nb = 0.001 (Strain-Hardening Ratio)\nTransformation \u0026nbsp; The beam is expanding in one direction, therefore, 2nd order bending effects do not need to be considered.\ngeomTransf Linear $transftag;Learn more about geometric transofrmations: Geometric Transformation\u0026nbsp; Section \u0026nbsp; The discretization of the steel section into four fibers is shown using the code below:\nsection FiberThermal secTag -GJ $Esset numSubdivIJ 2; \\# horizontalset numSubdivJK 2; \\# verticalset yI -100; #mmset zI -200; #mmset yJ 100; #mmset zJ -200; #mmset yK 100; #mmset zK 200; #mmset yL -100; #mmset zL 200; #mmpatch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ $zJ $yK $zK $yL $zLSections that will be subjected to thermal loading must be created with fiberThermal or fibersecThermal.\nIn previous versions of OpenSees, a default value for torsional stiffness was used (GJ). In versions 3.1.0 and newer fiber sections require a value for torsional stiffness. This is a 2D example with negligible torsion, however a value is required. The Young's Modulus is used for convenience.\nThe discretization can be visualized as such:\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nCross section of rectangular beam showing fiber discretization\nElements \u0026nbsp; dispBeamColumnThermal elements are used because temperature-dependent thermal and mechanical steel properties can be applied to these elements. Any portion of the structure that is being heated must use elements that are compatible with uniaxialMaterial Steel01Thermal. At the time this model was developed, dispBeamColumnThermal was the only element type that could have tempurature-dependent thermal and mechanical properties applied to them.\nThe beam is made of one element with 5 iteration points and connects nodes 1 \u0026amp; 2. OpenSees is sensitive to the number of iteration points in each element and this could change the result of the recorded displacement. For this reason, it is important to perform these benchmarking examples to establish how many iteration points allows for convergence to the expected recorded displacement. To code the number of iteration points, we use the following syntax:\ndispBeamColumnThermal eleTag iNode jNode numIntgrPts secTag TransfTag;\nelement dispBeamColumnThermal 1 1 2 5 $secTag $transftag; Output Recorders \u0026nbsp; Displacement of the end node (2) in DOF 1 (Horizontal Displacement) is what we want to record. To do so, a folder within your working directory must be created. dataDir is the command to create that folder and should be defined at the beginning of the model. This is where your output files will be saved.\nset dataDir Examples/EXAMPLE2_OUTPUT;file mkdir $dataDir;recorder Node -file $dataDir/Node2disp.out -time -node 2 -dof 1 disp;Learn more about the Recorder Command: [ Recorder Command \u0026lt;http://opensees.berkeley.edu/wiki/index.php/Recorder_Command\u0026gt;].title-ref __\nThermal Loading \u0026nbsp; This particular model is heating a beam to a set temperature over the time period of the model. We are not asking OpenSees to use a specific time-temperature curve, rather linearly ramp up the temperature from ambient to 1180 ° C.\nTherefore, we set the maximum temperature as follows:\nT = Max Tempurature degcelciusdeg celcius set T 1180;In OpenSees, the user can define 2 or 9 temperature data points through the cross section. In a 2D analysis framework, like this example, temperature data point locations are specified on the y-axis of the local coordinate system (as shown in the figure below), and are linearly interpolated between the defined points. Because this example is using a uniformly heated beam, the entire cross section is one temperature, and two temperature points on each extreme fiber on the y-axis will be chosen. The beam has a depth of 400 mm, therefore, Y1 = 200 mm \u0026amp; Y2 = -200 mm for the top and bottom fibers respectively.\nLocation of bottom extreme fiber of beam mmmm set Y1 100;Location of top extreme fiber of beam mmmm set Y2 -100; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nLocation of defined input temperature locations on the member cross section\nThe bottom extreme fiber temperature must be defined first. The target maximum temperature for each extreme fiber is set to 1180\u0026lt;sup\u0026gt;o\u0026lt;/sup\u0026gt;C and will be increased incrementally and linearly as the time step continues in the analysis. An external temperature data set could also be used for more complex temperature loading. The syntax for this is:\nThermal loading pattern\npattern Plain 1 Linear  eleLoad -ele 1 -type -beamThermal $T $Y2 $T $Y1 ; Thermal Analysis \u0026nbsp; Thermal loading is applied in 1000 steps, with a load factor of 0.001. Each step is a 0.001 increment of the maximum temperature specified in the thermal loading step: T. The analysis is a static analysis and the contraints of the beam are plain. 1000 increments was also used during thermal analysis to allow for easy correlation between the input temperatures and the recorded output.\nA variety of load factors were examined and the solution converged when a load factor of 0.001 was used. OpenSees is sensitive to the load factor, therefore, it is important to ensure that benchmarking examples are performed to determine the proper load factor to use in structural fire engineering analyses.\nset Nsteps 1000set Factor \\[expr 1.0/$Nsteps\\];integrator LoadControl $Factor;analyze $Nsteps; Output Plots \u0026nbsp; After the model has completed running, the results will be a horizontal displacement of the right end of the beam. Since the temperature was linearly ramped up from ambient to 1180 ° C, the user can develop a temperature history that matches every increment of the model.\nThermal expansion is the change is length divided by the original length. This could also be called thermal strain. The thermal expansion of the beam is plotted below and compared to the Eurocode 3 11 temperature-dependent thermal expansion. We can see that the modeled thermal expansion matches the material properties. This is important to check that the temperatures and material properties are assigned propertly in the model.\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nThermal expansion of the beam recorded at node 2\nSources \u0026nbsp; 11 European Committee for Standardization (CEN). (2005). Eurocode 3: Design of Steel Structures, Part 1.2: General Rules - Structural Fire Design."
+      })
+      .add(
+      
+      
+      {
+        id: 16,
+        tag: "en",
         href: "/opensees-gallery/examples/example1/",
         title: "Example 1: Linear Truss",
         description: "A finite element model of a simple truss is created, and static analysis is performed.",
@@ -6700,7 +6713,46 @@ function initIndex() {
       
       
       {
-        id: 16,
+        id: 17,
+        tag: "en",
+        href: "/opensees-gallery/examples/thermalexamples/thermalexample2/",
+        title: "Example 2",
+        description: "Restrained Steel beam subjected to uniform temperature on half of the member. \u0026nbsp; {.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;}\n",
+        
+        
+        content: "Restrained Steel beam subjected to uniform temperature on half of the member. \u0026nbsp; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nExample overview: A steel beam of two equal elements is subjected to a uniform temperature on only one of the elements. Element 1 remains at ambient tempurature while Element 2 is heated using a linear time-temperature history.\nDownload Example 2 files:\nExample2.tcl\nExample 2 Outputs \u0026lt;files/EXAMPLE2_OUTPUT.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nObjective \u0026nbsp; Example 2 Objectives:\nDevelop a simply supported steel beam using displacement-based beam elements with tempurature-dependent material properites, Record internal forces of an element subjected to a linear time-temperature history due to the restraint against thermal expansion, Record displacement of a node due to a linear time-temperature history, and Correlate the recorded internal forces and displacement with the linear time-temperature history to plot the two variables as a function of temperature. Material \u0026nbsp; The uniaxialMaterial Steel01Thermal includes temperature-dependent steel thermal and mechanical properties per Eurocode 3 11 . More details of Steel01 can be found at: Steel01 Material\u0026nbsp; uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b;Es = 210 GPa (Young\u0026rsquo;s modulus of elasticity at ambient temperatures)\nFy = 250 MPa (Yield strength of material at ambient temperatures)\nb = 0.001 (Strain-Hardening Ratio)\nTransformation \u0026nbsp; The beam is expanding in one direction, therefore, 2nd order bending effects do not need to be considered.\ngeomTransf Linear $transftag;Learn more about geometric transofrmations: Geometric Transformation\u0026nbsp; Section \u0026nbsp; The discretization of the steel section into four fibers is shown using the code below:\nsection FiberThermal secTag -GJ $Esset numSubdivIJ 2; \\# horizontal divisionset numSubdivJK 2; \\# vertical divisionset yI -100; #mmset zI -200; #mmset yJ 100; #mmset zJ -200; #mmset yK 100; #mmset zK 200; #mmset yL -100; #mmset zL 200; #mmpatch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ $zJ $yK $zK $yL $zLSections that will be subjected to thermal loading must be created with fiberThermal or fibersecThermal.\nIn previous versions of OpenSees, a default value for torsional stiffness was used (GJ). In versions 3.1.0 and newer fiber sections require a value for torsional stiffness. This is a 2D example with negligible torsion, however a value is required. The Young's Modulus is used for convenience.\nThe discretization can be visualized as such:\n.align-centeralign-center width=\u0026ldquo;400px\u0026rdquo;\nCross section of rectangular beam showing fiber discretization\nElements \u0026nbsp; dispBeamColumnThermal elements are used because temperature-dependent thermal and mechanical steel properties can be applied to these elements. Any portion of the structure that is being heated must use elements that are compatible with uniaxialMaterial Steel01Thermal. At the time this model was developed, dispBeamColumnThermal was the only element type that could have tempurature-dependent thermal and mechanical properties applied to them.\nThe beam is made of one element with 5 iteration points and connects nodes 1 \u0026amp; 2. OpenSees is sensitive to the number of iteration points in each element and this could change the result of the recorded displacement. For this reason, it is important to perform these benchmarking examples to establish how many iteration points allows for convergence to the expected recorded displacement. To code the number of iteration points, we use the following syntax:\ndispBeamColumnThermal eleTag iNode jNode numIntgrPts secTag TransfTag;\nElement 1\nelement dispBeamColumnThermal 1 1 2 5 $secTag $transftag;Element 2\nelement dispBeamColumnThermal 1 2 3 5 $secTag $transftag; Output Recorders \u0026nbsp; Displacement of the middle of node (2) in DOF 1 (horizontal direction) and the horizontal reaction force from the boundary conditions is what we want to record. To do so, a folder within your working directory must be created. dataDir is the command to create that folder and should be defined at the beginning of the model. This is where your output files will be saved.\nset dataDir Examples/EXAMPLE2_OUTPUT;file mkdir $dataDir;Displacement of the middle node (2) in DOF 1 (Horizontal Displacement)\nrecorder Node -file $dataDir/MidspanNodeDisp.out -time -node 2 -dof 1 disp;Recording reactions at the boundary conditions:\nrecorder Node -file $dataDir/BoundryRXN.out -time -node 1 3 -dof 1 2 reaction;Recording the section forces in Elements 1 \u0026amp; 2:\nrecorder Element -file $dataDir/ele_force_1.out -time -ele 1 section 2 forcerecorder Element -file $dataDir/ele_force_2.out -time -ele 2 section 2 forceLearn more about the Recorder Command: [Recorder Command \u0026lt;http://opensees.berkeley.edu/wiki/index.php/Recorder_Command\u0026gt;].title-ref __\nThermal Loading \u0026nbsp; This particular model is heating a beam to a set temperature over the time period of the model. We are not asking OpenSees to use a specific time-temperature curve, rather linearly ramp up the temperature from ambient to 1180 ° C.\nTherefore, we set the maximum temperature as follows:\nT = Max Tempurature degcelciusdeg celcius set T 1180;In OpenSees, the user can define 2 or 9 temperature data points through the cross section. In a 2D analysis framework, like this example, temperature data point locations are specified on the y-axis of the local coordinate system (as shown in the figure above). And are linearly interpolated between the defined points. Because this example is using a uniformly heated beam, the entire cross section is one temperature, and two temperature points on each extreme fiber on the y-axis will be chosen. The beam has a depth of 200mm, therefore, Y1 = 100 mm \u0026amp; Y2 = -100 mm for the top and bottom fibers respectively.\nLocation of bottom extreme fiber of beam mmmm set Y1 -100;Location of top extreme fiber of beam mmmm set Y2 100; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nLocation of defined input temperature locations on the member cross section\nThe bottom extreme fiber temperature must be defined first. The target maximum temperature for each extreme fiber is set to 1180 ° C and will be increased incrementally and linearly as the time step continues in the analysis. An external temperature data set can could also be used for more complex temperature loading.\nElement 1 will remain at ambient temperature 20 ° C, while Element 2 will be heated to the target tempurature. The syntax for this is:\npattern Plain 1 Linear eleLoad -ele 1 -type --beamThermal $T $Y2 $T Y1; eleLoad -ele 2 -type --beamThermal $T $Y2 $T Y1  Thermal Analysis \u0026nbsp; Thermal loading is applied in 1000 steps, with a load factor of 0.001. Each step is a 0.001 increment of the maximum temperature specified in the thermal loading step: T. The analysis is a static analysis and the contraints of the beam are plain. 1000 increments was also used during thermal analysis to allow for easy correlation between the input temperatures and the recorded output.\nA variety of load factors were examined and the solution converged when a load factor of 0.001 was used. OpenSees is sensitive to the load factor, therefore, it is important to ensure that benchmarking examples are performed to determine the proper load factor to use in structural fire engineering analyses.\nset Nsteps 1000set Factor \\[expr 1.0/$Nsteps\\];integrator LoadControl $Factor;analyze $Nsteps; Output Plots \u0026nbsp; After the model has completed running, the results will be a horizontal displacement of the recorded node, the internal forces in the elements, and the reactions from the boundary conditions. Since the temperature was linearly ramped up from ambient to 1180 ° C, the user can develop a temperature history that matches every increment of the model.\nElement 1 internal axial force vs. temperature\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nNode 2 Horizontal displacement versus temperature\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nSources \u0026nbsp; 11 European Committee for Standardization (CEN). (2005). Eurocode 3: Design of Steel Structures, Part 1.2: General Rules - Structural Fire Design."
+      })
+      .add(
+      
+      
+      {
+        id: 18,
+        tag: "en",
+        href: "/opensees-gallery/examples/thermalexamples/thermalexample3/",
+        title: "Example 3",
+        description: "A 6m long beam has a uniform applied load of 10 kN/m. With the loading sustained, the beam is heated to a target temperature of 1180 ° C.\n{.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;}\n",
+        
+        
+        content: "A 6m long beam has a uniform applied load of 10 kN/m. With the loading sustained, the beam is heated to a target temperature of 1180 ° C.\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nElevation of beam and member cross-section\nExample overview: A steel beam is subjected to a uniform temperature using a linear time-temperature history. Vertical midspan displacement of the heated beam is recorded throughout the analysis. An investigation is performed on the impact the following parameters have on the midspan displacement of the beam: (i) including 2nd order geometric transformations, and (ii) restraining the horizontal displacement of the boundary conditions\nDownload Example 3 files:\nExample3.tcl\nWsectionThermal.tcl\nExample 3 Outputs \u0026lt;files/Example3_OUTPUT.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nObjectives \u0026nbsp; Develop a simply supported steel beam model using displacement-based beam elements with tempurature-dependent material properites, Record the midspan vertical displacment due to a linear time-temperature heating curve and a uniformly distributed gravity load, and Demonstrate the difference in midspan displacement of the beam when including 2nd order geometric transformations and restraining the beam against horizontal displacement of the beam ends. Material \u0026nbsp; The uniaxialMaterial Steel01Thermal includes temperature-dependent steel thermal and mechanical properties according to Eurocode 3 carbon steel. More details of Steel01 can be found at: Steel01 Material\u0026nbsp; uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b;Es = 210000 MPa (Young\u0026rsquo;s modulus of elasticity at ambient temperatures)\nFy = 250 MPa (Yield strength of material at ambient temperatures)\nb = 0.01 (Strain-Hardening Ratio)\nTransformation \u0026nbsp; Both Linear \u0026amp; Corotational (Non-Linear)Transformations were used, and the resulting midspan displacements of the beams were recorded to view differences of including 2nd order bending effects.\ngeomTransf Linear $transftag; or\ngeomTransf Corotational $transftag; Learn more about geometric transofrmations: Geometric Transformation\u0026nbsp; section \u0026nbsp; This example uses a W-shape beam, therefore an external .tcl script is used to define the fiber sections. This script uses fibersecThermal to procure a fibered W-shape section with a section tag to be used while defining elements. Eight fibers are used throughout the web and four fibers within each flange.\nIn previous versions of OpenSees, a default value for torsional stiffness was used (GJ). In versions 3.1.0 and newer fiber sections require a value for torsional stiffness. This is a 2D example with negligible torsion, however a value is required. The Young's Modulus is used for convenience.\nWsection dimensions:\nset d 355; #mmset bf 171.5; #mmset tf 11.5; #mmset tw 7.4; #mmset nfdw 8; #mmset nftw 1; #mmset nfbf 1; #mmset nftf 4; #mm secTag - section tag matTag - material tag d = nominal depth tw = web thickness bf = flange width tf = flange thickness nfdw = number of fibers along web depth nftw = number of fibers along web thickness nfbf = number of fibers along flange width nftf = number of fibers along flange thickness Gj = torsional stiffness # WsectionThermal secTag matTag d bf tf tw nfdw nftw nfbf nftf Gj WsectionThermal 1 1 $d $bf $tf $tw 8 1 1 4 $Es .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nCross section of W-shape showing fibers in the flanges and the web\nElement \u0026nbsp; dispBeamColumnThermal elements are used because temperature-dependent thermal and mechanical steel properties can be applied to these elements. Any portion of the structure that is being heated must use elements that are compatible with uniaxialMaterial Steel01Thermal. At the time this model was developed, dispBeamColumnThermal was the only element type that could have tempurature-dependent thermal and mechanical properties applied to them.\nThis example was developed using 6 elements along the length of the beam.\ndispBeamColumnThermal eleTageleTag iNode jNodejNode numIntgrPts secTagsecTag TransfTag;\nelement dispBeamColumnThermal $secTag 1 2 5 $secTag $transftag;This example will build off of the benchmarked examples and therefore used 5 iteration points in each element to simulate the beam bending and thermal expansion.\nOutput Recorders \u0026nbsp; dataDir is defined at the beginning of the model, this creates a folder within your working directory where output files will be saved.\nset dataDir Examples/EXAMPLE3_OUTPUT;file mkdir $dataDir;Displacement of the midspan node (4) in DOF 2 (Vertical Displacement)\nrecorder Node -file $dataDir/Midspan_Disp.out\\\u0026#34; -time -node 4 -dof 2 disp;Reaction forces at end nodes (nodes 1 \u0026amp; 7)\nrecorder Node -file $dataDir/RXNs.out -time -node 1 7 -dof 2 reaction;Learn more about the Recorder Command: Recorder Command\u0026nbsp; Thermal Loading \u0026nbsp; This particular model is heating a beam to a set temperature over the time period of the model. We are not asking OpenSees to use a specific time-temperature curve, rather linearly ramp up the temperature from ambient to 1180 ° C.\nTherefore, we set the maximum temperature as follows:\nset T 1180; # Max temperature, deg. celsiusIn OpenSees, the user can define 2 or 9 temperature data points through the cross section. In a 2D analysis framework, like this example, temperature data point locations are specified on the y-axis of the local coordinate system (as shown in the figure above). And are linearly interpolated between the defined points. Because this example is using a uniformly heated beam, two temperature points on each extreme fiber on the y-axis will be chosen. The beam has a depth of d, therefore, Y1 = d/2 \u0026amp; Y2 = -d/2 the top and bottom fibers respectively.\nTop fiber of beam\nset Y1 [expr $d/2];Bottom fiber of beam\nset Y2 [expr -$d/2]; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nLocation of defined input temperature locations on the member cross section\nThe bottom extreme fiber temperature must be defined first. The target maximum temperature for each extreme fiber is set to 1180 ° C and will be increased incrementally and linearly as the time step continues in the analysis. An external temperature data set could also be used for more complex temperature loading.\nUsing a plain linear loading pattern, Elements 1-6 will be heated to the target tempurature, T using a for loop for effecency. The syntax for this is:\npattern Plain 3 Linear for set level 1 $level \\\u0026lt;= 6 incr level 1 set eleID $level eleLoad -ele $eleID -type -beamThermal $T $Y2 $T $Y1; Thermal Analysis \u0026nbsp; Thermal loading is applied in 1000 steps, with a load factor of 0.001. Each step is a 0.001 increment of the maximum temperature specified in the thermal loading step: T. The analysis is a static analysis and the contraints of the beam are plain. 1000 increments was also used during thermal analysis to allow for easy correlation between the input temperatures and the recorded output.\nA variety of load factors were examined and the solution converged when a load factor of 0.001 was used. OpenSees is sensitive to the load factor, therefore, it is important to ensure that benchmarking examples are performed to determine the proper load factor to use in structural fire engineering analyses.\nset Nstep 1000;Thermal load is applied in 1000 steps. Each step is an 0.001 increment of the maximum temperature specified in the thermal loading step T (1180)\nset Factor \\[expr 1.0/$Nstep\\]; integrator LoadControl $Factor; analyze $Nstep; Output Plots \u0026nbsp; After the model has completed running, the results will be a vertical midspan displacement of the recorded node. Since the temperature was linearly ramped up from ambient to 1180 ° C, the user can develop a temperature history that matches every increment of the model. Additionally,mid-span displacement of the beam when including 2nd order geometric transformations, as well as restraining the horizontal boundary conditions are plotted. The same model was executed in the finite element software Abaqus additonally plotted as \u0026quot;AB\u0026quot;.\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nSources \u0026nbsp; [1] W. Maddalozzo and E.C. Fischer, \u0026quot;Post-earthquake fire performance of steel buildings,\u0026quot; World Conference on Earthquake Engineering, 17WCEE, Sendai, Japan - September 13-18, 2020."
+      })
+      .add(
+      
+      
+      {
+        id: 19,
+        tag: "en",
+        href: "/opensees-gallery/examples/thermalexamples/thermalexample4/",
+        title: "Example 4",
+        description: "A 6 m x 3.5 m single bay frame with a 2 kN/m distributed load is subjected to a non-linear fire curve. \u0026nbsp; {.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;}\n",
+        
+        
+        content: "A 6 m x 3.5 m single bay frame with a 2 kN/m distributed load is subjected to a non-linear fire curve. \u0026nbsp; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nElevation of frame\nExample overview: A one-bay frame is considered with a uniformly distributed load (2 kN/m). The frame is exposed to a fire. Heat transfer analyses were performed using a commercially available finite element program to calculate the temperature distribution through the cross section,and the temperatures at each fiber when the members are exposed to a non-linear gas time-temperature curve. The horizontal displacements of the top corners of frame are restrained to represent lateral bracing, and the midspan displacement of the beam is recorded throughout the analysis.\nDownload Example 4 files:\nExample4.tcl\nWsectionThermal.tcl\nNodal Temperature Files \u0026lt;files/Ex4_NodalTemperatureFiles.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nExample 4 Outputs \u0026lt;files/Example4_OUTPUT.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nObjectives \u0026nbsp; Example 4 Objectives: 1. Develop a portal frame in OpenSees using displacement-based elements with tempurature-dependent material properties, and 2. Implementing user-defined time-tempurature histories for the elements calculated through heat transfer analysis.\nMaterial \u0026nbsp; The uniaxialMaterial Steel01Thermal includes temperature-dependent steel thermal and mechanical properties according to Eurocode 3 carbon steel. More details of Steel01 can be found at: Steel01 Material\u0026nbsp; uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b;Es = 210000 MPa (Young\u0026rsquo;s modulus of elasticity at ambient temperatures)\nFy = 275 MPa (Yield strength of material at ambient temperatures)\nb = 0.01 (Strain-Hardening Ratio)\nTransformation \u0026nbsp; Because the beams in this example experience large deflections, 2nd order bending effects were considered using the Corotational geometric transformation.\ngeomTransf Corotational $transftag;Learn more about geometric transofrmations: Geometric Transformation\u0026nbsp; section \u0026nbsp; This example uses a W-shape beam, therefore an external .tcl script is used to define the fiber sections. This script uses fibersecThermal to procure a fibered W-shape section with a section tag to be used while defining elements. Eight fibers are used throughout the web and four fibers within each flange.\nIn previous versions of OpenSees, a default value for torsional stiffness was used (GJ). In versions 3.1.0 and newer fiber sections require a value for torsional stiffness. This is a 2D example with negligible torsion, however a value is required. The Young's Modulus is used for convenience.\nWsection dimensions:\nset secTag 1;set d 160;set bf 82;set tf 7.4;et tw 5.0;set nfdw 8;set nftw 1;set nfbf 1;set nftf 4; secTag - section tag matTag - material tag d = nominal depth tw = web thickness bf = flange width tf = flange thickness nfdw = number of fibers along web depth nftw = number of fibers along web thickness nfbf = number of fibers along flange width nftf = number of fibers along flange thickness Gj = torsional stiffness WsectionThermal secTag matTag d bf tf tw nfdw nftw nfbf nftf Gj\nWsectionThermal $secTag $matTag $d $bf $tf $tw 8 1 1 4 $Es .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nCross section of W-shape showing fibers in the flanges and the web\nElement \u0026nbsp; dispBeamColumnThermal elements are used because temperature-dependent thermal and mechanical steel properties can be applied to these elements. Any portion of the structure that is being heated must use elements that are compatible with uniaxialMaterial Steel01Thermal. At the time this model was developed, dispBeamColumnThermal was the only element type that could have tempurature-dependent thermal and mechanical properties applied to them.\ndispBeamColumnThermal eleTageleTag iNode jNodejNode numIntgrPts secTagsecTag TransfTag;\nelement dispBeamColumnThermal 1 1 2 3 $secTag $transftag;Each column and beam element is created using ten displacement-based elements with 3 iteration points in each element.\nOutput Recorders \u0026nbsp; $dataDir is defined at the beginning of the model, this creates a folder within your working directory where output files will be saved. \u0026gt;set dataDir Examples/EXAMPLE4_OUTPUT;\nfile mkdir $dataDir;Displacement of the beam midspan node (27), DOF 2 (Vertical Displacement)\nrecorder Node -file $dataDir/Midspan_BeamDisp.out -time -node 27 -dof 2 disp;Reaction forces at end nodes. (1 \u0026amp; 12)\nrecorder Node -file $dataDir/RXNS.out -time -node 1 12 -dof 2 3 reaction;Learn more about the Recorder Command: Recorder Command\u0026nbsp; Thermal Loading \u0026nbsp; This particular model is heated using a fire time tempurature curve shown below. The fiber temperatures, or the temperature distribution through the cross section was calculated by performing a heat transfer analysis.\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nThe results from the heat transfer analysis were used as inputs for the fiber temperatures in OpenSees. The locations of the input tempurature locations can be seen in the figure below.\nThree tempurature input files were created for the tempurature distribution of the beam and columns. Each tempurature file has 10 columns representing: Time, T1, T2, T3, T4, T5, T6, T7, T8 \u0026amp; T9. Time ranges from 0 to 1 to correlete with OpenSees analysis time steps. The T1 through T9 columns represent temperatures at each of the locations shown below for nine fibers through the cross section.\nThe red dots above below are locations where nodal temperatures were recorded during the heat transfer analysis and red dotted lines represent temperature input locations. The code below shows how to define each of the temperature input locations. The temperature through the depth of the web was constant. :\nset Y9 [expr -$d/2]; set Y2 [expr -($d/2 - 0.99*$tf)]; set Y3 [expr -($d/2 - $tf)]; set Y4 [expr -$d/4]; set Y5 0.0; set Y6 [expr $d/4]; set Y7 [expr ($d/2 - $tf)]; set Y8 [expr ($d/2 - 0.99*$tf)]; set Y9 [expr $d/2]; .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nLocation of defined input temperature locations and extracted nodal temperatures on the member cross section (both beam and columns)\nThe bottom extreme fiber temperature must be defined first in the thermal load pattern. The input temperature files must be in your working directories or have their paths specified.\nTemperature loading for the beam\npattern Plain 11 Linear  for set level 21 $level \\\u0026lt;= 30 incr level 1 set eleID $level; eleLoad -ele $eleID -type -beamThermal -source BeamTemp.txt $Y9 $Y8 $Y7 $Y6 $Y5 $Y4 $Y3 $Y2 $Y1;Temperature loading for column 1\npattern Plain 11 Linear  for set level 1 $level \\\u0026lt;= 10 incr level 1 set eleID $level; eleLoad -ele $eleID -type -beamThermal -source Column1Temp.txt $Y9 $Y8 $Y7 $Y6 $Y5 $Y4 $Y3 $Y2 $Y1;Temperature loading for column 2\npattern Plain 11 Linear  for set level 11 $level \\\u0026lt;= 20 incr level 1 set eleID $level; eleLoad -ele $eleID -type -beamThermal -source Column2Temp.txt $Y$Y8 $Y7 $Y6 $Y5 $Y4 $Y3 $Y2 $Y1; Thermal Analysis \u0026nbsp; Thermal loading is applied in 1000 steps, with a load factor of 0.001. Each step is a 0.001 increment of the maximum temperature specified in the thermal loading step: T. The analysis is a static analysis and the contraints of the beam are plain. 1000 increments was also used during thermal analysis to allow for easy correlation between the input temperatures and the recorded output.\nA variety of load factors were examined and the solution converged when a load factor of 0.001 was used. OpenSees is sensitive to the load factor, therefore, it is important to ensure that benchmarking examples are performed to determine the proper load factor to use in structural fire engineering analyses.\nset Nstep 1000;set Factor \\[expr 1.0/$Nstep\\];integrator LoadControl $Factor;analyze $Nstep; Output Plots \u0026nbsp; After the model has completed running, the results will be the vertical midspan displacement of the beam. This displacement can be plotted against the time of the fire. It is suggested that if the user would like to develop a temperature history that matches every increment of the model, the same number of tempurature inputs as time steps is used.\nBeam midspan displacement versus time for the heated one-bay frame:\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nSources \u0026nbsp; 11 European Committee for Standardization (CEN). (2005). Eurocode 3: Design of Steel Structures, Part 1.2: General Rules - Structural Fire Design.\n22 W. Maddalozzo and E.C. Fischer, \u0026quot;Post-earthquake fire performance of steel buildings,\u0026quot; World Conference on Earthquake Engineering, 17WCEE, Sendai, Japan - September 13-18, 2020."
+      })
+      .add(
+      
+      
+      {
+        id: 20,
         tag: "en",
         href: "/opensees-gallery/examples/example4/",
         title: "Example 4: Multibay Two Story Frame",
@@ -6713,7 +6765,20 @@ function initIndex() {
       
       
       {
-        id: 17,
+        id: 21,
+        tag: "en",
+        href: "/opensees-gallery/examples/thermalexamples/thermalexample5/",
+        title: "Example 5",
+        description: "A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 ° C.\n{.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;}\n",
+        
+        
+        content: "A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 ° C.\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nElevation of two-bay frame\nExample overview: This example will combine the modeling methodologies developed through the other examples and apply them to a two-bay frame with a fire in one of the bays. Recorded data from the OpenSees analysis will be compared with the experimental test data 22 . Heat transfer analyses were performed using a commercially available finite element program to calculate the temperature distribution through the cross sections when the members are exposed to a linear gas time-temperature curve. Horizontal displacement of upper corners, U1 \u0026amp; U2 are recorded.\nDownload Example 5 files:\nExample5.tcl\nWsectionThermal.tcl\nExample 5 Outputs \u0026lt;files/Example5_OUTPUT.zip\u0026gt;.interpreted-text role=\u0026ldquo;download\u0026rdquo;.\nObjectives \u0026nbsp; Example 5 Objectives: 1. Create a two-bay frame in OpenSees using displacement-based elements with tempurature-dependent material properties, 2. Implementing user-defined time-tempurature histories for the elements calculated through heat transfer analysis, and 3. Compare recorded parameters from the OpenSees model to experimental testing data 22 to benchmark modeling methodologies.\nExperimental Test Overview\nA two-bay frame was tested by researchers 22 . Each bay size was 1.2 m in width and 1.18 m in height. Point loads were applied at the beam-column joints in the lateral and gravity directions in addition to a uniformly distributed load applied to the beams. The columns and beam of one of the bays was heated using electrical heaters that surrounded each of the members, therefore, uniformly heating each member (there was no thermal gradient through the cross section). The temperature was increased until failure.\nMaterial \u0026nbsp; The uniaxialMaterial Steel01Thermal includes temperature-dependent steel thermal and mechanical properties per Eurocode 3 11 . More details of Steel01 can be found at: Steel01 Material\u0026nbsp; Es = 210 GPa (Young\u0026rsquo;s modulus of elasticity at ambient temperatures) Fy = 355 MPa (Yield strength of material at ambient temperatures) b = 0.001 (Strain-Hardening Ratio) set matTag 1;uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b; Transformation \u0026nbsp; Because the beams and columns in this example experience bending, 2nd order bending effects were considered using the Corotational geometric transformation.\ngeomTransf Corotational $transftag;Learn more about geometric transofrmations: Geometric Transformation\u0026nbsp; Section \u0026nbsp; This example uses an external .tcl script to define the cross section. This script uses fibersecThermal to procure a fibered W-shape section with a section tag to be used while defining elements. Eight fibers are used throughout the web and four fibers within each flange.\nIn previous versions of OpenSees, a default value for torsional stiffness was used (GJ). In versions 3.1.0 and newer fiber sections require a value for torsional stiffness. This is a 2D example with negligible torsion, however a value is required. The Young\u0026rsquo;s Modulus is used for convenience. Wsection dimensions are (units are meters):\nset secTag 1; # section Tag set d 0.08; # depth of beam set bf 0.046; # flange width set tf 0.0052; # flange thickness set tw 0.0038; # web thickness secTag - section tag matTag - material tag d = nominal depth tw = web thickness bf = flange width tf = flange thickness nfdw = number of fibers along web depth nftw = number of fibers along web thickness nfbf = number of fibers along flange width nftf = number of fibers along flange thickness Gj = torsional stiffness # WsectionThermal secTag matTag d bf tf tw nfdw nftw nfbf nftf Gj WsectionThermal $secTag $matTag $d $bf $tf $tw 8 1 1 4 $Es .align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nCross section of W-shape showing fibers in the flanges and the web\nElement \u0026nbsp; dispBeamColumnThermal elements are used because temperature-dependent thermal and mechanical steel properties can be applied to these elements. Any portion of the structure that is being heated must use elements that are compatible with uniaxialMaterial Steel01Thermal. At the time this model was developed, dispBeamColumnThermal was the only element type that could have tempurature-dependent thermal and mechanical properties applied to them.\n# $eleTag $iNode $jNode $numIntgrPts $secTag $TransfTag; element dispBeamColumnThermal 1 1 2 3 $secTag $transftag;Each column and beam element is created using ten displacement-based elements with 3 iteration points in each element.\nOutput Recorders \u0026nbsp; dataDir is defined at the beginning of the model, this creates a folder within your working directory where output files will be saved.\nset dataDir Examples/EXAMPLE5_OUTPUT;file mkdir $dataDir;displacements of node U1 (node 11, top left), DOF 1 (Horizontal Displacement)\nrecorder Node -file $dataDir/Midspan_BeamDisp.out -time -node 11 -dof 1 disp;displacements of node U2 (node 22, top-middle), DOF 1 (Horizontal Displacement)\nrecorder Node -file $dataDir/Midspan_BeamDisp.out -time -node 22 -dof 1 disp;Reaction forces at support nodes (1, 12 and 23):\nrecorder Node -file $dataDir/RXNS.out -time -node 1 12 23 -dof 2 3 reaction;Learn more about the Recorder Command: Recorder Command\u0026nbsp; Thermal Loading \u0026nbsp; In this model, the beams and columns of the left bay are heated by increasing the temperature linearly from ambient temperature until failure. The right bay remains at ambient tempurature.\nTherefore, we set the maximum temperature as follows:\nset T 550; # Max Temperature, deg CIn OpenSees, the user can define 2 or 9 temperature data points through the cross section. In a 2D analysis framework, like this example, temperature data point locations are specified on the y-axis of the local coordinate system (as shown in the figure above). And are linearly interpolated between the defined points. Because this example is using a uniformly heated beam, two temperature points on each extreme fiber on the y-axis will be chosen. The beam has a depth of d, therefore, Y1 = d/2 and Y2 = -d/2 the top and bottom fibers respectively.\nTop fiber of beam\nset Y1 [expr $d/2];Bottom fiber of beam\nset Y2 [expr -$d/2];Location of defined input temperature locations on the member cross section (both beam and columns)\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nThe bottom extreme fiber temperature must be defined first. The target maximum temperature for each extreme fiber is set to 550 ° C and will be increased linearly and incrementally as the time step continues in the analysis. An external temperature data set can could also be used for more complex temperature loading.\nUsing a for-loop and a plain linear loading pattern, elements 1-20 \u0026amp; 31-40 will be subjected to tempurature, T. These elements define the heated bay.\npattern Plain 2 Linear  for set i 1 $i \\\u0026lt;= 20 incr i  eleLoad -ele $i -type -beamThermal $T $Y2 $T $Y1;  for set i 31 $i \\\u0026lt;= 40 incr i eleLoad -ele $i -type -beamThermal $T $Y2 $T $Y1;; Thermal Analysis \u0026nbsp; Thermal loading is applied in 1000 steps, with a load factor of 0.001. Each step is a 0.001 increment of the maximum temperature specified in the thermal loading step: T. The analysis is a static analysis and the contraints of the beam are plain. 1000 increments was also used during thermal analysis to allow for easy correlation between the input temperatures and the recorded output. Each step is an 0.001 increment of the maximum temperature specified in the thermal loading step: T.\nA variety of load factors were examined and the solution converged when a load factor of 0.001 was used. OpenSees is sensitive to the load factor, therefore, it is important to ensure that benchmarking examples are performed to determine the proper load factor to use in structural fire engineering analyses.\nset Nstep 1000 set Factor \\[expr 1.0/$Nstep\\]; integrator LoadControl $Factor; analyze $Nstep; Output Plots \u0026nbsp; After the model has completed running, the results will be horizontal displacements of the recorded node. Since the temperature was linearly ramped up from ambient to 550 ° C, the user can develop a temperature history that matches every increment of the model. The displacements are benchmarked against test data 22 as shown in the figure below.\nNode U1 horizontal displacement versus temperature compared with the testing data\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nNode U2 horizontal displacement versus temperature compared with the testing data\n.align-centeralign-center width=\u0026ldquo;500px\u0026rdquo;\nSources \u0026nbsp; 11 European Committee for Standardization (CEN). (2005). Eurocode 3: Design of Steel Structures, Part 1.2: General Rules - Structural Fire Design.\n22 Rubert A, Schaumann P. (1986). \u0026ldquo;Structural steel and plane frame assemblies under ﬁre action.\u0026rdquo; Fire Safety Journal, vol. 10, pp.173\u0026ndash;184."
+      })
+      .add(
+      
+      
+      {
+        id: 22,
         tag: "en",
         href: "/opensees-gallery/docs/library/frame/",
         title: "Frame",
@@ -6726,7 +6791,7 @@ function initIndex() {
       
       
       {
-        id: 18,
+        id: 23,
         tag: "en",
         href: "/opensees-gallery/examples/example5/",
         title: "Frame with Diaphragms",
@@ -6739,7 +6804,7 @@ function initIndex() {
       
       
       {
-        id: 19,
+        id: 24,
         tag: "en",
         href: "/opensees-gallery/examples/viscousdamper/",
         title: "Frame with Viscous Dampers",
@@ -6752,7 +6817,7 @@ function initIndex() {
       
       
       {
-        id: 20,
+        id: 25,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/icons/",
         title: "Icons",
@@ -6765,7 +6830,7 @@ function initIndex() {
       
       
       {
-        id: 21,
+        id: 26,
         tag: "en",
         href: "/opensees-gallery/examples/cantilevertransient/",
         title: "Inelastic Cantilever",
@@ -6778,7 +6843,7 @@ function initIndex() {
       
       
       {
-        id: 22,
+        id: 27,
         tag: "en",
         href: "/opensees-gallery/examples/example3/",
         title: "Inelastic Plane Frame",
@@ -6791,7 +6856,7 @@ function initIndex() {
       
       
       {
-        id: 23,
+        id: 28,
         tag: "en",
         href: "/opensees-gallery/examples/inelasticsdof/",
         title: "Inelastic SDOF",
@@ -6804,7 +6869,7 @@ function initIndex() {
       
       
       {
-        id: 24,
+        id: 29,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/introduction/",
         title: "Introduction",
@@ -6817,7 +6882,7 @@ function initIndex() {
       
       
       {
-        id: 25,
+        id: 30,
         tag: "en",
         href: "/opensees-gallery/docs/configuration/layout/",
         title: "Layout",
@@ -6830,7 +6895,7 @@ function initIndex() {
       
       
       {
-        id: 26,
+        id: 31,
         tag: "en",
         href: "/opensees-gallery/docs/about/license/",
         title: "License",
@@ -6843,7 +6908,7 @@ function initIndex() {
       
       
       {
-        id: 27,
+        id: 32,
         tag: "en",
         href: "/opensees-gallery/examples/chopra-10.4/",
         title: "Matrix Eigenvalue Analysis",
@@ -6856,20 +6921,20 @@ function initIndex() {
       
       
       {
-        id: 28,
+        id: 33,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/modeling/",
         title: "Modeling",
-        description: "To run multiple models simultaneously, use openseespy.Model(...) (capital M) instead of the regular openseespy.model(...) (lowercase m) function, and invoke all subsequent modeling functions (e.g. node(...), element(...), fix(...), etc) as methods on the object returned from Model() instead of the openseespy submodule directly. For example, instead of:\nimport opensees.openseespy as ops ops.model(\u0026#34;basic\u0026#34;, \u0026#34;-ndm\u0026#34;, 2, \u0026#34;-ndf\u0026#34;, 3) ops.node(1, 2.0, 3.0)",
+        description: "Modeling in Python \u0026nbsp; The best practice for modeling in Python is to create a model class by calling the opensees.openseespy.Model(...) constructor (note the capital \u0026ldquo;M\u0026rdquo;). All standard OpenSees functions, as documented here\u0026nbsp; can be called as methods on the object that is retured. For example:\n",
         
         
-        content: "To run multiple models simultaneously, use openseespy.Model(...) (capital M) instead of the regular openseespy.model(...) (lowercase m) function, and invoke all subsequent modeling functions (e.g. node(...), element(...), fix(...), etc) as methods on the object returned from Model() instead of the openseespy submodule directly. For example, instead of:\nimport opensees.openseespy as ops ops.model(\u0026#34;basic\u0026#34;, \u0026#34;-ndm\u0026#34;, 2, \u0026#34;-ndf\u0026#34;, 3) ops.node(1, 2.0, 3.0)do\nimport opensees.openseespy as ops model = ops.Model(ndm=2, ndf=3) model.node(1, 2.0, 3.0)"
+        content: "Modeling in Python \u0026nbsp; The best practice for modeling in Python is to create a model class by calling the opensees.openseespy.Model(...) constructor (note the capital \u0026ldquo;M\u0026rdquo;). All standard OpenSees functions, as documented here\u0026nbsp; can be called as methods on the object that is retured. For example:\nimport opensees.openseespy as ops model = ops.Model(ndm=2, ndf=3) model.node(1, 2.0, 3.0) Evaluate Tcl models from Python \u0026nbsp; The first scripting interface to OpenSees used a programming language called Tcl, which continues to be supported. To execute Tcl commands from a Python script, just create an instance of the opensees.openseespy.Model class and call its eval() method:\nimport opensees.openseespy as ops model = ops.Model() model.eval(\u0026#34;model Basic -ndm 2\u0026#34;) model.eval(\u0026#34;print -json\u0026#34;)Full Tcl files can be conveniently executed in this way. For example, if a Tcl file called model.tcl exists in the current working directory:\nimport opensees.openseespy as ops model = ops.Model() with open(\u0026#34;model.tcl\u0026#34;, \u0026#34;r\u0026#34;) as f: model.eval(f.read())"
       })
       .add(
       
       
       {
-        id: 29,
+        id: 34,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/module-development/",
         title: "Module development",
@@ -6882,7 +6947,7 @@ function initIndex() {
       
       
       {
-        id: 30,
+        id: 35,
         tag: "en",
         href: "/opensees-gallery/examples/example2/",
         title: "Moment-Curvature Analysis",
@@ -6895,20 +6960,20 @@ function initIndex() {
       
       
       {
-        id: 31,
+        id: 36,
         tag: "en",
         href: "/opensees-gallery/examples/framebuckling/",
         title: "Nonlinear Geometry",
         description: "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_{\\mathrm{euler}} = \\frac{\\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.\n",
         
         
-        content: "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_\\mathrmeuler = \\frac\\pi^2 EIL^2 This example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.\nλ=PL2EI[1−P/(ksGA)]=PL2χEIχ=1−P/(ksGA)P=χλ2EI/L2. \\begingathered \\lambda=\\sqrt\\fracP L^2E I\\left[1-P /\\left(k_\\mathrms G A\\right)\\right]=\\sqrt\\fracP L^2\\chi E I \\\\ \\chi=1-P /\\left(k_\\mathrms G A\\right) \\\\ P=\\chi \\lambda^2 E I / L^2 . \\endgathered χ=11+λ2EI/(ksGAL2)=11+λ2φ/12P=λ2EI/L21+λ2φ/12. \\begingathered \\chi=\\frac11+\\lambda^2 E I /\\left(k_\\mathrms G A L^2\\right)=\\frac11+\\lambda^2 \\varphi / 12 \\\\ P=\\frac\\lambda^2 E I / L^21+\\lambda^2 \\varphi / 12 . \\endgathered tan⁡λcr =χλcr =λcr 1+λcr 2φ/12 \\tan \\lambda_\\text cr =\\chi \\lambda_\\text cr =\\frac\\lambda_\\text cr 1+\\lambda_\\text cr  2 \\varphi / 12"
+        content: "Corotational frame elements are used to approximate Euler\u0026rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_\\mathrmeuler = \\frac\\pi^2 EIL^2 This example is adapted from https://github.com/denavit/OpenSees-Examples\u0026nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.\nTheory \u0026nbsp; Buckling Analysis \u0026nbsp; Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it\u0026rsquo;s applied loads. This implies that at the point of buckling, there are multiple independent displacement increments u\\bmu which will be mapped to the same resisting load by the tangent K\\bmK . In otherwords, The buckling load is the point at which K\\bmK becomes singular. If we consider K\\bmK as a function of the load factor λ\\bm\\lambda , this condition can be expressed as the nonlinear root-finding problem: det⁡K(λ)=0 \\operatornamedet\\bmK(\\lambda) = 0 For many classical models, the dependence of K\\bmK on λ\\lambda is linear, and in this case the problem is equivalent to a generalized eigenvalue problem which is computationally much more tractable. However, even if K\\bmK is nonlinear in λ\\lambda , one may still investigate the linearized buckling problem, where an eigenvalue problem is obtained by learizing K(λ)\\bmK(\\lambda) : K(λ)≈K(0)+K′(0)λ \\bmK(\\lambda) \\approx \\bmK(0) + \\bmK^\\prime(0) \\lambda where K′\\bmK^\\prime is the derivative of K\\bmK with respect to λ\\lambda .\nTimoshenko Column Buckling \u0026nbsp; λ=PL2EI[1−P/(ksGA)]=PL2χEIχ=1−P/(ksGA)P=χλ2EI/L2. \\begingathered \\lambda=\\sqrt\\fracP L^2E I\\left[1-P /\\left(k_\\mathrms G A\\right)\\right]=\\sqrt\\fracP L^2\\chi E I \\\\ \\chi=1-P /\\left(k_\\mathrms G A\\right) \\\\ P=\\chi \\lambda^2 E I / L^2 . \\endgathered χ=11+λ2EI/(ksGAL2)=11+λ2φ/12P=λ2EI/L21+λ2φ/12. \\begingathered \\chi=\\frac11+\\lambda^2 E I /\\left(k_\\mathrms G A L^2\\right)=\\frac11+\\lambda^2 \\varphi / 12 \\\\ P=\\frac\\lambda^2 E I / L^21+\\lambda^2 \\varphi / 12 . \\endgathered tan⁡λcr =χλcr =λcr 1+λcr 2φ/12 \\tan \\lambda_\\text cr =\\chi \\lambda_\\text cr =\\frac\\lambda_\\text cr 1+\\lambda_\\text cr  2 \\varphi / 12"
       })
       .add(
       
       
       {
-        id: 32,
+        id: 37,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/overview/",
         title: "Overview",
@@ -6921,7 +6986,7 @@ function initIndex() {
       
       
       {
-        id: 33,
+        id: 38,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/partial-development/",
         title: "Partial development",
@@ -6934,7 +6999,7 @@ function initIndex() {
       
       
       {
-        id: 34,
+        id: 39,
         tag: "en",
         href: "/opensees-gallery/docs/getting-started/python/",
         title: "Python",
@@ -6947,7 +7012,7 @@ function initIndex() {
       
       
       {
-        id: 35,
+        id: 40,
         tag: "en",
         href: "/opensees-gallery/releases/",
         title: "Releases",
@@ -6960,7 +7025,7 @@ function initIndex() {
       
       
       {
-        id: 36,
+        id: 41,
         tag: "en",
         href: "/opensees-gallery/examples/spectrum/",
         title: "RotD Spectrum",
@@ -6973,7 +7038,7 @@ function initIndex() {
       
       
       {
-        id: 37,
+        id: 42,
         tag: "en",
         href: "/opensees-gallery/examples/sathertower/",
         title: "Sather Tower",
@@ -6986,7 +7051,7 @@ function initIndex() {
       
       
       {
-        id: 38,
+        id: 43,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/scripts/",
         title: "Scripts",
@@ -6999,7 +7064,7 @@ function initIndex() {
       
       
       {
-        id: 39,
+        id: 44,
         tag: "en",
         href: "/opensees-gallery/examples/sensitivity/",
         title: "Sensitivity",
@@ -7012,7 +7077,7 @@ function initIndex() {
       
       
       {
-        id: 40,
+        id: 45,
         tag: "en",
         href: "/opensees-gallery/examples/shallowdome/",
         title: "Shallow Dome",
@@ -7025,7 +7090,7 @@ function initIndex() {
       
       
       {
-        id: 41,
+        id: 46,
         tag: "en",
         href: "/opensees-gallery/examples/shellframe/",
         title: "Shell Diaphragms",
@@ -7038,7 +7103,7 @@ function initIndex() {
       
       
       {
-        id: 42,
+        id: 47,
         tag: "en",
         href: "/opensees-gallery/examples/pendulum/",
         title: "Simple Pendulum",
@@ -7051,7 +7116,7 @@ function initIndex() {
       
       
       {
-        id: 43,
+        id: 48,
         tag: "en",
         href: "/opensees-gallery/examples/example6/",
         title: "Simply Supported Solid Beam",
@@ -7064,7 +7129,7 @@ function initIndex() {
       
       
       {
-        id: 44,
+        id: 49,
         tag: "en",
         href: "/opensees-gallery/docs/advanced-settings/styles/",
         title: "Styles",
@@ -7077,7 +7142,7 @@ function initIndex() {
       
       
       {
-        id: 45,
+        id: 50,
         tag: "en",
         href: "/opensees-gallery/examples/shelltwist/",
         title: "Twisted Cantilever",
@@ -7090,7 +7155,7 @@ function initIndex() {
       
       
       {
-        id: 46,
+        id: 51,
         tag: "en",
         href: "/opensees-gallery/examples/wrench/",
         title: "Wrench",
