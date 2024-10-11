@@ -1,7 +1,7 @@
 {
-  "name": "@gethinode/template",
-  "version": "0.14.0",
-  "description": "Hinode is a clean blog theme for Hugo, an open-source static site generator",
+  "name": "opensees/examples",
+  "version": "0.1.2",
+  "description": "OpenSees",
   "main": "index.js",
   "scripts": {
     "prestart": "npm run -s mod:vendor",
