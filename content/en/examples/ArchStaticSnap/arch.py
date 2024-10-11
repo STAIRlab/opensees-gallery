@@ -9,11 +9,6 @@ def arch_model():
     Rise   = 500
     Offset = 200
 
-    # Define material parameters
-    E = 200
-    A = 1e4
-    I = 1e8
-
     # Compute radius
     R  = Rise/2 + (2*L)**2/(8*Rise)
     th = 2*np.arcsin(L/R)
@@ -43,14 +38,19 @@ def arch_model():
         # create the node
         model.node(tag, x, y)
 
+    # Define elastic section properties
+    E = 200
+    A = 1e4
+    I = 1e8
+    model.section("ElasticFrame", 1, A=A, E=E, I=I)
 
     # Create elements
-    transfTag = 1
-    model.geomTransf("Corotational", transfTag)
+    transf = 1
+    model.geomTransf("Corotational", transf)
     for i in range(ne):
         tag   = i+1
         nodes = (i+1, i+2)
-        model.element("ElasticBeamColumn", tag, *nodes, A, E, I, transfTag)
+        model.element("PrismFrame", tag, nodes, section=1, transform=transf)
 
 
     model.fix( 1, 1, 1, 0)
@@ -63,12 +63,14 @@ def arch_model():
     model.load(mid, 0.0, -1.0, 0.0, pattern=1)
 
 
-    model.system("ProfileSPD")
+    # Select linear solver, and ensure determinants are
+    # computed and stored.
+    # model.system("ProfileSPD")
     # model.system("FullGeneral")
     # model.system("BandGeneral")
-    # model.system("Umfpack", det=True)
+    model.system("Umfpack", det=True)
 
-    model.test("NormUnbalance", 1e-6, 25, 0)
+    model.test("NormUnbalance", 1e-6, 25, 9)
     model.algorithm("Newton")
     model.analysis("Static")
 

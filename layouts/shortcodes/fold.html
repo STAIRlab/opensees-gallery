@@ -1,0 +1,27 @@
+<!-- https://discourse.gohugo.io/t/add-code-file-to-hugo/34257/4 -->
+
+{{ $id := "highlighed" -}}
+{{ $show := false -}}
+{{ $head := .Get 1 | default (.Get 0) -}}
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active font-monospace" 
+                href="#body-{{ $id }}" 
+                aria-current="page" 
+                data-bs-toggle="collapse" 
+                data-bs-target=".multi-{{ $id }}" 
+                aria-expanded="false" 
+                aria-controls="body-{{ $id }} footer-{{ $id }}">
+              <small>{{ $head }} (collapsed)</small>
+            </a>
+        </li>
+    </ul>
+
+<div class="border-start border-end border-bottom mb-3">
+  <div class="collapse multi-{{ $id }}{{ if $show }} show{{ end }} syntax-highlight" id="body-{{ $id }}">
+  {{ highlight (.Page.Resources.GetMatch (.Get 0)).Content  "linenos=table" }}
+  </div>
+  <div class="collapse multi-{{ $id }}{{ if not $show }} show{{ end }} p-3" id="footer-{{ $id }}"><i>...</i></div>
+</div>
+
