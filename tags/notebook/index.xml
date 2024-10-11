@@ -13,7 +13,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
-      <description>Incremental Analysis of a Shallow Arch &amp;nbsp; launchlaunchbinderbinder &amp;nbsp; Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp. 1365–1391. Available at: https://doi.org/10.1002/nme.1620290702&amp;nbsp; .&#xA;Begin by importing the arch_model helper function from the file arch.py:&#xA;from arch import arch_modelImport some helpful third-party libraries&#xA;import numpy as np import matplotlib.pyplot as plt try: import scienceplots plt.style.use(&amp;#34;steel&amp;#34;) #([&amp;#34;ieee&amp;#34;, &amp;#34;science&amp;#34;, &amp;#34;notebook&amp;#34;]) except: pass The Framework &amp;nbsp; def analyze(model, mid, increment, steps, dx, *args): dof = 2 xy = [] status = 0 increment(model, mid, dof, dx, *args) for step in range(steps): if status !</description>
+      <description>The files for this example are:&#xA;arch.py - This file contains the function arch_model which is used construct the model IncrementalAnalysis.ipynb - This is the current Jupyter notebook file arch.py (collapsed) import numpy as np import opensees.openseespy # Create the model def arch_model(): # Define model parameters L = 5000 Rise = 500 Offset = 200 # Compute radius R = Rise/2 + (2*L)**2/(8*Rise) th = 2*np.arcsin(L/R) # # Build the model # model = opensees.</description>
     </item>
     <item>
       <title>Inelastic Cantilever</title>

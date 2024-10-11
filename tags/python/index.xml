@@ -48,14 +48,7 @@
       <link>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/archstaticsnap/</guid>
-      <description>Incremental Analysis of a Shallow Arch &amp;nbsp; launchlaunchbinderbinder &amp;nbsp; Clarke, M.J. and Hancock, G.J. (1990) ‘A study of incremental‐iterative strategies for non‐linear analyses’, International Journal for Numerical Methods in Engineering, 29(7), pp. 1365–1391. Available at: https://doi.org/10.1002/nme.1620290702&amp;nbsp; .&#xA;Begin by importing the arch_model helper function from the file arch.py:&#xA;from arch import arch_modelImport some helpful third-party libraries&#xA;import numpy as np import matplotlib.pyplot as plt try: import scienceplots plt.style.use(&amp;#34;steel&amp;#34;) #([&amp;#34;ieee&amp;#34;, &amp;#34;science&amp;#34;, &amp;#34;notebook&amp;#34;]) except: pass The Framework &amp;nbsp; def analyze(model, mid, increment, steps, dx, *args): dof = 2 xy = [] status = 0 increment(model, mid, dof, dx, *args) for step in range(steps): if status !</description>
-    </item>
-    <item>
-      <title>Building Modes</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/buildingmodes/</guid>
-      <description>This example is implemented in the following Python script, which can be downloaded from here: cantilever_modes.py.&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 # Import the opensees package for finite element analysis import opensees.</description>
+      <description>The files for this example are:&#xA;arch.py - This file contains the function arch_model which is used construct the model IncrementalAnalysis.ipynb - This is the current Jupyter notebook file arch.py (collapsed) import numpy as np import opensees.openseespy # Create the model def arch_model(): # Define model parameters L = 5000 Rise = 500 Offset = 200 # Compute radius R = Rise/2 + (2*L)**2/(8*Rise) th = 2*np.arcsin(L/R) # # Build the model # model = opensees.</description>
     </item>
     <item>
       <title>Cable Stayed</title>
@@ -100,18 +93,18 @@
       <description>March 2020, By Amir Hossein Namadchi&#xA;This is an OpenSeesPy simulation of a simple SDOF system with elastoplastic behavior mentioned in Dynamics of Structures book by Ray W. Clough and J. Penzien. This example has been solved in the book, so the result obtained here can be compared with the reference.&#xA;This notebook is adapted from https://github.com/AmirHosseinNamadchi/OpenSeesPy-Examples/blob/master/Elastoplastic%20SDOF%20system.ipynb&amp;nbsp; import numpy as np import opensees.openseespy as ops import matplotlib.pyplot as plt## Units inch = 1 # inches kips = 1 # KiloPounds sec = 1 # Seconds lb = kips*(sec**2)/inch # mass unit (derived)Model specifications are defined as follows:</description>
     </item>
     <item>
+      <title>Linearized Buckling</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>Problem &amp;nbsp; Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load which is given by: Peuler=π2EIL2 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples&amp;nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.&#xA;Theory &amp;nbsp; Buckling Analysis &amp;nbsp; Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it&amp;rsquo;s applied loads.</description>
+    </item>
+    <item>
       <title>Matrix Eigenvalue Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame&amp;nbsp; .&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.&#xA;An idealized two-storey shear frame (Example 10.4 from &amp;ldquo;Dynamic of Structures&amp;rdquo; book by Professor Anil K. Chopra) is used for this purpose. In this idealization beams are rigid in flexure, axial deformation of beams and columns are neglected, and the effect of axial force on the stiffness of the columns is neglected.</description>
-    </item>
-    <item>
-      <title>Nonlinear Geometry</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
-      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples&amp;nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.&#xA;Theory &amp;nbsp; Buckling Analysis &amp;nbsp; Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it&amp;rsquo;s applied loads. This implies that at the point of buckling, there are multiple independent displacement increments u\bm{u} which will be mapped to the same resisting load by the tangent K\bm{K} .</description>
     </item>
     <item>
       <title>RotD Spectrum</title>

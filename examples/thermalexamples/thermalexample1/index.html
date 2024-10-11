@@ -25,7 +25,7 @@
 
     
     
-<link rel="stylesheet" href="/opensees-gallery/css/main.min.eb96f8061a675eb30592705ff27b82406b011b22694bad06631ad56ffb28c12f.css" integrity="sha256-65b4BhpnXrMFknBf8nuCQGsBGyJpS60GYxrVb/sowS8=" crossorigin="anonymous">
+<link rel="stylesheet" href="/opensees-gallery/css/main.min.689efed351eb1a09db0f4c7de1758fd72c5119d655dd68552529445d23c113de.css" integrity="sha256-aJ7+01HrGgnbD0x94XWP1yxRGdZV3WhVJSlEXSPBE94=" crossorigin="anonymous">
     
         
     
@@ -36,24 +36,23 @@
 
 
 
-    
-
 
   <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <title>OpenSees - Example 1</title>
-    <meta name="description" content="Thermal expansion of a beam {.align-centeralign-center width=“500px”} Elevation of beam Example Overview: A steel beam is heated to 1180 ° C. Horizont...">
+    <meta name="description" content="Thermal expansion of a beam">
 
 <link rel="canonical" href="https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/">
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Example 1">
-<meta property="og:description" content="Thermal expansion of a beam {.align-centeralign-center width=“500px”} Elevation of beam Example Overview: A steel beam is heated to 1180 ° C. Horizont...">
+<meta property="og:description" content="Thermal expansion of a beam">
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/">
 <meta property="og:site_name" content="OpenSees">
-<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
+<meta property="article:modified_time" content="2024-10-10T22:27:53-07:00">
+    <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
 <meta property="og:image:alt" content="Example 1">
 
 
@@ -62,7 +61,7 @@
 
 
 <meta name="twitter:title" content="Example 1">
-<meta name="twitter:description" content="Thermal expansion of a beam {.align-centeralign-center width=“500px”} Elevation of beam Example Overview: A steel beam is heated to 1180 ° C. Horizont...">
+<meta name="twitter:description" content="Thermal expansion of a beam">
 <meta name="twitter:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
 <meta name="twitter:image:alt" content="Example 1">
 
@@ -103,14 +102,14 @@
       "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/",
       "url": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/",
       "name": "Example 1",
-      "description": "",
+      "description": "Thermal expansion of a beam",
       "isPartOf": {
         "@id": "https://stairlab.github.io/#/schema/website/1"
       },
       "about": {
           "@id": "https://stairlab.github.io/#/schema/organization/1"
         },
-      "breadcrumb": {
+      "dateModified": "2024-10-10T22:27:53CET","breadcrumb": {
         "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample1/#/schema/breadcrumb/1"
       },
       "primaryImageOfPage": {
@@ -364,7 +363,7 @@
     <small class="text-body-secondary text-uppercase">
         
         6&nbsp;min read &bull;
-        1,090&nbsp;words
+        1,095&nbsp;words
     </small>
 <div class="mt-3">
         <div class="d-none-dark">
@@ -427,7 +426,7 @@
 
 
 
-<p class="lead mb-5 mt-3"></p>
+<p class="lead mb-5 mt-3">Thermal expansion of a beam</p>
 <div class="d-md-none pb-5">
 
 
@@ -463,29 +462,21 @@
         <div class="toc toc-panel text-body p-2">
             <small><nav id="TableOfContents">
   <ul>
-    <li><a href="#thermal-expansion-of-a-beam">Thermal expansion of a beam</a>
-      <ul>
-        <li><a href="#material-properties">Material Properties</a></li>
-        <li><a href="#transformation">Transformation</a></li>
-        <li><a href="#section">Section</a></li>
-        <li><a href="#elements">Elements</a></li>
-        <li><a href="#output-recorders">Output Recorders</a></li>
-        <li><a href="#thermal-loading">Thermal Loading</a></li>
-        <li><a href="#thermal-analysis">Thermal Analysis</a></li>
-        <li><a href="#output-plots">Output Plots</a></li>
-        <li><a href="#sources">Sources</a></li>
-      </ul>
-    </li>
+    <li><a href="#material-properties">Material Properties</a></li>
+    <li><a href="#transformation">Transformation</a></li>
+    <li><a href="#section">Section</a></li>
+    <li><a href="#elements">Elements</a></li>
+    <li><a href="#output-recorders">Output Recorders</a></li>
+    <li><a href="#thermal-loading">Thermal Loading</a></li>
+    <li><a href="#thermal-analysis">Thermal Analysis</a></li>
+    <li><a href="#output-plots">Output Plots</a></li>
+    <li><a href="#sources">Sources</a></li>
   </ul>
 </nav></small>
         </div>
     </div>
 </div>
 
-
-<h2 id="thermal-expansion-of-a-beam" class="heading">Thermal expansion of a beam <a href="#thermal-expansion-of-a-beam" aria-labelledby="thermal-expansion-of-a-beam">
-<!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>
 
 
@@ -509,16 +500,15 @@
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-2800x591.png"
         
         
-        
-        
-        
-        >
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-576x122.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-768x162.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-992x209.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-1200x253.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-1400x296.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_fig1-2800x591.webp 2800w" sizes="100vw"
+        height="591"
+        width="2800"
+        alt="Elevation of beam">
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
-<p><strong>Elevation of beam</strong></p>
-<p>Example Overview: A steel beam is heated to 1180 ° C. Horizontal
+<p>A steel beam is heated to 1180 ° C. Horizontal
 displacement of right end is recorded. This displacement is normalized
 against the original length and plotted against temperature. The
 calculated thermal expansion is compared against the steel
@@ -535,8 +525,7 @@ temperature-dependent thermal expansion in Eurocode 3, Part 1-2 </p>
     
 
 <p>.</p>
-<p>Download Example 1 files:</p>
-<p>
+<p>Download Example 1 files: 
     
 
 
@@ -552,12 +541,10 @@ temperature-dependent thermal expansion in Eurocode 3, Part 1-2 </p>
             
             
             <a href="files/Example1.tcl"><code>Example1.tcl</code></a></p>
-<p><code>Example 1 Outputs &lt;files/Example1_OUTPUT.zip&gt;</code>{.interpreted-text
-role=&ldquo;download&rdquo;}.</p>
 
-<h3 id="material-properties" class="heading">Material Properties <a href="#material-properties" aria-labelledby="material-properties">
+<h2 id="material-properties" class="heading">Material Properties <a href="#material-properties" aria-labelledby="material-properties">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>The uniaxialMaterial Steel01Thermal includes temperature-dependent steel
 thermal and mechanical properties per Eurocode 3 </p>
 
@@ -580,17 +567,16 @@ Steel01 can be found at:
 
 
 
-<a href="https://opensees.berkeley.edu/wiki/index.php/Steel01_Material" target="_blank" rel="noopener noreferrer">Steel01
-Material&nbsp;
+<a href="https://opensees.berkeley.edu/wiki/index.php/Steel01_Material" target="_blank" rel="noopener noreferrer">Steel01 Material&nbsp;
 <!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
         <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg></a></p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">uniaxialMaterial</span> Steel01Thermal <span class="nv">$matTag</span> <span class="nv">$Fy</span> <span class="nv">$Es</span> <span class="nv">$b</span><span class="k">;</span></span></span></code></pre></div></div><p>Es = 210 GPa (Young&rsquo;s modulus of elasticity at ambient temperatures)</p>
 <p>Fy = 250 MPa (Yield strength of material at ambient temperatures)</p>
 <p>b = 0.001 (Strain-Hardening Ratio)</p>
 
-<h3 id="transformation" class="heading">Transformation <a href="#transformation" aria-labelledby="transformation">
+<h2 id="transformation" class="heading">Transformation <a href="#transformation" aria-labelledby="transformation">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>The beam is expanding in one direction, therefore, 2nd order bending
 effects do not need to be considered.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">geomTransf</span> Linear <span class="nv">$transftag</span><span class="k">;</span></span></span></code></pre></div></div><p>Learn more about geometric transofrmations: 
@@ -606,13 +592,30 @@ Transformation&nbsp;
 <!-- <i class="fas fa-up-right-from-square fa-2xs"></i> -->
         <svg class="svg-inline--fa fas fa-up-right-from-square fa-2xs" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 512 512"><use href="#fas-up-right-from-square"></use></svg></a></p>
 
-<h3 id="section" class="heading">Section <a href="#section" aria-labelledby="section">
+<h2 id="section" class="heading">Section <a href="#section" aria-labelledby="section">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>The discretization of the steel section into four fibers is shown using
 the code below:</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">section</span> FiberThermal secTag <span class="o">-</span>GJ <span class="nv">$Es</span><span class="k">{</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> numSubdivIJ <span class="mi">2</span><span class="k">;</span> <span class="err">\</span><span class="c">#</span><span class="err"> horizontal</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> numSubdivJK <span class="mi">2</span><span class="k">;</span> <span class="err">\</span><span class="c">#</span><span class="err"> vertical</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> yI <span class="o">-</span><span class="mi">100</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> zI <span class="o">-</span><span class="mi">200</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> yJ <span class="mi">100</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> zJ <span class="o">-</span><span class="mi">200</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> yK <span class="mi">100</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> zK <span class="mi">200</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> yL <span class="o">-</span><span class="mi">100</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> zL <span class="mi">200</span><span class="k">;</span> <span class="c">#</span><span class="err">mm</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">patch</span> quad <span class="nv">$matTag</span> <span class="nv">$numSubdivIJ</span> <span class="nv">$numSubdivJK</span> <span class="nv">$yI</span> <span class="nv">$zI</span> <span class="nv">$yJ</span> <span class="nv">$zJ</span> <span class="nv">$yK</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$zK</span> <span class="nv">$yL</span> <span class="nv">$zL</span></span></span></code></pre></div></div><p>Sections that will be subjected to thermal loading must be created with
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">section</span> FiberThermal secTag <span class="o">-</span>GJ <span class="nv">$Es</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">set</span> numSubdivIJ <span class="mi">2</span><span class="k">;</span> <span class="c"># horizontal
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> numSubdivJK <span class="mi">2</span><span class="k">;</span> <span class="c"># vertical
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> yI <span class="o">-</span><span class="mi">100</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> zI <span class="o">-</span><span class="mi">200</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> yJ <span class="mi">100</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> zJ <span class="o">-</span><span class="mi">200</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> yK <span class="mi">100</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> zK <span class="mi">200</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> yL <span class="o">-</span><span class="mi">100</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="k">set</span> zL <span class="mi">200</span><span class="k">;</span> <span class="c">#mm
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="nv">patch</span> quad <span class="nv">$matTag</span> <span class="nv">$numSubdivIJ</span> <span class="nv">$numSubdivJK</span> <span class="nv">$yI</span> <span class="nv">$zI</span> <span class="nv">$yJ</span> <span class="nv">$zJ</span> <span class="nv">$yK</span> <span class="nv">$zK</span> <span class="nv">$yL</span> <span class="nv">$zL</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span></span></span></code></pre></div></div><p>Sections that will be subjected to thermal loading must be created with
 fiberThermal or fibersecThermal.</p>
 <p>In previous versions of OpenSees, a default value for torsional
 stiffness was used (GJ). In versions 3.1.0 and newer fiber sections
@@ -653,9 +656,9 @@ used for convenience.</p>
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
 <p><strong>Cross section of rectangular beam showing fiber discretization</strong></p>
 
-<h3 id="elements" class="heading">Elements <a href="#elements" aria-labelledby="elements">
+<h2 id="elements" class="heading">Elements <a href="#elements" aria-labelledby="elements">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>dispBeamColumnThermal elements are used because temperature-dependent
 thermal and mechanical steel properties can be applied to these
 elements. Any portion of the structure that is being heated must use
@@ -670,41 +673,33 @@ displacement. For this reason, it is important to perform these
 benchmarking examples to establish how many iteration points allows for
 convergence to the expected recorded displacement. To code the number of
 iteration points, we use the following syntax:</p>
-<p>dispBeamColumnThermal eleTag iNode jNode numIntgrPts secTag TransfTag;</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">element</span> dispBeamColumnThermal <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">5</span> <span class="nv">$secTag</span> <span class="nv">$transftag</span><span class="k">;</span></span></span></code></pre></div></div>
-<h3 id="output-recorders" class="heading">Output Recorders <a href="#output-recorders" aria-labelledby="output-recorders">
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># dispBeamColumnThermal eleTag iNode jNode numIntgrPts secTag TransfTag;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">element</span> dispBeamColumnThermal <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">5</span> <span class="nv">$secTag</span> <span class="nv">$transftag</span><span class="k">;</span></span></span></code></pre></div></div>
+<h2 id="output-recorders" class="heading">Output Recorders <a href="#output-recorders" aria-labelledby="output-recorders">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>Displacement of the end node (2) in DOF 1 (Horizontal Displacement) is
 what we want to record. To do so, a folder within your working directory
 must be created. <code>dataDir</code> is the command to create that folder and
 should be defined at the beginning of the model. This is where your
 output files will be saved.</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> dataDir Examples<span class="o">/</span>EXAMPLE2_OUTPUT<span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nb">file</span> mkdir <span class="nv">$dataDir</span><span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>Node2disp.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">2</span> <span class="o">-</span>dof <span class="mi">1</span> disp<span class="k">;</span></span></span></code></pre></div></div><p>Learn more about the Recorder Command: [ Recorder Command
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> dataDir Examples<span class="o">/</span>EXAMPLE2_OUTPUT<span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">file</span> mkdir <span class="nv">$dataDir</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>Node2disp.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">2</span> <span class="o">-</span>dof <span class="mi">1</span> disp<span class="k">;</span></span></span></code></pre></div></div><p>Learn more about the Recorder Command: [ Recorder Command
 &lt;http://opensees.berkeley.edu/wiki/index.php/Recorder_Command&gt;]{.title-ref}
 __</p>
 
-<h3 id="thermal-loading" class="heading">Thermal Loading <a href="#thermal-loading" aria-labelledby="thermal-loading">
+<h2 id="thermal-loading" class="heading">Thermal Loading <a href="#thermal-loading" aria-labelledby="thermal-loading">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>This particular model is heating a beam to a set temperature over the
 time period of the model. We are not asking OpenSees to use a specific
 time-temperature curve, rather linearly ramp up the temperature from
 ambient to 1180 ° C.</p>
 <p>Therefore, we set the maximum temperature as follows:</p>
-<p>T = Max Tempurature </p>
-
-
-
-    
-
-
-
-    
-        <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>e</mi><mi>g</mi><mi>c</mi><mi>e</mi><mi>l</mi><mi>c</mi><mi>i</mi><mi>u</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">deg celcius</annotation></semantics></math></span>
-    
-
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> T <span class="mi">1180</span><span class="k">;</span></span></span></code></pre></div></div><p>In OpenSees, the user can define 2 or 9 temperature data points through
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> T <span class="mi">1180</span><span class="k">;</span> <span class="c">#</span><span class="err"> T = Max Tempurature (deg celcius)</span></span></span></code></pre></div></div><p>In OpenSees, the user can define 2 or 9 temperature data points through
 the cross section. In a 2D analysis framework, like this example,
 temperature data point locations are specified on the y-axis of the
 local coordinate system (as shown in the figure below), and are linearly
@@ -775,12 +770,13 @@ maximum temperature for each extreme fiber is set to 1180&lt;sup&gt;o&lt;/sup&gt
 and will be increased incrementally and linearly as the time step
 continues in the analysis. An external temperature data set could also
 be used for more complex temperature loading. The syntax for this is:</p>
-<p>Thermal loading pattern</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">pattern</span> Plain <span class="mi">1</span> Linear <span class="k">{</span> <span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="mi">1</span> <span class="o">-</span>type <span class="o">-</span>beamThermal <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$Y1</span> <span class="k">};</span></span></span></code></pre></div></div>
-<h3 id="thermal-analysis" class="heading">Thermal Analysis <a href="#thermal-analysis" aria-labelledby="thermal-analysis">
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c"># Thermal loading pattern
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">pattern</span> Plain <span class="mi">1</span> Linear <span class="k">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="mi">1</span> <span class="o">-</span>type <span class="o">-</span>beamThermal <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span> 
+</span></span><span class="line"><span class="cl"><span class="k">}</span></span></span></code></pre></div></div>
+<h2 id="thermal-analysis" class="heading">Thermal Analysis <a href="#thermal-analysis" aria-labelledby="thermal-analysis">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>Thermal loading is applied in 1000 steps, with a load factor of 0.001.
 Each step is a 0.001 increment of the maximum temperature specified in
 the thermal loading step: <code>T</code>. The analysis is a static analysis and the
@@ -792,18 +788,16 @@ a load factor of 0.001 was used. OpenSees is sensitive to the load
 factor, therefore, it is important to ensure that benchmarking examples
 are performed to determine the proper load factor to use in structural
 fire engineering analyses.</p>
-
-
-
-
-
-    <blockquote class="blockquote">
-        <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Nsteps <span class="mi">1000</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Factor <span class="err">\</span><span class="k">[expr</span> <span class="mf">1.0</span><span class="o">/</span><span class="nv">$Nsteps</span><span class="err">\</span><span class="k">];</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">integrator</span> LoadControl <span class="nv">$Factor</span><span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">analyze</span> <span class="nv">$Nsteps</span><span class="k">;</span></span></span></code></pre></div></div>
-    </blockquote>
-
-<h3 id="output-plots" class="heading">Output Plots <a href="#output-plots" aria-labelledby="output-plots">
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Nsteps <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">set</span> Factor <span class="k">[expr</span> <span class="mf">1.0</span><span class="o">/</span><span class="nv">$Nsteps</span><span class="k">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">integrator</span> LoadControl <span class="nv">$Factor</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">analyze</span> <span class="nv">$Nsteps</span><span class="k">;</span></span></span></code></pre></div></div>
+<h2 id="output-plots" class="heading">Output Plots <a href="#output-plots" aria-labelledby="output-plots">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 <p>After the model has completed running, the results will be a horizontal
 displacement of the right end of the beam. Since the temperature was
 linearly ramped up from ambient to 1180 ° C, the user can develop a
@@ -827,6 +821,46 @@ of the beam is plotted below and compared to the Eurocode 3
 modeled thermal expansion matches the material properties. This is
 important to check that the temperatures and material properties are
 assigned propertly in the model.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure >
+
+
+<img class="img-fluid "
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-2800x2115.png"
+        
+        
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-576x435.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-768x580.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-992x749.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-1200x906.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-1400x1058.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-2800x2115.webp 2800w" sizes="100vw"
+        height="2115"
+        width="2800"
+        alt="Thermal expansion of the beam recorded at node 2"><figcaption class="figure-caption">Thermal expansion of the beam recorded at node 2</figcaption>
+    </figure>
+
 <p>
 
 
@@ -850,20 +884,18 @@ assigned propertly in the model.</p>
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-2800x2115.png"
         
         
-        
-        
-        
-        >
-{.align-centeralign-center
-width=&ldquo;500px&rdquo;}</p>
-<p><strong>Thermal expansion of the beam recorded at node 2</strong></p>
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-576x435.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-768x580.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-992x749.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-1200x906.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-1400x1058.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample1/img/Example1_Output-2800x2115.webp 2800w" sizes="100vw"
+        height="2115"
+        width="2800"
+        alt="Thermal expansion of the beam recorded at node 2">
+{.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
 
-<h3 id="sources" class="heading">Sources <a href="#sources" aria-labelledby="sources">
+<h2 id="sources" class="heading">Sources <a href="#sources" aria-labelledby="sources">
 <!-- <i class="fas fa-link anchor"></i> -->
-        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
+        <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h2>
 
 
 
@@ -915,19 +947,15 @@ Design.</p>
 <strong class="d-block h6 my-2 pb-2">On this page:</strong>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#thermal-expansion-of-a-beam">Thermal expansion of a beam</a>
-      <ul>
-        <li><a href="#material-properties">Material Properties</a></li>
-        <li><a href="#transformation">Transformation</a></li>
-        <li><a href="#section">Section</a></li>
-        <li><a href="#elements">Elements</a></li>
-        <li><a href="#output-recorders">Output Recorders</a></li>
-        <li><a href="#thermal-loading">Thermal Loading</a></li>
-        <li><a href="#thermal-analysis">Thermal Analysis</a></li>
-        <li><a href="#output-plots">Output Plots</a></li>
-        <li><a href="#sources">Sources</a></li>
-      </ul>
-    </li>
+    <li><a href="#material-properties">Material Properties</a></li>
+    <li><a href="#transformation">Transformation</a></li>
+    <li><a href="#section">Section</a></li>
+    <li><a href="#elements">Elements</a></li>
+    <li><a href="#output-recorders">Output Recorders</a></li>
+    <li><a href="#thermal-loading">Thermal Loading</a></li>
+    <li><a href="#thermal-analysis">Thermal Analysis</a></li>
+    <li><a href="#output-plots">Output Plots</a></li>
+    <li><a href="#sources">Sources</a></li>
   </ul>
 </nav>
 
@@ -1236,7 +1264,7 @@ Design.</p>
     
 
 
-<script src="/opensees-gallery/js/main.bundle.en.min.d4c74b7538dce1f49e854302330c53f26de8ef70327915eaa2b7aea55585b707.js" integrity="sha256-1MdLdTjc4fSehUMCMwxT8m3o73AyeRXqoreupVWFtwc=" crossorigin="anonymous" async></script>
+<script src="/opensees-gallery/js/main.bundle.en.min.d5ed60c7e679d8d99856d744c8bb98687dcc5f3425c5bfaed70ba791985b0960.js" integrity="sha256-1e1gx&#43;Z52NmYVtdEyLuYaH3MXzQlxb&#43;u1wunkZhbCWA=" crossorigin="anonymous" async></script>
     
 
     

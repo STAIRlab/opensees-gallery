@@ -37,18 +37,18 @@
       <description>A three-dimensional reinforced concrete rigid frame, is subjected to bi-directional earthquake ground motion.&#xA;Example5.tcl RCsection.tcl Or for Python:&#xA;Example5.py render.py In both cases, the following ground motion records are required:&#xA;tabasFN.txt tabasFP.txt Modeling &amp;nbsp; A model of the rigid frame shown in the figure below is created. The model consists of three stories and one bay in each direction. Rigid diaphragm multi-point constraints are used to enforce the rigid in-plane stiffness assumption for the floors.</description>
     </item>
     <item>
+      <title>Linearized Buckling</title>
+      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
+      <description>Problem &amp;nbsp; Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load which is given by: Peuler=π2EIL2 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples&amp;nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.&#xA;Theory &amp;nbsp; Buckling Analysis &amp;nbsp; Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it&amp;rsquo;s applied loads.</description>
+    </item>
+    <item>
       <title>Matrix Eigenvalue Analysis</title>
       <link>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://stairlab.github.io/opensees-gallery/examples/chopra-10.4/</guid>
       <description>This example is adapted from the OpenSees Wiki page Eigen analysis of a two-storey shear frame&amp;nbsp; .&#xA;This example demonstrates how to perform eigenvalue analysis and plot mode shapes.&#xA;An idealized two-storey shear frame (Example 10.4 from &amp;ldquo;Dynamic of Structures&amp;rdquo; book by Professor Anil K. Chopra) is used for this purpose. In this idealization beams are rigid in flexure, axial deformation of beams and columns are neglected, and the effect of axial force on the stiffness of the columns is neglected.</description>
-    </item>
-    <item>
-      <title>Nonlinear Geometry</title>
-      <link>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://stairlab.github.io/opensees-gallery/examples/framebuckling/</guid>
-      <description>Corotational frame elements are used to approximate Euler&amp;rsquo;s buckling load, which is given by: Peuler=π2EIL2 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2} This example is adapted from https://github.com/denavit/OpenSees-Examples&amp;nbsp; . The files for the problem are buckling.py for Python, and buckling.tcl for Tcl.&#xA;Theory &amp;nbsp; Buckling Analysis &amp;nbsp; Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it&amp;rsquo;s applied loads. This implies that at the point of buckling, there are multiple independent displacement increments u\bm{u} which will be mapped to the same resisting load by the tangent K\bm{K} .</description>
     </item>
   </channel>
 </rss>

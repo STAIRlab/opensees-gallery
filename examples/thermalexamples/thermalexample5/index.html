@@ -25,7 +25,7 @@
 
     
     
-<link rel="stylesheet" href="/opensees-gallery/css/main.min.eb96f8061a675eb30592705ff27b82406b011b22694bad06631ad56ffb28c12f.css" integrity="sha256-65b4BhpnXrMFknBf8nuCQGsBGyJpS60GYxrVb/sowS8=" crossorigin="anonymous">
+<link rel="stylesheet" href="/opensees-gallery/css/main.min.689efed351eb1a09db0f4c7de1758fd72c5119d655dd68552529445d23c113de.css" integrity="sha256-aJ7+01HrGgnbD0x94XWP1yxRGdZV3WhVJSlEXSPBE94=" crossorigin="anonymous">
     
         
     
@@ -53,7 +53,8 @@
 <meta property="og:description" content="A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heat...">
 <meta property="og:url" content="https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/">
 <meta property="og:site_name" content="OpenSees">
-<meta property="og:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
+<meta property="article:modified_time" content="2024-10-10T22:27:53-07:00">
+    <meta property="og:image" content="https://stairlab.github.io/opensees-gallery/img/logo1280x640.png">
 <meta property="og:image:alt" content="Example 5">
 
 
@@ -103,14 +104,14 @@
       "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/",
       "url": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/",
       "name": "Example 5",
-      "description": "",
+      "description": "A two-bay frame that measures 2.4 m x 1.18 m with a 60 N\/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 \u0026deg; C.",
       "isPartOf": {
         "@id": "https://stairlab.github.io/#/schema/website/1"
       },
       "about": {
           "@id": "https://stairlab.github.io/#/schema/organization/1"
         },
-      "breadcrumb": {
+      "dateModified": "2024-10-10T22:27:53CET","breadcrumb": {
         "@id": "https://stairlab.github.io/opensees-gallery/examples/thermalexamples/thermalexample5/#/schema/breadcrumb/1"
       },
       "primaryImageOfPage": {
@@ -364,7 +365,7 @@
     <small class="text-body-secondary text-uppercase">
         
         7&nbsp;min read &bull;
-        1,377&nbsp;words
+        1,337&nbsp;words
     </small>
 <div class="mt-3">
         <div class="d-none-dark">
@@ -427,7 +428,7 @@
 
 
 
-<p class="lead mb-5 mt-3"></p>
+<p class="lead mb-5 mt-3">A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 &amp;deg; C.</p>
 <div class="d-md-none pb-5">
 
 
@@ -483,7 +484,6 @@
     </div>
 </div>
 
-<p>A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 ° C.</p>
 <p>
 
 
@@ -507,15 +507,14 @@
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-2800x2117.png"
         
         
-        
-        
-        
-        >
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-576x435.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-768x581.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-992x750.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-1200x907.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-1400x1058.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_fig1-2800x2117.webp 2800w" sizes="100vw"
+        height="2117"
+        width="2800"
+        alt="Elevation of two-bay frame">
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
-<p><strong>Elevation of two-bay frame</strong></p>
 <p>Example overview: This example will combine the modeling methodologies
 developed through the other examples and apply them to a two-bay frame
 with a fire in one of the bays. Recorded data from the OpenSees analysis
@@ -648,7 +647,9 @@ Steel01 can be found at:
 <li>Fy = 355 MPa (Yield strength of material at ambient temperatures)</li>
 <li>b = 0.001 (Strain-Hardening Ratio)</li>
 </ul>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> matTag <span class="mi">1</span><span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">uniaxialMaterial</span> Steel01Thermal <span class="nv">$matTag</span> <span class="nv">$Fy</span> <span class="nv">$Es</span> <span class="nv">$b</span><span class="k">;</span></span></span></code></pre></div></div>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> matTag <span class="mi">1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">uniaxialMaterial</span> Steel01Thermal <span class="nv">$matTag</span> <span class="nv">$Fy</span> <span class="nv">$Es</span> <span class="nv">$b</span><span class="k">;</span></span></span></code></pre></div></div>
 <h3 id="transformation" class="heading">Transformation <a href="#transformation" aria-labelledby="transformation">
 <!-- <i class="fas fa-link anchor"></i> -->
         <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
@@ -721,12 +722,12 @@ used for convenience. Wsection dimensions are (units are meters):</p>
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-2800x2492.png"
         
         
-        
-        
-        
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-576x513.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-768x684.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-992x883.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-1200x1068.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-1400x1246.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Wsection_FiberSection-2800x2492.webp 2800w" sizes="100vw"
+        height="2492"
+        width="2800"
         >
 {.align-centeralign-center
 width=&ldquo;500px&rdquo;}</p>
@@ -751,7 +752,9 @@ elements with 3 iteration points in each element.</p>
         <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
 <p><code>dataDir</code> is defined at the beginning of the model, this creates a
 folder within your working directory where output files will be saved.</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> dataDir Examples<span class="o">/</span>EXAMPLE5_OUTPUT<span class="k">;</span></span></span></code></pre></div></div><div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nb">file</span> mkdir <span class="nv">$dataDir</span><span class="k">;</span></span></span></code></pre></div></div><p>displacements of node U1 (node 11, top left), DOF 1 (Horizontal
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> dataDir Examples<span class="o">/</span>EXAMPLE5_OUTPUT<span class="k">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">file</span> mkdir <span class="nv">$dataDir</span><span class="k">;</span></span></span></code></pre></div></div><p>displacements of node U1 (node 11, top left), DOF 1 (Horizontal
 Displacement)</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">recorder</span> Node <span class="o">-</span>file <span class="nv">$dataDir</span><span class="o">/</span>Midspan_BeamDisp.out <span class="o">-</span>time <span class="o">-</span>node <span class="mi">11</span> <span class="o">-</span>dof <span class="mi">1</span>
 </span></span><span class="line"><span class="cl"><span class="nv">disp</span><span class="k">;</span></span></span></code></pre></div></div><p>displacements of node U2 (node 22, top-middle), DOF 1 (Horizontal
@@ -787,9 +790,8 @@ interpolated between the defined points. Because this example is using a
 uniformly heated beam, two temperature points on each extreme fiber on
 the y-axis will be chosen. The beam has a depth of <code>d</code>, therefore,
 <code>Y1 = d/2</code> and <code>Y2 = -d/2</code> the top and bottom fibers respectively.</p>
-<p>Top fiber of beam</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Y1 <span class="k">[expr</span> <span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span></span></span></code></pre></div></div><p>Bottom fiber of beam</p>
-<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Y2 <span class="k">[expr</span> <span class="o">-</span><span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span></span></span></code></pre></div></div><p><strong>Location of defined input temperature locations on the member cross section (both beam and columns)</strong></p>
+<div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="k">set</span> Y1 <span class="k">[expr</span>  <span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span> <span class="c"># Top fiber of beam
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> Y2 <span class="k">[expr</span> <span class="o">-</span><span class="nv">$d</span><span class="o">/</span><span class="mi">2</span><span class="k">];</span> <span class="c">#</span><span class="err"> Bottom fiber of beam</span></span></span></code></pre></div></div><p><strong>Location of defined input temperature locations on the member cross section (both beam and columns)</strong></p>
 <p>
 
 
@@ -813,12 +815,12 @@ the y-axis will be chosen. The beam has a depth of <code>d</code>, therefore,
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-2800x1575.png"
         
         
-        
-        
-        
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-576x324.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-768x432.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-992x558.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-1200x675.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-1400x788.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example3_fig2-2800x1575.webp 2800w" sizes="100vw"
+        height="1575"
+        width="2800"
         >
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
 <p>The bottom extreme fiber temperature must be defined first. The target
@@ -831,11 +833,13 @@ for more complex temperature loading.</p>
 heated bay.</p>
 <div class="mb-3 syntax-highlight"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="nv">pattern</span> Plain <span class="mi">2</span> Linear <span class="k">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">1</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="err">\</span><span class="o">&lt;=</span> <span class="nv">20</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span> 
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">1</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">20</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span> 
 </span></span><span class="line"><span class="cl">    <span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="nv">$i</span> <span class="o">-</span>type <span class="o">-</span>beamThermal <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span><span class="k">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">31</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="err">\</span><span class="o">&lt;=</span> <span class="nv">40</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span><span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="nv">$i</span> <span class="o">-</span>type
-</span></span><span class="line"><span class="cl"><span class="nv">-beamThermal</span> <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span><span class="k">;}};</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="k">{set</span> i <span class="mi">31</span><span class="k">}</span> <span class="k">{</span><span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">40</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> i<span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">eleLoad</span> <span class="o">-</span>ele <span class="nv">$i</span> <span class="o">-</span>type <span class="o">-</span>beamThermal <span class="nv">$T</span> <span class="nv">$Y2</span> <span class="nv">$T</span> <span class="nv">$Y1</span><span class="k">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">};</span></span></span></code></pre></div></div>
 <h3 id="thermal-analysis" class="heading">Thermal Analysis <a href="#thermal-analysis" aria-labelledby="thermal-analysis">
 <!-- <i class="fas fa-link anchor"></i> -->
         <svg class="svg-inline--fa fas fa-link anchor" fill="currentColor" aria-hidden="true" role="img" viewBox="0 0 640 512"><use href="#fas-link"></use></svg>&nbsp;</a></h3>
@@ -903,12 +907,12 @@ testing data</strong></p>
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-2800x2112.png"
         
         
-        
-        
-        
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-576x434.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-768x579.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-992x748.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-1200x905.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-1400x1056.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U1-2800x2112.webp 2800w" sizes="100vw"
+        height="2112"
+        width="2800"
         >
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
 <p><strong>Node U2 horizontal displacement versus temperature compared with the
@@ -936,12 +940,12 @@ testing data</strong></p>
 
 
 <img class="img-fluid "
-        src=""
+        src="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-2800x2113.png"
         
         
-        
-        
-        
+        srcset="/opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-576x435.webp 576w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-768x580.webp 768w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-992x749.webp 992w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-1200x905.webp 1200w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-1400x1056.webp 1400w, /opensees-gallery/opensees-gallery/examples/thermalexamples/thermalexample5/img/Example5_U2-2800x2113.webp 2800w" sizes="100vw"
+        height="2113"
+        width="2800"
         >
 {.align-centeralign-center width=&ldquo;500px&rdquo;}</p>
 
@@ -974,7 +978,7 @@ Design.</p>
     
 
 <p> Rubert A, Schaumann P. (1986). &ldquo;Structural steel and plane frame
-assemblies under ﬁre action.&rdquo; Fire Safety Journal, vol. 10, pp.173&ndash;184.</p>
+assemblies under fire action.&rdquo; Fire Safety Journal, vol. 10, pp.173&ndash;184.</p>
 
 
 
@@ -1333,7 +1337,7 @@ assemblies under ﬁre action.&rdquo; Fire Safety Journal, vol. 10, pp.173&ndash
     
 
 
-<script src="/opensees-gallery/js/main.bundle.en.min.d4c74b7538dce1f49e854302330c53f26de8ef70327915eaa2b7aea55585b707.js" integrity="sha256-1MdLdTjc4fSehUMCMwxT8m3o73AyeRXqoreupVWFtwc=" crossorigin="anonymous" async></script>
+<script src="/opensees-gallery/js/main.bundle.en.min.d5ed60c7e679d8d99856d744c8bb98687dcc5f3425c5bfaed70ba791985b0960.js" integrity="sha256-1e1gx&#43;Z52NmYVtdEyLuYaH3MXzQlxb&#43;u1wunkZhbCWA=" crossorigin="anonymous" async></script>
     
 
     
