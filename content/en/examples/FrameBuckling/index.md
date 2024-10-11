@@ -1,11 +1,11 @@
 ---
-title: "Nonlinear Geometry"
+title: "Linearized Buckling"
 tags: ["Python", "Tcl", "Frame"]
 render: ./model.glb
+description: Corotational frame elements are used to approximate Euler's buckling load.
 ---
 
-
-Corotational frame elements are used to approximate Euler's buckling load,
+Corotational frame elements are used to approximate Euler's buckling load
 which is given by:
 $$
 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2}
@@ -14,8 +14,8 @@ This example is adapted from https://github.com/denavit/OpenSees-Examples .
 The files for the problem are [`buckling.py`](buckling.py) for
 Python, and [`buckling.tcl`](buckling.tcl) for Tcl.
 
-# Theory
-## Buckling Analysis
+## Theory
+### Buckling Analysis
 
 Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. This implies that at the point of buckling, there are multiple independent displacement increments $\bm{u}$ which will be mapped to the same resisting load by the tangent $\bm{K}$. In otherwords, The buckling load is the point at which $\bm{K}$ becomes singular. If we consider $\bm{K}$ as a function of the load factor $\bm{\lambda}$, this condition can be expressed as the nonlinear root-finding problem:
 $$
@@ -28,7 +28,7 @@ $$
 where $\bm{K}^{\prime}$ is the derivative of $\bm{K}$ with respect to $\lambda$.
 
 
-### Timoshenko Column Buckling
+#### Timoshenko Column Buckling
 $$
 \begin{gathered}
 \lambda=\sqrt{\frac{P L^2}{E I\left[1-P /\left(k_{\mathrm{s}} G A\right)\right]}}=\sqrt{\frac{P L^2}{\chi E I}} \\

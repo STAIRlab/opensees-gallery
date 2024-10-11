@@ -44,7 +44,7 @@ title="wikilink">dynamic_example_10Oct2013.zip</a> (last update: 10 Oct
 <p>The rest of this example describes the model and shows the analysis
 results.</p>
 
-<h2 id="model_description">Model Description</h2>
+## Model Description
 
 <figure>
 <img src="2s1b-Sketch.png"
@@ -82,7 +82,7 @@ title="wikilink">Pushover Analysis of 2-Story Moment Frame</a>.
 
 The units of the model are kips, inches, and seconds.
 
-<h2 id="damping_and_the_rayleigh_command">Damping and the Rayleigh Command</h2>
+## Damping and the Rayleigh Command
 
 This model uses Rayleigh damping which formulates the damping matrix
 as a linear combination of the mass matrix and stiffness matrix:
@@ -116,10 +116,10 @@ combination with the <a href="Region_Command" title="wikilink">region
 command</a> for a region of elements. Therefore, if using the region
 command to assign damping, the mass proportional damping and stiffness
 proportional damping must be assigned in separate steps.</p>
-<h3
-id="modifications_to_the_stiffness_proportional_damping_coefficient">Modifications
-to the Stiffness Proportional Damping Coefficient</h3>
-<p>As described in the “Stiffness Modifications to Elastic Frame
+
+### Modifications to the Stiffness Proportional Damping Coefficient
+
+As described in the “Stiffness Modifications to Elastic Frame
 Elements” section of <a href="Pushover_Analysis_of_2-Story_Moment_Frame"
 title="wikilink">Pushover Analysis of 2-Story Moment Frame</a>, the
 stiffness of the elastic frame elements has been modified. As explained
@@ -129,11 +129,15 @@ elements must also be modified. As the stiffness of the elastic elements
 was made “(n+1)/n” times greater than the stiffness of the actual frame
 member, the stiffness proportional damping coefficient of these elements
 must also be made “(n+1)/n” times greater than the traditional stiffness
-proportional damping coefficient.</p>
-<h2 id="dynamic_analysis">Dynamic Analysis</h2>
-<h3 id="recorders">Recorders</h3>
-<p>The <a href="Recorder_Command" title="wikilink">recorders</a> used in
-this example include:</p>
+proportional damping coefficient.
+
+## Dynamic Analysis
+
+### Recorders
+
+The <a href="Recorder_Command" title="wikilink">recorders</a> used in
+this example include:
+
 <ul>
 <li>The <a href="Drift_Recorder" title="wikilink">drift recorder</a> to
 track the story and roof drift histories</li>
@@ -177,19 +181,21 @@ title="wikilink">analyze command</a> is used with the specified number
 of analysis steps and the timestep of the analysis. The timestep used in
 the analysis should be less than or equal to the timestep of the input
 ground motion.</p>
-<h2 id="results">Results</h2>
+
+## Results
+
 <figure>
 <img src="Dhist_plot_ConcDynam.png"
 title="Figure 2. Floor Displacement History"
 alt="Figure 2. Floor Displacement History" />
-<figcaption aria-hidden="true">Figure 2. Floor Displacement
-History</figcaption>
+<figcaption aria-hidden="true">Figure 2. Floor Displacement History</figcaption>
 </figure>
-<p>The floor displacement histories from the dynamic analysis are shown
+The floor displacement histories from the dynamic analysis are shown
 in Figure 2. The top graph shows the ground acceleration history while
 the middle and bottom graphs show the displacement time histories of the
-3rd floor (roof) and 2nd floor, respectively.</p>
-<h2 id="references">References</h2>
+3rd floor (roof) and 2nd floor, respectively.
+
+## References
 <ol>
 <li>Ibarra, L. F., and Krawinkler, H. (2005). “Global collapse of frame
 structures under seismic excitations,” Technical Report 152, The John A.
