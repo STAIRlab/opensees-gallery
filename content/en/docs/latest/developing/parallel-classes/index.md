@@ -1,7 +1,7 @@
 ---
 title: Parallel Classes
 layout: docs
-date: December 20, 1999
+date: 12-20-1999
 #author: ["Frank McKenna", "Gregory L. Fenves"]
 ---
 
