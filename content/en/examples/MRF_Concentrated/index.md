@@ -1,6 +1,7 @@
 ---
 title: Dynamic Analysis of 2-Story Moment Frame
 # image: 2s1b-Sketch.png
+draft: true
 ---
 
 
@@ -15,34 +16,29 @@ al. 2005, Lignos and Krawinkler 2009, 2010). For this example, all modes
 of cyclic deterioration are neglected. A leaning column carrying gravity
 loads is linked to the frame to simulate P-Delta effects.
 
-<p>The files needed to analyze this structure in OpenSees are included
-here:</p>
+The files needed to analyze this structure in OpenSees are included
+here:
 
-<ul>
-<li>The main file: <a href="MRF_2Story_Concentrated.tcl"
-title="wikilink">MRF_2Story_Concentrated.tcl</a> (last update: 10 Oct
-2013)</li>
-</ul>
-<p>Supporting procedure files</p>
-<ul>
-<li><a href="RotSpring2DModIKModel.tcl"
-title="wikilink">RotSpring2DModIKModel.tcl</a> - creates a bilinear
-rotational spring that follows the Modified Ibarra Krawinkler
-Deterioration Model (used in the concentrated model)</li>
-<li><a href="RotLeaningCol.tcl" title="wikilink">RotLeaningCol.tcl</a> -
-creates a low-stiffness rotational spring used in a leaning column</li>
-</ul>
+- The main file: <a href="MRF_2Story_Concentrated.tcl" title="wikilink">MRF_2Story_Concentrated.tcl</a> (last update: 10 Oct 2013)
+
+Supporting procedure files:
+
+- <a href="RotSpring2DModIKModel.tcl">RotSpring2DModIKModel.tcl</a> - creates a bilinear rotational spring that follows the Modified Ibarra Krawinkler Deterioration Model (used in the concentrated model)</li>
+- <a href="RotLeaningCol.tcl" title="wikilink">RotLeaningCol.tcl</a> - creates a low-stiffness rotational spring used in a leaning column</li>
+
 <p>The acceleration history for the Canoga Park record</p>
 <ul>
 <li><a href="NR94cnp.tcl" title="wikilink">NR94cnp.tcl</a> - contains
 acceleration history in units of g</li>
 </ul>
-<p>All files are available in a compressed format here: <a
+
+All files are available in a compressed format here: <a
 href="Media:dynamic_example_10Oct2013.zip"
 title="wikilink">dynamic_example_10Oct2013.zip</a> (last update: 10 Oct
-2013)</p>
-<p>The rest of this example describes the model and shows the analysis
-results.</p>
+2013)
+
+The rest of this example describes the model and shows the analysis
+results.
 
 ## Model Description
 
