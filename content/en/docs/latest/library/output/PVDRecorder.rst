@@ -1,5 +1,0 @@
-.. _pvdRecorder:
-
-PVD Recorder
-^^^^^^^^^^^^
-
