@@ -7,36 +7,15 @@
     - title: Compiling
     - title: Contribute
 
-- title: Content
+- title: Developing
   pages:
-    - title: Content management
+    - title: Domain Classes
+    - title: Analysis Classes
+    - title: Parallel Classes
 
 
 - title: Library
   pages:
-    - title: Alert
-      pages:
-      - title: Badge
-      - title: Breadcrumb
-      - title: Card
-    - title: Card group
-    - title: Image
-    - title: Kbd
+    - title: Frame
 
-- title: Advanced settings
-  pages:
-    - title: Overview
-    - title: Styles
-    - title: Scripts
-    - title: Icons
-    - title: Partial development
-    - title: Module development
-    # - title: Metadata
-    - title: Server headers
-    - title: Server-side redirection
-
-- title: About
-  pages:
-    - title: Credits
-    - title: License
 
