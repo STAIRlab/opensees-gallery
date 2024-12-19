@@ -280,7 +280,7 @@ def test_harmonic_undamped():
     # add load pattern
     time = np.linspace(0, 100*periodForce, 100)
     series = 1
-    model.timeSeries('Trig', series, 0.0, 100.0*periodForce, periodForce, factor=P)
+    model.timeSeries("Trig", series, 0.0, 100.0*periodForce, periodForce, factor=P)
     #   model.timeSeries("Path", series, dt=dt, values=list(np.sin(time)*P)) #, factor=P)
 
     model.pattern("Plain",  1,  series, load={2: [1.0]})
@@ -304,7 +304,7 @@ def test_harmonic_undamped():
     print("%20s%15.5f%10s%15.5f" % ("OpenSees: ", uOpenSees, "Exact: ", uExact))
 
 def test_harmonic_damped():
-    
+
     #
     # Section 3.2 - Harmonic Vibrartion of Damped Elastic SDOF System
     #
