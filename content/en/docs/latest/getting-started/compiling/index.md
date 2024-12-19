@@ -13,16 +13,6 @@ layout: docs
 
 Compiling OpenSees requires the following software to be installed on your local machine:
 
-<!-- markdownlint-disable MD037 -->
-{{< table >}}
-| Software                                                   | Hugo                  | Remarks |
-|------------------------------------------------------------|-----------------------|---------|
-| {{</* link git_download >}}Git{{< /link */>}}              | recommended           | Recommended for version control |
-| C/C++ Compilers                                            | {{</* fas check */>}} | Embedded as npm binary |
-| {{</* link nodejs >}}Node.js{{< /link */>}}                |                       | The installation package includes npm |
-{{< /table >}}
-<!-- markdownlint-enable MD037 -->
-
 The primary system dependencies required for compiling are LAPACK/BLAS and Tcl.
 Packages providing these libraries are listed below for various package
 management ecosystems.
@@ -45,7 +35,7 @@ and can lead to segfaults.</b>
 The following command should install everything you need:
 
 ``` shell
-conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
+conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas openmpi
 ```
 
   {{< /accordion-item >}}
