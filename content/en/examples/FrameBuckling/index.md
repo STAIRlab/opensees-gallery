@@ -5,6 +5,9 @@ render: ./model.glb
 description: Corotational frame elements are used to approximate Euler's buckling load.
 ---
 
+
+## Problem
+
 Corotational frame elements are used to approximate Euler's buckling load
 which is given by:
 $$
@@ -15,6 +18,7 @@ The files for the problem are [`buckling.py`](buckling.py) for
 Python, and [`buckling.tcl`](buckling.tcl) for Tcl.
 
 ## Theory
+
 ### Buckling Analysis
 
 Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. This implies that at the point of buckling, there are multiple independent displacement increments $\bm{u}$ which will be mapped to the same resisting load by the tangent $\bm{K}$. In otherwords, The buckling load is the point at which $\bm{K}$ becomes singular. If we consider $\bm{K}$ as a function of the load factor $\bm{\lambda}$, this condition can be expressed as the nonlinear root-finding problem:
