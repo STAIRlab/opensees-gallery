@@ -74,16 +74,19 @@ conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas o
 
 ## Prerequisites
 
+
 1. Clone the package repository:
-   {{</* command */>}}
+
+   {{< command >}}
    git clone https://github.com/claudioperez/OpenSeesRT
-   {{</* /command */>}}
+   {{< /command >}}
 
 2. install *run-time* dependencies. These are the libraries that will be needed 
    in order to use OpenSees. To install these, run:
-   {{</* command */>}}
+
+   {{< command >}}
    python -m pip install opensees
-   {{</* /command */>}}
+   {{< /command >}}
 
 
 2. Install *compile-time* dependencies; see **Dependencies** below. These dependencies are only
@@ -106,7 +109,7 @@ The next steps describe how to set up your compilers and build the OpenSees libr
 
 <!-- markdownlint-disable MD005 MD029 MD037 -->
 {{< nav type="tabs" id="pills-1" >}}
-  {{< nav-item header="CMake" show="true" >}}
+  {{< nav-item header="Unix" show="true" >}}
 
 1. **Create a directory to hold build artifacts**
 
@@ -138,18 +141,18 @@ The next steps describe how to set up your compilers and build the OpenSees libr
    ```
 
   {{< /nav-item >}}
-  {{< nav-item header="CMake+Conan" >}}
+  {{< nav-item header="Conan" >}}
 
 1. **Create a directory to hold build artifacts**
 
     {{</* command */>}}
     mkdir build
-    cd build
     {{</* /command */>}}
 
 2. **Run Conan**
 
     {{</* command */>}}
+    cd build
     conan install .. --build missing
     {{</* /command */>}}
 
