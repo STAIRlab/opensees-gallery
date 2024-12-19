@@ -1,9 +1,8 @@
 ---
-author: Mark Dumay
 title: Fast
 date: 2023-04-24
 weight: 2
-thumbnail: /img/template-light.png
+thumbnail: /img/shell-lignt.png
 colormode: true
 tilted: true
 ---
