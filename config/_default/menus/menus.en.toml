@@ -1,9 +1,9 @@
-[[main]]
-  name = "About"
-  pageRef = "/docs/about/credits/"
-  weight = 10
-  [main.params]
-    alias = true
+# [[main]]
+#   name = "About"
+#   pageRef = "/docs/about/credits/"
+#   weight = 10
+#   [main.params]
+#     alias = true
 
 [[main]]
   name = "Docs"

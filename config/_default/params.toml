@@ -219,6 +219,10 @@
     locale = "en_US"
 
 [links]
+    wipeAnalysis = ""
+    remove = ""
+    eleResponse = ""
+
     issue_tracker = "https://github.com/claudioperez/OpenSeesRT/issues"
     discussions = "https://github.com/claudioperez/OpenSeesRT/discussions"
     discussions_help = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/help"
