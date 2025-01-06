@@ -1,4 +1,4 @@
 ---
 title: Dam
-thumbnail: img/SolidDam.png
+thumbnail: img/examples/SolidDam.png
 ---
