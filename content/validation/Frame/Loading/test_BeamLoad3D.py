@@ -1,6 +1,6 @@
+# Simply supported beam with distributed loads
 from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
-# Simply supported beam with distributed loads
 #
 E =  30000.0
 A =  20.0
@@ -27,7 +27,7 @@ wx = 2.0
 
 nIP = 5
 
-elements = {1, 2, 5, 6 3, 7} ;
+elements = {1, 2, 5, 6, 3, 7} ;
 
 def printRow(quantity, expected, computed):
   print("%10s %10f %10f" % (quantity, expected, computed));
@@ -82,7 +82,7 @@ for element in elements :
     d2 = (wx*L**2/(2*E*A))
 #   print("\tExact axial displacement:, (d1+d2), Computed:, model.nodeDisp( 2 1]")
 
-    printRow("axial", (d1+d2), model.nodeDisp( 2 1]
+    printRow("axial", (d1+d2), model.nodeDisp( 2, 1))
 
     Vy = (Py*(1-aL))
     Vz = (Pz*(1-aL))
@@ -92,19 +92,19 @@ for element in elements :
     d2 = (wy*L**3/(24*E*Iz))
 #   print("\tExact rotation (node 1):, (d1+d2), Computed:, model.nodeDisp( 1 6]")
 
-    printRow("theta_zi", (d1+d2), model.nodeDisp( 1 6]
+    printRow("theta_zi", (d1+d2), model.nodeDisp( 1, 6))
 
     d1 = (-Vy/(6*E*Iz*L)*(a*a*L+a*L*L))
 #   print("\tExact rotation (node 2):, (d1-d2), Computed:, model.nodeDisp( 2 6]")
 
-    printRow("theta_zi", (d1-d2), model.nodeDisp( 2 6]
+    printRow("theta_zi", (d1-d2), model.nodeDisp( 2, 6))
 
 
     d1 = (-Vz/(6*E*Iy*L)*(a*a*L-2*a*L*L))
     d2 = (wz*L**3/(24*E*Iy))
 #   print("\tExact rotation (node 1):, (d1+d2), Computed:, model.nodeDisp( 1 5]")
 
-    printRow("theta_yi", (d1+d2), model.nodeDisp( 1 5]
+    printRow("theta_yi", (d1+d2), model.nodeDisp( 1, 5))
 
     d1 = -Vz/(6*E*Iy*L)*(a*a*L+a*L*L)
 #   print("\tExact rotation (node 2):, (d1-d2), Computed:, model.nodeDisp( 2 5]")
