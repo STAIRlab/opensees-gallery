@@ -31,7 +31,7 @@ def create_model(walk_edge=False):
 
     # Define the section
     # ------------------
-    #                                       secTag  E     nu     h    rho
+    #                                           tag E   nu     h    rho
     model.section("ElasticMembranePlateSection", 1, E, 0.25, 1.175, 1.27)
     model.section('ElasticFrame', 2, E, 1, area=10, Iy=1, Iz=1, J=1)
 

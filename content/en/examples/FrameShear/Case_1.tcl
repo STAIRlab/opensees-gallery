@@ -94,9 +94,9 @@ set Mbench [lindex $Mbench_list 0]
 set Dbench [lindex $Dbench_list 0]
 puts [format "Axial Force, P = %.0f kips" [getTime]]
 puts [format "Mid-height moment, Mmid = %.1f kip-in" $Mmid]
-puts [format "   compared to %.0f kip-in, a %.2f%% difference" $Mbench [expr 100*($Mbench-$Mmid)/$Mbench]]
+puts [format "   compared to %.0f kip-in | %.2f%% " $Mbench [expr 100*($Mbench-$Mmid)/$Mbench]]
 puts [format "Mid-height displacement, Dmid = %.4f in" $Dmid]
-puts [format "   compared to %.3f in, a %.2f%% difference\n" $Dbench [expr 100*($Dbench-$Dmid)/$Dbench]]
+puts [format "   compared to %.3f in, a %.2f%% \n" $Dbench [expr 100*($Dbench-$Dmid)/$Dbench]]
 
 timeSeries Linear 2
 pattern Plain 2 2 {
