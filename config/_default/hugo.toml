@@ -3,7 +3,7 @@ copyright = "© 2024 <a href='https://github.com/stairlab' class='link-bg-footer
 enableGitInfo = true
 
 # additional settings
-baseURL = "https://stairlab.github.io/opensees-gallery/"
+baseURL = "https://stairlab.github.io/gallery/"
 canonifyURLs = false
 # disableKinds = ["taxonomy", "term"]
 enableEmoji = true
