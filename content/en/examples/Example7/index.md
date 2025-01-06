@@ -16,7 +16,7 @@ Safeway.
 2.  [`Example7.py`](Example7.py)
 
 Renderings are created from the script [`render.py`](./render.py), which
-uses the [`sees`](https://pypi.org/project/sees) Python package.
+uses the [`veux`](https://stairlab.berkeley.edu/software/veux) Python package.
 
 ## Modeling
 
