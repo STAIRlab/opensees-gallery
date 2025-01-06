@@ -44,7 +44,7 @@ def initialize_plots(b1,b2):
     # FIX ME!
     # On the line below pass the xlist and ylist variables to the plot function
     # Additionally, set the linewidth=3 by using the linewidth variable.
-    line, = axes[0,0].plot(     ,      , '-bo', markersize=10,     ) # FIX ME!
+    line, = axes[0,0].plot(xlist, ylist, '-bo', markersize=10, linewidth=3)
 
     line1, = axes[0,0].plot(b1.x,b1.y,'-b',linewidth=2)
     line2, = axes[0,0].plot(b2.x,b2.y,'-r',linewidth=2)
