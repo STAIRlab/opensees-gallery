@@ -38,12 +38,6 @@ defaults:
     shell: bash
 
 
-env:
-  CACHE_KEY: 'hugo-hinode-template'
-  CACHE_PATH_DEBIAN: '/tmp/hugo_cache_runner'
-  CACHE_PATH_WIN: '~\AppData\Local\hugo_cache'
-  CACHE_PATH_MAC: '/Users/runner/Library/Caches/hugo_cache'
-
 jobs:
   lint:
     runs-on: ubuntu-latest
