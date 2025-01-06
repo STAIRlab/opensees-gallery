@@ -8,6 +8,7 @@ __pycache__/
 .DS_store
 .hugo_build.lock
 .ipynb_checkpoints
+content/en/examples/*/model.json
 # CSI:
 *.sdb
 *.bdb
