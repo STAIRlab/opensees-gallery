@@ -1,5 +1,5 @@
 
-import sees
+import veux
 from Example5 import create_model, analyze
 
 if __name__ == "__main__":
@@ -16,9 +16,9 @@ if __name__ == "__main__":
 
     # Plot the deformed state of the structure
 
-    artist = sees.render(model, vertical=3, canvas="gltf")
-#   artist = sees.render(model, model.nodeDisp, vertical=3, canvas=artist.canvas)
+    artist = veux.render(model, vertical=3, canvas="gltf")
+#   artist = veux.render(model, model.nodeDisp, vertical=3, canvas=artist.canvas)
 
 #   artist.save("displaced.glb")
-    sees.serve(artist)
+    veux.serve(artist)
 
