@@ -1,0 +1,49 @@
+{{- $page := .page -}}
+{{- $wrapper := printf "img-wrap" -}}
+{{- with .wrapper }}{{ $wrapper = printf "img-wrap %s" . }}{{ end -}}
+{{ $class := "rounded" }}
+{{ with .class }}{{ $class = . }}{{ end }}
+{{- $ratio := .ratio | default "21x9" -}}
+{{- $thumbnail := "" -}}
+{{- $credits := "" -}}
+{{ $figclass := .figclass }}
+
+{{- if reflect.IsMap $page.Params.Thumbnail -}}
+    {{- $thumbnail = $page.Params.Thumbnail.url -}}
+    {{- $author := "" -}}
+    {{- if and $page.Params.Thumbnail.authorURL "text" $page.Params.Thumbnail.author }}
+        {{- $author = partial "assets/link.html" (dict "destination" $page.Params.Thumbnail.authorURL "text" $page.Params.Thumbnail.author "page" $page) -}}
+    {{- else if $page.Params.Thumbnail.author }}
+        {{- $author = $page.Params.Thumbnail.author -}}
+    {{- end -}}
+
+    {{- $origin := "" -}}
+    {{- if and $page.Params.Thumbnail.originURL "text" $page.Params.Thumbnail.origin }}
+        {{- $origin = partial "assets/link.html" (dict "destination" $page.Params.Thumbnail.originURL "text" $page.Params.Thumbnail.origin "page" $page) -}}
+    {{- else if $page.Params.Thumbnail.origin }}
+        {{- $origin = $page.Params.Thumbnail.origin -}}
+    {{- end }}
+
+    {{- if and $author $origin }}
+        {{ $credits = printf (T "photoFull") $author $origin }}
+    {{ else if $author }}
+        {{ $credits = T "photoShort" $author }}
+    {{ end }}
+{{ else }}
+    {{- $thumbnail = $page.Params.Thumbnail -}}
+    {{ if or $page.Params.photoCredits $page.Params.photoSource }}
+        {{ warnf "DEPRECATED: frontmatter variables `photoCredits` and `photoSource` have been deprecated in release v0.18: %s" $page.RelPermalink }}
+    {{ end }}
+    {{- if and $page.Params.photoCredits $page.Params.PhotoSource }}{{ $credits = printf (T "photoFull") $page.Params.photoCredits $page.Params.PhotoSource }}{{ end -}}
+{{- end -}}
+
+{{ if 0 -}}
+    {{- partial "assets/image.html" (dict "url" $thumbnail "ratio" $ratio "wrapper" $wrapper "class" $class "title" $page.Params.title "caption" $credits "figclass" $figclass "priority" "high") -}}
+{{ end -}}
+
+{{ if $page.Params.render }}
+  <model-viewer alt="{{ $page.Params.desciption }}" 
+                src="{{ $page.Params.render }}" ar 
+                style="width: 100%; height: 300px;"
+                shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+{{ end }}
