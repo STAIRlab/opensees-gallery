@@ -1,4 +1,4 @@
-import sees
+import veux
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -13,22 +13,22 @@ if __name__ == "__main__":
         #
         # Render the model in the undeformed state
         #
-        artist = sees.render(model, canvas="gltf")
+        artist = veux.render(model, canvas="gltf")
 
         # Save the rendering using the GLTF2.0 format
 #       artist.save(dir/f"{element}.glb")
-        sees.serve(artist)
+        veux.serve(artist)
 
         #
         # Render the deformed state of the structure
         #
         state = {i: model.nodeDisp(i) for i in model.getNodeTags()}
-        artist = sees.render(model, model.nodeDisp,
+        artist = veux.render(model, model.nodeDisp,
                              canvas="gltf",
                              scale=10,
                              displaced={"plane.outline"}
         )
 
-        sees.serve(artist)
+        veux.serve(artist)
 #       artist.save(dir/f"{element}-displaced.glb")
 
