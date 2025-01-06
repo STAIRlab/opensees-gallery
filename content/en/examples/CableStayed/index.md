@@ -2,7 +2,7 @@
 title:  Cable Stayed
 tags: ["Python", "Tcl"]
 description: Model of a cable-stayed bridge imported from CSiBridge
-image: img/CableStayed02.png
+image: img/examples/CableStayed02.png
 render: model.glb
 ---
 
