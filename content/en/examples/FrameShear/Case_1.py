@@ -116,7 +116,6 @@ def analyze(element="ForceBeamColumn", use_shear = False):
 
 if __name__ == "__main__":
 
-
 #   "DispBeamColumnNL"
 #   "DispBeamColumn"
 #   "PrismFrame"
