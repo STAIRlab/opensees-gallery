@@ -95,5 +95,26 @@ jobs:
           ${{ runner.os }}-${{ env.CACHE_KEY }}
 
     - name: Build main site
-      run: npm run build:cache
+      env:
+        HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+        HUGO_ENVIRONMENT: production
+      run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify -e ci --baseURL ${{ steps.pages.outputs.base_url }}/"
+      #npm run build:cache
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./public
+
+  # Deployment job
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
