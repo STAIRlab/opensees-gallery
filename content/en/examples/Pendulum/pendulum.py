@@ -13,11 +13,11 @@ def create_pendulum(m, k, L, W):
 
 
     # Create a node for the pivot point and fix it
-    model.node(1, 0, L);
+    model.node(1, 0, L)
     model.fix(1, 1, 1)
 
     # Create a free node with the mass
-    model.node(2, 0, 0);
+    model.node(2, 0, 0)
     model.mass(2, m, m)
 
     # Create a corotational truss between nodes 1 and 2
@@ -48,6 +48,7 @@ def analyze_pendulum(model):
     for i in range(Nsteps):
         model.analyze(1, dt)
         u.append(model.nodeDisp(2))
+
     return u
 
 
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     # Pendulum mass
     m = 1.0
 
-    # Frequency of pendulum
+    # Linearized frequency of pendulum
     omega = (g/L)**0.5
 
     # Frequency of oscillator
