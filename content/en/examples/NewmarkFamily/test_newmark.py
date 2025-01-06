@@ -35,7 +35,7 @@ def buildModel(k, m, dampRatio, yieldDisp):
     else:
         model.uniaxialMaterial('ElasticPP', 1, k, yieldDisp)
 
-    model.element('zeroLength', 1, 1, 2, mat=1,  dir=1)
+    model.element("zeroLength", 1, (1, 2), mat=1,  dir=1)
 
     model.fix(1, 1)
 
@@ -76,8 +76,8 @@ def test_linear():
     integratorCmds = [
       ["Newmark Average Acceleration", "integrator Newmark 0.5 0.25" + cmd],
       ["Newmark Linear Acceleration" , "integrator Newmark 0.5 [expr 1.0/6.0]" + cmd],
-      ["Central Difference" , "integrator Newmark 0.5 0" + cmd],
-      ["Central Difference II" , "integrator CentralDifference"]
+      ["Central Difference" ,          "integrator Newmark 0.5 0" + cmd],
+      ["Central Difference II" ,       "integrator CentralDifference"]
     ]
 
 
@@ -224,7 +224,6 @@ def test_nonlinear():
                     testOK = -1
                     print(f"failed  abs(uOpenSees - uComputed) = {abs(uComputed-uOpenSees)} > {tol}")
                     break
-
 
             assert testOK == 0
 
