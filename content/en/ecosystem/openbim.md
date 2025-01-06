@@ -7,6 +7,6 @@ icon: fa font-awesome
 
 Import models from commercial pre-processors.
 
-{{< button relref="examples/cable-stayed" outline="true" >}}
+{{< button relref="examples/cablestayed" outline="true" >}}
     Example
 {{< /button >}}

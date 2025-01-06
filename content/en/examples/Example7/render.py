@@ -17,8 +17,8 @@ if __name__ == "__main__":
     artist = sees.render(model, canvas="gltf", reference={"frame.surface"}, model_config=model_config)
 
     # Save the rendering using the GLTF2.0 format
-#   sees.serve(artist)
-    artist.save("model.glb")
+    sees.serve(artist)
+#   artist.save("model.glb")
 
     #
     # Render the deformed state of the structure

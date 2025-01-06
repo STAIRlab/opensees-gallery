@@ -2,6 +2,7 @@
 title: Building Modes
 tags: ["Python"]
 layout: single
+draft: true
 thumbnail: img/mode_shapes.png
 description: A building is modeled as a cantilever, and the first three mode shapes are plotted.
 ---

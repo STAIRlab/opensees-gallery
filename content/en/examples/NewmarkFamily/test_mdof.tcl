@@ -1,4 +1,3 @@
-
 #
 # file to compare modal & rayleigh for 2 dof problem
 #  NOTE: to get eigenvalue to work for 2 dof problem 
