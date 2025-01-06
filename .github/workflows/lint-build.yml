@@ -63,7 +63,7 @@ jobs:
 #     run: npm run lint      
 
   build:
-    needs: lint
+#   needs: lint
 
     strategy:
       matrix:
@@ -122,9 +122,9 @@ jobs:
 
     - name: Build main site
       env:
-        HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+#       HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
         HUGO_ENVIRONMENT: production
-      run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify -e ci --baseURL ${{ steps.pages.outputs.base_url }}/"
+      run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
       #npm run build:cache
 
     - name: Upload artifact
