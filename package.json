@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/gethinode/hinode/issues"
   },
-  "homepage": "https://gethinode.com",
+  "homepage": "https://stairlab.berkeley.edu",
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "autoprefixer": "^10.4.20",
