@@ -56,6 +56,4 @@ analyze 10
 # print the results at node and at all elements
 print node 4
 print ele
-for {set i 1} {$i <= 10} {incr i 1} {
-  playback $i
-}
+

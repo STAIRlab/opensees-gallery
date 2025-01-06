@@ -11,7 +11,6 @@ description: >-
 keywords: ["structural analysis", "structural engineering"]
 ---
 
-
 ![Example 1.1](img/Example1.svg)
 
 This example is of a linear-elastic three bar truss, as shown in
@@ -26,7 +25,6 @@ Python or Tcl:
 
 - [`Example1.py`](./Example1.py)
 - [`Example1.tcl`](./Example1.tcl)
-
 
 
 ## Model
@@ -49,6 +47,7 @@ model = ops.Model(ndm=2, ndf=2)
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
 where we've specified `2` for the spatial dimension `ndm`, and
 `2` for the number of degrees of freedom `ndf`.
 
