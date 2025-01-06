@@ -14,11 +14,11 @@ if __name__ == "__main__":
         print("analysis SUCCESSFUL")
 
 
-        # Plot the deformed state of the structure
+    # Plot the deformed state of the structure
 
-        artist = sees.render(model, vertical=3, canvas="gltf")
-        artist = sees.render(model, model.nodeDisp, vertical=3, canvas=artist.canvas)
+    artist = sees.render(model, vertical=3, canvas="gltf")
+#   artist = sees.render(model, model.nodeDisp, vertical=3, canvas=artist.canvas)
 
-        artist.save("displaced.glb")
-#       sees.serve(artist)
+#   artist.save("displaced.glb")
+    sees.serve(artist)
 
