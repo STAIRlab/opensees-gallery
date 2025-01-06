@@ -31,8 +31,8 @@ model = ops.Model(ndm=3, ndf=3)
 
 # Define the material
 # -------------------
-#                               matTag  E     nu   rho
-model.nDMaterial("ElasticIsotropic", 1, 100.0, 0.25, 1.27)
+#                                 tag   E     nu   rho
+model.material("ElasticIsotropic", 1, 100.0, 0.25, 1.27)
 
 # Define geometry
 # ---------------

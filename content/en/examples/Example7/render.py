@@ -1,4 +1,4 @@
-import sees
+import veux
 
 if __name__ == "__main__":
     from Example7 import create_model, static_analysis
@@ -14,16 +14,16 @@ if __name__ == "__main__":
         "extrude_outline": "square",
         "extrude_scale": 2.0
     }
-    artist = sees.render(model, canvas="gltf", reference={"frame.surface"}, model_config=model_config)
+    artist = veux.render(model, canvas="gltf", reference={"frame.surface"}, model_config=model_config)
 
     # Save the rendering using the GLTF2.0 format
-    sees.serve(artist)
+    veux.serve(artist)
 #   artist.save("model.glb")
 
     #
     # Render the deformed state of the structure
     #
-    artist = sees.render(model, model.nodeDisp,
+    artist = veux.render(model, model.nodeDisp,
                          canvas="gltf",
                          scale=200,
                          verbose=True,
@@ -31,6 +31,6 @@ if __name__ == "__main__":
                          displaced={"plane.surface", "plane.outline"},
     )
 
-#   sees.serve(artist)
+#   veux.serve(artist)
     artist.save("gravity.glb")
 
