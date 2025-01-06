@@ -1,5 +1,0 @@
----
-title: Cable Stayed
----
-
-

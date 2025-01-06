@@ -26,7 +26,7 @@ Output:
 ```
 {{ end }}
 {{ range $type, $data := .data }}
-{{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}">{{ end }}
+{{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" width="80%">{{ end }}
 {{ if strings.Contains $type "text" }}
 ```
 {{ range $data }}{{ . | safeHTML }}{{ end }}
