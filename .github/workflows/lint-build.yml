@@ -126,7 +126,7 @@ jobs:
         HUGO_ENVIRONMENT: production
 #     run: "hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
 #     run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
-      run: npm run build:cache
+      run: npm run build:cache -- --baseURL "${{ steps.pages.outputs.base_url }}/"
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
