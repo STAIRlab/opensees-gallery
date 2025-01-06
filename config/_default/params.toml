@@ -1,6 +1,6 @@
 [main]
     separator = "-"
-    description = "OpenSees Examples."
+    description = "STAIRLab Gallery."
     enableDarkMode = true
     enableLanguageSelectionStorage = false
     modes = ["light", "dark"]
@@ -24,7 +24,7 @@
 # toml-docs-start version
 [docs]
     basePath = "_vendor/github.com/gethinode/hinode"
-    github = "https://github.com/STAIRlab/opensees-gallery"
+    github = "https://github.com/STAIRlab/gallery"
     release = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
 # toml-docs-end version
 
@@ -288,7 +288,7 @@
     google_chrome = "https://www.google.com/chrome"
     google_fonts = "https://fonts.google.com"
     hinode = "https://opensees.berkeley.edu"
-    hinode_demo = "https://stairlab.github.io/opensees-gallery/"
+    hinode_demo = "https://stairlab.github.io/gallery/"
     hinode_fr = "https://demo.gethinode.com/fr/"
     html_codeguide = "https://codeguide.co/#html"
     hugo = "https://gohugo.io"
