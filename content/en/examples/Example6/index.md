@@ -2,8 +2,9 @@
 title: "Simply Supported Solid Beam"
 tags: ["Plane", "Python", "Tcl"]
 categories: ["Basic", "Elastic"]
-thumbnail:  img/Example6.png
+thumbnail:  img/examples/Example6.png
 render: model.glb
+description: In this example a simply supported beam is modelled with two dimensional solid elements.
 ---
 
 In this example a simply supported beam is modelled with two dimensional solid
