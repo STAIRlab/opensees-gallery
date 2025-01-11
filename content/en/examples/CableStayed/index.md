@@ -2,11 +2,12 @@
 title:  Cable Stayed
 tags: ["Python", "Tcl"]
 description: Model of a cable-stayed bridge imported from CSiBridge
-image: img/examples/CableStayed02.png
+thumbnail: img/examples/CableStayed02.png
 render: model.glb
 ---
 
 The problem is implemented in the file [`CableStayedBridge.py`](CableStayedBridge.py),
 and can also be run through the Tcl file [`CableStayedBridge.tcl`](CableStayedBridge.tcl).
+Rendering was performed with the [`veux`](https://pypi.org/project/veux) library.
 
 
