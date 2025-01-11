@@ -1,32 +1,21 @@
 ---
 title: Flexible Rod Buckling Under Torque
+thumbnail: img/examples/FrameHockle.png
 bibliography: references.json
+render: hockle.glb
+description: Geometrically nonlinear analysis of a shaft buckling under torsion.
 ---
 
-<figure id="fig:hockling">
-<figure>
-<img src="Figures/Figure_4a" style="width:95.0%" />
-<figcaption><span
-class="math inline"><em>τ</em> = 20</span></figcaption>
-</figure>
-<figure>
-<img src="Figures/Figure_4b" style="width:80.0%" />
-<figcaption><span
-class="math inline"><em>τ</em> = 60</span></figcaption>
-</figure>
-<figcaption>Deformed shapes of hockling rod at various pseudo-time steps
-<span class="math inline"><em>τ</em></span>.</figcaption>
-</figure>
 
-The hockling problem in Figure [1](#fig:hockling){reference-type="ref"
-reference="fig:hockling"} is a particularly complex problem that arises
-from practical considerations for the design of propeller shafts in
-large ships [@rosenthal1976application; @oreilly2017modeling]. The
-problem is posed as a propped cantilever with a torque $T\,\mathbf{E}_1$
-applied at its end $\xi = L$. The rod is fixed at the origin and is free
-to translate along the $\mathbf{E}_1$ direction at its end. This problem
-was investigated analytically by
-[@greenhill1883strength; @ziegler1977principles] who found an
+The hockling shaft (rendered above using the [`veux`](https://stairlab.berkeley.edu/software/veux) library)
+is a particularly complex problem that arises from practical considerations for the design of propeller shafts in
+large ships <cite keys="rosenthal1976application, oreilly2017modeling"></cite>. 
+This post follows from the work by <cite key="perez2024nonlinear"></cite>.
+The problem is posed as a propped cantilever with a torque $T\,\mathbf{E}_1$
+applied at its end $\xi = L$. 
+The rod is fixed at the origin and is free to translate along the $\mathbf{E}_1$ direction at its end. 
+This problem was investigated analytically by
+<cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an
 *approximate* minimum buckling torque $T_{\mathrm{cr}}$ given by:
 $$
 T_{\mathrm{cr}} = \lambda_{\text{cr}} \frac{2 EI}{L}
@@ -41,7 +30,9 @@ that, in all cases, the moment can be applied by simple scaling of a
 reference vector.
 
 The following parameters are commonly adopted for the problem
-[@nour-omid1991finite; @saleeb1992effective]: $$\begin{array}{lcr}
+<cite keys="nour-omid1991finite, saleeb1992effective"></cite>
+$$
+\begin{array}{lcr}
     L &=&   240 \\ %   ,& A  &= 10 \\
     E &=& 71240 \\ %   ,& I  &= 0.0833 \\
     G &=& 27190 \\ %   ,& J  &= 2.16 \\
@@ -51,7 +42,9 @@ The following parameters are commonly adopted for the problem
     A &=& 10\hphantom{.0833}  \\
     I &=& 0.0833 \\
     J &=& 2.16\hphantom{33}   \\
-\end{array}$$ To induce bifurcation, the undeformed centerline
+\end{array}
+$$
+To induce bifurcation, the undeformed centerline
 $\boldsymbol{x}_0(\xi)$ is slightly rotated off the axis of the roller
 reaction:
 $$
@@ -71,12 +64,26 @@ $\vartheta = \|\operatorname{Log}\boldsymbol{\Lambda}(L)\|$. This figure
 shows that the buckling load of the simulation is slightly higher than
 the value derived by <cite key="ziegler1977principles"></cite>, but is consistent with
 findings for geometrically exact elements in the literature
-[@nour-omid1991finite; @ibrahimbegović1996role; @saleeb1992effective; @santos2011hybridmixed].
+<cite keys="nour-omid1991finite, ibrahimbegović1996role, saleeb1992effective, santos2011hybridmixed"></cite>.
 
-![Relation between load factor $\lambda$ and end rotation angle
-$\vartheta$ for the hockling problem with the `SFIN` isometry and
+![Relation between load factor $\lambda$ and end rotation angle $\vartheta$ for the hockling problem with the `SFIN` isometry and
 different interpolation/parameterization
 pairs.](Figures/Figure_5){#fig:hockle-plot width="70%"}
+
+<figure id="fig:hockling">
+<figure>
+<img src="img/Figure_4a.png" style="width:95.0%" />
+<figcaption><span
+class="math inline"><em>τ</em> = 20</span></figcaption>
+</figure>
+<figure>
+<img src="img/Figure_4b.png" style="width:80.0%" />
+<figcaption><span
+class="math inline"><em>τ</em> = 60</span></figcaption>
+</figure>
+<figcaption>Deformed shapes of hockling rod at various pseudo-time steps
+<span class="math inline"><em>τ</em></span>.</figcaption>
+</figure>
 
 # References
 

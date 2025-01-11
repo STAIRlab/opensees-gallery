@@ -9,6 +9,7 @@ bibliography: references.json
 The curved cantilever in Figure [1](#fig:bathe){reference-type="ref"
 reference="fig:bathe"} was first studied by <cite key="bathe1979large"></cite>, and has
 become a staple in the literature on geometrically nonlinear rods. 
+This presentation follows from the work by <cite key="perez2024nonlinear"></cite>.
 This example is selected to demonstrate the path-independence of the `Init`
 interpolation. The undeformed centerline of the cantilever follows a
 $45^\circ$ arc with radius $R$ given by:
