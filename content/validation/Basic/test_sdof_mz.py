@@ -144,7 +144,7 @@ def test_sdofTransient():
 
         ops.node(  1,  0.)
         ops.node(  2 , 0., '-mass', m)
-        
+
         ops.uniaxialMaterial( 'Elastic', 1, K)
         ops.element( 'zeroLength', 1, 1, 2, '-mat', 1, '-dir', 1)
         ops.fix( 1, 1)
