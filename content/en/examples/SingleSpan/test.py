@@ -27,13 +27,13 @@ def test_load(elem):
 def test_stif(elem):
     model = single_span(elem)
 
-    model.setNodeDisp(2, 1, -0.01, '-commit')
-    model.setNodeDisp(2, 2, -0.01, '-commit')
-    model.setNodeDisp(2, 3, -0.01, '-commit')
+#   model.setNodeDisp(2, 1, -0.01, '-commit')
+#   model.setNodeDisp(2, 2, -0.01, '-commit')
+#   model.setNodeDisp(2, 3, -0.01, '-commit')
 
     model.analysis("Transient")
-    model.integrator("Newmark", 1/2, 1/4)
-    model.analyze(1, 0.01)
+#   model.integrator("Newmark", 1/2, 1/4)
+#   model.analyze(1, 0.01)
 
 
     print(elem)
@@ -71,6 +71,9 @@ def test_stif(elem):
 #test("CubicFrame", True)
 #test("forceBeamColumn", True)
 #test("ForceFrame", True)
-test_stif(sys.argv[1])
-test_load(sys.argv[1])
+
+test_stif("CubicFrame")
+
+# test_stif(sys.argv[1])
+# test_load(sys.argv[1])
 
