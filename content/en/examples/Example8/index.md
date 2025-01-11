@@ -4,7 +4,7 @@ weight: 20
 tags: ["Solid", "Dynamic", "Python", "Tcl"]
 categories: ["Basic"]
 description: Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.
-thumbnail:  img/Example8.png
+thumbnail:  img/examples/Example8.png
 render: model.glb
 ---
 

@@ -7,7 +7,7 @@ P = 0.0              # Axial force
 w = 10000.0          # Distributed load
 E = 200e9            # Modulus of elasticity
 G = E*0.6
-hw = 0.355            # Web height
+hw = 0.355           # Web height
 bf = 0.365           # Flange width
 tf = 0.018           # Flange thickness
 tw = 0.011           # Web thickness
@@ -28,18 +28,21 @@ Iz = I
 Iy = I
 J  = 2*I
 
-
+# Create the model
 model = ops.Model(ndm=3, ndf=6)
 
+# Define nodes
 model.node(1, 0, 0, 0)
 model.node(2, L, 0, 0)
 model.fix(1, 1, 1, 1, 1, 1, 1)
 
-
+# Configure material and element properties
 model.section("FrameElastic", 1, E=E, A=A, Ay=Ay, Az=Az, Iz=Iz, Iy=Iy, J=J, G=G)
 model.geomTransf("Linear", 1, (0, 0, 1))
+# Create the frame element
 model.element("CubicFrame", 1, (1, 2), section=1, transform=1)
 
+# Define parameters
 model.parameter(1, "element", 1, "E")
 model.parameter(2, "element", 1, "A")
 model.parameter(3, "element", 1, "Iz")
