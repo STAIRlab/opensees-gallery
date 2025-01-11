@@ -9,6 +9,7 @@ __pycache__/
 .hugo_build.lock
 .ipynb_checkpoints
 content/en/examples/*/model.json
+elCentro.dat
 # CSI:
 *.sdb
 *.bdb
