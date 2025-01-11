@@ -1,39 +1,46 @@
 #
 # Tapered cantilever beam
-# -----------------------
+#
+# Description
+# -----------
 #  Tapered cantilever beam modeled with two dimensional solid elements
 # 
-# Example Objectives
-# ------------------
-#  test different quad elements
-#  free vibration analysis starting from static deflection
-#
+# Objectives
+# ----------
+#  Test different plane elements
+
 # import the OpenSees Python module
 import opensees.openseespy as ops
 
 # ----------------------------
 # Start of model generation
 # ----------------------------
-def create_model(element: str = "quad"):
+def create_model(mesh,
+                 thickness=1,
+                 element: str = "LagrangeQuad"):
+
+    nx, ny = mesh
 
     # create model in two dimensions with 2 DOFs per node
     model = ops.Model(ndm=2, ndf=2)
 
     # Define the material
     # -------------------
-    #                                 tag  E      nu
-    model.material("ElasticIsotropic", 1, 1000.0, 0.25, "-plane-strain")
+    #                                 tag  E      nu   rho
+    model.material("ElasticIsotropic", 1, 1000.0, 0.25, 0, "-plane-strain")
 
     # Define geometry
     # ---------------
 
     thick = 2.0;
-    nx = 5*100; # NOTE: nx MUST BE EVEN FOR THIS EXAMPLE
-    ny = 2*40
 
     bn = nx + 1
     l1 = int(nx/2 + 1)
     l2 = int(l1 + ny*(nx+1))
+
+    b = 30
+    r = 7.5/100
+    L = 100.0
 
     # now create the nodes and elements using the surface command
     # {"quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
@@ -42,16 +49,15 @@ def create_model(element: str = "quad"):
     surface = model.surface((nx, ny),
                   element=element, args=args,
                   points={
-                    1: [  0.0,  0.0],
-                    2: [ 40.0,  0.0],
-                    3: [ 40.0, 10.0],
-                    4: [  0.0, 10.0]
+                    1: [  0.0,   0.0],
+                    2: [   L,    L*r],
+                    3: [   L,  b-L*r],
+                    4: [  0.0, b]
                   })
 
     # Single-point constraints
-    #      node u1 u2    
-    model.fix( 1, 1, 1)
-    model.fix(bn, 0, 1)
+    #            x   (u1 u2)
+    model.fixX( 0.0, (1, 1))
 
     # Define gravity loads
     # create a Plain load pattern with a linear time series
