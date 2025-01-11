@@ -25,10 +25,10 @@ three dimensional space. Each node of a shell analysis has six degrees
 of freedom, three displacements and three rotations. Thus the model is
 defined with $ndm = 3$ and $ndf = 6$.
 
-For this model, a mesh is generated using the `block2D` command. The
-number of nodes in the local x-direction of the block is `nx` and the
-number of nodes in the local y-direction of the block is `ny`. The
-block2D generates nodes with tags `{1,2,3,4, 5,7,9}` such that the
+For this model, a mesh is generated using the [`surface()`]() function. The
+number of nodes in the local $x$-direction of the block is `nx` and the
+number of nodes in the local $y$-direction of the block is `ny`. The
+`surface` function generates nodes with tags `{1,2,3,4, 5,7,9}` such that the
 structure is curved in space.
 
 {{< tabs tabTotal="2" >}}
