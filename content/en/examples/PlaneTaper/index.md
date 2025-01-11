@@ -7,3 +7,5 @@ render: model.glb
 
 The [`fixX`](http://opensees.stairlab.io/user/manual/model/sp_constraint/fixX.html) method is introduced.
 
+{{< fold plane_taper.py "analysis script" >}}
+
