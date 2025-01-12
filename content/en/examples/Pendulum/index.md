@@ -43,20 +43,17 @@ $$
 p_\theta = \ell \times m (\dot{\theta} \ell)
 $$
 
-```{=tex}
-\pagebreak
-```
 
 ## (b) Lagrange equation in $\theta$
 
 > (b) Apply Lagrange's equation in the basic form
 > $$
-\dot{p}_\theta-\frac{\partial T}{\partial \theta}=Q_\theta,
+  \dot{p}_\theta-\frac{\partial T}{\partial \theta}=Q_\theta,
 > $$
 > and say what the generalized force $Q_\theta$ represents physically.
 
 $$
-\Lagrange[T]{\theta} = m \ddot{\theta} \ell^2 = Q_\theta
+%\Lagrange[T]{\theta} = m \ddot{\theta} \ell^2 = Q_\theta
 $$
 
 This is a moment equation, enforcing balance of angular momentum.
@@ -65,9 +62,6 @@ point couple forces so that $Q_\theta=0$ and conservation
 of angular momentum follows consequentially.
 
 
-```{=tex}
-\pagebreak
-```
 
 # 1.3 Gravitational Potentials
 
@@ -81,7 +75,7 @@ of angular momentum follows consequentially.
 
 > (a) Use Lagrange's equations in the form
 > $$
-\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{r}}\right)-\frac{\partial L}{\partial r}=0, \quad \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{\theta}}\right)-\frac{\partial L}{\partial \theta}=0
+  \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{r}}\right)-\frac{\partial L}{\partial r}=0, \quad \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{\theta}}\right)-\frac{\partial L}{\partial \theta}=0
 > $$
 > to obtain the equations of motion.
 
@@ -94,8 +88,7 @@ $$
 The Lagrangian is:
 
 $$
-L = T - V = \frac{1}{2}m \left[\dot{r}^2 + (\dot{\theta}r)^2\right]
-+ \frac{G M m}{r}
+L = T - V = \frac{1}{2}m \left[\dot{r}^2 + (\dot{\theta}r)^2\right] + \frac{G M m}{r}
 $$
 
 Forming Lagrange's equations of $r$ yields:
@@ -114,9 +107,6 @@ $$
 \frac{d}{dt}\left(mr^2\dot{\theta}\right) = 0 = m 2r \dot{r} \dot{\theta} + mr^2 \ddot{\theta}
 $$
 
-```{=tex}
-\pagebreak
-```
 
 ## (b) Momentum conservation
 
@@ -165,140 +155,6 @@ m \ddot{r} - m \dot{\theta}^2 r + \frac{GMm}{r^2} = 0 \\
 \boxed{\ddot{r} - \frac{p_\theta^2}{m^2 r^3} + \frac{GM}{r^2} = 0}
 \end{aligned}
 $$
-
-
-```{=tex}
-\pagebreak
-```
-
-# 1.4 Constraints (`Bead on expanding wire`)
-
-> Suppose that a particle $P$ of mass $m$ is constrained to move on an expanding smooth circular wire lying on a horizontal plane:
-> $$
-\psi(x, y, t)=x^2+y^2-c^2 t^2=0 \quad(c=\text { const. })
-> $$
-
-## (a) System characterization
-
-> (a) Identify the constraint type. How many degrees of freedom does $P$ have?
-
-This is a holonomic, rheonomic constraint. The problem has $2-1=\boxed{1}$ degree of freedom.
-
-## (b) Cartesian velocities
-
-> (b) Using Cartesian coordinates, write the equations for the possible velocities, virtual velocities, and virtual displacements.
-
-### Possible velocities
-
-Differentiating the constraint equation yields
-
-$$
-\begin{aligned}
-\dot{\psi} &= \nabla \psi \cdot \tilde{\boldsymbol{v}} \\
-2 \ell \dot{\ell} &= 2x \dot{x} + 2y \dot{y} \\
-\end{aligned}
-$$
-
-This can be written in terms of $\dot{x}$
-
-$$
-\begin{aligned}
-\tilde{\boldsymbol{v}}\cdot \mathbf{e}_x &= \dot{x} \\
-\tilde{\boldsymbol{v}}\cdot \mathbf{e}_y &= \frac{1}{y}(\ell \dot{\ell} - x \dot{x}) \\
-&= \frac{1}{y}(c^2 t - x \dot{x})
-\end{aligned}
-$$
-
-### Virtual velocities
-
-Similarly, for the virtual velocities:
-
-$$
-\begin{aligned}
-\delta \boldsymbol{v}\cdot \mathbf{e}_x &= \delta v_x \\
-\delta \boldsymbol{v}\cdot \mathbf{e}_y &= \frac{-x}{y} \delta v_x \\
-\end{aligned}
-$$
-
-
-
-### Virtual displacements
-
-$$
-\begin{aligned}
-\delta \boldsymbol{r} &= \frac{d}{d\eta} \boldsymbol{r}(x+\delta x) \\
-&= \delta x \mathbf{e}_x - \frac{x\delta x}{\sqrt{(ct)^2 x^2}}\mathbf{e}_y
-\end{aligned}
-$$
-
-## (c) Polar velocities
-
-> (c) Repeat Part (b) using polar coordinates.
-
-### Possible velocities
-
-The following possible velocities are parameterized by $\tilde{v}_\theta$:
-
-$$
-\tilde{\boldsymbol{v}} = c \mathbf{e}_{\text{r}} + \tilde{v}_\theta \mathbf{e}_\theta
-$$
-
-### Virtual velocities
-
-$$
-\delta \boldsymbol{v} =  \tilde{v}_\theta \mathbf{e}_\theta
-$$
-
-## (d) Constrained power
-
-> (d) Calculate the power of the constraint force, and also its virtual power.
-
-Constraint power expended:
-
-$$
-\begin{aligned}
-\boldsymbol{F}^{(c)}&=\lambda \nabla \psi & \frac{\mathrm{F}}{\mathrm{L}}\times \mathrm{L} \\
-&= \lambda r \, \mathbf{e}_{\text{r}} \\
-&= \lambda ct \, \mathbf{e}_{\text{r}}
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\boldsymbol{F}^{(c)}\cdot \boldsymbol{v}  &= \lambda \ell  \, \dot{\ell}& \left[\frac{\mathrm{F}}{\mathrm{L}}\times \mathrm{L} \times \frac{\mathrm{L}}{\mathrm{T}}\right] \\
-&= \lambda c^2 t\\
-&= F^{(c)}_r c \\
-\end{aligned}
-$$
-
-Constraint virtual power:
-$$
-\begin{aligned}
-\boldsymbol{F}^{(c)}\cdot \delta\boldsymbol{v}  &= \lambda  \nabla \psi \cdot \delta \boldsymbol{v}  = 0\\
-\end{aligned}
-$$
-
-## (e) Lagrange equation in $\theta$
-
-> (e) Apply Lagrange's equation in the form
-> $$
-\frac{d}{d t}\left(\frac{\partial T}{\partial \dot{\theta}}\right)-\frac{\partial T}{\partial \theta}=Q_\theta .
-> $$
-
-$$
-\begin{aligned}
-Q_\theta &= \frac{d}{d t}\left(\frac{\partial T}{\partial \dot{\theta}}\right)-\frac{\partial T}{\partial \theta} \\
-& =\frac{d}{d t}\left(m \ell^2 \dot{\theta}\right)-0 \\
-& =\frac{d}{d t}\left(m (ct)^2 \dot{\theta}\right)=0
-\end{aligned}
-$$
-
-## (f) Conservation interpretation
-
-> (f) Interpret the resulting conservation equation.
-
-The result of part (e) implies conservation of angular momentum is enforced.
-
 
 
 {{< fold pendulum.py "analysis script" >}}
