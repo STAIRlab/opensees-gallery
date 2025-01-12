@@ -16,7 +16,7 @@
     {{ $description = print (substr $description 0 150) "..." }}
 {{ end }}
 {{ if eq .Kind "term" }}
-    {{ $description = print "List of pages tagged with " .Title }}
+    {{ $description = print "List of examples tagged with the tag " .Title }}
 {{ end }}
 {{ $.Scratch.Set "description" $description -}}
 
