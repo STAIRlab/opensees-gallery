@@ -6,8 +6,7 @@ bibliography: references.json
 ---
 
 
-The curved cantilever in Figure [1](#fig:bathe){reference-type="ref"
-reference="fig:bathe"} was first studied by <cite key="bathe1979large"></cite>, and has
+The curved cantilever in shown above was first studied by <cite key="bathe1979large"></cite>, and has
 become a staple in the literature on geometrically nonlinear rods. 
 This presentation follows from the work by <cite key="perez2024nonlinear"></cite>.
 This example is selected to demonstrate the path-independence of the `Init`
