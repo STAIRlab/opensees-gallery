@@ -7,15 +7,15 @@
     - title: Compiling
     - title: Contribute
 
-- title: Developing
-  pages:
-    - title: Domain Classes
-    - title: Analysis Classes
-    - title: Parallel Classes
+# - title: Developing
+#   pages:
+#     - title: Domain Classes
+#     - title: Analysis Classes
+#     - title: Parallel Classes
 
 
 - title: Library
   pages:
-    - title: Frame
+    - title: veux
 
 
