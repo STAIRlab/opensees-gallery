@@ -1,6 +1,6 @@
 ---
-title: Library
-description: Modeling library.
+title: Libraries
+description: Libraries in the STAIRLab ecosystem.
 nested: false
 _build:
   list: false
