@@ -37,6 +37,12 @@ class Entry {
   getUrl() {
     return this.entryData.url || '';
   }
+
+  // Get DOI if available
+  getDOI() {
+    // Assuming your CSL-JSON has a field called "DOI"
+    return this.entryData.DOI || '';
+  }
 }
 
 // Formatter Class: Base class for citation formatters
@@ -50,65 +56,145 @@ class Formatter {
   formatBibliography(entry, element) {
     throw "formatBibliography() must be implemented by a subclass";
   }
+
+  // Optional helper to generate a full citation string for tooltips
+  // (You can override or customize per style if needed.)
+  generateFullCitationString(entry) {
+    // By default, returns a simple "Author (Year). Title. Publisher. DOI"
+    const authors = entry.getAuthors();
+    const year = entry.getYear();
+    const title = entry.getTitle();
+    const publisher = entry.getPublisher();
+    const doi = entry.getDOI();
+
+    let fullCitation = `${authors} (${year}). ${title}. ${publisher}`;
+    if (doi) {
+      fullCitation += `. doi: ${doi}`;
+    }
+    return fullCitation;
+  }
 }
 
 // APA Formatter
 class APAFormatter extends Formatter {
-  // Example In-Text: (Authors, Year)
+  // Example In-Text: Author (Year)
   formatCitation(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
-    // Simple version: "Authors (Year)"
-    element.innerHTML = `${authors} (${year})`;
+    const doi = entry.getDOI();
+
+    // Short in-text citation
+    const shortCitation = `${authors} (${year})`;
+
+    // Full citation string for tooltip
+    const fullCitation = this.generateFullCitationString(entry);
+
+    if (doi) {
+      // Make the entire text a link to the DOI, with a tooltip
+      element.innerHTML = `<a href="https://doi.org/${doi}" 
+                              target="_blank" 
+                              title="${fullCitation}">
+                              ${shortCitation}
+                           </a>`;
+    } else {
+      // No DOI: just put the short citation, but still add the tooltip
+      element.innerHTML = `<span title="${fullCitation}">${shortCitation}</span>`;
+    }
   }
 
-  // Example Bibliography: Authors (Year). Title in italics. Publisher.
+  // Example Bibliography: Authors (Year). Title in italics. Publisher. DOI link.
   formatBibliography(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
     const title = entry.getTitle();
     const publisher = entry.getPublisher();
-    element.innerHTML = `${authors} (${year}). <i>${title}</i>. ${publisher}.`;
+    const doi = entry.getDOI();
+
+    let ref = `${authors} (${year}). <i>${title}</i>. ${publisher}.`;
+
+    if (doi) {
+      ref += ` <a href="https://doi.org/${doi}" target="_blank">https://doi.org/${doi}</a>`;
+    }
+
+    element.innerHTML = ref;
   }
 }
 
 // MLA Formatter
 class MLAFormatter extends Formatter {
-  // Example In-Text: (Authors Year) – very simplified
+  // Example In-Text: (Author Year) [Very simplified]
   formatCitation(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
-    // Common MLA in-text is (LastName page) but we’ll do a simple placeholder
-    element.innerHTML = `(${authors} ${year})`;
+    const doi = entry.getDOI();
+
+    const shortCitation = `(${authors} ${year})`;
+    const fullCitation = this.generateFullCitationString(entry);
+
+    if (doi) {
+      element.innerHTML = `<a href="https://doi.org/${doi}" 
+                              target="_blank" 
+                              title="${fullCitation}">
+                              ${shortCitation}
+                           </a>`;
+    } else {
+      element.innerHTML = `<span title="${fullCitation}">${shortCitation}</span>`;
+    }
   }
 
-  // Example Bibliography: Authors. Title in italics. Publisher, Year.
+  // Example Bibliography: Authors. Title in italics. Publisher, Year. [DOI link if available]
   formatBibliography(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
     const title = entry.getTitle();
     const publisher = entry.getPublisher();
-    element.innerHTML = `${authors}. <i>${title}</i>. ${publisher}, ${year}.`;
+    const doi = entry.getDOI();
+
+    let ref = `${authors}. <i>${title}</i>. ${publisher}, ${year}.`;
+    if (doi) {
+      ref += ` <a href="https://doi.org/${doi}" target="_blank">https://doi.org/${doi}</a>`;
+    }
+
+    element.innerHTML = ref;
   }
 }
 
 // Chicago Formatter
 class ChicagoFormatter extends Formatter {
-  // Example In-Text: Authors Year
+  // Example In-Text: Authors Year [Simplified Chicago author-date]
   formatCitation(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
-    // A simple placeholder for Chicago in-text (author-date)
-    element.innerHTML = `${authors} ${year}`;
+    const doi = entry.getDOI();
+
+    const shortCitation = `${authors} ${year}`;
+    const fullCitation = this.generateFullCitationString(entry);
+
+    if (doi) {
+      element.innerHTML = `<a href="https://doi.org/${doi}" 
+                              target="_blank" 
+                              title="${fullCitation}">
+                              ${shortCitation}
+                           </a>`;
+    } else {
+      element.innerHTML = `<span title="${fullCitation}">${shortCitation}</span>`;
+    }
   }
 
-  // Example Bibliography: Authors. Title in italics. Publisher, Year.
+  // Example Bibliography: Authors. Title in italics. Publisher, Year. [DOI link if available]
   formatBibliography(entry, element) {
     const authors = entry.getAuthors();
     const year = entry.getYear();
     const title = entry.getTitle();
     const publisher = entry.getPublisher();
-    element.innerHTML = `${authors}. <i>${title}</i>. ${publisher}, ${year}.`;
+    const doi = entry.getDOI();
+
+    let ref = `${authors}. <i>${title}</i>. ${publisher}, ${year}.`;
+    if (doi) {
+      ref += ` <a href="https://doi.org/${doi}" target="_blank">https://doi.org/${doi}</a>`;
+    }
+
+    element.innerHTML = ref;
   }
 }
 
