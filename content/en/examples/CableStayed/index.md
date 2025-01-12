@@ -6,8 +6,9 @@ thumbnail: img/examples/CableStayed02.png
 render: model.glb
 ---
 
-The problem is implemented in the file [`CableStayedBridge.py`](CableStayedBridge.py),
-and can also be run through the Tcl file [`CableStayedBridge.tcl`](CableStayedBridge.tcl).
-Rendering was performed with the [`veux`](https://pypi.org/project/veux) library.
+The example is composed of the following files:
+- [`CableStayed.b2k`](CableStayed.b2k) is a CSiBridge input file defining a cable stayed bridge.
+- [`analyze.py`](analyze.py) performs  an analysis using [`opensees`](https://pypi.org/project/opensees) and the [OpenBIM](https://pypi.org/project/openbim) library.
+- [`render.py`](render.py) generates a rendering with the [`veux`](https://pypi.org/project/veux) library.
 
 
