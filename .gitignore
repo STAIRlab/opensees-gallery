@@ -25,3 +25,5 @@ __pycache__/
 *.out
 opensees_gallery/examples/archive/
 
+.vscode
+hugo_stats.json

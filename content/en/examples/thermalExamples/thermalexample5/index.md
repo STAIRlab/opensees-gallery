@@ -1,5 +1,6 @@
 ---
-title: Example 5
+title: Thermal Example 5
+draft: true
 description: A two-bay frame that measures 2.4 m x 1.18 m with a 60 N/m distributed load and column point loads is subjected to a fire in one of the bays. The heated bay is heated linearly to a target temperature of 550 &deg; C.
 tags: ["thermal"]
 ---

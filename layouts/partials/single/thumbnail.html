@@ -42,8 +42,11 @@
 {{ end -}}
 
 {{ if $page.Params.render }}
-  <model-viewer alt="{{ $page.Params.desciption }}" 
-                src="{{ $page.Params.render }}" ar 
+  <model-viewer alt="Finite element rendering produced by veux" 
+                src="{{ $page.Params.render }}" 
+                ar 
                 style="width: 100%; height: 300px;"
-                shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                autoplay
+                shadow-intensity="1" camera-controls touch-action="pan-y">
+  </model-viewer>
 {{ end }}

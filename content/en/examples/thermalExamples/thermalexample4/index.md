@@ -1,5 +1,6 @@
 ---
-title: Example 4
+title: Thermal Example 4
+draft: true
 description: A 6 m x 3.5 m single bay frame with a 2 kN/m distributed load is subjected to a non-linear fire curve.
 tags: ["thermal"]
 ---

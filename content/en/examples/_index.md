@@ -1,5 +1,5 @@
 ---
 #author: Claudio M. Perez
 title: Examples
-description: Examples using OpenSees.
+description: Gallery of examples using OpenSees.
 ---

@@ -1,16 +1,15 @@
 ---
-title: Example 3
+title: Thermal Example 3
+draft: true
 description: |
   A 6m long beam has a uniform applied load of 10 kN/m. With the loading
-  sustained, the beam is heated to a target temperature of 1180 &deg; C.
+  sustained, the beam is heated to a target temperature of 1180 C.
 ---
 
 
-![](img/Example3_fig1.png){.align-centeralign-center width="500px"}
+![Elevation of beam and member cross-section](img/Example3_fig1.png)
 
-**Elevation of beam and member cross-section**
-
-Example overview: A steel beam is subjected to a uniform temperature
+A steel beam is subjected to a uniform temperature
 using a linear time-temperature history. Vertical midspan displacement
 of the heated beam is recorded throughout the analysis. An investigation
 is performed on the impact the following parameters have on the midspan
@@ -24,8 +23,7 @@ Download Example 3 files:
 
 [`WsectionThermal.tcl`](files/WsectionThermal.tcl)
 
-`Example 3 Outputs <files/Example3_OUTPUT.zip>`{.interpreted-text
-role="download"}.
+[Example 3 Outputs](files/Example3_OUTPUT.zip)
 
 ## Objectives
 
@@ -71,8 +69,7 @@ or
 > geomTransf Corotational $transftag;
 > ```
 
-Learn more about geometric transofrmations: [Geometric
-Transformation](http://opensees.berkeley.edu/wiki/index.php/Geometric_Transformation_Command)
+Learn more about geometric transofrmations [here](https://opensees.stairlab.io/user/manual/model/geomTransf.html).
 
 ## section
 
@@ -158,10 +155,8 @@ mechanical properties applied to them.
 This example was developed using 6 elements along the length of the
 beam.
 
-dispBeamColumnThermal $eleTag $iNode $jNode $numIntgrPts $secTag
-$TransfTag;
-
 ```tcl
+# dispBeamColumnThermal $eleTag $iNode $jNode $numIntgrPts $secTag $TransfTag;
 element dispBeamColumnThermal $secTag 1 2 5 $secTag $transftag;
 ```
 
@@ -195,8 +190,7 @@ Reaction forces at end nodes (nodes 1 & 7)
 recorder Node -file $dataDir/RXNs.out -time -node 1 7 -dof 2 reaction;
 ```
 
-Learn more about the Recorder Command: [Recorder
-Command](http://opensees.berkeley.edu/wiki/index.php/Recorder_Command)
+Learn more about the recorder command [here](https://opensees.stairlab.io/user/manual/output/recorder.html).
 
 ## Thermal Loading
 
@@ -272,12 +266,12 @@ fire engineering analyses.
 set Nstep 1000;
 ```
 
-Thermal load is applied in 1000 steps. Each step is an 0.001 increment
+Thermal load is applied in `1000` steps. Each step is an 0.001 increment
 of the maximum temperature specified in the thermal loading step `T`
 (1180)
 
 ```tcl
-set Factor \[expr 1.0/$Nstep\];
+set Factor [expr 1.0/$Nstep];
 
 integrator LoadControl $Factor;
 
@@ -302,3 +296,4 @@ finite element software Abaqus additonally plotted as \"AB\".
 [1] W. Maddalozzo and E.C. Fischer, \"Post-earthquake fire performance
 of steel buildings,\" World Conference on Earthquake Engineering,
 17WCEE, Sendai, Japan - September 13-18, 2020.
+

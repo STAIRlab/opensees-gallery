@@ -1,9 +1,9 @@
-title = "OpenSees"
-copyright = "© 2024 <a href='https://github.com/stairlab' class='link-bg-footer' target='_blank' rel='noopener noreferrer'>PEER</a>"
+title = "STAIRLab"
+copyright = "© 2025 <a href='https://github.com/stairlab' class='link-bg-footer' target='_blank' rel='noopener noreferrer'>PEER</a>"
 enableGitInfo = true
 
 # additional settings
-baseURL = "https://stairlab.github.io/gallery/"
+baseURL = "https://gallery.stairlab.io/"
 canonifyURLs = false
 # disableKinds = ["taxonomy", "term"]
 enableEmoji = true

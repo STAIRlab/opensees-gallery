@@ -1,6 +1,7 @@
 ---
 title: RotD Spectrum
-tags: ["Python", "Dynamics"]
+draft: true
+tags: ["Python", "Dynamics", "SDOF"]
 thumbnail: img/examples/RotD100.png
 ---
 

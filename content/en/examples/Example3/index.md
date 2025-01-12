@@ -15,10 +15,10 @@ discretization of the cross section is used in the model.
 The files for this example are:
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
-[`portal.py`](portal.py)
+<a href="portal.py"><code>portal.py</code></a>
 {{% /tab %}}
 {{% tab name="Tcl" %}}
-[`portal.tcl`](portal.tcl)
+<a href="portal.tcl"><code>portal.tcl</code></a>
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -215,12 +215,13 @@ gravity_analysis;
 {{% /tab %}}
 {{< /tabs >}}
 
-A single load pattern with a linear time series is created with two vertical nodal
-loads acting at nodes 3 and 4:
+Inside the function, a single load pattern with a linear time series is created with two vertical nodal
+loads acting at nodes `3` and `4`:
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
+...
 model.pattern("Plain", 1, "Linear", loads={
 # nodeID  xForce yForce zMoment
      3:   [ 0.0,   -P,   0.0],
@@ -230,6 +231,7 @@ model.pattern("Plain", 1, "Linear", loads={
 {{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
+...
 
 ```
 {{% /tab %}}
@@ -241,20 +243,18 @@ type `Newton` is used. The solution algorithm uses a `ConvergenceTest` which
 tests convergence of the equilibrium solution with the norm of the
 displacement increment vector. 
 For this nonlinear problem, the gravity
-loads are applied incrementally until the full load is applied. To
-achieve this, a `LoadControl` integrator which advances the solution with
-an increment of `0.1` at each load step is used. The equations are formed
-using a banded storage scheme, so the System is `BandGeneral`.
-The
-equations are numbered using an RCM (reverse Cuthill-McKee) numberer.
-The constraints are enforced with a Plain constraint handler.
+loads are applied incrementally until the full load is applied. 
+To achieve this, a `LoadControl` integrator is used which advances the solution with
+an increment of `0.1` at each load step. 
+The equations are formed using a banded storage scheme, so the System is `BandGeneral`.
+The constraints are enforced with a `Plain` constraint handler.
 
 Once all the components of an analysis are defined, the Analysis object
 itself is created. For this problem a Static Analysis object is used. To
 achieve the full gravity load, 10 load steps are performed.
 
-At end of analysis, the state at nodes 3 and 4 is output. The state of
-element 1 is also output.
+At end of analysis, the state at nodes 3 and 4 is printed. The state of
+element 1 is also reported.
 
 
 For the two nodes, displacements and loads are given. For the
@@ -275,12 +275,12 @@ pushover analysis.
 After performing the gravity load analysis on the model, the time in the
 domain is reset to 0.0 and the current value of all loads acting are
 held constant. A new load pattern with a linear time series and
-horizontal loads acting at nodes 3 and 4 is then added to the model.
+horizontal loads acting at nodes `3` and `4` is then added to the model.
 
 The static analysis used to perform the gravity load analysis is
 modified to take a new DisplacementControl integrator. At each new step
 in the analysis the integrator will determine the load increment
-necessary to increment the horizontal displacement at node 3 by 0.1 in.
+necessary to increment the horizontal displacement at node `3` by 0.1 in.
 60 analysis steps are performed in this new analysis.
 
 For this analysis the nodal displacements at nodes 3 and 4 will be
@@ -416,4 +416,34 @@ generate the moment-curvature time history of the base section of column
 
 ![Column section moment-curvature results](newElement1MK.svg)
 
+## Complete Analysis
+
+A complete analysis may look as follows:
+```python
+def main():
+    # Create the model
+    model = create_portal()
+
+    # perform analysis under gravity loads
+    status = gravity_analysis(model)
+
+    if status == ops.successful:
+        print("Gravity analysis completed SUCCESSFULLY\n")
+    else:
+        print(f"Gravity analysis FAILED ({status = })\n")
+
+    status = pushover_analysis(model)
+    # Print a message to indicate if analysis successful or not
+    if status == ops.successful:
+        print(f"\nPushover analysis completed SUCCESSFULLY\n")
+    else:
+        print(f"Pushover analysis FAILED ({status = })\n")
+
+    # Print the state at node 3
+    model.print("node", 3)
+
+if __name__ == "__main__":
+    main()
+
+```
 

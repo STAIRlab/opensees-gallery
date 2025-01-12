@@ -22,11 +22,6 @@
   pageRef = "/examples/"
   weight = 40
 
-# [[main]]
-#   name = "Releases"
-#   pageRef = "/releases/"
-#   weight = 50
-
 [[main]]
   name = "GitHub"
   pre = "fab fa-github"
@@ -51,19 +46,19 @@
 [[sample]]
   parent = "Examples"
   name = "Getting started"
-  pageRef = "/examples/Example1/"
+  pageRef = "/examples/example1/"
   weight = 10
 
 [[sample]]
   parent = "Examples"
   name = "Section analysis"
-  pageRef = "/examples/Example2/"
+  pageRef = "/examples/example2/"
   weight = 20
 
 [[sample]]
   parent = "Examples"
   name = "3D Dynamics"
-  pageRef = "/examples/Example5/"
+  pageRef = "/examples/example5/"
   weight = 30
 
 [[sample]]
@@ -144,11 +139,11 @@
   [footer.params]
     alias = true
 
-[[footer]]
-  parent = "Links"
-  name = "Releases"
-  pageRef = "/releases/"
-  weight = 40
+# [[footer]]
+#   parent = "Links"
+#   name = "Releases"
+#   pageRef = "/releases/"
+#   weight = 40
 
 [[footer]]
   name = "Examples"
@@ -157,20 +152,20 @@
 [[footer]]
   parent = "Examples"
   name = "Working with solids"
-  pageRef = "/examples/Example8"
+  pageRef = "/examples/example8"
   weight = 10
 
 [[footer]]
   parent = "Examples"
   name = "Nonlinear dynamics"
-  pageRef = "/examples/Example7"
+  pageRef = "/examples/example7"
   weight = 20
 
 
 [[footer]]
   parent = "Examples"
   name = "Basic Statics"
-  pageRef = "/examples/Example1"
+  pageRef = "/examples/example1"
   weight = 40
 
 [[footer]]
@@ -194,3 +189,4 @@
   name = "Contribute"
   pageRef = "/docs/getting-started/contribute/"
   weight = 30
+

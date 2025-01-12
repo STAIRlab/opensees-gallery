@@ -11,10 +11,8 @@
 
 # import the OpenSees Python module
 import opensees.openseespy as ops
+from opensees.helpers import find_node, find_nodes
 
-# ----------------------------
-# Start of model generation
-# ----------------------------
 def create_model(mesh,
                  thickness=1,
                  element: str = "LagrangeQuad"):
@@ -57,15 +55,20 @@ def create_model(mesh,
 
     # Single-point constraints
     #            x   (u1 u2)
-    model.fixX( 0.0, (1, 1))
+    for node in find_nodes(model, x=0.0):
+        print(f"Fixing node {node}")
+        model.fix(node, (1, 1))
 
     # Define gravity loads
     # create a Plain load pattern with a linear time series
     model.pattern("Plain", 1, "Linear")
-    model.load(l1, 0.0, -1.0, pattern=1)
-    model.load(l2, 0.0, -1.0, pattern=1)
+    # Find the node at the tip center
+    place = find_node(model, x=L, y=15.0)
+    print(f"Placing load at node {place}")
+    force = (1.0, 0.0)
+    model.load(place, force, pattern=1)
 
-    return model, (l1, l2)
+    return model
 
 
 
@@ -75,7 +78,7 @@ def create_model(mesh,
 
 def static_analysis(model):
 
-    # Create the load control with variable load steps
+    # Define the load control with variable load steps
     model.integrator("LoadControl", 1.0, 1, 1.0, 10.0)
 
     # Declare the analysis type
@@ -89,11 +92,14 @@ def static_analysis(model):
 if __name__ == "__main__":
     import time
     for element in "quad", "LagrangeQuad":
-        model, (l1, l2) = create_model(element)
+        model = create_model((10,2), element=element)
         start = time.time()
         static_analysis(model)
         print(f"Finished {element}, {time.time() - start} sec")
-        print(model.nodeDisp(l2))
+        print(model.nodeDisp(find_node(model, x=100, y=15)))
+
+    import veux
+    veux.serve(veux.render(model, model.nodeDisp, scale=10))
 
 
 #       print(model.nodeDisp(l2))

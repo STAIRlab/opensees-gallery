@@ -362,8 +362,8 @@
 
     repository = "https://github.com/claudioperez/OpenSeesRT"
     repository_releases = "https://github.com/claudioperez/OpenSeesRT/releases/"
-    repository_tag = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
-    repository_docs = "https://github.com/OpenSees/Documentation.git"
+#   repository_tag = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
+#   repository_docs = "https://github.com/OpenSees/Documentation.git"
 
     repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
 
