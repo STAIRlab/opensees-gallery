@@ -12,11 +12,10 @@ is a particularly complex problem that arises from practical considerations for 
 large ships <cite keys="rosenthal1976application, oreilly2017modeling"></cite>. 
 This post follows from the work by <cite key="perez2024nonlinear"></cite>.
 The problem is posed as a propped cantilever with a torque $T\,\mathbf{E}_1$
-applied at its end $\xi = L$. 
+applied at its end \(\xi = L\). 
 The rod is fixed at the origin and is free to translate along the $\mathbf{E}_1$ direction at its end. 
 This problem was investigated analytically by
-<cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an
-*approximate* minimum buckling torque $T_{\mathrm{cr}}$ given by:
+<cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an *approximate* minimum buckling torque $T_{\mathrm{cr}}$ given by:
 $$
 T_{\mathrm{cr}} = \lambda_{\text{cr}} \frac{2 EI}{L}
 \qquad\text{ where }\qquad
