@@ -84,6 +84,7 @@ class="math inline"><em>τ</em> = 60</span></figcaption>
 <figcaption>Deformed shapes of hockling rod at various pseudo-time steps
 <span class="math inline"><em>τ</em></span>.</figcaption>
 </figure>
+This investigation leveraged the [`FEDEASLab`](https://fedeas.net/Functions/latest/) toolbox for nonlinear finite element analysis.
 
 # References
 
