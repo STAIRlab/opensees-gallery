@@ -15,7 +15,9 @@ time-temperature history.
 Download Example 2 files:
 
 - [`Example2.tcl`](files/Example2.tcl)
+<!--
 - [Example 2 Outputs](files/EXAMPLE2_OUTPUT.zip)
+-->
 
 ## Objective
 
