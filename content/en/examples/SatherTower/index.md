@@ -1,6 +1,6 @@
 ---
 title: Sather Tower
 render: model.glb
-image: SatherTower.png
+image: img/examples/SatherTower.png
 ---
 

@@ -2,7 +2,7 @@ import numpy as np
 import opensees.openseespy
 
 # Create the model
-def arch_model():
+def arch_model2D():
 
     # Define model parameters
     L      = 5000
@@ -129,8 +129,8 @@ def arch_model3D():
         model.element("PrismFrame", tag, nodes, section=1, transform=transfTag)
 
 
-    model.fix( 1, 1, 1, 0, 1, 1, 0)
-    model.fix(nn, 1, 1, 0, 1, 1, 0)
+    model.fix( 1, (1, 1, 0, 1, 1, 0))
+    model.fix(nn, (1, 1, 0, 1, 1, 0))
     for i in model.getNodeTags():
         model.fix(i, dof=3)
 
@@ -138,7 +138,7 @@ def arch_model3D():
     model.pattern("Plain", 1, "Linear")
 
     # Add a nodal load to the pattern
-    model.load(mid, 0.0, -1.0, 0.0, 0, 0, 0, pattern=1)
+    model.load(mid, (0.0, -1.0, 0.0, 0, 0, 0), pattern=1)
 
 
     model.system("ProfileSPD")
@@ -157,11 +157,28 @@ def arc_control(model, dx, *args,  a=0):
     model.integrator("ArcLength", dx, a, det=True, exp=0.0, reference="point")
 
 
+def save_state(model, states):
+    time = model.getTime()
+    states.append({
+            "Time": time,
+            "U": {
+                # The code 4 indicates incremental displacements
+                node: model.nodeDisp(node) for node in model.getNodeTags()
+            },
+            "DU": {
+                # The code 4 indicates incremental displacements
+                node: [model.nodeResponse(node, i+1, 4) for i in range(6)]
+                for node in model.getNodeTags()
+            }
+    })
+    return states
+
 def analyze(model, mid, increment, steps, dx, *args):
     # Initialize some variables
     dof = 2
     xy = []      # Container to hold solution history (i.e., load factor and displacement at `node`)
     status = 0   # Convergence flag; Model.analyze() will return 0 if successful.
+    states = []
 
     # Configure the first load increment strategy; explained below
     increment(model, dx, *args)
@@ -180,18 +197,29 @@ def analyze(model, mid, increment, steps, dx, *args):
         if status != 0:
             dx *= 0.5
             increment(model, dx, *args)
+        else:
+            save_state(model, states)
 
-    return np.array(xy).T
+    return np.array(xy).T, states
 
+def render(model, states):
+    import veux
+    from veux.motion import animate
+    states = {"ConvergedHistory":states}
+    artist = animate(model, states, model_config={
+        "extrude_default": "square"
+    })
+    veux.serve(artist)
+    
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     model, node = arch_model3D()
 
-    model.print("-json")
+    (x, y), states = analyze(model, node, arc_control, 110, 45)
 
-    x, y = analyze(model, node, arc_control, 110, 45)
+#   render(model, states)
 
     fig, ax = plt.subplots()
     ax.plot(x, y)

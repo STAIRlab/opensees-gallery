@@ -1,18 +1,22 @@
 ---
-title: Curved Cantilever Beam Under Point Force
-draft: true
+title: Curved Cantilever
+#draft: true
+description: Geometrically nonlinear analysis of Bathe's curved cantilever.
+bibliography: references.json
 ---
 
-## Curved Cantilever Beam
 
 The curved cantilever in Figure [1](#fig:bathe){reference-type="ref"
-reference="fig:bathe"} was first studied by [@bathe1979large], and has
-become a staple in the literature on geometrically nonlinear rods. This
-example is selected to demonstrate the path-independence of the `Init`
+reference="fig:bathe"} was first studied by <cite key="bathe1979large"></cite>, and has
+become a staple in the literature on geometrically nonlinear rods. 
+This presentation follows from the work by <cite key="perez2024nonlinear"></cite>.
+This example is selected to demonstrate the path-independence of the `Init`
 interpolation. The undeformed centerline of the cantilever follows a
 $45^\circ$ arc with radius $R$ given by:
-$$\boldsymbol{x}_0(\xi) = R \sin \xi \frac{\pi}{4L}\, \mathbf{E}_1 
-                      + R \left(1 - \cos \xi \frac{\pi}{4L}\right)\, \mathbf{E}_3.$$
+$$
+\boldsymbol{x}_0(\xi) = R \sin \xi \frac{\pi}{4L}\, \mathbf{E}_1 
+                      + R \left(1 - \cos \xi \frac{\pi}{4L}\right)\, \mathbf{E}_3.
+$$
 A point load $\boldsymbol{F} = 600 \, \mathbf{E}_2$ is applied at the
 tip, i.e. at $\xi = R$. There is no closed-form solution to the problem,
 and it is customary to present the final displacements at the tip:
@@ -39,6 +43,5 @@ reference="tab:bathe"}. Only the formulations with the `Init`
 interpolation produce the same tip displacement in both load cases,
 indicating an artificial path dependence for all other variants.
 
-![Deformed shape of curved cantilever by
-[@bathe1979large].](Figures/Figure_3){#fig:bathe width="60%"}
+![Deformed shape of curved cantilever by <cite key="bathe1979large"></cite>.](Figures/Figure_3){#fig:bathe width="60%"}
 

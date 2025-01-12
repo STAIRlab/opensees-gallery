@@ -2,7 +2,7 @@
 title: "Frame with Diaphragms"
 tags: ["3D", "Concrete", "Frame", "Python", "Tcl", "Dynamic"]
 categories: ["Basic"]
-thumbnail: img/render.png
+thumbnail: img/examples/Example5.png
 render: model.glb
 description: >-
     A three-dimensional reinforced concrete rigid frame,

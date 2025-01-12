@@ -15,7 +15,7 @@
 import numpy as np
 import opensees.openseespy as ops
 import matplotlib.pyplot as plt
-import sees
+import veux
 
 # Below, the base units are defined as python variables:
 
@@ -88,11 +88,11 @@ for e in range(nel):
                     1,'-rho', rho*area_list[e], '-cMass', 1)
 
 # ### Draw model
-# The model can now be drawn using the `sees` Python package:
+# The model can now be drawn using the `veux` Python package:
 
 
 
-sees.render(model)
+veux.render(model)
 
 # * ### Eigenvalue Analysis
 # Let's get the first 6 periods of the structure to see if they coincide with the ones in paper.

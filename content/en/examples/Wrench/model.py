@@ -35,7 +35,7 @@
 #
 # Chrystal Chern and Claudio Perez
 #
-import sees
+import veux
 import opensees.openseespy as ops
 import numpy as np
 
@@ -162,6 +162,6 @@ model.analyze(1)
 
 
 # Render the deformed shape
-sees.serve(sees.render(model, lambda i: [500*u for u in model.nodeDisp(i)], canvas="gltf"))
+veux.serve(veux.render(model, lambda i: [500*u for u in model.nodeDisp(i)], canvas="gltf"))
 
 

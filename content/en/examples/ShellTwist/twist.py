@@ -1,5 +1,5 @@
 
-import sees
+import veux
 import opensees.openseespy as ops
 import shps.rotor
 
@@ -42,4 +42,5 @@ model_config = {
     "extrude_outline": "square"
 }
 
-sees.serve(sees.render(model, canvas="plotly", reference={"frame.surface"}, model_config=model_config))
+veux.serve(veux.render(model, canvas="plotly", reference={"frame.surface"}, model_config=model_config))
+
