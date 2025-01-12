@@ -1,9 +1,6 @@
 ---
-title: Nonlinear finite element analysis
-
-description: |
-   OpenSees features state-of-the-art finite element formulations and solution algorithms, including mixed formulations for beams and solids, over 200 material models, and an extensive collection of continuation algorithms to solve highly nonlinear problems.
-
+title: STAIRLab
+description: Tools developed by the Structural Artificial Intelligence Lab at UC Berkeley.
 thumbnail: /img/logo_var.svg#logo
 actions:
     getstarted:
