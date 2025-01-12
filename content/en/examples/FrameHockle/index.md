@@ -14,15 +14,16 @@ This post follows from the work by <cite key="perez2024nonlinear"></cite>.
 The problem is posed as a propped cantilever with a torque $T\,\mathbf{E}_1$
 applied at its end \(\xi = L\). 
 The rod is fixed at the origin and is free to translate along the $\mathbf{E}_1$ direction at its end. 
+
 This problem was investigated analytically by
 <cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an *approximate* minimum buckling torque $T_{\mathrm{cr}}$ given by:
-$$
+\[
 T_{\mathrm{cr}} = \lambda_{\text{cr}} \frac{2 EI}{L}
 \qquad\text{ where }\qquad
 \lambda_{\text{cr}}  = \min  \left\{\lambda  \mid \tan \lambda - \lambda = 0\right\} \approx \pm 4.493409
-$$
+\]
 <cite key="ziegler1977principles"></cite> reports the value
-$\lambda_{\text{cr}} \approx \pm 4.494$, which is commonly used in the
+\(\lambda_{\text{cr}} \approx \pm 4.494\), which is commonly used in the
 literature. Because the loaded end is constrained to rotate about a
 fixed axis, all rotation parameterizations coincide at this node so
 that, in all cases, the moment can be applied by simple scaling of a
@@ -30,7 +31,7 @@ reference vector.
 
 The following parameters are commonly adopted for the problem
 <cite keys="nour-omid1991finite, saleeb1992effective"></cite>
-$$
+\[
 \begin{array}{lcr}
     L &=&   240 \\ %   ,& A  &= 10 \\
     E &=& 71240 \\ %   ,& I  &= 0.0833 \\
@@ -42,7 +43,7 @@ $$
     I &=& 0.0833 \\
     J &=& 2.16\hphantom{33}   \\
 \end{array}
-$$
+\]
 To induce bifurcation, the undeformed centerline
 $\boldsymbol{x}_0(\xi)$ is slightly rotated off the axis of the roller
 reaction:
@@ -67,7 +68,7 @@ findings for geometrically exact elements in the literature
 
 ![Relation between load factor $\lambda$ and end rotation angle $\vartheta$ for the hockling problem with the `SFIN` isometry and
 different interpolation/parameterization
-pairs.](Figures/Figure_5){#fig:hockle-plot width="70%"}
+pairs.](Figures/Figure_5.png){#fig:hockle-plot width="70%"}
 
 <figure id="fig:hockling">
 <figure>
