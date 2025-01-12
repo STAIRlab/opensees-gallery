@@ -139,11 +139,11 @@
   [footer.params]
     alias = true
 
-[[footer]]
-  parent = "Links"
-  name = "Releases"
-  pageRef = "/releases/"
-  weight = 40
+# [[footer]]
+#   parent = "Links"
+#   name = "Releases"
+#   pageRef = "/releases/"
+#   weight = 40
 
 [[footer]]
   name = "Examples"
