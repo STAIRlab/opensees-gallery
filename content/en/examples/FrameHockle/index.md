@@ -68,7 +68,7 @@ findings for geometrically exact elements in the literature
 
 ![Relation between load factor $\lambda$ and end rotation angle $\vartheta$ for the hockling problem with the `SFIN` isometry and
 different interpolation/parameterization
-pairs.](Figures/Figure_5.png){#fig:hockle-plot width="70%"}
+pairs.](img/Figure_5.png)
 
 <figure id="fig:hockling">
 <figure>
