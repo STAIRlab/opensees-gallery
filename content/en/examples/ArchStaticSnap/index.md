@@ -1,6 +1,6 @@
 ---
 title: Arch Instability
-tags: ["Python", "Static", "Notebook"]
+tags: ["Python", "Static", "CE221"]
 thumbnail: img/examples/ClarkeHancock.png
 keywords: ["snap through", "instability", "buckling", "nonlinear geometry", "incremental", "arc length"]
 description: >-
