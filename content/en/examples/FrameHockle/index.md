@@ -11,12 +11,11 @@ The hockling shaft (rendered above using the [`veux`](https://stairlab.berkeley.
 is a particularly complex problem that arises from practical considerations for the design of propeller shafts in
 large ships <cite keys="rosenthal1976application, oreilly2017modeling"></cite>. 
 This post follows from the work by <cite key="perez2024nonlinear"></cite>.
-The problem is posed as a propped cantilever with a torque $T\,\mathbf{E}_1$
-applied at its end \(\xi = L\). 
+The problem is posed as a propped cantilever with a torque \(T\,\mathbf{E}_1\) applied at its end \(\xi = L\). 
 The rod is fixed at the origin and is free to translate along the $\mathbf{E}_1$ direction at its end. 
 
-This problem was investigated analytically by
-<cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an *approximate* minimum buckling torque $T_{\mathrm{cr}}$ given by:
+This problem was investigated analytically by <cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an <em>approximate</em> minimum buckling torque $T_{\mathrm{cr}}$ given by:
+
 \[
 T_{\mathrm{cr}} = \lambda_{\text{cr}} \frac{2 EI}{L}
 \qquad\text{ where }\qquad
@@ -29,8 +28,8 @@ fixed axis, all rotation parameterizations coincide at this node so
 that, in all cases, the moment can be applied by simple scaling of a
 reference vector.
 
-The following parameters are commonly adopted for the problem
-<cite keys="nour-omid1991finite, saleeb1992effective"></cite>
+The following parameters are commonly adopted for the problem <cite keys="nour-omid1991finite, saleeb1992effective"></cite>
+
 \[
 \begin{array}{lcr}
     L &=&   240 \\ %   ,& A  &= 10 \\
@@ -44,14 +43,15 @@ The following parameters are commonly adopted for the problem
     J &=& 2.16\hphantom{33}   \\
 \end{array}
 \]
-To induce bifurcation, the undeformed centerline
-$\boldsymbol{x}_0(\xi)$ is slightly rotated off the axis of the roller
-reaction:
-$$
+
+To induce bifurcation, the undeformed centerline $\boldsymbol{x}_0(\xi)$ is slightly rotated off the axis of the roller reaction:
+
+\[
 \boldsymbol{x}_0(\xi) = \xi \operatorname{Exp}\begin{pmatrix}
   0 \\ 10^{-3} \\ 0
 \end{pmatrix} \mathbf{E}_1 .
-$$
+\]
+
 The simulation uses a discretization of
 20 elements for the rod, and the torque is applied in 65 increments with
 iterative and incremental load factor control. The analysis uses the
