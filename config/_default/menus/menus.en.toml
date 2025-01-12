@@ -22,11 +22,6 @@
   pageRef = "/examples/"
   weight = 40
 
-# [[main]]
-#   name = "Releases"
-#   pageRef = "/releases/"
-#   weight = 50
-
 [[main]]
   name = "GitHub"
   pre = "fab fa-github"
@@ -194,3 +189,4 @@
   name = "Contribute"
   pageRef = "/docs/getting-started/contribute/"
   weight = 30
+
