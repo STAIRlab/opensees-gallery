@@ -1,11 +1,12 @@
 ---
 title: Example 1
 description: Thermal expansion of a beam
+thumbnail: img/examples/ThermalExample1_fig1.png
 tags: ["thermal"]
 ---
 
 
-![Elevation of beam](img/Example1_fig1.png){.align-centeralign-center width="500px"}
+![Elevation of beam](img/ThermalExample1_fig1.png)
 
 A steel beam is heated to 1180 &deg; C. Horizontal
 displacement of right end is recorded. This displacement is normalized

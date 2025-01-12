@@ -1,13 +1,14 @@
 ---
-title: Example 2
+title: Thermal Example 2
 description: Restrained Steel beam subjected to uniform temperature on half of the member.
+draft: false
 tags: ["thermal"]
 ---
 
-![](img/Example2_fig1.png){.align-centeralign-center width="500px"}
+<img src="img/Example2_fig1.png" width="500px"/>
 
-Example overview: A steel beam of two equal elements is subjected to a
-uniform temperature on only one of the elements. Element 1 remains at
+A steel beam of two equal elements is subjected to a uniform temperature on only one of the elements. 
+Element 1 remains at
 ambient tempurature while Element 2 is heated using a linear
 time-temperature history.
 
@@ -42,51 +43,40 @@ Material](https://opensees.berkeley.edu/wiki/index.php/Steel01_Material)
 uniaxialMaterial Steel01Thermal $matTag $Fy $Es $b;
 ```
 
-Es = 210 GPa (Young's modulus of elasticity at ambient temperatures)
+```
+Es = 210 # GPa (Young's modulus of elasticity at ambient temperatures)
+Fy = 250 # MPa (Yield strength of material at ambient temperatures)
 
-Fy = 250 MPa (Yield strength of material at ambient temperatures)
-
-b = 0.001 (Strain-Hardening Ratio)
+b = 0.001  # (Strain-Hardening Ratio)
+```
 
 ## Transformation
 
-The beam is expanding in one direction, therefore, 2nd order bending
-effects do not need to be considered.
+The beam is expanding in one direction, therefore, 2nd order bending effects do not need to be considered.
 
 ```tcl
 geomTransf Linear $transftag;
 ```
 
-Learn more about geometric transofrmations: [Geometric
-Transformation](http://opensees.berkeley.edu/wiki/index.php/Geometric_Transformation_Command)
+Learn more about geometric transofrmations [here](https://opensees.stairlab.io/user/manual/model/geomTransf.html).
 
 ## Section
 
-The discretization of the steel section into four fibers is shown using
-the code below:
+The discretization of the steel section into four fibers is shown using the code below:
 
 ```tcl
-section FiberThermal secTag -GJ $Es{
-
-    set numSubdivIJ 2; \# horizontal division
-
-    set numSubdivJK 2; \# vertical division
+section FiberThermal secTag -GJ $Es {
+    set numSubdivIJ 2; # horizontal division
+    set numSubdivJK 2; # vertical division
 
     set yI -100; #mm
-
     set zI -200; #mm
-
-    set yJ 100; #mm
-
+    set yJ  100; #mm
     set zJ -200; #mm
-
-    set yK 100; #mm
-
-    set zK 200; #mm
-
+    set yK  100; #mm
+    set zK  200; #mm
     set yL -100; #mm
-
-    set zL 200; #mm
+    set zL  200; #mm
 
     patch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ $zJ $yK $zK $yL $zL
 }
@@ -158,32 +148,24 @@ file mkdir $dataDir;
 Displacement of the middle node (2) in DOF 1 (Horizontal Displacement)
 
 ```tcl
-recorder Node -file $dataDir/MidspanNodeDisp.out -time -node 2 -dof 1
-disp;
+recorder Node -file $dataDir/MidspanNodeDisp.out -time -node 2 -dof 1 disp;
 ```
 
 Recording reactions at the boundary conditions:
 
 ```tcl
-recorder Node -file $dataDir/BoundryRXN.out -time -node 1 3 -dof 1 2
-reaction;
+recorder Node -file $dataDir/BoundryRXN.out -time -node 1 3 -dof 1 2 reaction;
 ```
 
 Recording the section forces in Elements 1 & 2:
 
 ```tcl
-recorder Element -file $dataDir/ele_force_1.out -time -ele 1 section 2
-force
+recorder Element -file $dataDir/ele_force_1.out -time -ele 1 section 2 force
+recorder Element -file $dataDir/ele_force_2.out -time -ele 2 section 2 force
 ```
 
-```tcl
-recorder Element -file $dataDir/ele_force_2.out -time -ele 2 section 2
-force
-```
+Learn more about the recorder command [here](https://opensees.stairlab.io/user/manual/output/recorder.html).
 
-Learn more about the Recorder Command: [Recorder Command
-\<http://opensees.berkeley.edu/wiki/index.php/Recorder_Command>]{.title-ref}
-\_\_
 
 ## Thermal Loading
 
@@ -194,10 +176,8 @@ ambient to 1180 &deg; C.
 
 Therefore, we set the maximum temperature as follows:
 
-T = Max Tempurature \[deg celcius\]
-
 ```tcl
-set T 1180;
+set T 1180; # deg celcius
 ```
 
 In OpenSees, the user can define 2 or 9 temperature data points through
