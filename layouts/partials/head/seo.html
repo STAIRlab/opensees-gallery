@@ -60,8 +60,10 @@
 
     {{ if .IsHome -}}
         <title>{{ .Site.Title }} {{ if .Site.Params.head.tagline }} {{ .Site.Params.main.separator }} {{ .Site.Params.head.tagline }}{{ end }}</title>
+    {{ else if eq .Kind "term" }}
+        <title>Tagged "{{ .Title }}"</title>
     {{ else -}}
-        <title>{{ .Site.Title }} {{ .Site.Params.main.separator }} {{ .Title }}</title>
+        <title>{{ .Title }}</title>
     {{ end -}}
 
     <meta name="description" content="{{ $.Scratch.Get "description" }}">
