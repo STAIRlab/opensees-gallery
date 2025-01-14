@@ -37,16 +37,27 @@
     {{- if and $page.Params.photoCredits $page.Params.PhotoSource }}{{ $credits = printf (T "photoFull") $page.Params.photoCredits $page.Params.PhotoSource }}{{ end -}}
 {{- end -}}
 
-{{ if 0 -}}
-    {{- partial "assets/image.html" (dict "url" $thumbnail "ratio" $ratio "wrapper" $wrapper "class" $class "title" $page.Params.title "caption" $credits "figclass" $figclass "priority" "high") -}}
-{{ end -}}
 
 {{ if $page.Params.render }}
-  <model-viewer alt="Finite element rendering produced by veux" 
+<div style="position: relative;">
+
+  {{ if $page.Params.thumbnail }}
+    {{ if 0 }}
+    {{- partial "assets/image.html" (dict "url" $thumbnail "ratio" $ratio "wrapper" $wrapper "class" $class "title" $page.Params.title "caption" $credits "figclass" $figclass "priority" "high") -}}
+    {{ end }}
+    <img id="fallback-image" 
+      src="{{ $thumbnail }}" 
+      alt="{{ $page.Params.title }}" 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+  {{ end }}
+
+  <model-viewer alt="Finite element rendering of {{ $page.Params.title }} produced by veux" 
                 src="{{ $page.Params.render }}" 
+                onload="document.getElementById('fallback-image').style.display = 'none';" 
                 ar 
                 style="width: 100%; height: 300px;"
                 autoplay
                 shadow-intensity="1" camera-controls touch-action="pan-y">
   </model-viewer>
+</div>
 {{ end }}
