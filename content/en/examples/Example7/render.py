@@ -14,7 +14,9 @@ if __name__ == "__main__":
         "extrude_outline": "square",
         "extrude_scale": 2.0
     }
-    artist = veux.render(model, canvas="gltf", reference={"frame.surface"}, model_config=model_config)
+    artist = veux.render(model,
+                         show={"frame.surface", "plane.surface"},
+                         model_config=model_config)
 
     # Save the rendering using the GLTF2.0 format
     veux.serve(artist)
@@ -26,11 +28,10 @@ if __name__ == "__main__":
     artist = veux.render(model, model.nodeDisp,
                          canvas="gltf",
                          scale=200,
-                         verbose=True,
                          reference={"plane.outline"},
                          displaced={"plane.surface", "plane.outline"},
     )
 
-#   veux.serve(artist)
-    artist.save("gravity.glb")
+    veux.serve(artist)
+#   artist.save("gravity.glb")
 
