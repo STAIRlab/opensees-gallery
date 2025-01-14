@@ -1,4 +1,4 @@
-# Free-standing beam element
+ Free-standing beam element
 #
 #  ^
 #  |
