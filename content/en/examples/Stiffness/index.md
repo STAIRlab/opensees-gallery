@@ -4,4 +4,5 @@ description: This example illustrates how to construct a stiffness matrix from O
 draft: false
 ---
 
+{{< fold single_span.py python >}}
 

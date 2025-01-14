@@ -4,7 +4,34 @@
 # Claudio Perez
 #
 import opensees.openseespy as ops
+from opensees.units.ips import inch, sec, gravity as g
 
+def create_pendulum3D(m, k, L, W):
+    # Create a model with 3 dimensions (ndm) 
+    # and 3 degrees of freedom per node (ndf)
+    model = ops.Model(ndm=3, ndf=3)
+
+
+    # Create a node for the pivot point and fix it
+    model.node(1, (0, 0, 0))
+    model.fix(1, (1, 1, 1))
+
+    # Create a free node with the mass
+    model.node(2, 0, -L, 0)
+    model.mass(2, m, m, m)
+
+    # Create a corotational truss between nodes 1 and 2
+    model.uniaxialMaterial('Elastic', 1, k*L)
+    model.element('CorotTruss', 1, 1, 2, 1.0, 1)
+
+    # Initial displacements
+    model.setNodeDisp(2, 1,         0.05*L, '-commit')
+    model.setNodeDisp(2, 2, -W/k-(W/k+L)/3, '-commit')
+
+    # Pendulum weight
+    model.pattern("Plain", 1, "Constant")
+    model.load(2, (0, -W, 0))
+    return model
 
 def create_pendulum(m, k, L, W):
     # Create a model with 2 dimensions (ndm) 
@@ -29,8 +56,7 @@ def create_pendulum(m, k, L, W):
     model.setNodeDisp(2, 2, -W/k-(W/k+L)/3, '-commit')
 
     # Pendulum weight
-    model.timeSeries('Constant', 1)
-    model.pattern('Plain', 1, 1)
+    model.pattern("Plain", 1, "Constant")
     model.load(2, 0, -W)
     return model
 
@@ -54,7 +80,6 @@ def analyze_pendulum(model):
 
 
 if __name__ == "__main__":
-    from opensees.units.ips import inch, sec, gravity as g
     # Length of pendulum
     L = 10*inch
 

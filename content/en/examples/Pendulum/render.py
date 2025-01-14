@@ -10,6 +10,8 @@ import numpy as np
 
 from dataclasses import dataclass
 
+from pendulum import create_pendulum3D, analyze_pendulum
+
 @dataclass
 class Pendulum:
     origin: tuple
@@ -186,7 +188,7 @@ def render_pendulum(length, displacements=None):
     veux.serve(canvas)
 
 
-def render_pendulum03(length, displacements=None):
+def render_pendulum03(length, positions=None):
     L = length
 
     # 1) Make pendulum geometry
@@ -205,7 +207,10 @@ def render_pendulum03(length, displacements=None):
 
     tip = (0, -L, 0)
 
-    for position in _create_positions(L, 40, 0.3*L, 0.3*L, 0.8, 0.8, dt=0.5, reference=tip):
+    if positions is None:
+        positions = _create_positions(L, 40, 0.3*L, 0.3*L, 0.8, 0.8, dt=0.5, reference=tip)
+
+    for position in positions:
         motion.set_node_position(mass, position)
         rotation = position_to_quaternion(position, reference=tip)
         motion.set_node_rotation(mass, rotation)
@@ -216,8 +221,32 @@ def render_pendulum03(length, displacements=None):
     canvas.write("a.glb")
     veux.serve(canvas)
 
+def main():
+    from opensees.units.ips import inch, sec, gravity as g
+    # Length of pendulum
+    L = 10*inch
+
+    # Pendulum mass
+    m = 1.0
+
+    # Linearized frequency of pendulum
+    omega = (g/L)**0.5
+
+    # Frequency of oscillator
+    w = 2*omega
+
+    # Stiffness of spring
+    k = m*w**2
+
+    model = create_pendulum3D(m, k, L, m*g)
+
+    U = analyze_pendulum(model)
+
+    render_pendulum03(L, [[u[0],-L+u[1], u[2]] for u in U])
+
 
 if __name__ == "__main__":
-    render_pendulum03(2.0)
+#   render_pendulum03(2.0)
+    main()
 
 
