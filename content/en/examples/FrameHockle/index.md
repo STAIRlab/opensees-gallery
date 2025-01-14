@@ -2,6 +2,7 @@
 title: Flexible Rod Buckling Under Torque
 thumbnail: img/examples/FrameHockle.png
 bibliography: references.json
+tags: ["Frame", "CE221"]
 render: hockle.glb
 description: Geometrically nonlinear analysis of a shaft buckling under torsion.
 ---
