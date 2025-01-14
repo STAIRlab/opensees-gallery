@@ -33,14 +33,13 @@ def create_model(mesh,
     # ---------------
 
     load = 1000.0
-    thick = 1.0;
     b = 30
     r = 7.5/100
     L = 100.0
 
     # Create the nodes and elements using the surface command
     # {"quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
-    args = (thick, "PlaneStrain", 1)
+    args = (thickness, "PlaneStrain", 1)
 
     surface = model.surface((nx, ny),
                   element=element, args=args,
@@ -94,22 +93,22 @@ def create_ledge(mesh,
 
     load = 1000.0
     angle = 0
-    thick = 1.0
     b = 30
-    r = 7.5/100
     L = 100.0
+    r = 15/L
 
     # Create the nodes and elements using the surface command
     # {"quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
-    args = (thick, "PlaneStrain", 1)
+    args = (thickness, "PlaneStrain", 1)
 
     surface = model.surface((nx, ny),
                   element=element, args=args,
                   points={
                     1: [  0.0,   0.0],
+                    5: [  L/2,   10.],
                     2: [   L,    L*r],
-                    3: [   L,  b-L*r],
-                    4: [  0.0, b]
+                    3: [   L,     b ],
+                    4: [  0.0,    b ]
                   })
 
     # Single-point constraints
@@ -153,7 +152,7 @@ def static_analysis(model):
 if __name__ == "__main__":
     import time
     for element in "LagrangeQuad", "quad":
-        model = create_model((20,8), element=element)
+        model = create_ledge((20,8), element=element)
         start = time.time()
         static_analysis(model)
         print(f"Finished {element}, {time.time() - start} sec")
@@ -162,6 +161,8 @@ if __name__ == "__main__":
 
     import veux
 #   artist = veux.render(model, model.nodeDisp, scale=10)
+#   veux.serve(artist)
+
     artist = veux.create_artist(model) #, model.nodeDisp, scale=10)
 #   artist.draw_surfaces(field = node_average(model, "stress"))
 
@@ -172,5 +173,5 @@ if __name__ == "__main__":
     veux.serve(artist)
 
 
-#       print(model.nodeDisp(l2))
+#   print(model.nodeDisp(l2))
 
