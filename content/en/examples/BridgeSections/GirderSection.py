@@ -164,7 +164,8 @@ if __name__ == "__main__":
         solution = torsion.solve_torsion(sect, mesh)
 #       torsion.plot(mesh, solution, scale=1.0, show_edges=True)
         ax = render.section(sect)#, set_limits=True)
-        import sees.plane
-        sees.plane.render(mesh, solution, ax=ax, show_edges=False, show_scale=False)
+
+        import veux.plane
+        veux.plane.render(mesh, solution, ax=ax, show_edges=False, show_scale=False)
         render.show()
 

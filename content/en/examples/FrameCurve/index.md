@@ -35,13 +35,12 @@ The following parameters are used for the simulations:
     J  =& 10^4/6  \\
 \end{array}
 \]
-The analysis uses a discretization with 8 linear (2-node)
-elements. The analysis is performed twice for each formulation under
-consideration, first with 8 equal load increments and then with 10. The
-results are presented in Table [\[tab:bathe\]](#tab:bathe){reference-type="ref"
+The analysis uses a discretization with 8 linear (2-node) elements. 
+The analysis is performed twice for each formulation under
+consideration, first with 8 equal load increments and then with 10. 
+The results are presented in Table [\[tab:bathe\]](#tab:bathe){reference-type="ref"
 reference="tab:bathe"}. Only the formulations with the `Init`
 interpolation produce the same tip displacement in both load cases,
 indicating an artificial path dependence for all other variants.
 
-![Deformed shape of curved cantilever by <cite key="bathe1979large"></cite>.](Figures/Figure_3){#fig:bathe width="60%"}
 

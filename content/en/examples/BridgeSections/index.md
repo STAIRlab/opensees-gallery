@@ -1,7 +1,7 @@
 ---
 title: Bridge Sections
-thumbnail: img/HaywardSmall.png
-draft: true
+thumbnail: img/examples/BridgeSections.png
+draft: false
 ---
 
 
