@@ -1,0 +1,47 @@
+[
+	{
+		"id": "kaveh2025optimal",
+		"type": "article-journal",
+		"abstract": "The success-history based adaptive differential evolution (SHADE) algorithm is an efficient modified version of the differential evolution (DE) algorithm, and it has been successfully applied to solve some real-world optimization problems. However, to the best of our knowledge, it has been rarely applied in the field of structural optimization. The optimal design of structures with frequency constraints is well known as a highly nonlinear and non-convex optimization problem with many local optima. In this paper, the SHADE algorithm is examined in the context of size optimization of large-scale truss structures with multiple frequency constraints. In SHADE, a historical memory of successful control parameter settings is used to guide the generation of new control parameters. In order to demonstrate the effectiveness and efficiency of SHADE, three truss optimization problems with multiple frequency constraints are presented. The three examples considered in this paper include a 600-bar single-layer dome-shaped truss, a 1180-bar single-layer dome-shaped truss, and a 1410-bar double-layer dome-shaped truss. The results obtained by the SHADE algorithm are presented and compared with the best-known results reported in the literature. Numerical results indicate the effectiveness and superior performance of SHADE over other algorithms in terms of solution accuracy and robustness. It is worth mentioning that in all the three cases considered, the optimal designs obtained by SHADE are the best ones reported in the literature so far. However, SHADE often requires fewer structural analyses than those required by the other algorithms.",
+		"container-title": "Periodica Polytechnica Civil Engineering",
+		"DOI": "10.3311/PPci.21147",
+		"ISSN": "1587-3773, 0553-6626",
+		"journalAbbreviation": "Period. Polytech. Civil Eng.",
+		"language": "en",
+		"source": "DOI.org (Crossref)",
+		"title": "Optimal Design of Large-scale Dome Truss Structures with Multiple Frequency Constraints Using Success-history Based Adaptive Differential Evolution Algorithm",
+		"URL": "https://pp.bme.hu/ci/article/view/21147",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "Ali"
+			},
+			{
+				"family": "Hamedani",
+				"given": "Kiarash Biabani"
+			},
+			{
+				"family": "Hamedani",
+				"given": "Bamdad Biabani"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					28
+				]
+			]
+		}
+	}
+]

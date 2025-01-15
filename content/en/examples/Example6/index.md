@@ -39,6 +39,31 @@ the block is $ny$. The `block2D` generation nodes `{1,2,3,4}` are prescribed
 to define the two dimensional domain of the beam, which is of size
 \(40\times10\).
 
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+block2D $nx $ny   1 1  $Quad  $eleArgs {
+    1   0   0
+    2  40   0
+    3  40  10
+    4   0  10
+}
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+    surface = model.surface((nx, ny),
+                  element=element, args=args,
+                  points={
+                    1: [  0.0,  0.0],
+                    2: [ 40.0,  0.0],
+                    3: [ 40.0, 10.0],
+                    4: [  0.0, 10.0]
+                  })
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 Three different quadrilateral elements can be used for the analysis.
 These may be created using the names `"BbarQuad"`, `"EnhancedQuad"` or
 `"Quad"`. 

@@ -3,7 +3,7 @@
 # Animating "Snap-Through" in a Shallow Arch
 from pathlib import Path
 import imageio
-from sees import render
+from veux import render
 from arch import arch_model
 import matplotlib.pyplot as plt
 try:
