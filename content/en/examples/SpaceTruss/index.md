@@ -5,9 +5,16 @@ bibliography: references.json
 draft: false
 ---
 
-See, for example, <cite key="kaveh2025optimal"></cite>
+### 120-bar truss
 
 ![alt text](dome120.png)
+This model is investigated by <cite key="lieu2018adaptive"></cite>.
+
+
+### 600-bar truss 
+This model is investigated by <cite key="kaveh2022optimal"></cite>
+
+
 
 # References
 

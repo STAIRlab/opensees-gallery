@@ -1,8 +1,24 @@
-
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                               gallery.stairlab.io
+# 
+# ===----------------------------------------------------------------------===//
 from math import pi, sin, cos, sqrt
 import opensees.openseespy as ops
 
+def dome52():
+    """
+    Degertekin, S.O., G. Yalcin Bayar, and L. Lamberti. “Parameter Free Jaya Algorithm for Truss Sizing-Layout Optimization under Natural Frequency Constraints.” Computers & Structures 245 (March 2021): 106461. https://doi.org/10.1016/j.compstruc.2020.106461.
+    """
+    pass 
+
 def dome120():
+    """
+    Lieu, Qui X., Dieu T. T. Do, and Jaehong Lee. “An Adaptive Hybrid Evolutionary Firefly Algorithm for Shape and Size Optimization of Truss Structures with Frequency Constraints.” Computers & Structures 195 (January 15, 2018): 99–112. https://doi.org/10.1016/j.compstruc.2017.06.016.
+    Kaveh, A., and M. Ilchi Ghazaan. “Optimal Design of Dome Truss Structures with Dynamic Frequency Constraints.” Structural and Multidisciplinary Optimization 53, no. 3 (March 1, 2016): 605–21. https://doi.org/10.1007/s00158-015-1357-2.
+    """
     # Number of repeated segments
     s  = 12
     # Number of nodes per segment
@@ -46,6 +62,9 @@ def dome120():
 
 
 def dome600():
+    """
+    Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani. “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.” Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
+    """
     # Number of repeated segments
     s = 24
     # Number of nodes per segment
@@ -93,6 +112,104 @@ def dome600():
 
     return nodes, elems, {9}, s, {}
 
+def dome1180():
+    """
+    Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani. “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.” Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
+    Kaveh, Ali, and M. Ilchi Ghazaan. “Optimal Design of Dome Truss Structures with Dynamic Frequency Constraints.” Structural and Multidisciplinary Optimization 53, no. 3 (March 1, 2016): 605–21. https://doi.org/10.1007/s00158-015-1357-2.
+    """
+    s = 20
+    n = 20
+    nodes = {
+        1: ( 3.1181, 0.0   , 14.6723),
+        2: ( 6.1013, 0.0   , 13.7031),
+        3: ( 8.8166, 0.0   , 12.1354),
+        4: (11.1476, 0.0   , 10.0365),
+        5: (12.9904, 0.0   ,  7.5000),
+        6: (14.2657, 0.0   ,  4.6358),
+        7: (14.9179, 0.0   ,  1.5676),
+        8: (14.9179, 0.0   , -1.5677),
+        9: (14.2656, 0.0   , -4.6359),
+        10:(12.9903, 0.0   , -7.5001),
+        11:( 4.5788, 0.7252, 14.2657),
+        12:( 7.4077, 1.1733, 12.9904),
+        13:( 9.9130, 1.5701, 11.1476),
+        14:(11.9860, 1.8984,  8.8165),
+        15:(13.5344, 2.1436,  6.1013),
+        16:(14.4917, 2.2953,  3.1180),
+        17:(14.8153, 2.3465,  0.0),
+        18:(14.4917, 2.2953, -3.1181),
+        19:(13.5343, 2.1436, -6.1014),
+        20:( 3.1181, 0.0   , 13.7031)
+    }
+    elems = [
+        (i, i+1) for i in range(1, 10)
+    ] + [
+        (i, i+n) for i in range(1, 10)
+    ] + [
+        (i, i+9) for i in range(2, 10)
+    ] + [
+        (i, i+10) for i in range(2, 10)
+    ] + [
+        (i+n, i+9) for i in range(2, 10)
+    ] + [
+        (i+n, i+10) for i in range(2, 10)
+    ]
+    return nodes, elems, {None}, s, {}
+
+def dome1410():
+    """
+    """
+    s = 30
+    n = 13
+    nodes = {
+        1:  ( 1.0,0.0,4.0) ,
+        2:  ( 3.0,0.0,3.75) ,
+        3:  ( 5.0,0.0,3.25) ,
+        4:  ( 7.0,0.0,2.75) ,
+        5:  ( 9.0,0.0,2.0) ,
+        6:  (11.0,0.0,1.25) ,
+        7:  (13.0,0.0,0.0),
+        8:  ( 1.989,0.209, 3.0),
+        9:  ( 3.978,0.418,2.75),
+        10: ( 5.967,0.627,2.25),
+        11: ( 7.956,0.836,1.75),
+        12: ( 9.945,1.0453,1.0),
+        13: (11.934,1.2543,-0.5)
+    }
+    elems = [
+        ( 1,    2),
+        ( 2,    3),
+        ( 3,    4),
+        ( 4,    5),
+        ( 5,    6),
+        ( 6,    7),
+
+        ( 8,    9),
+        ( 9,   10),
+        (10,   11),
+        (11,   12),
+        (12,   13),
+
+        ( 8+n,  8),
+        ( 9+n,  9),
+        (10+n, 10),
+        (11+n, 11),
+        (12+n, 12),
+        (13+n, 13),
+
+        ( 7,   13),
+        ( 7+n, 13)
+    ]
+
+    for i in range(2, 7):
+        elems.extend([(i  , i+6),
+                      (i  , i+7),
+                      (i+n, i+6),
+                      (i+n, i+7)])
+    
+
+    return nodes, elems, {None}, s, {}
+
 
 def revolve(ref_nodes, ref_elems, fixed, count, key_nodes=None):
 
@@ -116,7 +233,7 @@ def revolve(ref_nodes, ref_elems, fixed, count, key_nodes=None):
 
         # Create nodes
         for j,node in ref_nodes.items():
-            if j:
+            if j : # not in key_nodes:
                 nodes[j+i*nn] = (cs*node[0] - sn*node[1],
                                  sn*node[0] + cs*node[1],
                                     node[2])
@@ -142,3 +259,13 @@ def create_truss(nodes, elems):
 
     return model
 
+if __name__ == "__main__":
+    import veux
+
+    nodes, elems = revolve(*dome1180())
+
+    model  = create_truss(nodes, elems)
+    artist = veux.render(model, vertical=3)
+
+    # Show the rendering
+    veux.serve(artist)

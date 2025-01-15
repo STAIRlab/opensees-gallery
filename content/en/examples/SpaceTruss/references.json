@@ -1,6 +1,6 @@
 [
 	{
-		"id": "kaveh2025optimal",
+		"id": "kaveh2022optimal",
 		"type": "article-journal",
 		"abstract": "The success-history based adaptive differential evolution (SHADE) algorithm is an efficient modified version of the differential evolution (DE) algorithm, and it has been successfully applied to solve some real-world optimization problems. However, to the best of our knowledge, it has been rarely applied in the field of structural optimization. The optimal design of structures with frequency constraints is well known as a highly nonlinear and non-convex optimization problem with many local optima. In this paper, the SHADE algorithm is examined in the context of size optimization of large-scale truss structures with multiple frequency constraints. In SHADE, a historical memory of successful control parameter settings is used to guide the generation of new control parameters. In order to demonstrate the effectiveness and efficiency of SHADE, three truss optimization problems with multiple frequency constraints are presented. The three examples considered in this paper include a 600-bar single-layer dome-shaped truss, a 1180-bar single-layer dome-shaped truss, and a 1410-bar double-layer dome-shaped truss. The results obtained by the SHADE algorithm are presented and compared with the best-known results reported in the literature. Numerical results indicate the effectiveness and superior performance of SHADE over other algorithms in terms of solution accuracy and robustness. It is worth mentioning that in all the three cases considered, the optimal designs obtained by SHADE are the best ones reported in the literature so far. However, SHADE often requires fewer structural analyses than those required by the other algorithms.",
 		"container-title": "Periodica Polytechnica Civil Engineering",
@@ -40,6 +40,188 @@
 					"2022",
 					9,
 					28
+				]
+			]
+		}
+	},
+	{
+		"id": "kaveh2016optimal",
+		"type": "article-journal",
+		"abstract": "Controlling the values of natural frequencies of a structure plays an important role to keep the dynamic behavior of structures in a desirable level. This paper is concerned with the optimal design of large-scale dome structures with multiple natural frequency constraints. This optimization problem is highly nonlinear with several local optimums in its search space. The idea of cascading, which allows a single optimization problem to be tackled with a number of autonomous optimization stages is used. The procedure utilized in this paper reduces the objective function value over a number of optimization stages by initially operating on a small number of design variables, which is gradually increased stage after stage. In order to show the effect of using coarsening of variables for handling the optimization problem, independent of the effect of the algorithm, the recently developed approach (enhanced colliding bodies optimization) is employed in the entire stages of the present method. Besides, we want to demonstrate the positive effect of using multi-DVC cascade optimization procedure even if the utilized algorithm itself is a powerful method. In order to test the performance of the algorithm, four dome truss design examples with 120, 600, 1180 and 1410 elements are optimized. The numerical results prove that the utilized method is an effective tool for finding optimum design of structures with frequency constraints.",
+		"container-title": "Structural and Multidisciplinary Optimization",
+		"DOI": "10.1007/s00158-015-1357-2",
+		"ISSN": "1615-1488",
+		"issue": "3",
+		"journalAbbreviation": "Struct Multidisc Optim",
+		"language": "en",
+		"page": "605-621",
+		"source": "Springer Link",
+		"title": "Optimal design of dome truss structures with dynamic frequency constraints",
+		"URL": "https://doi.org/10.1007/s00158-015-1357-2",
+		"volume": "53",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "A."
+			},
+			{
+				"family": "Ilchi Ghazaan",
+				"given": "M."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					3,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "degertekin2021parameter",
+		"type": "article-journal",
+		"abstract": "In this study, the parameter free Jaya algorithm (PFJA) is developed for sizing and layout optimization of truss structures subject to natural frequency constraints. The distinctive feature of PFJA is that it uses neither algorithm-speciﬁc parameters nor common parameters in the search process. Besides using an elitist strategy where new structural analyses are performed only if strictly necessary, PFJA adaptively changes population size in the optimization process. The validity of proposed PFJA is demonstrated by solving eight classical truss weight minimization problems including up to 59 sizing and layout design variables. The results obtained by the PFJA are compared with those of standard JA, modiﬁed Jaya algorithm (MJA) and other state-of-art metaheuristic algorithms in terms of optimized weight, convergence speed and several statistical parameters. Optimization results prove the superiority of PFJA over standard JA, MJA and other metaheuristic optimizers available in the literature.",
+		"container-title": "Computers & Structures",
+		"DOI": "10.1016/j.compstruc.2020.106461",
+		"ISSN": "00457949",
+		"journalAbbreviation": "Computers & Structures",
+		"language": "en",
+		"page": "106461",
+		"source": "DOI.org (Crossref)",
+		"title": "Parameter free Jaya algorithm for truss sizing-layout optimization under natural frequency constraints",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S0045794920302649",
+		"volume": "245",
+		"author": [
+			{
+				"family": "Degertekin",
+				"given": "S.O."
+			},
+			{
+				"family": "Yalcin Bayar",
+				"given": "G."
+			},
+			{
+				"family": "Lamberti",
+				"given": "L."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "lieu2018adaptive",
+		"type": "article-journal",
+		"abstract": "This paper presents a novel adaptive hybrid evolutionary firefly algorithm (AHEFA) for shape and size optimization of truss structures under multiple frequency constraints. This algorithm is a hybridization of the differential evolution (DE) algorithm and the firefly algorithm (FA). An automatically adapted parameter is utilized to select an appropriate mutation scheme for an effective trade-off between the global and local search abilities. An elitist technique is applied to the selection phase to choose the best individuals. Accordingly, the convergence rate is significantly improved with the high solution accuracy. Six numerical examples are examined for the validity of the present algorithm.",
+		"container-title": "Computers & Structures",
+		"DOI": "10.1016/j.compstruc.2017.06.016",
+		"ISSN": "0045-7949",
+		"journalAbbreviation": "Computers & Structures",
+		"page": "99-112",
+		"source": "ScienceDirect",
+		"title": "An adaptive hybrid evolutionary firefly algorithm for shape and size optimization of truss structures with frequency constraints",
+		"URL": "https://www.sciencedirect.com/science/article/pii/S0045794917303206",
+		"volume": "195",
+		"author": [
+			{
+				"family": "Lieu",
+				"given": "Qui X."
+			},
+			{
+				"family": "Do",
+				"given": "Dieu T. T."
+			},
+			{
+				"family": "Lee",
+				"given": "Jaehong"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					1,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "tejani2016modified",
+		"type": "article-journal",
+		"container-title": "Mechanics Based Design of Structures and Machines",
+		"DOI": "10.1080/15397734.2015.1124023",
+		"ISSN": "1539-7734, 1539-7742",
+		"issue": "4",
+		"journalAbbreviation": "Mechanics Based Design of Structures and Machines",
+		"language": "en",
+		"page": "495-513",
+		"source": "DOI.org (Crossref)",
+		"title": "Modified sub-population teaching-learning-based optimization for design of truss structures with natural frequency constraints",
+		"URL": "https://www.tandfonline.com/doi/full/10.1080/15397734.2015.1124023",
+		"volume": "44",
+		"author": [
+			{
+				"family": "Tejani",
+				"given": "Ghanshyam G."
+			},
+			{
+				"family": "Savsani",
+				"given": "Vimal J."
+			},
+			{
+				"family": "Patel",
+				"given": "Vivek K."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					10
 				]
 			]
 		}
