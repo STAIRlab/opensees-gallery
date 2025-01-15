@@ -1,4 +1,3 @@
-
 # import the OpenSees Python module
 import opensees.openseespy as ops
 from opensees.helpers import find_node, find_nodes
