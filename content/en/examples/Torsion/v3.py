@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
     mesh = sect2gmsh(section, [3*inch]*2)
     field = torsion.solve_torsion(section, mesh)
+#   ax = render.section(sect)#, set_limits=True)
 
     artist = veux.plane.render(mesh, field, show_edges=False, show_scale=False)
     artist.show()

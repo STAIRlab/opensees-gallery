@@ -1,6 +1,6 @@
 ---
 title: Shell Diaphragms
-thumbnail: img/ShellFrame.png
+thumbnail: img/examples/ShellFrame.png
 render: model-0001.glb
 ---
 
