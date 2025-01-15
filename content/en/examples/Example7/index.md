@@ -20,16 +20,29 @@ uses the [`veux`](https://stairlab.berkeley.edu/software/veux) Python package.
 
 ## Modeling
 
-For shell analysis, a typical shell element is defined as a surface in
-three dimensional space. Each node of a shell analysis has six degrees
+For shell analysis, a typical shell element is defined as a surface in three dimensional space. 
+Each node of a shell analysis has six degrees
 of freedom, three displacements and three rotations. Thus the model is
-defined with $ndm = 3$ and $ndf = 6$.
+defined with `ndm = 3` and `ndf = 6`.
 
-For this model, a mesh is generated using the [`surface()`](https://opensees.stairlab.io) function. The
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 6
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+import opensees.openseespy as ops
+
+model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+A mesh is generated using the [`surface()`](https://opensees.stairlab.io) function. The
 number of nodes in the local $x$-direction of the block is `nx` and the
-number of nodes in the local $y$-direction of the block is `ny`. The
-`surface` function generates nodes with tags `{1,2,3,4, 5,7,9}` such that the
-structure is curved in space.
+number of nodes in the local $y$-direction of the block is `ny`. 
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
@@ -64,21 +77,20 @@ surface = model.surface((nx, ny),
 {{% /tab %}}
 {{< /tabs >}}
 
+The `surface` function generates nodes with tags `{1,2,3,4, 5,7,9}`.
 
 The shell element is constructed using the `ShellMITC4` formulation. 
-An elastic membrane-plate material section model,
-appropriate for shell analysis, is constructed using the `section`
-command and the
-`"ElasticMembranePlateSection"` formulation. In this case, the elastic modulus
+An elastic membrane-plate material section model is constructed using the `section`
+command and the `"ElasticMembranePlateSection"` formulation. 
+In this case, the elastic modulus
 $E = 3.0e3$, Poisson's ratio $\nu =  0.25$, the thickness $h = 1.175$
 and the mass density per unit volume $\rho = 1.27$
-
 
 Boundary conditions are applied using the [`fixZ`](https://opensees.stairlab.io/user/manual/model/sp_constraint/fixX.html) command. In this case,
 all the nodes whose $z$-coordiate is $0.0$ have the boundary condition
 `{1,1,1, 0,1,1}`: all degrees-of-freedom are fixed except rotation about
-the x-axis, which is free. The same boundary conditions are applied
-where the $z$-coordinate is $40.0$.
+the x-axis, which is free. 
+The same boundary conditions are applied where the $z$-coordinate is $40.0$.
 
 For initial gravity load analysis, a single load pattern with a linear
 time series and three vertical nodal loads are used. 

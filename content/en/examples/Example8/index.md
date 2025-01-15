@@ -20,7 +20,22 @@ volume in three dimensional space. Each node of the analysis has three
 displacement degrees of freedom. Thus the model is defined with
 `ndm = 3` and `ndf = 3`.
 
-For this model, a mesh is generated using the `block3D` command. The
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 3
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+import opensees.openseespy as ops
+
+model = ops.Model(ndm=3, ndf=3)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+The finite element mesh is generated using the `block3D` command. The
 number of nodes in the local $x$-direction of the block is `nx`, the
 number of nodes in the local $y$-direction of the block is `ny` and the
 number of nodes in the local $z$-direction of the block is `nz`. The
