@@ -28,11 +28,28 @@ In both cases, the following ground motion records are required:
 
 ## Modeling
 
-A model of the rigid frame shown in the
-figure below is created. The model consists of three stories
-and one bay in each direction. Rigid diaphragm multi-point constraints
+A model of the rigid frame shown in the figure above is created. 
+The model consists of three stories and one bay in each direction. 
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 6
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+import opensees.openseespy as ops
+
+model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+Rigid diaphragm multi-point constraints
 are used to enforce the rigid in-plane stiffness assumption for the
-floors. Gravity loads are applied to the structure and the 1978 Tabas
+floors. 
+Gravity loads are applied to the structure and the 1978 Tabas
 acceleration records are the uniform earthquake excitations.
 
 Nonlinear beam column elements are used for all members in the
