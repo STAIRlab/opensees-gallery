@@ -8,7 +8,7 @@ draft: false
 \[
 \begin{array}{rll}
 (\nabla \cdot \nabla) \varphi &=0 & \text { in } \Omega, \\
-\nabla_{\mathbf{n}} \varphi  &=-\FrameBasis \times \PlanePosition \cdot \mathbf{n} & \text { on } \partial \Omega
+\nabla_{\mathbf{n}} \varphi  &=-\mathbf{i} \times \bm{\zeta} \cdot \mathbf{n} & \text { on } \partial \Omega
 \end{array}
 \]
 
