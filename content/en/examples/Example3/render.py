@@ -1,4 +1,4 @@
-import sees
+import veux
 import opensees.openseespy as ops
 from portal import create_portal, gravity_analysis, pushover_analysis
 
@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # perform analysis under gravity loads
     status = gravity_analysis(model)
 
-    sees.serve(sees.render(model, model.nodeDisp, ndf=3, scale=10, canvas="gltf"))
+    veux.serve(veux.render(model, model.nodeDisp, ndf=3, scale=10, canvas="gltf"))
 
     if status == ops.successful:
         print("Gravity analysis completed SUCCESSFULLY\n")
@@ -27,6 +27,6 @@ if __name__ == "__main__":
     # Print the state at node 3
     model.print("node", 3)
 
-    sees.serve(sees.render(model, model.nodeDisp, ndf=3, canvas="gltf"))
+    veux.serve(veux.render(model, model.nodeDisp, ndf=3, canvas="gltf"))
 
 
