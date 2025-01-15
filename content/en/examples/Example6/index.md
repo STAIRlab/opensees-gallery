@@ -17,6 +17,21 @@ The example is implemented in both Tcl and Python:
 Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with
 `ndm = 2` and `ndf = 2`. 
 
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 2 -ndf 2
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+import opensees.openseespy as ops
+
+model = ops.Model(ndm=2, ndf=2)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 A mesh is generated using
 the `block2D` command. The number of nodes in the local \(x\)-direction of
 the block is $nx$ and the number of nodes in the local \(y\)-direction of
