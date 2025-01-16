@@ -1,13 +1,20 @@
-from revolve import revolve, create_truss, dome120, dome600 
+import sys
+from revolve import revolve, create_truss, create_dome
 
 if __name__ == "__main__":
     import veux
 
-    nodes, elems = revolve(*dome600())
-    nodes, elems = revolve(*dome120())
+    design = "120"
+    if len(sys.argv) > 1:
+        design = sys.argv[1]
+
+    nodes, elems = revolve(*create_dome(design))
 
     model  = create_truss(nodes, elems)
     artist = veux.render(model, vertical=3)
 
-    # Show the rendering
-    veux.serve(artist)
+    if len(sys.argv) > 2:
+        artist.save(sys.argv[2])
+    else:
+        # Show the rendering
+        veux.serve(artist)
