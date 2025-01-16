@@ -100,6 +100,17 @@ A scaled rendering of the deformed shape under gravity loading is shown below:
 
 {{% render "gravity.glb" %}}
 
+```python
+artist = veux.render(model, model.nodeDisp,
+                     canvas="gltf",
+                     scale=200,
+                     reference={"plane.outline"},
+                     displaced={"plane.surface", "plane.outline"},
+)
+
+veux.serve(artist)
+```
+
 ## Dynamic Analysis
 
 After the static analysis, the wipeAnalysis and remove
