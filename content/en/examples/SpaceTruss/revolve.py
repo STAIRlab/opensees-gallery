@@ -5,19 +5,37 @@
 #                               gallery.stairlab.io
 # 
 # ===----------------------------------------------------------------------===//
+"""
+
+References
+==========
+Koohestani, K., and A. Kaveh.
+   “Efficient Buckling and Free Vibration Analysis of Cyclically Repeated Space Truss Structures.”
+   Finite Elements in Analysis and Design 46, no. 10 (October 2010): 943–48. https://doi.org/10.1016/j.finel.2010.06.009.
+"""
 from math import pi, sin, cos, sqrt
 import opensees.openseespy as ops
 
+def create_dome(design: str, *args, **kwds):
+    return _DOMES[design](*args, **kwds)
+
+
 def dome52():
     """
-    Degertekin, S.O., G. Yalcin Bayar, and L. Lamberti. “Parameter Free Jaya Algorithm for Truss Sizing-Layout Optimization under Natural Frequency Constraints.” Computers & Structures 245 (March 2021): 106461. https://doi.org/10.1016/j.compstruc.2020.106461.
+    Degertekin, S.O., G. Yalcin Bayar, and L. Lamberti.
+       “Parameter Free Jaya Algorithm for Truss Sizing-Layout Optimization under Natural Frequency Constraints.”
+       Computers & Structures 245 (March 2021): 106461. https://doi.org/10.1016/j.compstruc.2020.106461.
     """
-    pass 
+    pass
 
 def dome120():
     """
-    Lieu, Qui X., Dieu T. T. Do, and Jaehong Lee. “An Adaptive Hybrid Evolutionary Firefly Algorithm for Shape and Size Optimization of Truss Structures with Frequency Constraints.” Computers & Structures 195 (January 15, 2018): 99–112. https://doi.org/10.1016/j.compstruc.2017.06.016.
-    Kaveh, A., and M. Ilchi Ghazaan. “Optimal Design of Dome Truss Structures with Dynamic Frequency Constraints.” Structural and Multidisciplinary Optimization 53, no. 3 (March 1, 2016): 605–21. https://doi.org/10.1007/s00158-015-1357-2.
+    Lieu, Qui X., Dieu T. T. Do, and Jaehong Lee.
+       “An Adaptive Hybrid Evolutionary Firefly Algorithm for Shape and Size Optimization of Truss Structures with Frequency Constraints.”
+       Computers & Structures 195 (January 15, 2018): 99–112. https://doi.org/10.1016/j.compstruc.2017.06.016.
+    Kaveh, A., and M. Ilchi Ghazaan.
+       “Optimal Design of Dome Truss Structures with Dynamic Frequency Constraints.”
+       Structural and Multidisciplinary Optimization 53, no. 3 (March 1, 2016): 605–21. https://doi.org/10.1007/s00158-015-1357-2.
     """
     # Number of repeated segments
     s  = 12
@@ -63,7 +81,9 @@ def dome120():
 
 def dome600():
     """
-    Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani. “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.” Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
+    Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani.
+       “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.”
+       Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
     """
     # Number of repeated segments
     s = 24
@@ -120,26 +140,26 @@ def dome1180():
     s = 20
     n = 20
     nodes = {
-        1: ( 3.1181, 0.0   , 14.6723),
-        2: ( 6.1013, 0.0   , 13.7031),
-        3: ( 8.8166, 0.0   , 12.1354),
-        4: (11.1476, 0.0   , 10.0365),
-        5: (12.9904, 0.0   ,  7.5000),
-        6: (14.2657, 0.0   ,  4.6358),
-        7: (14.9179, 0.0   ,  1.5676),
-        8: (14.9179, 0.0   , -1.5677),
-        9: (14.2656, 0.0   , -4.6359),
-        10:(12.9903, 0.0   , -7.5001),
-        11:( 4.5788, 0.7252, 14.2657),
-        12:( 7.4077, 1.1733, 12.9904),
-        13:( 9.9130, 1.5701, 11.1476),
-        14:(11.9860, 1.8984,  8.8165),
-        15:(13.5344, 2.1436,  6.1013),
-        16:(14.4917, 2.2953,  3.1180),
-        17:(14.8153, 2.3465,  0.0),
-        18:(14.4917, 2.2953, -3.1181),
-        19:(13.5343, 2.1436, -6.1014),
-        20:( 3.1181, 0.0   , 13.7031)
+        1:  ( 3.1181, 0.0   , 14.6723),
+        2:  ( 6.1013, 0.0   , 13.7031),
+        3:  ( 8.8166, 0.0   , 12.1354),
+        4:  (11.1476, 0.0   , 10.0365),
+        5:  (12.9904, 0.0   ,  7.5000),
+        6:  (14.2657, 0.0   ,  4.6358),
+        7:  (14.9179, 0.0   ,  1.5676),
+        8:  (14.9179, 0.0   , -1.5677),
+        9:  (14.2656, 0.0   , -4.6359),
+        10: (12.9903, 0.0   , -7.5001),
+        11: ( 4.5788, 0.7252, 14.2657),
+        12: ( 7.4077, 1.1733, 12.9904),
+        13: ( 9.9130, 1.5701, 11.1476),
+        14: (11.9860, 1.8984,  8.8165),
+        15: (13.5344, 2.1436,  6.1013),
+        16: (14.4917, 2.2953,  3.1180),
+        17: (14.8153, 2.3465,  0.0),
+        18: (14.4917, 2.2953, -3.1181),
+        19: (13.5343, 2.1436, -6.1014),
+        20: ( 3.1181, 0.0   , 13.7031)
     }
     elems = [
         (i, i+1) for i in range(1, 10)
@@ -156,8 +176,11 @@ def dome1180():
     ]
     return nodes, elems, {None}, s, {}
 
+
 def dome1410():
     """
+    Koohestani, K., and A. Kaveh.
+       “Efficient Buckling and Free Vibration Analysis of Cyclically Repeated Space Truss Structures.” Finite Elements in Analysis and Design 46, no. 10 (October 2010): 943–48. https://doi.org/10.1016/j.finel.2010.06.009.
     """
     s = 30
     n = 13
@@ -206,13 +229,23 @@ def dome1410():
                       (i  , i+7),
                       (i+n, i+6),
                       (i+n, i+7)])
-    
 
     return nodes, elems, {None}, s, {}
 
+_DOMES = {
+        "600":  dome600,
+        "120":  dome120,
+        "1410": dome1410,
+        "1180": dome1180
+}
 
-def revolve(ref_nodes, ref_elems, fixed, count, key_nodes=None):
+def revolve(ref_nodes, ref_elems, fixed, count, key_nodes=None, scale=1, shift=None):
+    """
+    Create nodes and connectivity of a structure that is generated by revolving a
+    reference assembly idenfied by ref_nodes and ref_elems.
 
+    wr
+    """
     nodes = {}
     elems = []
     if key_nodes is None:
@@ -247,17 +280,29 @@ def revolve(ref_nodes, ref_elems, fixed, count, key_nodes=None):
     return nodes, elems
 
 
-def create_truss(nodes, elems):
+def create_truss(nodes, elems, areas=None):
+    """
+    Create a truss model in OpenSees
+    """
+
+    # Create a model in 3 dimensions with 3 degrees of freedom
     model = ops.Model(ndm=3, ndf=3)
-    model.uniaxialMaterial('Elastic', 1, 3000)  # Elastic material
+
+    # Define a linear-elastic material
+    model.uniaxialMaterial('Elastic', 1, 3000)
+
     area = 1.0
+
+    # Add nodes to the model
     for tag, node in nodes.items():
         model.node(tag, node)
 
+    # Add elements to the model
     for tag, nodes in enumerate(elems):
         model.element("Truss", tag, nodes, area, 1)
 
     return model
+
 
 if __name__ == "__main__":
     import veux
@@ -269,3 +314,4 @@ if __name__ == "__main__":
 
     # Show the rendering
     veux.serve(artist)
+
