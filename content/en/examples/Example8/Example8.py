@@ -23,12 +23,10 @@ import opensees.openseespy as ops
 # Start of model generation
 # ----------------------------
 
-# create ModelBuilder (with three-dimensions and 3 DOF/node)
+# create ModelBuilder (in 3 dimensions with 3 DOF/node)
 model = ops.Model(ndm=3, ndf=3)
 
-# set default units
-# defaultUnits("-force", "kip", "-length", "in", "-time", "sec", "-temp", "F")
-
+#
 # Define the material
 # -------------------
 #                                 tag   E     nu   rho

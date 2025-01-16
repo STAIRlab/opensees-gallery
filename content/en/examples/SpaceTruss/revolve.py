@@ -22,6 +22,8 @@ def create_dome(design: str, *args, **kwds):
 
 def dome52():
     """
+    References
+    ==========
     Degertekin, S.O., G. Yalcin Bayar, and L. Lamberti.
        “Parameter Free Jaya Algorithm for Truss Sizing-Layout Optimization under Natural Frequency Constraints.”
        Computers & Structures 245 (March 2021): 106461. https://doi.org/10.1016/j.compstruc.2020.106461.
@@ -30,6 +32,13 @@ def dome52():
 
 def dome120():
     """
+    Create a segment of the 120-bar dome. Use with revolve() to generate
+    a full structural model as follows:
+
+        nodes, elems = revolve(*dome120())
+
+    References
+    ==========
     Lieu, Qui X., Dieu T. T. Do, and Jaehong Lee.
        “An Adaptive Hybrid Evolutionary Firefly Algorithm for Shape and Size Optimization of Truss Structures with Frequency Constraints.”
        Computers & Structures 195 (January 15, 2018): 99–112. https://doi.org/10.1016/j.compstruc.2017.06.016.
@@ -81,6 +90,13 @@ def dome120():
 
 def dome600():
     """
+    Create a segment of the 600-bar dome. Use with revolve() to generate
+    a full structural model as follows:
+
+        nodes, elems = revolve(*dome600())
+
+    References
+    ==========
     Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani.
        “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.”
        Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
@@ -134,6 +150,11 @@ def dome600():
 
 def dome1180():
     """
+    Create a segment of the 1180-bar dome. Use with revolve() to generate
+    a full structural model as follows:
+
+        nodes, elems = revolve(*dome1180())
+
     Kaveh, Ali, Kiarash Biabani Hamedani, and Bamdad Biabani Hamedani. “Optimal Design of Large-Scale Dome Truss Structures with Multiple Frequency Constraints Using Success-History Based Adaptive Differential Evolution Algorithm.” Periodica Polytechnica Civil Engineering, September 28, 2022. https://doi.org/10.3311/PPci.21147.
     Kaveh, Ali, and M. Ilchi Ghazaan. “Optimal Design of Dome Truss Structures with Dynamic Frequency Constraints.” Structural and Multidisciplinary Optimization 53, no. 3 (March 1, 2016): 605–21. https://doi.org/10.1007/s00158-015-1357-2.
     """
@@ -179,6 +200,11 @@ def dome1180():
 
 def dome1410():
     """
+    Create a segment of the 1410-bar dome. Use with revolve() to generate
+    a full structural model as follows:
+
+        nodes, elems = revolve(*dome1410())
+
     Koohestani, K., and A. Kaveh.
        “Efficient Buckling and Free Vibration Analysis of Cyclically Repeated Space Truss Structures.” Finite Elements in Analysis and Design 46, no. 10 (October 2010): 943–48. https://doi.org/10.1016/j.finel.2010.06.009.
     """

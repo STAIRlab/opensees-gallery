@@ -1,7 +1,14 @@
-#
-# Adapted from https://portwooddigital.com/2022/08/14/parametric-oscillator/
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+#                               gallery.stairlab.io
+# 
+# ===----------------------------------------------------------------------===//
 #
 # Claudio Perez
+#
+# Adapted from https://portwooddigital.com/2022/08/14/parametric-oscillator/
 #
 import opensees.openseespy as ops
 from opensees.units.ips import inch, sec, gravity as g
