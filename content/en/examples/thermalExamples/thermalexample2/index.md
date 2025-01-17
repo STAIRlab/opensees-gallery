@@ -1,7 +1,7 @@
 ---
 title: Thermal Example 2
 description: Restrained Steel beam subjected to uniform temperature on half of the member.
-draft: false
+draft: true
 tags: ["thermal"]
 ---
 

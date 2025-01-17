@@ -3,6 +3,7 @@ title: Example 1
 description: Thermal expansion of a beam
 thumbnail: img/examples/ThermalExample1_fig1.png
 tags: ["thermal"]
+draft: true
 ---
 
 
