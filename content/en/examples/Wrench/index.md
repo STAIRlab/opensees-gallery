@@ -2,7 +2,7 @@
 title: Wrench
 render: model.glb
 thumbnail: img/wrench.png
-tags: ["Plane"]
+tags: ["Plane", "CE222"]
 description: "Static analysis of a wrench"
 ---
 
