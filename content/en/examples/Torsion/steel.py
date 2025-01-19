@@ -4,16 +4,16 @@ from veux.plane import PlaneModel
 from veux.frame import FrameArtist
 from veux.canvas.gltf import GltfLibCanvas
 
-from shps.frame import patch, layer, SectionGeometry, GeneralSection
+from shps.frame import patch, layer, create_mesh, GeneralSection
 
 def wide_flange(d, tf, bf, tw):
     yoff = ( d - tf) / 2
     zoff = (bf + tw) / 4
-    return GeneralSection(SectionGeometry([
+    return GeneralSection(create_mesh([
         patch.rect(corners=[[-bf/2, yoff-tf/2],[bf/2,  yoff+tf/2]]),# ,  divs=(nfl, nft), rule=int_typ),
         patch.rect(corners=[[-tw/2,-yoff+tf/2],[tw/2,  yoff-tf/2]]),# ,  divs=(nwt, nwl), rule=int_typ),
         patch.rect(corners=[[-bf/2,-yoff-tf/2],[bf/2, -yoff+tf/2]]),# ,  divs=(nfl, nft), rule=int_typ),
-    ]), mesh_size=[min(tf, tw)/2.5]*2, warp_shear=False)
+    ], mesh_size=min(tf, tw)/2.5), warp_shear=False)
 
 
 if __name__ == "__main__":
@@ -28,6 +28,11 @@ if __name__ == "__main__":
     field = section.torsion.warping()
 #   print(f"{geometry.centroid = }")
     print(section.summary())
+
+    from shps.frame.solvers.plastic import PlasticLocus
+    PlasticLocus(section).plot()#(phi=0.5, ip=5)
+    import matplotlib.pyplot as plt
+    plt.show()
 
     artist = FrameArtist(PlaneModel((section.model.nodes, section.model.cells())), canvas=GltfLibCanvas(), ndf=1)
 
