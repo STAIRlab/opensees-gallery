@@ -12,16 +12,20 @@ This presentation follows from the work by <cite key="perez2024nonlinear"></cite
 This example is selected to demonstrate the path-independence of the `Init`
 interpolation. The undeformed centerline of the cantilever follows a
 \(45^\circ\) arc with radius \(R\) given by:
+
 \[
 \boldsymbol{x}_0(\xi) = R \sin \xi \frac{\pi}{4L}\, \mathbf{E}_1 + R \left(1 - \cos \xi \frac{\pi}{4L}\right)\, \mathbf{E}_3.
 \]
+
 A point load $\boldsymbol{F} = 600 \, \mathbf{E}_2$ is applied at the
 tip, i.e. at $\xi = R$. There is no closed-form solution to the problem,
 and it is customary to present the final displacements at the tip:
+
 \[
 \Delta x_i \triangleq \mathbf{E}_i \cdot \left(\boldsymbol{x}(L) - \boldsymbol{x}_0(L)\right).
 \]
 The following parameters are used for the simulations:
+
 \[
 \begin{array}{lr}
     R  =& 100 \\ %   ,& A  &= 10 \\
