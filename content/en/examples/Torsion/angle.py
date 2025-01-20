@@ -16,8 +16,6 @@ if __name__ == "__main__":
     section = shps.frame.GeneralSection(mesh, warp_shear=False)
     section = section.translate(section.torsion.centroid())
 
-
-
     field = section.torsion.warping()
     print(section.summary())
 

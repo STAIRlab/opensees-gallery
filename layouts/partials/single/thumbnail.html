@@ -46,7 +46,7 @@
     {{- partial "assets/image.html" (dict "url" $thumbnail "ratio" $ratio "wrapper" $wrapper "class" $class "title" $page.Params.title "caption" $credits "figclass" $figclass "priority" "high") -}}
     {{ end }}
     <img id="fallback-image" 
-      src="{{ $thumbnail }}" 
+      src="/{{ $thumbnail }}" 
       alt="{{ $page.Params.title }}" 
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
   {{ end }}
