@@ -62,6 +62,7 @@ rigidDiaphragm     3          9     5  6  7  8
 rigidDiaphragm     3         14    10 11 12 13
 rigidDiaphragm     3         19    15 16 17 18
 ```
+{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 # Define rigid diaphragm multi-point constraints
