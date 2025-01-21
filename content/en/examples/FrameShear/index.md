@@ -7,10 +7,13 @@ thumbnail: img/aisc-column.png
 
 ![A column with a distributed load.](img/aisc-column.png)
 
-- [Case_1.py](./Case_1.py)
-- [Case_2.py](./Case_2.py)
-
 This example implements the analysis presented in the AISC steel mannual.
+
+AISC 360-16, Commentary Figure C-C2.2
+
+{{< fold Case_1.py >}}
+
+{{< fold Case_2.py >}}
 
 The source code for this example is adapted from https://github.com/denavit/OpenSees-Examples
 
