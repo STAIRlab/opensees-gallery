@@ -1,7 +1,9 @@
 ---
 title: STAIRLab
 description: Tools developed by the Structural Artificial Intelligence Lab at UC Berkeley.
-thumbnail: /img/logo_var.svg#logo
+# For thumbnail see partials/list/featured.html
+#thumbnail: /img/logo_var.svg#logo
+#thumbnail: img/shell-light.png
 actions:
     getstarted:
         url: "docs/getting-started/introduction/"
