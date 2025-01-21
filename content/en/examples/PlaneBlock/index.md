@@ -6,7 +6,7 @@ description: A finite element analysis is performed of a plane tapered cantileve
 render: model.glb
 ---
 
-![alt text](image.png)
+![alt text](img/image.png)
 
 A finite element analysis is performed of a plane tapered cantilever using constant-strain triangles. 
 Visualization is performed in the script [`render.py`](render.py) using the [`veux`](https://pypi.org/project/veux) library.
