@@ -3,7 +3,6 @@ title: Built-in mesh tools
 thumbnail: img/examples/plane_block.png
 tags: ["CE222"]
 description: A finite element analysis is performed of a plane beam with a hole using linear Lagrange quadrilaterals.
-render: model.glb
 ---
 
 ![alt text](img/plane_block.png)

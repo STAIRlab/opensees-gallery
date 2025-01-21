@@ -8,6 +8,14 @@ def create_beam(mesh,
                 element: str = "LagrangeQuad"):
 
     nx, ny = mesh
+    # Define geometry
+    # ---------------
+
+    L = 240.0
+    d = 24.0
+    thick = 1.0
+    load = 20.0 # kips
+
 
     # create model in two dimensions with 2 DOFs per node
     model = ops.Model(ndm=2, ndf=2)
@@ -16,14 +24,6 @@ def create_beam(mesh,
     # -------------------
     #                                 tag  E      nu   rho
     model.material("ElasticIsotropic", 1, 4000.0, 0.25, 0, "-plane-strain")
-
-    # Define geometry
-    # ---------------
-
-    L = 240.0
-    d = 24.0
-    thick = 1.0
-    load = 20.0 # kips
 
     # now create the nodes and elements using the surface command
     # {"quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
@@ -36,7 +36,7 @@ def create_beam(mesh,
                     2: [   L,    0.0],
                     3: [   L,     d ],
                     4: [  0.0,    d ]
-                  })
+            })
 
     # Single-point constraints
     #            x   (u1 u2)
@@ -83,7 +83,6 @@ if __name__ == "__main__":
 
 
     import veux
-#   artist = veux.render(model, model.nodeDisp, scale=10)
     artist = veux.create_artist(model)
 
     stress = {node: stress["sxx"] for node, stress in node_average(model, "stressAtNodes").items()}
