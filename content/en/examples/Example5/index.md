@@ -46,9 +46,33 @@ model = ops.Model(ndm=3, ndf=6)
 {{% /tab %}}
 {{< /tabs >}}
 
+Beam cross sections are constructed as developed in [this](../example2) example
+to account for material nonlinearities.
+
 Rigid diaphragm multi-point constraints
-are used to enforce the rigid in-plane stiffness assumption for the
+are defined with the [`rigidDiaphragm`](https://opensees.github.io/OpenSeesDocumentation/user/manual/model/mp_constraint/rigidDiaphragm.html) method to enforce the rigid in-plane stiffness assumption for the
 floors. 
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+# Define rigid diaphragm multi-point constraints
+#               normalDir  retained constrained
+rigidDiaphragm     3          9     5  6  7  8
+rigidDiaphragm     3         14    10 11 12 13
+rigidDiaphragm     3         19    15 16 17 18
+```
+{{% tab name="Python (RT)" %}}
+```python
+# Define rigid diaphragm multi-point constraints
+#              normalDir retained constrained
+model.rigidDiaphragm(3,  9,  5,  6,  7,  8)
+model.rigidDiaphragm(3, 14, 10, 11, 12, 13)
+model.rigidDiaphragm(3, 19, 15, 16, 17, 18)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 Gravity loads are applied to the structure and the 1978 Tabas
 acceleration records are the uniform earthquake excitations.
 
@@ -60,6 +84,7 @@ see that section models other than fiber sections may be used in the
 nonlinear beam column element.
 
 ![Example 5.1](img/Example4.svg)
+
 
 
 ## Analysis
