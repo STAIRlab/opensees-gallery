@@ -95,8 +95,35 @@ The solution algorithm uses a ConvergenceTest which tests convergence on
 the norm of the energy increment vector. The integrator for this
 analysis will be of type `Newmark` with a $\gamma$ of `0.25` and a $\beta$
 of `0.5`. 
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+integrator Newmark   0.5  0.25 
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.integrator("Newmark", 0.5, 0.25)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 Due to the presence of the multi-point constraints, a
 `Transformation` constraint handler is used. 
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+constraints Transformation
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.constraints("Transformation")
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 <!--
 The equations are formed
