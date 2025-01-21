@@ -2,14 +2,14 @@
 title: Built-in mesh tools
 thumbnail: img/examples/plane_block.png
 tags: ["CE222"]
-description: A finite element analysis is performed of a plane tapered cantilever using constant-strain triangles.
+description: A finite element analysis is performed of a plane beam with a hole using linear Lagrange quadrilaterals.
 render: model.glb
 ---
 
-![alt text](img/image.png)
+![alt text](img/plane_block.png)
 
-A finite element analysis is performed of a plane tapered cantilever using constant-strain triangles. 
-Visualization is performed in the script [`render.py`](render.py) using the [`veux`](https://pypi.org/project/veux) library.
+This introduces mesh-building tools for solid modeling. A finite element analysis is performed of a plane beam with a hole using linear Lagrange quadrilaterals. 
+Visualization is performed using the [`veux`](https://pypi.org/project/veux) library.
 
 Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with
 `ndm = 2` and `ndf = 2`. 
