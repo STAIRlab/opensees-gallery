@@ -12,7 +12,6 @@ draft: false
 ![Cross section of a bridge girder deformed by St. Venant warping.](img/girder.png)
 -->
 
-![alt text](image.png)
 
 Here we consider the St. Venant's torsion problem. 
 
