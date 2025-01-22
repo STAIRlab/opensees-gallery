@@ -6,7 +6,34 @@ from veux.canvas.gltf import GltfLibCanvas
 
 from shps.frame import patch, layer, create_mesh, GeneralSection
 
-def wide_flange(d, tf, bf, tw):
+def rectangle(b, d):
+    mesh = create_mesh(mesh_size=t/2.5, patches=[
+        patch.rect(corners=[[-b/2, -d/2], [b/2, d/2]]),
+    ])
+    return GeneralSection(mesh, warp_shear=False)
+
+def channel(t, w, h, b):
+    mesh = create_mesh(mesh_size=min(w,t)/4.5, patches=[
+        patch.rect(corners=[[0,  h/2-t], [b,  h/2  ]]),
+        patch.rect(corners=[[0, -h/2+t], [w,  h/2-t]]),
+        patch.rect(corners=[[0, -h/2  ], [b, -h/2+t]]),
+    ])
+
+    return GeneralSection(mesh, warp_shear=False)
+
+def angle(t, b, d):
+    mesh = create_mesh(mesh_size=t/2.5, patches=[
+        patch.rect(corners=[[-t/2, -t/2], [b-t/2, t/2]]),
+        patch.rect(corners=[[-t/2, -d+t/2], [t/2, -t/2]])
+    ])
+    return GeneralSection(mesh, warp_shear=False)
+
+def wide_flange(d, t, b, tw=None):
+    bf = b
+    tf = t
+    if tw is None:
+        tw = tf
+
     yoff = ( d - tf) / 2
     zoff = (bf + tw) / 4
     return GeneralSection(create_mesh([
@@ -16,9 +43,96 @@ def wide_flange(d, tf, bf, tw):
     ], mesh_size=min(tf, tw)/2.5), warp_shear=False)
 
 
+def GirderSection(
+    thickness_top  : float,
+    thickness_bot  : float,
+    height         : float,
+    width_top      : float,
+    width_webs     : list,
+    web_spacing    : float,
+    web_slope      : float = 0.0,
+    overhang       : float = None,
+    material       = None,
+    ):
+    #                                ^ y
+    #                                |
+    # _  |_______________________________________________________|
+    #    |_____  _______________ _________ _______________  _____|
+    #          \ \             | |       | |             / /
+    #           \ \            | |   |   | |            / /
+    #            \ \___________| |_______| |___________/ /
+    # _           \__________________+__________________/  ---> x
+    #             |                                     |
+
+    import opensees.units
+    spacing = opensees.units.units.spacing
+
+    # Dimensions
+    #------------------------------------------------------
+    inside_height = height - thickness_bot - thickness_top
+
+
+    # width of bottom flange
+    if overhang:
+        width_bot = width_top - \
+                  2*(overhang + web_slope*(inside_height + thickness_bot))
+    else:
+        width_bot = web_centers[-1] - web_centers[0] \
+                  + width_webs[1]/2 + width_webs[0]/2
+
+    # number of internal web *spaces*
+    niws = len(width_webs) - 3
+
+    # list of web centerlines?
+    web_centers   = [
+        -width_bot/2 - inside_height/2*web_slope + 0.5*width_webs[1],
+        *niws @ spacing(web_spacing, "centered"),
+         width_bot/2 + inside_height/2*web_slope - 0.5*width_webs[-1]
+    ]
+
+    # Build section
+    #------------------------------------------------------
+    girder_section = [
+        # add rectangle patch for top flange
+        patch.rect(corners=[
+            [-width_top/2, height - thickness_top],
+            [+width_top/2, height                ]]),
+
+        # add rectangle patch for bottom flange
+        patch.rect(corners=[
+            [-width_bot/2,        0.0      ],
+            [+width_bot/2,  +thickness_bot]]),
+
+        # sloped outer webs
+        patch.rhom(
+            height = inside_height,
+            width  = width_webs[0],
+            slope  = -web_slope,
+            center = [web_centers[0], thickness_bot + inside_height/2]
+        ),
+        patch.rhom(
+            height = inside_height,
+            width  = width_webs[-1],
+            slope  = web_slope,
+            center = [web_centers[-1], thickness_bot + inside_height/2]
+        )
+    ] + [
+        patch.rect(corners=[
+            [loc - width/2,        thickness_bot],
+            [loc + width/2,  height - thickness_top]]
+        )
+        for width, loc in zip(width_webs[1:-1], web_centers[1:-1])
+    ]
+
+    mesh = create_mesh(girder_section, mesh_size=min(thickness_bot, thickness_top, *width_webs)/3.0)
+
+    return GeneralSection(mesh, warp_shear=False)
+
+
+
 if __name__ == "__main__":
 
-    section = wide_flange(d=612, bf=229, tf=19.6, tw=11.9)
+    section = wide_flange(d=612, b=229, t=19.6, tw=11.9)
 #   import matplotlib.pyplot as plt
 #   plt.plot(*section.torsion.model.nodes.T, ".")
 #   plt.axis("equal")

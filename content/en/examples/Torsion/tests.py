@@ -30,3 +30,5 @@ def test_parallel_axis(section, size):
 if __name__ == "__main__":
     from steel import wide_flange
     test_parallel_axis(wide_flange(d=612, bf=229, tf=19.6, tw=11.9), 400)
+
+
