@@ -46,8 +46,9 @@ model = ops.Model(ndm=3, ndf=6)
 {{% /tab %}}
 {{< /tabs >}}
 
-Beam cross sections are constructed as developed in [this](../example2) example
-to account for material nonlinearities.
+Beams are modeled using a *mixed* finite element formulation which accurately accounts for inelasticity (see [this](../example3/) example). 
+Inelastic cross sections are constructed as developed in [this](../example2) example
+to account for material nonlinearities. 
 
 Rigid diaphragm multi-point constraints
 are defined with the [`rigidDiaphragm`](https://opensees.github.io/OpenSeesDocumentation/user/manual/model/mp_constraint/rigidDiaphragm.html) method to enforce the rigid in-plane stiffness assumption for the
