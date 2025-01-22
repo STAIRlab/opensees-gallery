@@ -1,4 +1,5 @@
 import numpy as np
+import veux
 import opensees.openseespy
 
 # Create the model
@@ -113,10 +114,11 @@ def arch_model3D():
             x -= Offset
 
         # Compute y
-        y = R*np.cos(angle)
+        y = R*np.cos(angle) - R*np.cos(th/2)
 
         # create the node
         model.node(tag, x, y, 0)
+
 
     model.section("ElasticFrame", 1, A=A, E=E, Iy=I, Iz=I, J=2*I, G=E, Ay=A*100, Az=A*100)
 
@@ -157,8 +159,8 @@ def arc_control(model, dx, *args,  a=0):
     model.integrator("ArcLength", dx, a, det=True, exp=0.0, reference="point")
 
 
-def save_state(model, states):
-    time = model.getTime()
+def save_state(model, states, time):
+    # time = model.getTime()
     states.append({
             "Time": time,
             "U": {
@@ -198,7 +200,7 @@ def analyze(model, mid, increment, steps, dx, *args):
             dx *= 0.5
             increment(model, dx, *args)
         else:
-            save_state(model, states)
+            save_state(model, states, step)
 
     return np.array(xy).T, states
 
@@ -206,20 +208,30 @@ def render(model, states):
     import veux
     from veux.motion import animate
     states = {"ConvergedHistory":states}
-    artist = animate(model, states, model_config={
-        "extrude_default": "square"
+    artist = animate(model, states, vertical=3, model_config={
+        "extrude_default": "square",
+        "extrude_scale": 500
     })
-    veux.serve(artist)
-    
+    return artist
+
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     model, node = arch_model3D()
+    # artist = veux.render(model, show={"frame.surface"}, model_config={
+    #     "extrude_default": "square",
+    #     "extrude_scale": 100
+    # })
+    # artist.draw_origin()
+    # veux.serve(artist)
 
     (x, y), states = analyze(model, node, arc_control, 110, 45)
 
-#   render(model, states)
+    artist = render(model, states)
+
+    veux.serve(artist)
+    # artist.save("a.glb")
 
     fig, ax = plt.subplots()
     ax.plot(x, y)
