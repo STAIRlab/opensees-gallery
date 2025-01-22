@@ -6,11 +6,11 @@ thumbnail: img/examples/BridgeSections.png
 Explore more [section analysis](/tags/section) examples.
 
 {{< card-group padding="3" gutter="3" >}}
-    {{< card title="Shear" icon="fab bootstrap" >}}
+    {{< card title="Shear" thumbnail="img/girder.png" >}}
         ...
     {{< /card >}}
-    {{< card title="Torsion" thumbnail="img/girder.png" >}}
-        ...
+    {{< card title="Torsion" thumbnail="/img/examples/torsion_girder.png" >}}
+        Compute Saint Venant's warping function for arbitrary shapes.
     {{< /card >}}
     {{< card title="Concrete" icon="fas code" >}}
         ...
