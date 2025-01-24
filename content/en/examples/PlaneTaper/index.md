@@ -4,6 +4,8 @@ thumbnail: img/examples/plane_taper.png
 tags: ["CE222"]
 description: A finite element analysis is performed of a plane tapered cantilever using constant-strain triangles.
 render: model.glb
+downloads:
+  Python: ["plane_taper.py"]
 ---
 
 A finite element analysis is performed of a plane tapered cantilever using constant-strain triangles. 
