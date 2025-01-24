@@ -3,13 +3,17 @@ title: Frame
 draft: false
 ---
 
-Formulate the equations of motion for the two-story frame in Fig. E9.7a. The flexural rigidity of the beams and columns and the lumped masses at the floor levels are as noted. The dynamic excitation consists of lateral forces $p_1(t)$ and $p_2(t)$ at the two floor levels. The story height is $h$ and the bay width $2 h$. Neglect axial deformations in the beams and the columns.
+Formulate the equations of motion for the two-story frame in Fig. E9.7a. The flexural rigidity of the beams and columns and the lumped masses at the floor levels are as noted. 
+The dynamic excitation consists of lateral forces $p_1(t)$ and $p_2(t)$ at the two floor levels. 
+The story height is $h$ and the bay width $2 h$. 
+Neglect axial deformations in the beams and the columns.
 
 ![Frame](image-1.png)
 
 ![alt text](image-2.png)
 
-Solution The system has six degrees of freedom shown in Fig. E9.7a: lateral displacements $u_1$ and $u_2$ of the floors and joint rotations $u_3, u_4, u_5$, and $u_6$. The displacement vector is
+
+The system has six degrees of freedom shown in Fig. E9.7a: lateral displacements $u_1$ and $u_2$ of the floors and joint rotations $u_3, u_4, u_5$, and $u_6$. The displacement vector is
 
 $$
 \mathbf{u}=\left\langle\begin{array}{llllll}
@@ -18,7 +22,7 @@ u_1 & u_2 & u_3 & u_4 & u_5 & u_6
 $$
 
 
-The mass matrix is given by Eq. (9.2.10):
+The mass matrix is given by:
 
 $$
 \mathbf{m}=m\left[\begin{array}{llllll}
@@ -32,7 +36,10 @@ $$
 $$
 
 
-The stiffness influence coefficients are evaluated following the procedure of Example 9.4. A unit displacement is imposed, one at a time, in each DOF while constraining the other five DOFs, and the stiffness influence coefficients (e.g., shown in Fig. E9.7b and c for $u_1=1$ and $u_3=1$, respectively) are calculated by statics from the nodal forces for individual structural elements associated with the displacements imposed. These nodal forces are determined from the beam stiffness coefficients (Appendix 1). The result is
+The stiffness influence coefficients are evaluated following the procedure of Example 9.4. 
+A unit displacement is imposed, one at a time, in each DOF while constraining the other five DOFs, and the stiffness influence coefficients (e.g., shown in Fig. E9.7b and c for $u_1=1$ and $u_3=1$, respectively) are calculated by statics from the nodal forces for individual structural elements associated with the displacements imposed. 
+These nodal forces are determined from the beam stiffness coefficients (Appendix 1). 
+The result is
 
 $$
 \mathbf{k}=\frac{E I}{h^3}\left[\begin{array}{rrcccr}
@@ -45,7 +52,8 @@ $$
 \end{array}\right]
 $$
 
-The dynamic forces applied are lateral forces $p_1(t)$ and $p_2(t)$ at the two floors without any moments at the nodes. Thus the applied force vector is
+The dynamic forces applied are lateral forces $p_1(t)$ and $p_2(t)$ at the two floors without any moments at the nodes. 
+Thus the applied force vector is
 
 $$
 \mathbf{p}(t)=\left\langle p_1(t) \quad p_2(t) \quad 0 \quad 0 \quad 0 \quad 0 \quad 0\right\rangle^T

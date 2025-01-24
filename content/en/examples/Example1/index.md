@@ -25,13 +25,6 @@ finite element analysis with OpenSees.
 This includes the definition of nodes,
 materials, elements, loads and constraints. 
 
-Scripts for this example can be downloaded for either
-Python or Tcl:
-
-- [`Example1.py`](./Example1.py)
-- [`Example1.tcl`](./Example1.tcl)
-
-
 ## Model
 
 We begin the simulation by creating a `Model`, which will manage

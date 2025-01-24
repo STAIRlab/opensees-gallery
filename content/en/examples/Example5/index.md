@@ -7,24 +7,14 @@ render: model.glb
 description: >-
     A three-dimensional reinforced concrete rigid frame,
     is subjected to bi-directional earthquake ground motion.
+downloads:
+  Tcl: ["Example5.tcl", "RCsection.tcl", "tabasFP.txt", "tabasFN.txt"]
+  Python: ["Example5.py", "render.py", "tabasFP.txt", "tabasFN.txt"]
 ---
 
 
 A three-dimensional reinforced concrete rigid frame,
 is subjected to bi-directional earthquake ground motion.
-
-1.  [`Example5.tcl`](Example5.tcl)
-2.  [`RCsection.tcl`](RCsection.tcl)
-
-Or for Python:
-1.  [`Example5.py`](Example5.py)
-2.  [`render.py`](render.py)
-
-In both cases, the following ground motion records are required:
-
-3.  [`tabasFN.txt`](tabasFN.txt)
-4.  [`tabasFP.txt`](tabasFP.txt)
-
 
 ## Modeling
 
@@ -88,14 +78,43 @@ nonlinear beam column element.
 ![Example 5.1](img/Example4.svg)
 
 
-
 ## Analysis
 
-A solution Algorithm of type Newton is used for the nonlinear problem.
-The solution algorithm uses a ConvergenceTest which tests convergence on
-the norm of the energy increment vector. The integrator for this
+A solution algorithm of type `Newton` is used for the nonlinear problem.
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+algorithm Newton;
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.algorithm("Newton")
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+
+The integrator for this
 analysis will be of type `Newmark` with a $\gamma$ of `0.25` and a $\beta$
 of `0.5`. 
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+integrator Newmark 0.1, 0.25;
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.integrator("Newmark", 0.5, 0.25)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+The solution algorithm uses a ConvergenceTest which tests convergence on
+the norm of the energy increment vector. 
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
@@ -137,6 +156,19 @@ is used which simply assigns equation numbers to the degrees-of-freedom.
 Once all the components of an analysis are defined, the Analysis 
 itself is defined. For this problem a `Transient` analysis is used.
 `2000` steps are performed with a time step of `0.01`.
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+analyze 2000 0.01
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.analyze(2000, 0.01)
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Post-Processing
 

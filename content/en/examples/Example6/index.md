@@ -5,14 +5,13 @@ categories: ["Basic", "Elastic"]
 thumbnail:  img/examples/Example6.png
 render: model.glb
 description: In this example a simply supported beam is modelled with two dimensional solid elements.
+downloads:
+  Tcl: ["Example6.tcl"]
+  Python: ["Example6.py", "render.py"]
 ---
 
 In this example a simply supported beam is modelled with two dimensional solid
 elements.
-The example is implemented in both Tcl and Python:
-
-1.  [`Example6.tcl`](Example6.tcl)
-2.  [`Example6.py`](Example6.py)
 
 Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with
 `ndm = 2` and `ndf = 2`. 
