@@ -7,8 +7,8 @@
 # ===----------------------------------------------------------------------===//
 #
 #
-# 2 Story Multi Bay Frame Example 4.1
-# -----------------------------------
+# 2 Story Multi Bay Frame
+# -----------------------
 #  Reinforced concrete multi-bay, two-story frame
 #  Distributed vertical load on girder
 # 
