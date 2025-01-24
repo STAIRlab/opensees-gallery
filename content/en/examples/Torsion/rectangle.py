@@ -1,5 +1,4 @@
 import veux
-import matplotlib.pyplot as plt
 import numpy as np
 from steel import angle
 
@@ -13,28 +12,14 @@ if __name__ == "__main__":
     #
     d = 150
     section = angle(t=15, b=80, d=d)
+    section = section.translate(section.torsion.centroid())
 
     print(section.summary())
-
-    if True:
-        section = section.translate(section.torsion.centroid())
-        print(section.summary())
-
-    if True:
-        ssc = section.translate(section.torsion.shear_center())
-        print(np.linalg.norm(ssc.torsion.solution() + section.torsion.warping()));
-        section = ssc
-
-        print(section.summary())
-
-    plt.spy(section.torsion.section_tensor())
-    plt.show()
 
     # 3) view warping modes
     artist = veux.create_artist((section.model.nodes, section.model.cells()), ndf=1)
 
-    field = section.torsion.warping()
-    artist.draw_surfaces(field = field, state=field, scale=1/100)
+    artist.draw_surfaces(field = section.torsion.warping())
     R = artist._plot_rotation
 
     artist.canvas.plot_vectors([R@[*section.torsion.centroid(), 0] for i in range(3)], d/5*R.T)

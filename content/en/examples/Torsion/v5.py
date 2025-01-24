@@ -3,7 +3,7 @@ import shps.frame
 from veux.plane import PlaneModel
 from veux.frame import FrameArtist
 from veux.canvas.gltf import GltfLibCanvas
-from shps.frame.shapes.girder import GirderSection
+from steel import GirderSection
 from opensees.units.english import inch, foot, ft
 
 if __name__ == "__main__":

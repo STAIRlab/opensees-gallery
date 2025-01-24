@@ -12,9 +12,7 @@ This example is selected to demonstrate the ability of the
 proposed formulations to naturally accommodate applied moments in
 various reference frames. It also highlights the accuracy and
 convergence characteristics of the formulations. 
-Three common variations of this problem are considered with the properties from
-Section [\[sec:circle\]](#sec:circle){reference-type="ref"
-reference="sec:circle"} for all cases [^1]: 
+Three common variations of this problem are considered with the following properties:
 
 \[
 \begin{array}{lcr}
@@ -29,6 +27,8 @@ reference="sec:circle"} for all cases [^1]:
     J  &=& 10^{-2} \\
 \end{array}
 \]
+
+The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/ExactFrame.html) element formulation from OpenSees is employed.
 
 ### Simple Perturbation
 
@@ -53,11 +53,12 @@ characteristics of the solution.
 ### Consistent Perturbation
 
 The problem is simulated again, but now the moment is consistently
-applied with a spatial orientation. Formulations whose final residual
+applied with a spatial orientation. 
+Formulations whose final residual
 moment vector is conjugate to the spatial variations
 $\boldsymbol{u}_{\scriptscriptstyle{\Lambda}}$ of the rotation
-$\boldsymbol{\Lambda}$ do not need to be treated differently. This
-includes both elements with the `None` parameter transformation and
+$\boldsymbol{\Lambda}$ do not need to be treated differently. 
+This includes both elements with the `None` parameter transformation and
 transformed elements with the Petrov-Galerkin formulation. For the
 simulations with all other elements, a transformation of the nodal force
 is necessary, as described in

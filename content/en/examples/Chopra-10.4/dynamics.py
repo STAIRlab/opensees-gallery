@@ -166,7 +166,7 @@ def eigen_analysis():
     print(f"The periods are {T}")
 
 
-def static_analysis():
+def static_analysis(model):
     # Run a one step gravity load with no loading (to record eigenvectors)
     #-----------------------------------------------------------------------
     model.integrator('LoadControl', 0, 1, 0, 0)

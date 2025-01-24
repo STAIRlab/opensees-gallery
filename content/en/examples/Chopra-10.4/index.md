@@ -25,21 +25,18 @@ material characteristics of the frame structure are shown in Figure 1.
 Node and element numbering is given in Figure 2.
 
 <figure>
-  <img src="./ShearFrame5.png" />
-  <figcaption aria-hidden="true">ShearFrame5.png</figcaption>
+  <img src="./ShearFrame5.png" alt="Two story plane frame model." />
 </figure>
 
-## Instructions on how to run this example
+## Running the Problem
 
 To execute this ananlysis in OpenSees the user has to download this
 files:
 <ul>
-<li><a href="./EigenAnal_twoStoryShearFrame8.tcl"><tt>EigenAnal_twoStoryShearFrame.tcl</tt></a></li>
+<li><a href="./EigenAnal_twoStoryShearFrame8.tcl"><code>EigenAnal_twoStoryShearFrame.tcl</code></a></li>
 </ul>
 
-Place `EigenAnal_twoStoryShearFrame.tcl` in the same folder with the
-OpenSees.exe. By double clicking on OpenSees.exe the OpenSees
-interpreter will pop out. To run the analysis the user should type:
+Run the problem by executing the following command:
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
@@ -54,14 +51,10 @@ python -m opensees EigenAnal_twoStoryShearFrame8.tcl
 {{% /tab %}}
 {{< /tabs >}}
 
-and hit enter. To create output files (stored in directory "data") 
-the user has to exit OpenSees interpreter by typing "exit".
 
 ## Create the model
 
-Spatial dimension of the model and number of degrees-of-freedom (DOF)
-at nodes are defined using <a href="https://opensees.berkeley.edu/wiki/index.php/model_command">model</a> command. In this example we have 2D model
-with 3 DOFs at each node. This is defined in the following way:
+In this example we have 2D model with 3 degrees of freedom at each node. This is information is used to construct a [`Model`](https://opensees.stairlab.io/user/manual/model/model_class.html):
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
@@ -80,9 +73,8 @@ model BasicBuilder -ndm 2 -ndf 3
 
 
 Note: geometry, mass, and material characteristics are assigned to
-variables that correspond to the ones shown in Figure 1 (e.g., the
-height of the column is set to be 144 in. and assigned to variable h;
-the value of the height can be accessed by $h).
+variables that correspond to the ones shown in Figure 1. For example, the
+height of the column is set to be 144 inches and assigned to variable `h`.
 
 Nodes of the structure (Figure 2) are defined using the <a
 href="https://opensees.berkeley.edu/wiki/index.php/node_command" title="wikilink">node</a> command: 
@@ -224,7 +216,7 @@ foreach k [range $numModes] {
 {{%  /tab  %}}
 {{< /tabs >}}
 
-## Perform eigenvalue analysis and store periods into a file
+## Perform eigenvalue analysis
 
 The eigenvalues are calculated using <a href="https://opensees.berkeley.edu/wiki/index.php/Eigen_Command">eigen commnad</a> and stored in lambda variable.
 
@@ -258,8 +250,6 @@ foreach t $T {
 } 
 close $Periods 
 ```
-
-## Record the eigenvectors
 
 For eigenvectors to be recorded <a href="https://opensees.berkeley.edu/wiki/index.php/Record_Command"> record</a> command has to be issued following the
 eigen command.

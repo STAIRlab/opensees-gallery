@@ -1,7 +1,7 @@
 
 
 def create_model_1d():
-    import openseespy.opensees as ops
+    import opensees.openseespy as ops
 
     k = 60
     m = 2

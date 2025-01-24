@@ -12,8 +12,7 @@ draft: false
 ![Cross section of a bridge girder deformed by St. Venant warping.](img/girder.png)
 -->
 
-
-Here we consider the St. Venant's torsion problem. 
+Here we consider the St. Venant's torsion problem. Beginning from the three-dimensional boundary value problem of solid mechanics:
 
 $$
 \begin{aligned}
@@ -22,12 +21,15 @@ $$
 \end{aligned}
 $$
 
+one arrives at a pure Neumann problem of the Laplace operator:
+
 $$
 \begin{array}{rll}
-(\nabla \cdot \nabla) \varphi &=0 & \text { in } \Omega, \\
+\Delta \varphi &=0 & \text { in } \Omega, \\
 \nabla_{\mathbf{n}} \varphi  &=-\mathbf{i} \times \bm{\zeta} \cdot \mathbf{n} & \text { on } \partial \Omega
 \end{array}
 $$
+for a given point of rotation $\bm{\zeta}$.
 
 For this problem, `ndm=2` and `ndf=1`.
 

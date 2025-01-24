@@ -230,8 +230,8 @@ if __name__ == "__main__":
 
     artist = render(model, states)
 
-    veux.serve(artist)
-    # artist.save("a.glb")
+    # veux.serve(artist)
+    artist.save("solution.glb")
 
     fig, ax = plt.subplots()
     ax.plot(x, y)
