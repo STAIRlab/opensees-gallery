@@ -15,13 +15,10 @@ In this example a simple problem in solid dynamics is considered. The
 structure is a cantilever beam modelled with three dimensional solid
 elements.
 
-1.  [`Example8.tcl`](src/Example8.tcl)
-1.  [`Example8.py`](src/Example8.py)
-
 For three dimensional analysis, a typical solid element is defined as a
-volume in three dimensional space. Each node of the analysis has three
-displacement degrees of freedom. Thus the model is defined with
-`ndm = 3` and `ndf = 3`.
+volume in three dimensional space. 
+Each node of the analysis has three displacement degrees of freedom. 
+Thus the model is defined with `ndm = 3` and `ndf = 3`.
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
