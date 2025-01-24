@@ -6,7 +6,7 @@ description: >-
     A plane cantilever column is shaken by an earthquake. Material nonlinearity
     is accounted for using the force formulation and fiber-discretized cross
     sections
-draft: false
+draft: true
 ---
 
 

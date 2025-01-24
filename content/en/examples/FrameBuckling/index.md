@@ -23,7 +23,10 @@ The files for the problem are
 
 ### Buckling Analysis
 
-Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. This implies that at the point of buckling, there are multiple independent displacement increments $\bm{u}$ which will be mapped to the same resisting load by the tangent $\bm{K}$. In otherwords, The buckling load is the point at which $\bm{K}$ becomes singular. If we consider $\bm{K}$ as a function of the load factor $\bm{\lambda}$, this condition can be expressed as the nonlinear root-finding problem:
+Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. 
+This implies that at the time of buckling, there are multiple independent displacement increments $\bm{u}$ which will be mapped to the same resisting load by the tangent $\bm{K}$. 
+In other words, the buckling load is that at which $\bm{K}$ becomes singular. 
+If we consider $\bm{K}$ as a function of the load factor $\bm{\lambda}$, this condition can be expressed as the nonlinear root-finding problem:
 
 $$
 \operatorname{det}\bm{K}(\lambda) = 0
