@@ -1,20 +1,21 @@
-# OpenSees -- Open System for Earthquake Engineering Simulation
-# Pacific Earthquake Engineering Research Center
-# http://opensees.berkeley.edu/
+# ===----------------------------------------------------------------------===//
+# 
+#         OpenSees - Open System for Earthquake Engineering Simulation    
+#                Structural Artificial Intelligence Laboratory
+# 
+# ===----------------------------------------------------------------------===//
 #
-# 3 Story One-by-One Bay Frame Example 5.1
-# ----------------------------------------
+# 3 Story One-by-One Bay Frame
+# ----------------------------
 #  Reinforced concrete one-bay, three-story frame
 #  Distributed vertical load on girder
 # 
 # Example Objectives
 # ------------------
-#  3D building with rigid diaphragms
-#  Nonlinear beam-column elements
-#  Gravity load analysis followed by transient analysis
+#  - 3D building with rigid diaphragms
+#  - Nonlinear beam-column elements
+#  - Gravity load analysis followed by transient analysis
 #
-# Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
-# Date: September 2017
 
 # import the OpenSees Python module
 import opensees.openseespy as ops
@@ -22,11 +23,12 @@ import opensees.units.iks as units
 import math
 import sys
 #
+
 def ReinforcedRectangle(model, id, h, b, cover, coreID, coverID, steelID, numBars, barArea, nfCoreY, nfCoreZ, nfCoverY, nfCoverZ, GJ):
     """
     Define a procedure which generates a rectangular reinforced concrete section
     with one layer of steel evenly distributed around the perimeter and a confined core.
-    
+
                           y
                           |
                           |
