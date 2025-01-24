@@ -77,6 +77,12 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4
 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with: {"python-version": "3.x"}
+
+    - {"name": "Install OpenSees", "run": "pip install opensees beautifulsoup4"}
+
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -127,6 +133,9 @@ jobs:
 #     run: "hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
 #     run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
       run: npm run build:cache -- --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+    - name: Bundle Downloads
+      run: python scripts/bundle-downloads.py public/examples/*/index.html
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
