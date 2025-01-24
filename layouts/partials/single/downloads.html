@@ -1,0 +1,48 @@
+{{- if .Params.downloads }}
+  {{ $folderName := path.Base .File.Dir }}
+  {{ $name := cond (and (ne .Slug "") (ne .Slug "index")) .Slug $folderName }}
+
+  <!-- Use a flex container for all download blocks -->
+  <div class="btn-group" role="group" aria-label="Basic example">
+
+    <!-- <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: start;"> -->
+    
+
+    <a aria-label="download-icon" href="#!" class="btn btn-outline-secondary btn-sm position-relative disabled" aria-disabled="true" role="button">
+        <span class="d-flex justify-content-center">
+            <span class="my-auto">Downloads:</span>
+        </span></a>
+    {{- range $label, $files := .Params.downloads }}
+        <a class="btn btn-outline-secondary btn-sm position-relaive"
+           role="button" 
+           href="/zips/{{ printf "%s-%s" $name ($label | urlize) }}.zip"
+           download>
+          {{ title $label }}
+        </a>
+    {{- end }}
+  </div>
+
+    {{- range $label, $files := .Params.downloads }}
+      <div class="download-example-block"
+           data-downloads-uid="{{ printf "%s-%s" $name ($label | urlize) }}"
+           data-downloads-files="{{ delimit $files "|" }}"
+           >
+        <!-- Optional hidden list of files (for the post-build script) -->
+        <ul style="visibility: hidden; margin: 0; padding: 0;">
+          {{- range $files }}
+            <li>{{ . }}</li>
+          {{- end }}
+        </ul>
+        <!-- 
+        <a class="btn btn-secondary btn-outline-secondary position-relaive"
+           role="button" 
+           href="/zips/{{ printf "%s-%s" $name ($label | urlize) }}.zip"
+           download>
+          Download {{ $label }}
+        </a>
+        -->
+      </div>
+    {{- end }}
+
+{{- end }}
+
