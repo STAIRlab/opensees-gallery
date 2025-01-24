@@ -5,15 +5,15 @@ weight: 15
 categories: ["Basic", "Elastic"]
 thumbnail:  img/safeway.png
 render: model.glb
-description: Transient analysis of a shell model.
+description: Finite element analysis of a shell model using OpenSees and veux.
+downloads:
+  Tcl: ["Example7.tcl"]
+  Python: ["Example7.py", "render.py"]
 ---
 
 In this example a simple problem in shell dynamics is considered. The
 structure is a curved hoop shell structure that looks like the roof of a
 Safeway.
-
-1.  [`Example7.tcl`](Example7.tcl)
-2.  [`Example7.py`](Example7.py)
 
 Renderings are created from the script [`render.py`](./render.py), which
 uses the [`veux`](https://stairlab.berkeley.edu/software/veux) Python package.

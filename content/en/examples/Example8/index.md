@@ -5,8 +5,10 @@ tags: ["Solid", "Dynamic", "Python", "Tcl"]
 categories: ["Basic"]
 description: Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.
 thumbnail:  img/examples/Example8.png
-#thumbnail:  ./img/Example8.png
 render: model.glb
+downloads:
+  Tcl: ["Example8.tcl"]
+  Python: ["Example8.py", "render.py"]
 ---
 
 In this example a simple problem in solid dynamics is considered. The

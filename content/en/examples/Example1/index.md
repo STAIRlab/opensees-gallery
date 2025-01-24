@@ -9,6 +9,11 @@ description: >-
   and static analysis is performed.
 
 keywords: ["structural analysis", "structural engineering"]
+
+downloads:
+  Tcl: ["Example1.tcl"]
+  Python: ["Example1.py"]
+
 ---
 
 ![Example 1.1](img/Example1.svg)
