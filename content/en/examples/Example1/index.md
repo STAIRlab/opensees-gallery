@@ -1,5 +1,7 @@
 ---
 title: "Example 1: Linear Truss"
+meta:
+  title: "A demonstration of modern OpenSees practices using the classic truss finite element model"
 weight: 10
 tags: ["Truss", "Python", "Tcl"]
 categories: ["Basic", "Elastic"]
