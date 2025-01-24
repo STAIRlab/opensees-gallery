@@ -152,7 +152,7 @@ def static_analysis(model):
 if __name__ == "__main__":
     import time
     for element in "LagrangeQuad", "quad":
-        model = create_ledge((20,8), element=element)
+        model = create_model((20,8), element=element)
         start = time.time()
         static_analysis(model)
         print(f"Finished {element}, {time.time() - start} sec")
@@ -170,7 +170,8 @@ if __name__ == "__main__":
 
     artist.draw_surfaces(field = stress)
     artist.draw_outlines()
-    veux.serve(artist)
+#   veux.serve(artist)
+    artist.save("stress.glb")
 
 
 #   print(model.nodeDisp(l2))
