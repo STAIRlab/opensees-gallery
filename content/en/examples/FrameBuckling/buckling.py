@@ -190,6 +190,7 @@ def create_column(boundary="pin-pin", elem_data=None, ndm=2):
 
     return model, euler_load
 
+
 def linearized_buckling(model, peak_load):
     # Analysis Options
 #   model.system('UmfPack')
@@ -197,7 +198,7 @@ def linearized_buckling(model, peak_load):
     model.algorithm('Newton')
     model.integrator('LoadControl', load_step)
     model.analysis('Static')
-    pass
+
 
 def buckling_analysis(model, peak_load):
     # Apply a load from zero to peak_load until 
