@@ -41,7 +41,7 @@ Inelastic cross sections are constructed as developed in [this](../example2) exa
 to account for material nonlinearities. 
 
 Rigid diaphragm multi-point constraints
-are defined with the [`rigidDiaphragm`](https://opensees.github.io/OpenSeesDocumentation/user/manual/model/mp_constraint/rigidDiaphragm.html) method to enforce the rigid in-plane stiffness assumption for the
+are defined with the [`rigidDiaphragm`](https://opensees.stairlab.io/user/manual/model/mp_constraint/rigidDiaphragm.html) method to enforce the rigid in-plane stiffness assumption for the
 floors. 
 
 {{< tabs tabTotal="2" >}}
