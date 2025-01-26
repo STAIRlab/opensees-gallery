@@ -250,7 +250,7 @@ Finally, if desired, we can also find the transformation matrix \(\mathbf{T}\) t
 
 ## Conclusion
 
-1. **We built** a two-element cantilever in OpenSees with 3 nodes, 4 active DOFs (\(y\)-translations and rotations at nodes 2 and 3).  
+1. **We built** a two-element cantilever in OpenSees with 3 nodes, 4 active DOFs (\(y\)-translations and rotations at nodes `2` and `3`).  
 2. **We used** [`model.getTangent()`](https://opensees.stairlab.io/user/manual/output/printA.html) to obtain the global stiffness and mass matrices, then sliced out the $4 \times 4$ sub-block for the free DOFs.  
 3. **We performed** static condensation on the $4 \times 4$ matrix to reduce it down to a $2 \times 2$ matrix that retains only the translational DOFs, matching the textbook procedure and final results.  
 
