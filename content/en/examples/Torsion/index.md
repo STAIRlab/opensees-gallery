@@ -31,7 +31,7 @@ $$
 $$
 for a given point of rotation $\bm{\zeta}$.
 
-For this problem, `ndm=2` and `ndf=1`.
+For this problem, `ndm=2` and `ndf=1`. Rendering is performed with the [`veux`](https://veux.stairlab.io) library.
 
 {{< fold steel.py >}}
 
