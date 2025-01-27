@@ -4,7 +4,8 @@ enableGitInfo = true
 
 # additional settings
 baseURL = "https://gallery.stairlab.io/"
-canonifyURLs = false
+canonifyURLs = true
+relativeURLs = false
 # disableKinds = ["taxonomy", "term"]
 enableEmoji = true
 enableRobotsTXT = true
