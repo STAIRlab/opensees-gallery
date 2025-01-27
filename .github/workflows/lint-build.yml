@@ -132,7 +132,8 @@ jobs:
         HUGO_ENVIRONMENT: production
 #     run: "hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
 #     run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
-      run: npm run build:cache -- --baseURL "${{ steps.pages.outputs.base_url }}/"
+      run: "npm run build:cache"
+      #-- --baseURL "${{ steps.pages.outputs.base_url }}/"
 
     - name: Bundle Downloads
       run: python scripts/bundle-downloads.py public/examples/*/index.html
