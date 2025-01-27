@@ -1,8 +1,4 @@
-import veux
 import numpy as np
-from veux.plane import PlaneModel
-from veux.frame import FrameArtist
-from veux.canvas.gltf import GltfLibCanvas
 
 from shps.frame import patch, layer, create_mesh, GeneralSection
 
@@ -11,6 +7,7 @@ def rectangle(b, d):
         patch.rect(corners=[[-b/2, -d/2], [b/2, d/2]]),
     ])
     return GeneralSection(mesh, warp_shear=False)
+
 
 def channel(t, w, h, b):
     mesh = create_mesh(mesh_size=min(w,t)/4.5, patches=[
@@ -28,14 +25,31 @@ def angle(t, b, d):
     ])
     return GeneralSection(mesh, warp_shear=False)
 
-def wide_flange(d, t, b, tw=None):
+
+def wide_flange(d, b, t=None, tw=None, tf=None):
     bf = b
-    tf = t
+    if tf is None:
+        tf = t
+    else:
+        t = tf
     if tw is None:
         tw = tf
 
     yoff = ( d - tf) / 2
     zoff = (bf + tw) / 4
+
+    # Shear
+    if False:
+        # Ratio of total flange area to web area
+        alpha = 2*b*tf/d/(2*tw);
+        # NOTE: This is 1/beta_S where beta_S is Afsin's beta
+        beta = (1+3*alpha)*(2/3)/((1+2*alpha)**2-2/3*(1+2*alpha)+1/5)
+        def psi(y, z):
+            if abs(y) < (d/2-tf): # webs
+               return beta*((1+2*alpha) - (2*yi/d)**2)
+            else: # flange
+               return beta*(2*alpha)*(z/b)
+
     return GeneralSection(create_mesh([
         patch.rect(corners=[[-bf/2, yoff-tf/2],[bf/2,  yoff+tf/2]]),# ,  divs=(nfl, nft), rule=int_typ),
         patch.rect(corners=[[-tw/2,-yoff+tf/2],[tw/2,  yoff-tf/2]]),# ,  divs=(nwt, nwl), rule=int_typ),
@@ -128,19 +142,14 @@ def GirderSection(
 
     return GeneralSection(mesh, warp_shear=False)
 
-
-
 if __name__ == "__main__":
+    import veux
+    from veux.plane import PlaneModel
+    from veux.frame import FrameArtist
+    from veux.canvas.gltf import GltfLibCanvas
 
     section = wide_flange(d=612, b=229, t=19.6, tw=11.9)
-#   import matplotlib.pyplot as plt
-#   plt.plot(*section.torsion.model.nodes.T, ".")
-#   plt.axis("equal")
-#   plt.show()
 
-
-    field = section.torsion.warping()
-#   print(f"{geometry.centroid = }")
     print(section.summary())
 
     from shps.frame.solvers.plastic import PlasticLocus
@@ -150,6 +159,7 @@ if __name__ == "__main__":
 
     artist = FrameArtist(PlaneModel((section.model.nodes, section.model.cells())), canvas=GltfLibCanvas(), ndf=1)
 
+    field = section.torsion.warping()
     field = {node: value for node, value in enumerate(field)}
 
     artist.draw_surfaces(field = field)
