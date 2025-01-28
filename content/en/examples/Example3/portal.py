@@ -111,7 +111,7 @@ def gravity_analysis(model, P=180.0):
 
     # Create a Plain load pattern
     #               Type  tag timeSeries loads
-    model.pattern("Plain", 1, "Linear", loads={
+    model.pattern("Plain", 1, "Linear", load={
     # nodeID  xForce yForce zMoment
          3:   [ 0.0,   -P,   0.0],
          4:   [ 0.0,   -P,   0.0]
@@ -210,25 +210,29 @@ def pushover_analysis(model, H=10.0):
     # ------------------------------
 
     # record once at time 0
-    model.record()
+#   model.record()
 
     # Set some parameters
     maxU = 15.0;	        # Max displacement
     numSteps = int(maxU/dU)
 
-    # First try to perform all steps at once
-    status = model.analyze(numSteps)
+#   # First try to perform all steps at once
+#   status = model.analyze(numSteps)
+
+    u = []
+    p = []
 
     # If the previous attempt was not successful, try
     # more complitated strategies
-    if status != ops.successful:
+    if True : # status != ops.successful:
 
-        currentDisp = model.nodeDisp(3, 1)
+        u.append(model.nodeDisp(3, 1))
+        p.append(model.getTime())
         status = ops.successful
 
         # Analyze in single steps until either (1) we reach maxU,
         # or (2) the analysis fails
-        while status == ops.successful and currentDisp < maxU:
+        while status == ops.successful and u[-1] < maxU:
 
             status = model.analyze(1)
 
@@ -243,12 +247,17 @@ def pushover_analysis(model, H=10.0):
                 model.test("NormDispIncr", 1.0e-12, 10)
                 model.algorithm("Newton")
 
-            currentDisp = model.nodeDisp(3, 1)
+            u.append(model.nodeDisp(3, 1))
+            p.append(model.getTime())
 
-    return status
+    if status != ops.successful:
+        raise Exception("Analysis failed")
+
+    return u, p
 
 
 def main():
+    import matplotlib.pyplot as plt
     # Create the model
     model = create_portal()
 
@@ -260,12 +269,10 @@ def main():
     else:
         print(f"Gravity analysis FAILED ({status = })\n")
 
-    status = pushover_analysis(model)
-    # Print a message to indicate if analysis successful or not
-    if status == ops.successful:
-        print(f"\nPushover analysis completed SUCCESSFULLY\n")
-    else:
-        print(f"Pushover analysis FAILED ({status = })\n")
+    u,p = pushover_analysis(model)
+
+    plt.plot(u,p)
+    plt.show()
 
     # Print the state at node 3
     model.print("node", 3)

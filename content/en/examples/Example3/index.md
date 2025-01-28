@@ -5,6 +5,9 @@ tags: ["Frame", "Python", "Tcl", "Concrete"]
 categories: ["Basic", "Inelastic"]
 thumbnail: img/ConcretePortal.png
 description: Nonlinear analysis of a concrete portal frame.
+downloads:
+  Python: ["portal.py"]
+  Tcl: ["portal.tcl"]
 ---
 
 ![Example 3.1](Example2.svg)
@@ -12,15 +15,6 @@ description: Nonlinear analysis of a concrete portal frame.
 This set of examples investigates the nonlinear analysis of a reinforced
 concrete frame. The nonlinear beam column element with a fiber
 discretization of the cross section is used in the model.
-The files for this example are:
-{{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-<a href="portal.py"><code>portal.py</code></a>
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-<a href="portal.tcl"><code>portal.tcl</code></a>
-{{% /tab %}}
-{{< /tabs >}}
 
 These files define the following functions:
 
@@ -222,7 +216,7 @@ loads acting at nodes `3` and `4`:
 {{% tab name="Python" %}}
 ```python
 ...
-model.pattern("Plain", 1, "Linear", loads={
+model.pattern("Plain", 1, "Linear", load={
 # nodeID  xForce yForce zMoment
      3:   [ 0.0,   -P,   0.0],
      4:   [ 0.0,   -P,   0.0]
@@ -239,19 +233,68 @@ model.pattern("Plain", 1, "Linear", loads={
 
 
 The model contains material non-linearities, so a solution algorithm of
-type `Newton` is used. The solution algorithm uses a `ConvergenceTest` which
+type `Newton` is used. 
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+algorithm Newton;
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.algorithm("Newton")
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+The solution algorithm uses a `ConvergenceTest` which
 tests convergence of the equilibrium solution with the norm of the
 displacement increment vector. 
-For this nonlinear problem, the gravity
-loads are applied incrementally until the full load is applied. 
+
+For this nonlinear problem, the gravity loads are applied incrementally until the full load is applied. 
 To achieve this, a `LoadControl` integrator is used which advances the solution with
 an increment of `0.1` at each load step. 
-The equations are formed using a banded storage scheme, so the System is `BandGeneral`.
-The constraints are enforced with a `Plain` constraint handler.
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+integrator LoadControl 0.1;
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.integrator("LoadControl", 0.1)
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 Once all the components of an analysis are defined, the Analysis object
-itself is created. For this problem a Static Analysis object is used. To
-achieve the full gravity load, 10 load steps are performed.
+itself is created. For this problem a Static analysis is defined. 
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+analysis Static
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.analysis("Static")
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+To achieve the full gravity load, 10 load steps are performed.
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+analyze 10
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+model.analyze(10)
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 At end of analysis, the state at nodes 3 and 4 is printed. The state of
 element 1 is also reported.
@@ -266,16 +309,12 @@ entries. The first entry is time in the domain at end of the load step.
 The next 3 entries are the displacements at node 3, and the final 3
 entries the displacements at node 4.
 
-## `pushover_analysis`
-
-In this example the nonlinear reinforced concrete portal frame which has
-undergone the gravity load analysis of Example 3.1 is now subjected to a
-pushover analysis.
+## Pushover analysis
 
 After performing the gravity load analysis on the model, the time in the
-domain is reset to 0.0 and the current value of all loads acting are
-held constant. A new load pattern with a linear time series and
-horizontal loads acting at nodes `3` and `4` is then added to the model.
+domain is reset to `0.0` and the current value of all loads acting are
+held constant. 
+A new load pattern with a linear time series and horizontal loads acting at nodes `3` and `4` is then added to the model.
 
 The static analysis used to perform the gravity load analysis is
 modified to take a new DisplacementControl integrator. At each new step
@@ -284,9 +323,9 @@ necessary to increment the horizontal displacement at node `3` by 0.1 in.
 60 analysis steps are performed in this new analysis.
 
 For this analysis the nodal displacements at nodes 3 and 4 will be
-stored in the file nodePushover.out for post-processing. In addition,
+stored in the file `nodePushover.out` for post-processing. In addition,
 the end forces in the local coordinate system for elements 1 and 2 will
-be stored in the file elePushover.out. At the end of the analysis, the
+be stored in the file `elePushover.out`. At the end of the analysis, the
 state of node 3 is printed to the screen.
 
 
