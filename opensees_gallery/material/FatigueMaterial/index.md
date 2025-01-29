@@ -1,5 +1,0 @@
----
-title: Fatigue Material
----
-
-

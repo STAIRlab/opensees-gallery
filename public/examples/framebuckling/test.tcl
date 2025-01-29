@@ -1,1 +1,0 @@
-source buckling.tcl

@@ -1,1 +1,0 @@
-source Rigid.tcl

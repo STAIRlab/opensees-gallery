@@ -1,1 +1,0 @@
-source KikuchiBearing_Sample.tcl
