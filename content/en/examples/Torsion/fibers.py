@@ -32,7 +32,7 @@ def isotropic_section(model, tag, material, properties, type):
     print(mesh.summary())
     for fiber in mesh.fibers():
         y, z = fiber.location
-        model.fiber(y, z, fiber.area, mat_tag, fiber.warp[0], section=tag)
+        model.fiber(y, z, fiber.area, mat_tag, fiber.warp[0], fiber.warp[1], section=tag)
 
 
 def test_isotropic(section):
@@ -44,6 +44,7 @@ def test_isotropic(section):
     model = ops.Model(ndm=3, ndf=6)
 
     isotropic_section(model, 1, material, {}, section)
+
 
     tangent = model.invoke("section", 1, [
                            "update  0 0 0 0 0 0;",

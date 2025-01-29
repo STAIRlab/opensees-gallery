@@ -21,8 +21,8 @@ def create_prism(element,
     # Length of cantilever column
     L = 8*ft
     # specify node coordinates
-    model.node(1,  0,   0 , 0);  # first node
-    model.node(2,  0,   L , 0);  # second node
+    model.node(1,   0 , 0,  0);  # first node
+    model.node(2,   L , 0,  0);  # second node
 
     # specify mass
     model.mass(2, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0)
