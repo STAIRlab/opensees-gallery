@@ -27,9 +27,13 @@ These files define the following functions:
 
 ## `create_portal`
 
-The function `create_portal` creates a model representing the portal frame in the figure above.
-
-For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.
+The function `create_portal` creates a model representing the portal
+frame in the figure above.
+The model consists of four nodes, two
+nonlinear beam-column elements modeling the columns and an
+elastic beam element to model the girder. For the column elements a
+section, identical to the section used in Example 2, 
+is created using steel and concrete fibers.
 
 1. Begin with nodes and boundary conditions
    {{< tabs tabTotal="2" >}}

@@ -29,21 +29,21 @@ materials, elements, loads and constraints.
 
 ## Model
 
-We begin the simulation by creating a `Model`, which will manage
-the nodes, elements, loading and state. This is done through
-either Python or Tcl as follows:
+We begin the simulation by creating a {{< link model_class >}}`Model`{{< /link >}}, which will manage
+the nodes, elements, loading and state. 
+This is done through either Python or Tcl as follows:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 2 -ndf 2
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=2, ndf=2)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 2 -ndf 2
 ```
 {{% /tab %}}
 {{< /tabs >}}
