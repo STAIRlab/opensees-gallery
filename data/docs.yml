@@ -1,0 +1,21 @@
+# This file holds all menu entries for the docs sidebar
+
+- title: Getting started
+  pages:
+    - title: Introduction
+    - title: Modeling
+    - title: Compiling
+    - title: Contribute
+
+# - title: Developing
+#   pages:
+#     - title: Domain Classes
+#     - title: Analysis Classes
+#     - title: Parallel Classes
+
+
+- title: Library
+  pages:
+    - title: veux
+
+

@@ -1,0 +1,414 @@
+[
+	{
+		"id": "kaveh2022optimal",
+		"type": "article-journal",
+		"abstract": "The success-history based adaptive differential evolution (SHADE) algorithm is an efficient modified version of the differential evolution (DE) algorithm, and it has been successfully applied to solve some real-world optimization problems. However, to the best of our knowledge, it has been rarely applied in the field of structural optimization. The optimal design of structures with frequency constraints is well known as a highly nonlinear and non-convex optimization problem with many local optima. In this paper, the SHADE algorithm is examined in the context of size optimization of large-scale truss structures with multiple frequency constraints. In SHADE, a historical memory of successful control parameter settings is used to guide the generation of new control parameters. In order to demonstrate the effectiveness and efficiency of SHADE, three truss optimization problems with multiple frequency constraints are presented. The three examples considered in this paper include a 600-bar single-layer dome-shaped truss, a 1180-bar single-layer dome-shaped truss, and a 1410-bar double-layer dome-shaped truss. The results obtained by the SHADE algorithm are presented and compared with the best-known results reported in the literature. Numerical results indicate the effectiveness and superior performance of SHADE over other algorithms in terms of solution accuracy and robustness. It is worth mentioning that in all the three cases considered, the optimal designs obtained by SHADE are the best ones reported in the literature so far. However, SHADE often requires fewer structural analyses than those required by the other algorithms.",
+		"container-title": "Periodica Polytechnica Civil Engineering",
+		"DOI": "10.3311/PPci.21147",
+		"ISSN": "1587-3773, 0553-6626",
+		"journalAbbreviation": "Period. Polytech. Civil Eng.",
+		"language": "en",
+		"source": "DOI.org (Crossref)",
+		"title": "Optimal Design of Large-scale Dome Truss Structures with Multiple Frequency Constraints Using Success-history Based Adaptive Differential Evolution Algorithm",
+		"URL": "https://pp.bme.hu/ci/article/view/21147",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "Ali"
+			},
+			{
+				"family": "Hamedani",
+				"given": "Kiarash Biabani"
+			},
+			{
+				"family": "Hamedani",
+				"given": "Bamdad Biabani"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "kaveh2016optimal",
+		"type": "article-journal",
+		"abstract": "Controlling the values of natural frequencies of a structure plays an important role to keep the dynamic behavior of structures in a desirable level. This paper is concerned with the optimal design of large-scale dome structures with multiple natural frequency constraints. This optimization problem is highly nonlinear with several local optimums in its search space. The idea of cascading, which allows a single optimization problem to be tackled with a number of autonomous optimization stages is used. The procedure utilized in this paper reduces the objective function value over a number of optimization stages by initially operating on a small number of design variables, which is gradually increased stage after stage. In order to show the effect of using coarsening of variables for handling the optimization problem, independent of the effect of the algorithm, the recently developed approach (enhanced colliding bodies optimization) is employed in the entire stages of the present method. Besides, we want to demonstrate the positive effect of using multi-DVC cascade optimization procedure even if the utilized algorithm itself is a powerful method. In order to test the performance of the algorithm, four dome truss design examples with 120, 600, 1180 and 1410 elements are optimized. The numerical results prove that the utilized method is an effective tool for finding optimum design of structures with frequency constraints.",
+		"container-title": "Structural and Multidisciplinary Optimization",
+		"DOI": "10.1007/s00158-015-1357-2",
+		"ISSN": "1615-1488",
+		"issue": "3",
+		"journalAbbreviation": "Struct Multidisc Optim",
+		"language": "en",
+		"page": "605-621",
+		"source": "Springer Link",
+		"title": "Optimal design of dome truss structures with dynamic frequency constraints",
+		"URL": "https://doi.org/10.1007/s00158-015-1357-2",
+		"volume": "53",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "A."
+			},
+			{
+				"family": "Ilchi Ghazaan",
+				"given": "M."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					3,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "degertekin2021parameter",
+		"type": "article-journal",
+		"abstract": "In this study, the parameter free Jaya algorithm (PFJA) is developed for sizing and layout optimization of truss structures subject to natural frequency constraints. The distinctive feature of PFJA is that it uses neither algorithm-speciﬁc parameters nor common parameters in the search process. Besides using an elitist strategy where new structural analyses are performed only if strictly necessary, PFJA adaptively changes population size in the optimization process. The validity of proposed PFJA is demonstrated by solving eight classical truss weight minimization problems including up to 59 sizing and layout design variables. The results obtained by the PFJA are compared with those of standard JA, modiﬁed Jaya algorithm (MJA) and other state-of-art metaheuristic algorithms in terms of optimized weight, convergence speed and several statistical parameters. Optimization results prove the superiority of PFJA over standard JA, MJA and other metaheuristic optimizers available in the literature.",
+		"container-title": "Computers & Structures",
+		"DOI": "10.1016/j.compstruc.2020.106461",
+		"ISSN": "00457949",
+		"journalAbbreviation": "Computers & Structures",
+		"language": "en",
+		"page": "106461",
+		"source": "DOI.org (Crossref)",
+		"title": "Parameter free Jaya algorithm for truss sizing-layout optimization under natural frequency constraints",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S0045794920302649",
+		"volume": "245",
+		"author": [
+			{
+				"family": "Degertekin",
+				"given": "S.O."
+			},
+			{
+				"family": "Yalcin Bayar",
+				"given": "G."
+			},
+			{
+				"family": "Lamberti",
+				"given": "L."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "lieu2018adaptive",
+		"type": "article-journal",
+		"abstract": "This paper presents a novel adaptive hybrid evolutionary firefly algorithm (AHEFA) for shape and size optimization of truss structures under multiple frequency constraints. This algorithm is a hybridization of the differential evolution (DE) algorithm and the firefly algorithm (FA). An automatically adapted parameter is utilized to select an appropriate mutation scheme for an effective trade-off between the global and local search abilities. An elitist technique is applied to the selection phase to choose the best individuals. Accordingly, the convergence rate is significantly improved with the high solution accuracy. Six numerical examples are examined for the validity of the present algorithm.",
+		"container-title": "Computers & Structures",
+		"DOI": "10.1016/j.compstruc.2017.06.016",
+		"ISSN": "0045-7949",
+		"journalAbbreviation": "Computers & Structures",
+		"page": "99-112",
+		"source": "ScienceDirect",
+		"title": "An adaptive hybrid evolutionary firefly algorithm for shape and size optimization of truss structures with frequency constraints",
+		"URL": "https://www.sciencedirect.com/science/article/pii/S0045794917303206",
+		"volume": "195",
+		"author": [
+			{
+				"family": "Lieu",
+				"given": "Qui X."
+			},
+			{
+				"family": "Do",
+				"given": "Dieu T. T."
+			},
+			{
+				"family": "Lee",
+				"given": "Jaehong"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					1,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "tejani2016modified",
+		"type": "article-journal",
+		"container-title": "Mechanics Based Design of Structures and Machines",
+		"DOI": "10.1080/15397734.2015.1124023",
+		"ISSN": "1539-7734, 1539-7742",
+		"issue": "4",
+		"journalAbbreviation": "Mechanics Based Design of Structures and Machines",
+		"language": "en",
+		"page": "495-513",
+		"source": "DOI.org (Crossref)",
+		"title": "Modified sub-population teaching-learning-based optimization for design of truss structures with natural frequency constraints",
+		"URL": "https://www.tandfonline.com/doi/full/10.1080/15397734.2015.1124023",
+		"volume": "44",
+		"author": [
+			{
+				"family": "Tejani",
+				"given": "Ghanshyam G."
+			},
+			{
+				"family": "Savsani",
+				"given": "Vimal J."
+			},
+			{
+				"family": "Patel",
+				"given": "Vivek K."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "kaveh2021frequencyconstrained",
+		"type": "article-journal",
+		"abstract": "The frequency constrained design of large-scale structures is a complex optimization problem with many local optima. In order to tackle this problem, in this paper, a chaotic version of a newly-established metaheuristic algorithm, the so-called Water Strider Algorithm (WSA), is introduced. This version repetitively diversifies solutions and then focuses on promising areas during the course of iterations. The chaotic algorithm involves two types of succession states, namely explorative and exploitative states, and it probabilistically switches between them using the Circle map with a quasi-cyclic behavior. To examine the effectiveness of this algorithm, it is applied to structural optimization of large-scale structures with multiple frequency constraints such as 600-, 1180- and 1410-bar dome trusses. The results show that the new version outperforms its basic version as well as some other well-established algorithms in the literature. The statistical measures reveal that it is reasonably capable of providing a satisfactory performance in terms of both obtaining lighter designs and convergence speed.",
+		"container-title": "Structures",
+		"DOI": "10.1016/j.istruc.2021.03.033",
+		"ISSN": "23520124",
+		"journalAbbreviation": "Structures",
+		"language": "en",
+		"page": "1604-1618",
+		"source": "DOI.org (Crossref)",
+		"title": "Frequency-constrained optimization of large-scale dome-shaped trusses using chaotic water strider algorithm",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S2352012421002137",
+		"volume": "32",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "A."
+			},
+			{
+				"family": "Amirsoleimani",
+				"given": "P."
+			},
+			{
+				"family": "Dadras Eslamlou",
+				"given": "A."
+			},
+			{
+				"family": "Rahmani",
+				"given": "P."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					8
+				]
+			]
+		}
+	},
+	{
+		"id": "namadchi2017semiexplicit",
+		"type": "article-journal",
+		"abstract": "In this paper, a new structure-dependent unconditionally stable time-integration method is presented for structural dynamic analysis. The proposed method not only benefits from a semiexplicit formulation, but also inherits the advantages of the Bathe composite scheme. In fact, numerical characteristics of the suggested algorithm are the same as those in the Bathe composite scheme, except that the proposed method does not require any time-step subdividing, which is one of the drawbacks of the composite scheme. A comprehensive stability and accuracy analysis, including numerical dissipation and dispersion, is carried out in order to gain insight into the spectral properties of the proposed method. For numerical verification, some problems with large numbers of degrees of freedom and geometrical nonlinearity as well as linear behavior are solved by the developed technique. Results demonstrate suitable capability, efficiency, and validity of the proposed method in comparison to other existing schemes. DOI: 10.1061/(ASCE)EM.1943-7889.0001329. © 2017 American Society of Civil Engineers.",
+		"container-title": "Journal of Engineering Mechanics",
+		"DOI": "10.1061/(ASCE)EM.1943-7889.0001329",
+		"ISSN": "0733-9399, 1943-7889",
+		"issue": "10",
+		"journalAbbreviation": "J. Eng. Mech.",
+		"language": "en",
+		"page": "04017119",
+		"source": "DOI.org (Crossref)",
+		"title": "Semiexplicit Unconditionally Stable Time Integration for Dynamic Analysis Based on Composite Scheme",
+		"URL": "https://ascelibrary.org/doi/10.1061/%28ASCE%29EM.1943-7889.0001329",
+		"volume": "143",
+		"author": [
+			{
+				"family": "Namadchi",
+				"given": "Amir Hossein"
+			},
+			{
+				"family": "Fattahi",
+				"given": "Farhang"
+			},
+			{
+				"family": "Alamatian",
+				"given": "Javad"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "kaveh2010optimum",
+		"type": "article-journal",
+		"abstract": "A novel optimization method is presented based on a socio-politically motivated strategy, called imperialist competitive algorithm (ICA). ICA is a multi-agent algorithm with each agent being a country, which is either a colony or an imperialist. These countries form some empires in the search space. Movement of the colonies toward their related imperialist, and imperialistic competition among the empires, form the basis of the ICA. During these movements, the powerful imperialists are reinforced and the weak ones are weakened and gradually collapsed, directing the algorithm towards optimum points. Here, the ICA is utilized to optimize the skeletal structures.",
+		"container-title": "Computers & Structures",
+		"DOI": "10.1016/j.compstruc.2010.06.011",
+		"ISSN": "00457949",
+		"issue": "21-22",
+		"journalAbbreviation": "Computers & Structures",
+		"language": "en",
+		"license": "https://www.elsevier.com/tdm/userlicense/1.0/",
+		"page": "1220-1229",
+		"source": "DOI.org (Crossref)",
+		"title": "Optimum design of skeletal structures using imperialist competitive algorithm",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S0045794910001537",
+		"volume": "88",
+		"author": [
+			{
+				"family": "Kaveh",
+				"given": "A."
+			},
+			{
+				"family": "Talatahari",
+				"given": "S."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2010",
+					11
+				]
+			]
+		}
+	},
+	{
+		"id": "koohestani2010efficient",
+		"type": "article-journal",
+		"abstract": "Eigenproblems play a key role in the stability and free vibration analysis of structures. In large structural models, the solutions of these problems need a considerable computational effort. There are special types of structures whose special properties can be utilized to achieve solutions in a much simpler way. In this paper, an efﬁcient method is presented for buckling and free vibration analysis of cyclically repeated space truss type structures. First, for a three dimensional truss element, stiffness, geometric stiffness and mass matrices are expressed in cylindrical coordinate system and this leads to the formation of a special pattern for the related matrices of entire of such structures. Second, using this pattern where some concepts of Kronecker product, initial generalized eigenproblems are decomposed into some subproblems with smaller dimensions and their solutions can easily be obtained. Finally, the efﬁciency of the present method is illustrated through some examples.",
+		"container-title": "Finite Elements in Analysis and Design",
+		"DOI": "10.1016/j.finel.2010.06.009",
+		"ISSN": "0168874X",
+		"issue": "10",
+		"journalAbbreviation": "Finite Elements in Analysis and Design",
+		"language": "en",
+		"license": "https://www.elsevier.com/tdm/userlicense/1.0/",
+		"page": "943-948",
+		"source": "DOI.org (Crossref)",
+		"title": "Efficient buckling and free vibration analysis of cyclically repeated space truss structures",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S0168874X10000958",
+		"volume": "46",
+		"author": [
+			{
+				"family": "Koohestani",
+				"given": "K."
+			},
+			{
+				"family": "Kaveh",
+				"given": "A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2025",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2010",
+					10
+				]
+			]
+		}
+	}
+]

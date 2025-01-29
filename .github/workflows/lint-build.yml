@@ -1,0 +1,157 @@
+name: Lint & build
+on:
+  push:
+    branches: ["main"]
+
+# workflow_dispatch:
+
+# push:
+#   tags:
+#     - v*
+#   branches: [ main ]
+# pull_request:
+#   branches: [ main ]
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  CACHE_KEY: 'stairlab-gallery'
+  CACHE_PATH_DEBIAN: '/tmp/hugo_cache_runner'
+  CACHE_PATH_WIN: '~\AppData\Local\hugo_cache'
+  CACHE_PATH_MAC: '/Users/runner/Library/Caches/hugo_cache'
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
+
+    # [24/AUG/23] Adjusted from npm ci to prevent EBADPLATFORM error due to fsevents
+    - name: Install npm
+      run: npm i
+
+#   - name: Lint the source files
+#     run: npm run lint      
+
+  build:
+    needs: lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # macos-latest, windows-latest, 
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [22.x]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with: {"python-version": "3.x"}
+
+    - {"name": "Install OpenSees", "run": "pip install opensees beautifulsoup4"}
+
+    - name: Install Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: ">1.0.0"
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
+
+    - name: Install Dart Sass
+      run:  |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          sudo snap install dart-sass
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          brew install sass/sass/sass
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          choco install sass
+        fi
+      shell: bash
+
+    # [24/AUG/23] Adjusted from npm ci for non-macOS to prevent EBADPLATFORM error due to fsevents
+    - name: Perform clean install of npm
+      run:  |
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          npm ci
+        else
+          npm i
+        fi
+      shell: bash
+
+    # Cache Hugo cachedir and resourcedir (configured in config/ci/hugo.toml) for each OS
+    # No additional cache invalidation is needed, Hugo uses checksums itself
+    - name: Use Hugo cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ runner.os == 'Windows' && env.CACHE_PATH_WIN || runner.os == 'macOS' && env.CACHE_PATH_MAC || env.CACHE_PATH_DEBIAN }}
+        key: ${{ runner.os }}-${{ env.CACHE_KEY }}
+        restore-keys: |
+          ${{ runner.os }}-${{ env.CACHE_KEY }}
+
+    - name: Build main site
+      env:
+#       HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+        HUGO_ENVIRONMENT: production
+#     run: "hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
+#     run: "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify --baseURL ${{ steps.pages.outputs.base_url }}/"
+      run: "npm run build:cache"
+      #-- --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+    - name: Bundle Downloads
+      run: python scripts/bundle-downloads.py public/examples/*/index.html
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./public
+
+  # Deployment job
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

@@ -1,0 +1,8 @@
+[en]
+    languageName = "English"
+    contentDir = "content/en"
+    weight = 1
+    [en.params.head]
+        tagline = "Nonlinear finite elements"
+    [en.params.footer]
+        license = "Code licensed <a href='https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>BSD</a>, docs <a href='https://creativecommons.org/licenses/by-nc/4.0/' class='link-bg-footer fw-medium' target='_blank' rel='noopener noreferrer'>CC BY-NC 4.0</a>"

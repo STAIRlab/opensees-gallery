@@ -1,0 +1,10 @@
+{{ $model := .Get 0 }}
+{{ range .Page.Resources.Match $model }}
+<model-viewer alt="Finite element model rendering." 
+              src="{{ $model }}" ar 
+              style="width: 100%; height: 300px;"
+              shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+{{ end }}
+{{ .Page.Store.Set "render" true }}
+
+

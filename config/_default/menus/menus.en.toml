@@ -1,0 +1,192 @@
+# [[main]]
+#   name = "About"
+#   pageRef = "/docs/about/credits/"
+#   weight = 10
+#   [main.params]
+#     alias = true
+
+[[main]]
+  name = "Docs"
+  pageRef = "/docs/"
+  weight = 20
+
+[[main]]
+  name = "Library"
+  pageRef = "/docs/library/"
+  weight = 30
+  [main.params]
+    alias = true
+
+[[main]]
+  name = "Examples"
+  pageRef = "/examples/"
+  weight = 40
+
+[[main]]
+  name = "GitHub"
+  pre = "fab fa-github"
+  url = "https://github.com/OpenSees/OpenSees"
+  weight = 60
+  [main.params]
+    icon = true
+      
+# toml-docs-start sample-navigation
+[[sample]]
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [sample.params]
+    alias = true
+
+[[sample]]
+  name = "Examples"
+  pageRef = "/examples/"
+  weight = 30
+
+[[sample]]
+  parent = "Examples"
+  name = "Getting started"
+  pageRef = "/examples/example1/"
+  weight = 10
+
+[[sample]]
+  parent = "Examples"
+  name = "Section analysis"
+  pageRef = "/examples/example2/"
+  weight = 20
+
+[[sample]]
+  parent = "Examples"
+  name = "3D Dynamics"
+  pageRef = "/examples/example5/"
+  weight = 30
+
+[[sample]]
+  name = "GitHub"
+  url = "https://github.com/claudioperez/OpenSeesRT"
+  weight = 40
+# toml-docs-end sample-navigation
+
+[[alias]]
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [alias.params]
+    alias = true
+
+[[alias]]
+  name = "About (no alias)"
+  pageRef = "/docs/about/credits/"
+  weight = 20
+
+[[alias]]
+  name = "Examples"
+  pageRef = "/examples/"
+  weight = 30
+
+[[alias]]
+  parent = "Examples"
+  name = "Working with Solids"
+  pageRef = "/examples/example8/"
+  weight = 10
+
+[[alias]]
+  parent = "Examples"
+  name = "Dynamic analysis"
+  pageRef = "/examples/example5/"
+  weight = 20
+
+[[alias]]
+  parent = "Examples"
+  name = "Optimization"
+  pageRef = "/examples/optimization/"
+  weight = 30
+
+[[alias]]
+  name = "GitHub"
+  url = "https://github.com/claudioperez/OpenSeesRT"
+  weight = 40
+
+[[footer]]
+  name = "Links"
+  weight = 10
+
+[[footer]]
+  parent = "Links"
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+
+[[footer]]
+  parent = "Links"
+  name = "About"
+  pageRef = "/docs/about/credits/"
+  weight = 10
+  [footer.params]
+    alias = true
+
+[[footer]]
+  parent = "Links"
+  name = "Docs"
+  pageRef = "/docs/"
+  weight = 20
+
+[[footer]]
+  parent = "Links"
+  name = "Library"
+  pageRef = "/docs/library/"
+  weight = 30
+  [footer.params]
+    alias = true
+
+# [[footer]]
+#   parent = "Links"
+#   name = "Releases"
+#   pageRef = "/releases/"
+#   weight = 40
+
+[[footer]]
+  name = "Examples"
+  weight = 20
+
+[[footer]]
+  parent = "Examples"
+  name = "Working with solids"
+  pageRef = "/examples/example8"
+  weight = 10
+
+[[footer]]
+  parent = "Examples"
+  name = "Nonlinear dynamics"
+  pageRef = "/examples/example7"
+  weight = 20
+
+
+[[footer]]
+  parent = "Examples"
+  name = "Basic Statics"
+  pageRef = "/examples/example1"
+  weight = 40
+
+[[footer]]
+  name = "Community"
+  weight = 30
+
+[[footer]]
+  parent = "Community"
+  name = "Issues"
+  url = "https://github.com/claudioperez/OpenSeesRT/issues"
+  weight = 10
+
+[[footer]]
+  parent = "Community"
+  name = "Discussions"
+  url = "https://github.com/claudioperez/OpenSeesRT/discussions"
+  weight = 20
+
+[[footer]]
+  parent = "Community"
+  name = "Contribute"
+  pageRef = "/docs/getting-started/contribute/"
+  weight = 30
+

@@ -1,0 +1,35 @@
+<!-- https://ishan.page/blog/2023-12-15-hugo-ipython-jupyter/ -->
+{{ $notebook := .Get 0 }}
+{{ range .Page.Resources.Match $notebook }} 
+<!--
+<a href="{{.RelPermalink}}" download>Download ({{ $notebook }})</a>
+-->
+{{ $content := .Content | transform.Unmarshal }}
+{{ $cells := $content.cells }}
+{{ range $cells }}
+<!-- For Markdown Cells -->
+{{ if eq .cell_type "markdown" }}
+{{ range .source }}{{ . | safeHTML }}{{ end }}
+{{ end }}
+
+<!-- For Code Cells -->
+{{ if eq .cell_type "code" }}
+```python
+{{ range .source }}{{ . | safeHTML }}{{ end }}
+```
+{{ if gt (len .outputs) 0 }}
+Output:
+{{ range .outputs }}
+{{ if .text }}
+```
+{{ range .text }}{{ . | safeHTML}}{{ end }}
+```
+{{ end }}
+{{ range $type, $data := .data }}
+{{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" width="80%">{{ end }}
+{{ if strings.Contains $type "text" }}
+```
+{{ range $data }}{{ . | safeHTML }}{{ end }}
+```
+{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}
+

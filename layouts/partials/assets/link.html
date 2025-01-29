@@ -1,0 +1,105 @@
+<!-- 
+    Copyright © 2024 The Hinode Team / Mark Dumay. All rights reserved.
+    Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
+    Visit gethinode.com/license for more details.
+-->
+
+{{ $error := false -}}
+
+<!-- Validate arguments -->
+{{ if partial "utilities/IsInvalidArgs.html" (dict "structure" "link" "args" . "group" "partial") }}
+    {{ errorf "partial [assets/link.html] - Invalid arguments" -}}
+    {{ $error = true }}
+{{ end }}
+
+<!-- Initialize arguments -->
+{{ $destination := strings.TrimPrefix (strings.TrimSuffix "/" site.BaseURL) .destination }}
+{{ if not $destination }}{{ $destination = "/" }}{{ end }}
+
+{{- $target := "" -}}
+{{- $rel := "" -}}
+{{- $case := .case | default true }}
+{{- $external := .external | default false }}
+{{- $cue := .cue | default site.Params.main.externalLinks.cue -}}
+{{- $tab := .tab | default site.Params.main.externalLinks.tab -}}
+{{- $isExternal := or (ne (urls.Parse (absURL $destination)).Host (urls.Parse site.BaseURL).Host) $external -}}
+{{- $isLocal := hasPrefix $destination "#" -}}
+{{- $page := .page -}}
+{{- $anchor := "" -}}
+{{- $text := .text -}}
+{{- $title := .title -}}
+{{- $class := .class -}}
+
+<!-- Main code -->
+{{- if $isExternal -}}
+    {{- if not $text -}}
+        {{- $text = (urls.Parse (absURL $destination)).Host -}}
+    {{- end -}}
+
+    {{- if $tab -}}
+        {{- $target = "_blank" -}}
+        {{- $rel = "noopener noreferrer" -}}
+    {{- end -}}
+
+    {{- if $cue -}}
+        {{ $suffix := partial "assets/icon.html" (dict "icon" "fas up-right-from-square fa-2xs" "spacing" false) }}
+        {{- $text = printf "%s&nbsp;%s" $text $suffix | safeHTML -}}
+    {{- end -}}
+{{- else -}}
+    {{- if strings.Contains $destination "#" }}
+        {{ $segments := split $destination "#" }}
+        {{- if ne (len $segments) 2 }}
+            {{- errorf "partial [assets/link.html] - Malformed path, expected one anchor '#' only: %s" $destination -}}
+        {{ else }}
+            {{- $destination = index $segments 0 -}}
+            {{- $anchor = index $segments 1 -}}
+        {{ end }}
+    {{ end }}
+
+    {{ if not $isLocal }}
+        {{ $ref := partial "utilities/GetPage.html" (dict "url" $destination "page" $page) }}
+        {{- if not $ref -}}
+            {{ $pageContext := "" }}
+            {{ with $page.File }}{{ $pageContext = path.Join "/content" .Dir }}{{ end }}
+            {{ $isPageRes := fileExists (path.Join $pageContext $destination) }}
+            {{ $isStatic := fileExists (path.Join "static" $destination) }}
+            {{ if and (not $isPageRes) (and false (not $isStatic)) }}
+                {{- errorf "partial [./assets/link.html] - Cannot find page or asset: '%s' at '%s'" $destination $page.File.Path -}}
+                {{- $error = true -}}
+            {{ else if $isPageRes }}
+                {{ $destination = urls.JoinPath "/" (strings.TrimPrefix "/content" $pageContext) $destination }}
+            {{ else if $isStatic }}
+                {{ $destination = urls.JoinPath "/" $destination }}
+            {{ end }}
+            {{- with $anchor }}{{ $destination = printf "%s#%s" (strings.TrimSuffix "/" $destination) . -}}{{ end -}}
+        {{ end }}
+        
+        {{- if and $ref (not $error) -}}
+            {{- $destination = $ref.RelPermalink -}}
+            {{- with $anchor }}{{ $destination = printf "%s#%s" (strings.TrimSuffix "/" $destination) . -}}{{ end -}}
+        {{- end -}}
+
+        {{- if not $text -}}
+            {{ if $anchor }}{{ $text = $anchor }}{{ else }}{{ $text = $ref.LinkTitle }}{{ end }}
+        {{ end -}}
+    {{ else }}
+        {{ with $anchor }}
+            {{ $destination = printf "#%s" . }}
+            {{ if not $text }}{{ $text = . }}{{ end }}
+        {{ end }}
+    {{ end }}
+
+    {{- if not $case }}{{ $text = lower $text }}{{ end -}}
+{{- end -}}
+
+{{ if not $error -}}
+    <a 
+        {{- with $destination }} href="{{ . | safeURL }}"{{ end -}}
+        {{ with $class }} class="{{ . }}" {{ end -}}
+        {{ with $target }} target="{{ . }}"{{ end -}}
+        {{ with $rel }} rel="{{ . }}"{{ end -}}
+        {{ with $title }} title="{{ . }}"{{ end -}}
+    >
+        {{- $text | safeHTML -}}
+    </a>
+{{- end -}}

@@ -1,0 +1,393 @@
+[main]
+    separator = "-"
+    description = "STAIRLab Gallery."
+    enableDarkMode = true
+    enableLanguageSelectionStorage = false
+    modes = ["light", "dark"]
+    canonifyAssetsURLs = false
+    footerBelowFold = false
+    loading = "lazy"
+    [main.externalLinks]
+        cue = true
+        tab = true
+    [main.build]
+        transpiler = "dartsass"
+
+[debugging]
+    showJS = false
+    showSCSS = false
+    purgeHTMLComments = true
+
+[pages]
+  metadata = "none"
+
+# toml-docs-start version
+[docs]
+    basePath = "_vendor/github.com/gethinode/hinode"
+    github = "https://github.com/STAIRlab/gallery"
+    release = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
+# toml-docs-end version
+
+[home]
+    sections = ["examples", "features", "ecosystem"] #"users",
+    fullCover = true
+    centerHeadline = true
+    style = "gradient-featured"
+    [home.feature]
+        orientation = "stacked"
+        color = ""
+        width = 6
+        align = "start"
+
+[navigation]
+    anchor = true
+    logo = "/img/stairlab.svg"
+    color = ""
+    fixed = true
+    offset = "5.5em"
+    search = true
+    breadcrumb = false
+    toc = true
+    sidebar = true
+    size = "lg"
+
+[messages]
+    placement = "bottom-right"
+
+[sharing]
+    enabled = false
+    sort = "weight"
+    reverse = false
+    webshare = false
+
+[[sharing.providers]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/sharing/share-offsite/?url={url}"
+    icon = "fab linkedin"
+    weight = 10
+
+[[sharing.providers]]
+    name = "Twitter"
+    url = "https://twitter.com/home?status={url}"
+    icon = "fab x-twitter"
+    weight = 20
+
+[[sharing.providers]]
+    name = "Facebook"
+    url = "https://www.facebook.com/sharer.php?u={url}"
+    icon = "fab facebook"
+    weight = 30
+
+[[sharing.providers]]
+    name = "WhatsApp"
+    url = "whatsapp://send?text={title}%20{url}"
+    icon = "fab whatsapp"
+    weight = 40
+
+[[sharing.providers]]
+    name = "link"
+    url = "{url}"
+    icon = "fas link"
+    weight = 50
+    clipboard = true
+
+# toml-docs-start sections
+[sections]
+    [sections.library]
+        title = "Library"
+        layout = "card"
+        reverse = true
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow" # card-body-margin" # card-zoom 
+        cols = 3
+        padding = "3"
+        header = "none"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 4
+
+    [sections.examples]
+        title = "Get started with basic examples"
+        layout = "card"
+        sort = "date"
+        reverse = true
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow" # card-body-margin" # card-zoom 
+        cols = 3
+        padding = "3"
+        header = "tags"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
+# toml-docs-end sections
+    [sections.docs]
+        title = "Components"
+        layout = "card"
+        sort = "title"
+        reverse = false
+        nested = false
+        background = ""
+        color = "body-tertiary"
+        style = "border-0 shadow card-feature card-shrink card-body-margin"
+        cols = 3
+        padding = "3"
+        header = "none"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
+    [sections.users]
+        title = "Discover how Hinode can help you"
+        layout = "nav"
+        sort = "weight"
+        reverse = false
+        background = "body-tertiary"
+        color = "primary"
+        style = "justify-content-center"
+        pane = "persona"
+        type = "pills"
+        width = 50
+        vertical = false
+    [sections.features]
+        title = "The bleeding edge of finite element modeling"
+        layout = "list"
+        sort = "weight"
+        reverse = false
+        style = "justify-content-center"
+    [sections.ecosystem]
+        title = "An open source ecosystem"
+        sectionHeader = "justify-content-end"
+        layout = "card"
+        sort = "weight"
+        reverse = false
+        background = "body-tertiary"
+        color = "body"
+        style = "border card-feature"
+        cols = 3
+        padding = "3"
+        header = "none"
+        footer = "none"
+        orientation = "stacked"
+        homepage = 3
+
+[favicon]
+    logo = "img/favicon.png"
+    sizes = [16, 32, 48]
+
+# toml-docs-start purge
+[style]
+    purge = true
+# toml-docs-end purge
+    primary =  "#003262" # "#2D637F" # "#FDB515" # "#888888" #"#D43900"
+    secondary = "#6c757d"
+    success = "#198754"
+    info = "#0dcaf0"
+    warning = "#ffc107"
+    danger = "#dc3545"
+    light = "#f8f9fa"
+    dark = "#212529"
+    themeOpacity = "10"
+    darkModeShade = "20%"
+    darkModeTint = "40%"
+    themeFont = "Inter"
+    themeFontPath = "/fonts" # local path
+    themeFontPreload = "/fonts/inter-v12-latin-regular.woff2"
+    fontSizeBase = "1rem"
+
+[schema]
+    type = "Organization"
+    name = "STAIRlab"
+    locale = "en-US"
+    github = "https://github.com/claudioperez/OpenSeesRT"
+    section = "blog"
+    [author]
+        name = "Claudio M. Perez"
+        linkedin = "https://www.linkedin.com/in/markdumay/"
+        github = "https://github.com/claudioperez"
+    [logo]
+        url = "img/logo512x512.png"
+        width = 512
+        height = 512
+    [image]
+        url = "img/logo1280x640.png"
+        width = 1280
+        height = 640
+
+[opengraph]
+    images = ["logo.png"]
+    locale = "en_US"
+
+[links]
+    wipeAnalysis = ""
+    remove = ""
+    eleResponse = ""
+
+    issue_tracker = "https://github.com/claudioperez/OpenSeesRT/issues"
+    discussions = "https://github.com/claudioperez/OpenSeesRT/discussions"
+    discussions_help = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/help"
+    discussions_ideas = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/ideas"
+    discussions_showcases = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/show-and-tell"
+    osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
+    veux = "https://veux.stairlab.io"
+    numpy = "https://numpy.org/"
+    openblas = "https://www.openblas.net/"
+    umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
+
+    conventional_commit = "https://www.conventionalcommits.org"
+    azure = "https://azure.microsoft.com"
+    az_blob_domain = "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name"
+    az_blob_pricing = "https://azure.microsoft.com/en-us/free"
+    az_cdn_rules = "https://learn.microsoft.com/en-us/azure/cdn/cdn-standard-rules-engine-reference"
+    blist = "https://github.com/apvarun/blist-hugo-theme"
+    bootstrap = "https://getbootstrap.com"
+    bs_reduced_motion = "https://getbootstrap.com/docs/5.3/getting-started/accessibility/#reduced-motion"
+    bs_badge_heading = "https://getbootstrap.com/docs/5.2/components/badge/#headings"
+    bs_breakpoints = "https://getbootstrap.com/docs/5.3/layout/breakpoints"
+    bs_color = "https://getbootstrap.com/docs/5.3/customize/color-modes"
+    bs_color_helpers = "https://getbootstrap.com/docs/5.3/helpers/color-background"
+    bs_color_sass = "https://getbootstrap.com/docs/5.3/customize/color-modes/#building-with-sass"
+    bs_container = "https://getbootstrap.com/docs/5.3/layout/containers/#how-they-work"
+    bs_grid = "https://getbootstrap.com/docs/5.3/layout/grid"
+    bs_lean = "https://getbootstrap.com/docs/5.3/customize/optimize"
+    bs_offcanvas = "https://getbootstrap.com/docs/5.3/components/offcanvas"
+    bs_navbar_placement = "https://getbootstrap.com/docs/5.3/components/navbar/#placement"
+    bs_tables = "https://getbootstrap.com/docs/5.3/content/tables"
+    caniuse_container = "https://caniuse.com/?search=%40container"
+    caniuse_webshare = "https://caniuse.com/?search=navigator.share"
+    cc_by_nc_4_0 = "https://creativecommons.org/licenses/by-nc/4.0/"
+    cloudflare = "https://cloudflare.com"
+    cloudinary = "https://cloudinary.com"
+    commit_message = "https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html"
+    community_guidelines = "https://docs.github.com/articles/github-community-guidelines"
+    contrast_checker = "https://accessibleweb.com/color-contrast-checker/"
+    core_web_vitals = "https://web.dev/vitals/#core-web-vitals"
+    create_pr = "https://github.com/peter-evans/create-pull-request"
+    css_codeguide = "https://codeguide.co/#css"
+    dependabot = "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates"
+    dependabot_issue_6860 = "https://github.com/dependabot/dependabot-core/issues/6860"
+    devops_journal = "https://devopsjournal.io/blog/2021/02/06/GitHub-Actions-Forking-Repositories"
+    doks = "https://github.com/h-enk/doks"
+    eslint = "https://eslint.org"
+    flexsearch = "https://github.com/nextapps-de/flexsearch"
+    fontawesome = "https://fontawesome.com"
+    fa_icons = "https://fontawesome.com/icons"
+    fa_styling = "https://fontawesome.com/docs/web/style/styling"
+    fa_animation = "https://fontawesome.com/docs/web/style/animate"
+    git_download = "https://git-scm.com"
+    github_actions = "https://github.com/features/actions"
+    github_cli = "https://cli.github.com"
+    github_signup = "https://github.com/signup"
+    github_plans = "https://docs.github.com/en/get-started/learning-about-github/githubs-plans"
+    github_pr = "https://help.github.com/articles/about-pull-requests/"
+    github_rebase = "https://help.github.com/articles/about-git-rebase/"
+    github_aefly = "https://github.com/aefly"
+    golang = "https://go.dev/"
+    golang_download = "https://go.dev/dl/"
+    google_analytics_csp = "https://developers.google.com/tag-platform/tag-manager/web/csp#google_analytics_4_google_analytics"
+    google_chrome = "https://www.google.com/chrome"
+    google_fonts = "https://fonts.google.com"
+    hinode = "https://opensees.berkeley.edu"
+    hinode_demo = "https://stairlab.github.io/gallery/"
+    hinode_fr = "https://demo.gethinode.com/fr/"
+    html_codeguide = "https://codeguide.co/#html"
+    hugo = "https://gohugo.io"
+    hugo_alias = "https://gohugo.io/content-management/urls/#aliases"
+    hugo_build = "https://gohugo.io/content-management/build-options"
+#   hugo_config_overview = "https://gohugo.io/getting-started/configuration/"
+#   hugo_config = "https://gohugo.io/getting-started/configuration/#all-configuration-settings"
+#   hugo_config_dir = "https://gohugo.io/getting-started/configuration/#configuration-directory"
+#   hugo_content = "https://gohugo.io/content-management/formats"
+#   hugo_content_view = "https://gohugo.io/templates/views/"
+#   hugo_chroma = "https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages"
+#   hugo_data_sources = "https://gohugo.io/content-management/data-sources/"
+#   hugo_deploy = "https://gohugo.io/hosting-and-deployment/hugo-deploy"
+#   hugo_deployment = "https://gohugo.io/hosting-and-deployment"
+#   hugo_config_deploy = "https://gohugo.io/hosting-and-deployment/hugo-deploy/#configure-the-deployment"
+#   hugo_download = "https://gohugo.io/installation"
+#   hugo_fingerprint = "https://gohugo.io/hugo-pipes/fingerprint"
+#   hugo_frontmatter = "https://gohugo.io/content-management/front-matter"
+#   hugo_goldmark = "https://gohugo.io/getting-started/configuration-markup/#goldmark"
+#   hugo_headless = "https://gohugo.io/content-management/page-bundles/#headless-bundle"
+#   hugo_ordering = "https://gohugo.io/templates/lists/#order-content"
+#   hugo_page_resources = "https://gohugo.io/content-management/page-resources/"
+#   hugo_pagination = "https://gohugo.io/templates/pagination/#configuration"
+#   hugo_pipes = "https://gohugo.io/hugo-pipes/introduction"
+#   hugo_postprocess = "https://gohugo.io/hugo-pipes/postprocess"
+#   hugo_release_v0_109_0 = "https://github.com/gohugoio/hugo/releases/tag/v0.109.0"
+#   hugo_scratch = "https://gohugo.io/methods/shortcode/scratch"
+#   hugo_sections = "https://gohugo.io/content-management/sections"
+#   hugo_shortcodes = "https://gohugo.io/content-management/shortcodes"
+#   hugo_structure = "https://gohugo.io/content-management/organization"
+#   hugo_templates = "https://gohugo.io/templates/introduction"
+#   hugo_resource_from_template = "https://gohugo.io/hugo-pipes/resource-from-template/"
+#   hugo_lookup_order = "https://gohugo.io/templates/lookup-order"
+#   hugo_sass = "https://gohugo.io/hugo-pipes/transpile-sass-to-css/#installing-in-a-development-environment"
+#   hugo_toc = "https://gohugo.io/content-management/toc"
+    hugo_vars = "https://discourse.gohugo.io/t/initialize-sass-variables-from-hugo-templates"
+    hugo_vimeo_privacy = "https://gohugo.io/about/privacy/#vimeo"
+    hugo_youtube_privacy = "https://gohugo.io/about/hugo-and-gdpr/#youtube"
+    hugo_issue_10719 = "https://github.com/gohugoio/hugo/issues/10719"
+    hugo_parser_image = "https://gohugo.io/getting-started/configuration-markup/#parserwrapstandaloneimagewithinparagraph"
+    imagekit = "https://imagekit.io"
+    imgix = "https://imgix.com"
+    initialcommit = "https://initialcommit.com/blog/git-commit-messages-best-practices"
+    katex = "https://katex.org"
+    katex_autorender = "https://katex.org/docs/autorender.html"
+    katex_load = "https://katex.org/docs/autorender.html#usage"
+    katex_github = "https://github.com/KaTeX/KaTeX"
+    katex_self_hosted = "https://katex.org/docs/browser.html#download--host-things-yourself"
+    leaflet = "https://leafletjs.com"
+    license = "https://github.com/claudioperez/OpenSeesRT/blob/main/LICENSE.txt"
+    logrocket_optimization = "https://blog.logrocket.com/9-tricks-eliminate-render-blocking-resources"
+    lottie = "https://airbnb.io/lottie/"
+    markdown_guide = "https://www.markdownguide.org"
+    markdownlint = "https://github.com/DavidAnson/markdownlint-cli2"
+    mermaid = "https://mermaid.js.org"
+    mozilla_image = "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"
+    netlify = "https://www.netlify.com"
+    netlify_cache = "https://www.netlify.com/blog/2017/02/23/better-living-through-caching/"
+    netlify_rewrite = "https://docs.netlify.com/routing/redirects/rewrites-proxies/"
+    nicolasiensen = "https://nicolasiensen.github.io/2022-07-23-automating-dependency-updates-with-dependabot-github-auto-merge-and-github-actions/"
+    nodejs = "https://nodejs.org"
+    npm = "https://www.npmjs.com"
+    npm_cpy = "https://www.npmjs.com/package/cpy"
+    npm_purgecss = "https://www.npmjs.com/package/@fullhuman/postcss-purgecss"
+    npm_run_all = "https://www.npmjs.com/package/npm-run-all"
+    npm_whitelister = "https://www.npmjs.com/package/purgecss-whitelister"
+    observatory = "https://observatory.mozilla.org/analyze/demo.gethinode.com"
+    openstreetmap = "https://www.openstreetmap.org"
+    package_npm = "https://www.npmjs.com/package/@gethinode/hinode"
+    pagespeed = "https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F"
+
+    repository = "https://github.com/claudioperez/OpenSeesRT"
+    repository_releases = "https://github.com/claudioperez/OpenSeesRT/releases/"
+#   repository_tag = "https://github.com/claudioperez/OpenSeesRT/releases/tag/"
+#   repository_docs = "https://github.com/OpenSees/Documentation.git"
+
+    repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
+
+    repository_owner = "https://github.com/OpenSees/"
+
+#   repository_mod_bootstrap = "https://github.com/gethinode/mod-bootstrap"
+#   repository_mod_flexsearch = "https://github.com/gethinode/mod-flexsearch"
+#   repository_mod_fontawesome = "https://github.com/gethinode/mod-fontawesome"
+#   repository_mod_katex = "https://github.com/gethinode/mod-katex"
+#   repository_mod_leaflet = "https://github.com/gethinode/mod-leaflet"
+#   repository_mod_template = "https://github.com/gethinode/mod-template"
+#   repository_mod_utils = "https://github.com/gethinode/mod-utils"
+#   repository_leaflet = "https://github.com/gethinode/leaflet-demo"
+#   repository_template = "https://github.com/gethinode/template.git"
+#   repository_versioning = "https://github.com/gethinode/version-demo"
+#   repository_versioning_overview = "https://raw.githubusercontent.com/gethinode/version-demo/main/content/en/docs/versions.md"
+    semantic-release = "https://semantic-release.gitbook.io/semantic-release/"
+    semver = "https://semver.org"
+    simple_datatables = "https://github.com/fiduswriter/simple-datatables/tree/main"
+    siteground_compression = "https://www.siteground.com/blog/brotli-vs-gzip-compression"
+    stylelint = "https://stylelint.io"
+    vimeo = "https://vimeo.com"
+    vscode_download = "https://code.visualstudio.com/download"
+    wcag_contrast = "https://www.w3.org/TR/WCAG20/#visual-audio-contrast"
+    webfonts_helper = "https://gwfh.mranftl.com"
+    youtube = "https://youtube.com"
+

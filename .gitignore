@@ -1,0 +1,29 @@
+/_vendor
+/public
+resources/
+node_modules/
+*.pyc
+__pycache__/
+
+.DS_store
+.hugo_build.lock
+.ipynb_checkpoints
+content/en/examples/*/model.json
+elCentro.dat
+# CSI:
+*.sdb
+*.bdb
+*.LOG
+*.OUT
+*.K_*
+*.Y_*
+
+# Other
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.out
+opensees_gallery/examples/archive/
+
+.vscode
+hugo_stats.json
