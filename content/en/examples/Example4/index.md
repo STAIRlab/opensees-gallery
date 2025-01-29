@@ -78,8 +78,7 @@ model.analyze(10)
 After the gravity load analysis has been performed, the gravity loads
 are set to constant and the time in the domain is reset to 0.0. A new
 `LoadControl` integrator is now added. 
-The new integrator has
-an initial load step of `1.0`, and is allowed to vary between `0.02` and `2.0`
+The new integrator has an initial load step of `1.0`, and is allowed to vary between `0.02` and `2.0`
 depending on the number of iterations required to achieve convergence at
 each load step. `100` steps are then performed.
 

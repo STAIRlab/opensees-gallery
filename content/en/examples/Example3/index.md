@@ -225,8 +225,13 @@ model.pattern("Plain", 1, "Linear", load={
 {{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
-...
-
+# Create a Plain load pattern with a Linear TimeSeries
+pattern Plain 1 "Linear" {
+      # Create nodal loads at nodes 3 & 4
+      #    nd    FX          FY  MZ 
+      load  3   0.0  [expr -$P] 0.0
+      load  4   0.0  [expr -$P] 0.0
+}
 ```
 {{% /tab %}}
 {{< /tabs >}}

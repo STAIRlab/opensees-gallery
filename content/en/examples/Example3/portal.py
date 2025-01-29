@@ -37,7 +37,7 @@ def create_portal(width  = 360.0, height = 144.0):
 
     # Define materials for nonlinear columns
     # ------------------------------------------
-    # CONCRETE                        tag  f'c    ec0    f'cu   ecu
+    # CONCRETE                          tag  f'c    ec0    f'cu   ecu
     # Core concrete (confined)
     model.uniaxialMaterial("Concrete01", 1, -6.0, -0.004, -5.0, -0.014)
     # Cover concrete (unconfined)
@@ -151,13 +151,13 @@ def gravity_analysis(model, P=180.0):
 
 
 def pushover_analysis(model, H=10.0):
-    #  Nonlinear pushover analysis using Portal Frame Example 3.1 as starting point
+    #  Nonlinear pushover analysis
     #
     # Portal Frame Example 3.2
     # ------------------------
-    #  Reinforced concrete one-bay, one-story frame
-    #  Distributed vertical load on girder
-    #  Lateral Load at top of frame
+    # - Reinforced concrete one-bay, one-story frame
+    # - Distributed vertical load on girder
+    # - Lateral Load at top of frame
 
     # ----------------------------------------------------
     # Define lateral loads
@@ -175,9 +175,9 @@ def pushover_analysis(model, H=10.0):
     # Define pattern 2  for lateral loads with a Linear TimeSeries
     model.pattern("Plain", 2, "Linear")
 
-    # create the nodal loads - command: load nodeID xForce yForce zMoment
-    model.load(3, H, 0.0, 0.0, pattern=2)
-    model.load(4, H, 0.0, 0.0, pattern=2)
+    # create the nodal loads - nodeID xForce yForce zMoment
+    model.load(3, (H, 0.0, 0.0), pattern=2)
+    model.load(4, (H, 0.0, 0.0), pattern=2)
 
 
     # ----------------------------------------------------
@@ -192,25 +192,9 @@ def pushover_analysis(model, H=10.0):
     model.integrator("DisplacementControl", 3, 1, dU, 1, dU, dU)
 
 
-
     # ------------------------------
-    # Start of recorder generation
+    # Perform the analysis
     # ------------------------------
-
-    # Create a recorder to monitor nodal displacements
-    model.recorder("Node", "-file", "node32.out", "-time", "-node", 3, 4, "-dof", 1, 2, 3, "disp")
-    #recorder plot node32.out hi 10 10 300 300 -columns 2 1
-
-    # Create a recorder to monitor element forces in columns
-    model.recorder("EnvelopeElement", "-file", "ele32.out", "-time", "-ele", 1, 2, "localForce")
-
-
-    # ------------------------------
-    # Finally perform the analysis
-    # ------------------------------
-
-    # record once at time 0
-#   model.record()
 
     # Set some parameters
     maxU = 15.0;	        # Max displacement
@@ -228,6 +212,7 @@ def pushover_analysis(model, H=10.0):
 
         u.append(model.nodeDisp(3, 1))
         p.append(model.getTime())
+
         status = ops.successful
 
         # Analyze in single steps until either (1) we reach maxU,
@@ -243,7 +228,7 @@ def pushover_analysis(model, H=10.0):
                 model.algorithm("ModifiedNewton", "-initial")
                 status = model.analyze(1)
                 if status == ops.successful:
-                    print("that worked .. back to regular newton")
+                    print("that worked .. back to regular Newton")
                 model.test("NormDispIncr", 1.0e-12, 10)
                 model.algorithm("Newton")
 
