@@ -219,7 +219,6 @@ proc pushover_analysis {} {
   integrator DisplacementControl  3   1   $dU  1 $dU $dU
 
 
-
   # ------------------------------
   # Create recorders
   # ------------------------------
@@ -273,6 +272,9 @@ proc pushover_analysis {} {
   return $status
 }
 
+# -------------------------------------------------------------------
+# Begin main execution
+# -------------------------------------------------------------------
 
 create_portal
 
