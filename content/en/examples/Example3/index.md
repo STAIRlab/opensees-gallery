@@ -31,8 +31,8 @@ The function `create_portal` creates a model representing the portal
 frame in the figure above.
 The model consists of four nodes, two
 nonlinear beam-column elements modeling the columns and an
-elastic beam element to model the girder. For the column elements a
-section, identical to the section used in Example 2, 
+elastic beam element to model the girder. 
+For the column elements a section, identical to the section used in Example 2, 
 is created using steel and concrete fibers.
 
 1. Begin with nodes and boundary conditions
@@ -44,15 +44,14 @@ is created using steel and concrete fibers.
    
    # Create nodes
    # ------------
-   # create nodes & add to Domain - command: node nodeId xCrd yCrd
-   model.node(1, 0.0,      0.0)
-   model.node(2, width,    0.0)
-   model.node(3, 0.0,   height)
-   model.node(4, width, height)
+   model.node(1, (0.0,      0.0))
+   model.node(2, (width,    0.0))
+   model.node(3, (0.0,   height))
+   model.node(4, (width, height))
    
    # set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt?
-   model.fix(1, 1, 1, 1)
-   model.fix(2, 1, 1, 1)
+   model.fix(1, (1, 1, 1))
+   model.fix(2, (1, 1, 1))
    ```
    {{% /tab %}}
    {{% tab name="Tcl" %}}
@@ -99,17 +98,13 @@ is created using steel and concrete fibers.
    {{% /tab %}}
    {{% tab name="Tcl" %}}
    ```tcl
-   
-   # Define materials for nonlinear columns
-   # ------------------------------------------
-   # CONCRETE                  tag   f'c        ec0   f'cu        ecu
    # Core concrete (confined)
-   uniaxialMaterial Concrete01  1  -6.0  -0.004   -5.0     -0.014
-   
+   #                           tag  f'c     ec0  f'cu        ecu
+   uniaxialMaterial Concrete01  1  -6.0  -0.004  -5.0     -0.014
+
    # Cover concrete (unconfined)
-   uniaxialMaterial Concrete01  2  -5.0   -0.002   0.0     -0.006
-   
-   # STEEL
+   uniaxialMaterial Concrete01  2  -5.0  -0.002   0.0     -0.006
+
    # Reinforcing steel 
    set fy 60.0;      # Yield stress
    set E 30000.0;    # Young's modulus

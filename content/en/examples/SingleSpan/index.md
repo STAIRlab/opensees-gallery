@@ -1,5 +1,6 @@
 ---
 title: Static Condensation
+description: This example uses the getTangent method to perform static condensation.
 ---
 
 This example replicates the classic cantilever‐beam problem where:
@@ -18,11 +19,11 @@ Accordingly, the system has 4 active DOFs. We will:
 
 ## 1) Static Condensation
 
-Below is a small helper function `condense()` that takes a square matrix \(K\) (stiffness or mass) and an array of indices `ic` identifying which DOFs to **keep**. All other DOFs are **statically condensed out** using
+Below is a small helper function `condense()` that takes a square matrix \(\boldsymbol{K}\) (stiffness or mass) and an array of indices `ic` identifying which DOFs to **keep**. All other DOFs are **statically condensed out** using
 
 \[
-K_{\mathrm{condensed}} = 
-K_{tt} - K_{t0} \; K_{00}^{-1} \; K_{0t}
+\boldsymbol{K}_{\mathrm{condensed}} = 
+\boldsymbol{K}_{tt} - \boldsymbol{K}_{t0} \; \boldsymbol{K}_{00}^{-1} \; \boldsymbol{K}_{0t}
 \]
 
 where \((t)\) are the retained DOFs and \((0)\) are the ones to be condensed out.
@@ -33,13 +34,6 @@ def condense(K, ic):
     Perform static condensation on matrix K, returning a smaller matrix
     that retains only the DOFs in the list 'ic' and statically eliminates
     all other DOFs.
-    
-    Parameters
-    ----------
-    K  : 2D numpy array
-         Full square matrix (e.g., stiffness or mass).
-    ic : list of int
-         Indices of DOFs we want to keep.
     
     Returns
     -------
@@ -72,7 +66,6 @@ def condense(K, ic):
     return Kc
 ```
 
----
 
 ## 2) A Cantilever Model
 
@@ -101,20 +94,20 @@ def build_cantilever_model(L=1.0, E=1.0, I=1.0, m=1.0):
     model = ops.Model(ndm=2, ndf=3)
 
     # Create 3 nodes at 0, L/2, L along x-axis
-    ops.node(1, 0.0,  0.0)
-    ops.node(2, L/2,  0.0)
-    ops.node(3, L,    0.0)
+    model.node(1, 0.0,  0.0)
+    model.node(2, L/2,  0.0)
+    model.node(3, L,    0.0)
 
     # Fix Node 1 in all DOFs (ux, uy, rz)
-    ops.fix(1, 1, 1, 1)
+    model.fix(1, 1, 1, 1)
 
     # Node 2, 3: fix only ux => (1, 0, 0)
-    ops.fix(2, 1, 0, 0)
-    ops.fix(3, 1, 0, 0)
+    model.fix(2, 1, 0, 0)
+    model.fix(3, 1, 0, 0)
 
     # Geometric transformation for a linear beam in 2D
     transf_tag = 1
-    ops.geomTransf("Linear", transf_tag)
+    model.geomTransf("Linear", transf_tag)
 
     # Define a 2D elastic beam (elasticBeamColumn)
     A  = 1.0   # cross-sectional area (not crucial for pure bending)
@@ -123,18 +116,17 @@ def build_cantilever_model(L=1.0, E=1.0, I=1.0, m=1.0):
     # We'll ignore axial effects or keep them large to approximate pure bending
 
     # Element 1: Node 1 -> Node 2
-    ops.element("elasticBeamColumn", 1, 1, 2, A, E, Iz, transf_tag)
+    model.element("elasticBeamColumn", 1, 1, 2, A, E, Iz, transf_tag)
     # Element 2: Node 2 -> Node 3
-    ops.element("elasticBeamColumn", 2, 2, 3, A, E, Iz, transf_tag)
+    model.element("elasticBeamColumn", 2, 2, 3, A, E, Iz, transf_tag)
 
     # Lumped mass at Node 2 and Node 3 in the y-direction only
-    ops.mass(2, 0.0, m*L/4, 0.0)
-    ops.mass(3, 0.0, m*L/2, 0.0)
+    model.mass(2, 0.0, m*L/4, 0.0)
+    model.mass(3, 0.0, m*L/2, 0.0)
 
     return model
 ```
 
----
 
 ## 3) Stiffness & Mass Matrices
 

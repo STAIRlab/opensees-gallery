@@ -23,7 +23,7 @@ section.
 
 The figure below shows the fiber discretization for the section.
 
-![Fiber section discretization](./img/RCsection4.svg)
+![Fiber section discretization](img/RCsection4.svg)
 
 The dimensions of the fiber section are shown below. 
 The section depth is 24 inches, the width is 15
@@ -38,7 +38,7 @@ The fiber discretization for the
 section is shown below.
 
 
-![Dimensions of the RC section.](./img/RCsection0.svg)
+![Dimensions of the RC section.](img/RCsection0.svg)
 
 
 ![Confined concrete](img/confinement.png)

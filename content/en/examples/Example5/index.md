@@ -46,7 +46,7 @@ are defined with the [`rigidDiaphragm`](https://opensees.stairlab.io/user/manual
 floors. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 # Define rigid diaphragm multi-point constraints
 #              normalDir retained constrained
@@ -84,14 +84,14 @@ nonlinear beam column element.
 A solution algorithm of type `Newton` is used for the nonlinear problem.
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.algorithm("Newton")
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 algorithm Newton;
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.algorithm("Newton")
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -102,14 +102,14 @@ analysis will be of type `Newmark` with a $\gamma$ of `0.25` and a $\beta$
 of `0.5`. 
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.integrator("Newmark", 0.5, 0.25)
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 integrator Newmark 0.1, 0.25;
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.integrator("Newmark", 0.5, 0.25)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -118,14 +118,14 @@ The solution algorithm uses a ConvergenceTest which tests convergence on
 the norm of the energy increment vector. 
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.integrator("Newmark", 0.5, 0.25)
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 integrator Newmark   0.5  0.25 
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.integrator("Newmark", 0.5, 0.25)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -134,14 +134,14 @@ Due to the presence of the multi-point constraints, a
 `Transformation` constraint handler is used. 
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.constraints("Transformation")
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 constraints Transformation
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.constraints("Transformation")
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -164,7 +164,7 @@ itself is defined. For this problem a `Transient` analysis is used.
 analyze 2000 0.01
 ```
 {{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 model.analyze(2000, 0.01)
 ```

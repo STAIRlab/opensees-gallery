@@ -14,16 +14,16 @@ Each node of the analysis has two displacement degrees of freedom. Thus the mode
 `ndm = 2` and `ndf = 2`. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 2 -ndf 2
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=2, ndf=2)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 2 -ndf 2
 ```
 {{% /tab %}}
 {{< /tabs >}}
