@@ -345,17 +345,16 @@ the figure below.
 ![Load displacement curve for node 3](img/pushover-node-3.svg)
 
 
-## `transient_analysis`
+## Dynamic Analysis
 
 <!-- 3.3 -->
 
 The concrete frame which has undergone
-the gravity load analysis of Example 3.1 is now subjected to a uniform
-earthquake excitation.
+the gravity load analysis is now subjected to an earthquake load.
 
 After performing the gravity load analysis, the time in the domain is
-reset to 0.0 and the time series for all active loads is set to
-constant. This prevents the gravity load from being scaled with each
+reset to `0.0` and the time series for all active loads is set to constant. 
+This prevents the gravity load from being scaled with each
 step of the dynamic analysis.
 
 {{< tabs tabTotal="2" >}}
@@ -379,16 +378,17 @@ Strong Motion Database (http://peer.berkeley.edu/smcat/) record
 `ARL360.at2` using the Tcl procedure `ReadSMDFile` contained in the file
 `ReadSMDFile.tcl`.
 
-The static analysis object and its components are first deleted so that
-a new transient analysis object can be created.
+The static analysis and its components are first deleted so that a new transient analysis procedure can be defined.
 
-A new solution Algorithm of type `Newton` is then created. The solution
-algorithm uses a `ConvergenceTest` which tests convergence on the norm of
-the displacement increment vector. The integrator for this analysis will
+<!--
+A new solution Algorithm of type `Newton` is then created. 
+The solution algorithm uses a `ConvergenceTest` which tests convergence on the norm of
+the displacement increment vector. 
+-->
+The integrator for this analysis will
 be of type Newmark with a \(\gamma = 0.25\) and \(\beta = 0.5\). 
 
-The
-integrator will add some stiffness proportional damping to the system,
+The integrator will add some stiffness proportional damping to the system,
 the damping term will be based on the last committed stifness of the
 elements, i.e. \(C = a_c K_{\text{commit}}\) with \(a_c = 0.000625\). 
 
@@ -499,4 +499,3 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-

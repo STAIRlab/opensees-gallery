@@ -127,26 +127,26 @@ def create_model(eleType=None):
     bx = 240.0;      # Bay width in X-direction
 
     # Create nodes
-    #       tag    X        Y        Z 
-    model.node( 1, -bx/2.0,  by/2.0, 0.0)
-    model.node( 2,  bx/2.0,  by/2.0, 0.0)
-    model.node( 3,  bx/2.0, -by/2.0, 0.0)
-    model.node( 4, -bx/2.0, -by/2.0, 0.0)
+    #       tag    X        Y          Z 
+    model.node( 1, (-bx/2.0,  by/2.0,   0.0))
+    model.node( 2, ( bx/2.0,  by/2.0,   0.0))
+    model.node( 3, ( bx/2.0, -by/2.0,   0.0))
+    model.node( 4, (-bx/2.0, -by/2.0,   0.0))
 
-    model.node( 5, -bx/2.0,  by/2.0, h)
-    model.node( 6,  bx/2.0,  by/2.0, h)
-    model.node( 7,  bx/2.0, -by/2.0, h)
-    model.node( 8, -bx/2.0, -by/2.0, h)
+    model.node( 5, (-bx/2.0,  by/2.0,     h))
+    model.node( 6, ( bx/2.0,  by/2.0,     h))
+    model.node( 7, ( bx/2.0, -by/2.0,     h))
+    model.node( 8, (-bx/2.0, -by/2.0,     h))
 
-    model.node(10, -bx/2.0,  by/2.0, 2.0*h)
-    model.node(11,  bx/2.0,  by/2.0, 2.0*h)
-    model.node(12,  bx/2.0, -by/2.0, 2.0*h)
-    model.node(13, -bx/2.0, -by/2.0, 2.0*h)
+    model.node(10, (-bx/2.0,  by/2.0, 2.0*h))
+    model.node(11, ( bx/2.0,  by/2.0, 2.0*h))
+    model.node(12, ( bx/2.0, -by/2.0, 2.0*h))
+    model.node(13, (-bx/2.0, -by/2.0, 2.0*h))
 
-    model.node(15, -bx/2.0,  by/2.0, 3.0*h)
-    model.node(16,  bx/2.0,  by/2.0, 3.0*h)
-    model.node(17,  bx/2.0, -by/2.0, 3.0*h)
-    model.node(18, -bx/2.0, -by/2.0, 3.0*h)
+    model.node(15, (-bx/2.0,  by/2.0, 3.0*h))
+    model.node(16, ( bx/2.0,  by/2.0, 3.0*h))
+    model.node(17, ( bx/2.0, -by/2.0, 3.0*h))
+    model.node(18, (-bx/2.0, -by/2.0, 3.0*h))
 
     # Retained nodes for rigid diaphragm
     #        tag   X    Y    Z 
@@ -236,20 +236,20 @@ def create_model(eleType=None):
         eleType = "forceBeamColumn"
 
     #                   tag ndI ndJ transfTag integrationTag
-    model.element(eleType, 1, 1, 5, 1, itg)
-    model.element(eleType, 2, 2, 6, 1, itg)
-    model.element(eleType, 3, 3, 7, 1, itg)
-    model.element(eleType, 4, 4, 8, 1, itg)
+    model.element(eleType,  1, (1, 5), 1, itg)
+    model.element(eleType,  2, (2, 6), 1, itg)
+    model.element(eleType,  3, (3, 7), 1, itg)
+    model.element(eleType,  4, (4, 8), 1, itg)
 
-    model.element(eleType, 5, 5, 10, 1, itg)
-    model.element(eleType, 6, 6, 11, 1, itg)
-    model.element(eleType, 7, 7, 12, 1, itg)
-    model.element(eleType, 8, 8, 13, 1, itg)
+    model.element(eleType,  5, (5, 10), 1, itg)
+    model.element(eleType,  6, (6, 11), 1, itg)
+    model.element(eleType,  7, (7, 12), 1, itg)
+    model.element(eleType,  8, (8, 13), 1, itg)
 
-    model.element(eleType,  9, 10, 15, 1, itg)
-    model.element(eleType, 10, 11, 16, 1, itg)
-    model.element(eleType, 11, 12, 17, 1, itg)
-    model.element(eleType, 12, 13, 18, 1, itg)
+    model.element(eleType,  9, (10, 15), 1, itg)
+    model.element(eleType, 10, (11, 16), 1, itg)
+    model.element(eleType, 11, (12, 17), 1, itg)
+    model.element(eleType, 12, (13, 18), 1, itg)
 
     # Define beam elements
     # --------------------
@@ -263,21 +263,21 @@ def create_model(eleType=None):
 
     # Create the beam elements
     eleType = "forceBeamColumn"
-    #                   tag ndI ndJ transfTag integrationTag
-    model.element(eleType, 13, 5, 6, 2, beamSec)
-    model.element(eleType, 14, 6, 7, 2, beamSec)
-    model.element(eleType, 15, 7, 8, 2, beamSec)
-    model.element(eleType, 16, 8, 5, 2, beamSec)
+    #                   tag (ndI ndJ) transfTag integrationTag
+    model.element(eleType, 13, (5, 6), 2, beamSec)
+    model.element(eleType, 14, (6, 7), 2, beamSec)
+    model.element(eleType, 15, (7, 8), 2, beamSec)
+    model.element(eleType, 16, (8, 5), 2, beamSec)
 
-    model.element(eleType, 17, 10, 11, 2, beamSec)
-    model.element(eleType, 18, 11, 12, 2, beamSec)
-    model.element(eleType, 19, 12, 13, 2, beamSec)
-    model.element(eleType, 20, 13, 10, 2, beamSec)
+    model.element(eleType, 17, (10, 11), 2, beamSec)
+    model.element(eleType, 18, (11, 12), 2, beamSec)
+    model.element(eleType, 19, (12, 13), 2, beamSec)
+    model.element(eleType, 20, (13, 10), 2, beamSec)
 
-    model.element(eleType, 21, 15, 16, 2, beamSec)
-    model.element(eleType, 22, 16, 17, 2, beamSec)
-    model.element(eleType, 23, 17, 18, 2, beamSec)
-    model.element(eleType, 24, 18, 15, 2, beamSec)
+    model.element(eleType, 21, (15, 16), 2, beamSec)
+    model.element(eleType, 22, (16, 17), 2, beamSec)
+    model.element(eleType, 23, (17, 18), 2, beamSec)
+    model.element(eleType, 24, (18, 15), 2, beamSec)
 
     # Define gravity loads
     # --------------------
@@ -293,9 +293,9 @@ def create_model(eleType=None):
 
     # Set mass at the retained nodes
     #         tag MX MY MZ   RX   RY   RZ
-    model.mass( 9, m, m, 0.0, 0.0, 0.0, i)
-    model.mass(14, m, m, 0.0, 0.0, 0.0, i)
-    model.mass(19, m, m, 0.0, 0.0, 0.0, i)
+    model.mass( 9, (m, m, 0.0, 0.0, 0.0, i))
+    model.mass(14, (m, m, 0.0, 0.0, 0.0, i))
+    model.mass(19, (m, m, 0.0, 0.0, 0.0, i))
 
     # Define gravity loads
     # create a Plain load pattern with Constant scaling
@@ -311,19 +311,16 @@ def create_model(eleType=None):
     # ----------------------------
     dt = 0.02
     # Set up the acceleration records for Tabas fault normal and fault parallel
-    model.timeSeries("Path", 2, "-filePath", "tabasFN.txt", "-dt", dt, "-factor", units.gravity)
-    model.timeSeries("Path", 3, "-filePath", "tabasFP.txt", "-dt", dt, "-factor", units.gravity)
+    model.timeSeries("Path", 2, filePath="tabasFN.txt", dt=dt, factor=units.gravity)
+    model.timeSeries("Path", 3, filePath="tabasFP.txt", dt=dt, factor=units.gravity)
 
     # Define the excitation using the Tabas ground motion records
     #                         tag dir         accel series args
-    model.pattern("UniformExcitation", 2, 1, "-accel", 2)
-    model.pattern("UniformExcitation", 3, 2, "-accel", 3)
-
-    # print model
-
-    model.print(json="model.json")
+    model.pattern("UniformExcitation", 2, 1, accel=2)
+    model.pattern("UniformExcitation", 3, 2, accel=3)
 
     return model
+
 
 def analyze(model):
     # ----------------------------
@@ -357,30 +354,44 @@ def analyze(model):
 
     # Record DOF 1 and 2 displacements at nodes 9, 14, and 19
     model.recorder("Node", "-file", "Node51.out", "-time", "-node", 9, 14, 19, "-dof", 1, 2, "disp")
-    #recorder("plot", "Node51.out", "Node9_14_19_Xdisp", 10, 340, 300, 300, "-columns", 1, 2, "-columns", 1, 4, "-columns", 1, 6, "-dT", 1.0)
 
 
-    # --------------------
     # Perform the analysis
     # --------------------
 
     # record once at time 0
-    model.record()
+    displacements = {
+        node: [model.nodeDisp(node)] for node in [9, 14, 19]
+    }
 
-    # Analysis duration of 20 seconds
-    #              numSteps dt
-    return model.analyze(2000, 0.01)
+    # Perform 2000 analysis steps with a time step of 0.01
+    for i in range(2000):
+        status = model.analyze(1, 0.01)
+        if status != ops.successful:
+            raise RuntimeError(f"analysis failed at time {model.getTime()}")
+
+        # Save displacements at the current time
+        for node in [9, 14, 19]:
+            displacements[node].append(model.nodeDisp(node))
+
+    return displacements
+
 
 if __name__ == "__main__":
 
     element = "forceBeamColumn"
     model = create_model(element)
-    ok = analyze(model)
+    displacements = analyze(model)
 
-    if (ok != 0):
-        print("analysis FAILED at time ", model.getTime())
+    import matplotlib.pyplot as plt
+    try:
+        plt.style.use("typewriter")
+    except:
+        pass 
+    
+    # u3 = displacements[3]
+    # plt.plot()
 
-    else:
-        print("analysis SUCCESSFUL")
+
 
 

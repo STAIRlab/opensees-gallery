@@ -1,4 +1,5 @@
 import sys
+import veux
 from steel import wide_flange
 
 import numpy as np
@@ -34,6 +35,8 @@ def isotropic_section(model, tag, material, properties, type):
         y, z = fiber.location
         model.fiber(y, z, fiber.area, mat_tag, fiber.warp[0], fiber.warp[1], section=tag)
 
+    return mesh
+
 
 def test_isotropic(section):
     # Material
@@ -43,7 +46,7 @@ def test_isotropic(section):
     )
     model = ops.Model(ndm=3, ndf=6)
 
-    isotropic_section(model, 1, material, {}, section)
+    mesh = isotropic_section(model, 1, material, {}, section)
 
 
     tangent = model.invoke("section", 1, [
@@ -54,6 +57,18 @@ def test_isotropic(section):
     n = int(np.sqrt(len(tangent)))
     print(pd.DataFrame(np.round(np.array(tangent), 4).reshape(n,n)))
 
+    # Render
+    d = 24.0
+    artist = veux.create_artist((mesh.model.nodes, mesh.model.cells()), ndf=1)
+
+    field = mesh.torsion.warping()
+    artist.draw_surfaces(field = field, state=field, scale=1/100)
+    R = artist._plot_rotation
+
+    artist.canvas.plot_vectors([R@[*mesh.torsion.centroid(), 0] for i in range(3)], d/5*R.T)
+    artist.canvas.plot_vectors([R@[*mesh.torsion.shear_center(), 0] for i in range(3)], d/5*R.T)
+
+    veux.serve(artist)
 
 if __name__ == "__main__":
     test_isotropic("ShearFiber")
