@@ -11,6 +11,8 @@ This problem is adapted from Logan (2012), Problem 7–28.
 
 Script: [`model.py`](model.py)
 
+For the triangular mesh, the [`Tri31`](https://opensees.stairlab.io/user/manual/model/elements/Tri31.html) element is used.
+
 {{< highlight-content model.py python >}}
 
 

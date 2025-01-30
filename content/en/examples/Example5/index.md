@@ -20,18 +20,19 @@ is subjected to bi-directional earthquake ground motion.
 
 A model of the rigid frame shown in the figure above is created. 
 The model consists of three stories and one bay in each direction. 
+We begin by initializing an instance of the {{< link model_class >}}`Model`{{< /link >}} Class:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 3 -ndf 6
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 6
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -45,15 +46,6 @@ are defined with the [`rigidDiaphragm`](https://opensees.stairlab.io/user/manual
 floors. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-# Define rigid diaphragm multi-point constraints
-#               normalDir  retained constrained
-rigidDiaphragm     3          9     5  6  7  8
-rigidDiaphragm     3         14    10 11 12 13
-rigidDiaphragm     3         19    15 16 17 18
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 # Define rigid diaphragm multi-point constraints
@@ -61,6 +53,15 @@ rigidDiaphragm     3         19    15 16 17 18
 model.rigidDiaphragm(3,  9,  5,  6,  7,  8)
 model.rigidDiaphragm(3, 14, 10, 11, 12, 13)
 model.rigidDiaphragm(3, 19, 15, 16, 17, 18)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+# Define rigid diaphragm multi-point constraints
+#               normalDir  retained constrained
+rigidDiaphragm     3          9     5  6  7  8
+rigidDiaphragm     3         14    10 11 12 13
+rigidDiaphragm     3         19    15 16 17 18
 ```
 {{% /tab %}}
 {{< /tabs >}}
