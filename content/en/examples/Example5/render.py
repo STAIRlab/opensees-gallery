@@ -21,8 +21,9 @@ if __name__ == "__main__":
 
     # Check the number of arguments that were passed when this
     # script was invoked on the command line.
-    if len(sys.argv) > 2:
-        artist.save(sys.argv[2])
+    if len(sys.argv) > 1:
+        print(f"Saving to {sys.argv[1]}")
+        artist.save(sys.argv[1])
     else:
         veux.serve(artist)
 
