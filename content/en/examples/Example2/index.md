@@ -8,6 +8,9 @@ description: >-
   A reinforced concrete cross-section is modeled using a fiber section, 
   and a moment-curvature analysis is performed.
 keywords: ["cross-section", "structural engineering", "earthquake engineering"]
+downloads:
+  Python: ["Example2.py"]
+  Tcl: ["Example2.tcl", "MomentCurvature.tcl"]
 ---
 
 This example performs a moment-curvature analysis of a reinforced
@@ -19,27 +22,16 @@ section.
 ## Modeling
 
 The figure below shows the fiber discretization for the section.
-The files for this example are:
-{{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-1. [`Example2.py`](Example2.py)
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-1. [`Example2.tcl`](Example2.tcl)
-2. [`MomentCurvature.tcl`](MomentCurvature.tcl)
-{{% /tab %}}
-{{< /tabs >}}
 
 ![Fiber section discretization](./RCsection4.svg)
 
 
-The dimensions of the fiber section are shown in
-figure [rcsection0](#rcsection0). 
+The dimensions of the fiber section are shown in figure [rcsection0](#rcsection0). 
 The section depth is 24 inches, the width is 15
 inches, and there are 1.5 inches of cover around the entire section.
-Strong axis bending is about the section $z$-axis. In fact, the section
-$z$-axis is the strong axis of bending for all fiber sections in planar
-problems. The section is separated into confined and unconfined concrete
+
+Strong axis bending is about the section $z$-axis. 
+The section is separated into confined and unconfined concrete
 regions, for which separate fiber discretizations will be generated.
 Reinforcing steel bars will be placed around the boundary of the
 confined and unconfined regions. 
@@ -134,11 +126,13 @@ location and the ZeroLengthSection element is used.
 A single load step
 is performed for the axial load, then the integrator is changed to
 DisplacementControl to impose nodal displacements, which map directly to
-section deformations. A reference moment of `1.0` is defined in a `Linear` time series. 
-For this reference moment, the `DisplacementControl`
+section deformations. 
+A reference moment of `1.0` is defined in a `Linear` time series. 
+For this reference moment, the [`DisplacementControl`](https://opensees.stairlab.io/user/manual/analysis/integrator/DisplacementControl.html)
 integrator will determine the load factor needed to apply the imposed
 displacement. 
 A node recorder is defined to track the moment-curvature results. 
+
 The load factor is the moment, and the nodal rotation is the curvature of the element with zero thickness.
 
 The expected output is:
