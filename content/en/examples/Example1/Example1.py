@@ -59,9 +59,6 @@ model.pattern("Plain", 1, "Linear", load=load)
 # Start of analysis generation
 # ------------------------------
 
-# create the constraint handler, a Plain handler is used as homo constraints
-model.constraints("Plain")
-
 # create the solution algorithm, a Linear algorithm is created
 model.algorithm("Linear")
 
@@ -84,7 +81,6 @@ model.analyze(1)
 # ------------------------------
 
 # print the current state at node 4 and at all elements
-# print("node 4 displacement: ", nodeDisp(4))
-model.print(node=4)
-model.print("ele")
+u4 = model.nodeDisp(4)
+print(f"u4 = {u4}")
 

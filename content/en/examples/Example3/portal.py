@@ -242,7 +242,6 @@ def pushover_analysis(model, H=10.0):
 
 
 def main():
-    import matplotlib.pyplot as plt
     # Create the model
     model = create_portal()
 
@@ -256,11 +255,28 @@ def main():
 
     u,p = pushover_analysis(model)
 
-    plt.plot(u,p)
+
+    #
+    # Plot the results
+    #
+    import matplotlib.pyplot as plt
+    # Try using a prettier plotting style
+    try:
+        plt.style.use("typewriter")
+    except:
+        pass 
+    
+    fig, ax = plt.subplots()
+    ax.plot(u,p)
+    ax.set_xlabel("Displacement [in]")
+    ax.set_ylabel("Base Shear [kips]")
     plt.show()
+    fig.savefig("img/pushover-node-3.svg")
+    
 
     # Print the state at node 3
-    model.print("node", 3)
+    u3 = model.nodeDisp(3)
+    print("u3 = ", u3)
 
 if __name__ == "__main__":
     main()

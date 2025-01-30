@@ -16,16 +16,7 @@ This set of examples investigates the nonlinear analysis of a reinforced
 concrete frame. The nonlinear beam column element with a fiber
 discretization of the cross section is used in the model.
 
-These files define the following functions:
-
-| Function             | Description         |
-|----------------------|---------------------|
-| `create_portal`      | Creates a model of a portal frame
-| `gravity_analysis`   | Performs a gravity analysis on a model
-| `pushover_analysis`  | Performs a pushover analysis on a model
-| `transient_analysis` | Performs a transient analysis on a model
-
-## `create_portal`
+## Model Building
 
 The function `create_portal` creates a model representing the portal
 frame in the figure above.
@@ -114,7 +105,7 @@ is created using steel and concrete fibers.
    {{% /tab %}}
    {{< /tabs >}}
 
-3. Define a cross section for the columns
+3. Define a cross section for the columns, following the procedure from the [moment-curvature example](../example2/)
    {{< tabs tabTotal="2" >}}
    {{% tab name="Python" %}}
    ```python
@@ -179,7 +170,7 @@ is created using steel and concrete fibers.
    {{% /tab %}}
    {{< /tabs >}}
 
-## `gravity_analysis`
+## Gravity Analysis
 
 We now implement a function called `gravity_analysis`
 which takes the instance of `Model` returned by `create_portal`,
@@ -204,8 +195,7 @@ gravity_analysis;
 {{% /tab %}}
 {{< /tabs >}}
 
-Inside the function, a single load pattern with a linear time series is created with two vertical nodal
-loads acting at nodes `3` and `4`:
+Inside the function, a single load pattern with a `Linear` time series is created and two vertical nodal loads  are added acting at nodes `3` and `4`:
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
@@ -232,41 +222,43 @@ pattern Plain 1 "Linear" {
 {{< /tabs >}}
 
 
-The model contains material non-linearities, so a solution algorithm of
-type `Newton` is used. 
+The model contains material non-linearities, so a solution algorithm of type `Newton` is used. 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-algorithm Newton;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 model.algorithm("Newton")
 ```
 {{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+algorithm Newton;
+```
+{{% /tab %}}
 {{< /tabs >}}
 
+<!--
 The solution algorithm uses a `ConvergenceTest` which
 tests convergence of the equilibrium solution with the norm of the
 displacement increment vector. 
+-->
 
 For this nonlinear problem, the gravity loads are applied incrementally until the full load is applied. 
 To achieve this, a `LoadControl` integrator is used which advances the solution with
 an increment of `0.1` at each load step. 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-integrator LoadControl 0.1;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 model.integrator("LoadControl", 0.1)
 ```
 {{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+integrator LoadControl 0.1;
+```
+{{% /tab %}}
 {{< /tabs >}}
 
+<!--
 Once all the components of an analysis are defined, the Analysis object
 itself is created. For this problem a Static analysis is defined. 
 {{< tabs tabTotal="2" >}}
@@ -281,17 +273,18 @@ model.analysis("Static")
 ```
 {{% /tab %}}
 {{< /tabs >}}
+-->
 
 To achieve the full gravity load, 10 load steps are performed.
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-analyze 10
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 model.analyze(10)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+analyze 10
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -299,7 +292,7 @@ model.analyze(10)
 At end of analysis, the state at nodes 3 and 4 is printed. The state of
 element 1 is also reported.
 
-
+<!--
 For the two nodes, displacements and loads are given. For the
 beam-column elements, the element end forces in the local system are
 provided.
@@ -308,6 +301,7 @@ The `nodeGravity.out` file contains ten lines, each line containing 7
 entries. The first entry is time in the domain at end of the load step.
 The next 3 entries are the displacements at node 3, and the final 3
 entries the displacements at node 4.
+-->
 
 ## Pushover analysis
 
@@ -316,29 +310,39 @@ domain is reset to `0.0` and the current value of all loads acting are
 held constant. 
 A new load pattern with a linear time series and horizontal loads acting at nodes `3` and `4` is then added to the model.
 
-The static analysis used to perform the gravity load analysis is
-modified to take a new DisplacementControl integrator. At each new step
-in the analysis the integrator will determine the load increment
-necessary to increment the horizontal displacement at node `3` by 0.1 in.
-60 analysis steps are performed in this new analysis.
+The static analysis used to perform the gravity load analysis is 
+modified to use the [`DisplacementControl`](https://opensees.stairlab.io/user/manual/analysis/integrator/DisplacementControl.html) integrator. 
+At each new step
+in the analysis the integrator will determine the load increment necessary to increment the horizontal displacement at node `3` by `0.1` inches. 
+`60` analysis steps are performed in this new analysis.
 
-For this analysis the nodal displacements at nodes 3 and 4 will be
-stored in the file `nodePushover.out` for post-processing. In addition,
+For this analysis the nodal displacements at node `3` will be
+stored in the variable `u` for post-processing. 
+<!--
+In addition,
 the end forces in the local coordinate system for elements 1 and 2 will
-be stored in the file `elePushover.out`. At the end of the analysis, the
+be stored in the file `elePushover.out`. 
+-->
+
+At the end of the analysis, the
 state of node 3 is printed to the screen.
 
-
+<!--
 In addition to what is displayed on the screen, the file `node32.out` and
 `ele32.out` have been created by the script. Each line of `node32.out`
 contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4
-at the end of an iteration. Each line of eleForce.out contains the time,
-and the element end forces in the local coordinate system. A plot of the
-load-displacement relationship at node 3 is shown in
+at the end of an iteration. Each line of `eleForce.out` contains the time,
+and the element end forces in the local coordinate system. 
+-->
+
+A plot of the load-displacement relationship at node 3 is shown in
 the figure below.
 
+<!-- 
+![Load displacement curve for node 3](img/ExampleOut3.2.svg) 
+-->
 
-![Load displacement curve for node 3](ExampleOut3.2.svg)
+![Load displacement curve for node 3](img/pushover-node-3.svg)
 
 
 ## `transient_analysis`
@@ -440,7 +444,8 @@ masses. In addition, the eigenvector components of the eigenvector
 pertaining to the node 3 is also displayed.
 
 In addition to the contents displayed on the screen, three files have
-been created. Each line of `nodeTransient.out` contains the domain time,
+been created. 
+Each line of `nodeTransient.out` contains the domain time,
 and DX, DY and RZ for node 3. Plotting the first and second columns of
 this file the lateral displacement versus time for node 3 can be
 obtained as shown in the figure below. Each line of the files `ele1secForce.out` 
@@ -456,6 +461,16 @@ generate the moment-curvature time history of the base section of column
 ![Column section moment-curvature results](newElement1MK.svg)
 
 ## Complete Analysis
+
+Summarizing, we now have the following functions:
+
+| Function             | Description         |
+|----------------------|---------------------|
+| `create_portal`      | Creates a model of a portal frame
+| `gravity_analysis`   | Performs a gravity analysis on a model
+| `pushover_analysis`  | Performs a pushover analysis on a model
+| `transient_analysis` | Performs a transient analysis on a model
+
 
 A complete analysis may look as follows:
 ```python
@@ -483,6 +498,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 

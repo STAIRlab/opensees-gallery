@@ -1,5 +1,5 @@
 ---
-title: "Example 1: Linear Truss"
+title: "Linear Truss"
 meta:
   title: "A demonstration of modern OpenSees practices using the classic truss finite element model"
 weight: 10
@@ -10,22 +10,21 @@ description: >-
   A finite element model of a simple truss is created,
   and static analysis is performed.
 
-keywords: ["structural analysis", "structural engineering"]
+keywords: ["structural analysis"]
 
 downloads:
-  Tcl: ["Example1.tcl"]
   Python: ["Example1.py"]
+  Tcl: ["Example1.tcl"]
 
 ---
 
-![Example 1.1](img/Example1.svg)
+![Plane truss structure.](img/Example1.svg)
 
 This example is of a linear-elastic three bar truss, as shown in
 the figure above, subject to static loads. The purpose of this
-example is to develop the basic requirements for performing
-finite element analysis with OpenSees.
-This includes the definition of nodes,
-materials, elements, loads and constraints. 
+example is to develop the basic concepts used for performing
+structural analysis with OpenSees.
+This includes the definition of nodes, materials, elements, loads and constraints. 
 
 ## Model
 
@@ -285,14 +284,13 @@ analyze 1
 {{% /tab %}}
 {{< /tabs >}}
 
-When the analysis is complete the state of node `4` and all three elements
-may be printed to the screen:
+When the analysis is complete the state of node `4` obtained using [`nodeDisp`](https://opensees.stairlab.io/user/manual/output/nodeDisp.html) and printed to the screen:
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-model.print(node=4)
-model.print("ele")
+u4 = model.nodeDisp(4)
+print(u4)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
@@ -303,47 +301,17 @@ print ele
 {{% /tab %}}
 {{< /tabs >}}
 
-
+The output looks like:
 ```
-    Node: 4
-            Coordinates  : 72 96 
-            commitDisps: 0.530093 -0.177894 
-            unbalanced Load: 100 -50 
-
-    Element: 1 type: Truss  iNode: 1 jNode: 4 Area: 10 Total Mass: 0 
-             strain: 0.00146451 axial load: 43.9352 
-             unbalanced load: -26.3611 -35.1482 26.3611 35.1482 
-             Material: Elastic tag: 1
-             E: 3000 eta: 0
-
-    Element: 2 type: Truss  iNode: 2 jNode: 4 Area: 5 Total Mass: 0 
-             strain: -0.00383642 axial load: -57.5463 
-             unbalanced load: -34.5278 46.0371 34.5278 -46.0371 
-             Material: Elastic tag: 1
-             E: 3000 eta: 0
-
-    Element: 3 type: Truss  iNode: 3 jNode: 4 Area: 5 Total Mass: 0 
-             strain: -0.00368743 axial load: -55.3114 
-             unbalanced load: -39.1111 39.1111 39.1111 -39.1111 
-             Material: Elastic tag: 1
-             E: 3000 eta: 0
+u4 = [0.5300927771322836, -0.1778936384693177]
 ```
 
-For the node, displacements and loads are given. For the truss elements,
-the axial strain and force are provided along with the resisting forces
-in the global coordinate system.
+When using Python, the `model` variable can be passed directly to the `veux` library's [`render`](https://veux.stairlab.io/library/api/veux.render.html) function as follows:
 
-The file `example.out`, specified in the recorder command, provides
-the nodal displacements for the \(x\) and \(y\) directions of node `4`. 
-The file consists of a single line:
+```python
+import veux
+# Render the model
+artist = veux.render(model, model.nodeDisp, canvas="plotly")
 
-    1.0 0.530093 -0.177894 
-
-The \(1.0\) corresponds to the load factor (pseudo time) in the model at
-which point the recorder was invoked. 
-The \(0.530093\) and \(-0.177894\) correspond to the response at node `4` for the 1 and 2
-degree-of-freedom. 
-Note that if more analysis steps had been performed,
-the line would contain a line for every analysis step that completed
-successfully.
-
+veux.serve(artist)
+```

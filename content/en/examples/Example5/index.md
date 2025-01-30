@@ -1,7 +1,7 @@
 ---
 title: "Frame with Diaphragms"
 tags: ["3D", "Concrete", "Frame", "Python", "Tcl", "Dynamic"]
-categories: ["Basic"]
+weight: 25
 thumbnail: img/examples/Example5.png
 render: model.glb
 description: >-
@@ -154,9 +154,8 @@ perform it's own internal numbering of the equations, a Plain numberer
 is used which simply assigns equation numbers to the degrees-of-freedom.
 -->
 
-Once all the components of an analysis are defined, the Analysis 
-itself is defined. For this problem a `Transient` analysis is used.
-`2000` steps are performed with a time step of `0.01`.
+
+The analysis is performed by analyzing `2000` steps, each over a time step of `0.01`.
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
