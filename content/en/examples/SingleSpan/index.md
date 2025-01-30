@@ -15,7 +15,6 @@ Accordingly, the system has 4 active DOFs. We will:
 2. **Extract** the global stiffness and mass matrices by calling `model.getTangent(k=1)` and `model.getTangent(m=1)`.  
 3. **Condense** out the rotational DOFs to see how to statically reduce a 4×4 matrix down to 2×2.
 
----
 
 ## 1) Static Condensation
 
