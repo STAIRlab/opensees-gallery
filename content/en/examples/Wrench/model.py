@@ -39,7 +39,7 @@ import veux
 import opensees.openseespy as ops
 import numpy as np
 
-angwrench = np.arctan(1/5)
+a = np.arctan(1/5)
 
 # Quadrilateral blocks that comprise the wrench:
 blocks = {
@@ -75,13 +75,13 @@ blocks = {
        1:  [  40,        90],
        5:  [  33,       112],
        2:  [   0,       160],
-       3:  [-50*np.cos(angwrench), 160 + 50*np.sin(angwrench)],
+       3:  [-50*np.cos(a), 160 + 50*np.sin(a)],
        4:  [-115, 160-70   ]},
     7:    {
        1:  [   0,       160],
-       2:  [250*np.sin(angwrench),                      160+250*np.cos(angwrench)],
-       3:  [250*np.sin(angwrench)-50*np.cos(angwrench), 160+250*np.cos(angwrench)],
-       4:  [-50*np.cos(angwrench),                      160+ 50*np.sin(angwrench)]}
+       2:  [250*np.sin(a),                      160+250*np.cos(a)],
+       3:  [250*np.sin(a)-50*np.cos(a), 160+250*np.cos(a)],
+       4:  [-50*np.cos(a),                      160+ 50*np.sin(a)]}
 }
 
 # Subdivisions to create within each block:

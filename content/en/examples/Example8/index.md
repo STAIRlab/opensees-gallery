@@ -1,6 +1,6 @@
 ---
 title: "Continuum Cantilever"
-weight: 20
+weight: 30
 tags: ["Solid", "Dynamic", "Python", "Tcl"]
 categories: ["Basic"]
 description: Dynamic analysis of a cantilever beam, modeled with 8-node brick elements.
@@ -10,6 +10,8 @@ downloads:
   Tcl: ["Example8.tcl"]
   Python: ["Example8.py", "render.py"]
 ---
+
+![alt text](image.png)
 
 In this example a simple problem in solid dynamics is considered. The
 structure is a cantilever beam modelled with three dimensional solid

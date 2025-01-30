@@ -172,3 +172,4 @@ if __name__ == "__main__":
 #   artist.canvas.plot_vectors([R@[*geometry.centroid, 0] for i in range(3)], R.T)
     artist.draw_outlines()
     veux.serve(artist)
+

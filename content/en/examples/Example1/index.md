@@ -56,16 +56,6 @@ a tag which identifies the node, and coordinates in the $x-y$ plane.
 In general, the `node` constructor must be passed `ndm` coordinates.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-# Create nodes & add to domain
-#   tag  X    Y
-node 1   0.0  0.0;
-node 2 144.0  0.0;
-node 3 168.0  0.0;
-node 4  72.0 96.0;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 # Create nodes
@@ -76,21 +66,22 @@ model.node(3, 168.0,  0.0)
 model.node(4,  72.0, 96.0)
 ```
 {{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+# Create nodes & add to domain
+#   tag  X    Y
+node 1   0.0  0.0;
+node 2 144.0  0.0;
+node 3 168.0  0.0;
+node 4  72.0 96.0;
+```
+{{% /tab %}}
 {{< /tabs >}}
 
 The restraints at the nodes with reactions (ie, nodes `1`, `2`, and `3`)
 are then defined.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-# Set the boundary conditions
-#  tag  X  Y
-fix 1   1  1;
-fix 2   1  1;
-fix 3   1  1;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 # set the boundary conditions
@@ -100,25 +91,34 @@ model.fix(2, 1, 1)
 model.fix(3, 1, 1)
 ```
 {{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+# Set the boundary conditions
+#  tag  X  Y
+fix 1   1  1;
+fix 2   1  1;
+fix 3   1  1;
+```
+{{% /tab %}}
 {{< /tabs >}}
 
 
-Since the truss elements have the same elastic material,
-a single Elastic material object is created. The first
+Since the truss elements have the same elastic properties,
+a single `Elastic` material is defined. The first
 argument assigns the tag `1` to the material, and the
 second specifies a Young's modulus of `3000`.
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-# Create Elastic material prototype
-uniaxialMaterial Elastic 1 3000;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 # Create Elastic material prototype
 model.uniaxialMaterial("Elastic", 1, 3000)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+# Create Elastic material prototype
+uniaxialMaterial Elastic 1 3000;
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -132,19 +132,19 @@ the truss element requires the following arguments:
 5. the tag of the material assigned to the element, in this case always `1`
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-element Truss 1 1 4 10.0 1;
-element Truss 2 2 4  5.0 1;
-element Truss 3 3 4  5.0 1;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 #              Type   tag  nodes  Area  material
 model.element("Truss", 1, (1, 4), 10.0,    1   )
 model.element("Truss", 2, (2, 4),  5.0,    1   )
 model.element("Truss", 3, (3, 4),  5.0,    1   )
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+element Truss 1 1 4 10.0 1;
+element Truss 2 2 4  5.0 1;
+element Truss 3 3 4  5.0 1;
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -156,19 +156,20 @@ some loading. In this case we have two point loads at the apex of
 the truss (node `4`).
 In OpenSees, loads are assigned to load *patterns*, which define how loads
 are scaled with each load *step*.
+
 In Python, the simplest way to represent a nodal load is by a dictionary with
 node numbers as keys, and corresponding load vector as values. For the problem at
 hand, we want to apply a load to node `4` with `100` units in the $x$ direction, and
 `-50` units in the $y$ direction; the corresponding definition is:
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-set loads {4 100 -50}
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 loads = {4: [100, -50]}
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+set loads {4 100 -50}
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -177,14 +178,14 @@ We then add a `"Plain"` load pattern to the model with these loads,
 and use the `"Linear"` option
 to specify that it should be increased linearly with each new load step.
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.pattern("Plain", 1, "Linear", load=loads)
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 pattern Plain 1 "Linear" "load $loads"
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.pattern("Plain", 1, "Linear", load=loads)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -195,18 +196,18 @@ Note that it is common to define the `load` data structure
 *inside* the call to the `pattern` function. This looks like:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-pattern Plain 1 "Linear" {
-  load 4 100 -50
-}
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 model.pattern("Plain", 1, "Linear", load={
   4: [100, -50]
 })
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+pattern Plain 1 "Linear" {
+  load 4 100 -50
+}
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -216,26 +217,25 @@ model.pattern("Plain", 1, "Linear", load={
 ## Analysis
 
 Next we configure that analysis procedure.
-The model is linear, so we use a solution Algorithm of type `Linear`. 
+The model is linear, so we use the [`Linear` algorithm](https://opensees.stairlab.io/user/manual/analysis/algorithm/LinearAlgorithm.html). 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-algorithm Linear;
-```
-{{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
 model.algorithm("Linear")
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+algorithm Linear;
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
 Even though the solution is linear, we have to select a procedure for
 applying the load, which is called an `Integrator`. 
-For this problem, a `LoadControl` integrator is selected, which
-advances the solution by incrementing the applied loads by a
-factor of `1.0` each time the `analyze` command is called.
+For this problem, the [`LoadControl` integrator](https://opensees.stairlab.io/user/manual/analysis/integrator/LoadControl.html) is selected, which
+advances the solution by incrementing the load factor by `1.0` each time the `analyze` command is called.
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}

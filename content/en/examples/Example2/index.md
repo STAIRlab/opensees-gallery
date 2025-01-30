@@ -1,6 +1,6 @@
 ---
 title: "Moment-Curvature Analysis"
-weight: 20
+weight: 15
 tags: ["Fiber", "Concrete", "Python", "Tcl"]
 categories: ["Basic", "Inelastic"]
 thumbnail:  img/Section.png
@@ -23,10 +23,9 @@ section.
 
 The figure below shows the fiber discretization for the section.
 
-![Fiber section discretization](./RCsection4.svg)
+![Fiber section discretization](./img/RCsection4.svg)
 
-
-The dimensions of the fiber section are shown in figure [rcsection0](#rcsection0). 
+The dimensions of the fiber section are shown below. 
 The section depth is 24 inches, the width is 15
 inches, and there are 1.5 inches of cover around the entire section.
 
@@ -36,11 +35,10 @@ regions, for which separate fiber discretizations will be generated.
 Reinforcing steel bars will be placed around the boundary of the
 confined and unconfined regions. 
 The fiber discretization for the
-section is shown in
-figure [rcsection4](#rcsection4).
+section is shown below.
 
 
-![Dimensions of the RC section.](./RCsection0.svg)
+![Dimensions of the RC section.](./img/RCsection0.svg)
 
 
 ![Confined concrete](img/confinement.png)
@@ -98,7 +96,7 @@ figure [rcsection0](#rcsection0), is coming out of the page. Node 1 is complete
 restrained, while the applied loads act on node 2. 
 A compressive axial load, $P$, of $180$ kips is applied to the section during the moment-curvature analysis.
 
-![Geometry of the zero-length element](./ZeroLengthSection.svg) 
+![Geometry of the zero-length element](img/ZeroLengthSection.svg) 
 
 For the zero length element, a section discretized by concrete and steel
 is created to represent the resultant behavior. UniaxialMaterial objects
@@ -130,8 +128,7 @@ section deformations.
 A reference moment of `1.0` is defined in a `Linear` time series. 
 For this reference moment, the [`DisplacementControl`](https://opensees.stairlab.io/user/manual/analysis/integrator/DisplacementControl.html)
 integrator will determine the load factor needed to apply the imposed
-displacement. 
-A node recorder is defined to track the moment-curvature results. 
+displacement.
 
 The load factor is the moment, and the nodal rotation is the curvature of the element with zero thickness.
 

@@ -4,6 +4,7 @@ tags: ["Plane", "Python", "Tcl"]
 categories: ["Basic", "Elastic"]
 thumbnail:  img/examples/Example6.png
 render: model.glb
+weight: 30
 description: In this example a simply supported beam is modelled with two dimensional solid elements.
 downloads:
   Tcl: ["Example6.tcl"]

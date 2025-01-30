@@ -1,6 +1,6 @@
 ---
 title: "Inelastic Plane Frame"
-weight: 10
+weight: 20
 tags: ["Frame", "Python", "Tcl", "Concrete"]
 categories: ["Basic", "Inelastic"]
 thumbnail: img/ConcretePortal.png

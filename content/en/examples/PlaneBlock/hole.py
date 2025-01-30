@@ -89,7 +89,7 @@ def hole():
     other = dict(nodes=nodes, cells=cells)
     nodes, cells = create_block(ne, element, points=points, join=other)
 #
-    return nodes, cells 
+    return nodes, cells
 
 def create_model(mesh,
                 thickness=1,
@@ -121,12 +121,13 @@ def create_model(mesh,
     for tag, cell in mesh[1].items():
         model.element(element, tag, tuple(cell), *args)
 
-    # Single-point constraints
-    #            x   (u1 u2)
+    # Fix all nodes with coordinate x=0.0
     for node in find_nodes(model, x=0):
         print("Fixing node ", node)
+        #         tag   (u1 u2)
         model.fix(node, (1, 1))
 
+    # Fix all nodes with coordinate x=L
     for node in find_nodes(model, x=L):
         print("Fixing node ", node)
         model.fix(node, (1, 1))
@@ -135,10 +136,10 @@ def create_model(mesh,
     # create a Plain load pattern with a linear time series
     model.pattern("Plain", 1, "Linear")
 
-    # Fix all nodes with y-coordinate equal to `d`
-    tip = list(find_nodes(model, y=d))
-    for node in tip:
-        model.load(node, (0.0, -load/len(tip)), pattern=1)
+    # Load all nodes with y-coordinate equal to `d`
+    top = list(find_nodes(model, y=d))
+    for node in top:
+        model.load(node, (0.0, -load/len(top)), pattern=1)
 
     return model
 
@@ -171,7 +172,7 @@ if __name__ == "__main__":
 
     stress = {node: stress["sxx"] for node, stress in node_average(model, "stressAtNodes").items()}
 
-    artist.draw_surfaces(field = stress)
+    artist.draw_surfaces(state=model.nodeDisp, field = stress, scale=10)
     artist.draw_outlines()
     veux.serve(artist)
 
