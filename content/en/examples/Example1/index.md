@@ -57,11 +57,11 @@ In general, the `node` constructor must be passed `ndm` coordinates.
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-#         tag    X     Y
-model.node(1,   0.0,  0.0)
-model.node(2, 144.0,  0.0)
-model.node(3, 168.0,  0.0)
-model.node(4,  72.0, 96.0)
+#         tag     X     Y
+model.node(1, (  0.0,  0.0))
+model.node(2, (144.0,  0.0))
+model.node(3, (168.0,  0.0))
+model.node(4, ( 72.0, 96.0))
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
@@ -75,17 +75,20 @@ node 4  72.0 96.0;
 {{% /tab %}}
 {{< /tabs >}}
 
+The restraints are now defined at the nodes with reactions (ie, nodes `1`, `2`, and `3`).
 The restraints at the nodes with reactions (ie, nodes `1`, `2`, and `3`)
-are then defined.
+are then defined. This is done with the [`fix`](https://opensees.stairlab.io/user/manual/model/sp_constraint/fix.html)  method, whose first argument
+is an integer node tag and second argument a tuple containing a `1` or `0`
+for degree of freedom at the node. 
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
 # set the boundary conditions
-#    nodeID xRestrnt? yRestrnt?
-model.fix(1, 1, 1)
-model.fix(2, 1, 1)
-model.fix(3, 1, 1)
+#    nodeID   x  y
+model.fix(1, (1, 1))
+model.fix(2, (1, 1))
+model.fix(3, (1, 1))
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
