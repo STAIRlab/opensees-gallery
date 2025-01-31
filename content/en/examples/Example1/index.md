@@ -174,7 +174,7 @@ set loads {4 100 -50}
 {{% /tab %}}
 {{< /tabs >}}
 
-We then add a `"Plain"` load pattern to the model with these loads, 
+We then add a [`"Plain"`](https://opensees.stairlab.io/user/manual/model/pattern/plainPattern.html) load pattern to the model with these loads, 
 and use the `"Linear"` option
 to specify that it should be increased linearly with each new load step.
 {{< tabs tabTotal="2" >}}
@@ -250,9 +250,9 @@ integrator LoadControl 1.0;
 {{% /tab %}}
 {{< /tabs >}}
 
+<!--
 The equations are formed using a banded system, so the System is `BandSPD` (banded, symmetric
 positive definite).
-<!--
 This is a good choice for most moderate size models.
 The equations have to be numbered, so typically an RCM numberer is used (for Reverse Cuthill-McKee). 
 The constraints are most easily represented with a `Plain` constraint handler.

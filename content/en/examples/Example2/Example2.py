@@ -13,10 +13,7 @@
 # Example Objectives
 # ------------------
 #  Moment-Curvature Analysis in OpenSees
-#
-# Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
-# Date: June 2017
-#
+
 # import the OpenSees Python module
 import opensees.openseespy as ops
 
@@ -41,19 +38,19 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
     """
 
     # Define two nodes at (0,0)
-    model.node(1, 0.0, 0.0)
-    model.node(2, 0.0, 0.0)
+    model.node(1, (0.0, 0.0))
+    model.node(2, (0.0, 0.0))
 
     # Fix all degrees of freedom except axial and bending
-    model.fix(1, 1, 1, 1)
-    model.fix(2, 0, 1, 0)
+    model.fix(1, (1, 1, 1))
+    model.fix(2, (0, 1, 0))
 
     # Define element
     #                               tag ndI ndJ secTag
     model.element("zeroLengthSection", 1, 1, 2, secTag)
 
     # Create recorder
-    model.recorder("Node", "disp", "-file", "section"+str(secTag)+".out", "-time", "-node", 2, "-dof", 3)
+    model.recorder("Node", "disp", file="section"+str(secTag)+".out", time=True, node=2, dof=3)
 
     # Define constant axial load
     model.pattern("Plain", 1, "Constant", loads={2: [axialLoad, 0.0, 0.0]})
@@ -62,7 +59,7 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
     model.system("BandGeneral")
     model.numberer("Plain")
     model.constraints("Plain")
-    model.test("NormUnbalance", 1.0E-9, 10)
+    model.test("NormUnbalance", 1.0e-9, 10)
     model.algorithm("Newton")
     model.integrator("LoadControl", 0.0)
     model.analysis("Static")
@@ -72,7 +69,7 @@ def moment_curvature(model, secTag, axialLoad, maxK, numIncr):
 
     # Define reference moment
     model.pattern("Plain", 2, "Linear")
-    model.load(2, 0.0, 0.0, 1.0)
+    model.load(2, (0.0, 0.0, 1.0), pattern=2)
 
     # Compute curvature increment
     dK = maxK/numIncr

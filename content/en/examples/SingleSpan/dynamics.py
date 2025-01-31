@@ -88,7 +88,6 @@ def condense(K, ic=None, model=None, tol=0.0):
 
     # Kc = Kmm - Kmn*inv(Knn)*Knm
     if len(ix) > 0:
-#       Kc = Kmm - np.dot(Kmn,np.linalg.solve(Knn,Knm))
         Kc = Kmm - Kmn@np.linalg.solve(Knn,Knm)
     else:
         Kc = K
