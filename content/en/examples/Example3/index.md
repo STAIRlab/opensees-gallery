@@ -7,7 +7,7 @@ thumbnail: img/ConcretePortal.png
 description: Nonlinear analysis of a concrete portal frame.
 downloads:
   Python: ["portal.py"]
-  Tcl: ["portal.tcl"]
+  Tcl:    ["portal.tcl"]
 ---
 
 ![Example 3.1](Example2.svg)
@@ -392,25 +392,29 @@ The integrator will add some stiffness proportional damping to the system,
 the damping term will be based on the last committed stifness of the
 elements, i.e. \(C = a_c K_{\text{commit}}\) with \(a_c = 0.000625\). 
 
+<!--
 The equations are formed using a banded storage scheme, so the System is
 BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee)
 numberer. The constraints are enforced with a Plain constraint handler.
+-->
 
 Once all the components of an analysis are defined, the Analysis object
-itself is created. For this problem a Transient Analysis object is used.
+itself is created. For this problem a Transient analysis is used.
 `2000` time steps are performed with a time step of `0.01`.
 
-In addition to the transient analysis, two eigenvalue analysis are
-performed on the model. The first is performed after the gravity
-analysis and the second after the transient analysis.
+In addition to the transient analysis, two eigenvalue evaluations are
+performed. 
+The first is performed after the gravity analysis and the second after the transient analysis.
 
 For this analysis the nodal displacenments at Nodes 3 and 4 will be
 stored in the file `nodeTransient.out` for post-processing. In addition
 the section forces and deformations for the section at the base of
-column 1 will also be stored in two seperate files. The results of the
-eigenvalue analysis will be displayed on the screen.
+column 1 will also be stored in two seperate files. 
+The results of the eigenvalue analysis will be displayed on the screen.
 
 
+<!--
+TODO: Check these
 
 ```
 Gravity load analysis completed
@@ -435,32 +439,33 @@ eigen values at start of transient: 1.578616e+02  1.658481e+04
        -0.00179081 0.00612275 
        0.00663473 3.21404e-05 
 ```
+-->
 
-The two eigenvalues for the eigenvalue analysis are printed to the
-screen. The state of node 3 at the end of the analysis is also printed.
-The information contains the last committed displacements, velocities
-and accelerations at the node, the unbalanced nodal forces and the nodal
-masses. In addition, the eigenvector components of the eigenvector
-pertaining to the node 3 is also displayed.
+The two eigenvalues for the eigenvalue analysis are printed to the terminal. 
+The state of node 3 at the end of the analysis is also printed.
 
+<!--
 In addition to the contents displayed on the screen, three files have
 been created. 
 Each line of `nodeTransient.out` contains the domain time,
 and DX, DY and RZ for node 3. Plotting the first and second columns of
 this file the lateral displacement versus time for node 3 can be
-obtained as shown in the figure below. Each line of the files `ele1secForce.out` 
-and `ele1secDef.out` contain the domain time and the forces and deformations
-for section 1 (the base section) of element 1. These can be used to
-generate the moment-curvature time history of the base section of column
-1 as shown below.
-
+obtained as shown in the figure below. 
+-->
 
 ![Lateral displacement at node 3](newNode3.3.svg)
 
+<!--
+Each line of the files `ele1secForce.out` 
+and `ele1secDef.out` contain the domain time and the forces and deformations
+for section 1 (the base section) of element 1. 
+-->
+
+Element response quantities can be used to generate the moment-curvature time history of the base section of column 1 as shown below.
 
 ![Column section moment-curvature results](newElement1MK.svg)
 
-## Complete Analysis
+## Summary
 
 Summarizing, we now have the following functions:
 
@@ -481,16 +486,12 @@ def main():
     # perform analysis under gravity loads
     status = gravity_analysis(model)
 
-    if status == ops.successful:
-        print("Gravity analysis completed SUCCESSFULLY\n")
-    else:
+    if status != ops.successful:
         print(f"Gravity analysis FAILED ({status = })\n")
 
     status = pushover_analysis(model)
     # Print a message to indicate if analysis successful or not
-    if status == ops.successful:
-        print(f"\nPushover analysis completed SUCCESSFULLY\n")
-    else:
+    if status != ops.successful:
         print(f"Pushover analysis FAILED ({status = })\n")
 
     # Print the state at node 3

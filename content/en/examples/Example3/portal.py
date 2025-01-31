@@ -6,17 +6,22 @@
 # 
 # ===----------------------------------------------------------------------===//
 #
+# This file defines various functions to create and analyze a portal frame. 
+# The main function is called main. This calls the following functions:
 #
-# Units: kips, in, sec  
-#
-# Written: GLF/MHS/fmk
-# Date: January 2001
-#
-# OpenSeesPy Version
-#   Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
-#   Date: June 2017
+#   create_portal(width, height) - create the model
+#   gravity_analysis(model, P) - perform gravity analysis
+#   pushover_analysis(model, H) - perform pushover analysis
+#   dynamic_analysis(model) - perform dynamic analysis
 #
 import opensees.openseespy as ops
+
+def eigen(model):
+    from scipy.linalg import eig
+    m = model.getTangent(m=1)
+    k = model.getTangent(k=1)
+    w, v = eig(k, m)
+    return w
 
 def create_portal(width  = 360.0, height = 144.0):
 
@@ -25,15 +30,15 @@ def create_portal(width  = 360.0, height = 144.0):
 
     # Create nodes
     # ------------
-    # create nodes & add to Domain - command: node nodeId xCrd yCrd
-    model.node(1, 0.0,      0.0)
-    model.node(2, width,    0.0)
-    model.node(3, 0.0,   height)
-    model.node(4, width, height)
+    # create nodes with tag, (x, y)
+    model.node(1, (0.0,      0.0))
+    model.node(2, (width,    0.0))
+    model.node(3, (0.0,   height))
+    model.node(4, (width, height))
 
     # set the boundary conditions - command: fix nodeID uxRestrnt? uyRestrnt? rzRestrnt?
-    model.fix(1, 1, 1, 1)
-    model.fix(2, 1, 1, 1)
+    model.fix(1, (1, 1, 1))
+    model.fix(2, (1, 1, 1))
 
     # Define materials for nonlinear columns
     # ------------------------------------------
@@ -41,7 +46,7 @@ def create_portal(width  = 360.0, height = 144.0):
     # Core concrete (confined)
     model.uniaxialMaterial("Concrete01", 1, -6.0, -0.004, -5.0, -0.014)
     # Cover concrete (unconfined)
-    model.uniaxialMaterial("Concrete01", 2, -5.0, -0.002, -0.0, -0.006)
+    model.uniaxialMaterial("Concrete01", 2, -5.0, -0.002,  0.0, -0.006)
 
     # STEEL
     # Reinforcing steel 
@@ -77,37 +82,39 @@ def create_portal(width  = 360.0, height = 144.0):
     # define beam integration
     np = 5;  # number of integration points along length of element
 
-    model.beamIntegration("Lobatto", 1, 1, np)
+    # model.beamIntegration("Lobatto", 1, 1, np)
 
     # Define column elements
     # ----------------------
     # Geometry of column elements
-    #                       tag 
+    #                         tag 
     model.geomTransf("PDelta", 1)
 
     # Create the columns using Beam-column elements
     #                              tag   nodes trn itg
-    model.element("ForceBeamColumn", 1, (1, 3), 1, 1)
-    model.element("ForceBeamColumn", 2, (2, 4), 1, 1)
+    model.element("forceBeamColumn", 1, (1, 3), np, 1,  1)
+    model.element("forceBeamColumn", 2, (2, 4), np, 1,  1)
 
     # Define girder element
     # -----------------------------
-    # Geometry of column elements
+    # Geometry of girder element
     #                         tag 
     model.geomTransf("Linear", 2)
 
-    # Create the beam element
+    # Create the girder element
     #                                tag  nodes     A      E       Iz   transfTag
-    model.element("ElasticBeamColumn", 3, (3, 4), 360.0, 4030.0, 8640.0, 2)
+    model.element("elasticBeamColumn", 3, (3, 4), 360.0, 4030.0, 8640.0, 2)
 
     return model
 
-def gravity_analysis(model, P=180.0):
+def gravity_analysis(model, P=180.0)->int:
+  # initialize in case we need to do an initial stiffness iteration
+    model.initialize()
     #
     # Define gravity loads
     # --------------------
     # Set a parameter for the axial load
-#   P = 180.0;                # 10% of axial capacity of columns
+#   P = 180.0;  # 10% of axial capacity of columns
 
     # Create a Plain load pattern
     #               Type  tag timeSeries loads
@@ -117,19 +124,20 @@ def gravity_analysis(model, P=180.0):
          4:   [ 0.0,   -P,   0.0]
     })
 
-    # ------------------------------
     # Start of analysis generation
     # ------------------------------
 
     # Create the system of equation
-    model.system("BandGeneral")
+    model.system("ProfileSPD")
 
-    # Create the constraint handler, a Plain handler is used as homo constraints
-    model.constraints("Plain")
+    # Create the constraint handler, the transformation method
+    model.constraints("Transformation")
+
+    model.numberer("RCM")
 
     # create the convergence test, the norm of the residual with a tolerance of 
     # 1e-12 and a max number of iterations of 10
-    model.test("NormDispIncr", 1.0e-12, 10, 3)
+    model.test("NormDispIncr", 1.0e-12, 10)
 
     # create the solution algorithm, a Newton-Raphson algorithm
     model.algorithm("Newton")
@@ -140,14 +148,11 @@ def gravity_analysis(model, P=180.0):
     # Define the analysis type
     model.analysis("Static")
 
+    # 
+    # FPerform the analysis
     # ------------------------------
-    # Finally perform the analysis
-    # ------------------------------
-
     # perform the gravity load analysis in 10 steps to reach the load level
-    status = model.analyze(10)
-
-    return status
+    return model.analyze(10)
 
 
 def pushover_analysis(model, H=10.0):
@@ -184,7 +189,6 @@ def pushover_analysis(model, H=10.0):
     # Start of modifications to analysis for push over
     # ----------------------------------------------------
 
-    # Set some parameters
     dU = 0.1;	        # Displacement increment
 
     # Set the integration scheme to be displacement control
@@ -208,37 +212,127 @@ def pushover_analysis(model, H=10.0):
 
     # If the previous attempt was not successful, try
     # more complitated strategies
-    if True : # status != ops.successful:
+
+    u.append(model.nodeDisp(3, 1))
+    p.append(model.getTime())
+
+    status = ops.successful
+
+    # Analyze in single steps until either (1) we reach maxU,
+    # or (2) the analysis fails
+    while status == ops.successful and u[-1] < maxU:
+
+        status = model.analyze(1)
+
+        # if the analysis failed, try initial tangent iteration
+        if status != ops.successful:
+            print("... Newton failed, trying initial stiffness")
+            model.test("NormDispIncr", 1.0e-12, 1000, 5)
+            model.algorithm("ModifiedNewton", initial=True)
+            status = model.analyze(1)
+            if status == ops.successful:
+                print("... that worked, back to regular Newton")
+
+            model.test("NormDispIncr", 1.0e-12, 10)
+            model.algorithm("Newton")
 
         u.append(model.nodeDisp(3, 1))
         p.append(model.getTime())
 
-        status = ops.successful
-
-        # Analyze in single steps until either (1) we reach maxU,
-        # or (2) the analysis fails
-        while status == ops.successful and u[-1] < maxU:
-
-            status = model.analyze(1)
-
-            # if the analysis failed, try initial tangent iteration
-            if status != ops.successful:
-                print("regular newton failed .. lets try an initial stiffness for this step")
-                model.test("NormDispIncr", 1.0e-12, 1000)
-                model.algorithm("ModifiedNewton", "-initial")
-                status = model.analyze(1)
-                if status == ops.successful:
-                    print("that worked .. back to regular Newton")
-                model.test("NormDispIncr", 1.0e-12, 10)
-                model.algorithm("Newton")
-
-            u.append(model.nodeDisp(3, 1))
-            p.append(model.getTime())
-
     if status != ops.successful:
-        raise Exception("Analysis failed")
+        raise Exception("Pushover analysis failed")
 
     return u, p
+
+
+def dynamic_analysis(model):
+
+  # ----------------------------------------------------
+  # Start of additional modeling for dynamic loads
+  # ----------------------------------------------------
+
+  # Set the gravity loads to be constant & reset the time in the domain
+  model.loadConst(time=0.0)
+
+  # Define nodal mass in terms of axial load on columns
+  g = 386.4
+  P = 180
+  m = P/g
+
+  #         tag  MX  MY   RZ
+  model.mass( 3, (m,  m,  0.0))
+  model.mass( 4, (m,  m,  0.0))
+
+  outFile = "out/ARL360.in"
+  dt = 0.02
+
+  # Set time series to be passed to uniform excitation
+  model.timeSeries('Path', 1, filePath=outFile,  dt=dt,  factor=g)
+
+
+  # Create UniformExcitation load pattern
+  #                                 tag  dir 
+  model.pattern("UniformExcitation",  2,  1, accel=1)
+
+
+  # set the rayleigh damping factors for nodes & elements
+  model.rayleigh(0.0, 0.0, 0.0, 0.000625)
+
+  # ---------------------------------------------------------
+  # Start of modifications to analysis for transient analysis
+  # ---------------------------------------------------------
+
+  # Clear the old analysis settings
+  model.wipeAnalysis()
+
+  model.system('BandGeneral')
+
+  model.constraints('Plain')
+
+  # Create the convergence test, the norm of the residual with a tolerance of 
+  # 1e-12 and a max number of iterations of 10
+  model.test('NormDispIncr', 1.0e-12, 10)
+
+  model.algorithm('Newton')
+
+  # Create the integration scheme, the Newmark with alpha =0.5 and beta =.25
+  model.integrator('Newmark',  0.5,  0.25)
+
+  model.analysis('Transient')
+
+#   model.recorder('EnvelopeNode', "disp",  time=True, file='out/disp.out', node=(3, 4), dof=1)
+#   model.recorder('EnvelopeNode', "accel", time=True, file='out/accel.out', timeSeries=1,  node=(3, 4), dof=1)
+
+#   model.recorder('Element', "force", time=True, file='out/ele1secForce.out', ele=1, section=1)
+#   model.recorder('Element', "deformation", time=True, file='out/ele1secDef.out',   ele=1, section=1)
+
+  # ------------------------------
+  # Finally perform the analysis
+  # ------------------------------
+  print(eigen(model))
+  print(f"... eigen values at start of transient: {model.eigen(2)}")
+
+  step = 0.01
+
+  for i in range(2000):
+  # while  status == 0  and  tCurrent < tFinal:
+
+      status = model.analyze(1, step)
+
+      if status != 0:
+          print("... Newton failed, trying initial stiffness")
+          model.test('NormDispIncr', 1.0e-12,  100, 0)
+          model.algorithm('ModifiedNewton', initial=True)
+          status = model.analyze(1, step)
+          if status == 0:
+              print("... that worked, back to regular Newton")
+          else:
+              raise RuntimeError("Dynamic analysis failed")
+
+          model.test('NormDispIncr', 1.0e-12,  10)
+          model.algorithm('Newton')
+
+  return status
 
 
 def main():
@@ -247,14 +341,20 @@ def main():
 
     # perform analysis under gravity loads
     status = gravity_analysis(model)
-
     if status == ops.successful:
-        print("Gravity analysis completed SUCCESSFULLY\n")
+        print("Gravity analysis SUCCESSFUL\n")
     else:
         print(f"Gravity analysis FAILED ({status = })\n")
 
+    # Print the state at node 3
+    u3 = model.nodeDisp(3)
+    print("u3 = ", u3)
+
     u,p = pushover_analysis(model)
 
+    # Print the state at node 3
+    u3 = model.nodeDisp(3)
+    print("u3 = ", u3)
 
     #
     # Plot the results
@@ -264,19 +364,36 @@ def main():
     try:
         plt.style.use("typewriter")
     except:
-        pass 
-    
+        pass
+
     fig, ax = plt.subplots()
     ax.plot(u,p)
     ax.set_xlabel("Displacement [in]")
     ax.set_ylabel("Base Shear [kips]")
     plt.show()
     fig.savefig("img/pushover-node-3.svg")
-    
 
-    # Print the state at node 3
-    u3 = model.nodeDisp(3)
-    print("u3 = ", u3)
+
+    #
+    # Dynamic analysis
+    #
+
+    # Create the model
+    model = create_portal()
+    gravity_analysis(model)
+
+    # Perform the dynamic analysis
+    status = dynamic_analysis(model)
+
+    # Print a message to indicate if analysis successful or not
+    if status == 0:
+        print("Transient analysis SUCCESSFUL")
+    else:
+        print("Transient analysis FAILED")
+
+    # Perform an eigenvalue analysis
+    print(f"... eigen values at end of transient: {model.eigen(2)}")
+
 
 if __name__ == "__main__":
     main()
