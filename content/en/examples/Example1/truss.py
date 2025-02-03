@@ -70,6 +70,9 @@ if __name__ == "__main__":
     model.analyze(1)
 
     # Render the model
+    artist = veux.render(model, canvas="gltf")
+    artist.draw_outlines(state=model.nodeDisp, scale=10.0)
+    veux.serve(artist)
     artist = veux.render(model, model.nodeDisp, canvas="plotly")
 
     veux.serve(artist)

@@ -13,7 +13,7 @@ description: >-
 keywords: ["structural analysis"]
 
 downloads:
-  Python: ["Example1.py"]
+  Python: ["Example1.py", "truss.py"]
   Tcl: ["Example1.tcl"]
 
 ---
