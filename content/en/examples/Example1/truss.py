@@ -5,29 +5,25 @@
 # 
 # ===----------------------------------------------------------------------===//
 #
-# Basic Truss Example 1.1
+# Basic Truss
 #
 import veux
 import opensees.openseespy as ops
-
-# ------------------------------
-# Start of model generation
-# ------------------------------
 
 def create_truss():
     # Create a Model (with two-dimensions and 2 DOF/node)
     model = ops.Model(ndm=2, ndf=2)
 
     # Create nodes - command: node nodeId xCrd yCrd
-    model.node(1,   0.0,  0.0)
-    model.node(2, 144.0,  0.0)
-    model.node(3, 168.0,  0.0)
-    model.node(4,  72.0, 96.0)
+    model.node(1, (  0.0,  0.0))
+    model.node(2, (144.0,  0.0))
+    model.node(3, (168.0,  0.0))
+    model.node(4, ( 72.0, 96.0))
 
     # set the boundary conditions - command: fix nodeID xRestrnt? yRestrnt?
-    model.fix(1, 1, 1)
-    model.fix(2, 1, 1)
-    model.fix(3, 1, 1)
+    model.fix(1, (1, 1))
+    model.fix(2, (1, 1))
+    model.fix(3, (1, 1))
 
     # Define materials for truss elements
     # -----------------------------------
@@ -40,10 +36,6 @@ def create_truss():
     model.element("Truss", 1, (1, 4), 10.0, 1)
     model.element("Truss", 2, (2, 4),  5.0, 1)
     model.element("Truss", 3, (3, 4),  5.0, 1)
-
-    # Define loads
-    # ------------
-    # Define the load at node 4 with components 100 and -50 in x and y;
 
     return model
 
