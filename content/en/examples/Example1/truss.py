@@ -43,30 +43,25 @@ def create_truss():
 
     # Define loads
     # ------------
-    # Define the load at node 4 with components 100 and -50 in x and y:
-    load = {4: [100, -50.0]}
-
-    # Assign the load to a "Plain" load pattern and scale its load factor linearly in time.
-    model.pattern("Plain", 1, "Linear", load=load)
-
-
-    # ------------------------------
-    # Start of analysis generation
-    # ------------------------------
-
-    # create the solution algorithm, a Linear algorithm is created
-    model.algorithm("Linear")
-
-    # create the integration scheme, the LoadControl scheme using steps of 1.0
-    model.integrator("LoadControl", 1.0)
-
-    # create the analysis object 
-    model.analysis("Static")
+    # Define the load at node 4 with components 100 and -50 in x and y;
 
     return model
 
 if __name__ == "__main__":
     model = create_truss()
+
+    # Assign the load to a "Plain" load pattern and scale its load factor linearly in time.
+    model.pattern("Plain", 1, "Linear", load={4: [100, -50.0]})
+
+    # Set the algorithm to "Linear"
+    model.algorithm("Linear")
+
+    # Create the integration scheme, the LoadControl scheme using steps of 1.0
+    model.integrator("LoadControl", 1.0)
+
+    # Create the analysis object 
+    model.analysis("Static")
+
     model.analyze(1)
 
     # Render the model

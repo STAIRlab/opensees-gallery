@@ -8,7 +8,7 @@ draft: false
 
 A variety of periodic truss structures are investigated. This class of
 models was investigated by <cite key="kaveh2010optimum"></cite>.
-All figures have been produced with [`veux`](https://veux.stairlab.io).
+All figures have been produced with [`veux`](https://veux.io).
 
 {{< nav type="tabs" id="tabs-1" >}}
   {{< nav-item header="120" show="true" >}}

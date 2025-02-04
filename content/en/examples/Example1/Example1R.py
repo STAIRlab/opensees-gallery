@@ -10,10 +10,9 @@
 # Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
 # Date: June 2017
 
-# import the OpenSeesPy Compatiblity module.
+# import the OpenSeesPy compatiblity module.
 import opensees.openseespy as ops
 
-# ------------------------------
 # Start of model generation
 # ------------------------------
 
@@ -21,15 +20,15 @@ import opensees.openseespy as ops
 model = ops.Model(ndm=2, ndf=2)
 
 # Create nodes - command: node nodeId xCrd yCrd
-model.node(1,   0.0,  0.0)
-model.node(2, 144.0,  0.0)
-model.node(3, 168.0,  0.0)
-model.node(4,  72.0, 96.0)
+model.node(1, (  0.0,  0.0))
+model.node(2, (144.0,  0.0))
+model.node(3, (168.0,  0.0))
+model.node(4, ( 72.0, 96.0))
 
 # set the boundary conditions - command: fix nodeID xRestrnt? yRestrnt?
-model.fix(1, 1, 1)
-model.fix(2, 1, 1)
-model.fix(3, 1, 1)
+model.fix(1, (1, 1))
+model.fix(2, (1, 1))
+model.fix(3, (1, 1))
 
 # Define materials for truss elements
 # -----------------------------------

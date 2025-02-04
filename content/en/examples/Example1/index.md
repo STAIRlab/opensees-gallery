@@ -309,7 +309,7 @@ The output looks like:
 u4 = [0.5300927771322836, -0.1778936384693177]
 ```
 
-When using Python, the `model` variable can be passed directly to the `veux` library's [`render`](https://veux.stairlab.io/library/api/veux.render.html) function as follows:
+When using Python, the `model` variable can be passed directly to the `veux` library's [`render`](https://veux.io/library/api/veux.render.html) function as follows:
 
 ```python
 import veux
