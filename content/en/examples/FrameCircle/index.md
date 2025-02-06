@@ -2,6 +2,8 @@
 title: Finite Rotations
 description: This problem highlights the exceptional accuracy of the ExactFrame formulation for simulating large deformations
 thumbnail: img/examples/FrameCircle.png
+bibliography: references.json
+render: spiral.glb
 downloads:
   Python: ["requirements.txt", "plane_moment.py"]
   MATLAB: ["E21_PlaneMoment.m"]
@@ -13,22 +15,8 @@ $\boldsymbol{M}$ or a point force $F \, \mathbf{E}_3$ at its free end $\xi=L$.
 The centerline of the reference configuration is given by
 $\boldsymbol{x}_0(\xi) = \xi\,\mathbf{E}_1$. 
 
-<figure id="fig:cantilever">
-<figure id="fig:helical-a">
-<img src="img/Figure_1a.png" style="width:80.0%" />
-<figcaption><span
-class="math inline"><em>λ</em> = 0.7</span></figcaption>
-</figure>
-<figure id="fig:helical-b">
-<img src="img/Figure_1b.png" style="width:80.0%" />
-<figcaption><span class="math inline"><em>λ</em> = 2</span></figcaption>
-</figure>
-<figcaption>Deformed configuration of cantilever beam under two moment magnitudes.</figcaption>
-</figure>
 
-
-
-### End Moment
+## End Moment
 
 When $F = 0$ the configuration is expected to remain in the $\mathbf{E}_1 - \mathbf{E}_2$ plane. 
 Consequently, the out-of-plane director $\mathbf{D}_3$ does not change during deformation so that
@@ -75,11 +63,9 @@ $$
 
 The simulation uses a *single* load step with uniform
 meshes of 5 and 10 elements for the 2-node and 3-node variants of all
-formulations in
-Table [\[tab:variants\]](#tab:variants){reference-type="ref"
-reference="tab:variants"}. The solution requires only two iterations for
-each formulation matching the ideal performance reported by
-[@simo1986threedimensional]. 
+formulations investigated by <cite key="perez2024nonlinear"></cite>. 
+The solution requires only two iterations for
+each formulation matching the ideal performance reported by <cite key="simo1986threedimensional"></cite>. 
 The tip displacements for the case $\lambda = 1/8$ are collected in
 below along with the analytic solution of the governing boundary value problem is given by: 
 
@@ -89,24 +75,40 @@ $$\left\{
                       + \frac{EI}{M}\left(\cos \vartheta(\xi)-1\right) \, \mathbf{E}_2 \\
     \vartheta(\xi)   &=  \xi \frac{M}{EI}
   \end{aligned}
-  \right.$$ 
+\right.
+$$
 
 where $\vartheta$ parameterizes the rotation
 $\boldsymbol{\Lambda}(\xi) = \operatorname{Exp} \vartheta(\xi) \, \mathbf{E}_3$.
-This result is derived in
-Appendix [\[sec:closed-solution\]](#sec:closed-solution){reference-type="ref"
-reference="sec:closed-solution"}. The displacements for $n=2$-node
-elements match exactly those reported by
-[@ibrahimbegović1995computational] for both the natural `None`, and the
-logarithmic `Init`/`Incr` variants. For $n=3$-node elements, the results
-match the analytic solution up to the reported precision.
+The displacements for $n=2$-node elements match exactly those reported by
+<cite key="ibrahimbegović1995computational"></cite> for both the natural `None`, and the
+logarithmic `Init`/`Incr` variants. 
+For $n=3$-node elements, the results match the analytic solution up to the reported precision.
 
-### End Force
+<figure id="fig:cantilever">
+<figure id="fig:helical-a">
+<img src="img/Figure_1a.png" style="width:80.0%" />
+<figcaption><span
+class="math inline"><em>λ</em> = 0.7</span></figcaption>
+</figure>
+<figure id="fig:helical-b">
+<img src="img/Figure_1b.png" style="width:80.0%" />
+<figcaption><span class="math inline"><em>λ</em> = 2</span></figcaption>
+</figure>
+<figcaption>Deformed configuration of cantilever beam under two moment magnitudes.</figcaption>
+</figure>
+
+
+
+## End Force
 
 In this case the cantilever beam is subjected only to a transverse force
 of $\boldsymbol{F} = 10 \, \mathbf{E}_2$ in a single step. The
 simulation uses the following geometric and material properties from the
-literature: $$\begin{array}{lr}
+literature: 
+
+$$
+\begin{array}{lr}
 L  =&    1 \\
 E  =&   10 \\
 \hphantom{.}
@@ -117,15 +119,20 @@ E  =&   10 \\
 A  =&   10^7 \\
 I  =&    1   \\
 J  =&   10^7 \\
-\end{array}$$ Two values for the shear modulus $G$ are used with a shear
+\end{array}
+$$
+
+Two values for the shear modulus $G$ are used with a shear
 stiffness $GA$ of $500$ and $10$, respectively, the latter representing
 the case with significant shear deformations.
-Table [\[tab:transv\]](#tab:transv){reference-type="ref"
-reference="tab:transv"} presents the numerical tip displacements and the
-analytic solution from [@batista2016closedform] using Jacobi elliptic
+Table (#tab:transv) presents the numerical tip displacements and the
+analytic solution from <cite key="batista2016closedform"></cite> using Jacobi elliptic
 functions and accounting for flexural and shear deformations. The
 analysis uses both 2-node and 4-node elements. For the sake of brevity,
 the results are reported only for the variants using the same
 parameterization as the wrapped element's interpolation.
 
 
+# References
+
+<div id="bibliography-list"></div>
