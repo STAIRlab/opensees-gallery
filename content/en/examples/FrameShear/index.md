@@ -11,7 +11,7 @@ downloads:
 
 This example implements the analysis presented in the AISC steel manual.
 
-{{< fold aisc.py >}}
+{{< fold aisc.py "source code" >}}
 
 The source code for this example is adapted from https://github.com/denavit/OpenSees-Examples
 
