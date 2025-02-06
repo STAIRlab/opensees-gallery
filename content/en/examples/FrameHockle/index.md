@@ -5,6 +5,8 @@ bibliography: references.json
 tags: ["Frame", "CE221"]
 render: hockle.glb
 description: Geometrically nonlinear analysis of a shaft buckling under torsion.
+downloads:
+  MATLAB: ["E50_Hockling.m"]
 ---
 
 
@@ -84,7 +86,9 @@ class="math inline"><em>τ</em> = 60</span></figcaption>
 <span class="math inline"><em>τ</em></span>.</figcaption>
 </figure>
 
-This investigation leveraged the [`FEDEASLab`](https://fedeas.net/Functions/latest/) toolbox for nonlinear finite element analysis.
+This investigation leveraged the <a href="https://fedeas.net" style="pointer-events: none;"><code>FEDEASLab</code></a> toolbox for nonlinear finite element analysis.
+Documentation is under development and expected to be published in Summer 2025.
+Source code for the geometric transformation framework is available on [GitHub](https://github.com/claudioperez/GeometricTransformations).
 
 # References
 
