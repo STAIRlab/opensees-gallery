@@ -17,9 +17,6 @@ Corotational frame elements are used to approximate Euler's buckling load which 
 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2}
 \]
 
-This example is adapted from https://github.com/denavit/OpenSees-Examples .
-
-
 ## Theory
 
 Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. 

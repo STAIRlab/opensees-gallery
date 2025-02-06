@@ -30,8 +30,8 @@ def create_prism(element,
 
     # Material
     material = dict(
-        E    = 29000*ksi,
-        nu   = -0.5
+        E    = 1, #29000*ksi,
+        nu   = 0.2  #-0.5
     )
 
     #
@@ -64,18 +64,19 @@ def test_stif(elem):
 #   model.integrator("Newmark", 1/2, 1/4)
 #   model.analyze(1, 0.01)
 
-#   model.print("-json")
 
-    if False:
-        for i in range(500):
-            model.analyze(1)
-            model.getTangent(k=1)
+    tangent = model.invoke("section", 1, [
+                           "update  0 0 0 0 0 0;",
+                           "tangent"
+            ])
+
+    n = int(np.sqrt(len(tangent)))
+    print(pd.DataFrame(np.round(np.array(tangent), 4).reshape(n,n)))
 
 
 
     K = model.getTangent(k=1)
 
-    # Round and print
     K = np.round(K, 4)
 
     print(pd.DataFrame(K))

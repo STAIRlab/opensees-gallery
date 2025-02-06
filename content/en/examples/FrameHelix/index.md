@@ -1,5 +1,5 @@
 ---
-title: Spatial Response of Cantilever Beam Under End Moment and End Force
+title: Helical Forms
 description: A highly geometrically nonlinear problem is solved with the geometrically exact frame element formulation.
 bibliography: references.json
 render: spiral.glb
@@ -10,7 +10,8 @@ $\boldsymbol{M}$ and a point force $F \, \mathbf{E}_3$ at its free end
 $\xi=L$. 
 This example is selected to demonstrate the ability of the
 proposed formulations to naturally accommodate applied moments in
-various reference frames. It also highlights the accuracy and
+various reference frames. 
+It also highlights the accuracy and
 convergence characteristics of the formulations. 
 Three common variations of this problem are considered with the following properties:
 
@@ -28,7 +29,7 @@ Three common variations of this problem are considered with the following proper
 \end{array}
 \]
 
-The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/ExactFrame.html) element formulation from OpenSees is employed.
+The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/frame/ExactFrame.html) element formulation from OpenSees is employed.
 
 ### Simple Perturbation
 

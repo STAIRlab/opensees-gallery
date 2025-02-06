@@ -7,6 +7,8 @@ render: solution.glb
 description: >-
  Several nonlinear static analysis methods are used to investigate
  instabilities in a shallow arch.
+downloads:
+  Python: ["arch3D.py", "requirements.txt"]
 ---
 
 

@@ -10,7 +10,7 @@ def rectangle(b, d):
 
 
 def channel(t, w, h, b):
-    mesh = create_mesh(mesh_size=min(w,t)/4.5, patches=[
+    mesh = create_mesh(mesh_size=min(w,t)/2.5, patches=[
         patch.rect(corners=[[0,  h/2-t], [b,  h/2  ]]),
         patch.rect(corners=[[0, -h/2+t], [w,  h/2-t]]),
         patch.rect(corners=[[0, -h/2  ], [b, -h/2+t]]),
@@ -27,6 +27,9 @@ def angle(t, b, d):
 
 
 def wide_flange(d, b, t=None, tw=None, tf=None):
+    """
+    Saritas and Filippou (2009) "Frame Element for Metallic Shear-Yielding Members under Cyclic Loading"
+    """
     bf = b
     if tf is None:
         tf = t
@@ -38,7 +41,7 @@ def wide_flange(d, b, t=None, tw=None, tf=None):
     yoff = ( d - tf) / 2
     zoff = (bf + tw) / 4
 
-    # Shear
+    # Shear from Saritas and Filippou (2009)
     # Ratio of total flange area to web area
     alpha = 2*b*tf/d/(2*tw);
     # NOTE: This is 1/beta_S where beta_S is Afsin's beta
@@ -46,7 +49,7 @@ def wide_flange(d, b, t=None, tw=None, tf=None):
     def psi(y, z):
         # webs
         if abs(y) < (d/2-tf):
-            return beta*((1+2*alpha) - (2*y/d)**2) - 1
+            return beta*((1+2*alpha) - (2*y/d)**2) - 1 #+ 1
         # flange
         else:
             return 0 # beta*(2*alpha)*(z/b) - 1

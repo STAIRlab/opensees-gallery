@@ -2,6 +2,7 @@
 title: "Example 4: Multibay Two Story Frame"
 tags: ["Frame", "2D", "Tcl", "Python"]
 categories: ["Basic"]
+draft: true
 thumbnail: img/examples/Example4.png
 description: A multi-bay reinforced concrete frame is investigated.
 downloads:
