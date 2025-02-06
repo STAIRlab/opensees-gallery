@@ -133,6 +133,6 @@ the results are reported only for the variants using the same
 parameterization as the wrapped element's interpolation.
 
 
-# References
+## References
 
 <div id="bibliography-list"></div>
