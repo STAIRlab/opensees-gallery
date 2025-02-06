@@ -3,6 +3,7 @@ title: Helical Forms
 description: A highly geometrically nonlinear problem is solved with the geometrically exact frame element formulation.
 bibliography: references.json
 render: spiral.glb
+thumbnail: img/examples/FrameHelix.png
 ---
 
 A cantilever beam is subjected to a *combined* point moment
