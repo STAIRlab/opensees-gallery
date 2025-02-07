@@ -32,16 +32,21 @@ This simplification has two important consequences:
   different configurations $\chi^{(i)}$ can be added, and the sum of
   these variations over the course of global equilibrium iterations is
   equivalent to the logarithmic rotation increment:
-  $$\sum_{i=0}^n \boldsymbol{u}_{\scriptscriptstyle{\Lambda}}^{(i)} \equiv \boldsymbol{\theta} 
-       = \operatorname{Log} \left(\boldsymbol{\Lambda}_{(n)}\boldsymbol{\Lambda}_{(0)}^{\mathrm{t}}\right).$$
+
+  $$
+  \sum_{i=0}^n \boldsymbol{u}_{\scriptscriptstyle{\Lambda}}^{(i)} \equiv \boldsymbol{\theta} 
+       = \operatorname{Log} \left(\boldsymbol{\Lambda}_{(n)}\boldsymbol{\Lambda}_{(0)}^{\mathrm{t}}\right).
+  $$
 
 In this case, the moment loading can be treated identically for all
 analyses by simply scaling a constant *reference* force vector for the
 node at $\xi=L$: 
 
-$$\mathbf{f}_{M,\text{ref}} = \begin{pmatrix}
+$$
+\mathbf{f}_{M,\text{ref}} 
+= \begin{pmatrix}
      0 & 0 & M
-  \end{pmatrix}^{\mathrm{t}}
+\end{pmatrix}^{\mathrm{t}}
 $$
 
 where the reference magnitude $M = \lambda 2 \pi EI/L$ varies with $\lambda=1/8, \ 1$, and $2$ for
