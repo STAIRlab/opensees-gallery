@@ -2,6 +2,7 @@
 title: Shell undergoing finite rotations
 render: circle.glb
 thumbnail: img/examples/ShellCircle.png
+description: Geometrically nonlinear analysis of a cantilever rolling up under the action of a point moment, performed with shell finite elements.
 downloads:
   Python: ["circle.py",  "requirements.txt"]
   Tcl:    ["circle.tcl", "requirements.txt"]
