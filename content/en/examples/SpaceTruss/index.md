@@ -37,6 +37,9 @@ This model is investigated by <cite key="kaveh2022optimal"></cite>
 
 {{< /nav >}}
 
+The following code block contains the source code used to generate these
+models. In particular, the function `revolve()` takes a representative segment
+and generates a full model by revolving the nodes and elements.
 
 {{< fold revolve.py >}}
 
