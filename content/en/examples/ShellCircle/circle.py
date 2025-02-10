@@ -28,12 +28,12 @@ for j in range(Ny+1):
         xi = i*dLx
         ops.node(offset+i+1, (xi, yj, 0.0))
 
-ele_id = 1
+tag = 1
 for j in range(Ny):
     for i in range(Nx):
         nodes = (j*(Nx+1)+i+1, j*(Nx+1)+i+2, (j+1)*(Nx+1)+i+2, (j+1)*(Nx+1)+i+1)
-        ops.element('ASDShellQ4', ele_id, nodes, 1, corotational=True)
-        ele_id += 1
+        ops.element("ASDShellQ4", tag, nodes, 1, corotational=True)
+        tag += 1
 
 # fix
 for j in range(Ny+1):
@@ -43,7 +43,7 @@ for j in range(Ny+1):
 Nrolls = 2
 M = (Nrolls*2.0*math.pi*E*thickness**3/12/Lx)
 dM = M/Ny/2
-ops.pattern('Plain', 1, "Linear")
+ops.pattern("Plain", 1, "Linear")
 for j in range(Ny):
     i = Nx-1
     n1 = j*(Nx+1)+i+2
@@ -56,8 +56,8 @@ duration = 1.0
 nsteps = 40
 dt = duration/nsteps
 dt_record = 0.2
-ops.constraints('Transformation')
-ops.numberer('RCM')
+ops.constraints("Transformation")
+ops.numberer("RCM")
 ops.system('UmfPack')
 ops.test('NormDispIncr', 1.0e-5, 100, 0)
 ops.algorithm('Newton')
@@ -77,7 +77,6 @@ Uz = [0.0]*(nsteps+1)
 Ry = [0.0]*(nsteps+1)
 CNode = (Nx+1)*(Ny+1)
 
-fig,ax = plt.subplots()
 for i in range(nsteps):
     print('step {} of {}'.format(i+1, nsteps))
     if ops.analyze(1) != 0:
@@ -91,13 +90,15 @@ for i in range(nsteps):
     Uz[i+1] =  ops.nodeDisp(CNode, 3)
     Ry[i+1] = -ops.nodeDisp(CNode, 5)
 
+# Plot the nodal solution
+fig,ax = plt.subplots()
 ax.plot(time, Uz, '-ok', label="$u_z$")
 ax.plot(time, Ry, '-or', label=r"$\vartheta$")
 ax.set_xlabel(r"Load factor $\lambda$")
 ax.set_ylabel(r"Displacement $u_z$ and Rotation $\vartheta$")
 ax.legend()
 
-# compute exact solution at Nrolls number of rotations
+# Compute exact solution at Nrolls number of rotations
 ref_Uz = 0.0
 ref_Ry = Nrolls*2*math.pi
 num_Uz = Uz[-1]
