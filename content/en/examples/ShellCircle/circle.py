@@ -1,0 +1,120 @@
+from opensees import openseespy as _ops
+import veux
+import matplotlib.pyplot as plt
+try:
+    plt.style.use("typewriter")
+except:
+    pass
+import math
+
+# model and section
+ops = _ops.Model(ndm=3, ndf=6)
+E = 1e4
+h = 1.0
+nu = 0.0
+ops.section('ElasticMembranePlateSection', 1, E, nu, h)
+
+# mesh
+Lx = 20.0
+Ly = 1.0
+Nx = 20
+Ny = 1
+dLx = Lx/Nx
+dLy = Ly/Ny
+for j in range(Ny+1):
+    offset = j*(Nx+1)
+    jY = j*dLy
+    for i in range(Nx+1):
+        iX = i*dLx
+        ops.node(offset+i+1, (iX, jY, 0.0))
+
+ele_id = 1
+for j in range(Ny):
+    for i in range(Nx):
+        nodes = (j*(Nx+1)+i+1, j*(Nx+1)+i+2, (j+1)*(Nx+1)+i+2, (j+1)*(Nx+1)+i+1)
+        ops.element('ASDShellQ4', ele_id, nodes, 1, '-corotational')
+        ele_id += 1
+
+# fix
+for j in range(Ny+1):
+    ops.fix(j*(Nx+1)+1, (1,1,1,1,1,1))
+
+# load
+Nrolls = 2
+M = (Nrolls*2.0*math.pi*E*h**3/12/Lx)
+dM = M/Ny/2
+ops.pattern('Plain', 1, "Linear")
+for j in range(Ny):
+    i = Nx-1
+    n1 = j*(Nx+1)+i+2
+    n2 = (j+1)*(Nx+1)+i+2
+    ops.load(n1, (0,0,0,0,-dM,0))
+    ops.load(n2, (0,0,0,0,-dM,0))
+
+# analysis
+duration = 1.0
+nsteps = 40
+dt = duration/nsteps
+dt_record = 0.2
+ops.constraints('Transformation')
+ops.numberer('RCM')
+ops.system('UmfPack')
+ops.test('NormDispIncr', 1.0e-5, 100, 0)
+ops.algorithm('Newton')
+ops.integrator('LoadControl', dt)
+ops.analysis('Static')
+
+#
+
+# Render the reference configuration
+artist = veux.create_artist(ops, vertical=3)
+artist.draw_surfaces()
+artist.draw_outlines()
+
+ctime = 0.0
+time = [0.0]*(nsteps+1)
+Uz = [0.0]*(nsteps+1)
+Ry = [0.0]*(nsteps+1)
+CNode = (Nx+1)*(Ny+1)
+
+fig,ax = plt.subplots()
+for i in range(nsteps):
+    print('step {} of {}'.format(i+1, nsteps))
+    if ops.analyze(1) != 0:
+        break
+    ctime += dt
+    if ctime > dt_record:
+        ctime = 0.0
+        artist.draw_outlines(state=ops.nodeDisp)
+
+    time[i+1] = ops.getTime()
+    Uz[i+1] =  ops.nodeDisp(CNode, 3)
+    Ry[i+1] = -ops.nodeDisp(CNode, 5)
+
+ax.plot(time, Uz, '-xk', label='Uz')
+ax.plot(time, Ry, '-xr', label='Ry')
+ax.set_xlabel('Load factor')
+ax.set_ylabel('Uz(displacement)-Ry(rotation)')
+ax.legend()
+ax.grid(True)
+
+# compute exact solution at Nrolls number of rotations
+ref_Uz = 0.0
+ref_Ry = Nrolls*2*math.pi
+num_Uz = Uz[-1]
+num_Ry = Ry[-1]
+fmt_str = ' | '.join(['{:>12s}']*4)
+fmt_num = ' | '.join(['{:>12s}'] + ['{:12.3g}']*3)
+print('Summary')
+print(fmt_str.format('Value', 'Exact', 'Numerical', 'Error'))
+print(fmt_num.format('Uz', ref_Uz, num_Uz, abs(num_Uz-ref_Uz)))
+print(fmt_num.format('Ry', ref_Ry, num_Ry, abs(num_Ry-ref_Ry)))
+
+artist.draw_surfaces(state=ops.nodeDisp)
+artist.draw_outlines(state=ops.nodeDisp)
+artist.save("circle.glb")
+fig.savefig("img/plot.png")
+# show plot
+#veux.serve(artist)
+#plt.show()
+
