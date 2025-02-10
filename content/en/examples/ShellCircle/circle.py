@@ -72,9 +72,9 @@ artist.draw_surfaces()
 artist.draw_outlines()
 
 ctime = 0.0
-time = [0.0]*(nsteps+1)
-Uz = [0.0]*(nsteps+1)
-Ry = [0.0]*(nsteps+1)
+time = [0.0]
+Uz = [0.0]
+Ry = [0.0]
 CNode = (Nx+1)*(Ny+1)
 
 for i in range(nsteps):
@@ -86,9 +86,9 @@ for i in range(nsteps):
         ctime = 0.0
         artist.draw_outlines(state=ops.nodeDisp)
 
-    time[i+1] = ops.getTime()
-    Uz[i+1] =  ops.nodeDisp(CNode, 3)
-    Ry[i+1] = -ops.nodeDisp(CNode, 5)
+    time.append( ops.getTime() )
+    Uz.append(  ops.nodeDisp(CNode, 3) )
+    Ry.append( -ops.nodeDisp(CNode, 5) )
 
 # Plot the nodal solution
 fig,ax = plt.subplots()

@@ -57,21 +57,25 @@ artist.draw_outlines()
 
 Now we proceed to [`analyze`](https://opensees.stairlab.io/user/manual/analysis/analyze.html):
 ```python
+u = []
+r = []
+load = []
 for i in range(nsteps):
-    print('step {} of {}'.format(i+1, nsteps))
-    if model.analyze(1) != 0:
+    print(f"step {i+1} of {nsteps}")
+    if ops.analyze(1) != 0:
         break
     ctime += dt
     if ctime > dt_record:
         ctime = 0.0
-        artist.draw_outlines(state=model.nodeDisp)
+        artist.draw_outlines(state=ops.nodeDisp)
 
-    time[i+1] = model.getTime()
-    Uz[i+1] =  model.nodeDisp(CNode, 3)
-    Ry[i+1] = -model.nodeDisp(CNode, 5)
+    load[i+1] = ops.getTime()
+    u[i+1]   =  ops.nodeDisp(CNode, 3)
+    r[i+1]   = -ops.nodeDisp(CNode, 5)
 ```
 
 
 After running the Python variant of the analysis, the following plot is generated:
 
 ![Nodal displacements and rotations](img/plot.png)
+
