@@ -11,6 +11,22 @@ downloads:
 
 Here we investigate the roll-up problem previously considered for [frames](../framecircle), now with corotational shells.
 
+As always, we begin by creating a `Model` (see for example [this](../example7) problem).
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python (RT)" %}}
+```python
+import opensees.openseespy as ops
+
+model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 6
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 Next we create an [`ElasticShell`](https://opensees.stairlab.io/user/manual/section/ElasticShell.html) section.
 
 {{< tabs tabTotal="2" >}}

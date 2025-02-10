@@ -59,7 +59,7 @@ dt_record = 0.2
 ops.constraints("Transformation")
 ops.numberer("RCM")
 ops.system('UmfPack')
-ops.test('NormDispIncr', 1.0e-5, 100, 0)
+ops.test('NormDispIncr', 1.0e-5, 100, 1)
 ops.algorithm('Newton')
 ops.integrator('LoadControl', dt)
 ops.analysis('Static')
@@ -78,7 +78,7 @@ Ry = [0.0]*(nsteps+1)
 CNode = (Nx+1)*(Ny+1)
 
 for i in range(nsteps):
-    print('step {} of {}'.format(i+1, nsteps))
+    print(f"step {i+1} of {nsteps}")
     if ops.analyze(1) != 0:
         break
     ctime += dt
