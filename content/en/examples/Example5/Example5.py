@@ -85,7 +85,7 @@ def ReinforcedRectangle(model, id, h, b, cover, coreID, coverID, steelID, numBar
     coreZ = coverZ - cover
 
     # Define the fiber section
-    model.section("Fiber", id, "-GJ", GJ)
+    model.section("Fiber", id, GJ=GJ)
 
     # Define the core patch
     model.patch("quad", coreID, nfCoreZ, nfCoreY, -coreY, coreZ, -coreY, -coreZ, coreY, -coreZ, coreY, coreZ)
@@ -264,10 +264,10 @@ def create_model(eleType=None):
     # Create the beam elements
     eleType = "forceBeamColumn"
     #                   tag (ndI ndJ) transfTag integrationTag
-    model.element(eleType, 13, (5, 6), 2, beamSec)
-    model.element(eleType, 14, (6, 7), 2, beamSec)
-    model.element(eleType, 15, (7, 8), 2, beamSec)
-    model.element(eleType, 16, (8, 5), 2, beamSec)
+    model.element(eleType, 13, ( 5,  6), 2, beamSec)
+    model.element(eleType, 14, ( 6,  7), 2, beamSec)
+    model.element(eleType, 15, ( 7,  8), 2, beamSec)
+    model.element(eleType, 16, ( 8,  5), 2, beamSec)
 
     model.element(eleType, 17, (10, 11), 2, beamSec)
     model.element(eleType, 18, (11, 12), 2, beamSec)
@@ -302,7 +302,7 @@ def create_model(eleType=None):
     model.pattern("Plain", 1, "Constant")
 
     for i in [5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18]:
-        model.load(i, 0.0, 0.0, -p, 0.0, 0.0, 0.0, pattern=1)
+        model.load(i, (0.0, 0.0, -p, 0.0, 0.0, 0.0), pattern=1)
 
     # set rayleigh damping factors
     model.rayleigh(0.0, 0.0, 0.0, 0.0018)
@@ -371,7 +371,7 @@ def analyze(model):
             raise RuntimeError(f"analysis failed at time {model.getTime()}")
 
         # Save displacements at the current time
-        for node in [9, 14, 19]:
+        for node in 9, 14, 19:
             displacements[node].append(model.nodeDisp(node))
 
     return displacements
