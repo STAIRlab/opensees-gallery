@@ -44,7 +44,7 @@ def arch_model2D():
         # create the node
         model.node(tag, x, y)
 
-    model.section("ElasticFrame", 1, A=A, E=E, Iy=I, Iz=I, J=2*I, G=E)
+    model.section("ElasticFrame", 1, A=A, E=E, Iy=I, Iz=I, J=2*I, G=E) #, Ay=100*A, Az=100*A)
 
     # Create elements
     transfTag = 1
@@ -52,7 +52,7 @@ def arch_model2D():
     for i in range(ne):
         tag   = i+1
         nodes = (i+1, i+2)
-        model.element("ExactFrame", tag, nodes, section=1, transform=transfTag)
+        model.element("PrismFrame", tag, nodes, section=1, transform=transfTag)
 
 
     model.fix( 1, 1, 1, 0)
@@ -128,7 +128,7 @@ def arch_model3D():
     for i in range(ne):
         tag   = i+1
         nodes = (i+1, i+2)
-        model.element("PrismFrame", tag, nodes, section=1, transform=transfTag)
+        model.element("ForceFrame", tag, nodes, section=1, transform=transfTag)
 
 
     model.fix( 1, (1, 1, 0, 1, 1, 0))
@@ -148,7 +148,8 @@ def arch_model3D():
     # model.system("BandGeneral")
     # model.system("Umfpack", det=True)
 
-    model.test("NormUnbalance", 1e-6, 25, 0)
+#   model.test("NormUnbalance", 1e-6, 25, 0)
+    model.test("NormDispIncr", 1e-8, 25, 1)
     model.algorithm("Newton")
     model.analysis("Static")
 
@@ -192,7 +193,7 @@ def analyze(model, mid, increment, steps, dx, *args):
         status = model.analyze(1)
 
         # 2. Store the displacement and load factor
-        xy.append([model.nodeDisp(mid, dof), model.getTime()])
+        xy.append([-model.nodeDisp(mid, dof), model.getTime()])
 
         # 3. If the iterations failed, try cutting
         #    the increment arc-length in half
@@ -204,11 +205,11 @@ def analyze(model, mid, increment, steps, dx, *args):
 
     return np.array(xy).T, states
 
-def render(model, states):
+def animate(model, states):
     import veux
-    from veux.motion import animate
+    import veux.motion
     states = {"ConvergedHistory":states}
-    artist = animate(model, states, vertical=3, model_config={
+    artist = veux.motion.animate(model, states, vertical=3, model_config={
         "extrude_default": "square",
         "extrude_scale": 500
     })
@@ -228,10 +229,10 @@ if __name__ == "__main__":
 
     (x, y), states = analyze(model, node, arc_control, 110, 45)
 
-    artist = render(model, states)
+    artist = animate(model, states)
 
     # veux.serve(artist)
-    artist.save("solution.glb")
+#   artist.save("solution.glb")
 
     fig, ax = plt.subplots()
     ax.plot(x, y)

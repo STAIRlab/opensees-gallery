@@ -22,9 +22,9 @@ def check_case2(model, Mbench, Dbench, ndm):
     Mbase  = model.eleResponse( 1, "forces")[2 if ndm==2 else 5]
     Dtip   = -model.nodeDisp(nn, 2)
 
-    print(f"  {Axial:5.0f}", end="   ")
-    print(f"  {Mbase:5.0f}    {Mbench:8.0f} %8.2f %%" % (100*(Mbench-Mbase)/Mbench), end="   ")
-    print(f"  {Dtip:5.4f}    {Dbench:8.3f} %8.2f %%" % (100*(Dbench-Dtip)/Dbench))
+    print(f"| {Axial:8.0f} |", end="")
+    print(f" {Mbase:8.1f} | {Mbench:8.0f} | %8.2f %% |" % (100*(Mbench-Mbase)/Mbench), end="")
+    print(f" {Dtip:8.4f} | {Dbench:8.3f} | %8.2f %% |" % (100*(Dbench-Dtip)/Dbench))
 
 
 def analyze_case1(model, Mbench, Dbench, ndm=3):
@@ -174,7 +174,7 @@ if __name__ == "__main__":
                 element = element,
                 section = section,
                 boundary = ("fix", "free"),
-                geometry  = "Linear",
+                geometry  = "delta",
                 transform = "Corotational",
                 divisions = 3
             )
