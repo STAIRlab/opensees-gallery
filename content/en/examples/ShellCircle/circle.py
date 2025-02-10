@@ -7,7 +7,7 @@ except:
     pass
 import math
 
-# model and section
+# Create a model
 ops = _ops.Model(ndm=3, ndf=6)
 E = 1e4
 h = 1.0
@@ -32,7 +32,7 @@ ele_id = 1
 for j in range(Ny):
     for i in range(Nx):
         nodes = (j*(Nx+1)+i+1, j*(Nx+1)+i+2, (j+1)*(Nx+1)+i+2, (j+1)*(Nx+1)+i+1)
-        ops.element('ASDShellQ4', ele_id, nodes, 1, '-corotational')
+        ops.element('ASDShellQ4', ele_id, nodes, 1, corotational=True)
         ele_id += 1
 
 # fix
@@ -48,8 +48,8 @@ for j in range(Ny):
     i = Nx-1
     n1 = j*(Nx+1)+i+2
     n2 = (j+1)*(Nx+1)+i+2
-    ops.load(n1, (0,0,0,0,-dM,0))
-    ops.load(n2, (0,0,0,0,-dM,0))
+    ops.load(n1, (0,0,0,0,-dM,0), pattern=1)
+    ops.load(n2, (0,0,0,0,-dM,0), pattern=1)
 
 # analysis
 duration = 1.0
@@ -91,12 +91,11 @@ for i in range(nsteps):
     Uz[i+1] =  ops.nodeDisp(CNode, 3)
     Ry[i+1] = -ops.nodeDisp(CNode, 5)
 
-ax.plot(time, Uz, '-xk', label='Uz')
-ax.plot(time, Ry, '-xr', label='Ry')
-ax.set_xlabel('Load factor')
-ax.set_ylabel('Uz(displacement)-Ry(rotation)')
+ax.plot(time, Uz, '-ok', label="$u_z$")
+ax.plot(time, Ry, '-or', label=r"$\vartheta$")
+ax.set_xlabel(r"Load factor $\lambda$")
+ax.set_ylabel(r"Displacement $u_z$ and Rotation $\vartheta$")
 ax.legend()
-ax.grid(True)
 
 # compute exact solution at Nrolls number of rotations
 ref_Uz = 0.0

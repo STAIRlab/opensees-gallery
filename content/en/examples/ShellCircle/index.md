@@ -3,7 +3,8 @@ title: Shell undergoing finite rotations
 render: circle.glb
 thumbnail: img/examples/ShellCircle.png
 downloads:
-  Python: ["circle.py", "requirements.txt"]
+  Python: ["circle.py",  "requirements.txt"]
+  Tcl:    ["circle.tcl", "requirements.txt"]
 ---
 
 
