@@ -137,6 +137,8 @@ analysis uses both 2-node and 4-node elements. For the sake of brevity,
 the results are reported only for the variants using the same
 parameterization as the wrapped element's interpolation.
 
+In order to simulate this problem with OpenSees the [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/frame/ExactFrame.html) element
+formulation is used. This element requires a shear-deformable section, like [`ShearFiber`](https://opensees.stairlab.io/user/manual/section/ShearFiber.html).
 
 ## References
 
