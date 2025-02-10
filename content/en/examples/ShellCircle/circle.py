@@ -10,9 +10,9 @@ import math
 # Create a model
 ops = _ops.Model(ndm=3, ndf=6)
 E = 1e4
-h = 1.0
+thickness = 1.0
 nu = 0.0
-ops.section('ElasticMembranePlateSection', 1, E, nu, h)
+ops.section("ElasticShell", 1, E, nu, thickness)
 
 # mesh
 Lx = 20.0
@@ -23,10 +23,10 @@ dLx = Lx/Nx
 dLy = Ly/Ny
 for j in range(Ny+1):
     offset = j*(Nx+1)
-    jY = j*dLy
+    yj = j*dLy
     for i in range(Nx+1):
-        iX = i*dLx
-        ops.node(offset+i+1, (iX, jY, 0.0))
+        xi = i*dLx
+        ops.node(offset+i+1, (xi, yj, 0.0))
 
 ele_id = 1
 for j in range(Ny):
@@ -41,7 +41,7 @@ for j in range(Ny+1):
 
 # load
 Nrolls = 2
-M = (Nrolls*2.0*math.pi*E*h**3/12/Lx)
+M = (Nrolls*2.0*math.pi*E*thickness**3/12/Lx)
 dM = M/Ny/2
 ops.pattern('Plain', 1, "Linear")
 for j in range(Ny):
