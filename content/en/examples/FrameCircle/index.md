@@ -65,14 +65,7 @@ $$\begin{array}{lcr}
     J  &=& 10^{-2} \\
 \end{array}
 $$
-
-The simulation uses a *single* load step with uniform
-meshes of 5 and 10 elements for the 2-node and 3-node variants of all
-formulations investigated by <cite key="perez2024nonlinear"></cite>. 
-The solution requires only two iterations for
-each formulation matching the ideal performance reported by <cite key="simo1986threedimensional"></cite>. 
-The tip displacements for the case $\lambda = 1/8$ are collected in
-below along with the analytic solution of the governing boundary value problem is given by: 
+The analytic solution of the governing boundary value problem is given by: 
 
 $$\left\{
   \begin{aligned}
@@ -85,6 +78,14 @@ $$
 
 where $\vartheta$ parameterizes the rotation
 $\boldsymbol{\Lambda}(\xi) = \operatorname{Exp} \vartheta(\xi) \, \mathbf{E}_3$.
+
+The simulation uses a *single* load step with uniform
+meshes of 5 elements for the 2-node and 3-node variants of all
+formulations investigated by <cite key="perez2024nonlinear"></cite>. 
+The solution requires only two iterations for
+each formulation matching the ideal performance reported by <cite key="simo1986threedimensional"></cite>. 
+
+The tip displacements for the case $\lambda = 1/8$ are collected below.
 The displacements for $n=2$-node elements match exactly those reported by
 <cite key="ibrahimbegović1995computational"></cite> for both the natural `None`, and the
 logarithmic `Init`/`Incr` variants. 
@@ -102,7 +103,6 @@ class="math inline"><em>λ</em> = 0.7</span></figcaption>
 </figure>
 <figcaption>Deformed configuration of cantilever beam under two moment magnitudes.</figcaption>
 </figure>
-
 
 
 ## End Force

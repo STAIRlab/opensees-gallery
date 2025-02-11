@@ -46,8 +46,10 @@ section ElasticShell  1   1.0e4  0.0   1.0
 {{% /tab %}}
 {{< /tabs >}}
 
+The loading will be applied in 40 increments.
+
 In the Python version, we'll create a [`veux.Artist`](https://veux.io/library/artist/index.html) before starting the analysis
-in order to save snapshots of the deformed shape throughout the deformation.
+in order to draw snapshots of the deformed shape throughout the deformation.
 ```python
 # Render the reference configuration
 artist = veux.create_artist(model, vertical=3)
