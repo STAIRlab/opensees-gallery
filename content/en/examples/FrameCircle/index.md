@@ -91,19 +91,12 @@ The displacements for $n=2$-node elements match exactly those reported by
 logarithmic `Init`/`Incr` variants. 
 For $n=3$-node elements, the results match the analytic solution up to the reported precision.
 
-<figure id="fig:cantilever">
 <figure id="fig:helical-a">
 <img src="img/Figure_1a.png" style="width:80.0%" />
-<figcaption><span
-class="math inline"><em>λ</em> = 0.7</span></figcaption>
-</figure>
-<figure id="fig:helical-b">
-<img src="img/Figure_1b.png" style="width:80.0%" />
-<figcaption><span class="math inline"><em>λ</em> = 2</span></figcaption>
 </figure>
 <figcaption>Deformed configuration of cantilever beam under two moment magnitudes.</figcaption>
-</figure>
 
+![](img/displacement.png)
 
 ## End Force
 
