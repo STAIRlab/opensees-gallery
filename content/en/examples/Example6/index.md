@@ -11,8 +11,7 @@ downloads:
   Python: ["Example6.py", "render.py"]
 ---
 
-In this example a simply supported beam is modelled with two dimensional solid
-elements.
+In this example a simply supported beam is modelled with two dimensional solid elements.
 
 Each node of the analysis has two displacement degrees of freedom. Thus the model is defined with
 `ndm = 2` and `ndf = 2`. 

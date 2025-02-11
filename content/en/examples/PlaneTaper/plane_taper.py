@@ -27,7 +27,8 @@ def create_model(mesh,
     # Define the material
     # -------------------
     #                                 tag  E      nu   rho
-    model.material("ElasticIsotropic", 1, 1000.0, 0.25, 0, "-plane-strain")
+    model.material("ElasticIsotropic", 1, 1000.0, 0.25, 0) # , "-plane-strain")
+    model.section("PlaneStrain", 1, 1, thickness)
 
     # Define geometry
     # ---------------
@@ -39,7 +40,7 @@ def create_model(mesh,
 
     # Create the nodes and elements using the surface command
     # {"quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
-    args = (thickness, "PlaneStrain", 1)
+    args = ("-section", 1) # (thickness, "PlaneStrain", 1)
 
     surface = model.surface((nx, ny),
                   element=element, args=args,
@@ -151,7 +152,7 @@ def static_analysis(model):
 
 if __name__ == "__main__":
     import time
-    for element in "LagrangeQuad", "quad":
+    for element in "quad", : # "LagrangeQuad", "quad":
         model = create_model((20,8), element=element)
         start = time.time()
         static_analysis(model)

@@ -77,7 +77,7 @@ node 4  72.0 96.0;
 
 The restraints are now defined at the nodes with reactions (ie, nodes `1`, `2`, and `3`).
 The restraints at the nodes with reactions (ie, nodes `1`, `2`, and `3`)
-are then defined. This is done with the [`fix`](https://opensees.stairlab.io/user/manual/model/sp_constraint/fix.html)  method, whose first argument
+are then defined. This is done with the [`fix`](https://opensees.stairlab.io/user/manual/model/nodes/fix.html)  method, whose first argument
 is an integer node tag and second argument a tuple containing a `1` or `0`
 for degree of freedom at the node. 
 

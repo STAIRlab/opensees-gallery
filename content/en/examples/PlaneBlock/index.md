@@ -33,7 +33,8 @@ As with the example of a [tapered beam](../planetaper/), the [ElasticIsotropic](
 ```python
 E = 4e3
 nu = 0.25 # Poisson's ratio
-model.material("ElasticIsotropic", 1, E, nu, 0, "-plane-strain")
+model.material("ElasticIsotropic", 1, E, nu, 0)
+model.section("PlaneStrain", 1, 1, 1)
 ```
 
 {{< fold plane_block.py "analysis script" >}}
