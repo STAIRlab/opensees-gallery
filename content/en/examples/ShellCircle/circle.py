@@ -72,13 +72,11 @@ artist.draw_surfaces()
 artist.draw_outlines()
 
 ctime = 0.0
-time = [0.0]
-Uz = [0.0]
-Ry = [0.0]
-CNode = (Nx+1)*(Ny+1)
+load = [0.0]
+u = [0.0]
+tip = (Nx+1)*(Ny+1)
 
 for i in range(nsteps):
-    print(f"step {i+1} of {nsteps}")
     if ops.analyze(1) != 0:
         break
     ctime += dt
@@ -86,35 +84,32 @@ for i in range(nsteps):
         ctime = 0.0
         artist.draw_outlines(state=ops.nodeDisp)
 
-    time.append( ops.getTime() )
-    Uz.append(  ops.nodeDisp(CNode, 3) )
-    Ry.append( -ops.nodeDisp(CNode, 5) )
+    load.append( ops.getTime() )
+    u.append(  ops.nodeDisp(tip, 3) )
 
 # Plot the nodal solution
 fig,ax = plt.subplots()
-ax.plot(time, Uz, '-ok', label="$u_z$")
-ax.plot(time, Ry, '-or', label=r"$\vartheta$")
+ax.plot(load, u, label="ShellQ4")
 ax.set_xlabel(r"Load factor $\lambda$")
-ax.set_ylabel(r"Displacement $u_z$ and Rotation $\vartheta$")
+ax.set_ylabel(r"Displacement $u_2$")
 ax.legend()
 
 # Compute exact solution at Nrolls number of rotations
 ref_Uz = 0.0
 ref_Ry = Nrolls*2*math.pi
-num_Uz = Uz[-1]
-num_Ry = Ry[-1]
+num_Ry = -ops.nodeDisp(tip, 5)
 fmt_str = ' | '.join(['{:>12s}']*4)
 fmt_num = ' | '.join(['{:>12s}'] + ['{:12.3g}']*3)
 print('Summary')
 print(fmt_str.format('Value', 'Exact', 'Numerical', 'Error'))
-print(fmt_num.format('Uz', ref_Uz, num_Uz, abs(num_Uz-ref_Uz)))
+print(fmt_num.format('Uz', ref_Uz, u[-1], abs(u[-1]-ref_Uz)))
 print(fmt_num.format('Ry', ref_Ry, num_Ry, abs(num_Ry-ref_Ry)))
 
 artist.draw_surfaces(state=ops.nodeDisp)
 artist.draw_outlines(state=ops.nodeDisp)
 artist.save("circle.glb")
-fig.savefig("img/plot.png")
+#fig.savefig("img/plot.png")
 # show plot
-#veux.serve(artist)
-#plt.show()
+veux.serve(artist)
+plt.show()
 

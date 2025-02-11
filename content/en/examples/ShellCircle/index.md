@@ -60,10 +60,8 @@ artist.draw_outlines()
 Now we proceed to [`analyze`](https://opensees.stairlab.io/user/manual/analysis/analyze.html):
 ```python
 u = []
-r = []
 load = []
 for i in range(nsteps):
-    print(f"step {i+1} of {nsteps}")
     if ops.analyze(1) != 0:
         break
     ctime += dt
@@ -72,8 +70,7 @@ for i in range(nsteps):
         artist.draw_outlines(state=ops.nodeDisp)
 
     load[i+1] = ops.getTime()
-    u[i+1]   =  ops.nodeDisp(CNode, 3)
-    r[i+1]   = -ops.nodeDisp(CNode, 5)
+    u[i+1]   =  ops.nodeDisp(tip, 3)
 ```
 
 
