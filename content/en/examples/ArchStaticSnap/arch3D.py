@@ -208,7 +208,7 @@ def analyze(model, mid, increment, steps, dx, *args):
 def animate(model, states):
     import veux
     import veux.motion
-    states = {"ConvergedHistory":states}
+    states = {"ConvergedHistory": states}
     artist = veux.motion.animate(model, states, vertical=3, model_config={
         "extrude_default": "square",
         "extrude_scale": 500
