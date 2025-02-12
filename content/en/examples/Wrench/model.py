@@ -151,17 +151,24 @@ def create_boundary(model):
             model.load(node, (P, 0), pattern=1)
 
 
-
+def create_wrench(element="Quad"):
 #model = create_quads()
-model = create_tris()
-create_boundary(model)
+    if element == "Quad":
+        model = create_quads()
+    else:
+        model = create_tris()
+    create_boundary(model)
+    return model
 
-model.analysis("Static")
-model.integrator("LoadControl", 1)
-model.analyze(1)
+
+if __name__ == "__main__":
+    model.analysis("Static")
+    model.integrator("LoadControl", 1)
+    model.analyze(1)
 
 
-# Render the deformed shape
-veux.serve(veux.render(model, lambda i: [500*u for u in model.nodeDisp(i)], canvas="gltf"))
+    # Render the deformed shape
+    artist = veux.render(model, lambda i: [500*u for u in model.nodeDisp(i)])
+    veux.serve(artist)
 
 
