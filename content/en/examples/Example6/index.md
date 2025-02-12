@@ -31,6 +31,25 @@ model = ops.Model(ndm=2, ndf=2)
 {{% /tab %}}
 {{< /tabs >}}
 
+This is a plane strain problem, and the elastic isotropic material is used.
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+material ElasticIsotropic   1   1000   0.25  [expr 6.75/(12.0*32.174)]
+section PlaneStrain 1 1 2.0
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+thick = 2.0;
+#                                 tag  E      nu      rho
+model.material("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
+model.section("PlaneStrain", 1, material=1, thickness=thick)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 A mesh is generated using
 the `block2D` command. The number of nodes in the local \(x\)-direction of
 the block is $nx$ and the number of nodes in the local \(y\)-direction of
@@ -66,19 +85,24 @@ block2D $nx $ny   1 1  $Quad  $eleArgs {
 Three different quadrilateral elements can be used for the analysis.
 These may be created using the names `"BbarQuad"`, `"EnhancedQuad"` or
 `"Quad"`. 
-This is a plane strain problem. An elastic isotropic material is used.
 
 For initial gravity load analysis, a single load pattern with a linear
 time series and two vertical nodal loads are used.
+
 
 A solution algorithm of type `Newton` is used for the problem. The
 solution algorithm uses a `ConvergenceTest` which tests convergence on the
 norm of the energy increment vector. Ten static load steps are performed.
 
+{{% render "displaced.glb" %}}
+
+## Dynamic Analysis
+
 Following the static analysis, the `wipeAnalysis` and `remove loadPatern` 
 commands are used to remove the nodal loads and create a new
-analysis. The nodal displacements have not changed. However, with the
-external loads removed the structure is no longer in static equilibrium.
+analysis. 
+The nodal displacements have not changed. 
+However, with the external loads removed the structure is no longer in static equilibrium.
 
 The integrator for the dynamic analysis if of type `GeneralizedMidpoint`
 with \(\alpha = 0.5\). This choice is uconditionally stable and energy
@@ -96,6 +120,5 @@ in Figure 1.
 ![Displacement vs. Time for Bottom Center of Beam](SS.svg)
 
 
-{{% render "displaced.glb" %}}
 
 

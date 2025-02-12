@@ -13,8 +13,10 @@
 # Create ModelBuilder with 3 dimensions and 6 DOF/node
 model basic -ndm 2 -ndf 2
 
+set thick 2.0
 # create the material
-nDMaterial ElasticIsotropic   1   1000   0.25  [expr 6.75/(12.0*32.174)]
+material ElasticIsotropic   1   1000   0.25  [expr 6.75/(12.0*32.174)]
+section PlaneStrain 1 1 $thick
 
 # Define geometry
 # ---------------
@@ -25,7 +27,6 @@ set Quad  quad
 #set Quad  bbarQuad
 #set Quad  enhancedQuad
 
-set thick 2.0
 if {$Quad == "quad" } {
     set eleArgs "$thick PlaneStrain 1"
 } 

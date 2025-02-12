@@ -1,4 +1,6 @@
 import veux
+from veux.stress import node_average
+from opensees.helpers import find_node, find_nodes
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -23,12 +25,17 @@ if __name__ == "__main__":
         # Render the deformed state of the structure
         #
         state = {i: model.nodeDisp(i) for i in model.getNodeTags()}
-        artist = veux.render(model, model.nodeDisp,
-                             canvas="gltf",
-                             scale=10,
-                             displaced={"plane.outline"}
+        stress = {node: stress["sxx"] for node, stress in node_average(model, "stressAtNodes").items()}
+        artist = veux.create_artist(model)
+#       artist.draw_outlines()
+        artist.draw_surfaces(state=model.nodeDisp,
+                             field=stress,
+                             scale=10
+        )
+        artist.draw_outlines(state=model.nodeDisp,
+                             scale=10
         )
 
-        veux.serve(artist)
-#       artist.save(dir/f"{element}-displaced.glb")
+#       veux.serve(artist)
+        artist.save(dir/f"{element}-displaced.glb")
 

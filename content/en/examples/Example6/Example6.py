@@ -31,8 +31,8 @@ def create_model(element: str = "quad"):
     # Define geometry
     # ---------------
 
-    nx = 5*100; # NOTE: nx MUST BE EVEN FOR THIS EXAMPLE
-    ny = 2*40
+    nx = 5*10; # NOTE: nx MUST BE EVEN FOR THIS EXAMPLE
+    ny = 2*4
     bn = nx + 1
     l1 = int(nx/2 + 1)
     l2 = int(l1 + ny*(nx+1))
