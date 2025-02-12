@@ -7,7 +7,12 @@
 <h3 align="center">STAIRLab Examples</h3>
 
 
-The STAIRLab gallery is a collection of examples demonstrating research workflows using tools like OpenSees.
+<p align="center">
+  A collection of examples demonstrating research workflows using tools like OpenSees.
+  <br>
+  <a href="https://gallery.stairlab.io/"><strong>Explore the gallery »</strong></a>
+</p>
+
 
 Example files are located under [`content/en/examples/`](content/en/examples/)
 
