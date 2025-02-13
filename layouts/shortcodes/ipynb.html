@@ -18,18 +18,13 @@
 {{ range .source }}{{ . | safeHTML }}{{ end }}
 ```
 {{ if gt (len .outputs) 0 }}
-Output:
 {{ range .outputs }}
-{{ if .text }}
-```
-{{ range .text }}{{ . | safeHTML}}{{ end }}
-```
-{{ end }}
+{{ if and 0 .text }}<pre>{{ range .text }}{{ . | safeHTML}}{{ end }}</pre>{{ end }}
 {{ range $type, $data := .data }}
-{{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" width="80%">{{ end }}
-{{ if strings.Contains $type "text" }}
-```
-{{ range $data }}{{ . | safeHTML }}{{ end }}
-```
-{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}{{ end }}
+  {{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" width="80%">{{ end }}
+  {{ if and 0 (strings.Contains $type "text") }}<pre>{{ range $data }}{{ . | safeHTML }}{{ end }}</pre>{{ end }}
+{{ end }}
+{{ end }}{{ end }}{{ end }}
+{{ end }}
+{{ end }}
 

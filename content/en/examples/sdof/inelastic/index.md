@@ -1,5 +1,6 @@
 ---
 title: Inelastic SDOF
+draft: true
 tags: [Dynamic, Python, SDOF]
 thumbnail: img/SDOFElastoPlastic.png
 description: Integration of an inelastic single-degree-of-freedom (SDOF) system.

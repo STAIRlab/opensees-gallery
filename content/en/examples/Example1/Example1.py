@@ -24,24 +24,23 @@ import opensees.openseespy as ops
 model = ops.Model(ndm=2, ndf=2)
 
 # Create nodes - command: node nodeId xCrd yCrd
-model.node(1,   0.0,  0.0)
-model.node(2, 144.0,  0.0)
-model.node(3, 168.0,  0.0)
-model.node(4,  72.0, 96.0)
+model.node(1, (  0.0,  0.0))
+model.node(2, (144.0,  0.0))
+model.node(3, (168.0,  0.0))
+model.node(4, ( 72.0, 96.0))
 
-# set the boundary conditions - command: fix nodeID xRestrnt? yRestrnt?
-model.fix(1, 1, 1)
-model.fix(2, 1, 1)
-model.fix(3, 1, 1)
+# Set the boundary conditions - command: fix nodeID xRestrnt? yRestrnt?
+model.fix(1, (1, 1))
+model.fix(2, (1, 1))
+model.fix(3, (1, 1))
 
 # Define materials for truss elements
 # -----------------------------------
-# Create Elastic material prototype - command: uniaxialMaterial Elastic matID E
 model.uniaxialMaterial("Elastic", 1, 3000.0)
 
 # Define elements
 # ---------------
-# Create truss elements - command: element truss trussID node1 node2 A matID
+# Create truss elements - command: element truss tag, (node1, node2), A, material
 model.element("Truss", 1, (1, 4), 10.0, 1)
 model.element("Truss", 2, (2, 4),  5.0, 1)
 model.element("Truss", 3, (3, 4),  5.0, 1)
@@ -59,9 +58,6 @@ model.pattern("Plain", 1, "Linear", load=load)
 # Start of analysis generation
 # ------------------------------
 
-# create the constraint handler, a Plain handler is used as homo constraints
-model.constraints("Plain")
-
 # create the solution algorithm, a Linear algorithm is created
 model.algorithm("Linear")
 
@@ -78,13 +74,11 @@ model.analysis("Static")
 
 model.analyze(1)
 
-
 # ------------------------------
 # Print results to screen
 # ------------------------------
 
 # print the current state at node 4 and at all elements
-# print("node 4 displacement: ", nodeDisp(4))
-model.print(node=4)
-model.print("ele")
+u4 = model.nodeDisp(4)
+print(f"u4 = {u4}")
 

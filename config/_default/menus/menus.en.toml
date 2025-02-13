@@ -10,12 +10,12 @@
   pageRef = "/docs/"
   weight = 20
 
-[[main]]
-  name = "Library"
-  pageRef = "/docs/library/"
-  weight = 30
-  [main.params]
-    alias = true
+# [[main]]
+#   name = "Library"
+#   pageRef = "/docs/library/"
+#   weight = 30
+#   [main.params]
+#     alias = true
 
 [[main]]
   name = "Examples"
@@ -131,13 +131,13 @@
   pageRef = "/docs/"
   weight = 20
 
-[[footer]]
-  parent = "Links"
-  name = "Library"
-  pageRef = "/docs/library/"
-  weight = 30
-  [footer.params]
-    alias = true
+# [[footer]]
+#   parent = "Links"
+#   name = "Library"
+#   pageRef = "/docs/library/"
+#   weight = 30
+#   [footer.params]
+#     alias = true
 
 # [[footer]]
 #   parent = "Links"

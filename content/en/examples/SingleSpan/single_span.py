@@ -9,7 +9,7 @@ import opensees.openseespy as ops
 import numpy as np
 
 
-def single_span(elem):
+def single_span(elem, shear=True):
     L  =  1.3
     A  =  1.0
     E  =  1.0

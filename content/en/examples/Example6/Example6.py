@@ -8,10 +8,7 @@
 # ------------------
 #  test different quad elements
 #  free vibration analysis starting from static deflection
-#
-# Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
-# Date: September 2017
-#
+
 # import the OpenSees Python module
 import opensees.openseespy as ops
 from opensees.units.english import gravity as g
@@ -26,21 +23,22 @@ def create_model(element: str = "quad"):
 
     # Define the material
     # -------------------
-    #                                  tag  E      nu      rho
-    model.nDMaterial("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
+    thick = 2.0;
+    #                                 tag  E      nu      rho
+    model.material("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
+    model.section("PlaneStrain", 1, material=1, thickness=thick)
 
     # Define geometry
     # ---------------
 
-    thick = 2.0;
-    nx = 10; # NOTE: nx MUST BE EVEN FOR THIS EXAMPLE
-    ny = 4
+    nx = 5*100; # NOTE: nx MUST BE EVEN FOR THIS EXAMPLE
+    ny = 2*40
     bn = nx + 1
     l1 = int(nx/2 + 1)
     l2 = int(l1 + ny*(nx+1))
 
     # now create the nodes and elements using the surface command
-    if element in { "quad", "enhancedQuad", "tri31"}:
+    if element in { "quad", "enhancedQuad", "tri31", "LagrangeQuad"}:
         args = (thick, "PlaneStrain", 1)
 
     elif element == "SSPquad":
@@ -67,8 +65,8 @@ def create_model(element: str = "quad"):
     # Define gravity loads
     # create a Plain load pattern with a linear time series
     model.pattern("Plain", 1, "Linear")
-    model.load(l1, 0.0, -1.0, pattern=1)
-    model.load(l2, 0.0, -1.0, pattern=1)
+    model.load(l1, (0.0, -1.0), pattern=1)
+    model.load(l2, (0.0, -1.0), pattern=1)
 
     return model, (l1, l2)
 
@@ -89,7 +87,7 @@ def static_analysis(model):
     model.constraints("Plain")
 
     # Define the convergence test
-    model.test("EnergyIncr", 1.0E-12, 10)
+    model.test("EnergyIncr", 1.0e-12, 10)
 
     # Define the solution algorithm, a Newton-Raphson algorithm
     model.algorithm("Newton")
@@ -109,7 +107,7 @@ def dynamic_analysis(model, l1):
     # Start of recorder generation
     # ----------------------------
 
-    model.recorder("Node", "-file", "Node.out", "-time", "-node", l1, "-dof", 2, "disp")
+    model.recorder("Node", "disp", "-file", "Node.out", "-time", node=l1, dof=2)
 
     # ---------------------------------------
     # Create and Perform the dynamic analysis
@@ -131,7 +129,7 @@ def dynamic_analysis(model, l1):
     model.constraints("Plain")
 
     # create the convergence test
-    model.test("EnergyIncr", 1.0E-12, 10)
+    model.test("EnergyIncr", 1.0e-12, 10)
 
     # create the solution algorithm, a Newton-Raphson algorithm
     model.algorithm("Newton")
@@ -151,12 +149,15 @@ def dynamic_analysis(model, l1):
 
 
 if __name__ == "__main__":
-    for element in "quad", "SSPquad", "bbarQuad", "enhancedQuad":
+    import time
+    for element in "quad", : # "LagrangeQuad": # "SSPquad", "bbarQuad", "enhancedQuad":
         model, (l1, l2) = create_model(element)
-        model.print("-json")
+        start = time.time()
         static_analysis(model)
+        print(f"Finished {element}, {time.time() - start} sec")
         print(model.nodeDisp(l2))
 
-#   dynamic_analysis(model, l1)
+#       dynamic_analysis(model, l1)
 
+#       print(model.nodeDisp(l2))
 

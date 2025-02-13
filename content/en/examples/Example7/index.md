@@ -1,7 +1,7 @@
 ---
 title: "Dynamic Shell Analysis"
 tags: ["Shell", "Dynamic", "Python", "Tcl"]
-weight: 15
+weight: 40
 categories: ["Basic", "Elastic"]
 thumbnail:  img/safeway.png
 render: model.glb
@@ -36,6 +36,27 @@ model -ndm 3 -ndf 6
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+The shell element is constructed using the `ShellMITC4` formulation. 
+An elastic membrane-plate material section model is constructed using the `section`
+command and the [`"ElasticShell"`](https://opensees.stairlab.io/user/manual/section/ElasticShell.html) formulation. 
+In this case, the elastic modulus $E = 3.0e3$, Poisson's ratio $\nu =  0.25$, the thickness $h = 1.175$
+and the mass density per unit volume $\rho = 1.27$
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python (RT)" %}}
+```python
+#                                           tag E   nu     h    rho
+model.section("ElasticShell", 1, E, 0.25, 1.175, 1.27)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+# create the material
+section ElasticShell  1   3.0e3  0.25  1.175  1.27
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -79,12 +100,6 @@ surface = model.surface((nx, ny),
 
 The `surface` function generates nodes with tags `{1,2,3,4, 5,7,9}`.
 
-The shell element is constructed using the `ShellMITC4` formulation. 
-An elastic membrane-plate material section model is constructed using the `section`
-command and the `"ElasticMembranePlateSection"` formulation. 
-In this case, the elastic modulus
-$E = 3.0e3$, Poisson's ratio $\nu =  0.25$, the thickness $h = 1.175$
-and the mass density per unit volume $\rho = 1.27$
 
 Boundary conditions are applied using the [`fixZ`](https://opensees.stairlab.io/user/manual/model/sp_constraint/fixX.html) command. In this case,
 all the nodes whose $z$-coordiate is $0.0$ have the boundary condition

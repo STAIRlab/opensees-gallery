@@ -3,6 +3,9 @@ title: "Linearized Buckling"
 tags: ["Python", "Tcl", "Frame"]
 #render: ./model.glb
 description: Corotational frame elements are used to approximate Euler's buckling load.
+downloads:
+  Python: ["buckling.py"]
+  Tcl:    ["buckling.tcl"]
 ---
 
 
@@ -14,14 +17,7 @@ Corotational frame elements are used to approximate Euler's buckling load which 
 P_{\mathrm{euler}} = \frac{\pi^2 EI}{L^2}
 \]
 
-This example is adapted from https://github.com/denavit/OpenSees-Examples .
-The files for the problem are 
-- [`buckling.py`](buckling.py) for Python, and 
-- [`buckling.tcl`](buckling.tcl) for Tcl.
-
 ## Theory
-
-### Buckling Analysis
 
 Loosely speaking, buckling happens when there are multiple shapes that a structure can deform into that will be in equilibrium with it's applied loads. 
 This implies that at the time of buckling, there are multiple independent displacement increments $\bm{u}$ which will be mapped to the same resisting load by the tangent $\bm{K}$. 

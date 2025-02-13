@@ -3,7 +3,7 @@ title: "Matrix Eigenvalue Analysis"
 thumbnail: img/ShearFrame5.png
 tags: ["Eigen", "Frame", "Python", "Tcl"]
 layout: single
-# authors: ["Vesna Terzic"]
+draft: true
 description: >-
     This example demonstrates how to perform eigenvalue analysis and plot
     mode shapes. 

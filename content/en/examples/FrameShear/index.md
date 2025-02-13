@@ -1,19 +1,17 @@
 ---
 title: Columns with Nonlinear Geometry and Shear
 description: This example investigates P-Delta effects in columns with and without shear.
-tags: ["Frame"]
+tags: ["Frame", "Steel"]
 thumbnail: img/aisc-column.png
+downloads:
+  Python: ["aisc.py"]
 ---
 
-![A column with a distributed load.](img/aisc-column.png)
+![A column with a distributed load.](img/ai.png)
 
-This example implements the analysis presented in the AISC steel mannual.
+This example implements the analysis presented in the AISC steel manual.
 
-AISC 360-16, Commentary Figure C-C2.2
-
-{{< fold Case_1.py >}}
-
-{{< fold Case_2.py >}}
+{{< fold aisc.py "source code" >}}
 
 The source code for this example is adapted from https://github.com/denavit/OpenSees-Examples
 

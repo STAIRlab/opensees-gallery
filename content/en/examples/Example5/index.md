@@ -1,7 +1,7 @@
 ---
 title: "Frame with Diaphragms"
 tags: ["3D", "Concrete", "Frame", "Python", "Tcl", "Dynamic"]
-categories: ["Basic"]
+weight: 25
 thumbnail: img/examples/Example5.png
 render: model.glb
 description: >-
@@ -20,18 +20,19 @@ is subjected to bi-directional earthquake ground motion.
 
 A model of the rigid frame shown in the figure above is created. 
 The model consists of three stories and one bay in each direction. 
+We begin by initializing an instance of the {{< link model_class >}}`Model`{{< /link >}} Class:
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 3 -ndf 6
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=3, ndf=6)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 3 -ndf 6
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -45,6 +46,15 @@ are defined with the [`rigidDiaphragm`](https://opensees.stairlab.io/user/manual
 floors. 
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+# Define rigid diaphragm multi-point constraints
+#              normalDir retained constrained
+model.rigidDiaphragm(3,  9,  5,  6,  7,  8)
+model.rigidDiaphragm(3, 14, 10, 11, 12, 13)
+model.rigidDiaphragm(3, 19, 15, 16, 17, 18)
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 # Define rigid diaphragm multi-point constraints
@@ -52,15 +62,6 @@ floors.
 rigidDiaphragm     3          9     5  6  7  8
 rigidDiaphragm     3         14    10 11 12 13
 rigidDiaphragm     3         19    15 16 17 18
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-# Define rigid diaphragm multi-point constraints
-#              normalDir retained constrained
-model.rigidDiaphragm(3,  9,  5,  6,  7,  8)
-model.rigidDiaphragm(3, 14, 10, 11, 12, 13)
-model.rigidDiaphragm(3, 19, 15, 16, 17, 18)
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -83,14 +84,14 @@ nonlinear beam column element.
 A solution algorithm of type `Newton` is used for the nonlinear problem.
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.algorithm("Newton")
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 algorithm Newton;
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.algorithm("Newton")
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -101,46 +102,31 @@ analysis will be of type `Newmark` with a $\gamma$ of `0.25` and a $\beta$
 of `0.5`. 
 
 {{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.integrator("Newmark", 0.5, 0.25)
+```
+{{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
 integrator Newmark 0.1, 0.25;
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.integrator("Newmark", 0.5, 0.25)
 ```
 {{% /tab %}}
 {{< /tabs >}}
 
 The solution algorithm uses a ConvergenceTest which tests convergence on
 the norm of the energy increment vector. 
+Due to the presence of the multi-point constraints (i.e., the rigid diaphragm), a `Transformation` constraint handler is used. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-integrator Newmark   0.5  0.25 
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
-model.integrator("Newmark", 0.5, 0.25)
+model.constraints("Transformation")
 ```
 {{% /tab %}}
-{{< /tabs >}}
-
-Due to the presence of the multi-point constraints, a
-`Transformation` constraint handler is used. 
-
-{{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
 ```tcl
 constraints Transformation
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
-```python
-model.constraints("Transformation")
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -153,9 +139,8 @@ perform it's own internal numbering of the equations, a Plain numberer
 is used which simply assigns equation numbers to the degrees-of-freedom.
 -->
 
-Once all the components of an analysis are defined, the Analysis 
-itself is defined. For this problem a `Transient` analysis is used.
-`2000` steps are performed with a time step of `0.01`.
+
+The analysis is performed by analyzing `2000` steps, each over a time step of `0.01`.
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Tcl" %}}
@@ -163,7 +148,7 @@ itself is defined. For this problem a `Transient` analysis is used.
 analyze 2000 0.01
 ```
 {{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 model.analyze(2000, 0.01)
 ```

@@ -25,11 +25,11 @@
 # Create ModelBuilder (with two-dimensions and 3 DOF/node)
 
 proc create_portal {} {
+  wipe
 
   # Set parameters for overall model geometry
   set width    360
   set height   144
-
   model basic -ndm 2 -ndf 3
 
   # Create nodes
@@ -63,7 +63,7 @@ proc create_portal {} {
   pset fy 60.0;      # Yield stress
   pset E 30000.0;    # Young's modulus
   #                        tag  fy E0    b
-  uniaxialMaterial Steel01  3  $fy $E 0.01
+  uniaxialMaterial Steel01  3  $fy $E  0.01
 
   # Define cross-section for nonlinear columns
   # ------------------------------------------
@@ -73,7 +73,7 @@ proc create_portal {} {
   set colDepth 24 
 
   set cover  1.5
-  set As    0.60;     # area of no. 7 bars
+  set As     0.6;     # area of no. 7 bars
 
   # some variables derived from the parameters
   set y1 [expr $colDepth/2.0]
@@ -121,7 +121,7 @@ proc create_portal {} {
 
   # Create the beam element
   #                          tag ndI ndJ     A       E    Iz   transfTag
-  element elasticBeamColumn   3   3   4    360    4030  8640    2
+  element ElasticBeamColumn   3   3   4    360    4030  8640    2
 
   # Define gravity loads
   # --------------------
@@ -136,6 +136,7 @@ proc create_portal {} {
         load  3   0.0  [expr -$P] 0.0
         load  4   0.0  [expr -$P] 0.0
   }
+
 }
 
 proc gravity_analysis {} {
@@ -168,18 +169,7 @@ proc gravity_analysis {} {
   # Create the analysis object
   analysis Static
 
-
-  # ------------------------------
-  # Start of recorder generation
-  # ------------------------------
-
-  # Create a recorder to monitor nodal displacements
-  #recorder Node -xml nodeGravity.out -time -node 3 4 -dof 1 2 3 disp
-  #recorder Element -file ele.out -ele 1 section  forces
-
-
-  # ------------------------------
-  # Finally perform the analysis
+  # Perform the analysis
   # ------------------------------
   # perform the gravity load analysis, requires 10 steps to reach the load level
   analyze 10
@@ -219,16 +209,14 @@ proc pushover_analysis {} {
   integrator DisplacementControl  3   1   $dU  1 $dU $dU
 
 
-
   # ------------------------------
   # Create recorders
   # ------------------------------
   # Stop the old recorders by destroying them
-  # remove recorders
+  remove recorders
 
   # Create a recorder to monitor nodal displacements
   recorder Node -file out/node32.out -time -node 3 4 -dof 1 2 3 disp
-  #recorder plot node32.out hi 10 10 300 300 -columns 2 1
 
   # Create a recorder to monitor element forces in columns
   recorder EnvelopeElement -file out/ele32.out -time -ele 1 2 localForce
@@ -274,6 +262,154 @@ proc pushover_analysis {} {
 }
 
 
+proc dynamic_analysis {} {
+  # Portal Frame Example 3.3
+  # ------------------------
+  #  Reinforced concrete one-bay, one-story frame
+  #  Distributed vertical load on girder
+  #  Uniform excitation acting at fixed nodes in horizontal direction
+  #  
+  # 
+  # Example Objectives
+  # -----------------
+  #  Nonlinear dynamic analysis using Portal Frame Example 1 as staring point
+  #  Using Tcl Procedures 
+  #
+  # 
+  # Units: kips, in, sec
+
+  # ----------------------------------------------------
+  # Start of additional modeling for dynamic loads
+  # ----------------------------------------------------
+
+  # Set the gravity loads to be constant & reset the time in the domain
+  loadConst -time 0.0
+
+
+  # Define nodal mass in terms of axial load on columns
+  set g 386.4
+  set P 180.0
+  set m [expr $P/$g];       # expr command to evaluate an expression
+
+  #    tag   MX   MY   RZ
+  mass  3    $m   $m    0
+  mass  4    $m   $m    0
+
+
+  # Define dynamic loads
+  # --------------------
+
+  # Set some parameters
+  file mkdir out
+  set outFile "out/ARL360.in"
+
+  # Source in TCL proc to read PEER SMD record
+  source "ReadSMDFile.tcl"
+
+  # Permform the conversion from SMD record to OpenSees record
+  #              inFile     outFile dt
+  ReadSMDFile "elCentro.AT2" $outFile dt
+
+  # Set time series to be passed to uniform excitation
+  timeSeries Path 1 -filePath $outFile -dt $dt -factor $g
+  #set accelSeries "Path -filePath $outFile -dt $dt -factor $g"
+
+  # Create UniformExcitation load pattern
+  #                         tag dir 
+  pattern UniformExcitation  2   1  -accel 1
+
+  # set the rayleigh damping factors for nodes & elements
+  rayleigh 0.0 0.0 0.0 0.000625
+
+  # ----------------------------------------------------
+  # End of additional modeling for dynamic loads
+  # ----------------------------------------------------
+
+
+  # ---------------------------------------------------------
+  # Start of modifications to analysis for transient analysis
+  # ---------------------------------------------------------
+
+  # Delete the old analysis and all it's component objects
+  wipeAnalysis
+
+  # Create the system of equation, a banded general storage scheme
+  system BandGeneral
+
+  # Create the constraint handler, a plain handler as homogeneous boundary
+  constraints Plain
+
+  # Create the convergence test, the norm of the residual with a tolerance of 
+  # 1e-12 and a max number of iterations of 10
+  test NormDispIncr 1.0e-12  10 
+
+  # Create the solution algorithm, a Newton-Raphson algorithm
+  algorithm Newton
+
+  # Create the DOF numberer, the reverse Cuthill-McKee algorithm
+  # numberer RCM
+
+  # Create the integration scheme, the Newmark with alpha =0.5 and beta =.25
+  integrator Newmark  0.5  0.25 
+
+  # Create the analysis object
+  analysis Transient
+
+  # ------------------------------
+  # Start of recorder generation
+  # ------------------------------
+
+  # Create a recorder to monitor nodal displacements
+  recorder EnvelopeNode -time -file out/disp.out -node 3 4 -dof 1 disp
+  recorder EnvelopeNode -time -file out/accel.out -timeSeries 1 -node 3 4 -dof 1 accel
+
+  # Create recorders to monitor section forces and deformations
+  # at the base of the left column
+  recorder Element -time -file out/ele1secForce.out -ele 1 section 1 force
+  recorder Element -time -file out/ele1secDef.out   -ele 1 section 1 deformation
+
+  # Finally perform the analysis
+  # ------------------------------
+
+  # Perform an eigenvalue analysis
+  puts "... eigen values at start of transient: [eigen 2]"
+
+
+  # set some variables
+  set tFinal [expr 1560 * 0.02]
+  set tCurrent [getTime]
+  set status 0
+
+  # Perform the transient analysis
+  while {$status == 0 && $tCurrent < $tFinal} {
+    
+    set status [analyze 1 .01]
+    
+    # if the analysis fails try initial tangent iteration
+    if {$status != 0} {
+        puts "... Newton failed, trying initial stiffness"
+        test NormDispIncr 1.0e-12  100 0
+        algorithm ModifiedNewton -initial
+        set status [analyze 1 .01]
+        if {$status == 0} {
+          puts "... that worked, back to regular Newton"
+        }
+        test NormDispIncr 1.0e-12  10 
+        algorithm Newton
+    }
+    
+    set tCurrent [getTime]
+  }
+
+  return $status
+}
+
+
+
+# -------------------------------------------------------------------
+# Begin main execution
+# -------------------------------------------------------------------
+
 create_portal
 
 # Apply gravity loads and run static analysis
@@ -285,7 +421,7 @@ if {$status == 0} {
 }
 
 # Print the state at node 3
-print node 3
+puts "Node 3 Displacement: [nodeDisp 3]"
 
 # Apply lateral loads and run static analysis
 set status [pushover_analysis]
@@ -295,8 +431,29 @@ if {$status == 0} {
     puts "\nPushover analysis FAILED";    
 }
 
-# Print the state at node 3
-print node 3
+# Print state of node 3
+puts "Node 3 Displacement: [nodeDisp 3]"
+
+wipe
+
+create_portal
+
+gravity_analysis
+
+dynamic_analysis
+
+# Print a message to indicate if analysis successful or not
+if {$status == 0} {
+   puts "Transient analysis completed SUCCESSFULLY";
+} else {
+   puts "Transient analysis completed FAILED";    
+}
+# Perform an eigenvalue analysis
+puts "... eigen values at end of transient: [eigen 2]"
+
+# Print state of node 3
+puts "Node 3 Displacement: [nodeDisp 3]"
+
 
 return $status
 

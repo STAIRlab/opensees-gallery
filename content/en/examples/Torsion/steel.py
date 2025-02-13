@@ -10,7 +10,7 @@ def rectangle(b, d):
 
 
 def channel(t, w, h, b):
-    mesh = create_mesh(mesh_size=min(w,t)/4.5, patches=[
+    mesh = create_mesh(mesh_size=min(w,t)/2.5, patches=[
         patch.rect(corners=[[0,  h/2-t], [b,  h/2  ]]),
         patch.rect(corners=[[0, -h/2+t], [w,  h/2-t]]),
         patch.rect(corners=[[0, -h/2  ], [b, -h/2+t]]),
@@ -27,6 +27,9 @@ def angle(t, b, d):
 
 
 def wide_flange(d, b, t=None, tw=None, tf=None):
+    """
+    Saritas and Filippou (2009) "Frame Element for Metallic Shear-Yielding Members under Cyclic Loading"
+    """
     bf = b
     if tf is None:
         tf = t
@@ -38,23 +41,26 @@ def wide_flange(d, b, t=None, tw=None, tf=None):
     yoff = ( d - tf) / 2
     zoff = (bf + tw) / 4
 
-    # Shear
-    if False:
-        # Ratio of total flange area to web area
-        alpha = 2*b*tf/d/(2*tw);
-        # NOTE: This is 1/beta_S where beta_S is Afsin's beta
-        beta = (1+3*alpha)*(2/3)/((1+2*alpha)**2-2/3*(1+2*alpha)+1/5)
-        def psi(y, z):
-            if abs(y) < (d/2-tf): # webs
-               return beta*((1+2*alpha) - (2*yi/d)**2)
-            else: # flange
-               return beta*(2*alpha)*(z/b)
+    # Shear from Saritas and Filippou (2009)
+    # Ratio of total flange area to web area
+    alpha = 2*b*tf/d/(2*tw);
+    # NOTE: This is 1/beta_S where beta_S is Afsin's beta
+    beta = (1+3*alpha)*(2/3)/((1+2*alpha)**2-2/3*(1+2*alpha)+1/5)
+    def psi(y, z):
+        # webs
+        if abs(y) < (d/2-tf):
+            return beta*((1+2*alpha) - (2*y/d)**2) - 1 #+ 1
+        # flange
+        else:
+            return 0 # beta*(2*alpha)*(z/b) - 1
 
-    return GeneralSection(create_mesh([
+    mesh = create_mesh([
         patch.rect(corners=[[-bf/2, yoff-tf/2],[bf/2,  yoff+tf/2]]),# ,  divs=(nfl, nft), rule=int_typ),
         patch.rect(corners=[[-tw/2,-yoff+tf/2],[tw/2,  yoff-tf/2]]),# ,  divs=(nwt, nwl), rule=int_typ),
         patch.rect(corners=[[-bf/2,-yoff-tf/2],[bf/2, -yoff+tf/2]]),# ,  divs=(nfl, nft), rule=int_typ),
-    ], mesh_size=min(tf, tw)/2.5), warp_shear=False)
+    ], mesh_size=min(tf, tw)/2.5)
+
+    return GeneralSection(mesh, warp_shear=psi)
 
 
 def GirderSection(
@@ -142,6 +148,7 @@ def GirderSection(
 
     return GeneralSection(mesh, warp_shear=False)
 
+
 if __name__ == "__main__":
     import veux
     from veux.plane import PlaneModel
@@ -168,17 +175,4 @@ if __name__ == "__main__":
 #   artist.canvas.plot_vectors([R@[*geometry.centroid, 0] for i in range(3)], R.T)
     artist.draw_outlines()
     veux.serve(artist)
-
-    # 3) view warping modes
-
-
-    if False:
-        # 1) create OpenSees fiber section
-        for fiber in section.fibers:
-            print(fiber.area)
-            print(fiber.warp_mode)
-
-
-        # 2) create OpenSees basic section
-        elastic = section.linearize()
 

@@ -14,16 +14,16 @@ Each node of the analysis has two displacement degrees of freedom. Thus the mode
 `ndm = 2` and `ndf = 2`. 
 
 {{< tabs tabTotal="2" >}}
-{{% tab name="Tcl" %}}
-```tcl
-model -ndm 2 -ndf 2
-```
-{{% /tab %}}
-{{% tab name="Python (RT)" %}}
+{{% tab name="Python" %}}
 ```python
 import opensees.openseespy as ops
 
 model = ops.Model(ndm=2, ndf=2)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+model -ndm 2 -ndf 2
 ```
 {{% /tab %}}
 {{< /tabs >}}
@@ -33,7 +33,8 @@ As with the example of a [tapered beam](../planetaper/), the [ElasticIsotropic](
 ```python
 E = 4e3
 nu = 0.25 # Poisson's ratio
-model.material("ElasticIsotropic", 1, E, nu, 0, "-plane-strain")
+model.material("ElasticIsotropic", 1, E, nu, 0)
+model.section("PlaneStrain", 1, 1, 1)
 ```
 
 {{< fold plane_block.py "analysis script" >}}

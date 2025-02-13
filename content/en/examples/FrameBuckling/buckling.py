@@ -12,27 +12,24 @@
 #
 from math import cos,sin,sqrt,pi
 import numpy as np
-import pandas as pd
 import scipy.optimize
 import opensees.openseespy as ops
 
 # Effective length factors
 FACTORS = {
     "pin-pin":     1,
-    "fix-slide":   1,
+    "fix-roll":   1,
     "fix-fix":     0.5,
     "fix-pin":     0.7,
     "fix-free":    2,
-    "pin-slide":   2,
+    "pin-roll":   2,
 }
-
-
 
 def buckle_factor(boundary, phi=0):
     if boundary == "pin-pin":
         return np.pi
 
-    if boundary == "fix-slide":
+    if boundary == "fix-roll":
         return np.pi
 
     if boundary == "fix-fix":
@@ -47,7 +44,7 @@ def buckle_factor(boundary, phi=0):
     if boundary == "fix-free":
         return np.pi/2
 
-    if boundary == "pin-slide":
+    if boundary == "pin-roll":
         return np.pi/2
 
 
@@ -82,7 +79,7 @@ def fix_node(model, node, type):
         reactions[long] = 0 if node > 1 else 1
         reactions[bend] = 0
 
-    elif type == "slide":
+    elif type == "roll":
         reactions[tran] = 0
         reactions[long] = 0 if node > 1 else 1
         reactions[bend] = 1
@@ -251,31 +248,32 @@ def buckling_analysis(model, peak_load):
 if __name__ == "__main__":
 
     for ndm in 3,:
-        for elem in "PrismFrame", "ForceFrame", "ExactFrame":
+        for elem in "PrismFrame", "MixedFrame", "ExactFrame":
     #               "forceBeamColumn", "forceBeamColumnCBDI":
+            print(f"\n{elem:10}      Shear    Order     Theory   Computed       Error")
 
 
-            for shear in False, True:
+            for boundary in FACTORS:
 
-                if not shear and "Exact" in elem:
-                    continue
                 orders = (0,2) if "Exact" not in elem else (1,)
-                for order in orders:
-                    print(elem, f"({ndm = }, {shear = }, {order = })")
-                    elem_data = {
-                        "type": elem,
-                        "shear": shear,
-                        "order": order,
-                        "transform": "Corotational"
-                    }
 
-    #               create_column("pin-pin", elem_data)[0].print("-json")
-                    for boundary in FACTORS:
+                for shear in False, True:
+                    for order in orders:
+
+                        if not shear and "Exact" in elem:
+                            continue
+
+                        elem_data = {
+                            "type": elem,
+                            "shear": shear,
+                            "order": order,
+                            "transform": "Corotational"
+                        }
 
                         model, euler_load  = create_column(boundary, elem_data, ndm=ndm)
                         limit_load   = buckling_analysis(model, euler_load)
 
-                        print(f"  {boundary:10}", end="")
+                        print(f"  {boundary:10} {shear:8} {order:8} ", end="")
                         if limit_load is None:
                             print(f"No singularity found.")
                         else:

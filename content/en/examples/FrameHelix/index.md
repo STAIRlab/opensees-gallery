@@ -1,16 +1,17 @@
 ---
-title: Spatial Response of Cantilever Beam Under End Moment and End Force
+title: Helical Forms
 description: A highly geometrically nonlinear problem is solved with the geometrically exact frame element formulation.
 bibliography: references.json
 render: spiral.glb
+thumbnail: img/examples/FrameHelix.png
 ---
 
 A cantilever beam is subjected to a *combined* point moment
-$\boldsymbol{M}$ and a point force $F \, \mathbf{E}_3$ at its free end
-$\xi=L$. 
+$\boldsymbol{M}$ and a point force $F \, \mathbf{E}_3$ at its free end $\xi=L$. 
 This example is selected to demonstrate the ability of the
 proposed formulations to naturally accommodate applied moments in
-various reference frames. It also highlights the accuracy and
+various reference frames. 
+It also highlights the accuracy and
 convergence characteristics of the formulations. 
 Three common variations of this problem are considered with the following properties:
 
@@ -28,7 +29,7 @@ Three common variations of this problem are considered with the following proper
 \end{array}
 \]
 
-The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/ExactFrame.html) element formulation from OpenSees is employed.
+The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/frame/ExactFrame.html) element formulation from OpenSees is employed.
 
 ### Simple Perturbation
 
@@ -36,9 +37,8 @@ Following <cite key="ibrahimbegović1995computational"></cite>, the problem of p
 flexure from Section [sec:circle](#sec:circle) is now altered by introducing the point load
 $\boldsymbol{F} = 1/16 \, \mathbf{E}_3$ in addition to the moment
 $\boldsymbol{M}$ so as to induce a three-dimensional response. A uniform
-mesh of 10, 2-node elements is used, and the reference moment in
-Equation ([eq:fref](#eq:fref)) for $\lambda = 1/8$ is applied in a single load
-step. Because the deformation is no longer plane, each choice of nodal
+mesh of 10, 2-node elements is used, and the reference moment from [this study](../framecircle) with $\lambda = 1/8$ is applied in a single load step. 
+Because the deformation is no longer plane, each choice of nodal
 parameterization essentially equilibriates the moment in a different
 coordinate system. Results are reported in
 Table [tab:helical-perturb01](#tab:helical-perturb01), where the `None/None/None` and
@@ -68,12 +68,10 @@ Table [tab:helical-perturb02](#tab:helical-perturb02) lists the tip displacemen
 ### Oscillating Spiral {#sec:helix}
 
 To demonstrate the behavior of the proposed formulations under large
-rotations, the reference moment value $M$ in
-Equation ([eq:fref](#eq:fref)) is now increased to $\lambda=10$ with a large
-out-of-plane force of $F=5 \lambda$. The model discretization uses 100
-linear finite elements, and the loading is applied in `200` steps under
-load factor control.
-Figure [\[fig:helix\]](#fig:helix){reference-type="ref" reference="fig:helix"} shows the final deformed shape alongside a plot
+rotations, the reference moment value $M$ in is now increased to $\lambda=10$ with a large
+out-of-plane force of $F=5 \lambda$. 
+The model discretization uses 100 two-node elements, and the loading is applied in `200` steps under load factor control.
+Figures below show the final deformed shape alongside a plot
 of the tip displacement in the direction of the concentrated force.
 These results are in agreement with the literature
 <cite keys="zupan2003finiteelement, makinen2007total, ghosh2009frameinvariant, lolić2020consistent, harsch2023total"></cite>.

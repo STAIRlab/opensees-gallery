@@ -229,6 +229,7 @@
     discussions_ideas = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/ideas"
     discussions_showcases = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/show-and-tell"
     osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
+    model_class = "https://opensees.stairlab.io/user/manual/model/model_class.html"
     veux = "https://veux.stairlab.io"
     numpy = "https://numpy.org/"
     openblas = "https://www.openblas.net/"

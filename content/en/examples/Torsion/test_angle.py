@@ -12,7 +12,7 @@ if __name__ == "__main__":
     section = angle(t=0.1, b=1.05, d=d)
     #
     d = 150
-    section = angle(t=15, b=80, d=d)
+    section = angle(t=15, b=80, d=d).rotate(np.pi)
 
     print(section.summary())
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         section = section.translate(section.torsion.centroid())
         print(section.summary())
 
-    if True:
+    if False:
         ssc = section.translate(section.torsion.shear_center())
         print(np.linalg.norm(ssc.torsion.solution() + section.torsion.warping()));
         section = ssc
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     plt.show()
 
     # 3) view warping modes
-    artist = veux.create_artist((section.model.nodes, section.model.cells()), ndf=1)
+    artist = veux.create_artist((section.mesh.nodes, section.mesh.cells()), ndf=1)
 
     field = section.torsion.warping()
     artist.draw_surfaces(field = field, state=field, scale=1/100)

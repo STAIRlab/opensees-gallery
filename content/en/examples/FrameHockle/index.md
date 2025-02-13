@@ -5,10 +5,12 @@ bibliography: references.json
 tags: ["Frame", "CE221"]
 render: hockle.glb
 description: Geometrically nonlinear analysis of a shaft buckling under torsion.
+downloads:
+  MATLAB: ["E50_Hockling.m"]
 ---
 
 
-The hockling shaft (rendered above using the [`veux`](https://stairlab.berkeley.edu/software/veux) library)
+The hockling shaft (rendered above using the [`veux`](https://veux.io/) library)
 is a particularly complex problem that arises from practical considerations for the design of propeller shafts in
 large ships <cite keys="rosenthal1976application, oreilly2017modeling"></cite>. 
 This post follows from the work by <cite key="perez2024nonlinear"></cite>.
@@ -57,10 +59,8 @@ The simulation uses a discretization of
 20 elements for the rod, and the torque is applied in 65 increments with
 iterative and incremental load factor control. The analysis uses the
 `SFIN` isometry with both `None` and `Incr` interpolation and
-parameterization variants.
-Figure [2](#fig:hockle-plot){reference-type="ref"
-reference="fig:hockle-plot"} shows the relation between load factor
-$\lambda$ and end rotation
+parameterization variants. 
+Figure 2 shows the relation between load factor $\lambda$ and end rotation
 $\vartheta = \|\operatorname{Log}\boldsymbol{\Lambda}(L)\|$. This figure
 shows that the buckling load of the simulation is slightly higher than
 the value derived by <cite key="ziegler1977principles"></cite>, but is consistent with
@@ -86,7 +86,9 @@ class="math inline"><em>τ</em> = 60</span></figcaption>
 <span class="math inline"><em>τ</em></span>.</figcaption>
 </figure>
 
-This investigation leveraged the [`FEDEASLab`](https://fedeas.net/Functions/latest/) toolbox for nonlinear finite element analysis.
+This investigation leveraged the <a href="https://fedeas.net" style="pointer-events: none;"><code>FEDEASLab</code></a> toolbox for nonlinear finite element analysis.
+Documentation is under development and expected to be published in Summer 2025.
+Source code for the geometric transformation framework is available on [GitHub](https://github.com/claudioperez/GeometricTransformations).
 
 # References
 

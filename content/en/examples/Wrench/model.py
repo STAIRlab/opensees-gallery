@@ -39,7 +39,7 @@ import veux
 import opensees.openseespy as ops
 import numpy as np
 
-angwrench = np.arctan(1/5)
+a = np.arctan(1/5)
 
 # Quadrilateral blocks that comprise the wrench:
 blocks = {
@@ -75,13 +75,13 @@ blocks = {
        1:  [  40,        90],
        5:  [  33,       112],
        2:  [   0,       160],
-       3:  [-50*np.cos(angwrench), 160 + 50*np.sin(angwrench)],
+       3:  [-50*np.cos(a), 160 + 50*np.sin(a)],
        4:  [-115, 160-70   ]},
     7:    {
        1:  [   0,       160],
-       2:  [250*np.sin(angwrench),                      160+250*np.cos(angwrench)],
-       3:  [250*np.sin(angwrench)-50*np.cos(angwrench), 160+250*np.cos(angwrench)],
-       4:  [-50*np.cos(angwrench),                      160+ 50*np.sin(angwrench)]}
+       2:  [250*np.sin(a),                      160+250*np.cos(a)],
+       3:  [250*np.sin(a)-50*np.cos(a), 160+250*np.cos(a)],
+       4:  [-50*np.cos(a),                      160+ 50*np.sin(a)]}
 }
 
 # Subdivisions to create within each block:
@@ -151,17 +151,24 @@ def create_boundary(model):
             model.load(node, (P, 0), pattern=1)
 
 
-
+def create_wrench(element="Quad"):
 #model = create_quads()
-model = create_tris()
-create_boundary(model)
+    if element == "Quad":
+        model = create_quads()
+    else:
+        model = create_tris()
+    create_boundary(model)
+    return model
 
-model.analysis("Static")
-model.integrator("LoadControl", 1)
-model.analyze(1)
+
+if __name__ == "__main__":
+    model.analysis("Static")
+    model.integrator("LoadControl", 1)
+    model.analyze(1)
 
 
-# Render the deformed shape
-veux.serve(veux.render(model, lambda i: [500*u for u in model.nodeDisp(i)], canvas="gltf"))
+    # Render the deformed shape
+    artist = veux.render(model, lambda i: [500*u for u in model.nodeDisp(i)])
+    veux.serve(artist)
 
 
