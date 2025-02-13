@@ -15,6 +15,27 @@ is a particularly complex problem that arises from practical considerations for 
 large ships <cite keys="rosenthal1976application, oreilly2017modeling"></cite>. 
 This post follows from the work by <cite key="perez2024nonlinear"></cite>.
 The problem is posed as a propped cantilever with a torque \(T\,\mathbf{E}_1\) applied at its end \(\xi = L\). 
+In OpenSees, this is defined as follows:
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+nn = ne + 1
+T  = E*I/L
+model.pattern("Plain", 1, "Linear", load={
+    nn: [0, 0, 0,  T, 0, 0]
+})
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+set T [expr $E*$I/$L]
+pattern Plain 1 "Linear" {
+    load $nn 0 0 0 $T 0 0
+}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
 The rod is fixed at the origin and is free to translate along the $\mathbf{E}_1$ direction at its end. 
 
 This problem was investigated analytically by <cite keys="greenhill1883strength, ziegler1977principles"></cite> who found an <em>approximate</em> minimum buckling torque $T_{\mathrm{cr}}$ given by:
