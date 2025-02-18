@@ -3,8 +3,6 @@ from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 from opensees.units.iks import gravity
 
-# set input variables
-#--------------------
 def create_model():
     # Eigen analysis of a two-storey one-bay frame
     # Example 10.5 from "Dynamics of Structures" by Anil Chopra
@@ -46,19 +44,19 @@ def create_model():
     model.mass(5, m/2., 0., 0.)
     model.mass(6, m/2., 0., 0.)
 
-    # define geometric transformation:
-    TransfTag = 1
-    model.geomTransf('Linear', TransfTag )
+    # define a geometric transformation
+    transform = 1
+    model.geomTransf('Linear', transform )
 
     # define elements:
     # columns
-    model.element('ElasticBeamColumn', 1, 1, 3, A, E,  2.*I, TransfTag)
-    model.element('ElasticBeamColumn', 2, 3, 5, A, E,     I, TransfTag)
-    model.element('ElasticBeamColumn', 3, 2, 4, A, E,  2.*I, TransfTag)
-    model.element('ElasticBeamColumn', 4, 4, 6, A, E,     I, TransfTag)
+    model.element('ElasticBeamColumn', 1, (1, 3), A, E,  2.*I, transform)
+    model.element('ElasticBeamColumn', 2, (3, 5), A, E,     I, transform)
+    model.element('ElasticBeamColumn', 3, (2, 4), A, E,  2.*I, transform)
+    model.element('ElasticBeamColumn', 4, (4, 6), A, E,     I, transform)
     # beams
-    model.element('ElasticBeamColumn', 5, 3, 4, A, E,  2.*I, TransfTag)
-    model.element('ElasticBeamColumn', 6, 5, 6, A, E,     I, TransfTag)
+    model.element('ElasticBeamColumn', 5, (3, 4), A, E,  2.*I, transform)
+    model.element('ElasticBeamColumn', 6, (5, 6), A, E,     I, transform)
 
     return model
 
@@ -70,71 +68,62 @@ def find_mass(model, ndf=3, tol=0.0):
                 if abs(model.nodeMass(nd,j+1)) > tol
         ]
 
-def static_condensation(M, K, mass_dofs=None, model=None, tol=0.0):
-    # DOFs without mass
-    ndf = 3
-#   N = model.systemSize()
+def condense(K, ic=None, model=None, tol=0.0):
     N = K.shape[0]
 
-    if mass_dofs is None:
-        assert model is not None
-        mass_dofs = find_mass(model, tol=tol)
-    else:
-        mass_dofs = np.array(mass_dofs)
 
-    if len(mass_dofs.shape) > 1:
-        mass_dofs = np.array([model.nodeDOF(*i) for i in mass_dofs], dtype=int)
+    ic = np.array(ic)
+
+    if len(ic.shape) > 1:
+        ic = np.array([model.nodeDOF(*i) for i in ic], dtype=int)
 
 
-    masslessDOFs = np.setdiff1d(range(N), mass_dofs)
+    ix = np.setdiff1d(range(N), ic)
 
     # Static condensation
-    Kmm = K[mass_dofs,:][:,mass_dofs]
-    Kmn = K[mass_dofs,:][:,masslessDOFs]
-    Knm = K[masslessDOFs,:][:,mass_dofs]
-    Knn = K[masslessDOFs,:][:,masslessDOFs]
+    Kmm = K[ic,:][:,ic]
+    Kmn = K[ic,:][:,ix]
+    Knm = K[ix,:][:,ic]
+    Knn = K[ix,:][:,ix]
 
     # Kc = Kmm - Kmn*inv(Knn)*Knm
-    if len(masslessDOFs) > 0:
-#       Kc = Kmm - np.dot(Kmn,np.linalg.solve(Knn,Knm))
+    if len(ix) > 0:
         Kc = Kmm - Kmn@np.linalg.solve(Knn,Knm)
     else:
         Kc = K
 
-    return M[mass_dofs,:][:,mass_dofs], Kc
+    return Kc
 
-def state_space(M, C, K, mass_dofs):
+
+def state_space(M, C, K, im=None, model=None):
     #   https://portwooddigital.com/2020/05/17/gimme-all-your-damping-all-your-mass-and-stiffness-too/
+
     # Determine number of DOFs with mass
+    if im is None:
+        im = find_mass(model)
 
-    N = K.shape[0]
-    masslessDOFs = np.setdiff1d(range(N), mass_dofs)
-
-    # Number of DOFs with mass
-    nm     = len(mass_dofs)
+    nm = len(im)
 
     # Form matrices for D*x = -lam*B*x
     B = np.zeros((2*nm,2*nm)) # = [ 0 M; M C]
     D = np.zeros((2*nm,2*nm)) # = [-M 0; 0 K]
 
     # Mass
-    B[:nm,:][:,nm:2*nm] =  M[mass_dofs,:][:,mass_dofs]
-    B[nm:2*nm,:][:,:nm] =  M[mass_dofs,:][:,mass_dofs]
-    D[:nm,:][:,:nm]     = -M[mass_dofs,:][:,mass_dofs]
+    B[:nm,:][:,nm:2*nm] =  M[im,:][:,im]
+    B[nm:2*nm,:][:,:nm] =  M[im,:][:,im]
+    D[:nm,:][:,:nm]     = -M[im,:][:,im]
 
     # Damping
-    B[nm:2*nm,:][:,nm:2*nm] = C[mass_dofs,:][:,mass_dofs]
+    B[nm:2*nm,:][:,nm:2*nm] = C[im,:][:,im]
 
     # Stiffness at DOFs with mass
-    Mc, Kc = static_condensation(M, K, mass_dofs=mass_dofs)
+
+    Kc = condense(K, ic=im)
     D[nm:2*nm,:][:,nm:2*nm] = Kc
 
-    # State space eigenvalue analysis
-    lam, x = slin.eig(D,-B)
 
 
-
-def eigen_analysis():
+def eigen_analysis(model):
 
     # record eigenvectors
     #----------------------
