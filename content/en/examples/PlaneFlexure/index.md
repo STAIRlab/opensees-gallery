@@ -2,6 +2,7 @@
 title: Pure flexure
 thumbnail: img/examples/PlaneFlexure.png
 description: Bilinear quadrilateral elements are used to solve the infinitesimal pure bending problem. 
+draft: true
 ---
 
 Bilinear quadrilateral elements are used to solve the pure bending problem. 
