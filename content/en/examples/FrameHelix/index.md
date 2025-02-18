@@ -33,15 +33,15 @@ The [`ExactFrame`](https://opensees.stairlab.io/user/manual/model/elements/frame
 
 ### Simple Perturbation
 
-Following <cite key="ibrahimbegović1995computational"></cite>, the problem of plane
-flexure from Section [sec:circle](#sec:circle) is now altered by introducing the point load
+Following <cite key="ibrahimbegović1995computational"></cite>, the problem of [plane
+flexure with finite rotations](../framecircle/) is now altered by introducing the point load
 $\boldsymbol{F} = 1/16 \, \mathbf{E}_3$ in addition to the moment
-$\boldsymbol{M}$ so as to induce a three-dimensional response. A uniform
-mesh of 10, 2-node elements is used, and the reference moment from [this study](../framecircle) with $\lambda = 1/8$ is applied in a single load step. 
+$\boldsymbol{M}$ so as to induce a three-dimensional response. 
+A uniform mesh of 10, 2-node elements is used, and the reference moment from [this study](../framecircle) with $\lambda = 1/8$ is applied in a single load step. 
 Because the deformation is no longer plane, each choice of nodal
 parameterization essentially equilibriates the moment in a different
-coordinate system. Results are reported in
-Table [tab:helical-perturb01](#tab:helical-perturb01), where the `None/None/None` and
+coordinate system. 
+Results are reported in Table [tab:helical-perturb01](#tab:helical-perturb01), where the `None/None/None` and
 `Incr/None/Incr` variants match the values reported by
 <cite key="ibrahimbegović1995computational"></cite> for the formulations by
 <cite key="simo1986threedimensional"></cite> and <cite key="ibrahimbegović1995computational"></cite>,
@@ -68,8 +68,7 @@ Table [tab:helical-perturb02](#tab:helical-perturb02) lists the tip displacemen
 ### Oscillating Spiral {#sec:helix}
 
 To demonstrate the behavior of the proposed formulations under large
-rotations, the reference moment value $M$ in is now increased to $\lambda=10$ with a large
-out-of-plane force of $F=5 \lambda$. 
+rotations, the reference moment value $M$ in is now increased to $\lambda=10$ with a large out-of-plane force of $F=5 \lambda$. 
 The model discretization uses 100 two-node elements, and the loading is applied in `200` steps under load factor control.
 Figures below show the final deformed shape alongside a plot
 of the tip displacement in the direction of the concentrated force.
