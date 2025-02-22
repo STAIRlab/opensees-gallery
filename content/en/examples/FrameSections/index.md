@@ -1,5 +1,6 @@
 ---
 title: Sections
+draft: true
 thumbnail: img/examples/BridgeSections.png
 ---
 
