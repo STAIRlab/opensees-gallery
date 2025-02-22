@@ -1,5 +1,6 @@
 ---
 title: Patch test
+draft: true
 ---
 
 
@@ -35,6 +36,23 @@ $$
 \sigma_{\alpha \beta}&=\frac{E}{(1+\nu)}\left(\epsilon_{\alpha \beta}+\frac{\nu}{(1-2 \nu)}\left(\epsilon_{\gamma \gamma}\right) \delta_{\alpha \beta}\right) \\
 \end{aligned}
 $$
+This condition is enforced by the [PlaneStrain](https://opensees.stairlab.io/user/manual/section/PlaneStrain.html) section:
+{{< tabs tabTotal="2" >}}
+{{% tab name="Tcl" %}}
+```tcl
+material ElasticIsotropic   1   1000   0.25  [expr 6.75/(12.0*32.174)]
+section PlaneStrain 1 1 2.0
+```
+{{% /tab %}}
+{{% tab name="Python (RT)" %}}
+```python
+thick = 2.0;
+#                                 tag  E      nu      rho
+model.material("ElasticIsotropic", 1, 1000.0, 0.25, 6.75/g)
+model.section("PlaneStrain", 1, material=1, thickness=thick)
+```
+{{% /tab %}}
+{{< /tabs >}}
 This furnishes for the stress
 $$
 \begin{aligned}

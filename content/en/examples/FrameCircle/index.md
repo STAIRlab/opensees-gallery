@@ -10,10 +10,9 @@ downloads:
 ---
 
 
-The cantilever beam depicted below is subjected to *either* a point moment
-$\boldsymbol{M}$ or a point force $F \, \mathbf{E}_3$ at its free end $\xi=L$. 
-The centerline of the reference configuration is given by
-$\boldsymbol{x}_0(\xi) = \xi\,\mathbf{E}_1$. 
+The cantilever beam depicted above is investigated. First under the
+action of a point moment $\boldsymbol{M}$, then a point force $F \, \mathbf{E}_3$ at its free end $\xi=L$. 
+The reference curve of the reference configuration is given by $\boldsymbol{x}_0(\xi) = \xi\,\mathbf{E}_1$. 
 
 
 ## End Moment
@@ -65,6 +64,7 @@ $$\begin{array}{lcr}
     J  &=& 10^{-2} \\
 \end{array}
 $$
+
 The analytic solution of the governing boundary value problem is given by: 
 
 $$\left\{
@@ -136,3 +136,4 @@ formulation is used. This element requires a shear-deformable section, like [`Sh
 ## References
 
 <div id="bibliography-list"></div>
+

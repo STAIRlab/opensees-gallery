@@ -1,84 +1,16 @@
 import numpy as np
 import veux
 import opensees.openseespy
-
-# Create the model
-def arch_model2D():
-
-    # Define model parameters
-    L      = 5000
-    Rise   = 500
-    Offset = 200
-
-    # Define material parameters
-    E = 200
-    A = 1e4
-    I = 1e8
-
-    # Compute radius
-    R  = Rise/2 + (2*L)**2/(8*Rise)
-    th = 2*np.arcsin(L/R)
-
-    #
-    # Build the model
-    #
-    model = opensees.openseespy.Model(ndm=2, ndf=3)
-
-    # Create nodes
-    ne  = 10
-    nen =  2             # nodes per element
-    nn  = ne*(nen-1)+1
-    mid = (nn+1)//2      # midpoint node
-
-    for i, angle in enumerate(np.linspace(-th/2, th/2, nn)):
-        tag = i + 1
-
-        # Compute x and add offset if midpoint
-        x = R*np.sin(angle)
-        if tag == mid:
-            x -= Offset
-
-        # Compute y
-        y = R*np.cos(angle)
-
-        # create the node
-        model.node(tag, x, y)
-
-    model.section("ElasticFrame", 1, A=A, E=E, Iy=I, Iz=I, J=2*I, G=E) #, Ay=100*A, Az=100*A)
-
-    # Create elements
-    transfTag = 1
-    model.geomTransf("Corotational", transfTag)
-    for i in range(ne):
-        tag   = i+1
-        nodes = (i+1, i+2)
-        model.element("PrismFrame", tag, nodes, section=1, transform=transfTag)
-
-
-    model.fix( 1, 1, 1, 0)
-    model.fix(nn, 1, 1, 0)
-
-    # Create a load pattern that scales linearly
-    model.pattern("Plain", 1, "Linear")
-
-    # Add a nodal load to the pattern
-    model.load(mid, 0.0, -1.0, 0.0, pattern=1)
-
-
-    # model.system("ProfileSPD")
-    # model.system("FullGeneral")
-    # model.system("BandGeneral")
-    model.system("Umfpack", det=True)
-
-    model.test("NormUnbalance", 1e-6, 25, 0)
-    model.algorithm("Newton")
-    model.analysis("Static")
-
-
-    return model, mid
+import matplotlib.pyplot as plt
+try:
+    plt.style.use("veux-web")
+except:
+    pass
 
 
 def arch_model3D():
+    """
+    """
 
     # Define model parameters
     L      = 5000
@@ -128,7 +60,7 @@ def arch_model3D():
     for i in range(ne):
         tag   = i+1
         nodes = (i+1, i+2)
-        model.element("ForceFrame", tag, nodes, section=1, transform=transfTag)
+        model.element("PrismFrame", tag, nodes, section=1, transform=transfTag)
 
 
     model.fix( 1, (1, 1, 0, 1, 1, 0))
@@ -143,9 +75,9 @@ def arch_model3D():
     model.load(mid, (0.0, -1.0, 0.0, 0, 0, 0), pattern=1)
 
 
-    model.system("ProfileSPD")
-    # model.system("FullGeneral")
-    # model.system("BandGeneral")
+#   model.system("ProfileSPD")
+    model.system("FullGeneral")
+#   model.system("BandGeneral") # TODO: Broken?
     # model.system("Umfpack", det=True)
 
 #   model.test("NormUnbalance", 1e-6, 25, 0)
@@ -205,11 +137,12 @@ def analyze(model, mid, increment, steps, dx, *args):
 
     return np.array(xy).T, states
 
+
 def animate(model, states):
     import veux
     import veux.motion
     states = {"ConvergedHistory": states}
-    artist = veux.motion.animate(model, states, vertical=3, model_config={
+    artist = veux.motion._animate(model, states, vertical=3, model_config={
         "extrude_default": "square",
         "extrude_scale": 500
     })
@@ -217,7 +150,6 @@ def animate(model, states):
 
 
 if __name__ == "__main__":
-    import matplotlib.pyplot as plt
 
     model, node = arch_model3D()
     # artist = veux.render(model, show={"frame.surface"}, model_config={
@@ -231,7 +163,7 @@ if __name__ == "__main__":
 
     artist = animate(model, states)
 
-    # veux.serve(artist)
+    veux.serve(artist)
 #   artist.save("solution.glb")
 
     fig, ax = plt.subplots()
