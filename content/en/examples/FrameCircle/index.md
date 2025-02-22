@@ -10,7 +10,7 @@ downloads:
 ---
 
 
-The cantilever beam depicted above is investigated. First under the
+The cantilever beam depicted above is investigated; first under the
 action of a point moment $\boldsymbol{M}$, then a point force $F \, \mathbf{E}_3$ at its free end $\xi=L$. 
 The reference curve of the reference configuration is given by $\boldsymbol{x}_0(\xi) = \xi\,\mathbf{E}_1$. 
 
