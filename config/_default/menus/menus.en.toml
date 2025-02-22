@@ -25,7 +25,7 @@
 [[main]]
   name = "GitHub"
   pre = "fab fa-github"
-  url = "https://github.com/OpenSees/OpenSees"
+  url = "https://github.com/claudioperez/OpenSeesRT"
   weight = 60
   [main.params]
     icon = true
