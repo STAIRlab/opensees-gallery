@@ -230,7 +230,7 @@
     discussions_showcases = "https://github.com/claudioperez/OpenSeesRT/discussions/categories/show-and-tell"
     osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
     model_class = "https://opensees.stairlab.io/user/manual/model/model_class.html"
-    veux = "https://veux.stairlab.io"
+    veux = "https://veux.io"
     numpy = "https://numpy.org/"
     openblas = "https://www.openblas.net/"
     umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
@@ -368,7 +368,7 @@
 
     repository_redir = "https://raw.githubusercontent.com/gethinode/hinode/main/layouts/index.redir"
 
-    repository_owner = "https://github.com/OpenSees/"
+    repository_owner = "https://github.com/claudioperez/"
 
 #   repository_mod_bootstrap = "https://github.com/gethinode/mod-bootstrap"
 #   repository_mod_flexsearch = "https://github.com/gethinode/mod-flexsearch"
