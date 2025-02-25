@@ -43,9 +43,9 @@ conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas o
 
 | Dependency  | Package              |
 |:------------|:---------------------|
-| LAPACK      | `liblapack-dev`      |
-| BLAS        | `libblas-dev`        |
+| BLAS        | `libopenblas-dev`    |
 | Tcl\*       | `tcl-dev`            |
+| Compilers   | `build-essential`    |
 
   {{< /accordion-item >}}
 

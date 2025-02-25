@@ -6,7 +6,7 @@ weight: 20
 icon: fas brush
 ---
 
-{{< link veux >}}veux{{< /link >}} is an open-source finite element visualization framework. Using a mobile-first approach, it provides several functions and components to simplify the creation of responsive websites.
+{{< link veux >}}veux{{< /link >}} is an open-source finite element visualization framework. Using a web-first approach, it provides several functions to simplify the creation of responsive visualizations.
 
 {{< button relref="examples" outline="true" >}}
     Explore examples
