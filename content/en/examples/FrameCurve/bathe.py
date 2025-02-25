@@ -1,22 +1,16 @@
+import veux
 import numpy as np
 import opensees.openseespy as ops
-import json
 
-# =============================================================================
-# Helper Functions
-# =============================================================================
 
-def Bathe(Path, R, Interp=None, Isometry=None, Param=None, Petrov=[False, False]):
+
+def Bathe(Path, R):
     """
-    Sets up and runs a curved cantilever analysis with the Bathe load paths.
+    Sets up and runs Bathe's curved cantilever analysis with the Crisfield-Jelenic load paths.
 
     Parameters:
       Path     : integer selecting the load-step pattern (e.g., 2, 3, or 5)
       R        : 3x3 rotation matrix (numpy array)
-      Interp   : string defining the update/interpolation type
-      Isometry : string defining the isometry option
-      Param    : string defining the rotational parameterization
-      Petrov   : two-element list of booleans (default: [False, False])
 
     Returns a dictionary containing analysis results and model data.
     """
@@ -96,14 +90,11 @@ def Bathe(Path, R, Interp=None, Isometry=None, Param=None, Petrov=[False, False]
         n1 = i * (nen - 1) + 1
         n2 = n1 + 1
         tag = i + 1
-        # Use keyword arguments in the element command:
         model.element(
-            "ExactFrame", tag, (n1, n2),
-            section=1, transform=1
+            "ExactFrame", tag, (n1, n2), section=1, transform=1
         )
 
     # --- Define the Loading ---
-    # Using keyword arguments for pattern options:
     load = [P[0], P[1], P[2], 0, 0, 0]
     model.pattern("Plain", 1, "Linear", load={nn: load})
 
@@ -149,16 +140,14 @@ def Print(Path, result, R):
     else:
         disp = result["final_disp"]
         # Print first three displacement components:
-        print(f"{disp[0]:14.2f} {disp[1]:14.2f} {disp[2]:14.2f}")
+        print(f"{disp[0]:14.4f} {disp[1]:14.4f} {disp[2]:14.4f}")
 
 # =============================================================================
 # Main Script
 # =============================================================================
 
 def main():
-    # Define cases (only one active case for demonstration)
-
-    # Global rotation matrix (identity in this example)
+    # Global rotation matrix
     R = np.eye(3)
 
     for Path in [2, 5, 3]:
