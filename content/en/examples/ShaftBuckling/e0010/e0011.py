@@ -13,20 +13,19 @@ import opensees.openseespy as ops
 import numpy as np
 import matplotlib.pyplot as plt
 try:
-    pass
-    # plt.style.use("typewriter")
+    plt.style.use("veux-web")
 except:
     pass
 
 def create_cantilever(case="a", element="ExactFrame", section="Elastic"):
 
     E = 29e3 # ksi
-    v = 0.33 #0.5*E/G - 1
+    v = 0.30 #0.5*E/G - 1
     G = 0.5*E/(1+v) # 11,200 ksi
 
     L  = 240
     ne =  5 # 20
-    nen = 2
+    nen = 3
     nn = ne*(nen-1)+1
 
     model = ops.Model(ndm=3, ndf=7)
@@ -83,8 +82,11 @@ def create_cantilever(case="a", element="ExactFrame", section="Elastic"):
         nodes = list(range(start, start + nen))
         model.element(element, i+1, nodes, section=sec, transform=1)
 
-    model.fix(0,     (1,1,1,  1,1,1, int(case in "cb")))
-    model.fix(nn-1,  (0,0,0,  0,0,0, int(case in "c")))
+    wi = int(case in "cb")
+    wj = int(case in "c")
+    print(wi, wj)
+    model.fix(0,     (1,1,1,  1,1,1, wi))
+    model.fix(nn-1,  (0,0,0,  0,0,0, wj))
     return model, shape
 
 
@@ -115,7 +117,8 @@ if __name__ == "__main__":
         nsteps =  15
         Mmax   = 1.2e3
         model.pattern("Plain", 1, "Linear")
-        model.load(end, (0,0,0,  1,0,0, 0), pattern=1)
+#       model.load(0  , (0,0,0,  0,0,0, -1e-3), pattern=1)
+        model.load(end, (0,0,0,  1,0,0,  0), pattern=1)
 
         model.system('Umfpack')
         model.integrator("LoadControl", Mmax/nsteps)
@@ -139,14 +142,31 @@ if __name__ == "__main__":
                                      )
                 motion.set_field(lambda tag: model.nodeDisp(tag, 7))
 
-        ax.plot(u, P, "-xo"["abc".index(case)], label=case)
+        marker = "-x."["abc".index(case)]
+        ax.plot(u, P, marker, label=case)
 
         ax2.plot(
-                *zip(*[(model.nodeCoord(node,1), model.nodeDisp(node,7))
+                *zip(*[(model.nodeCoord(node,1), model.nodeDisp(node,4))
                     for node in model.getNodeTags()]),
-            label=case
+                marker,
+                label=case
         )
 
+    G = 11.2e3
+    E = 29e3
+    J = shape.torsion.torsion_constant()
+    Cv  = shape.torsion.cvv()[0,0]
+    Cw  = shape.torsion.cww()[0,0]
+    eta = 1+J/Cv
+    lam = np.sqrt(G*J/(eta*E*Cw))
+    L = model.nodeCoord(end,1)
+    x = np.linspace(0,L,100)
+    aL = L*Mmax/(G*J)
+    a0 = L*Mmax/(G*J)*(eta - 1)/eta
+    a = aL*x/L + (a0 - aL)*np.tanh(lam*L)/(lam*L)*(1 - np.sinh(lam*L*(1 - x/L))/np.sinh(lam*L))
+    ax2.plot(x, a)
+    ax2.set_xlabel("$x$")
+    ax2.set_ylabel(r"$\vartheta$")
 
     ax.set_xlabel(r"Twist, $\vartheta$")
     ax.set_ylabel("Torque, $T$")
