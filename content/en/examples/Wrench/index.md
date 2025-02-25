@@ -13,7 +13,7 @@ This problem is adapted from Logan (2012), Problem 7–28.
 
 The problem is implemented for both quadrilateral and triangular finite elements.
 In both versions the `surface` method is used, but extra work is required for triangles.
-For the triangular mesh, the [`Tri31`](https://opensees.stairlab.io/user/manual/model/elements/Tri31.html) element is used.
+For the triangular mesh, the [`Tri31`](https://opensees.stairlab.io/user/manual/model/elements/plane/Tri31.html) element is used.
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Quadrilateral" %}}
