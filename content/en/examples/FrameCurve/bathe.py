@@ -140,7 +140,7 @@ def Print(Path, result, R):
     else:
         disp = result["final_disp"]
         # Print first three displacement components:
-        print(f"{disp[0]:14.4f} {disp[1]:14.4f} {disp[2]:14.4f}")
+        print(f"{disp[0]:14.6f} {disp[1]:14.6f} {disp[2]:14.6f}")
 
 # =============================================================================
 # Main Script

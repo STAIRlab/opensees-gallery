@@ -1,8 +1,10 @@
 ---
 title: Curved Cantilever
-#draft: true
+draft: true
 description: Geometrically nonlinear analysis of Bathe's curved cantilever.
 bibliography: references.json
+downloads:
+  Python: ["bathe.py"]
 ---
 
 
