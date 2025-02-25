@@ -59,30 +59,30 @@ def Bathe(Path, R):
          "J": J_val,
     }
 
-    model.geomTransf("Linear", 1,  tuple(R@[0, 0, 1]))
 
-    # --- Model Generation ---
-    # Total nodes: nn = ne*(nen-1)+1
+    #
+    # Model Generation
+    #
+    # Total number of nodes
     nn = ne * (nen - 1) + 1
     rad = 100.0
-    arcs = np.linspace(0, np.pi/4, nn)
-
-    for i in range(nn):
+    for i,arc in enumerate(np.linspace(0, np.pi/4, nn)):
         # Coordinates along the circular arc:
-        x_local = rad * np.sin(arcs[i])
+        x_local = rad * np.sin(arc)
         y_local = 0.0
-        z_local = rad * (1 - np.cos(arcs[i]))
+        z_local = rad * (1 - np.cos(arc))
         # Rotate local coordinate into global system:
         coord = R.T@[x_local, y_local, z_local]
-        nodeTag = i + 1
-        model.node(nodeTag, tuple(coord))
-        # Assign a unit mass to each DOF (adjust as needed)
-        model.mass(nodeTag, *([1.0] * 6))
+        model.node(i+1, tuple(coord))
 
-    # --- Boundary Conditions ---
+    # Boundary Conditions
     # Fix the first node (all 6 DOFs)
     model.fix(1, (1, 1, 1, 1, 1, 1))
 
+    #
+    # Elements
+    #
+    model.geomTransf("Linear", 1,  tuple(R@[0, 0, 1]))
     model.section("ElasticFrame", 1, **section)
 
     # --- Create Elements ---
@@ -108,7 +108,9 @@ def Bathe(Path, R):
     model.test("NormDispIncr", tol, 10)
     model.analysis("Static")
 
-    # --- Multi-Step Incremental Analysis ---
+    #
+    # Multi-Step Incremental Analysis
+    #
     converged = True
     step_results = []
     for dlam in steps:
@@ -122,14 +124,13 @@ def Bathe(Path, R):
         disp = model.nodeDisp(nn)
         step_results.append(disp)
 
-    # Package results similar to the Matlab script’s outputs.
-    result = {
+    # Collect results and return
+    return {
          "converged": converged,
          "final_disp": model.nodeDisp(nn),
          "step_results": step_results,
          "load_steps": steps,
     }
-    return result
 
 def Print(Path, result, R):
     """
@@ -150,9 +151,8 @@ def main():
     # Global rotation matrix
     R = np.eye(3)
 
-    for Path in [2, 5, 3]:
-        result = Bathe(Path, R)
-        Print(Path, result, R)
+    for path in [2, 5, 3]:
+        Print(path, Bathe(path, R), R)
 
 
 if __name__ == "__main__":

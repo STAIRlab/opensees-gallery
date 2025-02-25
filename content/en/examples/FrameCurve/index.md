@@ -1,6 +1,6 @@
 ---
 title: Curved Cantilever
-draft: true
+draft: false
 description: Geometrically nonlinear analysis of Bathe's curved cantilever.
 bibliography: references.json
 downloads:
@@ -18,6 +18,21 @@ interpolation. The undeformed centerline of the cantilever follows a
 \[
 \boldsymbol{x}_0(\xi) = R \sin \xi \frac{\pi}{4L}\, \mathbf{E}_1 + R \left(1 - \cos \xi \frac{\pi}{4L}\right)\, \mathbf{E}_3.
 \]
+
+For a discretization of `ne` elements, `nen` nodes each, the nodes are defined as follows:
+
+```python
+nn = ne * (nen - 1) + 1   #  Total number of nodes
+rad = 100.0               #  Radius
+for i,arc in enumerate(np.linspace(0, np.pi/4, nn)):
+    # Coordinates along the circular arc:
+    x_local = rad * np.sin(arc)
+    y_local = 0.0
+    z_local = rad * (1 - np.cos(arc))
+    # Rotate local coordinate into global system:
+    coord = R.T@[x_local, y_local, z_local]
+    model.node(i+1, tuple(coord))
+```
 
 A point load $\boldsymbol{F} = 600 \, \mathbf{E}_2$ is applied at the
 tip, i.e. at $\xi = R$. There is no closed-form solution to the problem,
@@ -44,9 +59,8 @@ The following parameters are used for the simulations:
 The analysis uses a discretization with 8 linear (2-node) elements. 
 The analysis is performed twice for each formulation under
 consideration, first with 8 equal load increments and then with 10. 
-The results are presented in Table [\[tab:bathe\]](#tab:bathe){reference-type="ref"
-reference="tab:bathe"}. Only the formulations with the `Init`
-interpolation produce the same tip displacement in both load cases,
+The results are presented in Table [\[tab:bathe\]](#tab:bathe). 
+Only the formulations with the `Init` interpolation produce the same tip displacement in both load cases,
 indicating an artificial path dependence for all other variants.
 
 
