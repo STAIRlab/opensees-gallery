@@ -1,6 +1,6 @@
 [main]
     separator = "-"
-    description = "STAIRLab Gallery."
+    description = "A gallery of technical examples currated by the STAIRLab at UC Berkeley."
     enableDarkMode = true
     enableLanguageSelectionStorage = false
     modes = ["light", "dark"]
@@ -197,13 +197,13 @@
 
 [schema]
     type = "Organization"
-    name = "STAIRlab"
+    name = "OpenSeesRT"
     locale = "en-US"
     github = "https://github.com/claudioperez/OpenSeesRT"
-    section = "blog"
+#   section = "blog"
     [author]
         name = "Claudio M. Perez"
-        linkedin = "https://www.linkedin.com/in/markdumay/"
+#       linkedin = "https://www.linkedin.com/in/markdumay/"
         github = "https://github.com/claudioperez"
     [logo]
         url = "img/logo512x512.png"
