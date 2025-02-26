@@ -136,11 +136,11 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-    {{ if and (eq .Kind "page") (or (eq .Section "blog") (eq .Section "tutorial") (eq .Section "showcase")) -}}
+      {{ if and (eq .Kind "page") (or (eq .Section "blog") (eq .Section "tutorial") (eq .Section "showcase")) -}}
           "@type": "Article",
-    {{ else }}
+      {{ else }}
           "@type": "TechArticle",
-    {{ end }}
+      {{ end }}
           "@id": {{ print $baseURL "#/schema/article/1" }},
           "headline": "{{ .Params.Title }}",
           "description": "{{ .Params.Description }}",
@@ -189,9 +189,9 @@
                 }
               }{{ if lt $index (sub $len 1) }},{{ end }}
               {{- $index = add $index 1 }}
+            {{ end }}
           {{ end }}
           ],
-        {{ end }}
           {{ with .Date }}"datePublished": "{{ .Format "2006-01-02T15:04:05CET" }}",{{ end -}}
           {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05CET" }}",{{ end -}}
           {{ if 0 -}}
