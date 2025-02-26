@@ -1,5 +1,5 @@
 ---
-author: Mark Dumay
+author: The STAIRLab developers
 title: "Visualization with `veux`"
 date: 2023-05-15
 weight: 20
