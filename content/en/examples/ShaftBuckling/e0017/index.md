@@ -1,7 +1,7 @@
 ---
-title: Torsional buckling under axial force.
+title: "017 - Torsional buckling under axial force."
 description: A simply supported column buckles in torsion under the action of an axial load.
-draft: true
+draft: false
 ---
 
 Torsional buckling under axial force is a constitutive phenomenon in the context of intrinsic frame theories.

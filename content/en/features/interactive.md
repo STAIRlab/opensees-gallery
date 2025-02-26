@@ -1,5 +1,5 @@
 ---
-author: Mark Dumay
+author: STAIRLab
 title: Interactive
 date: 2023-08-04
 weight: 1

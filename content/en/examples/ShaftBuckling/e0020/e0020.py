@@ -83,7 +83,6 @@ def analyze(element):
 #   model.test('NormUnbalance',1e-6,100,1)
     model.algorithm("Newton")
     model.analysis("Static")
-    model.print("-json")
     input()
 
     u = []

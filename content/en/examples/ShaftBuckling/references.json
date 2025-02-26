@@ -1,102 +1,5 @@
 [
   {
-    "id": "1010Punching",
-    "title": "10 10.1 Punching Shear Strength",
-    "type": "chapter"
-  },
-  {
-    "id": "11MultivariatePolynomials2009",
-    "issued": {
-      "date-parts": [
-        [
-          2009
-        ]
-      ]
-    },
-    "title": "11. Multivariate Polynomials",
-    "type": ""
-  },
-  {
-    "id": "11ncee",
-    "title": "11NCEE_CallforPapers_final_lowres_web.pdf",
-    "type": ""
-  },
-  {
-    "URL": "https://batch.libretexts.org/print/url=https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Variational_Principles_in_Classical_Mechanics_(Cline)/13%3A_Rigid-body_Rotation/13.17%3A_Eulers_equations_of_motion_for_rigid-body_rotation.pdf",
-    "accessed": {
-      "date-parts": [
-        [
-          2021,
-          12,
-          21
-        ]
-      ]
-    },
-    "id": "13",
-    "title": "13.17_Eulers_equations_of_motion_for_rigid-body_rotation.pdf",
-    "type": "webpage"
-  },
-  {
-    "id": "130cheatsheet",
-    "title": "130-cheat-sheet",
-    "type": ""
-  },
-  {
-    "URL": "https://manuals.dianafea.com/d944/MatLib/node254.html",
-    "accessed": {
-      "date-parts": [
-        [
-          2022,
-          7,
-          9
-        ]
-      ]
-    },
-    "id": "17",
-    "title": "17.1.11 Monti-Nuti Plasticity",
-    "type": "webpage"
-  },
-  {
-    "id": "1783treaty",
-    "issued": {
-      "date-parts": [
-        [
-          1783,
-          9,
-          3
-        ]
-      ]
-    },
-    "title": "Treaty of Paris",
-    "type": ""
-  },
-  {
-    "id": "18",
-    "title": "18 Finite differences for the wave equation",
-    "type": ""
-  },
-  {
-    "id": "1821memoires",
-    "issued": {
-      "date-parts": [
-        [
-          1821,
-          5,
-          14
-        ]
-      ]
-    },
-    "language": "fre",
-    "publisher-place": "Paris",
-    "title": "Memoires de l’academie des sciences",
-    "type": "book"
-  },
-  {
-    "id": "1984_67",
-    "title": "1984_67.pdf",
-    "type": ""
-  },
-  {
     "ISBN": "978-0-943198-30-9",
     "id": "1990proceedings",
     "issued": {
@@ -65771,7 +65674,6 @@
   {
     "DOI": "10.1016/0045-7825(85)90050-7",
     "ISSN": "00457825",
-    "annote": "720 citations (Crossref) [2022-06-27]",
     "author": [
       {
         "family": "Simo",

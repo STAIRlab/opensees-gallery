@@ -171,8 +171,8 @@ if __name__ == "__main__":
 
     artist.draw_surfaces(field = stress)
     artist.draw_outlines()
-#   veux.serve(artist)
-    artist.save("stress.glb")
+    veux.serve(artist)
+#   artist.save("stress.glb")
 
 
 #   print(model.nodeDisp(l2))

@@ -16,9 +16,9 @@ except:
 def create_cantilever(ne, offset, element, section, nen=2):
     model = ops.Model(ndm=3, ndf=6)
 
-    E = 2.1e4 # MPa
+    E = 2.1e4 # MPa, or 210 GPa
     v = 0.30 #0.5*E/G - 1
-    G = 0.5*E/(1+v) # 787500
+    G = 0.5*E/(1+v) # 8076.92
 
     nmn = ne*(nen-1)+1
     L  = 900
@@ -40,10 +40,10 @@ def create_cantilever(ne, offset, element, section, nen=2):
         warp = os.environ.get("Warp", None)
         print(f"Section = Fiber; ", warp)
         model.section("ShearFiber", sec, GJ=0)
-        
+
         for fiber in shape.fibers(warp=warp):
             y, z = fiber.location
-            model.fiber(y, z, fiber.area, mat, fiber.warp[0], fiber.warp[1], section=sec)
+            model.fiber(y, z, fiber.area, mat, fiber.warp[0], section=sec) #fiber.warp[1], section=sec)
 
     else:
         print("Section = Elastic")
@@ -96,11 +96,12 @@ def analyze(element, section, pattern="node", nen=2):
         offset = (0,  0)
 
     model,shape = create_cantilever(ne, offset, element=element, section=section, nen=nen)
-    artist = veux.create_artist(model, model_config=dict(extrude_outline=shape))
-    artist.draw_nodes(size=10)
-    # artist.draw_sections()
-    # veux.serve(artist)
-    motion = Motion(artist)
+    if False:
+        artist = veux.create_artist(model, model_config=dict(extrude_outline=shape))
+        artist.draw_nodes(size=10)
+        # artist.draw_sections()
+        # veux.serve(artist)
+        motion = Motion(artist)
 
     #
     # Apply vertical load
@@ -125,11 +126,11 @@ def analyze(element, section, pattern="node", nen=2):
 
     model.system('Umfpack')
     model.integrator("LoadControl", Pmax/1000)#, 8, Pmax/500, Pmax/2)
-    model.test("NormDispIncr", 1e-8, 100, 1)
+    model.test("NormDispIncr", 1e-8, 100, 0)
 #   model.test('NormUnbalance',1e-6,10,1)
     model.algorithm("Newton")
     model.analysis("Static")
-    input()
+#   input()
 
     u = []
     v = []
@@ -137,35 +138,35 @@ def analyze(element, section, pattern="node", nen=2):
     P = []
 #   for i in range(50):
     while model.getTime() < Pmax:
-        motion.advance(time=model.getTime()*speed)
-        motion.draw_sections(rotation=model.nodeRotation,
-                             position=model.nodeDisp)
-        u.append(-model.nodeDisp(ne, 1))
-        v.append( model.nodeDisp(ne, 2))
-        w.append(-model.nodeDisp(ne, 3))
-        P.append( model.getTime())
+#       motion.advance(time=model.getTime()*speed)
+#       motion.draw_sections(rotation=model.nodeRotation,
+#                            position=model.nodeDisp)
+#       u.append(-model.nodeDisp(ne, 1))
+#       v.append( model.nodeDisp(ne, 2))
+#       w.append(-model.nodeDisp(ne, 3))
+#       P.append( model.getTime())
         if model.analyze(1) != 0:
             print(f"Failed at time = {model.getTime()} with v = {v[-1]}")
             break
 
 
+    if False:
+        fig, ax = plt.subplots()
+        ax.set_xlabel(r"Displ, $v$")
+        ax.set_ylabel("Load, $P$")
+        # ax.set_xlim([0,    300])
+        ax.set_ylim([0,   Pmax])
+        ax.axvline(0, color='black', linestyle='-', linewidth=1)
+        ax.axhline(0, color='black', linestyle='-', linewidth=1)
+        ax.plot(u, P, label="$u$")
+        ax.plot(v, P, label="$v$")
+        ax.plot(w, P, label="$w$")
+        ax.legend()
+        fig.savefig("img/e0013.png")
+        plt.show()
 
-    fig, ax = plt.subplots()
-    ax.set_xlabel(r"Displ, $v$")
-    ax.set_ylabel("Load, $P$")
-    # ax.set_xlim([0,    300])
-    ax.set_ylim([0,   Pmax])
-    ax.axvline(0, color='black', linestyle='-', linewidth=1)
-    ax.axhline(0, color='black', linestyle='-', linewidth=1)
-    ax.plot(u, P, label="$u$")
-    ax.plot(v, P, label="$v$")
-    ax.plot(w, P, label="$w$")
-    ax.legend()
-    fig.savefig("img/e0013.png")
-    plt.show()
-
-    motion.add_to(artist.canvas)
-    veux.serve(artist)
+        motion.add_to(artist.canvas)
+        veux.serve(artist)
 
 if __name__ == "__main__":
     import os

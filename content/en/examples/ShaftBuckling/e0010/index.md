@@ -1,12 +1,16 @@
 ---
-title: Nonlinear torsion
-draft: true
-description: Test of the Wagner strain term.
-render: e0011.glb
+title: "010 - Nonlinear torsion"
+draft: false
+description: Test of the Wagner strain term with standard 6-DOF frame elements.
+render: e0010.glb
 bibliography: references.json
 downloads:
-  Python: ["shapes.py", "e0010.py"]
+  Python: ["e0010.py"]
 ---
+
+Rectangle, pure torsion (no instability), unconstrained warping, <cite keys="battini2002corotational, rinchen2016formulation"></cite>. 
+
+Nonuniform constrained warping was considered by <cite keys="zhang2011formulation"></cite>
 
 ![](img/e0010.png)
 

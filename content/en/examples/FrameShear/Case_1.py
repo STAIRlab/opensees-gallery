@@ -4,12 +4,11 @@
 #
 # Pinned-pinned column with uniform lateral load of 0.200 kip/ft and varying axial load
 #
-# Units: kip, in, sec
 import numpy as np
 import opensees.openseespy as ops
-from opensees.units.iks import ft
+from opensees.units.iks import ft, ksi
 
-def benchmark(model, Mbench, Dbench):
+def check_column(model, Mbench, Dbench):
     ne    = len(model.getEleTags())
     Axial = model.getTime()
     Mmid  = model.eleResponse(int(ne//2), "forces")[5]
@@ -23,29 +22,19 @@ def benchmark(model, Mbench, Dbench):
 
 
 
-def analyze(element="ForceBeamColumn", use_shear = False):
-    if  use_shear :
-        Mbench_list = [ 235.0, 270.0, 316.0, 380.0]
-        Dbench_list = [ 0.202, 0.230, 0.269, 0.322]
-    else:
-        Mbench_list = [ 235.0, 269.0, 313.0, 375.0]
-        Dbench_list = [ 0.197, 0.224, 0.261, 0.311]
-
+def create_case1(element="ForceBeamColumn", use_shear = False, ndm=2):
     ne = 6
-
     L = 336.0
-
     # Material
-    E =  29000.0
-    G =  11200.0
+    E =  29000.0*ksi
+    G =  11200.0*ksi
 
-    # Cross-section
+    # Cross-section (W14x48)
     A =  14.1
     I =  484.0
     d =  13.8
     tw = 0.340
-
-    # Shear coefficient taken from Iyer 2005: A/Av
+    # Shear coefficient A/Av
     k = (d*tw)/A
 
     model = ops.Model(ndm=2,  ndf=3)
@@ -64,12 +53,14 @@ def analyze(element="ForceBeamColumn", use_shear = False):
     else:
         model.section("Elastic", 1, E, A, I)
 
+    if ndm == 2:
+        vecxz = ()
+    else:
+        vecxz = (0, 0, 1)
     if "Exact" in element:
         model.geomTransf("Linear", 1)
     else:
         model.geomTransf("Corotational", 1)
-
-#   model.geomTransf("PDelta", 1)
 
     # Elements
     for i in range(ne):
@@ -79,10 +70,12 @@ def analyze(element="ForceBeamColumn", use_shear = False):
 
 
     model.pattern("Plain", 1, "Linear")
-
     for i in range(ne):
         model.eleLoad("-ele", i+1, "-pattern", 1, "-type", "beamUniform",  -0.200/ft)
 
+    return model
+
+def analyze_case1(model, Mbench, Dbench, ndm=3):
 
     model.constraints("Transformation")
     model.numberer("Plain")
@@ -92,9 +85,10 @@ def analyze(element="ForceBeamColumn", use_shear = False):
     model.integrator("LoadControl", 0.1)
     model.analysis("Static")
     model.analyze(10)
-    benchmark(model, Mbench_list[0], Dbench_list[0])
 
+    ne = len(model.getNodeTags()) - 1
 
+    check_column(model, Mbench[0], Dbench[0])
 
     model.loadConst(time=0.0)
     model.pattern("Plain", 2, "Linear", load={ne+1: [0, -1, 0]})
@@ -102,26 +96,31 @@ def analyze(element="ForceBeamColumn", use_shear = False):
 
     model.integrator("LoadControl", 15.0)
     model.analyze(10)
-    benchmark(model, Mbench_list[1], Dbench_list[1])
-
-
-    model.analyze(10)
-    benchmark(model, Mbench_list[2], Dbench_list[2])
-
+    check_column(model, Mbench[1], Dbench[1])
 
     model.analyze(10)
-    benchmark(model, Mbench_list[3], Dbench_list[3])
+    check_column(model, Mbench[2], Dbench[2])
+
+    model.analyze(10)
+    check_column(model, Mbench[3], Dbench[3])
 
     return model
 
 if __name__ == "__main__":
-
-#   "DispBeamColumnNL"
-#   "DispBeamColumn"
-#   "PrismFrame"
+    ndm = 2
 
     for element in "ForceFrame", "forceBeamColumnCBDI", "PrismFrame", "ExactFrame":
         for shear in True, False:
+
+            if  shear :
+                Mbench_list = [ 235.0, 270.0, 316.0, 380.0]
+                Dbench_list = [ 0.202, 0.230, 0.269, 0.322]
+            else:
+                Mbench_list = [ 235.0, 269.0, 313.0, 375.0]
+                Dbench_list = [ 0.197, 0.224, 0.261, 0.311]
+
             print(element, f"({shear = })")
-            model = analyze(element, use_shear=shear)
+            model = create_case1(element, use_shear=shear, ndm=ndm)
+            model.print(json=f"C1-{element}-{shear}.json")
+            analyze_case1(model, Mbench_list, Dbench_list, ndm=ndm)
 

@@ -8,7 +8,7 @@
     "start": "hugo server --bind=0.0.0.0 --disableFastRender --printI18nWarnings",
     "start:prod": "npm run -s prestart  && hugo server --bind=0.0.0.0 --disableFastRender --printI18nWarnings -e production",
     "prebuild": "npm run clean:public && npm run -s mod:vendor",
-    "build": "hugo --gc --minify",
+    "build": "hugo --gc --minify && python scripts/bundle-downloads.py public/examples/*/index.html",
     "build:cache": "npm run -s prebuild && hugo config | grep cachedir && hugo --gc --minify -e ci",
     "build:debug": "hugo -e debug --debug",
     "build:preview": "npm run build -D -F",

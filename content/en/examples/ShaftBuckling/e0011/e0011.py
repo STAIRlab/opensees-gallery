@@ -1,5 +1,4 @@
-# Test of the warping DOF and Wagner term.
-# Lin and Hsiao (2001), Example 1
+# Test of the warping DOF
 #
 import os
 import sys
@@ -142,7 +141,7 @@ if __name__ == "__main__":
                                      )
                 motion.set_field(lambda tag: model.nodeDisp(tag, 7))
 
-        marker = "-x."["abc".index(case)]
+        marker = "+x."["abc".index(case)]
         ax.plot(u, P, marker, label=case)
 
         ax2.plot(

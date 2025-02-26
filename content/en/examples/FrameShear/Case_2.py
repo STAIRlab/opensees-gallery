@@ -1,4 +1,5 @@
 # AISC Benchmark Problem, Case 2
+#
 # AISC 360-16, Commentary Figure C-C2.3
 #
 # Cantilever column with a 1-kip lateral point load at the end and a varying
@@ -9,11 +10,11 @@ from math import cos,sin,sqrt,pi
 import opensees.openseespy as ops
 
 # import units (inch-kip-sec)
-from opensees.units.iks import ft, inch, ksi
+from opensees.units.iks import ft, ksi
 
 
 
-def check(model, Mbench, Dbench):
+def check_cantilever(model, Mbench, Dbench):
     nn = len(model.getNodeTags())
     Axial  = model.getTime()
     Mbase  = model.eleResponse( 1, "forces")[2]
@@ -25,6 +26,7 @@ def check(model, Mbench, Dbench):
 
 
 def create_column(element, use_shear=False, ndm=3):
+    ne = 3
     L = 28*ft
     # Material
     E =  29000.0*ksi
@@ -37,13 +39,6 @@ def create_column(element, use_shear=False, ndm=3):
     tw = 0.340
     # shear coefficient A/Av
     k = (d*tw)/A
-
-    ne = 3
-
-    if ndm == 2:
-        vecxz = ()
-    else:
-        vecxz = (0, 0, 1)
 
     model = ops.Model(ndm=ndm)
 
@@ -78,19 +73,18 @@ def create_column(element, use_shear=False, ndm=3):
         model.section("FrameElastic", 1, *properties)
 
 
+    if ndm == 2:
+        vecxz = ()
+    else:
+        vecxz = (0, 0, 1)
     model.geomTransf("Corotational", 1, *vecxz)
 
     # Elements
     for i in range(ne):
         tag = i+1
         nodes = (tag, tag+1)
-#       model.element('PrismFrame', i+1, nodes, A, E, I, 1, "-order", 1)
-
-#       model.element(element, i+1, nodes, 3, 1, 1)
         model.element(element, i+1, nodes, transform=1, section=1)
-#       model.element('ForceBeamColumnCBDI', i+1, node_i, node_j, 3, 1, 1)
-#       model.element('DispBeamColumnNL', i+1, node_i, node_j, 3, 1, 1)
-#       model.element('DispBeamColumn', i+1, node_i, node_j, 3, 1, 1)
+
 
     model.pattern("Plain", 1, "Linear", load={
             ne+1: [1, 0, 0] + ([0, 0, 0] if ndm == 3 else [])
@@ -99,7 +93,7 @@ def create_column(element, use_shear=False, ndm=3):
     return model
 
 
-def analyze(model, Mbench, Dbench, ndm=3):
+def analyze_case2(model, Mbench, Dbench, ndm=3):
     model.constraints("Transformation")
     model.numberer("Plain")
     model.system("UmfPack")
@@ -113,7 +107,7 @@ def analyze(model, Mbench, Dbench, ndm=3):
 
     model.loadConst(time=0.0)
 
-    check(model, Mbench[0], Dbench[0])
+    check_cantilever(model, Mbench[0], Dbench[0])
 
     model.pattern("Plain", 2, "Linear", load={
         ne+1: [0, -1, 0] + ([0, 0, 0] if ndm == 3 else [])
@@ -123,19 +117,19 @@ def analyze(model, Mbench, Dbench, ndm=3):
     model.integrator("LoadControl", 10.0)
     model.analyze(10)
 
-    check(model, Mbench[1], Dbench[1])
+    check_cantilever(model, Mbench[1], Dbench[1])
 
     model.analyze(5)
 
-    check(model, Mbench[2], Dbench[2])
+    check_cantilever(model, Mbench[2], Dbench[2])
 
     model.analyze(5)
 
-    check(model, Mbench[3], Dbench[3])
+    check_cantilever(model, Mbench[3], Dbench[3])
 
 
 if __name__ == "__main__":
-    ndm = 3
+    ndm = 2
 
     for shear in False, True:
 
@@ -151,5 +145,6 @@ if __name__ == "__main__":
             if "Exact" in element and (ndm == 2 or not shear):
                 continue
             print(f"{element} ({shear = })")
-            analyze(create_column(element, shear, ndm=ndm), Mbench, Dbench, ndm=ndm)
+            model = create_column(element, shear, ndm=ndm)
+            analyze_case2(model, Mbench, Dbench, ndm=ndm)
 
