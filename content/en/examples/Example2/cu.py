@@ -49,13 +49,15 @@ if __name__ == "__main__":
 
     print(shape.summary())
 
+
+
     # fig, ax = plt.subplots(1, 2, figsize=(12, 6))
     # for patch in shape._patches[:2]:
     #     for outline in patch.interior():
     #         ax[0].plot(*zip(*outline))
-    
+
     #     ax[1].plot(*zip(*patch.exterior()))
-    
+
     # ax[0].axis("equal")
     # ax[1].axis("equal")
     # plt.show()

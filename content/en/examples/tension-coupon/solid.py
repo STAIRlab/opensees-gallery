@@ -76,7 +76,7 @@ if __name__ == "__main__":
     # artist.draw_surfaces(style=MeshStyle(color="gray", alpha=0.5))
     # artist.draw_nodes()
     artist.draw_surfaces(state=model.nodeDisp,
-                        field=NodalStress(model, "J2"),
+                        field=NodalStress(model, "sxx"),
                         style=MeshStyle(color="white")
                         )
     veux.serve(artist)
