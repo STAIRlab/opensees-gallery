@@ -31,6 +31,7 @@ if __name__ == "__main__":
 
     for cell in part.find_cells():
         model.element("bbarBrick", cell.id, cell.nodes, 1)
+#       model.element("stdBrick", cell.id, cell.nodes, 1)
 
     for node in face_i:
         model.fix(node, (1, 1, 1))
@@ -43,7 +44,7 @@ if __name__ == "__main__":
         if model.nodeCoord(node, 2) in {yi, yj} and model.nodeCoord(node, 3) in {zi, zj}:
             model.load(node,  (1/4, 0, 0), pattern=1)
             continue
-        
+
         if model.nodeCoord(node, 2) in {yi, yj}  or model.nodeCoord(node, 3) in {zi, zj}:
             model.load(node,  (1/2, 0, 0), pattern=1)
             continue
@@ -74,14 +75,14 @@ if __name__ == "__main__":
 
     # artist.draw_surfaces(style=MeshStyle(color="gray", alpha=0.5))
     # artist.draw_nodes()
-    try:
-        artist.draw_surfaces(state=model.nodeDisp,
-                            field=NodalStress(model, "J2"),
-                            style=MeshStyle(color="white")
-                            )
-        veux.serve(artist)
-    except:
-        pass
+    artist.draw_surfaces(state=model.nodeDisp,
+                        field=NodalStress(model, "J2"),
+                        style=MeshStyle(color="white")
+                        )
+    veux.serve(artist)
+#   try:
+#   except:
+#       pass
 
     plt.plot(u, p)
     plt.savefig("img/plot.png")

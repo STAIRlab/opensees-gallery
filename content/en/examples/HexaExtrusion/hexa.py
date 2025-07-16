@@ -4,6 +4,7 @@ import numpy as np
 from shps.frame.extrude import ExtrudeHexahedron
 from shps import plane
 from shps.block import create_block
+from xara.post import NodalStress
 
 def tube_section(order=1):
     d = 24     # depth
@@ -98,7 +99,7 @@ if __name__ == "__main__":
     nodes = np.vstack(list(nodes.values()))
     cells = np.vstack(list(cells.values())) - 1
 
-    ex = ExtrudeHexahedron(nodes, cells)
+    ex = ExtrudeHexahedron((nodes, cells))
 
 
     model = xara.Model(ndm=3, ndf=3)
@@ -123,13 +124,14 @@ if __name__ == "__main__":
 
     model.integrator("LoadControl", 200)
     model.system("Umfpack")
-    model.test("NormDispIncr", 1e-10, 2, 1)
+    model.test("NormUnbalance", 1e-8, 2, 1)
     model.analysis("Static")
     model.analyze(1)
     print("Analysis complete")
+
     artist = veux.create_artist(model, ndf=3)
     artist.draw_outlines(state=model.nodeDisp)
-    artist.draw_surfaces(state=model.nodeDisp)
+    artist.draw_surfaces(state=model.nodeDisp, field=NodalStress(model, "sxx"))
     artist.save("hexa.glb")
     veux.serve(artist)
 

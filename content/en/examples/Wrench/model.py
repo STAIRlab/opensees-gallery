@@ -132,7 +132,7 @@ def create_tris():
 
 def create_boundary(model):
     # Load magnitude
-    P = 700
+    P = 300
 
     # Fix the first node, which is at (0.0, 0.0)
     model.fix(1, 1, 1)

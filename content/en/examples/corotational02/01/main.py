@@ -102,7 +102,7 @@ def create_prism_openseespy(length: float,
     model.model("Basic", "-ndm", 3, "-ndf", 6)
 
     for i in range(1, nn+1):
-        x = (i-1)/float(ne)*L
+        x = (i-1)/float(ne)*length
         location = (x, x/15, -x/15)
 
         if rotation is not None:
@@ -200,13 +200,12 @@ if __name__ == "__main__":
     )
 
     m,u,artist = analyze_moment(model, steps=200)
-    
+
     for node in m.getNodeTags():
         print(f"Node {node}: {np.linalg.norm(m.nodeDisp(node))}")
 
 
     veux.serve(artist)
-    artist.save("a.glb")
     plt.plot(u,'.')
     plt.show()
 
@@ -236,6 +235,5 @@ if __name__ == "__main__":
 
 
     veux.serve(artist)
-    artist.save("a.glb")
     plt.plot(u,'.')
     plt.show()
