@@ -45,13 +45,14 @@ if __name__ == "__main__":
 
     bar = Circle(d/2, z=2, mesh_scale=1/2, divisions=4, name="rebar")
 
-    xr = ((5*foot/2) - cover - ds - d/2, 0)
+    xr = [(5*foot/2) - cover - ds - d/2,   0]
 
+    bar_list = bar.linspace(xr, xr, nr, endpoint=False, center=(0,0))
 
     shape = xs.CompositeSection([
                 octagon,
                 interior,
-                *bar.linspace(xr, xr, nr, endpoint=False, center=(0,0))
+                *bar_list
             ])
 
 
@@ -69,11 +70,11 @@ if __name__ == "__main__":
     plt.show()
 
 
-    # artist = veux.create_artist(shape.model) #veux.model.FiberModel(shape.create_fibers()))
-    # # artist.draw_samples()
-    # artist.draw_outlines()
-    # artist.draw_surfaces()
-    # veux.serve(artist)
+    artist = veux.create_artist(shape.model) #veux.model.FiberModel(shape.create_fibers()))
+    # artist.draw_samples()
+    artist.draw_outlines()
+    artist.draw_surfaces()
+    veux.serve(artist)
 
 
     mat = [

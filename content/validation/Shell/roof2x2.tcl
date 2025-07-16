@@ -11,20 +11,13 @@ nDMaterial PlateFiber 601 1
 section PlateFiber 1 601 0.25
 
 node 1 0 0 5.84889
-
 node 2 8.5505 0 4.3412
 node 3 16.0697 0 0
-
 node 4 0 12.5 5.84889
-
 node 5 8.5505 12.5 4.3412
-
 node 6 16.0697 12.5 0
-
 node 7 0 25 5.84889
-
 node 8 8.5505 25 4.3412
-
 node 9 16.0697 25 0
 
 

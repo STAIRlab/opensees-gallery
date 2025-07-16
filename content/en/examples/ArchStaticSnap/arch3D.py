@@ -63,7 +63,7 @@ def arch_model3D():
 
     # Create elements
     transfTag = 1
-    model.geomTransf("Corotational", transfTag, (0, 0, 1))
+    model.geomTransf("Corotational02", transfTag, (0, 0, 1))
     for i in range(ne):
         tag   = i+1
         nodes = (i+1, i+2)
