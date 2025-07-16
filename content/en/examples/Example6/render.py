@@ -1,6 +1,6 @@
 import veux
 from xara.post import node_average
-from opensees.helpers import find_node, find_nodes
+from xara.helpers import find_node, find_nodes
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -36,6 +36,6 @@ if __name__ == "__main__":
                              scale=10
         )
 
-#       veux.serve(artist)
-        artist.save(dir/f"{element}-displaced.glb")
+        veux.serve(artist)
+#       artist.save(dir/f"{element}-displaced.glb")
 
