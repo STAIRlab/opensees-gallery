@@ -1,10 +1,12 @@
 import xara
 import veux
 import numpy as np
+
 from veux.config import NodeStyle, MeshStyle
 from xara.helpers import find_nodes
 from xara.post import NodalStress
-from openbim.inp import create_model, parser, Part
+
+import xcae
 import matplotlib.pyplot as plt
 try:
     plt.style.use("veux-web")
@@ -22,7 +24,7 @@ if __name__ == "__main__":
     model.nDMaterial("J2", 1, Fy=60, E=29e3, nu=0.27, Hiso=0.005*29e3, Fsat=90, Hsat=16.93)
     # model.nDMaterial("ElasticIsotropic", 1, E=29e3, nu=0.27)
 
-    part = Part(parser.load("coupon.inp"))
+    part = xcae.Part(xcae.load("coupon.inp"))
     for node in part.find_nodes():
         model.node(node.id, node.location)
 
@@ -36,6 +38,8 @@ if __name__ == "__main__":
     for node in face_i:
         model.fix(node, (1, 1, 1))
 
+
+    # Analysis
     model.pattern("Plain", 1, "Linear")
 
     yi, yj =  0.000, 0.005
@@ -85,5 +89,5 @@ if __name__ == "__main__":
 #       pass
 
     plt.plot(u, p)
-    plt.savefig("img/plot.png")
+    # plt.savefig("img/plot.png")
     plt.show()

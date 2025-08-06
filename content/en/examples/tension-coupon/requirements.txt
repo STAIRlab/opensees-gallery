@@ -1,6 +1,5 @@
 xara
-openbim
-opensees
+xcae
 numpy
 matplotlib
 veux
