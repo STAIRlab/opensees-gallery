@@ -1,3 +1,7 @@
+import veux
+import xara
+from veux.motion import Motion
+from xara.units.fks import kip, sec, foot, inch, pcf, ksi, gravity
 
 import xara
 import veux
@@ -37,6 +41,7 @@ def build_model():
         7: ( bay/2, -bay/2, story_height),
         8: (-bay/2, -bay/2, story_height),
     }
+
     for tag, xyz in coords.items():
         model.node(tag, xyz)
 
@@ -88,7 +93,8 @@ def build_model():
     # Define gravity loads
     # create a Plain load pattern with Constant scaling
     model.pattern("Plain", 1, "Constant")
-    p = density*bay**2*thickness
+
+    p = density*bay**2*thickness*gravity/len(roof)
     for i in roof:
         model.load(i, (0.0, 0.0, -p, 0.0, 0.0, 0.0), pattern=1)
 
@@ -97,11 +103,11 @@ def build_model():
     return model
 
 
+
 def analyze(model):
 
-
-    # Define earthquake excitation
-    # ----------------------------
+    # 1. Define earthquake excitation
+    # 
     dt = 0.02
     # Set up the acceleration records for Tabas fault normal and fault parallel
     model.timeSeries("Path", 2, values=np.loadtxt("tabasFN.txt").tolist(), dt=dt, factor=gravity)
@@ -113,19 +119,17 @@ def analyze(model):
     model.pattern("UniformExcitation", 2,  1,   accel=2)
     model.pattern("UniformExcitation", 3,  2,   accel=3)
 
-    # ----------------------------
-    # 1. Configure the analysis
-    # ----------------------------
+    # 
+    # 2. Configure the analysis
+    # 
 
     # Use sparse matrix solver
     model.system("UmfPack")
-
-    # Impose boundary conditions directly
     model.constraints("Plain")
 
     # Configure the analysis such that iterations are performed until either:
-    # 1. the energy increment is less than 1.0e-10 (success)
-    # 2. the number of iterations surpasses 10 (failure)
+    # 1. the energy increment is less than 1.0e-8 (success)
+    # 2. the number of iterations surpasses 20 (failure)
     model.test("EnergyIncr", 1.0e-10, 10)
 
     # Perform iterations with the Newton-Raphson algorithm
@@ -137,10 +141,9 @@ def analyze(model):
     # Define the analysis
     model.analysis("Transient")
 
-    # -----------------------
-    # 2. Perform the analysis
-    # -----------------------
-
+    # 
+    # 3. Perform the analysis
+    # 
     roof = [node for node in model.getNodeTags() if model.nodeCoord(node)[2] != 0.0]
 
     # record once at time 0
@@ -150,7 +153,7 @@ def analyze(model):
 
     # Perform 2500 analysis steps with a time step of 0.01
     for i in range(2500):
-        status = model.analyze(1, 0.01)
+        status = model.analyze(1, 0.02)
         if status != xara.successful:
             raise RuntimeError(f"analysis failed at time {model.getTime()}")
 
@@ -160,29 +163,15 @@ def analyze(model):
 
     return displacements
 
-
 if __name__ == "__main__":
     model = build_model()
-
-    art = veux.create_artist(model, vertical=3)
-    # Render the model by itself
-    art.draw_surfaces()
-    art.draw_nodes()
-    print("Displaying the undeformed model")
-    veux.serve(art)
-
-
-    # 
-    model.eigen(2)
-    mode = 2
-    print(f"Displaying mode {mode}")
-    veux.serve(veux.render_mode(model, 2, vertical=3, scale=50))
-
-
-
     displacements = analyze(model)
 
-    print(f"Displaying the response history")
-    plt.plot(displacements[5])
-    plt.show()
+    artist = veux.create_artist(model, vertical=3)
+    motion = Motion(artist)
 
+    for i in range(2500):
+        motion.draw_sections(state=lambda node: 1000*np.array(displacements[node][i]) if node in displacements else [0,0,0,0,0,0])
+
+    motion.add_to(artist.canvas)
+    veux.serve(artist)

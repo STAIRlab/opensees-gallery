@@ -100,7 +100,7 @@ $$
 
 This is plotted below along with the results of the finite element analysis with 4 and 9-node quadrilaterals:
 
-![Beam with a hole.](img/beam_solution.png)
+![Validation.](img/beam_solution.png)
 
 ## Combining Blocks
 

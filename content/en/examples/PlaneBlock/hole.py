@@ -108,16 +108,17 @@ def create_model(mesh,
     # Define the material
     # -------------------
     #                                 tag  E      nu   rho
-    model.material("ElasticIsotropic", 1, 4000.0, 0.25, 0, "-plane-strain")
+    model.material("ElasticIsotropic", 1, 4000.0, 0.25, 0)
+    model.section("PlaneStrain", 1, material=1, thickness=thick)
 
     # now create the nodes and elements
-    args = (thick, "PlaneStrain", 1)
+    args = ("-section", 1)
 
     for tag, node in mesh[0].items():
         model.node(tag, *node)
 
     for tag, cell in mesh[1].items():
-        model.element(element, tag, tuple(cell), *args)
+        model.element(element, tag, list(cell), *args)
 
     # Fix all nodes with coordinate x=0.0
     for node in find_nodes(model, x=0):
@@ -155,7 +156,7 @@ def static_analysis(model):
 if __name__ == "__main__":
     import time
 
-    mesh = hole(1)
+    mesh = hole(2)
     model = create_model(mesh, element="quad")
     start = time.time()
     static_analysis(model)
@@ -165,7 +166,7 @@ if __name__ == "__main__":
 
     artist = veux.create_artist(model)
 
-    stress = {node: stress["sxx"] for node, stress in node_average(model, "stressAtNodes").items()}
+    stress = {node: stress["sxy"] for node, stress in node_average(model, "stressAtNodes").items()}
 
     artist.draw_surfaces(state=model.nodeDisp, field = stress, scale=10)
     artist.draw_outlines()
