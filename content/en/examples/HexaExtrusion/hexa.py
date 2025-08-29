@@ -106,7 +106,7 @@ if __name__ == "__main__":
     model.material("ElasticIsotropic", 1, 29e3, 0.23)
     model.pattern("Plain", 1, "Linear")
 
-    n = 100
+    n = 80
     for i in range(n):
 
         for tag, coords in ex.nodes():
@@ -114,7 +114,7 @@ if __name__ == "__main__":
             if i==0 and coords[-1] == 0:
                 model.fix(tag, (1, 1, 1))
             elif i == n-1:
-                model.load(tag, (1, -1, 0), pattern=1)
+                model.load(tag, (0.01, -1, 0), pattern=1)
 
         for tag, cell in ex.cells():
             model.element("stdBrick", tag, tuple(cell), 1)
@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
     artist = veux.create_artist(model, ndf=3)
     artist.draw_outlines(state=model.nodeDisp)
-    artist.draw_surfaces(state=model.nodeDisp, field=NodalStress(model, "sxx"))
+    artist.draw_surfaces(state=model.nodeDisp, field=NodalStress(model, "szz"))
     artist.save("hexa.glb")
     veux.serve(artist)
 
