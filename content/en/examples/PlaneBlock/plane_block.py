@@ -62,7 +62,6 @@ def create_beam(mesh,
             })
 
     # Single-point constraints
-    #            x   (u1 u2)
     for node in find_nodes(model, x=0):
         model.fix(node, (1, 1))
 
@@ -126,7 +125,7 @@ def create_beam(mesh,
 
 if __name__ == "__main__":
     fig, ax = plt.subplots()
-    for order in 1,2:
+    for order in 1,:
         # model, xn, um, ue = create_beam((40,8), element="quad", order=order)
         model, xn, um, ue = create_beam((12,4), element="quad", order=order)
         ax.plot(xn, um, ":", label=f"FEA ({order = })")
@@ -136,7 +135,7 @@ if __name__ == "__main__":
     ax.set_xlabel("Coordinate, $x$")
     ax.set_ylabel("Deflection, $u_y$")
     ax.legend()
-    plt.savefig("img/beam_solution.png", dpi=300)
+#   plt.savefig("img/beam_solution.png", dpi=300)
     plt.show()
 
 
