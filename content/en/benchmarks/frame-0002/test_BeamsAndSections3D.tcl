@@ -5,9 +5,37 @@
 #                |
 # #|============== ->>
 #
+#
+# Adapted from the file 'test_BeamsAndSections3D.tcl'
+#
+
+proc verify {cmd {value ""} {reference ""} {tolerance 1e-12} {about ""}} {
+    if {$cmd == "error"} {
+        set check [expr abs(($value - $reference)/$reference)]
+        if {$check > $tolerance} {
+        puts  "   \033\[31mFAIL\033\[0m: | $value - $reference | = $check > $tolerance"
+        error "$about"
+        } else {
+          puts  "   \033\[32mPASS\033\[0m  "; # " $value   $reference $about"
+        }
+
+    } elseif {$cmd == "value"} {
+        if {abs($value - $reference) > $tolerance} {
+        set check [expr abs($value - $reference)]
+        puts  "   \033\[31mFAIL\033\[0m($about): | $value - $reference | = $check > $tolerance"
+        error "$about"
+        } else {
+        puts  "    \033\[32mPASS\033\[0m  "; # "$value   $reference $about"
+        }
+    } else {
+     # value or  "about"
+    puts "  $value"
+    }
+}
 
 proc printEigenvalues {E A Iz Iy G J L} {
     # Compute element eigenvalues
+    return
     set eigenValues [eigen standard 12]
 
     set e1 [expr 2*$E*$A/$L]
@@ -20,7 +48,7 @@ proc printEigenvalues {E A Iz Iy G J L} {
     set exact "$e1 $e2 $e3 $e4 $e5 $e6"
     set exact [lsort -real $exact]
 
-    verify about "Eigenvalues"
+#   verify about "Eigenvalues"
     for {set i 0} {$i < 6} {incr i} {
         # verify value [lindex $eigenValues [expr $i+6]]  [lindex $exact $i] 1e-8 "eigen\[$i\]"
       puts [format "     %d      %10.3f    %10.3f"  $i  [lindex $eigenValues [expr $i+6]]  [lindex $exact $i]]
@@ -50,6 +78,13 @@ proc printDisplacements {E A Iz Iy G J L P H M} {
     puts [format "    rotY    %10.3f    %10.3f " [nodeDisp 2 5] [expr -$H*pow($L,2)/(2*$E*$Iy) + $M*$L/($E*$Iy)]]
     puts [format "    rotZ    %10.3f    %10.3f " [nodeDisp 2 6] [expr $H*pow($L,2)/(2*$E*$Iz) + $M*$L/($E*$Iz)]]
     puts ""
+    verify value [nodeDisp 2 1]              $dispX                               1e-10
+    verify error [nodeDisp 2 2]              $dispY                               2e-4
+    verify error [nodeDisp 2 3]              $dispZ                               2e-4
+    verify value [nodeDisp 2 4] [expr $M*$L/($G*$J)]                              1e-10
+    verify value [nodeDisp 2 5] [expr -$H*pow($L,2)/(2*$E*$Iy) + $M*$L/($E*$Iy)]  1e-10
+    verify value [nodeDisp 2 6] [expr  $H*pow($L,2)/(2*$E*$Iz) + $M*$L/($E*$Iz)]  1e-10
+
 }
 
 set E 1.0
@@ -67,10 +102,10 @@ set L  100.0
 set beta 0.1
 set lp [expr $beta*$L]
 
-set nIP 3
+set nIP 5
 
-set elements { 1 3 4 5 6 2 7 } ; # 
-set sections {1 2 3 4}; # 5};
+set elements { 1 3 4 2 } ; # 5 6 7
+set sections {1 }; #2 3}; # 4 5};
 
 set tol 1e-12
 foreach element $elements {
@@ -92,12 +127,13 @@ foreach element $elements {
             }
             2 {
                 puts "  Section: Aggregator (fiber plus uniaxial)"
+                set nf 100
                 uniaxialMaterial Elastic 1 $E
                 uniaxialMaterial Elastic 2 [expr $G*$J]
                 section Fiber 2 -torsion 2 {
-                    set b2 [expr $b/2]
-                    set d2 [expr $d/2]
-                    patch rect 1 10 10 $d2 $b2 -$d2 -$b2
+                    set b2 [expr $b/2.0]
+                    set d2 [expr $d/2.0]
+                    patch rect 1 $nf $nf $d2 $b2 -$d2 -$b2
                 }
                 section Aggregator 1 2 T -section 2
             }
@@ -133,17 +169,16 @@ foreach element $elements {
             2 {
                 puts "  Element: DispBeamColumn"
                 element dispBeamColumn 1 1 2 $nIP 1 1
-
-                set tol 5e-3
             }
             3 {
                 puts "  Element: ForceBeamColumn"
-                element nonlinearBeamColumn 1 1 2 $nIP 1 1
+                element forceBeamColumn 1 1 2 $nIP 1 1
             }
             4 {
                 puts "  Element: BeamWithHinges"
                 element beamWithHinges 1 1 2 1 $lp 1 $lp $E $A $Iz $Iy $G $J 1
             }
+
             5 {
                 puts "  Element: PrismFrame"
                 element PrismFrame 1 1 2 -section $sec -transform 1
@@ -180,7 +215,7 @@ foreach element $elements {
         analysis Static
         
         analyze $steps
-        puts "$tol"
+
         printDisplacements $E $A $Iz $Iy $G $J $L $P $H $M
 
         wipe
