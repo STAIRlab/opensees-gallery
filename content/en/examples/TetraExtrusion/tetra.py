@@ -17,14 +17,19 @@ if __name__ == "__main__":
 
 
     model = xara.Model(ndm=3, ndf=3)
+
     model.material("ElasticIsotropic", 1, 29e3, 0.23)
+
     model.pattern("Plain", 1, "Linear")
 
     n = 200
     for i in range(n):
 
         for tag, coords in ex.nodes():
+            # Create the node
             model.node(tag, tuple(coords))
+
+            # if we're at the root, fix this node
             if i==0 and coords[-1] == 0:
                 model.fix(tag, (1, 1, 1))
             elif i == n-1:
@@ -40,8 +45,9 @@ if __name__ == "__main__":
     model.analysis("Static")
     model.analyze(1)
     print("Analysis complete")
-#   artist = veux.create_artist(model, ndf=3)
-#   artist.draw_outlines(state=model.nodeDisp)
-#   artist.draw_surfaces(state=model.nodeDisp)
-#   veux.serve(artist)
+
+    artist = veux.create_artist(model, ndf=3)
+    artist.draw_outlines(state=model.nodeDisp)
+    artist.draw_surfaces(state=model.nodeDisp)
+    veux.serve(artist)
 
