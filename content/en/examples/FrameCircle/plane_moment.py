@@ -1,6 +1,5 @@
 import numpy as np
 import veux
-import sys
 import matplotlib.pyplot as plt
 try:
     pass # plt.style.use("typewriter")
