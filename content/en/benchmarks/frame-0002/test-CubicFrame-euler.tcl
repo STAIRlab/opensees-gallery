@@ -1,7 +1,7 @@
-pragma openseespy
+#pragma openseespy
 model  -ndm 3 -ndf 6
 nDMaterial ElasticIsotropic 1 29000.0 0.2946428571428572 
-section ShearFiber 1 -GJ 0
+section ShearFiber 1  -GJ 1e3
 fiber  -area 0.0024582639885040777 -y -0.14561512300458365 -z -6.3829750736447375 -warp {{-0.9688128476316799 -6.786934454042207 -0.04748607401984906} {0 0.0 0}} -material 1 -section 1
 fiber  -area 0.001968071740911675 -y 0.0858973084620515 -z -6.445011251646858 -warp {{0.5691715491374006 -6.638781698725728 -0.025275225419116497} {0 0.0 0}} -material 1 -section 1
 fiber  -area 0.0026295055799975256 -y 0.2513534165830714 -z 6.449067492681132 -warp {{-1.6787270648432646 6.748091646751555 -0.21094775277579977} {0 0.0 0}} -material 1 -section 1
@@ -6371,12 +6371,14 @@ node 1 55.2 0 0
 element CubicFrame 1 0 1 -section 1 -transform 1 -shear 0
 fix 0 1 1 1 1 1 1 
 getNodeTags  
-pattern Plain 1 Linear {load 1 0 0 1 0 0 0 ;
+pattern Plain 1 Linear {
+  load 1 0 0 1 0 0 0 ;
 }
 integrator LoadControl 10 
 analysis Static 
+#system Umfpack
 test Residual 1e-10 3 
 analyze 1 
-getNodeTags  
 nodeDisp 1 3 
 verify value [nodeDisp 1 3] 0.040816424636 1e-6
+
