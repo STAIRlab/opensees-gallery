@@ -290,12 +290,15 @@ set DtfacU 1.5
 set incrafter 10
 set Nlimratio 0.9
 
-# Algorithm taking into account changes in analysis parameters during impacts, also see the macroelement wiki page for the strategy employed during impacts
+# Algorithm taking into account changes in analysis parameters during impacts, 
+# also see the macroelement wiki page for the strategy employed during impacts
 while {$curTime < $TmaxAnalysis && $ok == 0} {
   
   set ok [analyze 1 $Dtcur]
   
-  if {$ok != 0 && $Dtcur==$DtMin} { # Since the element does not throw an error due to large axial force changes when $Dtcur==$DtMin, the problem lies elsewhere and the analysis is stopped prematurely
+  if {$ok != 0 && $Dtcur==$DtMin} { 
+    # Since the element does not throw an error due to large axial force changes when $Dtcur==$DtMin, 
+    # the problem lies elsewhere and the analysis is stopped prematurely
     break
   } elseif {$ok!=0} {
     set Dtcur [expr max($DtMin,$DtfacL*$Dtcur)]; # If an error is detected, possibly due to a large axial force change inside the RockingBC element, $Dt is lowered until the minimum value
@@ -303,7 +306,8 @@ while {$curTime < $TmaxAnalysis && $ok == 0} {
     set igood 0
   } else {
     incr igood
-    if {$igood>=$incrafter} { # Check that some successful iterations have been performed
+    if {$igood>=$incrafter} {
+      # Check that some successful iterations have been performed
       if {[lindex [eleResponse 1 forceratioNmax] 0]<$Nlimratio*$NlimN && [lindex [eleResponse 1 forceratioTmax] 0]<$Nlimratio*$NlimT} { # Check that the maximum axial force ratios are somewhat lower than the respective limits
         set Dtcur [expr min($DtMax,$DtfacU*$Dtcur)] ;# The timestep may be gradually increased again until the maximum value
       }
