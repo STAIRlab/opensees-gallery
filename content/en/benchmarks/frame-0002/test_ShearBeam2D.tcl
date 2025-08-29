@@ -53,7 +53,7 @@ foreach element $elements {
 	load 2 0.0 $P 0.0
     }
     
-    test NormUnbalance 1.0e-10 10 1
+    test NormUnbalance 1.0e-10 5 0
     algorithm Newton
     integrator LoadControl 1.0
     constraints Plain
@@ -61,8 +61,9 @@ foreach element $elements {
     numberer Plain
     analysis Static
     
-    analyze 1
+    verify value [analyze 1] 0
     
     verify value [nodeDisp 2 2] [expr $P*pow($L,3)/(3*$E*$I) + $P*$L/($alpha*$G*$A)] "Exact displacement"
+
     wipe
 }
