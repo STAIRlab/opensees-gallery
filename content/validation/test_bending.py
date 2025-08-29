@@ -22,7 +22,7 @@ def BendT6():
     ops.node(6, 5., .5)
     ops.node(7, 2.5, 1.)
     ops.node(8, 0., .5)
-    ops.node(9, 2.5, .5)  # comment for quad8n element
+    ops.node(9, 2.5, .5)
 
     ops.element('tri6n', 1, 1, 2, 3, 5, 6, 9, thk, 'PlaneStress', 1)
     ops.element('tri6n', 2, 1, 3, 4, 9, 7, 8, thk, 'PlaneStress', 1)
