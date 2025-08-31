@@ -5,10 +5,10 @@
 #   [main.params]
 #     alias = true
 
-[[main]]
-  name = "Docs"
-  pageRef = "/docs/"
-  weight = 20
+# [[main]]
+#   name = "Docs"
+#   pageRef = "/docs/"
+#   weight = 20
 
 # [[main]]
 #   name = "Library"
