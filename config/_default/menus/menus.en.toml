@@ -117,19 +117,19 @@
   pageRef = "/"
   weight = 1
 
-[[footer]]
-  parent = "Links"
-  name = "About"
-  pageRef = "/docs/about/credits/"
-  weight = 10
-  [footer.params]
-    alias = true
+# [[footer]]
+#   parent = "Links"
+#   name = "About"
+#   pageRef = "/docs/about/credits/"
+#   weight = 10
+#   [footer.params]
+#     alias = true
 
-[[footer]]
-  parent = "Links"
-  name = "Docs"
-  pageRef = "/docs/"
-  weight = 20
+# [[footer]]
+#   parent = "Links"
+#   name = "Docs"
+#   pageRef = "/docs/"
+#   weight = 20
 
 # [[footer]]
 #   parent = "Links"
