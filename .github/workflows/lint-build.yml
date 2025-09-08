@@ -84,7 +84,7 @@ jobs:
     - {"name": "Install OpenSees", "run": "pip install opensees beautifulsoup4"}
 
     - name: Install Go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@v6
       with:
         go-version: ">1.0.0"
 
