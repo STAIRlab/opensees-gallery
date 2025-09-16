@@ -14,7 +14,6 @@ draft: false
 This example demonstrates the simulation of *follower loading* applied to frame elements.
 Our model is a basic cantilever composed of `ne`, `ExactFrame` elements.
 
-<!-- 
 In order to define the follower loading, we first add a [`Plain`](https://xara.so/user/manual/model/pattern/plainPattern.html)
 load pattern to the current [`Model`](https://xara.so/user/manual/model/model_class.html) instance,
 labeled with the tag `1` and scaled in time by a `Linear` time series:
@@ -29,11 +28,11 @@ Next we add a. `FrameLoad` to this pattern, applied to the element with tag `ne`
 {{% tab name="Python" %}}
 ```python
 model.eleLoad("Frame", "Dirac",
-                  force = [0, 1, 0],
-                  basis = "director",
-                  offset=[1.0,0,0],
-                  pattern=1,
-                  elements=[ne]
+              force = [0, 1, 0],
+              basis = "director",
+              offset=[1.0,0,0],
+              pattern=1,
+              elements=[ne]
 )
 ```
 {{% /tab %}}
@@ -48,6 +47,7 @@ eleLoad Frame Dirac -force {0 1 0} -basis director -offset {1.0 0 0} -pattern 1 
 The argument `"Dirac"` specifies that the loading is Dirac delta function.
 Before performing the analysis, we'll also define a `Motion` with the `veux`
 library which we will use to animate the simulation:
+
 ```python
 import veux
 artist = veux.create_artist(model, model_config=dict(extrude_outline="square"))
