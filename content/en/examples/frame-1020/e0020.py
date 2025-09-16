@@ -1,10 +1,9 @@
 # Cantilever beam subjected to follower end load.
-# Basic section properties
 import sys
 import veux
 import numpy as np
 from veux.motion import Motion
-import opensees.openseespy as ops
+import xara
 import matplotlib.pyplot as plt
 try:
     pass
@@ -12,8 +11,9 @@ try:
 except:
     pass
 
+
 def create_cantilever(ne, element):
-    model = ops.Model(ndm=3, ndf=6)
+    model = xara.Model(ndm=3, ndf=6)
 
     L  = 100
 
@@ -33,7 +33,6 @@ def create_cantilever(ne, element):
                     J =I
     )
 
-#   model.geomTransf("Corotational", 1, (0,1,0))
     model.geomTransf("Linear", 1, (0,0,1))
 
     for i,x in enumerate(np.linspace(0, L, nmn)):
@@ -50,6 +49,7 @@ def create_cantilever(ne, element):
 
     return model
 
+
 def analyze(element):
     ne = 10
 
@@ -57,7 +57,6 @@ def analyze(element):
     artist = veux.create_artist(model, model_config=dict(extrude_outline="square"))
     artist.draw_nodes(size=10)
     artist.draw_sections()
-    # veux.serve(artist)
     motion = Motion(artist)
 
     #
@@ -77,19 +76,15 @@ def analyze(element):
     )
 
     model.system('FullGeneral')
-    model.integrator("LoadControl", Pmax/500)#, 5, Pmax/5000, Pmax/100)
-#   model.integrator("ArcLength", Pmax/100, det=True, exp=0.5)
+    model.integrator("LoadControl", Pmax/500)
     model.test("NormDispIncr", 1e-12, 10, 1)
-#   model.test('NormUnbalance',1e-6,100,1)
     model.algorithm("Newton")
     model.analysis("Static")
-    input()
 
     u = []
     v = []
     w = []
     P = []
-#   for i in range(10):
     while model.getTime() < Pmax:
         if model.analyze(1) != 0:
             model.integrator("LoadControl", Pmax/10000)
@@ -131,6 +126,5 @@ def analyze(element):
 
 if __name__ == "__main__":
     import os
-    analyze(element = os.environ.get("Element", "ExactFrame")
-            )
+    analyze(element = os.environ.get("Element", "ExactFrame"))
 

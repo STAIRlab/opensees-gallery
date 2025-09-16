@@ -1,0 +1,35 @@
+[
+  {
+    "DOI": "10/b8wd4z",
+    "ISSN": "00457825",
+    "annote": "811 citations (Crossref) [2022-06-27]",
+    "author": [
+      {
+        "family": "Simo",
+        "given": "J. C."
+      },
+      {
+        "family": "Vu-Quoc",
+        "given": "L."
+      }
+    ],
+    "container-title": "Computer Methods in Applied Mechanics and Engineering",
+    "container-title-short": "Computer Methods in Applied Mechanics and Engineering",
+    "id": "simo1986threedimensional",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          1986,
+          10
+        ]
+      ]
+    },
+    "language": "en-US",
+    "page": "79-116",
+    "title": "A three-dimensional finite-strain rod model. Part II: Computational aspects",
+    "title-short": "A three-dimensional finite-strain rod model. Part II",
+    "type": "article-journal",
+    "volume": "58"
+  }
+]
