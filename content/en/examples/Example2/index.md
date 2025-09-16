@@ -1,6 +1,7 @@
 ---
 title: "Moment-Curvature Analysis"
 weight: 15
+draft: true
 tags: ["Fiber", "Concrete", "Python", "Tcl"]
 categories: ["Basic", "Inelastic"]
 thumbnail:  img/Section.png
