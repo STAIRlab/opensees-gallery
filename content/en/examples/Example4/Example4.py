@@ -16,8 +16,7 @@
 # Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
 # Date: August 2017
 #
-# import the OpenSees Python module
-import opensees.openseespy as ops
+import xara
 import math
 
 # ------------------------------
@@ -28,7 +27,7 @@ import math
 bay_count = 3
 
 # create ModelBuilder (with two-dimensions and 3 DOF/node)
-model = ops.Model(ndm=2, ndf=3)
+model = xara.Model(ndm=2, ndf=3)
 
 # Create nodes
 # ------------

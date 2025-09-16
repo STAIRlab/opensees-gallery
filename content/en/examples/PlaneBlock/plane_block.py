@@ -25,13 +25,12 @@ def create_beam(mesh,
     nu = 0.25
     L = 240.0*inch
     d = 24.0*inch
-    thick = 1.0*inch
     load = -20.0*kip
     G = E / (2 * (1 + nu))
-    A = thick*d
+    A = thickness*d
     k = 5/6
     w = load/L
-    I = thick*d**3/12
+    I = thickness*d**3/12
 
 
     #

@@ -2,7 +2,7 @@
 # 3D portal frame with concentric bracing
 #
 import numpy as np
-import opensees.openseespy as ops
+import xara
 import xara.units.fps as units
 from xara.units.fps import inch, kip, ksi
 
@@ -201,7 +201,7 @@ def create_portal():
     width  = 360*inch
     height = 180*inch
 
-    model = ops.Model(ndm=3, ndf=6)
+    model = xara.Model(ndm=3, ndf=6)
 
     tags = {
         "nodes": [1, 2, 3, 4, 5],

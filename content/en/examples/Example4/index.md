@@ -23,9 +23,9 @@ As always, our first step is to create an instance of the {{< link model_class >
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-import opensees.openseespy as ops
+import xara
 
-model = ops.Model(ndm=3, ndf=6)
+model = xara.Model(ndm=3, ndf=6)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}

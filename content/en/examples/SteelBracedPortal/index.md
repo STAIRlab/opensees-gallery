@@ -46,9 +46,9 @@ The purpose of this example is to demonstrate nonlinear finite element modeling 
 We begin by creating a `Model` in 3D space, with 6 degrees of freedom per node:
 
 ```python
-import opensees.openseespy as ops
+import xara
 
-model = ops.Model(ndm=3, ndf=6)
+model = xara.Model(ndm=3, ndf=6)
 ```
 
 All sections share a single inelastic material definition:
