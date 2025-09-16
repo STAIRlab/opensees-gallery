@@ -36,7 +36,7 @@ The analysis consists of three steps:
 ## Model
 
 We begin the simulation by creating a {{< link model_class >}}`Model`{{< /link >}}, which will manage
-the nodes, elements, loading and state. 
+the nodes, materials, and elements. 
 This is done through either Python or Tcl as follows:
 
 {{< tabs tabTotal="2" >}}
