@@ -37,6 +37,7 @@ def create_plane():
     model.analyze(1)
     return model
 
+
 if __name__ == "__main__":
 
     model = create_plane()
