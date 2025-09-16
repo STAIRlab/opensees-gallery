@@ -20,7 +20,8 @@ set nIP 3
 set elements {1 2 7}
 
 proc printRow {quantity computed bend shear} {
-  puts [format "%10s %10f %10f (%10f + %10f)" $quantity $computed [expr $bend+$shear] $bend $shear];
+  verify value $computed [expr $bend+$shear] 1e-10 $quantity
+# puts [format "%10s %10f %10f (%10f + %10f)" $quantity $computed [expr $bend+$shear] $bend $shear];
 }
 
 foreach element $elements {
@@ -79,19 +80,11 @@ foreach element $elements {
     set bend [expr $Py*pow($L,3)/(3*$E*$Iz)]
     set shear [expr $Py*$L/($alpha*$G*$A)]
 
-#   puts "Exact displacement:   [expr $bend + $shear]"
-#   puts "Bending contribution: $bend"
-#   puts "Shear contribution:   $shear"
-#   puts ""
     printRow "z-z" [nodeDisp 2 2] $bend $shear
+
 
     set bend [expr $Pz*pow($L,3)/(3*$E*$Iy)]
     set shear [expr $Pz*$L/($alpha*$G*$A)]
-#   puts "Exact displacement:   [expr $bend + $shear]"
-#   puts "Bending contribution: $bend"
-#   puts "Shear contribution:   $shear"
-#   puts ""
-
     printRow "y-y" [nodeDisp 2 3] $bend $shear
 
     wipe

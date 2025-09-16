@@ -63,12 +63,6 @@ foreach element $elements {
     
     analyze 1
     
-    print node 2
-
-    puts "Exact displacement:   [expr $P*pow($L,3)/(3*$E*$I) + $P*$L/($alpha*$G*$A)]"
-    puts "Bending contribution: [expr $P*pow($L,3)/(3*$E*$I)]"
-    puts "Shear contribution:   [expr $P*$L/($alpha*$G*$A)]"
-    puts ""
-
+    verify value [nodeDisp 2 2] [expr $P*pow($L,3)/(3*$E*$I) + $P*$L/($alpha*$G*$A)] "Exact displacement"
     wipe
 }

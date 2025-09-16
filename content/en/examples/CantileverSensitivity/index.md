@@ -1,9 +1,10 @@
 ---
-title: Cantilever Sensitivity
-description: Cantilever sensitivity study
-thumbnail: img/CantileverSensitivity2D_v1_Model.png
+title: Sensitivity
+description: Basic sensitivity analysis is performed
 draft: true
 ---
 
-![](CantileverSensitivity2D_v1_Model.png)
-![](CantileverSensitivity2D_v1.png)
+This example requires OpenSees to be installed through the [`xara`](https://pypi.org/project/xara) distribution.
+
+{{< highlight-content column.py python >}}
+

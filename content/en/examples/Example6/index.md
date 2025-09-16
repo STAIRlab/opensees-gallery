@@ -24,9 +24,9 @@ model -ndm 2 -ndf 2
 {{% /tab %}}
 {{% tab name="Python (RT)" %}}
 ```python
-import opensees.openseespy as ops
+import xara
 
-model = ops.Model(ndm=2, ndf=2)
+model = xara.Model(ndm=2, ndf=2)
 ```
 {{% /tab %}}
 {{< /tabs >}}

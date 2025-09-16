@@ -1,5 +1,5 @@
 ---
-title: "1021 - Follower loading"
+title: "Follower loading"
 bibliography: references.json
 description: This example demonstrates the simulation of follower loading applied to frame elements.
 downloads:

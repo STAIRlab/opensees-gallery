@@ -109,6 +109,6 @@ if __name__ == "__main__":
     stress = {node: stress["sxx"] for node, stress in node_average(model, "stressAtNodes").items()}
 
     artist.draw_surfaces(field = stress)
-    artist.draw_outlines()
+#   artist.draw_outlines()
     veux.serve(artist)
 

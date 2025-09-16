@@ -8,11 +8,11 @@
 # Basic Truss
 #
 import veux
-import opensees.openseespy as ops
+import xara
 
 def create_truss():
     # Create a Model (with two-dimensions and 2 DOF/node)
-    model = ops.Model(ndm=2, ndf=2)
+    model = xara.Model(ndm=2, ndf=2)
 
     # Create nodes
     model.node(1, (  0.0,  0.0))

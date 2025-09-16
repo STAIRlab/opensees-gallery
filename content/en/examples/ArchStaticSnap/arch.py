@@ -6,7 +6,7 @@
 # ===----------------------------------------------------------------------===//
 #
 import numpy as np
-import opensees.openseespy
+import xara
 
 # Create the model
 def arch_model():
@@ -23,7 +23,7 @@ def arch_model():
     #
     # Build the model
     #
-    model = opensees.openseespy.Model(ndm=2, ndf=3)
+    model = xara.Model(ndm=2, ndf=3)
 
     # Create nodes
     ne  = 10

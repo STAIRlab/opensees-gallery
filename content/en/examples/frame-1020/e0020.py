@@ -1,12 +1,18 @@
 # Cantilever beam subjected to follower end load.
+#
+# J. C. Simo, L. Vu-Quoc (1986). 
+#   A three-dimensional finite-strain rod model. Part II: Computational aspects. 
+#   https://doi.org/10/b8wd4z
+#
 import sys
 import veux
 import numpy as np
 from veux.motion import Motion
 import xara
 import matplotlib.pyplot as plt
+
+# Optional, for nicer automatic plot style
 try:
-    pass
     plt.style.use("typewriter")
 except:
     pass
@@ -35,9 +41,11 @@ def create_cantilever(ne, element):
 
     model.geomTransf("Linear", 1, (0,0,1))
 
+    # Create linearly spaced nodes along the x-axis
     for i,x in enumerate(np.linspace(0, L, nmn)):
         model.node(i, (x,0,0))
 
+    # Create elements
     for i in range(ne):
         start = i * (nen - 1)
         nodes = list(range(start, start + nen))
@@ -57,16 +65,15 @@ def analyze(element):
     artist = veux.create_artist(model, model_config=dict(extrude_outline="square"))
     artist.draw_nodes(size=10)
     artist.draw_sections()
+    speed  = 1/1000 # animation frames
     motion = Motion(artist)
 
     #
     # Apply vertical load
     #
-    speed  = 1/1000 # animation frames
+
     Pmax   = 150e3 # N
     model.pattern("Plain", 1, "Linear")
-
-    print("Pattern = element")
     model.eleLoad("Frame", "Dirac",
                   force = [0, 1, 0],
                   basis = "director",
@@ -105,16 +112,13 @@ def analyze(element):
 
     fig, ax = plt.subplots()
     ax.set_xlabel("Load, $P$")
-    ax.set_ylabel(r"Displacement")
-    # ax.set_xlim([0,    300])
-#   ax.set_ylim([0,   Pmax])
+    ax.set_ylabel("Displacement")
     ax.axvline(0, color='black', linestyle='-', linewidth=1)
     ax.axhline(0, color='black', linestyle='-', linewidth=1)
     ax.plot(P, u, label="$u$")
     ax.plot(P, v, label="$v$")
     ax.plot(P, w, label="$w$")
     ax.legend()
-    fig.savefig("img/e0020.png")
     plt.show()
 
     motion.add_to(artist.canvas)
