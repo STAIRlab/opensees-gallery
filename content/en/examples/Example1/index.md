@@ -13,7 +13,7 @@ description: >-
 keywords: ["structural analysis"]
 
 downloads:
-  Python: ["main.py"]
+  Python: ["truss.py", "truss.ipynb"]
   Tcl: ["Example1.tcl"]
 
 ---
@@ -21,10 +21,17 @@ downloads:
 ![Plane truss structure.](img/Example1.svg)
 
 This example is of a linear-elastic three bar truss, as shown in
-the figure above, subject to static loads. The purpose of this
+the figure above, subject to static loads. 
+<!-- The purpose of this
 example is to develop the basic concepts used for performing
 structural analysis with OpenSees.
-This includes the definition of nodes, materials, elements, loads and constraints. 
+This includes the definition of nodes, materials, elements, loads and constraints.  -->
+
+The analysis consists of three steps:
+
+1. Build a representation of the structural model
+2. Define a set of loads
+3. Perform the analysis
 
 ## Model
 
@@ -35,9 +42,9 @@ This is done through either Python or Tcl as follows:
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-import opensees.openseespy as ops
+import xara
 
-model = ops.Model(ndm=2, ndf=2)
+model = xara.Model(ndm=2, ndf=2)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
