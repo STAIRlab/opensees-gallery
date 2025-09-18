@@ -15,7 +15,6 @@ keywords: ["structural analysis"]
 downloads:
   Python: ["truss.py", "truss.ipynb"]
   Tcl: ["Example1.tcl"]
-
 ---
 
 ![Plane truss structure.](img/Example1.svg)
@@ -188,34 +187,26 @@ In Python, the simplest way to represent a nodal load is by a dictionary with
 node numbers as keys, and corresponding load vector as values. For the problem at
 hand, we want to apply a load to node `4` with `100` units in the $x$ direction, and
 `-50` units in the $y$ direction; the corresponding definition is:
-{{< tabs tabTotal="2" >}}
+{{< tabs tabTotal="3" >}}
 {{% tab name="Python" %}}
+```python
+loads = xara.NodalLoad({4: [100, -50]})
+```
+{{% /tab %}}
+{{% tab name="Python (Legacy)" %}}
 ```python
 loads = {4: [100, -50]}
-```
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-```tcl
-set loads {4 100 -50}
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-We then add a [`"Plain"`](https://xara.so/user/manual/model/pattern/plainPattern.html) load pattern to the model with these loads, 
-and use the `"Constant"` option
-to specify that it should be held constant.
-{{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
 model.pattern("Plain", 1, "Constant", load=loads)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
+set loads {4 100 -50}
 pattern Plain 1 "Constant" "load $loads"
 ```
 {{% /tab %}}
 {{< /tabs >}}
+<!-- 
 
 <blockquote>
 
@@ -239,58 +230,37 @@ pattern Plain 1 "Linear" {
 {{% /tab %}}
 {{< /tabs >}}
 
-</blockquote>
+</blockquote> 
+-->
 
 ## Analysis
 
-Even though the solution is linear, we have to select a procedure for
-applying the load, which is called an `Integrator`. 
-For this problem, the [`LoadControl` integrator](https://xara.so/user/manual/analysis/integrator/LoadControl.html) is selected, which
-advances the solution by incrementing the load factor by `1.0` each time the `analyze` command is called.
 
-{{< tabs tabTotal="2" >}}
+
+{{< tabs tabTotal="3" >}}
 {{% tab name="Python" %}}
+```python
+xara.solve(model, loads)
+```
+{{% /tab %}}
+{{% tab name="Python (Legacy)" %}}
 ```python
 model.integrator("LoadControl", 1.0)
-```
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-```tcl
-integrator LoadControl 1.0;
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-
-Once all the components of an analysis are defined, the Analysis 
-itself is defined. For this problem a `Static` analysis is used.
-
-{{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
 model.analysis("Static")
-```
-{{% /tab %}}
-{{% tab name="Tcl" %}}
-```tcl
-analysis Static;
-```
-{{% /tab %}}
-{{< /tabs >}}
-
-Finally, one analysis step is performed by invoking [`analyze`](https://xara.so/user/manual/analysis/analyze.html):
-{{< tabs tabTotal="2" >}}
-{{% tab name="Python" %}}
-```python
 model.analyze(1)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
+integrator LoadControl 1.0;
+analysis Static;
 analyze 1
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+
+## Output
 
 When the analysis is complete the state of node `4` obtained using [`nodeDisp`](https://xara.so/user/manual/output/nodeDisp.html) and printed to the screen:
 
@@ -313,6 +283,8 @@ The output looks like:
 ```
 u4 = [0.5300927771322836, -0.1778936384693177]
 ```
+
+## Rendering
 
 When using Python, the `model` variable can be passed directly to the `veux` library's [`render`](https://veux.io/library/api/veux.render.html) function as follows:
 
