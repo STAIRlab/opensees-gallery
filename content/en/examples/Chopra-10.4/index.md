@@ -109,15 +109,14 @@ def build_cantilever_model(L=1.0, E=1.0, I=1.0, m=1.0):
     model.geomTransf("Linear", transf_tag)
 
     # Define a 2D elastic beam (elasticBeamColumn)
-    A  = 1.0   # cross-sectional area (not crucial for pure bending)
+    A  = 1.0   # cross-sectional area
     Iz = I     # moment of inertia
     # E is user-specified
-    # We'll ignore axial effects or keep them large to approximate pure bending
 
     # Element 1: Node 1 -> Node 2
-    model.element("elasticBeamColumn", 1, 1, 2, A, E, Iz, transf_tag)
+    model.element("elasticBeamColumn", 1, (1, 2), A, E, Iz, transf_tag)
     # Element 2: Node 2 -> Node 3
-    model.element("elasticBeamColumn", 2, 2, 3, A, E, Iz, transf_tag)
+    model.element("elasticBeamColumn", 2, (2, 3), A, E, Iz, transf_tag)
 
     # Lumped mass at Node 2 and Node 3 in the y-direction only
     model.mass(2, 0.0, m*L/4, 0.0)

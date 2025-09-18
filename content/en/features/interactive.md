@@ -9,6 +9,6 @@ colormode: true
 
 Easily return stiffness, mass, and damping matrices as {{< link numpy >}}NumPy{{< /link >}} arrays and join meshes without duplicate nodes and constraints.
 
-{{< button relref="introduction" >}}
-    Check the introduction
+{{< button relref="examples/chopra-10.4" >}}
+    Example
 {{< /button >}}

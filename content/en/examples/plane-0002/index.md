@@ -6,6 +6,7 @@ draft: false
 thumbnail: img/examples/plane-0002.png
 downloads:
   Python: ["cantilever.ipynb", "cantilever.py"]
+tags: ["Plane", "Static", "Loads"]
 ---
 
 Various isoparametric quadrilaterals are used to perform a static analysis of a simple cantilever subjected to a parabolically distributed load at the tip. 
