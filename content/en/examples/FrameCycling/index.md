@@ -3,9 +3,9 @@ title: Force vs. Displacement formulations
 description: "An investigation of various frame formulations"
 thumbnail: img/examples/lehman.png
 tags: ["Frame"]
-draft: false
+draft: true
 downloads:
-  Python: ["column_cycles.py"]
+  Python: ["column_cycles.py", "leh415.txt"]
   Tcl: ["column_cycles.tcl", "SingleCycle.tcl", "LibUnits.tcl"]
 ---
 

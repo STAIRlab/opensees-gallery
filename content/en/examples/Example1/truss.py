@@ -7,7 +7,7 @@
 #
 # Basic Truss Example 1.1
 # -----------------------
-#  2d 3 Element Elastic Truss
+#  2D Elastic Truss
 #  Single Nodal Load, Static Analysis
 #
 
@@ -52,15 +52,9 @@ load = NodalLoads({4: [100, -50.0]})
 
 
 #
-# 3) Define Analysis
+# 3) Finally perform the analysis
 #
-analysis = xara.StaticAnalysis(model, load)
-
-
-#
-# Finally perform the analysis
-#
-analysis.analyze(model)
+xara.solve(model, load)
 
 #
 # Print results

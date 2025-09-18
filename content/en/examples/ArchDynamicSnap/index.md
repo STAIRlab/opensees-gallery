@@ -6,5 +6,5 @@ tags: ["Notebook"]
 draft: true
 ---
 
-{{% ipynb "ArchDynamicSnap.ipynb" %}}
+{{< ipynb "ArchDynamicSnap.ipynb" >}}
 

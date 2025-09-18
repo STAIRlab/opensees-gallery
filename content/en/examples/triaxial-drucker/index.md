@@ -4,6 +4,7 @@ meta:
   title: "A 3D triaxial compression simulation using the Drucker–Prager constitutive model"
 thumbnail: img/examples/triaxial-drucker.png
 tags: ["Solid"]
+draft: true
 description: >-
   This example simulates a conventional triaxial compression test
   using the Drucker–Prager model in a single 8-node brick element.

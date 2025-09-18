@@ -14,15 +14,12 @@
 
 <!-- For Code Cells -->
 {{ if eq .cell_type "code" }}
-  <pre class="chroma syntax-highlight">
-  {{ $cellsrc := delimit .source "" ""}}
-  {{- highlight $cellsrc "python" "" -}}
-  </pre>
+<pre class="chroma syntax-highlight p-0 mt-2 card">{{- $cellsrc := delimit .source "" "" -}}{{- highlight $cellsrc "python" "" -}}</pre>
   {{ if gt (len .outputs) 0 }}
 {{ range .outputs }}
 {{ if and 0 .text }}<pre>{{ range .text }}{{ . | safeHTML}}{{ end }}</pre>{{ end }}
 {{ range $type, $data := .data }}
-  {{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" width="80%">{{ end }}
+  {{ if strings.Contains $type "image" }}<img src="data:{{ $type }};base64,{{ $data | safeHTML }}" class="d-block mx-auto" width="80%">{{ end }}
   {{ if and (strings.Contains $type "plain") (strings.Contains $type "text") }}<pre>{{ range $data }}{{ . | safeHTML }}{{ end }}</pre>{{ end }}
   {{ if and (strings.Contains $type "html") (strings.Contains $type "text") }}
 <span>

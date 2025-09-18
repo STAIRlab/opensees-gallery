@@ -5,6 +5,7 @@ tags: ["Frame", "Python", "Tcl", "Concrete"]
 categories: ["Basic", "Inelastic"]
 thumbnail: img/ConcretePortal.png
 description: Nonlinear analysis of a concrete portal frame.
+draft: true
 downloads:
   Python: ["portal.py"]
   Tcl:    ["portal.tcl"]
