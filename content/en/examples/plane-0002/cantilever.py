@@ -96,7 +96,6 @@ def create_beam(splits,          # Number of elements in the x and y directions
 
 
     for node, force in root_load.nodal_loads():
-        print(model.nodeCoord(node), force)
         model.load(node, (0, force[1]), pattern=1)
 
     #
@@ -105,10 +104,6 @@ def create_beam(splits,          # Number of elements in the x and y directions
     model.integrator("LoadControl", 1.0)
     model.analysis("Static")
     model.analyze(1)
-
-    if model._openseespy._echo is not None:
-        model._openseespy._echo.close()
-        model._openseespy._echo = None
 
 
     return model
