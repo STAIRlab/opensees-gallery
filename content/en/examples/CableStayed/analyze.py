@@ -1,3 +1,0 @@
-import openbim
-import opensees
-

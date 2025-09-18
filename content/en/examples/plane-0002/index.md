@@ -7,7 +7,9 @@ downloads:
   Python: ["cantilever.ipynb", "cantilever.py"]
 ---
 
-Various isoparametric quadrilaterals are used to perform a static analysis of a simple cantilever subjected to a parabolically distributed load at the tip.
+Various isoparametric quadrilaterals are used to perform a static analysis of a simple cantilever subjected to a parabolically distributed load at the tip. 
 
-{{% ipynb "cantilever.ipynb" %}}
+Consistent nodal loads are computed automatically using the `SurfaceLoad` class.
+
+{{< ipynb "cantilever.ipynb" >}}
 
