@@ -37,8 +37,9 @@ pattern Plain 1 Linear
 eleLoad Frame Dirac -force {0 1 0} -basis director -offset {1.0 0 0} -pattern 1 -elements {10}
 system FullGeneral 
 integrator LoadControl 300.0 
-#test NormDispIncr 1e-12 10 1 
-test EnergyIncr 1e-12 8 0
+#
+#test EnergyIncr 1e-12 8 0
+test EnergyIncr 1e-12 10 0
 algorithm Newton 
 analysis Static 
 

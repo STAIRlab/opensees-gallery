@@ -201,8 +201,17 @@ def create_model(eleType=None):
     beamSec = 2
 
     # Call the RCsection procedure to generate the column section
-    #                              id  h  b cover core cover steel nBars barArea nfCoreY nfCoreZ nfCoverY nfCoverZ GJ
-    ReinforcedRectangle(model, colSec, h, h, 2.5, 1,    2,    3,    3,   0.79,     8,      8,      10,      10,   GJ)
+    ReinforcedRectangle(model, colSec, h, h, 2.5, 
+                        coreID=1,
+                        coverID=2,
+                        steelID=3,
+                        numBars=3,
+                        barArea=0.79,
+                        nfCoreY=8,
+                        nfCoreZ=8,
+                        nfCoverY=10,
+                        nfCoverZ=10,
+                        GJ=GJ)
 
     # Define material properties for elastic beams
     # Using beam depth of 24 and width of 18

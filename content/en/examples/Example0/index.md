@@ -9,4 +9,4 @@ draft: true
 ---
 
 
-{{% ipynb "UniaxialMaterials.ipynb" %}}
+{{< ipynb "UniaxialMaterials.ipynb" >}}

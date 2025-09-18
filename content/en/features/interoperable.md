@@ -9,6 +9,6 @@ tilted: true
 Thanks to a rich open-source ecosystem, tools are available for interfacing OpenSees 
 with a wide variety of industry-standard tools.
 
-{{< button relref="compiling" >}}
-    Ecosystem
+{{< button relref="examples/tension-coupon" >}}
+    Example
 {{< /button >}}

@@ -3,6 +3,7 @@ title: Helical Forms
 description: A highly geometrically nonlinear problem is solved with the geometrically exact frame element formulation.
 bibliography: references.json
 render: spiral.glb
+tags: ["Frame"]
 thumbnail: img/examples/FrameHelix.png
 ---
 

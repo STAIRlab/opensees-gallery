@@ -7,7 +7,7 @@
 #
 import os
 from math import sqrt, pi
-import opensees.openseespy as ops
+import xara
 import matplotlib.pyplot as plt
 try:
     plt.style.use("veux-web")
@@ -176,7 +176,7 @@ def lehman_section(model, D, clearCover):
 def create_column(ne, nIP, element):
 
     # Create a 2D model with 3 DOFs per node
-    model = ops.Model(ndm=2, ndf=3)
+    model = xara.Model(ndm=2, ndf=3)
 
     # Input parameters
     H = 96.0 * inch  # Column height

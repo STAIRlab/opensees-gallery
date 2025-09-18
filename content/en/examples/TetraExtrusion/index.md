@@ -2,6 +2,7 @@
 title: Solid extrusions
 thumbnail: img/examples/tetra-channel.png
 tags: ["Solid"]
+weight: 15
 description: |
   Mesh generation utilities are used to create a 3D tetrahedron model of a cantilever beam with a channel cross section.
 downloads:
@@ -9,7 +10,7 @@ downloads:
   Tcl: ["tetra.tcl"]
 ---
 
-This investigation begins with a plane triangle mesh of a channel cross section. 
+This investigation begins with a plane triangle mesh of a channel cross section. Here we'll use the [`xsection`](https://peer-open-source.github.io/xsection/) library: 
 ```python
 from xsection.library import Channel
 shape = Channel(d=16, b=8, tf=1.0, tw=1.0)

@@ -1,6 +1,7 @@
 ---
 title: Isoparametric Elements
 weight: 20
+draft: true
 thumbnail: img/examples/plane_block.png
 tags: ["CE222", "Plane"]
 description: A finite element analysis is performed of a plane beam with a hole using Lagrange quadrilaterals.
