@@ -76,7 +76,7 @@ We now create a small function `build_cantilever_model()` that sets up:
 - Lumped masses at Nodes 2 and 3 in the transverse direction only, matching \(\frac{mL}{4}\) and \(\frac{mL}{2}\) respectively.
 
 ```python
-import opensees.openseespy as ops
+import xara
 
 def build_cantilever_model(L=1.0, E=1.0, I=1.0, m=1.0):
     """
@@ -90,7 +90,7 @@ def build_cantilever_model(L=1.0, E=1.0, I=1.0, m=1.0):
       node3 mass = (0, mL/2, 0)
     """
     # Start the Model: 2D problem, ndf=3
-    model = ops.Model(ndm=2, ndf=3)
+    model = xara.Model(ndm=2, ndf=3)
 
     # Create 3 nodes at 0, L/2, L along x-axis
     model.node(1, 0.0,  0.0)

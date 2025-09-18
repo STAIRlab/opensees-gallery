@@ -15,7 +15,7 @@ downloads:
 
 ![Shallow arch](img/ClarkeHancock.png)
 
-{{% ipynb "IncrementalAnalysis.ipynb" %}}
+{{< ipynb "IncrementalAnalysis.ipynb" >}}
 
 The source code for creating the arch structure is given below:
 
