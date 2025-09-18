@@ -283,15 +283,3 @@ The output looks like:
 ```
 u4 = [0.5300927771322836, -0.1778936384693177]
 ```
-
-## Rendering
-
-When using Python, the `model` variable can be passed directly to the `veux` library's [`render`](https://veux.io/library/api/veux.render.html) function as follows:
-
-```python
-import veux
-# Render the model
-artist = veux.render(model, model.nodeDisp, canvas="plotly")
-
-veux.serve(artist)
-```
