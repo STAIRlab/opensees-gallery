@@ -141,17 +141,37 @@ the truss element requires the following arguments:
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-#              Type   tag  nodes  Area  material
-model.element("Truss", 1, (1, 4), 10.0,    1   )
-model.element("Truss", 2, (2, 4),  5.0,    1   )
-model.element("Truss", 3, (3, 4),  5.0,    1   )
+# Define materials
+model.material("Elastic", 1, E=3000.0, nu=0.3)
+
+# Define sections, referencing material 1
+model.section("Truss", 1, A=10.0, material=1)
+model.section("Truss", 2, A=5.0,  material=1)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
 ```tcl
-element Truss 1 1 4 10.0 1;
-element Truss 2 2 4  5.0 1;
-element Truss 3 3 4  5.0 1;
+material Elastic 1 -E 3000.0 -nu 0.3
+
+section Truss 1 -A 10.0 -material 1
+section Truss 2 -A  5.0 -material 1
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+{{< tabs tabTotal="2" >}}
+{{% tab name="Python" %}}
+```python
+model.element("Truss", 1, (1, 4), section=1)
+model.element("Truss", 2, (2, 4), section=2)
+model.element("Truss", 3, (3, 4), section=2)
+```
+{{% /tab %}}
+{{% tab name="Tcl" %}}
+```tcl
+element Truss 1  1 4  -section 1;
+element Truss 2  2 4  -section 2;
+element Truss 3  3 4  -section 2;
 ```
 {{% /tab %}}
 {{< /tabs >}}
