@@ -5,3 +5,5 @@ weight: 10
 ---
 
 
+{{% ipynb "cantilever.ipynb" %}}
+
