@@ -6,7 +6,7 @@ tags: ["Frame", "CE221"]
 render: hockle.glb
 description: Geometrically nonlinear analysis of a shaft buckling under torsion.
 downloads:
-  MATLAB: ["E50_Hockling.m"]
+  Python: ["hockle.py"]
 ---
 
 

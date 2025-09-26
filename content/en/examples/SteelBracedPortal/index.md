@@ -9,7 +9,7 @@ thumbnail: img/examples/BracedPortal.png
 description: >-
   A 3D portal frame with concentric bracing is modeled using force-based
   beam-column elements and analyzed using nonlinear pushover analysis.
-
+draft: true
 downloads:
   Python: ["portal.py"]
 ---

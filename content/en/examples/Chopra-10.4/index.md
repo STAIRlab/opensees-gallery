@@ -192,22 +192,23 @@ But in our global matrix, we see the order is \((5,6,8,9)\). Typically, we want 
 then we should **reorder** the 4×4 matrix so that translations come first \([5,8]\) and rotations come second \([6,9]\). After reordering, we can apply `condense()` to eliminate the rotation DOFs.
 
 ```python
-    # Reorder the 4x4 so that translations are in the first block: [5,8], then rotations [6,9].
-    reorder = [0, 2, 1, 3]  
-    # Explanation: 
-    #   0 -> index 0 in K_4x4 is dof5
-    #   2 -> index 2 in K_4x4 is dof8
-    #   1 -> index 1 in K_4x4 is dof6
-    #   3 -> index 3 in K_4x4 is dof9
+# Reorder the 4x4 so that translations are in the first block: [5,8], 
+# then rotations [6,9].
+# In summary: 
+#   0 -> index 0 in K_4x4 is dof5
+#   2 -> index 2 in K_4x4 is dof8
+#   1 -> index 1 in K_4x4 is dof6
+#   3 -> index 3 in K_4x4 is dof9
+reorder = [0, 2, 1, 3]  
 
-    K_4x4_reordered = K_4x4[np.ix_(reorder, reorder)]
-    print("K_4x4 in 'translation-then-rotation' order:\n", K_4x4_reordered, "\n")
+K_4x4_reordered = K_4x4[np.ix_(reorder, reorder)]
+print("K_4x4 in 'translation-then-rotation' order:\n", K_4x4_reordered, "\n")
 
-    # DOFs to keep: the first 2 (the translations)
-    keep = [0, 1]  # keep indices [0,1] in the reordered matrix
-    K_2x2_condensed = condense(K_4x4_reordered, keep)
+# DOFs to keep: the first 2 (the translations)
+keep = [0, 1]  # keep indices [0,1] in the reordered matrix
+K_2x2_condensed = condense(K_4x4_reordered, keep)
 
-    print("Condensed 2x2 stiffness (after eliminating rotations):\n", K_2x2_condensed, "\n")
+print("Condensed 2x2 stiffness (after eliminating rotations):\n", K_2x2_condensed, "\n")
 ```
 
 Finally, if desired, we can also find the transformation matrix \(\mathbf{T}\) that recovers the condensed DOFs (rotations) in terms of the retained DOFs (translations):
@@ -233,7 +234,6 @@ Finally, if desired, we can also find the transformation matrix \(\mathbf{T}\) t
     T = -np.linalg.solve(K_00, K_0t) 
     print("Transformation matrix T (rotations vs translations):\n", T, "\n")
 
-    print("--- End of demonstration ---")
 ```
 
 ---

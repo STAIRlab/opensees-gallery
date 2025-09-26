@@ -2,6 +2,7 @@
 title: Rigid Offsets
 meta:
   title: "A verification example for frame element offset handling in OpenSees"
+draft: true
 tags: ["Frame", "Offset"]
 weight: 30
 draft: false
