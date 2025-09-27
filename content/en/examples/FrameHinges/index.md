@@ -1,7 +1,7 @@
 ---
 title: Hinges in Frame Elements
 tags: ["Python", "Tcl"]
-draft: false
+draft: true
 ---
 
 $$
@@ -13,3 +13,4 @@ u = -\frac{M_p L^2}{4 EI}
 $$
 
 ![](img/curvature.png)
+

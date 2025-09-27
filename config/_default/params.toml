@@ -244,6 +244,7 @@
     osmg = "https://github.com/ioannis-vm/OpenSees_Model_Generator"
     model_class = "https://xara.so/user/manual/model/model_class.html"
     veux = "https://veux.io"
+    xcae = "https://pypi.org/project/xcae"
     numpy = "https://numpy.org/"
     openblas = "https://www.openblas.net/"
     umfpack  = "https://people.engr.tamu.edu/davis/suitesparse.html"
