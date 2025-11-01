@@ -3,6 +3,7 @@ title: Arch Instability
 tags: ["Python", "Static", "CE221"]
 thumbnail: img/examples/ClarkeHancock.png
 keywords: ["snap through", "instability", "buckling", "nonlinear geometry", "incremental", "arc length"]
+weight: 40
 render: solution.glb
 description: >-
  Several nonlinear static analysis methods are used to investigate
