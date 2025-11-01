@@ -200,9 +200,9 @@ def pushover_analysis(model, H=10.0):
     p = []
 
     # If the previous attempt was not successful, try
-    # more complitated strategies
+    # more complicated strategies
 
-    u.append(model.nodeDisp(3, 1))
+    u.append(model.state.u(3, 1))
     p.append(model.getTime())
 
     status = ops.successful
@@ -225,8 +225,8 @@ def pushover_analysis(model, H=10.0):
             model.test("NormDispIncr", 1.0e-12, 10)
             model.algorithm("Newton")
 
-        u.append(model.nodeDisp(3, 1))
-        p.append(model.getTime())
+        u.append(model.state.u(3, 1))
+        p.append(model.state.time)
 
     if status != ops.successful:
         raise Exception("Pushover analysis failed")
