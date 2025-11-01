@@ -24,9 +24,9 @@ Each node will have three translational and three rotational degrees of freedom.
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
 ```python
-import opensees.openseespy as ops
+import xara
 
-model = ops.Model(ndm=3, ndf=6)
+model = xara.Model(ndm=3, ndf=6)
 ```
 {{% /tab %}}
 {{% tab name="Tcl" %}}
