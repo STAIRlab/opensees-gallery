@@ -1,6 +1,7 @@
 import xara
 import veux
 import numpy as np
+from tqdm import tqdm
 
 from veux.config import NodeStyle, MeshStyle
 from xara.helpers import find_nodes
@@ -21,9 +22,10 @@ if __name__ == "__main__":
 
     model = xara.Model(ndm=3, ndf=3)
 
-    model.nDMaterial("J2", 1, Fy=60, E=29e3, nu=0.27, Hiso=0.005*29e3, Fsat=90, Hsat=16.93)
-    # model.nDMaterial("ElasticIsotropic", 1, E=29e3, nu=0.27)
+    model.material("J2", 1, Fy=60, E=29e3, nu=0.27, Hiso=0.005*29e3, Fsat=90, Hsat=16.93)
+    # model.material("ElasticIsotropic", 1, E=29e3, nu=0.27)
 
+    # Read mesh from file and create a Part object
     part = xcae.Part(xcae.load("coupon.inp"))
     for node in part.find_nodes():
         model.node(node.id, node.location)
@@ -58,11 +60,12 @@ if __name__ == "__main__":
     steps = 50
     model.integrator("LoadControl", 3/2*(60*A)/(steps*len(face_j)))
     model.test("NormDispIncr", 1e-10, 20, 2)
-    model.system("Umfpack")
+    model.system("mumps", symmetric=True)
     model.analysis("Static")
 
+
     u,p = [], []
-    for i in range(steps): # 15
+    for i in tqdm(range(steps)): # 15
         if model.analyze(1) != 0:
             print(f"Analysis failed at time = {model.getTime()}")
             break
@@ -74,6 +77,7 @@ if __name__ == "__main__":
 
     for node in face_i:
         artist.canvas.plot_nodes([model.nodeCoord(node)], style=NodeStyle(color="black", scale=1/200))
+
     for node in face_j:
         artist.canvas.plot_nodes([np.array(model.nodeCoord(node))+model.nodeDisp(node)], style=NodeStyle(color="red", scale=1/200))
 
