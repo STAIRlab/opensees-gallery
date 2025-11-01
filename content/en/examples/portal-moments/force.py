@@ -3,6 +3,7 @@ import xara
 import veux
 from utilities import MatrixAnalysis, create_field
 
+
 def create_plane(vertical):
     model = xara.Model(ndm=3, ndf=6)
     element = "ForceFrame"
@@ -35,7 +36,7 @@ def create_plane(vertical):
 
 
     # Connectivity
-    n = 10
+    n = 10 # number of integration points
     model.element(element, 1, (1, 2), n, 1, 1, shear=0) #section=section, transform=1, shear=0)
     model.element(element, 2, (2, 3), n, 1, 1, shear=0)
     model.element(element, 3, (3, 4), n, 1, 1, shear=0)
