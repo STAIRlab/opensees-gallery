@@ -2,6 +2,7 @@
 title: Influence lines
 draft: false
 description: Influence lines are constructed for a plane truss.
+weight: 40
 downloads:
   Python: ["truss-influence.ipynb"]
 ---

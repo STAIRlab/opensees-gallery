@@ -1,7 +1,7 @@
 ---
 title: "Frame with Diaphragms"
 tags: ["3D", "Concrete", "Frame", "Python", "Tcl", "Dynamic"]
-weight: 25
+weight: 55
 thumbnail: img/examples/Example5.png
 render: model.glb
 description: >-

@@ -4,6 +4,7 @@ description: This problem highlights the exceptional accuracy of the ExactFrame 
 thumbnail: img/examples/FrameCircle.png
 bibliography: references.json
 render: spiral.glb
+weight: 80
 downloads:
   Python: ["requirements.txt", "plane_moment.py"]
   MATLAB: ["E21_PlaneMoment.m"]
