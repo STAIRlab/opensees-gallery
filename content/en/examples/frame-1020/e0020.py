@@ -102,7 +102,7 @@ def analyze(element):
                 model.algorithm("Newton")
         motion.advance(time=model.getTime()*speed)
         motion.draw_sections(rotation=model.nodeRotation,
-                             position=model.nodeDisp)
+                             position=model.state.u)
         u.append(-model.nodeDisp(ne, 1))
         v.append( model.nodeDisp(ne, 2))
         w.append( model.nodeDisp(ne, 3))
