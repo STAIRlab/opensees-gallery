@@ -4,4 +4,4 @@ draft: true
 tags: [SDOF]
 ---
 
-{{% ipynb "overshoot.ipynb" %}}
+{{< ipynb "overshoot.ipynb" >}}
