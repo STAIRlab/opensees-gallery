@@ -2,9 +2,9 @@
 title: Elastic Response Spectra
 thumbnail: img/SDOFEQEX.png
 tags: ["Python", "SDOF"]
-draft: true
+draft: false
 ---
 
 
-{{% ipynb "Elastic Response Spectra.ipynb" %}}
+{{< ipynb "Elastic Response Spectra.ipynb" >}}
 
