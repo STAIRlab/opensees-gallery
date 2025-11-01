@@ -13,15 +13,14 @@
 # Written: Andreas Schellenberg (andreas.schellenberg@gmail.com)
 # Date: June 2017
 
-# import the OpenSeesPy Compatiblity module.
-import opensees.openseespy as ops
+import xara
 
 #
 # Define Model
 #
 
 # Create a Model (with two-dimensions and 2 DOF/node)
-model = ops.Model(ndm=2, ndf=2)
+model = xara.Model(ndm=2, ndf=2)
 
 # Create nodes
 model.node(1, (  0.0,  0.0))
