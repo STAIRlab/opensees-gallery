@@ -1,4 +1,5 @@
-xara
+xara>=0.0.14
 shps>=0.0.15
-veux>=0.0.17
+veux>=0.0.40
 opensees
+xsection

@@ -1,4 +1,4 @@
-xara
+xara>=0.0.14
 xcae
 numpy
 matplotlib
