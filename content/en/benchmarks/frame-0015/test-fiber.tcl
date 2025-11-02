@@ -1,5 +1,6 @@
 model  -ndm 3 -ndf 6
 material ElasticIsotropic 1 2100000.0 0.33 
+
 section ShearFiber 1 -GJ 0
 fiber  -area 0.0007329774403178536 -y 0.01830766183353832 -z -1.0266359371653724 -warp {{0.018769716480967442 -1.0186337924409923 0.011823390380335278} {0 0.0 0}} -section 1 -material 1
 fiber  -area 0.0008011860393409605 -y 0.23632642492858094 -z -2.5573006683545447 -warp {{0.6044107657398395 -2.556003524397603 0.2469940414927076} {0 0.0 0}} -section 1 -material 1
@@ -7794,7 +7795,8 @@ system Umfpack
 integrator LoadControl 600.0 
 test NormDispIncr 1e-08 100 0
 algorithm Newton 
-analysis Static 
+analysis Static
+
 getTime  
 nodeDisp 20 4 
 getTime  

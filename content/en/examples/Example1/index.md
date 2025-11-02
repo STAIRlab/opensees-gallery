@@ -13,7 +13,7 @@ description: >-
 keywords: ["structural analysis"]
 
 downloads:
-  Python: ["truss.py", "truss.ipynb"]
+  Python: ["truss.py", "truss.ipynb", "requirements.txt"]
   Tcl: ["Example1.tcl"]
 ---
 

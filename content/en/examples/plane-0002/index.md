@@ -5,7 +5,7 @@ weight: 11
 draft: false
 thumbnail: img/examples/plane-0002.png
 downloads:
-  Python: ["cantilever.ipynb", "cantilever.py"]
+  Python: ["cantilever.ipynb", "cantilever.py", "requirements.txt"]
 tags: ["Plane", "Static", "Loads"]
 ---
 

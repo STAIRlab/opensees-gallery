@@ -61,5 +61,5 @@ xara.solve(model, load)
 #
 
 # print the current state at node 4 and at all elements
-u4 = model.nodeDisp(4)
+u4 = model.state.u(4)
 print(f"u4 = {u4}")

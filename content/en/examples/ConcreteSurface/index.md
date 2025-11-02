@@ -3,14 +3,14 @@ title: Concrete
 meta:
   title: "Cyclic compression test using ASDConcrete3D with automatic regularization"
 tags: ["Solid"]
-weight: 100
+weight: 400
 description: >-
   This example demonstrates how to construct and test the ASDConcrete3D
   material model under cyclic uniaxial compression. The simulation
   captures strain localization and damage evolution using an automatically
   regularized fracture energy.
 thumbnail: img/examples/concrete-surface.png
-draft: false
+draft: true
 downloads:
   Python:
   - compression.py

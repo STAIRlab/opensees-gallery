@@ -266,7 +266,6 @@ proc create_analysis {} {
   # --------------------------
   # End of analysis generation
   # --------------------------
-  # ----------------------------
 
   # Record DOF 1 and 2 displacements at nodes 9, 14, and 19
   recorder Node -file out/Node51.out -time -node 9 14 19 -dof 1 2 disp
