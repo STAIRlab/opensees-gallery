@@ -1,6 +1,6 @@
 # imageio[ffmpeg]
 opensees>=0.0.61
-sees
+xara
 mdof
 SciencePlots
 nbconvert[webpdf]
