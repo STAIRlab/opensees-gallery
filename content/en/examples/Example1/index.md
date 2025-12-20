@@ -110,9 +110,11 @@ fix 3   1  1;
 
 
 Since the truss elements have the same elastic properties,
-a single `Elastic` material is defined. The first
+a single `Elastic` material is defined. T
+he first
 argument assigns the tag `1` to the material, and the
 second specifies a Young's modulus of `3000`.
+<!--
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
@@ -129,13 +131,7 @@ uniaxialMaterial Elastic 1 3000;
 {{% /tab %}}
 {{< /tabs >}}
 
-Finally, define the elements. The syntax for creating
-the truss element requires the following arguments:
-1. the element name, in this case always `"Truss"`,
-2. the element tag, in this case `1` through `3`,
-3. the nodes that the element is connected to,
-4. the cross-sectional area, in this case `10.0` for element `1` and `5.0` for elements `2` and `3`.
-5. the tag of the material assigned to the element, in this case always `1`
+-->
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
@@ -157,6 +153,16 @@ section Truss 2 -A  5.0 -material 1
 ```
 {{% /tab %}}
 {{< /tabs >}}
+
+
+Finally, define the elements. The syntax for creating
+the truss element requires the following arguments:
+1. the element name, in this case always `"Truss"`,
+2. the element tag, in this case `1` through `3`,
+3. the nodes that the element is connected to,
+4. the cross-sectional area, in this case `10.0` for element `1` and `5.0` for elements `2` and `3`.
+5. the tag of the material assigned to the element, in this case always `1`
+
 
 {{< tabs tabTotal="2" >}}
 {{% tab name="Python" %}}
