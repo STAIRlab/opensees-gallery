@@ -6,7 +6,7 @@ description: Introduction to the available section types for frame elements.
 
 <figure style="text-align: center;">
 <img src="img/TimoshenkoBeam.svg" style="width: 70%;">
-<figcaption>Shear deformations in beams.</figcaption>
+<figcaption>Shear deformations in beams (Adapted from <a href="https://commons.wikimedia.org/wiki/File:TimoshenkoBeam.svg">Wikipedia</a>).</figcaption>
 </figure>
 
 
