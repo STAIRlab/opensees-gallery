@@ -67,20 +67,6 @@ model.section("AxialFiber", G=G, J=J)
 
 ### Uniaxial
 
-```python
-from xara.units import si
-import xsection.library as xs
-# 1) Create a shape
-shape = xs.from_aisc("W18x40", units=si)
-# 2) Create a material
-model.nDMaterial('ElasticIsotropic', 1, E, nu)
-
-# 3) Create the section
-model.section("MultiaxialFiber", 1)
-# 4) populate with fibers
-for fiber in shape.create_fibers():
-    model.fiber(**fiber, material=1, section=1)
-```
 
 ```python
 from xara.units import si
@@ -91,26 +77,29 @@ shape = xs.from_aisc("W18x40", units=si)
 model.uniaxialMaterial('Elastic', 1, E)
 
 # 3) Create the section
-model.section("UniaxialFiber", 1)
+model.section("AxialFiber", 1)
 # 4) populate with fibers
 for fiber in shape.create_fibers():
     model.fiber(**fiber, material=1, section=1)
 ```
+
+
+### Multiaxial
 
 ```python
 from xara.units import si
 import xsection.library as xs
 # 1) Create a shape
 shape = xs.from_aisc("W18x40", units=si)
+# 2) Create a material
+model.material('ElasticIsotropic', 1, E, nu)
 
 # 3) Create the section
-model.section("FrameElastic", 1)
+model.section("ShearFiber", 1)
 # 4) populate with fibers
 for fiber in shape.create_fibers():
     model.fiber(**fiber, material=1, section=1)
 ```
-
-### Multiaxial
 
 ### Warping
 
