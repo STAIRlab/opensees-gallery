@@ -16,9 +16,9 @@ This page introduces three cross sectional models for the frame elements in *xar
 There are four primary beam formulations available in xara:
 there are four beam elements: 
 
-- [`PrismFrame`](https://xara.so/user/manual/elements/frame/PrismFrame.html) is a standard prismatic linear elastic beam.
-- [`ForceFrame`](https://xara.so/user/manual/elements/frame/ForceFrame.html) is a force-interpolated distributed inelasticity element. 
-- [`ExactFrame`](https://xara.so/user/manual/elements/frame/ExactFrame.html) is a geometrically exact displacement-interpolated distributed inelasticity element.
+- [`PrismFrame`](https://xara.so/user/manual/model/elements/frame/PrismFrame.html) is a standard prismatic linear elastic beam.
+- [`ForceFrame`](https://xara.so/user/manual/model/elements/frame/ForceFrame.html) is a force-interpolated distributed inelasticity element. 
+- [`ExactFrame`](https://xara.so/user/manual/model/elements/frame/ExactFrame.html) is a geometrically exact displacement-interpolated distributed inelasticity element.
 - `CubicFrame` is a displacement-interpolated distributed inelasticity formulation.
 
 Each of these follows the same construction syntax:
