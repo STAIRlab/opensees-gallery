@@ -1,3 +1,5 @@
+import opensees.openseespy as ops
+
 print("==========================")
 
 print("Starting RCFrameGravity example")
@@ -166,3 +168,4 @@ ops.analyze(10)
 
 # Print out the state of element 1
 #print ele 1 
+
