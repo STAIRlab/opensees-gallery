@@ -32,7 +32,7 @@ def single_span(elem, shear=True):
 
 
     sec = 1
-    model.section("ElasticFrame", sec, E, A, Iz, Iy, G, J, mass=2, Ay=100, Az=100)
+    model.section("Elastic", sec, E, A, Iz, Iy, G, J)#, mass=2, Ay=100, Az=100)
 
     model.element(elem, 1, (1, 2), transform=trn, section=sec, cMass=True)
 
