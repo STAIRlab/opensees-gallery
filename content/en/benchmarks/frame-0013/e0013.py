@@ -28,7 +28,7 @@ def create_cantilever(ne, offset, element, section, nen=2):
     sec = 1
     model.material('ElasticIsotropic', mat, E, v) #G=G)
 
-    shape = Channel(d=30, b=10, tf=1.6, tw=1.0).create_shape()
+    shape = Channel(d=30, b=10, tf=1.6, tw=1.0)
 
     shape = shape.translate(offset)
 
@@ -41,7 +41,7 @@ def create_cantilever(ne, offset, element, section, nen=2):
         print(f"Section = Fiber; ", warp)
         model.section("ShearFiber", sec, GJ=0)
 
-        for fiber in shape.fibers(warp=warp):
+        for fiber in shape.create_fibers(warp=warp):
             model.fiber(y, z, fiber.area, mat, fiber.warp[0], section=sec) #fiber.warp[1], section=sec)
 
     else:
