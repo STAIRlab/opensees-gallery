@@ -14,7 +14,7 @@
 # ------------------
 #  Moment-Curvature Analysis in OpenSees
 
-import opensees.openseespy as ops
+import xara
 
 def moment_curvature(model, tag, axialLoad, maxK, numIncr):
     """
@@ -84,7 +84,7 @@ def create_section():
     # ------------------------------
 
     # Create a model (with two-dimensions and 3 DOF/node)
-    model = ops.Model(ndm=3, ndf=6)
+    model = xara.Model(ndm=3, ndf=6)
 
     # Define materials for nonlinear columns
     # ------------------------------------------
