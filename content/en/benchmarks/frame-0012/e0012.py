@@ -3,7 +3,7 @@
 #
 import veux
 from veux.motion import Motion
-from shps.shapes import Channel
+from xsection.library import Channel
 import opensees.openseespy as ops
 
 # External libraries
