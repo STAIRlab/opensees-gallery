@@ -5,7 +5,7 @@ thumbnail: img/examples/steel.png
 description: This example introduces the uniaxial material library in OpenSees.
 downloads:
   Jupyter: ["UniaxialMaterials.ipynb"]
-draft: true
+draft: false
 ---
 
 
