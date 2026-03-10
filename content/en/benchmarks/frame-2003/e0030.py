@@ -1,7 +1,7 @@
 from math import sqrt
 import veux
-from shps.shapes import WideFlange, Rectangle
-import opensees.openseespy as ops
+from xsection import WideFlange, Rectangle
+import xara
 import matplotlib.pyplot as plt
 try:
     plt.style.use("veux-web")
@@ -9,7 +9,7 @@ except:
     pass
 
 def create_girder(element, shape, fy):
-    model = ops.Model(ndm=3, ndf=6)
+    model = xara.Model(ndm=3, ndf=6)
 
     a = 10
     L = 30
